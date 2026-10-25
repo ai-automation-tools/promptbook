@@ -8,7 +8,7 @@
     "output": "library-data-flow.html",
     "repository": {
       "url": "https://github.com/ai-automation-tools/promptbook.git",
-      "revision": "95638e65b8885a20227c7df2df894b566b4e54ec"
+      "revision": "902c6d9d3acfb149061aa1d42dd612ed4ad1fffc"
     }
   },
   "stages": [
@@ -45,7 +45,12 @@
         {
           "path": ".github/workflows/upstream-drift.yml",
           "line": 1,
-          "end_line": 11
+          "end_line": 19
+        },
+        {
+          "path": ".github/workflows/upstream-drift.yml",
+          "line": 72,
+          "end_line": 92
         }
       ]
     },
@@ -53,14 +58,14 @@
       "id": "library",
       "type": "database",
       "label": "library/ markdown",
-      "sublabel": "Five sections, in Git",
+      "sublabel": "Six sections, in Git",
       "stage": 0,
       "row": 1,
       "sources": [
         {
-          "path": "site/api/index.ts",
-          "line": 123,
-          "end_line": 144
+          "path": "site/lib/library.ts",
+          "line": 22,
+          "end_line": 36
         },
         {
           "path": "site/scripts/build-prompt-index.js",
@@ -79,13 +84,13 @@
       "sources": [
         {
           "path": "site/api/skill-packs.ts",
-          "line": 30,
-          "end_line": 32
+          "line": 24,
+          "end_line": 24
         },
         {
           "path": "site/api/skill-packs.ts",
-          "line": 42,
-          "end_line": 71
+          "line": 46,
+          "end_line": 79
         }
       ]
     },
@@ -100,7 +105,7 @@
         {
           "path": "site/package.json",
           "line": 6,
-          "end_line": 17
+          "end_line": 14
         },
         {
           "path": "site/scripts/build-prompt-index.js",
@@ -129,8 +134,8 @@
         },
         {
           "path": "site/api/index.ts",
-          "line": 93,
-          "end_line": 121
+          "line": 150,
+          "end_line": 161
         }
       ]
     },
@@ -138,24 +143,24 @@
       "id": "my_library",
       "type": "database",
       "label": "my-library/ markdown",
-      "sublabel": "One file per prompt, on disk",
+      "sublabel": "One file per prompt, atomic writes",
       "stage": 2,
       "row": 2,
       "sources": [
         {
           "path": "site/lib/my-library.ts",
-          "line": 28,
-          "end_line": 47
+          "line": 48,
+          "end_line": 65
         },
         {
           "path": "site/lib/my-library.ts",
-          "line": 54,
-          "end_line": 85
+          "line": 101,
+          "end_line": 129
         },
         {
           "path": "site/lib/my-library.ts",
-          "line": 90,
-          "end_line": 149
+          "line": 189,
+          "end_line": 253
         }
       ]
     },
@@ -169,18 +174,18 @@
       "sources": [
         {
           "path": "site/api/index.ts",
-          "line": 167,
-          "end_line": 189
+          "line": 187,
+          "end_line": 221
         },
         {
           "path": "site/api/index.ts",
-          "line": 290,
-          "end_line": 323
+          "line": 296,
+          "end_line": 329
         },
         {
           "path": "site/api/index.ts",
-          "line": 336,
-          "end_line": 373
+          "line": 332,
+          "end_line": 359
         }
       ]
     },
@@ -194,18 +199,18 @@
       "sources": [
         {
           "path": "site/api/index.ts",
-          "line": 41,
-          "end_line": 83
+          "line": 76,
+          "end_line": 103
         },
         {
           "path": "site/api/index.ts",
-          "line": 377,
-          "end_line": 443
+          "line": 362,
+          "end_line": 447
         },
         {
           "path": "site/api/index.ts",
-          "line": 446,
-          "end_line": 498
+          "line": 450,
+          "end_line": 492
         }
       ]
     },
@@ -219,18 +224,18 @@
       "sources": [
         {
           "path": "site/api/skill-packs.ts",
-          "line": 98,
-          "end_line": 125
+          "line": 107,
+          "end_line": 140
         },
         {
           "path": "site/api/skill-packs.ts",
-          "line": 132,
-          "end_line": 185
+          "line": 143,
+          "end_line": 204
         },
         {
           "path": "site/api/skill-packs.ts",
-          "line": 254,
-          "end_line": 300
+          "line": 273,
+          "end_line": 383
         }
       ]
     },
@@ -244,18 +249,18 @@
       "sources": [
         {
           "path": "site/src/App.tsx",
-          "line": 127,
-          "end_line": 141
+          "line": 80,
+          "end_line": 89
         },
         {
-          "path": "site/src/hooks/usePromptPreviews.ts",
-          "line": 29,
-          "end_line": 50
+          "path": "site/src/App.tsx",
+          "line": 149,
+          "end_line": 164
         },
         {
           "path": "site/src/hooks/usePromptContent.ts",
-          "line": 40,
-          "end_line": 53
+          "line": 30,
+          "end_line": 36
         }
       ]
     }
@@ -264,7 +269,7 @@
     {
       "from": "upstream",
       "to": "library",
-      "label": "Resync by hand",
+      "label": "Weekly resync PR",
       "variant": "dashed"
     },
     {
@@ -299,7 +304,7 @@
     {
       "from": "app",
       "to": "my_api",
-      "label": "Create / edit / copy"
+      "label": "Create / edit / copy / pull"
     },
     {
       "from": "my_api",
@@ -338,8 +343,8 @@
       "title": "Two libraries, both files",
       "items": [
         "The Public Library is markdown in site/library/, versioned in Git and shipped with each deploy. Nothing in the app writes to it: POST, PUT and DELETE on /api/prompts all go to My Library.",
-        "My Library is a local folder, site/my-library/ unless MY_LIBRARY_DIR moves it, with one markdown file per prompt and its title, section, category and tags in frontmatter. There are no accounts: the server listens on 127.0.0.1, and on the Vercel demo READ_ONLY refuses every write.",
-        "Add to My Library reads the public file, strips its frontmatter, refuses a duplicate title in the same section and category, and writes a copy as a new file whose name is its id."
+        "My Library is a local folder, site/my-library/ unless MY_LIBRARY_DIR moves it, with one markdown file per prompt and its title, section, category and tags in frontmatter. There are no accounts: an unknown Host header and any cross-site write are refused, and on the Vercel demo READ_ONLY refuses every write and serves the Public Library only.",
+        "Add to My Library reads the public file, keeps its own frontmatter (a skill's name, licence), refuses a duplicate title in the same section and category, and writes a copy as a new file whose name is its id. A copy remembers its public source, and pull-upstream overwrites it with the current public body. Saves carry the file's version, so an edit made from a stale one gets a 409."
       ]
     },
     {
@@ -356,7 +361,7 @@
       "title": "Skill packs",
       "items": [
         "Pack manifests are JSON under library/3_Skills/packs, each listing its skills' SKILL.md paths. api/skill-packs.ts is its own Vercel function, bundled with library/3_Skills/**.",
-        "Add to library copies every skill in the pack into My Library, tagged skill-pack:<id>, and skips ones already there; that tag is how the My Library pack list knows a pack is installed. Download zips each skill's whole directory.",
+        "Add to library copies every skill in the pack into My Library, tagged skill-pack:<id>, and skips ones already there; if one skill fails it deletes the ones it just wrote. That tag is how the My Library pack list knows a pack is installed, and remove-from-library deletes by it. Download zips each skill's whole directory.",
         "A single skill's directory also downloads as a ZIP from GET /api/skills/download/:path, which refuses any path outside 3_Skills/."
       ]
     },
@@ -364,8 +369,8 @@
       "dot": "emerald",
       "title": "Where the content comes from",
       "items": [
-        "Vendored skills and agents carry an upstream: block. The weekly Upstream drift workflow reports which are behind in one GitHub issue and never edits the library; resync-upstream.mjs is run by hand to pull a body back level.",
-        "After any library change, npm run build:index regenerates the index. CI rebuilds it and fails when the committed file differs, and vercel-build rebuilds it on every deploy."
+        "Vendored skills and agents carry an upstream: block. The weekly Upstream drift workflow reports which are behind in one GitHub issue, then resyncs the ones whose copy adds under 10% of its own lines with resync-upstream.mjs and opens one pull request for a person to review; it never merges. Anything with more local content is left for a person, and the script can still be run by hand.",
+        "After any library change, npm run build:index regenerates the index. The weekly workflow rebuilds it in the same PR, CI rebuilds it and fails when the committed file differs, and vercel-build rebuilds it on every deploy."
       ]
     }
   ]

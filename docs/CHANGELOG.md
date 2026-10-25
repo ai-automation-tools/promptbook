@@ -4,6 +4,15 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-24 — Library data-flow diagram refreshed
+
+**Docs**
+- Re-read the cited code and re-pinned `library-data-flow` to `902c6d9d`: the weekly upstream workflow now opens a resync PR (no longer "by hand"), the library has six sections, My Library saves are atomic and version-checked with pull-upstream, pack installs roll back on failure, and the Host/Origin guard sits in front of every route.
+
+_Touched: `docs/diagrams/`, `homepage/diagram/`._
+
+---
+
 ## 2026-10-23 — body-parser 1.20.9 (Dependabot #14)
 
 **Security**
