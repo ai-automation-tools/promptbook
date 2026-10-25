@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "buildTime": "2026-10-23T23:48:40.441Z",
+  "buildTime": "2026-10-25T06:02:00.245Z",
   "promptCount": 2598,
   "prompts": [
     {
@@ -3278,7 +3278,7 @@
         "brainstorming"
       ],
       "contentPreview": "\n# Brainstorming\n\nYou are very good at building. You build what you believe your human\npartner wants, and that belief is usually thinner than it feels. This\nskill is for finding out what they actually",
-      "lastModified": "2026-10-21T18:07:05.886Z",
+      "lastModified": "2026-10-25T06:01:32.473Z",
       "isUserOwned": false
     },
     {
@@ -3699,8 +3699,8 @@
         "data",
         "scholar-evaluation"
       ],
-      "contentPreview": "\n# Scholar Evaluation\n\n## Overview\n\nApply the ScholarEval framework to systematically evaluate scholarly and research work. This skill provides structured evaluation methodology based on peer-reviewed",
-      "lastModified": "2026-10-21T18:07:05.923Z",
+      "contentPreview": "\n# Scholar Evaluation\n\n## Purpose\n\nProvide developmental, evidence-traceable feedback on a **scholarly work**:\npaper, draft, protocol, literature synthesis, or research idea. Use\nqualitative judgment ",
+      "lastModified": "2026-10-25T06:01:34.186Z",
       "isUserOwned": false
     },
     {

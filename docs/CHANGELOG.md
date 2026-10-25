@@ -4,6 +4,17 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-24 — Two skills resynced from upstream
+
+**Library**
+- `Content/brainstorming` ← `obra/superpowers` @ `2ce8aa1`: upstream adds "Look Before You Ask", a required "Lay out the approaches" step before the design doc, and a short design doc for small changes. Support files unchanged.
+- `Data/scholar-evaluation` ← `K-Dense-AI/claude-scientific-skills` @ `593377b`: upstream rewrote the skill around developmental feedback with a hard ban on hiring, admissions, grant and other personnel uses, and no prestige or citation metrics. 15 new support files (`assets/` templates, 4 references, 7 local scripts); `references/evaluation_framework.md` and `scripts/calculate_scores.py` replaced. Still a scholarly-work evaluator, so it stays in Data.
+- Both were the `behind` rows in `site/api/upstream-status.json` (2026-10-23) with real local content, so the Monday auto-resync skipped them. The other four `behind` rows are system prompts, which are dated captures and never resynced.
+
+_Touched: `site/library/3_Skills/Content/brainstorming/SKILL.md`, `site/library/3_Skills/Data/scholar-evaluation/`, `site/api/prompt-index.json`._
+
+---
+
 ## 2026-10-23 — body-parser 1.20.9 (Dependabot #14)
 
 **Security**
