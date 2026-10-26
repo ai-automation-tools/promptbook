@@ -3,7 +3,7 @@
 GitHub repos that `scripts/discover-repos.mjs` found and that the library might vendor or link:
 skills, prompt collections, agent definitions and MCP servers that are **new** (created in the
 last year with 500+ stars) or **popular** (5000+ stars) and that nothing here already tracks.
-The weekly **Prompt-Library Discovery** job (`jobs\prompt-library-discovery` in the Routines
+The weekly **Prompt-Library Discovery** job (`jobs\promptbook-discovery` in the Routines
 fleet, Tuesdays) appends rows and opens a `discovery/auto-*` PR; a person changes **Status**.
 
 | Status | Meaning | Who acts |
