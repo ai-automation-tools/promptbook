@@ -63,7 +63,9 @@ Prompts and guides carry a repo too, so every card shows the same GitHub link at
 (since 2026-10-26). A prompt copied from a collection gets the `upstream:` block above
 (`match: similar`, `repo: f/awesome-chatgpt-prompts` for the Awesome ChatGPT set). A guide is
 written here, not copied, so it names the tool it documents with a bare `repo: owner/name` line
-instead. Neither is enforced by CI yet.
+instead. The same CI check fails on a prompt or guide without one; the hand-written prompts and
+guides that had no repo live in `archive/unlinked-2026-10-26/` at the repo root, not in the
+library.
 
 ### Field Rules
 

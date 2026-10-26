@@ -232,8 +232,11 @@ folders via `getSectionFolder()` in `App.tsx`. After adding/removing content, ru
   six sections: `sourceOf()` in `lib/library.ts` reads `upstream.repo`, `server.repo`, or a
   guide's bare `repo:` (the tool the guide documents, since a guide is written here, not
   copied). Prompts copied from a collection carry an `upstream:` block too
-  (`match: similar`, `repo: f/awesome-chatgpt-prompts`). A prompt or guide with no repo still
-  renders, without the panel; CI does not fail on it yet.
+  (`match: similar`, `repo: f/awesome-chatgpt-prompts`). `scripts/upstream.test.mjs` fails CI
+  on a prompt or guide without one. The 670 hand-written prompts and 28 guides that had no
+  repo were moved, paths intact, to `archive/unlinked-2026-10-26/` at the repo root (outside
+  the deploy root, so nothing serves or indexes them); restore one by moving it back and
+  giving it a repo.
 - **LF only.** `.gitattributes` sets `eol=lf` repo-wide. `contentPreview` is embedded in
   `api/prompt-index.json` verbatim, so a CRLF file makes the index unreproducible on Linux and
   the CI gate fails.
