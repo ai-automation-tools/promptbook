@@ -21,6 +21,8 @@ export interface PromptDraft {
   subcategory: string | null;
   tags: string[];
   content: string;
+  /** Where it stems from: a GitHub repo or a site. */
+  sourceUrl?: string | null;
 }
 
 interface PromptEditorModalProps {
@@ -40,6 +42,7 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
   const [subcategory, setSubcategory] = useState('');
   const [tags, setTags] = useState<string[]>([]);
   const [tagInput, setTagInput] = useState('');
+  const [sourceUrl, setSourceUrl] = useState('');
   const [content, setContent] = useState('');
   const [mode, setMode] = useState<'write' | 'preview'>('write');
   const [saving, setSaving] = useState(false);
@@ -53,6 +56,7 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
       setCategory(editingPrompt.category);
       setSubcategory(editingPrompt.subcategory || '');
       setTags(editingPrompt.tags || []);
+      setSourceUrl(editingPrompt.sourceUrl || '');
       setContent(editingPrompt.content);
     } else {
       setTitle('');
@@ -61,6 +65,7 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
       setSubcategory('');
       setTags([]);
       setTagInput('');
+      setSourceUrl('');
       setContent('');
     }
     setMode('write');
@@ -99,6 +104,7 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
         category: category.trim(),
         subcategory: subcategory.trim() || null,
         tags,
+        sourceUrl: sourceUrl.trim() || null,
         content: content.trim(),
       });
       onClose();
@@ -166,6 +172,13 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
               </label>
               <input id="prompt-subcategory" type="text" value={subcategory} onChange={e => setSubcategory(e.target.value)} className="input" placeholder="Optional" disabled={!!editingPrompt} />
             </div>
+          </div>
+
+          <div>
+            <label htmlFor="prompt-source" className={LABEL}>
+              Source link <span className="font-normal text-[var(--fg-4)]">· GitHub repo or site it stems from</span>
+            </label>
+            <input id="prompt-source" type="url" inputMode="url" value={sourceUrl} onChange={e => setSourceUrl(e.target.value)} className="input" placeholder="https://github.com/owner/repo" pattern="https?://.+" title="An http(s) link" />
           </div>
 
           <div>

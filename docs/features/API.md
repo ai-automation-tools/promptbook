@@ -217,11 +217,14 @@ mode.**
   "category": "Business",
   "subcategory": "Marketing",
   "tags": ["custom", "marketing"],
+  "sourceUrl": "https://github.com/owner/repo",
   "content": "Full prompt content in markdown..."
 }
 ```
 
-`subcategory` and `tags` are optional.
+`subcategory`, `tags` and `sourceUrl` are optional. `sourceUrl` is where the item stems from;
+it is stored as `source_url` in the file's frontmatter and comes back as `sourceUrl` on the
+prompt, which the item page shows as a link. On `PUT`, `""` or `null` clears it.
 
 **Field rules** (the same for `PUT`, and for the MCP write tools, because the My Library store
 checks them):
@@ -232,6 +235,7 @@ checks them):
 | `section` | One of `1_Guides`, `2_Agents`, `3_Skills`, `4_Prompts`, `5_System_Prompts`, `6_MCP_Servers` |
 | `subcategory` | Text up to 100 characters, or `null` |
 | `tags` | A list of up to 50 non-blank strings, each up to 100 characters |
+| `sourceUrl` | An `http(s)` URL up to 2,000 characters, or `null` |
 | `content` | Text, not blank, up to 500 KB |
 
 A refused write changes no file.

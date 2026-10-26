@@ -111,6 +111,7 @@ const toApiPrompt = (p: UserPrompt) => ({
   subcategory: p.subcategory,
   tags: p.tags,
   content: p.content,
+  sourceUrl: p.sourceUrl ?? undefined,
   lastModified: p.updated_at,
   isUserOwned: true,
   version: p.version,
@@ -361,7 +362,7 @@ app.get("/api/prompts/:id", async (req, res) => {
 // Create prompt
 app.post("/api/prompts", requireWritable, async (req, res) => {
   try {
-    const { title, section, category, subcategory, tags, content } = req.body;
+    const { title, section, category, subcategory, tags, content, sourceUrl } = req.body;
 
     // Field checks live in the store (InvalidPromptError → 400 below), shared with MCP
     const prompt = myLibrary.create({
@@ -371,6 +372,7 @@ app.post("/api/prompts", requireWritable, async (req, res) => {
       subcategory: subcategory || null,
       tags: tags ?? [],
       content,
+      sourceUrl,
     });
 
     res.json({ ...toApiPrompt(prompt), message: "Prompt created successfully" });
@@ -385,7 +387,7 @@ app.post("/api/prompts", requireWritable, async (req, res) => {
 app.put("/api/prompts/:id", requireWritable, async (req, res) => {
   try {
     const promptId = decodeURIComponent(req.params.id);
-    const { title, tags, content, category, subcategory, section, version } = req.body;
+    const { title, tags, content, category, subcategory, section, sourceUrl, version } = req.body;
     if (version !== undefined && typeof version !== 'string') {
       return res.status(400).json({ error: 'version must be text' });
     }
@@ -397,6 +399,7 @@ app.put("/api/prompts/:id", requireWritable, async (req, res) => {
       category,
       subcategory,
       section,
+      sourceUrl,
     }, version);
 
     if (!prompt) {

@@ -51,6 +51,17 @@ try {
   assert.match(fs.readFileSync(path.join(dir, `${skill.id}.md`), "utf-8"), /^---\nname: my-skill\n/);
   myLibrary.delete(skill.id);
 
+  // The source link round-trips, survives an update that doesn't send it, and clears with ""
+  const linked = myLibrary.create({ title: "Linked", section: "4_Prompts", category: "Dev", subcategory: null, tags: [], content: "Body", sourceUrl: "https://github.com/f/awesome-chatgpt-prompts" });
+  assert.match(fs.readFileSync(path.join(dir, `${linked.id}.md`), "utf-8"), /\nsource_url: '?https:\/\/github\.com\/f\/awesome-chatgpt-prompts'?\n/);
+  myLibrary.update(linked.id, { tags: ["t"] });
+  assert.equal(myLibrary.get(linked.id).sourceUrl, "https://github.com/f/awesome-chatgpt-prompts");
+  assert.equal(myLibrary.get(linked.id).extra.source_url, undefined, "managed, not extra");
+  myLibrary.update(linked.id, { sourceUrl: "" });
+  assert.equal(myLibrary.get(linked.id).sourceUrl, null);
+  assert.doesNotMatch(fs.readFileSync(path.join(dir, `${linked.id}.md`), "utf-8"), /source_url/);
+  myLibrary.delete(linked.id);
+
   // Field checks, shared by HTTP and MCP: a refused write changes no file
   const valid = { title: "Ok", section: "4_Prompts", category: "Dev", subcategory: null, tags: [], content: "Body" };
   const badCreates = {
@@ -68,6 +79,8 @@ try {
     "long title": { title: "t".repeat(301) },
     "long subcategory": { subcategory: "s".repeat(101) },
     "oversized content": { content: "x".repeat(500 * 1024 + 1) },
+    "javascript source link": { sourceUrl: "javascript:alert(1)" },
+    "non-URL source link": { sourceUrl: "github.com/x/y" },
   };
   const filesBefore = fs.readdirSync(dir).length;
   for (const [name, change] of Object.entries(badCreates)) {

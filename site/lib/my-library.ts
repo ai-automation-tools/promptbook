@@ -22,6 +22,8 @@ export interface UserPrompt {
   subcategory: string | null;
   tags: string[];
   content: string;
+  /** Where the item stems from (a GitHub repo or a site), `source_url` in the file. */
+  sourceUrl?: string | null;
   created_at: string;
   updated_at: string;
   /**
@@ -41,7 +43,7 @@ export interface UserPrompt {
 type PromptFields = Omit<UserPrompt, 'id' | 'created_at' | 'updated_at' | 'version'>;
 
 /** The keys `write()` owns; everything else in a file's frontmatter is `extra`. */
-const MANAGED = new Set(['title', 'section', 'category', 'subcategory', 'tags', 'created', 'updated']);
+const MANAGED = new Set(['title', 'section', 'category', 'subcategory', 'tags', 'source_url', 'created', 'updated']);
 const extraOf = (data: Record<string, unknown>) =>
   Object.fromEntries(Object.entries(data).filter(([k]) => !MANAGED.has(k)));
 
@@ -84,6 +86,7 @@ function read(id: string): UserPrompt | null {
     subcategory: data.subcategory ? asString(data.subcategory) : null,
     tags: Array.isArray(data.tags) ? data.tags.map(asString) : [],
     content,
+    sourceUrl: data.source_url ? asString(data.source_url) : null,
     created_at: asString(data.created) || updated,
     updated_at: updated,
     extra: extraOf(data),
@@ -108,6 +111,7 @@ function write(prompt: UserPrompt, flag: 'w' | 'wx' = 'w'): string {
     category: prompt.category,
     subcategory: prompt.subcategory,
     tags: prompt.tags,
+    ...(prompt.sourceUrl ? { source_url: prompt.sourceUrl } : {}),
     created: prompt.created_at,
     updated: prompt.updated_at,
   };
@@ -141,7 +145,7 @@ export class PromptConflictError extends Error {
 // Well above anything in the Public Library (longest title 172, category 21,
 // subcategory 42, 10 tags of up to 40 characters). 500 KB is the size the
 // prompt index already skips.
-const LIMITS = { title: 300, label: 100, tags: 50, tag: 100, contentBytes: 500 * 1024 };
+const LIMITS = { title: 300, label: 100, tags: 50, tag: 100, url: 2000, contentBytes: 500 * 1024 };
 const SECTION_FOLDERS: string[] = Object.values(SECTIONS).map(s => s.folder);
 
 /**
@@ -162,6 +166,14 @@ function checkFields(f: Partial<PromptFields>, creating: boolean) {
   if (f.subcategory != null && f.subcategory !== '') {
     if (typeof f.subcategory !== 'string') fail('subcategory must be text');
     if (f.subcategory.length > LIMITS.label) fail(`subcategory is over ${LIMITS.label} characters`);
+  }
+  if (f.sourceUrl != null && f.sourceUrl !== '') {
+    // Rendered as a link, so only http(s): a javascript: URL would run on click.
+    if (typeof f.sourceUrl !== 'string') fail('source link must be text');
+    if (f.sourceUrl.length > LIMITS.url) fail(`source link is over ${LIMITS.url} characters`);
+    let protocol = '';
+    try { protocol = new URL(f.sourceUrl).protocol; } catch { /* not a URL */ }
+    if (protocol !== 'https:' && protocol !== 'http:') fail('source link must be an http(s) URL');
   }
   if (f.section !== undefined || creating) {
     if (typeof f.section !== 'string' || !SECTION_FOLDERS.includes(f.section)) {
@@ -214,6 +226,7 @@ export const myLibrary = {
       ...fields,
       subcategory: fields.subcategory || null,
       tags: fields.tags || [],
+      sourceUrl: fields.sourceUrl?.trim() || null,
       id: `${slugify(fields.title)}-${randomBytes(3).toString('hex')}`,
       created_at: now,
       updated_at: now,
@@ -237,6 +250,7 @@ export const myLibrary = {
       subcategory: updates.subcategory !== undefined ? updates.subcategory || null : existing.subcategory,
       tags: updates.tags ?? existing.tags,
       content: updates.content ?? existing.content,
+      sourceUrl: updates.sourceUrl !== undefined ? updates.sourceUrl?.trim() || null : existing.sourceUrl,
       extra: { ...existing.extra, ...updates.extra },
       updated_at: new Date().toISOString(),
     };

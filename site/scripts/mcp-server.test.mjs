@@ -141,8 +141,13 @@ try {
   await refused(client, 'update_my_prompt', { id: myId, content: '' }); // the store's field check, as over HTTP
   await refused(client, 'update_my_prompt', { id: myId, content: 'STALE', version: '0000000000000000' }); // changed since that version
   assert.match(await ok(client, 'get_item', { id: myId }), /UPDATED-BODY/);
-  const fresh = await ok(client, 'save_to_my_library', { title: 'Fresh prompt', content: 'Hello', section: 'prompts', tags: ['t1'] });
+  const fresh = await ok(client, 'save_to_my_library', { title: 'Fresh prompt', content: 'Hello', section: 'prompts', tags: ['t1'], source_url: 'https://github.com/owner/repo' });
   assert.match(fresh, /Saved to My Library/);
+  const freshId = fresh.match(/`([a-z0-9-]+)`/)?.[1];
+  assert.match(await ok(client, 'get_item', { id: freshId }), /source: https:\/\/github\.com\/owner\/repo/);
+  await refused(client, 'update_my_prompt', { id: freshId, source_url: 'javascript:alert(1)' });
+  await ok(client, 'update_my_prompt', { id: freshId, source_url: '' });
+  assert.doesNotMatch(await ok(client, 'get_item', { id: freshId }), /source:/);
   // A skill keeps its frontmatter through save, edit and read-back.
   const skillSaved = await ok(client, 'save_to_my_library', {
     title: 'test-skill', section: 'skills', category: 'Development', tags: ['t'],
