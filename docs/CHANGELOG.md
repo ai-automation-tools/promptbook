@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-26 — "New prompt" is now "New item"
+
+The create button in the top right said "New prompt", but the editor files into any section (guides, agents, skills, prompts, system prompts, MCP). It now says **New item**, as do the floating button on phones, the ⌘K action ("Create a prompt, agent, skill or guide in My Library"), the My Library empty state and the editor itself ("New item" / "Edit item", "Create item").
+
+_Touched: `site/src/components/{TopBar,CommandPalette,EmptyState,PromptEditorModal}.tsx`, `site/src/App.tsx`, `AGENTS.md`, `docs/ARCHITECTURE.md`, `docs/setup/DEPLOYMENT.md`._
+
+---
+
 ## 2026-10-26 — Prompts: 437 from four more public collections
 
 Mike asked for popular prompts from top GitHub repos and sites. The Prompts section held one collection; it now holds five, each in its own top-level folder with the collection's grouping under it. Every file has an `upstream:` block (`repo`, `path`, `ref` = the commit read, `checked: 2026-10-26`) and tags. Every licence is MIT, read this run. The index goes from 1,920 items to 2,357.

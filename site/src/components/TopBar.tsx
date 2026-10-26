@@ -27,7 +27,7 @@ interface TopBarProps {
 
 /**
  * The house-style top bar: categories toggle (phones), then search (⌘K), Resources,
- * New prompt and the Light | Dark switch. From md the sections, brand and
+ * New item and the Light | Dark switch. From md the sections, brand and
  * Settings live in SectionRail; on phones the brand and Settings stay here and
  * the sections are in the menu sheet. Below 1536px that menu button opens a
  * sheet under the bar with the Resources links, whose dropdown only fits from 1536px.
@@ -78,7 +78,7 @@ export default function TopBar({
 
           {!READ_ONLY && (
             <Button variant="primary" size="sm" icon={<Plus className="h-3.5 w-3.5" />} onClick={onNewPrompt} className="hidden sm:inline-flex">
-              New prompt
+              New item
             </Button>
           )}
 

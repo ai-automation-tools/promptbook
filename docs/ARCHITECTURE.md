@@ -205,7 +205,7 @@ Vercel). It is checked in two places:
   and a My Library id is not served, so a read-only server never hands out personal files.
 - **UI:** `vite.config.ts` bakes the same test into the bundle as `__READ_ONLY__`, which
   `src/lib/mode.ts` exports. When it is true the app forces the Public Library and hides
-  the library switch, New prompt, Save to My Library and pack add/remove.
+  the library switch, New item, Save to My Library and pack add/remove.
 
 The server check is the real one; the UI flag only keeps buttons that would fail out of
 sight.
@@ -298,7 +298,7 @@ ErrorBoundary                 main.tsx: a render or chunk failure shows "Somethi
 ├── SectionRail               md up: logo, the seven sections, Settings; the current section's cell joins the Sidebar
 ├── Sidebar                   library-mode switcher (hidden when read-only) + category tree in per-category hues (a drawer on phones)
 ├── TopBar                    ⌘K search, ResourcesNav (≥1536px; a sheet below, which also holds the sections on phones),
-│   │                         New prompt (hidden when read-only), Light | Dark ThemeSwitch; brand + Settings on phones only
+│   │                         New item (hidden when read-only), Light | Dark ThemeSwitch; brand + Settings on phones only
 │   └── ResourcesNav          data-driven external-link menus
 ├── Breadcrumbs               library › section › category › prompt, above the content
 ├── LibraryHero               section heading + search field

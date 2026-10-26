@@ -1062,14 +1062,14 @@ export default function App() {
         </div>
       </main>
 
-      {/* Floating "new prompt" — phones only; the top bar carries it elsewhere. */}
+      {/* Floating "new item" — phones only; the top bar carries it elsewhere. */}
       {!READ_ONLY && (
       <m.button
         type="button"
         whileTap={{ scale: 0.94 }}
         onClick={handleNewPrompt}
         className="fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-[var(--accent)] text-[var(--accent-ink)] shadow-[0_12px_32px_-8px_var(--glow)] sm:hidden"
-        aria-label="New prompt"
+        aria-label="New item"
       >
         <Plus className="h-6 w-6" />
       </m.button>

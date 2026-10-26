@@ -27,7 +27,7 @@ database for the local app; if the hosted demo ever needs writes, that is a new 
   `my-library/` (gitignored; `MY_LIBRARY_DIR` moves it), frontmatter holds title/section/category/tags/dates.
 - **Read-only mode:** `READ_ONLY=true`, or automatically on Vercel (`VERCEL` is set). The server 403s every
   write route; the UI reads the same rule at build time (`__READ_ONLY__` in `vite.config.ts`,
-  `src/lib/mode.ts`) and hides the library switch, New prompt, Save to My Library and pack add/remove.
+  `src/lib/mode.ts`) and hides the library switch, New item, Save to My Library and pack add/remove.
 - **Deploy (demo only):** Vercel. Working branch **`mike_desktop`**, deploy branch **`main`**. `vercel-build` rebuilds the prompt index.
 
 > **Repo layout:** the entire deployable app (source, `api/`, `library/`, build config,
@@ -95,7 +95,7 @@ site/
                        categoryHue() gives each category a stable hue, applied with the .hue class)
     components/        SectionRail (md up: logo, the seven sections as hue tiles, Settings; the current
                        one's cell bleeds into the categories panel), TopBar (⌘K search, Resources menu,
-                       New prompt, ThemeSwitch; brand, Settings and the section sheet on phones),
+                       New item, ThemeSwitch; brand, Settings and the section sheet on phones),
                        Sidebar (section-tinted: library switch, category tree with hue dots),
                        Breadcrumbs, SettingsModal (mode + theme, local data, shortcuts),
                        CommandPalette (⌘K: prompts / sections / actions / themes),
