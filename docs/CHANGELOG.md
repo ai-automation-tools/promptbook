@@ -4,6 +4,25 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-26 — Prompts: 437 from four more public collections
+
+Mike asked for popular prompts from top GitHub repos and sites. The Prompts section held one collection; it now holds five, each in its own top-level folder with the collection's grouping under it. Every file has an `upstream:` block (`repo`, `path`, `ref` = the commit read, `checked: 2026-10-26`) and tags. Every licence is MIT, read this run. The index goes from 1,920 items to 2,357.
+
+| Folder | Source | Prompts | Match |
+|:---|:---|---:|:---|
+| `Fabric/<topic>/` | `danielmiessler/Fabric` @ `bf8dcf72`, `data/patterns/*/system.md` | 265 | `exact`: the body is `system.md` byte for byte, so the weekly drift resync keeps it current |
+| `ChatGPT_Shortcut/<tag>/` | `rockbenben/ChatGPT-Shortcut` @ `f91ed81e`, English cards | 119 | `similar` (from JSON) |
+| `ChatGPT_System_Prompts/<group>/` | `mustvlad/ChatGPT-System-Prompts` @ `e19d82a2` | 38 | `similar` |
+| `Microsoft_Prompts_For_Edu/<audience>/` | `microsoft/prompts-for-edu` @ `508567d4` | 15 | `similar` (purpose and the fenced prompt) |
+
+- Deduped by title against everything already in `4_Prompts`. ChatGPT-Shortcut's 160 cards copied from Awesome ChatGPT were left out, as were 8 of mustvlad's 46.
+- Not taken: leaked or extracted system-prompt dumps (`x1xhlol/…`, `asgeirtj/…`, `elder-plinius/…`, `LouisShark/…`, `0xeb/TheBigPromptLibrary`), GPL or licence-less lists, Chinese-only collections, and prompt sites with no GitHub repo behind them (CI requires one). `github/awesome-copilot` moved its prompts into skills, so it belongs in `3_Skills` if anywhere.
+- `NOTICE` lists each collection with its licence. `4_Prompts/README.md` shows the five folders. The four repos are `done` rows in `docs/DISCOVERY.md`. The Awesome ChatGPT roadmap item notes that `f/awesome-chatgpt-prompts` is now `f/prompts.chat` and no longer the whole section.
+
+_Touched: `site/library/4_Prompts/{Fabric,ChatGPT_Shortcut,ChatGPT_System_Prompts,Microsoft_Prompts_For_Edu}/**`, `site/library/4_Prompts/README.md`, `site/api/prompt-index.json`, `NOTICE`, `docs/DISCOVERY.md`, `docs/ROADMAP.md`, `docs/features/MCP-SERVER.md`._
+
+---
+
 ## 2026-10-26 — Library refresh: 22 skills and an MCP card from the discovery ledger
 
 Mike asked for new and popular items. The six `accept` rows in `docs/DISCOVERY.md` were vendored, today's discovery run was written to the ledger (25 new `pending` rows), and three of the top finds were taken straight away. Every file carries an `upstream:` block (`match: exact`, `repo`, `path`, `ref`, `checked: 2026-10-26`) and `tags`; every licence is MIT, read this run. The index goes from 1,897 to 1,920 items.
