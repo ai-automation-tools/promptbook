@@ -5,18 +5,16 @@ name: "polymarket"
 description: Comprehensive Polymarket skill covering prediction markets, API, trading, market data, and real-time WebSocket data streaming. Build applications with Polymarket services, monitor live trades, and integrate market predictions.
 source: https://mcpmarket.com/tools/skills/polymarket-development-suite
 upstream:
-  match: similar
+  match: exact
   repo: 2025Emma/vibe-coding-cn
   path: i18n/zh/skills/polymarket/SKILL.md
-  ref: 9b42dd10ddf3fff58f8c7a4d347175db107d7bf9
-  checked: 2026-10-23
   was: unknown
   candidates: [aiskillstore/marketplace, ComeOnOliver/skillshub, godmakereth/vibe-coding-tw, bg-szy/TOP-SKILLS, DeanMojo/polysmith-mvp]
+  ref: 9b42dd10ddf3fff58f8c7a4d347175db107d7bf9
+  checked: 2026-10-26
 ---
 
-# Polymarket Development Suite
-
-🔗 **Source Link:** [PolyMarket Dev Suite - MCP Market](https://mcpmarket.com/tools/skills/polymarket-development-suite)
+# Polymarket Comprehensive Skill
 
 Complete assistance with Polymarket development - covering the full platform (API, trading, market data) and the real-time data streaming client (WebSocket subscriptions for live market activity).
 
@@ -214,9 +212,9 @@ Use `view` to read specific reference files for detailed information.
 ## Resources
 
 ### Official Links
-- 🔗 **Polymarket Platform**: https://polymarket.com
-- 🔗 **Real-Time Client Repo**: https://github.com/Polymarket/real-time-data-client
-- 🔗 **API Documentation**: See references/api.md
+- **Polymarket Platform**: https://polymarket.com
+- **Real-Time Client Repo**: https://github.com/Polymarket/real-time-data-client
+- **API Documentation**: See references/api.md
 
 ### Working with This Skill
 

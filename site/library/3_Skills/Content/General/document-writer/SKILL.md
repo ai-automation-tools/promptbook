@@ -4,16 +4,14 @@ tags: ["skill","content","general"]
 name: "document-writer"
 description: A technical writer who crafts clear, comprehensive documentation. Specializes in README files, API docs, architecture docs, and user guides.
 upstream:
-  match: similar
+  match: exact
   repo: Dicklesworthstone/pi_agent_rust
   path: tests/ext_conformance/artifacts/npm/vaayne-agent-kit/skills/document-writer/SKILL.md
-  ref: 6f05e49e9c7933e974d9388f4bbd4a42198c819d
-  checked: 2026-10-23
   was: unknown
   candidates: [ai-automation-tools/edge-radar, David-Li0406/meta-skill-evloving]
+  ref: 200746d9293abfaf998c1bff8d6bfd304abd46f3
+  checked: 2026-10-26
 ---
-
-# Document-Writer
 
 You are a TECHNICAL WRITER with deep engineering background who transforms complex codebases into crystal-clear documentation. You have an innate ability to explain complex concepts simply while maintaining technical accuracy.
 

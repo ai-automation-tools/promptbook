@@ -4,12 +4,12 @@ tags: ["skill","content","obsidian"]
 name: "obsidian-markdown"
 description: Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts, properties, and other Obsidian-specific syntax. Use when working with .md files in Obsidian, or when the user mentions wikilinks, callouts, frontmatter, tags, embeds, or Obsidian notes.
 upstream:
-  match: similar
+  match: exact
   repo: julianobarbosa/claude-code-skills
   path: skills/obsidian-markdown/SKILL.md
-  ref: c093cd8ad70b82f686f96fb802b968b713bbf348
-  checked: 2026-10-23
   was: ambiguous
+  ref: c093cd8ad70b82f686f96fb802b968b713bbf348
+  checked: 2026-10-26
 ---
 
 # Obsidian Flavored Markdown Skill
@@ -628,3 +628,14 @@ Internal notes:
 - [Callouts](https://help.obsidian.md/callouts)
 - [Properties](https://help.obsidian.md/properties)
 
+
+---
+
+## Gotchas
+
+- **Wikilinks inside fenced code blocks render as literal text (correct) but are INDEXED as links** — search and graph view show them as connections, even though they don't render as such.
+- **Frontmatter list values `tags: [a, b]` (flow style) don't auto-complete in the UI; YAML block style `tags:\n  - a\n  - b` does** — same semantics, different editor support.
+- **Callout collapsing requires `>` prefix on EVERY content line, including blanks** — one missing `>` breaks the collapse without an error.
+- **Block IDs (`^id`) are scoped to a single file** — referencing across files needs the file name AND the block ID: `[[Other^id]]`.
+- **LaTeX `$$ ... $$` requires blank lines before AND after** — without them, Obsidian renders the dollars as literals.
+- **Embed `![[Note#Heading]]` is heading-name-sensitive** — renaming the heading silently breaks all embeds; there's no rename-propagation.

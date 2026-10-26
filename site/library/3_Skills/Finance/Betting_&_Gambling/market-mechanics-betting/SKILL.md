@@ -5,57 +5,21 @@ name: "market-mechanics-betting"
 description: Use to convert probabilities into decisions (bet/pass/hedge) and optimize scoring. Invoke when need to calculate edge, size bets optimally (Kelly Criterion), extremize aggregated forecasts, or improve Brier scores. Use when user mentions betting strategy, Kelly, edge calculation, Brier score, extremizing, or translating belief into action.
 source: https://mcpmarket.com/tools/skills/market-mechanics-betting
 upstream:
-  match: similar
+  match: exact
   repo: lyndonkl/claude
   path: skills/market-mechanics-betting/SKILL.md
-  ref: 4acc337d4dbdb19da6469eb2504c16669c1cafa1
-  checked: 2026-10-23
   was: unknown
   candidates: [onfire7777/universal-ai-skills-library, ai-automation-tools/edge-radar, zeroxsireg/footy-predictor]
+  ref: 4acc337d4dbdb19da6469eb2504c16669c1cafa1
+  checked: 2026-10-26
 ---
 
 # Market Mechanics & Betting
 
-🔗 **Source Link:** [Market Mechanics - MCP Market](https://mcpmarket.com/tools/skills/market-mechanics-betting)
-
 ## Table of Contents
-- [What is Market Mechanics?](#what-is-market-mechanics)
-- [When to Use This Skill](#when-to-use-this-skill)
 - [Interactive Menu](#interactive-menu)
 - [Quick Reference](#quick-reference)
 - [Resource Files](#resource-files)
-
----
-
-## What is Market Mechanics?
-
-**Market mechanics** translates beliefs (probabilities) into actions (bets, decisions, resource allocation) using quantitative frameworks.
-
-**Core Principle:** If you believe something with X% probability, you should be willing to bet at certain odds.
-
-**Why It Matters:**
-- Forces intellectual honesty (would you bet on this?)
-- Optimizes resource allocation (how much to bet?)
-- Improves calibration (betting reveals true beliefs)
-- Provides scoring framework (Brier, log score)
-- Enables aggregation (extremizing, market prices)
-
----
-
-## When to Use This Skill
-
-Use when:
-- Converting belief to action - Have probability, need decision
-- Betting decisions - Should I bet? How much?
-- Resource allocation - How to distribute finite resources?
-- Scoring forecasts - Measuring accuracy (Brier score)
-- Aggregating forecasts - Combining multiple predictions
-- Finding edge - Is my probability better than market?
-
-Do NOT use when:
-- No market/betting context exists
-- Non-quantifiable outcomes
-- Pure strategic analysis (no probability needed)
 
 ---
 
@@ -462,9 +426,9 @@ View portfolio holistically. Reduce correlated bets, maintain independence where
 ## Resource Files
 
 📁 **resources/**
-- 🔗 [betting-theory.md](resources/betting-theory.md) - Fundamentals and framework
-- 🔗 [kelly-criterion.md](resources/kelly-criterion.md) - Optimal bet sizing
-- 🔗 [scoring-rules.md](resources/scoring-rules.md) - Calibration and accuracy measurement
+- [betting-theory.md](resources/betting-theory.md) - Fundamentals and framework
+- [kelly-criterion.md](resources/kelly-criterion.md) - Optimal bet sizing
+- [scoring-rules.md](resources/scoring-rules.md) - Calibration and accuracy measurement
 
 ---
 

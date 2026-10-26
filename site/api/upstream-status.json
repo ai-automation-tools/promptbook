@@ -1,5 +1,5 @@
 {
-  "checked": "2026-10-23",
+  "checked": "2026-10-26",
   "items": {
     "2_Agents/AI_ML/AI_Engineering_SMEs/ai-engineer.md": {
       "verdict": "current",
@@ -800,11 +800,11 @@
       "extra": 0
     },
     "3_Skills/Content/General/document-writer/SKILL.md": {
-      "verdict": "drifted",
+      "verdict": "current",
       "repo": "Dicklesworthstone/pi_agent_rust",
       "path": "tests/ext_conformance/artifacts/npm/vaayne-agent-kit/skills/document-writer/SKILL.md",
       "branch": "main",
-      "extra": 0.01
+      "extra": 0
     },
     "3_Skills/Content/General/humanizer/SKILL.md": {
       "verdict": "drifted",
@@ -870,7 +870,7 @@
       "extra": 0
     },
     "3_Skills/Content/obsidian/obsidian-markdown/SKILL.md": {
-      "verdict": "drifted",
+      "verdict": "current",
       "repo": "julianobarbosa/claude-code-skills",
       "path": "skills/obsidian-markdown/SKILL.md",
       "branch": "main",
@@ -1626,18 +1626,18 @@
       "extra": 0
     },
     "3_Skills/Finance/Betting_&_Gambling/market-mechanics-betting/SKILL.md": {
-      "verdict": "drifted",
+      "verdict": "current",
       "repo": "lyndonkl/claude",
       "path": "skills/market-mechanics-betting/SKILL.md",
       "branch": "main",
-      "extra": 0.09
+      "extra": 0
     },
     "3_Skills/Finance/Betting_&_Gambling/polymarket/SKILL.md": {
-      "verdict": "drifted",
+      "verdict": "current",
       "repo": "2025Emma/vibe-coding-cn",
       "path": "i18n/zh/skills/polymarket/SKILL.md",
       "branch": "main",
-      "extra": 0.01
+      "extra": 0
     },
     "3_Skills/Finance/Investing/creating-financial-models/SKILL.md": {
       "verdict": "current",

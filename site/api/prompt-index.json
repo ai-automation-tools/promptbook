@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "buildTime": "2026-10-26T15:34:55.885Z",
+  "buildTime": "2026-10-26T15:45:18.800Z",
   "promptCount": 1897,
   "prompts": [
     {
@@ -2754,8 +2754,8 @@
         "content",
         "general"
       ],
-      "contentPreview": "\n# Document-Writer\n\nYou are a TECHNICAL WRITER with deep engineering background who transforms complex codebases into crystal-clear documentation. You have an innate ability to explain complex concept",
-      "lastModified": "2026-10-23T23:09:07.691Z",
+      "contentPreview": "\nYou are a TECHNICAL WRITER with deep engineering background who transforms complex codebases into crystal-clear documentation. You have an innate ability to explain complex concepts simply while main",
+      "lastModified": "2026-10-26T15:43:05.001Z",
       "isUserOwned": false
     },
     {
@@ -3032,7 +3032,7 @@
         "obsidian"
       ],
       "contentPreview": "\n# Obsidian Flavored Markdown Skill\n\nThis skill enables Claude Code to create and edit valid Obsidian Flavored Markdown, including all Obsidian-specific syntax extensions.\n\n## Overview\n\nObsidian uses ",
-      "lastModified": "2026-10-23T23:09:08.896Z",
+      "lastModified": "2026-10-26T15:43:06.191Z",
       "isUserOwned": false
     },
     {
@@ -4737,8 +4737,8 @@
         "finance",
         "betting-and-gambling"
       ],
-      "contentPreview": "\n# Market Mechanics & Betting\n\n🔗 **Source Link:** [Market Mechanics - MCP Market](https://mcpmarket.com/tools/skills/market-mechanics-betting)\n\n## Table of Contents\n- [What is Market Mechanics?](#wha",
-      "lastModified": "2026-10-23T23:09:13.044Z",
+      "contentPreview": "\n# Market Mechanics & Betting\n\n## Table of Contents\n- [Interactive Menu](#interactive-menu)\n- [Quick Reference](#quick-reference)\n- [Resource Files](#resource-files)\n\n---\n\n## Interactive Menu\n\n**What ",
+      "lastModified": "2026-10-26T15:43:07.595Z",
       "isUserOwned": false
     },
     {
@@ -4752,8 +4752,8 @@
         "finance",
         "betting-and-gambling"
       ],
-      "contentPreview": "\n# Polymarket Development Suite\n\n🔗 **Source Link:** [PolyMarket Dev Suite - MCP Market](https://mcpmarket.com/tools/skills/polymarket-development-suite)\n\nComplete assistance with Polymarket developme",
-      "lastModified": "2026-10-23T23:09:13.342Z",
+      "contentPreview": "\n# Polymarket Comprehensive Skill\n\nComplete assistance with Polymarket development - covering the full platform (API, trading, market data) and the real-time data streaming client (WebSocket subscript",
+      "lastModified": "2026-10-26T15:43:09.040Z",
       "isUserOwned": false
     },
     {
@@ -5744,7 +5744,7 @@
         "broken-authentication"
       ],
       "contentPreview": "\n> **⚠️ AUTHORIZED USE ONLY**\n> This skill is for educational purposes or authorized security assessments only.\n> You must have explicit, written permission from the system owner before using this too",
-      "lastModified": "2026-10-21T18:07:06.054Z",
+      "lastModified": "2026-10-26T15:43:12.222Z",
       "isUserOwned": false
     },
     {
