@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-26 — Source link on items you create
+
+Every Public Library card names where it comes from; now your own items can too. The New item / Edit item form has a **Source link** field for the GitHub repo or site an item stems from. It is saved as `source_url` in the My Library file's frontmatter, shown at the top of the item page (GitHub icon for a repo, globe for any other site), kept in the Download `.md`, and accepted by `POST`/`PUT /api/prompts` as `sourceUrl` and by the MCP `save_to_my_library` / `update_my_prompt` tools as `source_url` (`get_item` prints it). The store refuses anything but an `http(s)` URL, so a `javascript:` link can't be saved and clicked.
+
+_Touched: `site/lib/my-library.ts`, `site/api/index.ts`, `site/src/components/{PromptEditorModal,PromptDetail}.tsx`, `site/src/lib/markdown-file.ts`, `site/mcp/server.ts`, `site/scripts/{my-library,mcp-server}.test.mjs`, `docs/features/{API,MCP-SERVER}.md`, `docs/mcp-server.md`._
+
+---
+
 ## 2026-10-26 — "New prompt" is now "New item"
 
 The create button in the top right said "New prompt", but the editor files into any section (guides, agents, skills, prompts, system prompts, MCP). It now says **New item**, as do the floating button on phones, the ⌘K action ("Create a prompt, agent, skill or guide in My Library"), the My Library empty state and the editor itself ("New item" / "Edit item", "Create item").

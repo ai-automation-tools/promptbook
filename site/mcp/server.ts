@@ -169,7 +169,7 @@ export function createServer(): McpServer {
       const note = up?.updateAvailable
         ? `\nPublic version \`${up.source}\` has changed${up.localEdits ? ' (this copy is edited too)' : ''}; update_from_public pulls it.`
         : '';
-      return text(`# ${mine.title}\n\nMy Library · ${keyOf(mine.section)} › ${mine.category}${mine.tags.length ? ` · tags: ${mine.tags.join(', ')}` : ''} · version: ${mine.version}${note}\n\n${body}`);
+      return text(`# ${mine.title}\n\nMy Library · ${keyOf(mine.section)} › ${mine.category}${mine.tags.length ? ` · tags: ${mine.tags.join(', ')}` : ''}${mine.sourceUrl ? ` · source: ${mine.sourceUrl}` : ''} · version: ${mine.version}${note}\n\n${body}`);
     }
     const item = readLibraryItem(id);
     if (item === 'invalid') return fail(`"${id}" is not a library path. Ids look like "4_Prompts/<Category>/<file>.md".`);
@@ -301,9 +301,10 @@ export function createServer(): McpServer {
         category: z.string().optional(),
         subcategory: z.string().optional(),
         tags: z.array(z.string()).optional(),
+        source_url: z.string().optional().describe('Where it stems from: the GitHub repo or site URL (http/https)'),
       }),
       annotations: writeHints,
-    }, async ({ id, title, content, file, section, category, subcategory, tags }) => {
+    }, async ({ id, title, content, file, section, category, subcategory, tags, source_url: sourceUrl }) => {
       if (READ_ONLY) return fail('This library is read-only.');
       if (file && !id) {
         const imported = readImport(file);
@@ -311,7 +312,7 @@ export function createServer(): McpServer {
         if (!title?.trim()) return fail('Pass a title with file.');
         const saved = myLibrary.create({
           title: title.trim(), content: withPreface(content, imported.content), section: folderOf(section) ?? '4_Prompts',
-          category: category || 'Uncategorized', subcategory: subcategory || null, tags: tags ?? [], extra: imported.extra,
+          category: category || 'Uncategorized', subcategory: subcategory || null, tags: tags ?? [], sourceUrl, extra: imported.extra,
         });
         return text(`Saved \`${file}\` to My Library as \`${saved.id}\`.`);
       }
@@ -323,7 +324,7 @@ export function createServer(): McpServer {
         if (dup) return fail(`Already in My Library as "${dup.id}".`);
         const saved = myLibrary.create({
           title: title || item.title, section: item.section, category: item.category,
-          subcategory: item.subcategory, tags: tags ?? item.tags, content: item.content,
+          subcategory: item.subcategory, tags: tags ?? item.tags, content: item.content, sourceUrl,
           extra: forkExtra(item),
         });
         return text(`Copied to My Library as \`${saved.id}\`.`);
@@ -331,7 +332,7 @@ export function createServer(): McpServer {
       if (!title?.trim() || !content?.trim()) return fail('Pass an id to copy, or both title and content.');
       const saved = myLibrary.create({
         title: title.trim(), content, section: folderOf(section) ?? '4_Prompts',
-        category: category || 'Uncategorized', subcategory: subcategory || null, tags: tags ?? [],
+        category: category || 'Uncategorized', subcategory: subcategory || null, tags: tags ?? [], sourceUrl,
       });
       return text(`Saved to My Library as \`${saved.id}\`.`);
     });
@@ -347,12 +348,14 @@ export function createServer(): McpServer {
         category: z.string().optional(),
         subcategory: z.string().optional(),
         tags: z.array(z.string()).optional(),
+        source_url: z.string().optional().describe('Where it stems from: the GitHub repo or site URL (http/https); "" clears it'),
         version: z.string().optional().describe('The version get_item showed; the update is refused if the file changed since'),
       }),
       // Destructive: it replaces the body, including wholesale from `file`.
       annotations: { ...writeHints, destructiveHint: true, idempotentHint: true },
-    }, async ({ id, file, version, ...fields }) => {
+    }, async ({ id, file, version, source_url: sourceUrl, ...rest }) => {
       if (READ_ONLY) return fail('This library is read-only.');
+      const fields = { ...rest, sourceUrl };
       let changes: Parameters<typeof myLibrary.update>[1] = fields;
       if (file) {
         const imported = readImport(file);

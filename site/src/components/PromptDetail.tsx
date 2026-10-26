@@ -14,6 +14,7 @@ import {
   FolderOpen,
   FolderPlus,
   Github,
+  Globe,
   Hash,
   Layers,
   LayoutGrid,
@@ -190,8 +191,10 @@ export default function PromptDetail({
               rel="noopener noreferrer"
               className="relative mb-5 inline-flex max-w-full items-center gap-2 rounded-[var(--r-md)] border border-[var(--line)] px-3 py-2 text-[13px] font-medium text-[var(--fg)] transition-colors hover:border-[color-mix(in_srgb,var(--c)_45%,var(--line))] hover:bg-[color-mix(in_srgb,var(--c)_8%,transparent)]"
             >
-              <Github className="h-4 w-4 shrink-0 text-[var(--c)]" aria-hidden="true" />
-              <span className="truncate">{prompt.sourceUrl.replace('https://github.com/', '')}</span>
+              {/^https:\/\/github\.com\//.test(prompt.sourceUrl)
+                ? <Github className="h-4 w-4 shrink-0 text-[var(--c)]" aria-hidden="true" />
+                : <Globe className="h-4 w-4 shrink-0 text-[var(--c)]" aria-hidden="true" />}
+              <span className="truncate">{prompt.sourceUrl.replace(/^https?:\/\/(www\.)?(github\.com\/)?/, '')}</span>
               <ExternalLink className="h-3.5 w-3.5 shrink-0 text-[var(--fg-4)]" aria-hidden="true" />
             </a>
           )}
