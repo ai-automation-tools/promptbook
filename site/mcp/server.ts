@@ -106,7 +106,7 @@ const promptMessages = (body: string, input?: string) => ({
 const INSTRUCTIONS = `Promptbook: ${loadIndex()?.promptCount ?? 'thousands of'} prompts, agent definitions, guides, system prompts, skills and MCP server cards, plus the user's own My Library.
 Use search_library to find items (filter by section: ${SECTION_KEYS.join(', ')}), then get_item for the full text.
 Skills: get_skill returns SKILL.md and its file list; get_skill_file reads one support file.
-Ids are library paths like "4_Prompts/Engineering/Code_Generation/x.md"; My Library ids are bare slugs.
+Ids are library paths like "4_Prompts/Awesome_ChatGPT/General/x.md"; My Library ids are bare slugs.
 ${READ_ONLY ? 'This server is read-only.' : 'save_to_my_library, update_my_prompt and delete_my_prompt change the user\'s own files; confirm with the user before deleting.'}`;
 
 export function createServer(): McpServer {

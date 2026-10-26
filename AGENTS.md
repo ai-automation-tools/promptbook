@@ -166,7 +166,12 @@ site/
                        check-resources.mjs (dead-link report for that menu), check-mcp-servers.mjs (flags MCP cards whose repo
                        is missing, renamed, archived, relicensed or quiet), backfill-tags.mjs
                        (path-derived tags for any file with none; the Monthly Upkeep keeps it at
-                       zero), the two *.test.mjs self-checks, prompt_generation/
+                       zero), the two *.test.mjs self-checks
+  archive/             Library items and tooling taken out of service but kept: the 669 prompts
+                       and 28 guides with no repo (unlinked-2026-10-26/, paths as they were under
+                       site/library/) and the old prompt_generation/ scripts that wrote prompts
+                       by hand. Outside site/, so nothing serves, indexes or tests it. See
+                       archive/README.md to restore an item.
   homepage/            Static homepage (one index.html, no build) → GitHub Pages via
                        .github/workflows/homepage.yml; pinned by scripts/homepage.test.mjs
   docs/                Documentation (see docs/README.md)

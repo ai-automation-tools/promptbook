@@ -112,8 +112,8 @@ Current behavior: Copies to `My_Prompts/<category>/<subcategory>/`
 
 **Recommendation**: 
 ```
-Source: 4_Prompts/Business/Marketing/market-research.md
-Target: My_Prompts/Prompt_Library/Business/Marketing/market-research.md
+Source: 4_Prompts/Awesome_ChatGPT/General/emoji-translator.md
+Target: My_Prompts/Prompt_Library/Awesome_ChatGPT/General/emoji-translator.md
          ^^^^^^^^^ (new top-level section for all user-owned)
 ```
 

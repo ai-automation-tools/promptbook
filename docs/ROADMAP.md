@@ -44,6 +44,15 @@ marks one only Mike can do.
 > (the secret-scan triage) and the move to Node 24. The open work below it is content and
 > provenance (duplicates, attribution, F17), then the "after release" features (O01–O04).
 > Roadmap work is paused here by Mike's call; the docs were brought up to date the same day.
+>
+> **2026-10-26:** every card shows a GitHub repo link at the top, in all six sections, and
+> the library holds only items that have one (Mike: "we only want cards that contain links
+> now"). The 669 hand-written prompts and 28 guides without a repo moved to
+> `archive/unlinked-2026-10-26/` at the repo root; `4_Prompts` is the Awesome ChatGPT corpus
+> (1,349 files, each stamped `upstream: f/awesome-chatgpt-prompts`), and every guide names
+> the repo of the tool it documents in `repo:`. `scripts/upstream.test.mjs` fails CI on a
+> prompt or guide without one. 1,897 items. The Monday Add Prompts job now copies prompts
+> from public collections instead of writing them.
 
 ## 🔌 Phase 1: MCP server for the library
 
@@ -91,7 +100,7 @@ that fails when the fix is reverted, run against a temporary `MY_LIBRARY_DIR`, n
 - [x] `small` The hero counters name what a section holds ("servers", "skills", "agents") instead of "prompts" everywhere, from a field in `sections.ts` — done 2026-10-23: `noun` on each section
 - [ ] Resolve the semantic duplicates the byte-level dedupe cannot see: the two skill groups that share an upstream file (`skill-creator`, `brand-guidelines`), and any near-duplicates among the 49 backend specialists in `2_Agents/Development/Backend/`. Each merge or removal gets a changelog reason
 - [ ] Delete the stale `roadmap/auto-2026-08-31` branch (its PR #332 was closed unmerged) or recover its one commit 🔒 Needs Mike
-- [ ] Decide what happens to `4_Prompts/Awesome_ChatGPT/` (1,349 files from one upstream corpus): resync it on a schedule like the skills, or tag it `vendored` and freeze it 🔒 Needs Mike
+- [ ] Decide what happens to `4_Prompts/Awesome_ChatGPT/` (1,349 files from one upstream corpus, and since 2026-10-26 the whole of `4_Prompts`): resync it on a schedule like the skills (the drift check would need to read `prompts.csv`, one file for all 1,349), or freeze it as the dated capture it is 🔒 Needs Mike
 - [ ] `ai-automation-tools/agent-skills` gets a `LICENSE` file, so the 40 skills synced from it carry a stated licence in this public repo, and `NOTICE` names it 🔒 Needs Mike
 - [x] `small` `scripts/resync-upstream.mjs` writes `tags: [...]---` on one line when `tags:` is the last frontmatter key of an agent (`stampUpstream` drops the newline), which breaks the frontmatter; hit on 3 agents on 2026-10-22. Fix it to always end the block with a newline. Done when resyncing `2_Agents/AI_ML/Other/model-evaluator.md` from a pre-sync copy yields valid frontmatter, with a case in `scripts/upstream.test.mjs` — done 2026-10-23: `stampUpstream` always ends on a newline; a real resync of `model-evaluator.md` closed its frontmatter correctly
 
@@ -109,7 +118,7 @@ Nothing below blocks go-live.
 ### 🧾 Content provenance
 
 - [ ] Decide whether a skill's `description:` is our curation or upstream content. Resync keeps the whole local frontmatter, so bodies match upstream while some descriptions are a year old, and the drift check strips frontmatter so it cannot see the gap. Done when resync and the drift report both handle `description` per the decision 🔒 Needs Mike
-- [ ] Stamp `upstream:` provenance on `4_Prompts` and `5_System_Prompts` files that came from a public repo, with `attribute-upstream.mjs` learning single-file prompts. Done when the Monday health table's "no provenance" column drops for both sections
+- [x] Stamp `upstream:` provenance on `4_Prompts` and `5_System_Prompts` files that came from a public repo, with `attribute-upstream.mjs` learning single-file prompts. Done when the Monday health table's "no provenance" column drops for both sections — done 2026-10-26, differently: system prompts were stamped on 2026-10-23 (`attribute-system-prompts.mjs`), the 1,349 Awesome ChatGPT prompts carry `upstream: f/awesome-chatgpt-prompts` (one corpus, so no per-file matcher was needed), and the 669 prompts with no public source were archived rather than attributed. CI (`upstream.test.mjs`) now fails on an unstamped prompt or guide, which is a stronger gate than the health column
 - [ ] Raise skill attribution above its current share: 60 skills are `ambiguous` and 163 `unknown`. Matching support files as well as `SKILL.md` against the mirror is the likely lever
 - [ ] **F17** The provenance self-check tells original, attributed and unresolved records apart and checks each has the metadata its kind needs, and a sampled Skill Pack ZIP is verified to carry its `LICENSE`/`NOTICE` files. Today the frontmatter tests prove syntax and vocabulary, not that content may be redistributed
 - [ ] **O02** Show source and freshness in the UI: the index carries `upstream.checked` (and `server.checked` for MCP cards), cards and the detail page say whether an item is original, attributed or unresolved and show a stale badge past 90 days, with no "verified" claim the data cannot back. The index stays reproducible, no private path reaches a public payload, and the CI freshness gate knows the new field. Depends on F17. Sourcing `lastModified` from `git log` instead of file mtime needs a Vercel preview to prove the shallow clone works 🔒 Needs Mike for that half
