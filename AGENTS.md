@@ -44,6 +44,15 @@ npm run dev               # tsx server.ts → http://localhost:3010 (Vite HMR)
 npm start                 # build, then serve dist/ the same way
 ```
 
+**Restart the dev server after any `npm install`, lockfile change (Dependabot merge, `git pull`)
+or change under `api/`, `lib/` or `library/`.** `tsx server.ts` does not watch: the API code and
+the prompt index are loaded once at startup, and Vite's dep cache goes stale under it. A stale
+server lists deleted items (404 on open) and blanks or errors the page when a prompt is opened
+(`504 Outdated Optimize Dep`). When the user reports a black page or "Something failed to load",
+check the server's start time against `git log -1 -- site/package-lock.json site/api site/lib`
+first, then restart (stop the `node … server.ts` process, `npm run dev`). Details:
+[Debug Guide, issue 6](docs/development/DEBUG_UI.md#issue-6-black-screen-when-opening-a-prompt).
+
 No `.env` is needed; `.env.example` lists the optional settings (`MY_LIBRARY_DIR`, `HOST`, `READ_ONLY`, `IMPORT_ROOTS`, `ALLOWED_HOSTS`).
 
 Other scripts: `npm run build` (build:index → tsc → vite build), `npm run build:index`
@@ -94,7 +103,8 @@ site/
                        PromptListToolbar, PromptGrid (also exports PromptCardGrid,
                        PromptCardActions, LoadingSkeleton), PromptCard (spotlight card),
                        PromptDetail, SourcePanel (repo, copied-at commit, drift status), SkillPacksView, EmptyState, Toast, ResourcesNav,
-                       ThemeSwitch, PromptEditorModal
+                       ThemeSwitch, PromptEditorModal, ErrorBoundary (wraps App in main.tsx:
+                       a render or chunk failure shows "Something failed to load", not a black page)
     components/ui/     primitives (Button, IconButton, Chip, Tag, Kbd, Modal*, Notice), CountUp
     index.css          House-style tokens (dark on :root, light on html.light), per-section accent
                        (--c), base + component classes (.btn, .input, .chip, .spot, .popover,

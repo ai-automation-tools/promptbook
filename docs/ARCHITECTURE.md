@@ -292,7 +292,8 @@ promptbook/
 ### Frontend Components
 
 ```
-App.tsx                       app shell, data fetching (routing state: hooks/useLibraryRoute)
+ErrorBoundary                 main.tsx: a render or chunk failure shows "Something failed to load" + Reload, not a black page
+└── App.tsx                   app shell, data fetching (routing state: hooks/useLibraryRoute)
 ├── SourceBar                 "View source" bar (READ_ONLY demo only)
 ├── SectionRail               md up: logo, the seven sections, Settings; the current section's cell joins the Sidebar
 ├── Sidebar                   library-mode switcher (hidden when read-only) + category tree in per-category hues (a drawer on phones)
