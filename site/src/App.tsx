@@ -32,6 +32,7 @@ import { READ_ONLY } from './lib/mode';
 // what fetches its chunk — mounting them closed would defeat the split.
 // A chunk that fails to load (stale Vite dep cache in dev, a new deploy in prod)
 // would unmount the whole tree and leave a black screen; reload once instead.
+// If it fails again (dev server still stale), ErrorBoundary in main.tsx says to restart.
 function lazyReload<P extends object>(load: () => Promise<{ default: ComponentType<P> }>) {
   return lazy(() => load().then((mod) => {
     try { sessionStorage.removeItem('chunk-reload'); } catch { /* storage blocked */ }

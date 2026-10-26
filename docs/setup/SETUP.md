@@ -172,8 +172,12 @@ your shell).
 
 ### The page goes black when opening a prompt
 
-Vite's dependency cache went stale under the running dev server. Stop it, delete
-`site/node_modules/.vite`, run `npm run dev` again and hard-refresh. A black screen on a
+The dev server is stale. Restart it (stop it, `npm run dev`) and hard-refresh; if that is not
+enough, delete `site/node_modules/.vite` and restart again. Restart after every `npm install`,
+lockfile update (a Dependabot merge, a `git pull`) or library/API change: the server loads the
+prompt index and API code once and does not pick up changes. A stale one also lists deleted
+items that 404 when opened. Since 2026-10-26 the page shows "Something failed to load" with a
+Reload button instead of going black. A black screen on a
 Skill Pack was a separate bug, fixed the same day. Details in the
 [Debug Guide](../development/DEBUG_UI.md#issue-6-black-screen-when-opening-a-prompt).
 

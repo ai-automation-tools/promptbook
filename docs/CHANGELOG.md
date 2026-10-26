@@ -4,6 +4,19 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-26 — Stale dev server shows an error, not a black page
+
+**Fixes**
+- The black page on opening a prompt came back: the local dev server had run since 2026-10-23 14:19, through the library commit and the `body-parser` lockfile bump, so Vite served outdated deps and the API still listed 213 deleted items. `lazyReload()`'s one reload cannot fix a stale server, so the second failure blanked the page. A top-level `ErrorBoundary` (`src/components/ErrorBoundary.tsx`, mounted in `main.tsx`) now shows "Something failed to load", says to restart the dev server, and offers Reload.
+
+**Docs**
+- `AGENTS.md` (read by Claude Code through `CLAUDE.md`): restart the dev server after any `npm install`, lockfile change or `api/`/`lib/`/`library/` change, and check its start time first when a black page is reported.
+- Debug Guide issue 6 and SETUP troubleshooting: restart is the fix, the reload alone is not; how to spot a stale server.
+
+_Touched: `site/src/components/ErrorBoundary.tsx`, `site/src/main.tsx`, `site/src/App.tsx`, `AGENTS.md`, `docs/development/DEBUG_UI.md`, `docs/setup/SETUP.md`._
+
+---
+
 ## 2026-10-23 — body-parser 1.20.9 (Dependabot #14)
 
 **Security**
