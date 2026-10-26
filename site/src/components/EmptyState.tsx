@@ -49,7 +49,7 @@ export default function EmptyState({ onBrowsePublic }: EmptyStateProps) {
           {
             icon: Plus,
             title: 'Write your own',
-            body: 'Use “New prompt” in the top bar. Markdown, tags and categories are all supported.',
+            body: 'Use “New item” in the top bar. Markdown, tags and categories are all supported.',
           },
         ].map(({ icon: Icon, title, body }) => (
           <div key={title} className="surface flex items-start gap-3 p-4 text-left">

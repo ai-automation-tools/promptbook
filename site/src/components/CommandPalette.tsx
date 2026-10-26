@@ -109,8 +109,8 @@ export default function CommandPalette({
       ...(READ_ONLY ? [] : [{
         key: 'action:new',
         group: 'Actions' as const,
-        label: 'New prompt',
-        hint: 'Create a prompt in My Library',
+        label: 'New item',
+        hint: 'Create a prompt, agent, skill or guide in My Library',
         icon: <Plus className="h-3.5 w-3.5" />,
         run: onNewPrompt,
       }]),

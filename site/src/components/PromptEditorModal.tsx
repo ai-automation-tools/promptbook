@@ -118,7 +118,7 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
       <ModalHeader
         id="editor-title"
         eyebrow={editingPrompt ? 'Editing' : 'My Library'}
-        title={editingPrompt ? 'Edit prompt' : 'New prompt'}
+        title={editingPrompt ? 'Edit item' : 'New item'}
         description="Markdown body, plus the metadata the library files on."
         onClose={onClose}
       />
@@ -252,7 +252,7 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
             Cancel
           </Button>
           <Button type="submit" variant="primary" disabled={saving} icon={<Save className="h-4 w-4" />}>
-            {saving ? 'Saving…' : editingPrompt ? 'Save changes' : 'Create prompt'}
+            {saving ? 'Saving…' : editingPrompt ? 'Save changes' : 'Create item'}
           </Button>
         </ModalFooter>
       </form>
