@@ -18,10 +18,12 @@ This template is for traditional prompt engineering - creating reusable prompts 
 - Optional examples and tips
 - Support for "featured" tag
 
-**Example Subcategories:**
-- 4_Prompts/Business/Marketing
-- 4_Prompts/Engineering/Code_Review
-- 4_Prompts/Writing/Content_Creation
+**Example Subcategories:** one folder per source collection, then the collection's own grouping
+- 4_Prompts/Awesome_ChatGPT/General
+- 4_Prompts/<Another_Collection>/<Its_Category>
+
+(The hand-written categories, `Business/`, `Engineering/` and the rest, were archived on 2026-10-26: a
+prompt without a public repo behind it no longer goes in the library.)
 
 ---
 

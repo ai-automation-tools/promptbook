@@ -16,7 +16,13 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 **Docs**
 - `AGENTS.md` and `docs/CONTRIBUTING.md`: the rule, where each section's repo comes from, the archive, and the checklist line. Prompt and guide templates show the new frontmatter; the `1_Guides` and `4_Prompts` folder READMEs describe what is there now.
 
-_Touched: `site/lib/library.ts`, `site/src/components/SourcePanel.tsx`, `site/library/4_Prompts/**`, `site/library/1_Guides/**`, `archive/`, `site/api/prompt-index.json`, `scripts/upstream.test.mjs`, `AGENTS.md`, `docs/CONTRIBUTING.md`, `docs/features/MCP-SERVER.md`, `docs/templates/*`._
+**Follow-up (after the merge, same day)**
+- `scripts/prompt_generation/`, which wrote prompt files from templates, moved to `archive/prompt_generation/`: nothing may write a prompt into the library now.
+- Roadmap: the `4_Prompts` provenance item is ticked (done by stamping the one corpus and archiving the rest; CI is the gate now), the Awesome ChatGPT decision notes it is the whole prompts section, and the "Where we are" note has a 2026-10-26 paragraph.
+- Example ids in the API, library-mode and template docs, and in the MCP server's instructions, point at paths that exist (`4_Prompts/Awesome_ChatGPT/General/…`).
+- The scheduled jobs that touch this repo (in `C:\Users\mikes\.claude\Routines`) follow the rule: Add Prompts copies prompts from public collections with an `upstream:` block instead of writing them, and every guide it adds names its tool's repo; the Prompts & Agents Refresh leaves prompt bodies alone (all vendored now) and only re-checks collection repos; Monthly Upkeep extends its no-source check to prompts and guides and archives, rather than deletes, what it cannot re-source; the org PR sweep merges new vendored prompts and archive moves instead of holding them.
+
+_Touched: `site/lib/library.ts`, `site/src/components/SourcePanel.tsx`, `site/library/4_Prompts/**`, `site/library/1_Guides/**`, `archive/`, `site/api/prompt-index.json`, `site/mcp/server.ts`, `site/scripts/mcp-server.test.mjs`, `scripts/upstream.test.mjs`, `AGENTS.md`, `docs/ROADMAP.md`, `docs/CONTRIBUTING.md`, `docs/features/API.md`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`, `docs/features/MCP-SERVER.md`, `docs/templates/*`._
 
 ---
 
