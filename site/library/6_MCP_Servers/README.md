@@ -12,11 +12,11 @@ themselves are installed from their sources, never vendored here.
 |:---|:---|
 | `Reference/` | Filesystem, Fetch, Memory, Sequential Thinking, Git, Time (`modelcontextprotocol/servers`) |
 | `Browser_Automation/` | Playwright, Chrome DevTools |
-| `Developer_Tools/` | GitHub, Context7, MarkItDown, REA, and this library's own server |
+| `Developer_Tools/` | GitHub, Context7, MarkItDown, REA, Codebase Memory, and this library's own server |
 | `Cloud_Platforms/` | Supabase, Cloudflare, AWS, MongoDB, Neon |
 | `Apps_and_Services/` | Notion, n8n workflow builder, Resend, Stripe |
 
-22 cards, started 2026-10-21.
+23 cards, started 2026-10-21.
 
 ## How it stays current
 

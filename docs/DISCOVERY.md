@@ -32,16 +32,19 @@ column, so never delete a row: change its status instead.
 
 | Repo | Kind | Stars | Licence | Pushed | Found | Status | Note |
 |:---|:---|---:|:---|:---|:---|:---|:---|
+| [OthmanAdi/planning-with-files](https://github.com/OthmanAdi/planning-with-files) | skills | 27,666 | mit | 2026-10-24 | 2026-10-26 | done | skill (scripts and templates included, i18n copies left) → 3_Skills/Development/Engineering/planning-with-files/, Mike 2026-10-26 |
+| [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | skills | 27,391 | mit | 2026-10-16 | 2026-10-26 | done | 6 skills → 3_Skills/Business/Strategy/ (create-prd, pre-mortem, opportunity-solution-tree, north-star-metric, lean-canvas, strategy-red-team); 55 left, Mike 2026-10-26 |
+| [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | mcp | 47,534 | mit | 2026-10-26 | 2026-10-26 | done | MCP card: 6_MCP_Servers/Developer_Tools/codebase-memory.md, Mike 2026-10-26 |
 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | skills | 53,545 | mit | 2026-10-19 | 2026-10-21 | done | 6 skills → 3_Skills/Data/ (scikit-learn, statsmodels, pymc, shap, seaborn, networkx); the other ~140 left, the science set is large |
 | [morluto/rea](https://github.com/morluto/rea) | mcp | 356,277 | mit | 2026-10-21 | 2026-10-21 | done | MCP card: 6_MCP_Servers/Developer_Tools/rea.md |
 | [tt-a1i/archify](https://github.com/tt-a1i/archify) | skills | 86,994 | mit | 2026-10-21 | 2026-10-21 | done | SKILL.md + references/ → 3_Skills/Design/archify/ (bin, renderers and examples, 18 MB, left out) |
 | [n8n-io/n8n](https://github.com/n8n-io/n8n) | mcp | 208,240 | Other | 2026-10-21 | 2026-10-21 | reject | the n8n product, not content; the n8n-mcp card covers MCP |
 | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | skills | 171,228 | mit | 2026-10-18 | 2026-10-21 | done | 6 skills → 3_Skills/Development/Engineering/ponytail* |
-| [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | skills | 109,256 | mit | 2026-10-13 | 2026-10-21 | accept | engineering skills; dedupe by purpose |
+| [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | skills | 109,256 | mit | 2026-10-13 | 2026-10-21 | done | 6 skills → 3_Skills/Development/Engineering/ (code-review-and-quality, spec-driven-development, incremental-implementation, security-and-hardening, context-engineering, doubt-driven-development); 19 left, 2026-10-26 |
 | [paperclipai/paperclip](https://github.com/paperclipai/paperclip) | skills | 105,594 | mit | 2026-10-21 | 2026-10-21 | reject | an agent-management app, not content |
 | [nexu-io/open-design](https://github.com/nexu-io/open-design) | skills | 103,051 | apache-2.0 | 2026-10-21 | 2026-10-21 | reject | a design workspace app, not content |
 | [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | skills | 102,114 | apache-2.0 | 2026-10-21 | 2026-10-21 | link | a Claude Code memory plugin; a tool, nothing to vendor |
-| [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | skills | 100,436 | mit | 2026-10-20 | 2026-10-21 | accept | frontend taste skill |
+| [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | skills | 100,436 | mit | 2026-10-20 | 2026-10-21 | done | SKILL.md + references/ → 3_Skills/Design/design-taste-frontend/ (its own name); assets, library JSON and scripts (2.4 MB) left out, 2026-10-26 |
 | [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) | mcp | 96,708 | mit | 2026-10-18 | 2026-10-21 | link | the largest MCP server list; source for future cards |
 | [koala73/worldmonitor](https://github.com/koala73/worldmonitor) | mcp | 89,074 | agpl-3.0 | 2026-10-21 | 2026-10-21 | reject | an AGPL dashboard app, not content |
 | [D4Vinci/Scrapling](https://github.com/D4Vinci/Scrapling) | mcp | 89,018 | bsd-3-clause | 2026-10-21 | 2026-10-21 | reject | its MCP server is pitched on CAPTCHA and Cloudflare bypass |
@@ -52,12 +55,37 @@ column, so never delete a row: change its status instead.
 | [shanraisshan/claude-code-best-practice](https://github.com/shanraisshan/claude-code-best-practice) | agents | 67,877 | mit | 2026-10-21 | 2026-10-21 | link | Claude Code practice notes; overlaps 1_Guides |
 | [upstash/context7](https://github.com/upstash/context7) | mcp | 63,434 | mit | 2026-10-21 | 2026-10-21 | done | MCP card: 6_MCP_Servers/Developer_Tools/context7.md |
 | [sansan0/TrendRadar](https://github.com/sansan0/TrendRadar) | mcp | 63,079 | gpl-3.0 | 2026-10-20 | 2026-10-21 | reject | a GPL news-monitoring app, not content |
-| [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | skills | 59,437 | mit | 2026-10-21 | 2026-10-21 | accept | diagram design skill |
-| [blader/humanizer](https://github.com/blader/humanizer) | skills | 59,217 | mit | 2026-10-16 | 2026-10-21 | accept | writing skill; check overlap with existing humanizer passes |
-| [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) | skills | 58,134 | mit | 2026-10-19 | 2026-10-21 | accept | output-format skill |
+| [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | skills | 59,437 | mit | 2026-10-21 | 2026-10-21 | done | SKILL.md + references/ + scripts/ → 3_Skills/Design/diagram-design/; the 150 example HTML files in assets/ (6 MB) left out, 2026-10-26 |
+| [blader/humanizer](https://github.com/blader/humanizer) | skills | 59,217 | mit | 2026-10-16 | 2026-10-21 | done | it is the origin of the humanizer already in 3_Skills/Content/General/: re-pointed to blader/humanizer (match: exact) and updated to v3.1.0, 2026-10-26 |
+| [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) | skills | 58,134 | mit | 2026-10-19 | 2026-10-21 | done | skill → 3_Skills/Content/General/i-have-adhd/, 2026-10-26 |
 | [hesreallyhim/awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code) | skills | 56,185 | Other | 2026-10-21 | 2026-10-21 | link | curated Claude Code list (licence: other) |
-| [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | skills | 55,801 | mit | 2026-10-19 | 2026-10-21 | accept | marketing skills; dedupe against 3_Skills/Business/Marketing |
+| [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | skills | 55,801 | mit | 2026-10-19 | 2026-10-21 | done | 6 skills → 3_Skills/Business/Marketing/ (cro, ab-testing, cold-email, marketing-psychology, onboarding, churn-prevention); 46 left, pricing skipped (Business/Strategy/pricing-strategy covers it), 2026-10-26 |
 | [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) | mcp | 53,946 | apache-2.0 | 2026-10-21 | 2026-10-21 | done | MCP card: 6_MCP_Servers/Browser_Automation/chrome-devtools.md |
 | [VoltAgent/awesome-openclaw-skills](https://github.com/VoltAgent/awesome-openclaw-skills) | skills | 53,256 | mit | 2026-10-19 | 2026-10-21 | link | OpenClaw skill list, 5,400+ entries |
 | [CherryHQ/cherry-studio](https://github.com/CherryHQ/cherry-studio) | skills | 52,833 | agpl-3.0 | 2026-10-21 | 2026-10-21 | reject | a desktop AI client (AGPL), not content |
+| [sickn33/agentic-awesome-skills](https://github.com/sickn33/agentic-awesome-skills) | skills | 48,524 | mit | 2026-10-24 | 2026-10-26 | pending | new |
+| [alibaba/open-code-review](https://github.com/alibaba/open-code-review) | skills | 48,335 | apache-2.0 | 2026-10-22 | 2026-10-26 | pending | new |
+| [reactive-resume/reactive-resume](https://github.com/reactive-resume/reactive-resume) | skills | 44,893 | mit | 2026-10-26 | 2026-10-26 | pending | popular |
+| [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) | skills | 36,392 | mit | 2026-10-25 | 2026-10-26 | pending | new |
+| [virgiliojr94/book-to-skill](https://github.com/virgiliojr94/book-to-skill) | skills | 36,170 | mit | 2026-10-25 | 2026-10-26 | pending | new |
+| [topoteretes/cognee](https://github.com/topoteretes/cognee) | skills | 32,776 | apache-2.0 | 2026-10-26 | 2026-10-26 | pending | popular |
+| [mksglu/context-mode](https://github.com/mksglu/context-mode) | mcp | 32,391 | Other | 2026-10-26 | 2026-10-26 | pending | new |
+| [feder-cr/invisible_dots](https://github.com/feder-cr/invisible_dots) | skills | 32,257 | mit | 2026-10-25 | 2026-10-26 | pending | popular |
+| [oraios/serena](https://github.com/oraios/serena) | mcp | 30,733 | Other | 2026-10-26 | 2026-10-26 | pending | popular |
+| [assafelovic/gpt-researcher](https://github.com/assafelovic/gpt-researcher) | mcp | 30,302 | apache-2.0 | 2026-10-10 | 2026-10-26 | pending | popular |
+| [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) | skills | 26,977 | mit | 2026-09-10 | 2026-10-26 | pending | new |
+| [alchaincyf/huashu-design](https://github.com/alchaincyf/huashu-design) | skills | 26,606 | mit | 2026-10-23 | 2026-10-26 | pending | new |
+| [titanwings/distilly](https://github.com/titanwings/distilly) | skills | 26,048 | mit | 2026-10-13 | 2026-10-26 | pending | new |
+| [activepieces/activepieces](https://github.com/activepieces/activepieces) | mcp | 25,236 | Other | 2026-10-26 | 2026-10-26 | pending | popular |
+| [1Panel-dev/MaxKB](https://github.com/1Panel-dev/MaxKB) | mcp | 23,041 | gpl-3.0 | 2026-10-26 | 2026-10-26 | pending | popular |
+| [modelscope/FunASR](https://github.com/modelscope/FunASR) | mcp | 20,827 | mit | 2026-10-22 | 2026-10-26 | pending | popular |
+| [nukeop/nuclear](https://github.com/nukeop/nuclear) | mcp | 18,786 | agpl-3.0 | 2026-10-26 | 2026-10-26 | pending | popular |
+| [latent-spaces/brag](https://github.com/latent-spaces/brag) | skills | 18,761 | mit | 2026-10-23 | 2026-10-26 | pending | new |
+| [wanshuiyin/Auto-claude-code-research-in-sleep](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep) | mcp | 18,111 | mit | 2026-10-24 | 2026-10-26 | pending | new |
+| [microsoft/mcp-for-beginners](https://github.com/microsoft/mcp-for-beginners) | mcp | 17,516 | mit | 2026-10-25 | 2026-10-26 | pending | popular |
+| [xerj-org/xerj](https://github.com/xerj-org/xerj) | mcp | 16,760 | apache-2.0 | 2026-10-26 | 2026-10-26 | pending | new |
+| [triggerdotdev/trigger.dev](https://github.com/triggerdotdev/trigger.dev) | mcp | 16,621 | apache-2.0 | 2026-10-26 | 2026-10-26 | pending | popular |
+| [xpzouying/xiaohongshu-mcp](https://github.com/xpzouying/xiaohongshu-mcp) | mcp | 16,583 | apache-2.0 | 2026-10-26 | 2026-10-26 | pending | popular |
+| [budtmo/docker-android](https://github.com/budtmo/docker-android) | mcp | 16,040 | Other | 2026-10-26 | 2026-10-26 | pending | popular |
+| [travisvn/awesome-claude-skills](https://github.com/travisvn/awesome-claude-skills) | skills | 15,573 | none | 2026-04-28 | 2026-10-26 | pending | popular; no licence, ask before vendoring |
 <!-- discover-repos: new rows go above this line -->

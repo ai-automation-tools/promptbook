@@ -29,24 +29,23 @@ This directory contains reusable skill modules following the AgentSkills specifi
 
 ## 📊 Statistics
 
-- **Total Skills:** 323 (all SKILL.md files)
+- **Total Skills:** 256 (all SKILL.md files, counted 2026-10-26)
 - **Categories:** 10 (reduced from 26)
-- **Reduction:** 62%
 
 ### Skills by Category
 
 | Category | Skills | Description |
 |----------|--------|-------------|
-| Development | 106 | DevOps, Git, Cloud, Mobile, Blockchain, Engineering |
-| Finance | 55 | Financial analysis, prediction markets |
-| Content | 40 | Documentation, writing, productivity, video |
-| Design | 29 | UI/UX, game design |
-| Business | 14 | Marketing, operations, analytics |
+| Development | 74 | DevOps, Git, Cloud, Mobile, Blockchain, Engineering |
+| Finance | 46 | Financial analysis, prediction markets |
+| Content | 30 | Documentation, writing, productivity, video |
+| Business | 29 | Marketing, product strategy, operations, analytics |
+| Data | 19 | Data science, analytics |
+| Platform_Integrations | 15 | Linear, Notion, n8n, Feishu, Academy |
 | Security | 14 | Security testing, compliance |
-| Enterprise | 13 | Communications, governance |
-| Data | 29 | Data science, analytics |
-| AI_ML | 16 | AI engineering, MCP, prompting |
-| Platform_Integrations | 6 | Linear, Notion, n8n, Feishu, Academy |
+| Enterprise | 12 | Communications, governance |
+| AI_ML | 11 | AI engineering, MCP, prompting |
+| Design | 6 | UI/UX, diagrams, frontend taste, game design |
 
 ---
 
