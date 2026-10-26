@@ -32,6 +32,10 @@ column, so never delete a row: change its status instead.
 
 | Repo | Kind | Stars | Licence | Pushed | Found | Status | Note |
 |:---|:---|---:|:---|:---|:---|:---|:---|
+| [danielmiessler/Fabric](https://github.com/danielmiessler/Fabric) | prompts | 44,440 | mit | 2026-10-26 | 2026-10-26 | done | 265 patterns → 4_Prompts/Fabric/<topic>/ (system.md verbatim, match: exact), Mike 2026-10-26 |
+| [rockbenben/ChatGPT-Shortcut](https://github.com/rockbenben/ChatGPT-Shortcut) | prompts | 8,872 | mit | 2026-10-09 | 2026-10-26 | done | 119 English cards → 4_Prompts/ChatGPT_Shortcut/<tag>/; the 160 it took from Awesome ChatGPT left out, Mike 2026-10-26 |
+| [mustvlad/ChatGPT-System-Prompts](https://github.com/mustvlad/ChatGPT-System-Prompts) | prompts | 1,228 | mit | 2024-12-11 | 2026-10-26 | done | 38 prompts → 4_Prompts/ChatGPT_System_Prompts/<group>/; 8 whose titles were already here left out, Mike 2026-10-26 |
+| [microsoft/prompts-for-edu](https://github.com/microsoft/prompts-for-edu) | prompts | 1,887 | mit | 2024-04-05 | 2026-10-26 | done | 15 prompts → 4_Prompts/Microsoft_Prompts_For_Edu/<audience>/, Mike 2026-10-26 |
 | [OthmanAdi/planning-with-files](https://github.com/OthmanAdi/planning-with-files) | skills | 27,666 | mit | 2026-10-24 | 2026-10-26 | done | skill (scripts and templates included, i18n copies left) → 3_Skills/Development/Engineering/planning-with-files/, Mike 2026-10-26 |
 | [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | skills | 27,391 | mit | 2026-10-16 | 2026-10-26 | done | 6 skills → 3_Skills/Business/Strategy/ (create-prd, pre-mortem, opportunity-solution-tree, north-star-metric, lean-canvas, strategy-red-team); 55 left, Mike 2026-10-26 |
 | [DeusData/codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | mcp | 47,534 | mit | 2026-10-26 | 2026-10-26 | done | MCP card: 6_MCP_Servers/Developer_Tools/codebase-memory.md, Mike 2026-10-26 |
