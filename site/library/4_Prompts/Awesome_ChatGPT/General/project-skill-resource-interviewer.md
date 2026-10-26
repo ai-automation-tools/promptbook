@@ -3,6 +3,10 @@ title: "🤖 Project Skill & Resource Interviewer"
 tags: ["awesome-chatgpt", "project", "skill", "resource", "interviewer"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Project Skill & Resource Interviewer

@@ -3,6 +3,10 @@ title: "🤖 Festive New Year 2026 Image Analysis"
 tags: ["awesome-chatgpt", "festive", "new", "year", "2026"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Festive New Year 2026 Image Analysis

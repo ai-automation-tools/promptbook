@@ -3,6 +3,10 @@ title: "🤖 China Business Law Assistant"
 tags: ["awesome-chatgpt", "china", "business", "law"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # China Business Law Assistant

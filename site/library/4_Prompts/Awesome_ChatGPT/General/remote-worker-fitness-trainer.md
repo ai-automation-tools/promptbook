@@ -3,6 +3,10 @@ title: "🤖 Remote Worker Fitness Trainer"
 tags: ["awesome-chatgpt", "remote", "worker", "fitness", "trainer"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Remote Worker Fitness Trainer

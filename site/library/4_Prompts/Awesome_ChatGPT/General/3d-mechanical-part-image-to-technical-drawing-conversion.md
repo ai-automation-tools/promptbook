@@ -3,6 +3,10 @@ title: "🤖 3D Mechanical Part Image to Technical Drawing Conversion"
 tags: ["awesome-chatgpt", "mechanical", "part", "image", "technical"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # 3D Mechanical Part Image to Technical Drawing Conversion

@@ -3,6 +3,10 @@ title: "🤖 Cinematic Neo-Noir Triptych in Digital Art"
 tags: ["awesome-chatgpt", "cinematic", "neo", "noir", "triptych"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Cinematic Neo-Noir Triptych in Digital Art

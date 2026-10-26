@@ -3,6 +3,10 @@ title: "🤖 Snapshot of a Turkish Hospital Night: A Dramedy Scene"
 tags: ["awesome-chatgpt", "snapshot", "turkish", "hospital", "night"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Snapshot of a Turkish Hospital Night: A Dramedy Scene

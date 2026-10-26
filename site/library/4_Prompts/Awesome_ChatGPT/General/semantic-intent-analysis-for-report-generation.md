@@ -3,6 +3,10 @@ title: "🤖 Semantic Intent Analysis for Report Generation"
 tags: ["awesome-chatgpt", "semantic", "intent", "analysis", "report"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Semantic Intent Analysis for Report Generation

@@ -3,6 +3,10 @@ title: "🤖 Hyper-Realistic 3D Isometric Ottoman Masterpiece"
 tags: ["awesome-chatgpt", "hyper", "realistic", "isometric", "ottoman"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Hyper-Realistic 3D Isometric Ottoman Masterpiece

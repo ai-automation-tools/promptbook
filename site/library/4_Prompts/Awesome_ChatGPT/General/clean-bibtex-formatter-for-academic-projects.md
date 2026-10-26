@@ -3,6 +3,10 @@ title: "🤖 Clean BibTeX Formatter for Academic Projects"
 tags: ["awesome-chatgpt", "clean", "bibtex", "formatter", "academic"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Clean BibTeX Formatter for Academic Projects

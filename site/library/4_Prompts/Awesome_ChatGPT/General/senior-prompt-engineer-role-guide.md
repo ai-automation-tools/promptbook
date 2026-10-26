@@ -3,6 +3,10 @@ title: "🤖 Senior Prompt Engineer Role Guide"
 tags: ["awesome-chatgpt", "senior", "engineer", "role", "guide"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Senior Prompt Engineer Role Guide

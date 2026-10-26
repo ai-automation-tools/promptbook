@@ -3,6 +3,10 @@ title: "🤖 Code Review Expert"
 tags: ["awesome-chatgpt", "code", "review", "expert"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Code Review Expert

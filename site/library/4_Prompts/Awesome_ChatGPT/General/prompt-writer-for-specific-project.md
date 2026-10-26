@@ -3,6 +3,10 @@ title: "🤖 Prompt Writer for Specific Project"
 tags: ["awesome-chatgpt", "writer", "specific", "project"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Prompt Writer for Specific Project

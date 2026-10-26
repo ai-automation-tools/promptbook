@@ -3,6 +3,10 @@ title: "🤖 Comprehensive Repository Analysis and Bug Fixing Framework"
 tags: ["awesome-chatgpt", "comprehensive", "repository", "analysis", "bug"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Comprehensive Repository Analysis and Bug Fixing Framework

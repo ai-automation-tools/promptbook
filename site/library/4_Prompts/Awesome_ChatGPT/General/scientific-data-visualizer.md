@@ -3,6 +3,10 @@ title: "🤖 Scientific Data Visualizer"
 tags: ["awesome-chatgpt", "scientific", "data", "visualizer"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Scientific Data Visualizer

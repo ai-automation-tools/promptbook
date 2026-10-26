@@ -4,6 +4,21 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-26 — The repo link at the top of every card, in all six sections
+
+**Changes**
+- Guides and prompts now show the same GitHub panel at the top of the item page that skills, agents, system prompts and MCP cards already had. `sourceOf()` in `site/lib/library.ts` reads a guide's bare `repo:` as a third source after `upstream.repo` and `server.repo`.
+- The 1,349 Awesome ChatGPT prompts carry an `upstream:` block (`match: similar`, `repo: f/awesome-chatgpt-prompts`, `checked: 2026-10-26`), the collection their footers already named.
+- 70 guides carry `repo:` naming the tool they document (`anthropics/claude-code`, `openai/codex`, `Aider-AI/aider`, `cursor/cursor`, …). Each repo was checked on GitHub first; renamed ones were stamped under their current name, archived ones (Codeium, TabNine, Copilot Chat) were left out.
+- Still without a link: 28 guides (the six Concepts pages, five hand-written agent configs, and tools with no public repo such as Windsurf, JetBrains AI Assistant, Supermaven, Kite, Cody, Docker AI, OpenClaw) and the 670 hand-written prompts outside Awesome ChatGPT. They render as before, without the panel. CI does not require a repo on a guide or prompt.
+
+**Docs**
+- `AGENTS.md` and `docs/CONTRIBUTING.md`: the rule, where each section's repo comes from, and the checklist line. Prompt and guide templates show the new frontmatter.
+
+_Touched: `site/lib/library.ts`, `site/src/components/SourcePanel.tsx`, `site/library/4_Prompts/Awesome_ChatGPT/**`, 70 files under `site/library/1_Guides/`, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CONTRIBUTING.md`, `docs/templates/*`._
+
+---
+
 ## 2026-10-26 — Stale dev server shows an error, not a black page
 
 **Fixes**

@@ -3,6 +3,10 @@ title: "🤖 Minimalist Landscape Illustration by Ryo Takemasa"
 tags: ["awesome-chatgpt", "minimalist", "landscape", "illustration", "ryo"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Minimalist Landscape Illustration by Ryo Takemasa

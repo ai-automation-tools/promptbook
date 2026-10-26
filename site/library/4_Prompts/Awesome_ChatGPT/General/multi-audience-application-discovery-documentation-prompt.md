@@ -3,6 +3,10 @@ title: "🤖 Multi-Audience Application Discovery & Documentation Prompt"
 tags: ["awesome-chatgpt", "multi", "audience", "application", "discovery"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Multi-Audience Application Discovery & Documentation Prompt

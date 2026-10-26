@@ -3,6 +3,10 @@ title: "🤖 Flight Tracker Desktop Application"
 tags: ["awesome-chatgpt", "flight", "tracker", "desktop", "application"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Flight Tracker Desktop Application

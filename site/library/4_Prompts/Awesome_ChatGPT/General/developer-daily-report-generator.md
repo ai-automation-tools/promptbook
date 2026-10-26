@@ -3,6 +3,10 @@ title: "🤖 Developer Daily Report Generator"
 tags: ["awesome-chatgpt", "developer", "daily", "report"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Developer Daily Report Generator

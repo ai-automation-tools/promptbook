@@ -3,6 +3,10 @@ title: "🤖 Coach for Identifying Growth-Limiting Patterns"
 tags: ["awesome-chatgpt", "coach", "identifying", "growth", "limiting"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Coach for Identifying Growth-Limiting Patterns

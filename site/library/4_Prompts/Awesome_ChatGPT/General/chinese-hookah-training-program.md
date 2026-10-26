@@ -3,6 +3,10 @@ title: "🤖 Chinese Hookah Training Program"
 tags: ["awesome-chatgpt", "chinese", "hookah", "training", "program"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Chinese Hookah Training Program

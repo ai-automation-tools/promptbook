@@ -3,6 +3,10 @@ title: "🤖 Social media swipe post content #1"
 tags: ["awesome-chatgpt", "social", "media", "swipe", "post"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Social media swipe post content #1

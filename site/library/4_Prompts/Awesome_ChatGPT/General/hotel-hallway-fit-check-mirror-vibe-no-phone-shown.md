@@ -3,6 +3,10 @@ title: "🤖 Hotel Hallway Fit Check (mirror vibe, no phone shown)"
 tags: ["awesome-chatgpt", "hotel", "hallway", "fit", "check"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Hotel Hallway Fit Check (mirror vibe, no phone shown)

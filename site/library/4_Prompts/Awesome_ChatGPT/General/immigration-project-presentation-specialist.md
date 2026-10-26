@@ -3,6 +3,10 @@ title: "🤖 Immigration Project Presentation Specialist"
 tags: ["awesome-chatgpt", "immigration", "project", "presentation", "specialist"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Immigration Project Presentation Specialist

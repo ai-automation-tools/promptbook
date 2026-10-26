@@ -3,6 +3,10 @@ title: "🤖 Micro-SaaS \"Vibecoder\" Architect"
 tags: ["awesome-chatgpt", "micro", "saas", "vibecoder", "architect"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Micro-SaaS "Vibecoder" Architect

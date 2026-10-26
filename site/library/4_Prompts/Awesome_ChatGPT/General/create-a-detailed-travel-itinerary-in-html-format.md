@@ -3,6 +3,10 @@ title: "🤖 Create a detailed travel itinerary in HTML format"
 tags: ["awesome-chatgpt", "create", "detailed", "travel", "itinerary"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Create a detailed travel itinerary in HTML format

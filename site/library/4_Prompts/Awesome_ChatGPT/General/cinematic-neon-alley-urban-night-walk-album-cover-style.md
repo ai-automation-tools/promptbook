@@ -3,6 +3,10 @@ title: "🤖 Cinematic Neon Alley – Urban Night Walk (Album Cover Style)"
 tags: ["awesome-chatgpt", "cinematic", "neon", "alley", "urban"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Cinematic Neon Alley – Urban Night Walk (Album Cover Style)

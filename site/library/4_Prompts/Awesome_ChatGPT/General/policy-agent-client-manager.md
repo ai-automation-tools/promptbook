@@ -3,6 +3,10 @@ title: "🤖 Policy Agent Client Manager"
 tags: ["awesome-chatgpt", "policy", "agent", "client", "manager"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Policy Agent Client Manager

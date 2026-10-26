@@ -3,6 +3,10 @@ title: "🤖 Test Python Algorithmic Trading Project"
 tags: ["awesome-chatgpt", "test", "python", "algorithmic", "trading"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Test Python Algorithmic Trading Project

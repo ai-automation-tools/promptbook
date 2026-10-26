@@ -3,6 +3,10 @@ title: "🤖 URL, Title, and Description Analysis Tool with LSI Keywords"
 tags: ["awesome-chatgpt", "url", "title", "description", "analysis"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # URL, Title, and Description Analysis Tool with LSI Keywords

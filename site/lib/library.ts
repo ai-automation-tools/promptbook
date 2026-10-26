@@ -139,8 +139,9 @@ export interface ItemSource {
 const REPO = /^[\w.-]+\/[\w.-]+$/;
 
 /**
- * An item's source: the `upstream:` block attribute-upstream.mjs stamps on skills
- * and agents, or an MCP card's `server.repo`, plus the weekly verdict for it.
+ * An item's source: the `upstream:` block attribute-upstream.mjs stamps on skills,
+ * agents, system prompts and prompts, an MCP card's `server.repo`, or a guide's bare
+ * `repo:` (the tool it documents), plus the weekly verdict where there is one.
  * Undefined when no single repo is known (`unknown`, `ambiguous`, nothing stamped).
  */
 export function sourceOf(id: string, frontmatter: Record<string, unknown>): ItemSource | undefined {
@@ -151,7 +152,7 @@ export function sourceOf(id: string, frontmatter: Record<string, unknown>): Item
     const checked = up.checked instanceof Date ? up.checked.toISOString().slice(0, 10) : typeof up.checked === 'string' ? up.checked : undefined;
     return { repo: new URL(up.url).hostname, url: up.url, match: 'vendor', ...(checked ? { checked } : {}) };
   }
-  const repo = typeof up?.repo === 'string' ? up.repo : typeof server?.repo === 'string' ? server.repo : undefined;
+  const repo = [up?.repo, server?.repo, frontmatter.repo].find((r): r is string => typeof r === 'string');
   if (!repo || !REPO.test(repo)) return undefined;
   if (up && (up.match === 'unknown' || up.match === 'ambiguous')) return undefined;
 

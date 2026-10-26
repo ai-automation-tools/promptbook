@@ -3,6 +3,10 @@ title: "🤖 Color Consistency Analysis and Adjustment"
 tags: ["awesome-chatgpt", "color", "consistency", "analysis", "adjustment"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Color Consistency Analysis and Adjustment

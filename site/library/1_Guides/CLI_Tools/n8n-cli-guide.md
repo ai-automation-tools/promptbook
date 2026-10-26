@@ -3,6 +3,7 @@ title: "📚 N8N CLI Guide"
 tags: ["cli", "guide", "tools"]
 category: "Agent_Guides"
 subcategory: "CLI_Tools"
+repo: n8n-io/n8n
 ---
 
 # N8N CLI Guide

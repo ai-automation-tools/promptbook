@@ -3,6 +3,10 @@ title: "🤖 A Half-Built Pyramid and the Leader Who Turned Labor Into Legacy"
 tags: ["awesome-chatgpt", "half", "built", "pyramid", "leader"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # A Half-Built Pyramid and the Leader Who Turned Labor Into Legacy

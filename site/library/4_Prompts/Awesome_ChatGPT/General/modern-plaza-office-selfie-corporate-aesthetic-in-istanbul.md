@@ -3,6 +3,10 @@ title: "🤖 Modern Plaza Office Selfie — Corporate Aesthetic in Istanbul"
 tags: ["awesome-chatgpt", "modern", "plaza", "office", "selfie"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Modern Plaza Office Selfie — Corporate Aesthetic in Istanbul

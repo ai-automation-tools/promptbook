@@ -3,6 +3,10 @@ title: "🤖 Dramatic Digital Painting of a Solitary Figure in a Snowy Landscape
 tags: ["awesome-chatgpt", "dramatic", "digital", "painting", "solitary"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Dramatic Digital Painting of a Solitary Figure in a Snowy Landscape

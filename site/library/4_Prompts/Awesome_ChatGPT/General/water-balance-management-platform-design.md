@@ -3,6 +3,10 @@ title: "🤖 Water Balance Management Platform Design"
 tags: ["awesome-chatgpt", "water", "balance", "management", "platform"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Water Balance Management Platform Design

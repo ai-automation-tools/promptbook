@@ -3,6 +3,7 @@ title: "OpenAI API & CLI Guide"
 tags: ["openai", "gpt-6", "gpt-5", "cli", "reference", "api", "codex", "responses-api"]
 category: "Agent_Guides"
 subcategory: "API_Providers"
+repo: openai/openai-python
 ---
 ## CLI Sync Notes (September 2026)
 

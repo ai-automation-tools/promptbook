@@ -3,6 +3,10 @@ title: "🤖 AI Themed Design Image Creation"
 tags: ["awesome-chatgpt", "themed", "design", "image", "creation"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # AI Themed Design Image Creation

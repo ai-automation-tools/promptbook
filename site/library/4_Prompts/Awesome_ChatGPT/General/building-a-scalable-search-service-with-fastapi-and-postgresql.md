@@ -3,6 +3,10 @@ title: "🤖 Building a Scalable Search Service with FastAPI and PostgreSQL"
 tags: ["awesome-chatgpt", "building", "scalable", "search", "service"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Building a Scalable Search Service with FastAPI and PostgreSQL

@@ -3,6 +3,10 @@ title: "🤖 illustration for teenagers, side silhouette of a young person. Insi
 tags: ["awesome-chatgpt", "illustration", "teenagers", "side", "silhouette"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # illustration for teenagers, side silhouette of a young person. Inside the head a question mark transforming into light t. Deep purple and blue tones, minimalist and , v.

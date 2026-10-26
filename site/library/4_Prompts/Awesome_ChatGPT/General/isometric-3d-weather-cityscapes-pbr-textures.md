@@ -3,6 +3,10 @@ title: "🤖 Isometric 3D Weather Cityscapes (PBR Textures)"
 tags: ["awesome-chatgpt", "isometric", "weather", "cityscapes", "pbr"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Isometric 3D Weather Cityscapes (PBR Textures)

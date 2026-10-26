@@ -3,6 +3,7 @@ title: "💻 Aider AI Pair Programming Guide"
 tags: ["featured", "aider", "cli", "pair-programming", "open-source", "terminal"]
 category: "Agent_Guides"
 subcategory: "CLI_Tools"
+repo: Aider-AI/aider
 ---
 
 <!-- Last Updated: 2026-03-31 - Based on official Aider documentation -->

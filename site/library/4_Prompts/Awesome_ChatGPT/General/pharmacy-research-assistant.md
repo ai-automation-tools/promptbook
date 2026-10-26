@@ -3,6 +3,10 @@ title: "🤖 Pharmacy Research Assistant"
 tags: ["awesome-chatgpt", "pharmacy", "research"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Pharmacy Research Assistant

@@ -3,6 +3,10 @@ title: "🤖 Dynamic character profile generator"
 tags: ["awesome-chatgpt", "dynamic", "character", "profile"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Dynamic character profile generator

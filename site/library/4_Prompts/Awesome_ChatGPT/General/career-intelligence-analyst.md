@@ -3,6 +3,10 @@ title: "🤖 Career Intelligence Analyst"
 tags: ["awesome-chatgpt", "career", "intelligence", "analyst"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Career Intelligence Analyst

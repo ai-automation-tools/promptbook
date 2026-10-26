@@ -3,6 +3,10 @@ title: "🤖 Vintage Black and White Photograph of Galata Tower"
 tags: ["awesome-chatgpt", "vintage", "black", "white", "photograph"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Vintage Black and White Photograph of Galata Tower

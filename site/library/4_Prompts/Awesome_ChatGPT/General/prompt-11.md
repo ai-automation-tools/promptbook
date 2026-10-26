@@ -3,6 +3,10 @@ title: "🤖 网络故障报告撰写"
 tags: ["awesome-chatgpt"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # 网络故障报告撰写

@@ -3,6 +3,10 @@ title: "🤖 TikTok Marketing Visual Designer Agent"
 tags: ["awesome-chatgpt", "tiktok", "marketing", "visual", "designer"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # TikTok Marketing Visual Designer Agent

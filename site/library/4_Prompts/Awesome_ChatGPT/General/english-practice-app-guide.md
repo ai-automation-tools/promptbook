@@ -3,6 +3,10 @@ title: "🤖 English Practice App Guide"
 tags: ["awesome-chatgpt", "english", "practice", "app", "guide"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # English Practice App Guide

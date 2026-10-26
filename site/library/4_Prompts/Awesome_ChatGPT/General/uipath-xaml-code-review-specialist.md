@@ -3,6 +3,10 @@ title: "🤖 UiPath XAML Code Review Specialist"
 tags: ["awesome-chatgpt", "uipath", "xaml", "code", "review"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # UiPath XAML Code Review Specialist

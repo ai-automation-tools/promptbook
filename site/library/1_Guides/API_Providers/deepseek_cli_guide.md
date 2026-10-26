@@ -3,6 +3,7 @@ title: "DeepSeek CLI Guide"
 tags: ["deepseek", "cli", "reference", "api", "chinese-ai","featured"]
 category: "Agent_Guides"
 subcategory: "API_Providers"
+repo: deepseek-ai/DeepSeek-V3
 ---
 ## CLI Sync Notes (March 2026)
 

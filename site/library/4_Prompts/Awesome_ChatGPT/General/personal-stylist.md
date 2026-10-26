@@ -3,6 +3,10 @@ title: "🤖 Personal Stylist"
 tags: ["awesome-chatgpt", "personal", "stylist"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Personal Stylist

@@ -59,6 +59,12 @@ MCP cards use `server.repo` instead (see the MCP template). A system prompt the 
 only on its own docs page uses `match: vendor` + `url`. `scripts/upstream.test.mjs` fails CI on
 any of these files without a source, so an item with no repo doesn't go in.
 
+Prompts and guides carry a repo too, so every card shows the same GitHub link at the top
+(since 2026-10-26). A prompt copied from a collection gets the `upstream:` block above
+(`match: similar`, `repo: f/awesome-chatgpt-prompts` for the Awesome ChatGPT set). A guide is
+written here, not copied, so it names the tool it documents with a bare `repo: owner/name` line
+instead. Neither is enforced by CI yet.
+
 ### Field Rules
 
 **1. `title`**
@@ -200,6 +206,7 @@ Before submitting, verify:
 - [ ] Used correct template for content type
 - [ ] All 4 required metadata fields present
 - [ ] Skill, agent, system prompt or MCP card: its source is named (`upstream:` or `server.repo`)
+- [ ] Prompt copied from a collection: `upstream:` names it; guide: `repo:` names the tool it documents
 - [ ] Title includes appropriate emoji icon
 - [ ] Tags are relevant (3-6)
 - [ ] File name is lowercase with hyphens

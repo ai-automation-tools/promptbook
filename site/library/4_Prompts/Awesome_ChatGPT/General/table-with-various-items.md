@@ -3,6 +3,10 @@ title: "🤖 Table with Various Items"
 tags: ["awesome-chatgpt", "table", "various", "items"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Table with Various Items

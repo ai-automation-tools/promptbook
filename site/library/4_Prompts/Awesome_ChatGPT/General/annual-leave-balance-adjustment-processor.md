@@ -3,6 +3,10 @@ title: "🤖 Annual Leave Balance Adjustment Processor"
 tags: ["awesome-chatgpt", "annual", "leave", "balance", "adjustment"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Annual Leave Balance Adjustment Processor

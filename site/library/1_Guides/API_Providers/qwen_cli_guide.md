@@ -3,6 +3,7 @@ title: "Qwen CLI Guide"
 tags: ["qwen", "alibaba", "cli", "reference", "api", "chinese-ai"]
 category: "Agent_Guides"
 subcategory: "API_Providers"
+repo: QwenLM/qwen-code
 ---
 ## CLI Sync Notes (March 2026)
 

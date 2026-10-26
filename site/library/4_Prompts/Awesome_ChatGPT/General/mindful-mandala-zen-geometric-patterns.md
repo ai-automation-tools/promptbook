@@ -3,6 +3,10 @@ title: "🤖 Mindful Mandala & Zen Geometric Patterns"
 tags: ["awesome-chatgpt", "mindful", "mandala", "zen", "geometric"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Mindful Mandala & Zen Geometric Patterns

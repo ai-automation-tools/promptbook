@@ -3,6 +3,10 @@ title: "🤖 Edit a New Year's Video for Antioch Textile with Nano Banana"
 tags: ["awesome-chatgpt", "edit", "new", "year", "video"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Edit a New Year's Video for Antioch Textile with Nano Banana

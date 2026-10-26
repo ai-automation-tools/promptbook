@@ -3,6 +3,10 @@ title: "🤖 Compare Top Virtualization Solutions"
 tags: ["awesome-chatgpt", "compare", "top", "virtualization", "solutions"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Compare Top Virtualization Solutions

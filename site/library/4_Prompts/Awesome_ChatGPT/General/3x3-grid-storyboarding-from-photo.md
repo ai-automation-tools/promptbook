@@ -3,6 +3,10 @@ title: "🤖 3x3 Grid Storyboarding from Photo"
 tags: ["awesome-chatgpt", "3x3", "grid", "storyboarding", "photo"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # 3x3 Grid Storyboarding from Photo

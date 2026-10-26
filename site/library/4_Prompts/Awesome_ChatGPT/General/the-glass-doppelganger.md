@@ -3,6 +3,10 @@ title: "🤖 The Glass Doppelgänger"
 tags: ["awesome-chatgpt", "glass", "doppelg", "nger"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # The Glass Doppelgänger

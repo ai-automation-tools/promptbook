@@ -3,6 +3,10 @@ title: "🤖 Beach Walk Golden Hour (full-body, travel)"
 tags: ["awesome-chatgpt", "beach", "walk", "golden", "hour"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Beach Walk Golden Hour (full-body, travel)

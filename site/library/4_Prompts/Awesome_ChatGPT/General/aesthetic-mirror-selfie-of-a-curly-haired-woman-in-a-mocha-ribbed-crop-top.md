@@ -3,6 +3,10 @@ title: "🤖 Aesthetic Mirror Selfie of a Curly-Haired Woman in a Mocha Ribbed C
 tags: ["awesome-chatgpt", "aesthetic", "mirror", "selfie", "curly"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Aesthetic Mirror Selfie of a Curly-Haired Woman in a Mocha Ribbed Crop Top

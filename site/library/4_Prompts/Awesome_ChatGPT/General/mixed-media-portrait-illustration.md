@@ -3,6 +3,10 @@ title: "🤖 Mixed Media Portrait Illustration"
 tags: ["awesome-chatgpt", "mixed", "media", "portrait", "illustration"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Mixed Media Portrait Illustration

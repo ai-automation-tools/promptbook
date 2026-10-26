@@ -3,6 +3,10 @@ title: "🤖 FDR Analysis Program for Commercial Aircraft"
 tags: ["awesome-chatgpt", "fdr", "analysis", "program", "commercial"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # FDR Analysis Program for Commercial Aircraft

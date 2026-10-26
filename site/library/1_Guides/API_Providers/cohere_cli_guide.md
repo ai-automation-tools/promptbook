@@ -3,6 +3,7 @@ title: "💻 Cohere CLI Guide"
 tags: ["agent-guides", "cohere", "api"]
 category: "Agent_Guides"
 subcategory: "Cohere"
+repo: cohere-ai/cohere-python
 ---
 
 # Cohere CLI Guide

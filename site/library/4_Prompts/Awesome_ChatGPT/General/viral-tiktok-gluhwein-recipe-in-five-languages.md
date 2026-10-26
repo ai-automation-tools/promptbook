@@ -3,6 +3,10 @@ title: "🤖 Viral TikTok Glühwein Recipe in Five Languages"
 tags: ["awesome-chatgpt", "viral", "tiktok", "hwein", "recipe"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Viral TikTok Glühwein Recipe in Five Languages

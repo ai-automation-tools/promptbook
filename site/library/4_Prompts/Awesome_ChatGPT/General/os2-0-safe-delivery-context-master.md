@@ -3,6 +3,10 @@ title: "🤖 OS2.0 SAFe Delivery Context (Master)"
 tags: ["awesome-chatgpt", "os2", "safe", "delivery", "context"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # OS2.0 SAFe Delivery Context (Master)

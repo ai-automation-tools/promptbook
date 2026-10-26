@@ -3,6 +3,7 @@ title: "📚 Neovim Setup"
 tags: ["neovim", "guide", "setup"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: neovim/neovim
 ---
 
 # Neovim Setup Guide

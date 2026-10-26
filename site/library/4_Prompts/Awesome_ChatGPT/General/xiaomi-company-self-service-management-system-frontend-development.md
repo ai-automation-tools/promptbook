@@ -3,6 +3,10 @@ title: "🤖 Xiaomi Company Self-Service Management System Frontend Development"
 tags: ["awesome-chatgpt", "xiaomi", "company", "self", "service"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Xiaomi Company Self-Service Management System Frontend Development

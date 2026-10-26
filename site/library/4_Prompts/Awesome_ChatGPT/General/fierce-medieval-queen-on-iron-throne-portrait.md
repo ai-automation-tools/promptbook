@@ -3,6 +3,10 @@ title: "🤖 Fierce Medieval Queen on Iron Throne Portrait"
 tags: ["awesome-chatgpt", "fierce", "medieval", "queen", "iron"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Fierce Medieval Queen on Iron Throne Portrait

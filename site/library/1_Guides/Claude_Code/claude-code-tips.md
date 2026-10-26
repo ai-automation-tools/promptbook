@@ -3,6 +3,7 @@ title: "🤖 Claude Code Tips & Tricks"
 tags: ["guide", "claude-code", "tips", "workflow"]
 category: "Agent_Guides"
 subcategory: "Claude_Code"
+repo: anthropics/claude-code
 ---
 
 # Claude Code Tips & Tricks

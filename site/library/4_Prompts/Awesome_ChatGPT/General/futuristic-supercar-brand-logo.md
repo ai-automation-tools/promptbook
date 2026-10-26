@@ -3,6 +3,10 @@ title: "🤖 Futuristic Supercar Brand Logo"
 tags: ["awesome-chatgpt", "futuristic", "supercar", "brand", "logo"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Futuristic Supercar Brand Logo

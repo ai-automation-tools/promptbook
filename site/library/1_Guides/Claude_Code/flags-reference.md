@@ -4,6 +4,7 @@ tags: ["claude-code", "flags", "cli", "reference", "options"]
 category: "Agent_Guides"
 subcategory: "Claude_Code"
 checked: 2026-10-13
+repo: anthropics/claude-code
 ---
 
 <!-- Last Updated: 2026-10-13 - Checked against code.claude.com/docs/en/cli-reference -->

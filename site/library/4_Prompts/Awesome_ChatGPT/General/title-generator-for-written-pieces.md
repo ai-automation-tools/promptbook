@@ -3,6 +3,10 @@ title: "🤖 Title Generator for written pieces"
 tags: ["awesome-chatgpt", "title", "written", "pieces"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Title Generator for written pieces

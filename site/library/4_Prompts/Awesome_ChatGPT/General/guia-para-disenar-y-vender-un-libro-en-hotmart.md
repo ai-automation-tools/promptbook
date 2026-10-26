@@ -3,6 +3,10 @@ title: "🤖 Guía para Diseñar y Vender un Libro en Hotmart"
 tags: ["awesome-chatgpt", "para", "dise", "vender", "libro"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Guía para Diseñar y Vender un Libro en Hotmart

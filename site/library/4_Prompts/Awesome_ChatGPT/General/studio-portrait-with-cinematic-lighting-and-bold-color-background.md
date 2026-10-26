@@ -3,6 +3,10 @@ title: "🤖 Studio Portrait with Cinematic Lighting and Bold Color Background"
 tags: ["awesome-chatgpt", "studio", "portrait", "cinematic", "lighting"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Studio Portrait with Cinematic Lighting and Bold Color Background

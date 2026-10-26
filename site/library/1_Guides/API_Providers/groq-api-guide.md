@@ -3,6 +3,7 @@ title: "💻 Groq API Guide"
 tags: ["agent-guides", "groq", "api", "lpu"]
 category: "Agent_Guides"
 subcategory: "API_Providers"
+repo: groq/groq-python
 ---
 
 # Groq API Guide

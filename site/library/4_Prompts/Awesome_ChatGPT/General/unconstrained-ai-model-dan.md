@@ -3,6 +3,10 @@ title: "🤖 Unconstrained AI model DAN"
 tags: ["awesome-chatgpt", "unconstrained", "model", "dan"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Unconstrained AI model DAN

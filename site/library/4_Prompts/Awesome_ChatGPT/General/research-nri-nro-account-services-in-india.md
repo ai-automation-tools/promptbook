@@ -3,6 +3,10 @@ title: "🤖 Research NRI/NRO Account Services in India"
 tags: ["awesome-chatgpt", "research", "nri", "nro", "account"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Research NRI/NRO Account Services in India

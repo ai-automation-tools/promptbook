@@ -3,6 +3,10 @@ title: "🤖 Mental Health Adviser"
 tags: ["awesome-chatgpt", "mental", "health", "adviser"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Mental Health Adviser

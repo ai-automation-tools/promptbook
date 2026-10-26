@@ -3,6 +3,10 @@ title: "🤖 LinkedIn JSON → Canonical Markdown Profile Generator"
 tags: ["awesome-chatgpt", "linkedin", "json", "canonical", "markdown"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # LinkedIn JSON → Canonical Markdown Profile Generator

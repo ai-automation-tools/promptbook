@@ -3,6 +3,10 @@ title: "🤖 Step 2: Outline Creation"
 tags: ["awesome-chatgpt", "step", "outline", "creation"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Step 2: Outline Creation

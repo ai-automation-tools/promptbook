@@ -3,6 +3,10 @@ title: "🤖 Step 3a: Technical Deep Dive"
 tags: ["awesome-chatgpt", "step", "technical", "deep", "dive"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Step 3a: Technical Deep Dive

@@ -3,6 +3,10 @@ title: "🤖 Prompt Optimization"
 tags: ["awesome-chatgpt", "optimization"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Prompt Optimization

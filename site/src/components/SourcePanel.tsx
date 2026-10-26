@@ -28,9 +28,10 @@ const BADGE: Record<string, { label: string; tone: string; hint: string }> = {
 };
 
 /**
- * Where a skill, agent or MCP server comes from: the GitHub repo, the commit our
- * copy was taken from, how it stood at the last weekly drift check, and a link
- * to everything upstream changed since that commit.
+ * The repo link at the top of every item: where a skill, agent, system prompt or
+ * prompt comes from, the server behind an MCP card, or the tool a guide documents.
+ * Skills and agents also show the commit our copy was taken from, how it stood at
+ * the last weekly drift check, and a link to everything upstream changed since.
  */
 export default function SourcePanel({ source }: { source: ItemSource }) {
   const badge = source.match === 'fork' || source.match === 'vendor' ? BADGE[source.match] : source.verdict ? BADGE[source.verdict] : undefined;

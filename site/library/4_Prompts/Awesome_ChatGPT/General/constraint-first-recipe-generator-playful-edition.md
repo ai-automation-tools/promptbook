@@ -3,6 +3,10 @@ title: "🤖 Constraint-First Recipe Generator (Playful Edition)"
 tags: ["awesome-chatgpt", "constraint", "first", "recipe", "playful"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Constraint-First Recipe Generator (Playful Edition)

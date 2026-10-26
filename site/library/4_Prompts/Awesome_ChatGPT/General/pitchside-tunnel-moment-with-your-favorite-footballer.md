@@ -3,6 +3,10 @@ title: "🤖 Pitchside Tunnel Moment with Your Favorite Footballer"
 tags: ["awesome-chatgpt", "pitchside", "tunnel", "moment", "favorite"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Pitchside Tunnel Moment with Your Favorite Footballer

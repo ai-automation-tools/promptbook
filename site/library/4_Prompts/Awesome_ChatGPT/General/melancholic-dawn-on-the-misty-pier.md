@@ -3,6 +3,10 @@ title: "🤖 Melancholic Dawn on the Misty Pier"
 tags: ["awesome-chatgpt", "melancholic", "dawn", "misty", "pier"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Melancholic Dawn on the Misty Pier

@@ -3,6 +3,7 @@ title: " Gemini Models CLI Guide"
 tags: ["gemini", "google", "cli", "reference", "api", "multimodal"]
 category: "Agent_Guides"
 subcategory: "API_Providers"
+repo: google-gemini/cookbook
 ---
 ## CLI Sync Notes (March 2026)
 

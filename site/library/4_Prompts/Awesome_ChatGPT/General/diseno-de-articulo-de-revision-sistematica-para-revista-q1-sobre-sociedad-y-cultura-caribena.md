@@ -3,6 +3,10 @@ title: "🤖 Diseño de Artículo de Revisión Sistemática para Revista Q1 sobr
 tags: ["awesome-chatgpt", "dise", "art", "culo", "revisi"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Diseño de Artículo de Revisión Sistemática para Revista Q1 sobre Sociedad y Cultura Caribeña

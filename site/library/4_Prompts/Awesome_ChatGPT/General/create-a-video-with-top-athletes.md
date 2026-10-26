@@ -3,6 +3,10 @@ title: "🤖 Create a Video with Top Athletes"
 tags: ["awesome-chatgpt", "create", "video", "top", "athletes"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Create a Video with Top Athletes

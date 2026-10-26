@@ -3,6 +3,10 @@ title: "🤖 Senior Frontend Debugger for SPA Websites (Angular, React, Vite)"
 tags: ["awesome-chatgpt", "senior", "frontend", "debugger", "spa"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Senior Frontend Debugger for SPA Websites (Angular, React, Vite)

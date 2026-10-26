@@ -3,6 +3,10 @@ title: "🤖 The Pragmatic Architect: Mastering Tech with Humor and Precision"
 tags: ["awesome-chatgpt", "pragmatic", "architect", "mastering", "tech"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # The Pragmatic Architect: Mastering Tech with Humor and Precision

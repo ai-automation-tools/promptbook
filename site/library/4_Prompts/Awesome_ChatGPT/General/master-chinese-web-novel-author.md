@@ -3,6 +3,10 @@ title: "🤖 Master Chinese Web Novel Author"
 tags: ["awesome-chatgpt", "master", "chinese", "web", "novel"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Master Chinese Web Novel Author

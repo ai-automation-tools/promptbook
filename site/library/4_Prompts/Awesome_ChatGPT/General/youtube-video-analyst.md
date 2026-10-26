@@ -3,6 +3,10 @@ title: "🤖 YouTube Video Analyst"
 tags: ["awesome-chatgpt", "youtube", "video", "analyst"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # YouTube Video Analyst

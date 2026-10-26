@@ -3,6 +3,10 @@ title: "🤖 Lagrange Lens: Blue Wolf"
 tags: ["awesome-chatgpt", "lagrange", "lens", "blue", "wolf"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Lagrange Lens: Blue Wolf

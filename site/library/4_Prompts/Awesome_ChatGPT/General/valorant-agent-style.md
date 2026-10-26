@@ -3,6 +3,10 @@ title: "🤖 Valorant Agent Style"
 tags: ["awesome-chatgpt", "valorant", "agent", "style"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Valorant Agent Style

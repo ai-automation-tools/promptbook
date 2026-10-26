@@ -3,6 +3,10 @@ title: "🤖 Kitchen Morning Window Light (candid, cozy)"
 tags: ["awesome-chatgpt", "kitchen", "morning", "window", "light"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Kitchen Morning Window Light (candid, cozy)

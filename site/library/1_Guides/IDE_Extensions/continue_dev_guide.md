@@ -3,6 +3,7 @@ title: "💻 Continue.dev Guide"
 tags: ["featured", "continue", "vscode", "jetbrains", "ai-coding", "open-source"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: continuedev/continue
 ---
 
 <!-- Last Updated: 2026-03-31 - Based on official Continue.dev documentation -->

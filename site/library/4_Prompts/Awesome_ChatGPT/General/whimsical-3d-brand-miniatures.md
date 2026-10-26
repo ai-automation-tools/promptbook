@@ -3,6 +3,10 @@ title: "🤖 Whimsical 3D Brand Miniatures"
 tags: ["awesome-chatgpt", "whimsical", "brand", "miniatures"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Whimsical 3D Brand Miniatures

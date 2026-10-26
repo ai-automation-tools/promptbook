@@ -3,6 +3,10 @@ title: "🤖 Public Speaking Coach"
 tags: ["awesome-chatgpt", "public", "speaking", "coach"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Public Speaking Coach

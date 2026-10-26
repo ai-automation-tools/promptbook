@@ -3,6 +3,10 @@ title: "🤖 Machine Learning Engineer"
 tags: ["awesome-chatgpt", "machine", "learning", "engineer"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Machine Learning Engineer

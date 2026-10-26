@@ -3,6 +3,10 @@ title: "🤖 Yağlı boya tablona bak"
 tags: ["awesome-chatgpt", "boya", "tablona", "bak"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Yağlı boya tablona bak

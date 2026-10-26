@@ -3,6 +3,10 @@ title: "🤖 Structured and Effective Learning Prompt"
 tags: ["awesome-chatgpt", "structured", "effective", "learning"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Structured and Effective Learning Prompt

@@ -3,6 +3,10 @@ title: "🤖 Literature Reading and Analysis Assistant"
 tags: ["awesome-chatgpt", "literature", "reading", "analysis"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Literature Reading and Analysis Assistant

@@ -3,6 +3,10 @@ title: "🤖 Pixel Dissolve: Minimalist 3D Food Transformation"
 tags: ["awesome-chatgpt", "pixel", "dissolve", "minimalist", "food"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Pixel Dissolve: Minimalist 3D Food Transformation

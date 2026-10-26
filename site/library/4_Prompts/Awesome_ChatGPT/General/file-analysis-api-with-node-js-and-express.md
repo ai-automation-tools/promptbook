@@ -3,6 +3,10 @@ title: "🤖 File Analysis API with Node.js and Express"
 tags: ["awesome-chatgpt", "file", "analysis", "api", "node"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # File Analysis API with Node.js and Express

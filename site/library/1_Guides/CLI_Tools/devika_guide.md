@@ -3,6 +3,7 @@ title: "💻 Devika Guide"
 tags: ["agent-guides", "devika", "cli-tools"]
 category: "Agent_Guides"
 subcategory: "CLI_Tools"
+repo: stitionai/devika
 ---
 
 # Devika Guide

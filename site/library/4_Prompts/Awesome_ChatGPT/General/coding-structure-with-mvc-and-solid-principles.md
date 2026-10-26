@@ -3,6 +3,10 @@ title: "🤖 Coding Structure with MVC and SOLID Principles"
 tags: ["awesome-chatgpt", "coding", "structure", "mvc", "solid"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Coding Structure with MVC and SOLID Principles

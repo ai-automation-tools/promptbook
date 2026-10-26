@@ -3,6 +3,10 @@ title: "🤖 Fintech Product and Operations Assistant"
 tags: ["awesome-chatgpt", "fintech", "product", "operations"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Fintech Product and Operations Assistant

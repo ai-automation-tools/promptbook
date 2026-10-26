@@ -3,6 +3,10 @@ title: "🤖 4 Optimized Versions of A Prompt (in Arabic)"
 tags: ["awesome-chatgpt", "optimized", "versions", "arabic"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # 4 Optimized Versions of A Prompt (in Arabic)

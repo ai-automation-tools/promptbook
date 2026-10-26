@@ -3,6 +3,10 @@ title: "🤖 Narrative Point of View Transformer"
 tags: ["awesome-chatgpt", "narrative", "point", "view", "transformer"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Narrative Point of View Transformer

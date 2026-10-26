@@ -3,6 +3,10 @@ title: "🤖 AI-powered data extraction and organization tool"
 tags: ["awesome-chatgpt", "powered", "data", "extraction", "organization"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # AI-powered data extraction and organization tool

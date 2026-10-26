@@ -3,6 +3,7 @@ title: "💻 Cursor AI IDE Guide"
 tags: ["featured", "cursor", "ide", "cli", "ai-coding", "vscode"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: cursor/cursor
 ---
 
 <!-- Last Updated: 2026-03-31 - Based on official Cursor documentation -->

@@ -3,6 +3,7 @@ title: "📚 Yt-Dlp CLI Guide"
 tags: ["cli", "guide", "tools"]
 category: "Agent_Guides"
 subcategory: "CLI_Tools"
+repo: yt-dlp/yt-dlp
 ---
 
 # Yt-Dlp CLI Guide

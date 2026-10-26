@@ -3,6 +3,10 @@ title: "🤖 Sophisticated Istanbul Stroll"
 tags: ["awesome-chatgpt", "sophisticated", "istanbul", "stroll"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Sophisticated Istanbul Stroll

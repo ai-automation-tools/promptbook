@@ -3,6 +3,10 @@ title: "🤖 Nightlife Candid Flash Photography"
 tags: ["awesome-chatgpt", "nightlife", "candid", "flash", "photography"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Nightlife Candid Flash Photography

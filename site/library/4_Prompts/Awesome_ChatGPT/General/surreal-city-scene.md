@@ -3,6 +3,10 @@ title: "🤖 Surreal City Scene"
 tags: ["awesome-chatgpt", "surreal", "city", "scene"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Surreal City Scene

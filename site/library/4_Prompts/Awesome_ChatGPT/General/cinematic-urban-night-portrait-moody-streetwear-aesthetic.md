@@ -3,6 +3,10 @@ title: "🤖 Cinematic Urban Night Portrait - Moody Streetwear Aesthetic"
 tags: ["awesome-chatgpt", "cinematic", "urban", "night", "portrait"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Cinematic Urban Night Portrait - Moody Streetwear Aesthetic

@@ -4,6 +4,7 @@ tags: ["codex", "flags", "cli", "reference", "openai", "options"]
 category: "Agent_Guides"
 subcategory: "Codex"
 checked: 2026-10-13
+repo: openai/codex
 ---
 
 <!-- Last Updated: 2026-10-13 - Checked against the Codex CLI command reference (learn.chatgpt.com/docs/developer-commands) and github.com/openai/codex -->
