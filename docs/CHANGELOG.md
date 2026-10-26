@@ -4,6 +4,28 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-26 — Library refresh: 22 skills and an MCP card from the discovery ledger
+
+Mike asked for new and popular items. The six `accept` rows in `docs/DISCOVERY.md` were vendored, today's discovery run was written to the ledger (25 new `pending` rows), and three of the top finds were taken straight away. Every file carries an `upstream:` block (`match: exact`, `repo`, `path`, `ref`, `checked: 2026-10-26`) and `tags`; every licence is MIT, read this run. The index goes from 1,897 to 1,920 items.
+
+**Skills (`3_Skills/`)**
+- `Development/Engineering/`: code-review-and-quality, spec-driven-development, incremental-implementation, security-and-hardening, context-engineering, doubt-driven-development from `addyosmani/agent-skills`; planning-with-files (with its scripts and templates) from `OthmanAdi/planning-with-files`.
+- `Business/Marketing/`: cro, ab-testing, cold-email, marketing-psychology, onboarding, churn-prevention from `coreyhaines31/marketingskills` (pricing skipped: `Business/Strategy/pricing-strategy` covers it).
+- `Business/Strategy/`: create-prd, pre-mortem, opportunity-solution-tree, north-star-metric, lean-canvas, strategy-red-team from `phuryn/pm-skills`.
+- `Design/`: diagram-design (SKILL.md, references and scripts; the 150 example HTML files were left out) from `cathrynlavery/diagram-design`; design-taste-frontend (SKILL.md and references; its asset, library and script folders were left out) from `Leonxlnx/taste-skill`.
+- `Content/General/`: i-have-adhd from `ayghri/i-have-adhd`.
+- `Content/General/humanizer` was an older copy of `blader/humanizer` attributed to a mirror as `match: similar`. It now points at the origin (`match: exact`) and carries its current v3.1.0 text, README and licence; the mirror's `WARP.md` is gone.
+
+**MCP card (`6_MCP_Servers/Developer_Tools/`)**
+- codebase-memory (`DeusData/codebase-memory-mcp`, MIT): install lines and the 17-tool list read from its README today.
+
+**Ledger**
+- The six accepted rows and the three new picks are `done` with a note of what was taken and left. The 25 rows from today's run are `pending` for Mike. `planning-with-files`, `pm-skills` and `codebase-memory-mcp` were added to the table by hand, since the script skips a repo the library already names.
+
+_Touched: `site/library/3_Skills/**` (22 new folders, humanizer), `site/library/6_MCP_Servers/Developer_Tools/codebase-memory.md`, the two section READMEs' counts, `site/api/prompt-index.json`, `docs/DISCOVERY.md`._
+
+---
+
 ## 2026-10-26 — The repo link at the top of every card, in all six sections; unlinked items archived
 
 **Changes**

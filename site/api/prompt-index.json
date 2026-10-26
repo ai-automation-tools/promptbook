@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-10-26T15:34:55.885Z",
-  "promptCount": 1897,
+  "buildTime": "2026-10-26T16:18:58.631Z",
+  "promptCount": 1920,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -2453,6 +2453,54 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Business/Marketing/ab-testing/SKILL.md",
+      "title": "ab-testing",
+      "section": "3_Skills",
+      "category": "Business",
+      "subcategory": "Marketing",
+      "tags": [
+        "skill",
+        "marketing",
+        "ab-testing",
+        "experiments"
+      ],
+      "contentPreview": "\n# A/B Test Setup\n\nYou are an expert in experimentation and A/B testing. Your goal is to help design tests that produce statistically valid, actionable results.\n\n## Initial Assessment\n\n**Check for pro",
+      "lastModified": "2026-10-26T16:17:28.646Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Business/Marketing/churn-prevention/SKILL.md",
+      "title": "churn-prevention",
+      "section": "3_Skills",
+      "category": "Business",
+      "subcategory": "Marketing",
+      "tags": [
+        "skill",
+        "marketing",
+        "churn",
+        "retention"
+      ],
+      "contentPreview": "\n# Churn Prevention\n\nYou are an expert in SaaS retention and churn prevention. Your goal is to help reduce both voluntary churn (customers choosing to cancel) and involuntary churn (failed payments) t",
+      "lastModified": "2026-10-26T16:17:28.686Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Business/Marketing/cold-email/SKILL.md",
+      "title": "cold-email",
+      "section": "3_Skills",
+      "category": "Business",
+      "subcategory": "Marketing",
+      "tags": [
+        "skill",
+        "marketing",
+        "cold-email",
+        "outbound"
+      ],
+      "contentPreview": "\n# Cold Email Writing\n\nYou are an expert in cold outbound. Your goal is to write emails that sound like they came from a sharp, thoughtful human — not a sales machine following a template — and to mak",
+      "lastModified": "2026-10-26T16:17:28.661Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Business/Marketing/content-creator/SKILL.md",
       "title": "✨ content-creator",
       "section": "3_Skills",
@@ -2483,6 +2531,22 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Business/Marketing/cro/SKILL.md",
+      "title": "cro",
+      "section": "3_Skills",
+      "category": "Business",
+      "subcategory": "Marketing",
+      "tags": [
+        "skill",
+        "marketing",
+        "cro",
+        "conversion"
+      ],
+      "contentPreview": "\n# Conversion Rate Optimization (CRO)\n\nYou are a conversion rate optimization expert. Your goal is to analyze marketing pages and provide actionable recommendations to improve conversion rates.\n\n## Re",
+      "lastModified": "2026-10-26T16:17:28.638Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Business/Marketing/launch-strategy/SKILL.md",
       "title": "🛠️ launch-strategy",
       "section": "3_Skills",
@@ -2510,6 +2574,38 @@
       ],
       "contentPreview": "\n# Marketing Demand & Acquisition\n\nExpert acquisition playbook for Series A+ startups scaling internationally (EU/US/Canada) with hybrid PLG/Sales-Led motion.\n\n## Keywords\ndemand generation, paid medi",
       "lastModified": "2026-10-21T18:07:05.870Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Business/Marketing/marketing-psychology/SKILL.md",
+      "title": "marketing-psychology",
+      "section": "3_Skills",
+      "category": "Business",
+      "subcategory": "Marketing",
+      "tags": [
+        "skill",
+        "marketing",
+        "psychology",
+        "behavioral"
+      ],
+      "contentPreview": "\n# Marketing Psychology & Mental Models\n\nYou are an expert in applying psychological principles and mental models to marketing. Your goal is to help users understand why people buy, how to influence b",
+      "lastModified": "2026-10-26T16:17:28.667Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Business/Marketing/onboarding/SKILL.md",
+      "title": "onboarding",
+      "section": "3_Skills",
+      "category": "Business",
+      "subcategory": "Marketing",
+      "tags": [
+        "skill",
+        "marketing",
+        "onboarding",
+        "activation"
+      ],
+      "contentPreview": "\n# Onboarding CRO\n\nYou are an expert in user onboarding and activation. Your goal is to help users reach their \"aha moment\" as quickly as possible and establish habits that lead to long-term retention",
+      "lastModified": "2026-10-26T16:17:28.677Z",
       "isUserOwned": false
     },
     {
@@ -2559,6 +2655,22 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Business/Strategy/create-prd/SKILL.md",
+      "title": "create-prd",
+      "section": "3_Skills",
+      "category": "Business",
+      "subcategory": "Strategy",
+      "tags": [
+        "skill",
+        "business",
+        "product",
+        "prd"
+      ],
+      "contentPreview": "\n# Create a Product Requirements Document\n\n## Purpose\n\nYou are an experienced product manager writing a PRD for the product or feature the user describes. The PRD gets the team aligned on what to buil",
+      "lastModified": "2026-10-26T16:17:28.720Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Business/Strategy/customer-discovery/SKILL.md",
       "title": "💼 customer-discovery",
       "section": "3_Skills",
@@ -2591,6 +2703,70 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Business/Strategy/lean-canvas/SKILL.md",
+      "title": "lean-canvas",
+      "section": "3_Skills",
+      "category": "Business",
+      "subcategory": "Strategy",
+      "tags": [
+        "skill",
+        "business",
+        "strategy",
+        "lean-canvas"
+      ],
+      "contentPreview": "# Lean Canvas\n\n## Metadata\n- **Name**: lean-canvas\n- **Description**: Generate a Lean Canvas business model with detailed sections for problem, solution, metrics, cost structure, UVP, unfair advantage",
+      "lastModified": "2026-10-26T16:17:28.741Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Business/Strategy/north-star-metric/SKILL.md",
+      "title": "north-star-metric",
+      "section": "3_Skills",
+      "category": "Business",
+      "subcategory": "Strategy",
+      "tags": [
+        "skill",
+        "business",
+        "product",
+        "metrics"
+      ],
+      "contentPreview": "# North Star Metric\n\nIdentify a North Star Metric and 3-5 Input Metrics that form a metrics constellation. Classifies the business game being played and validates against criteria for an effective Nor",
+      "lastModified": "2026-10-26T16:17:28.737Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Business/Strategy/opportunity-solution-tree/SKILL.md",
+      "title": "opportunity-solution-tree",
+      "section": "3_Skills",
+      "category": "Business",
+      "subcategory": "Strategy",
+      "tags": [
+        "skill",
+        "business",
+        "product",
+        "discovery"
+      ],
+      "contentPreview": "\n## Opportunity Solution Tree (OST)\n\nA visual framework for structuring continuous product discovery. Connects a desired **outcome** to customer **opportunities**, possible **solutions**, and **experi",
+      "lastModified": "2026-10-26T16:17:28.728Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Business/Strategy/pre-mortem/SKILL.md",
+      "title": "pre-mortem",
+      "section": "3_Skills",
+      "category": "Business",
+      "subcategory": "Strategy",
+      "tags": [
+        "skill",
+        "business",
+        "product",
+        "risk"
+      ],
+      "contentPreview": "\n# Pre-Mortem: Risk Analysis for Product Launch\n\n## Purpose\n\nYou are a veteran product manager conducting a pre-mortem analysis on $ARGUMENTS. This skill imagines launch failure and works backward to ",
+      "lastModified": "2026-10-26T16:17:28.724Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Business/Strategy/pricing-strategy/SKILL.md",
       "title": "💼 pricing-strategy",
       "section": "3_Skills",
@@ -2604,6 +2780,22 @@
       ],
       "contentPreview": "\n# Pricing Strategy\n\n## Price is a product decision\n\nPricing is usually treated as a last step — build the thing, look at two\ncompetitors, land somewhere between them, round to $29. That produces a nu",
       "lastModified": "2026-10-21T18:38:08.443Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Business/Strategy/strategy-red-team/SKILL.md",
+      "title": "strategy-red-team",
+      "section": "3_Skills",
+      "category": "Business",
+      "subcategory": "Strategy",
+      "tags": [
+        "skill",
+        "business",
+        "strategy",
+        "red-team"
+      ],
+      "contentPreview": "\n# Strategy Red-Team: Attack the Assumptions Before Reality Does\n\n## Purpose\n\nYou are a sharp, fair adversary reviewing $ARGUMENTS. Most plans only survived polite feedback. This skill finds the load-",
+      "lastModified": "2026-10-26T16:17:28.744Z",
       "isUserOwned": false
     },
     {
@@ -2772,8 +2964,25 @@
         "convert",
         "options"
       ],
-      "contentPreview": "\n# Humanizer: Remove AI Writing Patterns\n\nYou are a writing editor that identifies and removes signs of AI-generated text to make writing sound more natural and human. This guide is based on Wikipedia",
-      "lastModified": "2026-10-23T23:09:08.020Z",
+      "contentPreview": "\n# Humanizer: remove AI writing patterns\n\nRewrite AI-sounding text so it reads like the writer, not a chatbot. Keep what it says. Do not make anything up.\n\n## Why AI text sounds the way it does\n\nA lan",
+      "lastModified": "2026-10-26T16:17:28.751Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Content/General/i-have-adhd/SKILL.md",
+      "title": "i-have-adhd",
+      "section": "3_Skills",
+      "category": "Content",
+      "subcategory": "General",
+      "tags": [
+        "skill",
+        "content",
+        "adhd",
+        "output-format",
+        "accessibility"
+      ],
+      "contentPreview": "\n# i-have-adhd\n\nThe reader has ADHD. Output is not just brief. It is shaped so an ADHD brain can act on it.\n\n## Persistence\n\nThese rules apply to every response for the rest of the session, not only t",
+      "lastModified": "2026-10-26T16:17:28.631Z",
       "isUserOwned": false
     },
     {
@@ -3478,6 +3687,40 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Design/design-taste-frontend/SKILL.md",
+      "title": "design-taste-frontend",
+      "section": "3_Skills",
+      "category": "Design",
+      "subcategory": "design-taste-frontend",
+      "tags": [
+        "skill",
+        "design",
+        "frontend",
+        "taste",
+        "ui"
+      ],
+      "contentPreview": "\n# tasteskill v2\n\nA page built by a model usually looks like the average of every page the model has seen: a centred\nheadline over three lines, a little label above it, a row of icon cards, a soft gra",
+      "lastModified": "2026-10-26T16:17:28.565Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Design/diagram-design/SKILL.md",
+      "title": "diagram-design",
+      "section": "3_Skills",
+      "category": "Design",
+      "subcategory": "diagram-design",
+      "tags": [
+        "skill",
+        "design",
+        "diagrams",
+        "architecture",
+        "svg"
+      ],
+      "contentPreview": "\n# Diagram Design\n\nCreate diagrams as self-contained HTML files with inline SVG and an editorial design system.\n\nForty-five visual types. Semantic patterns describe behavior; type references describe ",
+      "lastModified": "2026-10-26T16:17:28.624Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Design/interaction-design/SKILL.md",
       "title": "🔧 Interaction Design Patterns",
       "section": "3_Skills",
@@ -3821,6 +4064,38 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Development/Engineering/code-review-and-quality/SKILL.md",
+      "title": "code-review-and-quality",
+      "section": "3_Skills",
+      "category": "Development",
+      "subcategory": "Engineering",
+      "tags": [
+        "skill",
+        "development",
+        "code-review",
+        "quality"
+      ],
+      "contentPreview": "\n# Code Review and Quality\n\n## Overview\n\nMulti-dimensional code review with quality gates. Every change gets reviewed before merge — no exceptions. Review covers five axes: correctness, readability, a",
+      "lastModified": "2026-10-26T16:17:28.516Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Development/Engineering/context-engineering/SKILL.md",
+      "title": "context-engineering",
+      "section": "3_Skills",
+      "category": "Development",
+      "subcategory": "Engineering",
+      "tags": [
+        "skill",
+        "development",
+        "context",
+        "agents"
+      ],
+      "contentPreview": "\n# Context Engineering\n\n## Overview\n\nFeed agents the right information at the right time. Context is the single biggest lever for agent output quality — too little and the agent hallucinates, too much",
+      "lastModified": "2026-10-26T16:17:28.538Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Development/Engineering/debugging-methodology/SKILL.md",
       "title": "💻 debugging-methodology",
       "section": "3_Skills",
@@ -3837,6 +4112,38 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Development/Engineering/doubt-driven-development/SKILL.md",
+      "title": "doubt-driven-development",
+      "section": "3_Skills",
+      "category": "Development",
+      "subcategory": "Engineering",
+      "tags": [
+        "skill",
+        "development",
+        "review",
+        "adversarial"
+      ],
+      "contentPreview": "\n# Doubt-Driven Development\n\n## Overview\n\nA confident answer is not a correct one. Long sessions accumulate context that quietly turns assumptions into \"facts\" without anyone noticing. Doubt-driven de",
+      "lastModified": "2026-10-26T16:17:28.543Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Development/Engineering/incremental-implementation/SKILL.md",
+      "title": "incremental-implementation",
+      "section": "3_Skills",
+      "category": "Development",
+      "subcategory": "Engineering",
+      "tags": [
+        "skill",
+        "development",
+        "incremental",
+        "delivery"
+      ],
+      "contentPreview": "\n# Incremental Implementation\n\n## Overview\n\nBuild in thin vertical slices — implement one piece, test it, verify it, then expand. Avoid implementing an entire feature in one pass. Each increment shoul",
+      "lastModified": "2026-10-26T16:17:28.526Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Development/Engineering/performance-optimization/SKILL.md",
       "title": "💻 performance-optimization",
       "section": "3_Skills",
@@ -3850,6 +4157,23 @@
       ],
       "contentPreview": "\n# Performance Optimization\n\n## Measure first, or you are guessing\n\nThe instinct on a slow system is to find the code that *looks* expensive and optimize\nit. That instinct is wrong often enough to be ",
       "lastModified": "2026-10-21T18:38:08.445Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Development/Engineering/planning-with-files/SKILL.md",
+      "title": "planning-with-files",
+      "section": "3_Skills",
+      "category": "Development",
+      "subcategory": "Engineering",
+      "tags": [
+        "skill",
+        "development",
+        "planning",
+        "agents",
+        "workflow"
+      ],
+      "contentPreview": "\n# Planning with Files\n\nWork like Manus: Use persistent markdown files as your \"working memory on disk.\"\n\n## FIRST: Restore Project State\n\n**Before continuing**, resolve the plan this task owns:\n\n1. U",
+      "lastModified": "2026-10-26T16:17:28.715Z",
       "isUserOwned": false
     },
     {
@@ -3946,6 +4270,38 @@
       ],
       "contentPreview": "\n# Ponytail\n\nYou are a lazy senior developer. The best code is the code never written. You solve the whole problem with the least new code. End your reply with one or two lines: what you skipped or di",
       "lastModified": "2026-10-22T22:23:05.510Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Development/Engineering/security-and-hardening/SKILL.md",
+      "title": "security-and-hardening",
+      "section": "3_Skills",
+      "category": "Development",
+      "subcategory": "Engineering",
+      "tags": [
+        "skill",
+        "development",
+        "security",
+        "hardening"
+      ],
+      "contentPreview": "\n# Security and Hardening\n\n## Overview\n\nSecurity-first development practices for web applications. Treat every external input as hostile, every secret as sacred, and every authorization check as manda",
+      "lastModified": "2026-10-26T16:17:28.533Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Development/Engineering/spec-driven-development/SKILL.md",
+      "title": "spec-driven-development",
+      "section": "3_Skills",
+      "category": "Development",
+      "subcategory": "Engineering",
+      "tags": [
+        "skill",
+        "development",
+        "specs",
+        "planning"
+      ],
+      "contentPreview": "\n# Spec-Driven Development\n\n## Overview\n\nWrite a structured specification before writing any code. The spec is the shared source of truth between you and the human engineer — it defines what we're bui",
+      "lastModified": "2026-10-26T16:17:28.521Z",
       "isUserOwned": false
     },
     {
@@ -30229,6 +30585,24 @@
       ],
       "contentPreview": "\n# Supabase MCP server\n\nQuery and manage a Supabase project: tables, SQL, migrations, logs, edge functions and docs.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp add --transport http supabase \"htt",
       "lastModified": "2026-10-21T19:07:45.566Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Developer_Tools/codebase-memory.md",
+      "title": "🔌 Codebase Memory",
+      "section": "6_MCP_Servers",
+      "category": "Developer_Tools",
+      "subcategory": "codebase-memory",
+      "tags": [
+        "mcp-server",
+        "developer-tools",
+        "code-intelligence",
+        "knowledge-graph",
+        "local-first",
+        "official"
+      ],
+      "contentPreview": "\n# Codebase Memory MCP server\n\nA local code knowledge graph for coding agents: index a repo once, then search symbols, trace call paths and map a diff's blast radius instead of re-reading files.\n\n| | ",
+      "lastModified": "2026-10-26T16:18:03.182Z",
       "isUserOwned": false
     },
     {
