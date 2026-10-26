@@ -3,6 +3,7 @@ title: "📚 IntelliJ IDEA Setup"
 tags: ["intellij", "guide", "setup"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: JetBrains/intellij-community
 ---
 
 # IntelliJ IDEA Setup Guide

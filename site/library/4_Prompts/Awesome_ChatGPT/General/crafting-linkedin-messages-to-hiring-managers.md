@@ -3,6 +3,10 @@ title: "🤖 Crafting LinkedIn Messages to Hiring Managers"
 tags: ["awesome-chatgpt", "crafting", "linkedin", "messages", "hiring"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Crafting LinkedIn Messages to Hiring Managers

@@ -3,6 +3,7 @@ title: "📚 VS Code Advanced Setup"
 tags: ["vscode", "guide", "setup"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: microsoft/vscode
 ---
 
 # VS Code Advanced Setup Guide

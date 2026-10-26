@@ -170,8 +170,19 @@ assert.equal(readUpstream(stampUpstream(tagsLast, { ref: "newsha", checked: "202
   for (const f of walk(path.join(LIB, "6_MCP_Servers"), (n) => n.endsWith(".md") && n.toLowerCase() !== "readme.md")) {
     if (!block(splitFrontmatter(fs.readFileSync(f, "utf8")).fm, "server")?.repo) unsourced.push(path.relative(LIB, f).split(path.sep).join("/"));
   }
-  assert.deepEqual(unsourced, [], "every skill, agent, system prompt and MCP card must name its source (upstream.repo, match: vendor + url, or server.repo)");
-  console.log("  every skill, agent, system prompt and MCP card names a source");
+  // Guides and prompts too (Mike, 2026-10-26: every card shows a repo link, the unlinked ones
+  // were archived). A prompt copied from a collection carries `upstream.repo`; a guide is
+  // written here, so it names the tool it documents in a bare `repo:` line.
+  const isMd = (n) => n.endsWith(".md") && n.toLowerCase() !== "readme.md";
+  for (const f of walk(path.join(LIB, "4_Prompts"), isMd)) {
+    const u = readUpstream(splitFrontmatter(fs.readFileSync(f, "utf8")).fm);
+    if (!u?.repo || u.match === "unknown" || u.match === "ambiguous") unsourced.push(path.relative(LIB, f).split(path.sep).join("/"));
+  }
+  for (const f of walk(path.join(LIB, "1_Guides"), isMd)) {
+    if (!/^repo:\s*[\w.-]+\/[\w.-]+\s*$/m.test(splitFrontmatter(fs.readFileSync(f, "utf8")).fm)) unsourced.push(path.relative(LIB, f).split(path.sep).join("/"));
+  }
+  assert.deepEqual(unsourced, [], "every item must name a repo (upstream.repo, match: vendor + url, server.repo, or a guide's repo:)");
+  console.log("  every skill, agent, system prompt, MCP card, prompt and guide names a repo");
 }
 
 console.log("upstream: all checks passed");

@@ -3,6 +3,10 @@ title: "🤖 Virtualization Expert"
 tags: ["awesome-chatgpt", "virtualization", "expert"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Virtualization Expert

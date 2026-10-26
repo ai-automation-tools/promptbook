@@ -3,6 +3,10 @@ title: "🤖 DIY Expert"
 tags: ["awesome-chatgpt", "diy", "expert"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # DIY Expert

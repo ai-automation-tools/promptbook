@@ -3,6 +3,10 @@ title: "🤖 A Clay-Crafted City: Mini [CITY NAME] World"
 tags: ["awesome-chatgpt", "clay", "crafted", "city", "mini"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # A Clay-Crafted City: Mini [CITY NAME] World

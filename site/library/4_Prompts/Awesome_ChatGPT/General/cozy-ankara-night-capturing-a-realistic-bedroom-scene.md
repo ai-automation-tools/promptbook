@@ -3,6 +3,10 @@ title: "🤖 Cozy Ankara Night: Capturing a Realistic Bedroom Scene"
 tags: ["awesome-chatgpt", "cozy", "ankara", "night", "capturing"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Cozy Ankara Night: Capturing a Realistic Bedroom Scene

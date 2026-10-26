@@ -3,6 +3,10 @@ title: "🤖 Create Project Spotlight"
 tags: ["awesome-chatgpt", "create", "project", "spotlight"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Create Project Spotlight

@@ -3,6 +3,7 @@ title: "Kimi CLI Guide"
 tags: ["kimi", "moonshot", "cli", "reference", "api", "chinese-ai","featured"]
 category: "Agent_Guides"
 subcategory: "API_Providers"
+repo: MoonshotAI/kimi-cli
 ---
 ## CLI Sync Notes (March 2026)
 

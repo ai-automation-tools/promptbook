@@ -3,6 +3,10 @@ title: "🤖 Flamenco inspired Turkish Pop song for Suno AI"
 tags: ["awesome-chatgpt", "flamenco", "inspired", "turkish", "pop"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Flamenco inspired Turkish Pop song for Suno AI

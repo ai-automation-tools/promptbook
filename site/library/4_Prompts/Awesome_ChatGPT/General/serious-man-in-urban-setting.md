@@ -3,6 +3,10 @@ title: "🤖 Serious Man in Urban Setting"
 tags: ["awesome-chatgpt", "serious", "man", "urban", "setting"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Serious Man in Urban Setting

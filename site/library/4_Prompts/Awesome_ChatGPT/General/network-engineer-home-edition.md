@@ -3,6 +3,10 @@ title: "🤖 Network Engineer: Home Edition"
 tags: ["awesome-chatgpt", "network", "engineer", "home", "edition"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Network Engineer: Home Edition

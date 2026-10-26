@@ -102,7 +102,8 @@ site/
                        LibraryHero (title, blurb, CountUp stats, in-section search),
                        PromptListToolbar, PromptGrid (also exports PromptCardGrid,
                        PromptCardActions, LoadingSkeleton), PromptCard (spotlight card),
-                       PromptDetail, SourcePanel (repo, copied-at commit, drift status), SkillPacksView, EmptyState, Toast, ResourcesNav,
+                       PromptDetail, SourcePanel (the repo link at the top of every card; copied-at
+                       commit and drift status where there is one), SkillPacksView, EmptyState, Toast, ResourcesNav,
                        ThemeSwitch, PromptEditorModal, ErrorBoundary (wraps App in main.tsx:
                        a render or chunk failure shows "Something failed to load", not a black page)
     components/ui/     primitives (Button, IconButton, Chip, Tag, Kbd, Modal*, Notice), CountUp
@@ -227,6 +228,15 @@ folders via `getSectionFolder()` in `App.tsx`. After adding/removing content, ru
   system prompt published only on the vendor's page, or `server.repo` on an MCP card.
   `scripts/upstream.test.mjs` fails CI otherwise. No repo, no file. System prompts are copied
   verbatim, never written.
+- **Every card shows a GitHub repo link at the top** (Mike, 2026-10-26), the same panel in all
+  six sections: `sourceOf()` in `lib/library.ts` reads `upstream.repo`, `server.repo`, or a
+  guide's bare `repo:` (the tool the guide documents, since a guide is written here, not
+  copied). Prompts copied from a collection carry an `upstream:` block too
+  (`match: similar`, `repo: f/awesome-chatgpt-prompts`). `scripts/upstream.test.mjs` fails CI
+  on a prompt or guide without one. The 670 hand-written prompts and 28 guides that had no
+  repo were moved, paths intact, to `archive/unlinked-2026-10-26/` at the repo root (outside
+  the deploy root, so nothing serves or indexes them); restore one by moving it back and
+  giving it a repo.
 - **LF only.** `.gitattributes` sets `eol=lf` repo-wide. `contentPreview` is embedded in
   `api/prompt-index.json` verbatim, so a CRLF file makes the index unreproducible on Linux and
   the CI gate fails.

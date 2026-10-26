@@ -3,6 +3,10 @@ title: "🤖 Personal Growth Plan for BNWO Enthusiasts"
 tags: ["awesome-chatgpt", "personal", "growth", "plan", "bnwo"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Personal Growth Plan for BNWO Enthusiasts

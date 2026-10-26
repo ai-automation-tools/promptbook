@@ -3,6 +3,10 @@ title: "🤖 Cover Letter"
 tags: ["awesome-chatgpt", "cover", "letter"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Cover Letter

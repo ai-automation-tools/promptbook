@@ -3,6 +3,10 @@ title: "🤖 In-Depth Article Enhancement with Research"
 tags: ["awesome-chatgpt", "depth", "article", "enhancement", "research"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # In-Depth Article Enhancement with Research

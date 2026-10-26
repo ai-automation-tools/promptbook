@@ -3,6 +3,10 @@ title: "🤖 Cinematic Triptych: A Day in the Countryside"
 tags: ["awesome-chatgpt", "cinematic", "triptych", "day", "countryside"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Cinematic Triptych: A Day in the Countryside

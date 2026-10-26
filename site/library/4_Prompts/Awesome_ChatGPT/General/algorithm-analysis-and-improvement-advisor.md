@@ -3,6 +3,10 @@ title: "🤖 Algorithm Analysis and Improvement Advisor"
 tags: ["awesome-chatgpt", "algorithm", "analysis", "improvement", "advisor"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Algorithm Analysis and Improvement Advisor

@@ -3,6 +3,10 @@ title: "🤖 The Elite SEO Blog Architect & Ghostwriter"
 tags: ["awesome-chatgpt", "elite", "seo", "blog", "architect"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # The Elite SEO Blog Architect & Ghostwriter

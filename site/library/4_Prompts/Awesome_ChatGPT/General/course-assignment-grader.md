@@ -3,6 +3,10 @@ title: "🤖 Course Assignment Grader"
 tags: ["awesome-chatgpt", "course", "assignment", "grader"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Course Assignment Grader

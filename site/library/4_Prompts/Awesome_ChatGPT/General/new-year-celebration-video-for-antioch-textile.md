@@ -3,6 +3,10 @@ title: "🤖 New Year Celebration Video for Antioch Textile"
 tags: ["awesome-chatgpt", "new", "year", "celebration", "video"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # New Year Celebration Video for Antioch Textile

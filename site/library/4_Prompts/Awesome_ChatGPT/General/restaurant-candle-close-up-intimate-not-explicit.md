@@ -3,6 +3,10 @@ title: "🤖 Restaurant Candle Close-up (intimate, not explicit)"
 tags: ["awesome-chatgpt", "restaurant", "candle", "close", "intimate"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Restaurant Candle Close-up (intimate, not explicit)

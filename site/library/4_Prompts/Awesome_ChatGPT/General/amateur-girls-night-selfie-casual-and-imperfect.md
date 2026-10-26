@@ -3,6 +3,10 @@ title: "🤖 Amateur Girls' Night Selfie - Casual and Imperfect"
 tags: ["awesome-chatgpt", "amateur", "girls", "night", "selfie"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Amateur Girls' Night Selfie - Casual and Imperfect

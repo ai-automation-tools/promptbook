@@ -3,6 +3,10 @@ title: "🤖 The Solar Priestess of Amun"
 tags: ["awesome-chatgpt", "solar", "priestess", "amun"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # The Solar Priestess of Amun

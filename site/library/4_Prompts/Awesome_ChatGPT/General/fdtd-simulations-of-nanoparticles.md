@@ -3,6 +3,10 @@ title: "🤖 FDTD Simulations of Nanoparticles"
 tags: ["awesome-chatgpt", "fdtd", "simulations", "nanoparticles"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # FDTD Simulations of Nanoparticles

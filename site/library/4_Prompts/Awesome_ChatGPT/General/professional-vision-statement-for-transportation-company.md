@@ -3,6 +3,10 @@ title: "🤖 Professional Vision Statement for Transportation Company"
 tags: ["awesome-chatgpt", "professional", "vision", "statement", "transportation"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Professional Vision Statement for Transportation Company

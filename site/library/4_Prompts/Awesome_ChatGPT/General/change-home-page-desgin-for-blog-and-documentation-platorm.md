@@ -3,6 +3,10 @@ title: "🤖 change home page desgin for blog and documentation platorm"
 tags: ["awesome-chatgpt", "change", "home", "page", "desgin"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # change home page desgin for blog and documentation platorm

@@ -3,6 +3,10 @@ title: "🤖 A relaxed copper-haired woman resting sideways on a bed in a soft, 
 tags: ["awesome-chatgpt", "relaxed", "copper", "haired", "woman"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # A relaxed copper-haired woman resting sideways on a bed in a soft, low-light setting.

@@ -3,6 +3,10 @@ title: "🤖 Preventive Health Report Clinical Evaluation Prompt"
 tags: ["awesome-chatgpt", "preventive", "health", "report", "clinical"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Preventive Health Report Clinical Evaluation Prompt

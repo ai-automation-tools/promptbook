@@ -3,6 +3,10 @@ title: "🤖 Minimal Web-Compatible Food Order App Development"
 tags: ["awesome-chatgpt", "minimal", "web", "compatible", "food"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Minimal Web-Compatible Food Order App Development

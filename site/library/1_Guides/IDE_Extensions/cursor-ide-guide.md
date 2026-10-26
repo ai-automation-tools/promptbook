@@ -3,6 +3,7 @@ title: "📚 Cursor IDE Guide"
 tags: ["ide", "cursor", "setup"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: cursor/cursor
 ---
 
 # Cursor IDE Guide

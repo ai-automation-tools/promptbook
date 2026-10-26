@@ -3,6 +3,10 @@ title: "🤖 Tech Desk “Builder” (half-body, cozy monitor glow)"
 tags: ["awesome-chatgpt", "tech", "desk", "builder", "half"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Tech Desk “Builder” (half-body, cozy monitor glow)

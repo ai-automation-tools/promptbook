@@ -3,6 +3,10 @@ title: "🤖 Surreal CGI-Photography Hybrid Portrait"
 tags: ["awesome-chatgpt", "surreal", "cgi", "photography", "hybrid"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Surreal CGI-Photography Hybrid Portrait

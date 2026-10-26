@@ -3,6 +3,10 @@ title: "🤖 Professional Networking Language for Career Fairs"
 tags: ["awesome-chatgpt", "professional", "networking", "language", "career"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Professional Networking Language for Career Fairs

@@ -3,6 +3,10 @@ title: "🤖 Symphony Event Invitation and Guide"
 tags: ["awesome-chatgpt", "symphony", "event", "invitation", "guide"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Symphony Event Invitation and Guide

@@ -3,6 +3,10 @@ title: "🤖 AI Stocks Investment Helper"
 tags: ["awesome-chatgpt", "stocks", "investment", "helper"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # AI Stocks Investment Helper

@@ -3,6 +3,10 @@ title: "🤖 Stock Market Analyst: Market Move Suggestions"
 tags: ["awesome-chatgpt", "stock", "market", "analyst", "move"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Stock Market Analyst: Market Move Suggestions

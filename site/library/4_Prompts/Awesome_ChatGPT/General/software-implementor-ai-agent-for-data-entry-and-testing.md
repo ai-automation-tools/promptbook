@@ -3,6 +3,10 @@ title: "🤖 Software Implementor AI Agent for Data Entry and Testing"
 tags: ["awesome-chatgpt", "software", "implementor", "agent", "data"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Software Implementor AI Agent for Data Entry and Testing

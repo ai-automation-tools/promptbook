@@ -3,6 +3,10 @@ title: "🤖 3D Medical Anatomy Model Render Prompt"
 tags: ["awesome-chatgpt", "medical", "anatomy", "model", "render"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # 3D Medical Anatomy Model Render Prompt

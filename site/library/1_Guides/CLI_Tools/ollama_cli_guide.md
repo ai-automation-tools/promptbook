@@ -3,6 +3,7 @@ title: "💻 Ollama CLI Guide"
 tags: ["guide", "cli", "ollama", "local-llm"]
 category: "Agent_Guides"
 subcategory: "CLI_Tools"
+repo: ollama/ollama
 ---
 
 # Ollama CLI Guide

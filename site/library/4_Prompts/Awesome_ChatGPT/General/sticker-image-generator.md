@@ -3,6 +3,10 @@ title: "🤖 Sticker Image Generator"
 tags: ["awesome-chatgpt", "sticker", "image"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Sticker Image Generator

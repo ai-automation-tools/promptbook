@@ -3,6 +3,10 @@ title: "🤖 berre"
 tags: ["awesome-chatgpt", "berre"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # berre

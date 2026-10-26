@@ -69,7 +69,7 @@ escapes against each and fails if one returns anything; `npm run test:safe-path`
 ## Prompts
 
 MCP prompts appear in clients as slash commands, and clients list all of them. Registering all
-~2,200 prompts and system prompts would bury the menu, so the server registers:
+~1,500 prompts and system prompts would bury the menu, so the server registers:
 
 - `library_prompt` with arguments `id` and `input`: any prompt, system prompt or agent by id;
 - every `featured` prompt and system prompt, by a slug of its file name;

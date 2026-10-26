@@ -41,7 +41,7 @@ function walkDir(dir, baseDir = LIBRARY_PATH) {
       }
       results = results.concat(walkDir(filePath, baseDir));
     } else if (file.endsWith('.md')) {
-      if (file === 'README.md') {
+      if (file.toLowerCase() === 'readme.md') {
         return;
       }
 

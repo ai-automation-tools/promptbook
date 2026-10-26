@@ -3,6 +3,10 @@ title: "🤖 Underwater Veo 3 video"
 tags: ["awesome-chatgpt", "underwater", "veo", "video"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Underwater Veo 3 video

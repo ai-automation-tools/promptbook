@@ -3,6 +3,7 @@ title: "💻 Zed IDE AI Guide"
 tags: ["agent-guides", "zed", "ide"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: zed-industries/zed
 ---
 
 # Zed IDE AI Guide

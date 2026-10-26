@@ -4,6 +4,7 @@ tags: ["featured", "claude-code", "flags", "cli", "reference", "options"]
 category: "Agent_Guides"
 subcategory: "Claude_Code"
 checked: 2026-10-13
+repo: anthropics/claude-code
 ---
 
 <!-- Last Updated: 2026-10-13 - Install, permission modes and CLI table checked against code.claude.com/docs/en/setup, permission-modes and cli-reference -->

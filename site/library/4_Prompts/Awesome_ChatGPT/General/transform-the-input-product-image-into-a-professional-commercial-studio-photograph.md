@@ -3,6 +3,10 @@ title: "🤖 Transform the input product image into a professional commercial st
 tags: ["awesome-chatgpt", "transform", "input", "product", "image"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Transform the input product image into a professional commercial studio photograph

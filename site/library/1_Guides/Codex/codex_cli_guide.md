@@ -3,6 +3,7 @@ title: "💻 Codex CLI Guide"
 tags: ["featured", "codex", "flags", "cli", "reference", "openai", "options"]
 category: "Agent_Guides"
 subcategory: "Codex"
+repo: openai/codex
 ---
 
 <!-- Last Updated: 2026-04-18 - Synced with upstream v0.121.0 -->

@@ -3,6 +3,7 @@ title: "🧵 Fabric CLI Guide"
 tags: ["agent-guides", "fabric", "cli", "prompt-framework"]
 category: "Agent_Guides"
 subcategory: "CLI_Tools"
+repo: danielmiessler/fabric
 ---
 
 # Fabric CLI Guide

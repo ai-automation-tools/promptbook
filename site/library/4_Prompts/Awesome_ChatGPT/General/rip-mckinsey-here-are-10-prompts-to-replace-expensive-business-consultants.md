@@ -3,6 +3,10 @@ title: "🤖 RIP McKinsey: Here are 10 prompts to replace expensive business con
 tags: ["awesome-chatgpt", "rip", "mckinsey", "here", "replace"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # RIP McKinsey: Here are 10 prompts to replace expensive business consultants

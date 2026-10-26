@@ -3,6 +3,7 @@ title: "💻 Ollama Setup Guide"
 tags: ["api", "ollama"]
 category: "Agent_Guides"
 subcategory: "API_Providers"
+repo: ollama/ollama
 ---
 
 # Ollama Setup Guide

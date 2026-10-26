@@ -3,6 +3,7 @@ title: "Gemini CLI Slash Commands Reference"
 tags: ["gemini-cli", "slash-commands", "cli", "reference", "google"]
 category: "Agent_Guides"
 subcategory: "Gemini_CLI"
+repo: google-gemini/gemini-cli
 ---
 
 <!-- Last Updated: 2026-03-14 - Synced with upstream documentation -->

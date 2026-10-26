@@ -3,6 +3,10 @@ title: "🤖 Amateur Mirror Selfie with Natural Look"
 tags: ["awesome-chatgpt", "amateur", "mirror", "selfie", "natural"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Amateur Mirror Selfie with Natural Look

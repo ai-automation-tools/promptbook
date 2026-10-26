@@ -3,6 +3,10 @@ title: "🤖 Comprehensive User Manual Creation for Multiple Modules"
 tags: ["awesome-chatgpt", "comprehensive", "user", "manual", "creation"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Comprehensive User Manual Creation for Multiple Modules

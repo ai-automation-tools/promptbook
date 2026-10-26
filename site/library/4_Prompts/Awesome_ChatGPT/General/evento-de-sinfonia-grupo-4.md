@@ -3,6 +3,10 @@ title: "🤖 evento de sinfonía grupo 4"
 tags: ["awesome-chatgpt", "evento", "sinfon", "grupo"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # evento de sinfonía grupo 4

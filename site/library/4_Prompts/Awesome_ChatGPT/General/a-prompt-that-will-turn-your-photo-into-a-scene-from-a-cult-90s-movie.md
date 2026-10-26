@@ -3,6 +3,10 @@ title: "🤖 A prompt that will turn your photo into a scene from a cult 90s mov
 tags: ["awesome-chatgpt", "will", "turn", "photo", "scene"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # A prompt that will turn your photo into a scene from a cult 90s movie

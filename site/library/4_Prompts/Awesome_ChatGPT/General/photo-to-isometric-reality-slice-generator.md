@@ -3,6 +3,10 @@ title: "🤖 Photo-to-Isometric: Reality Slice Generator"
 tags: ["awesome-chatgpt", "photo", "isometric", "reality", "slice"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Photo-to-Isometric: Reality Slice Generator

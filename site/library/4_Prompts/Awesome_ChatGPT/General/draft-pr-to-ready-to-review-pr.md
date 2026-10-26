@@ -3,6 +3,10 @@ title: "🤖 Draft PR to Ready to Review PR"
 tags: ["awesome-chatgpt", "draft", "ready", "review"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Draft PR to Ready to Review PR

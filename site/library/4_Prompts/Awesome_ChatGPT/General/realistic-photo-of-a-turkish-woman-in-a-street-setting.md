@@ -3,6 +3,10 @@ title: "🤖 Realistic Photo of a Turkish Woman in a Street Setting"
 tags: ["awesome-chatgpt", "realistic", "photo", "turkish", "woman"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Realistic Photo of a Turkish Woman in a Street Setting

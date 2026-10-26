@@ -3,6 +3,10 @@ title: "🤖 POV Smartphone with Space-Themed Twitter UI in Central Park"
 tags: ["awesome-chatgpt", "pov", "smartphone", "space", "themed"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # POV Smartphone with Space-Themed Twitter UI in Central Park

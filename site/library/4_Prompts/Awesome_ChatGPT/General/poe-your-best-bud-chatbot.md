@@ -3,6 +3,10 @@ title: "🤖 Poe - Your Best Bud Chatbot"
 tags: ["awesome-chatgpt", "poe", "best", "bud", "chatbot"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Poe - Your Best Bud Chatbot

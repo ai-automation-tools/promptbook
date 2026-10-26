@@ -3,6 +3,10 @@ title: "🤖 Modern Video Player with Sharp UI"
 tags: ["awesome-chatgpt", "modern", "video", "player", "sharp"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Modern Video Player with Sharp UI

@@ -3,6 +3,10 @@ title: "🤖 “How It Works” Educational Dioramas"
 tags: ["awesome-chatgpt", "how", "works", "educational", "dioramas"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # “How It Works” Educational Dioramas

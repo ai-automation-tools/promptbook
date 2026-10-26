@@ -3,6 +3,10 @@ title: "🤖 Strategic Decision-Making Matrix"
 tags: ["awesome-chatgpt", "strategic", "decision", "making", "matrix"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Strategic Decision-Making Matrix

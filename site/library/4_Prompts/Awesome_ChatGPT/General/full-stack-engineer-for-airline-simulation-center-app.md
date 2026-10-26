@@ -3,6 +3,10 @@ title: "🤖 Full-Stack Engineer for Airline Simulation Center App"
 tags: ["awesome-chatgpt", "full", "stack", "engineer", "airline"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Full-Stack Engineer for Airline Simulation Center App

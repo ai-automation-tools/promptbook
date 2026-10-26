@@ -3,6 +3,10 @@ title: "🤖 Extreme Close-up Macro Photography of a Young Woman's Face"
 tags: ["awesome-chatgpt", "extreme", "close", "macro", "photography"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Extreme Close-up Macro Photography of a Young Woman's Face

@@ -3,6 +3,10 @@ title: "🤖 VR Horror Death Chatroom Simulator"
 tags: ["awesome-chatgpt", "horror", "death", "chatroom", "simulator"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # VR Horror Death Chatroom Simulator

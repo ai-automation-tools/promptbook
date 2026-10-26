@@ -3,6 +3,10 @@ title: "🤖 Act as an Electron Frontend Developer"
 tags: ["awesome-chatgpt", "electron", "frontend", "developer"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Act as an Electron Frontend Developer

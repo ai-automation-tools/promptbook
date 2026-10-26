@@ -3,6 +3,10 @@ title: "🤖 Innovative Use Case Generator for New Tools"
 tags: ["awesome-chatgpt", "innovative", "use", "case", "new"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Innovative Use Case Generator for New Tools

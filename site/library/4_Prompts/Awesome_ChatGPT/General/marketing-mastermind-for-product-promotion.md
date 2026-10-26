@@ -3,6 +3,10 @@ title: "🤖 Marketing Mastermind for Product Promotion"
 tags: ["awesome-chatgpt", "marketing", "mastermind", "product", "promotion"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Marketing Mastermind for Product Promotion

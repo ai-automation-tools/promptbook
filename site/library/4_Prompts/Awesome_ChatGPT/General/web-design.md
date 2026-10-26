@@ -3,6 +3,10 @@ title: "🤖 Web Design"
 tags: ["awesome-chatgpt", "web", "design"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Web Design

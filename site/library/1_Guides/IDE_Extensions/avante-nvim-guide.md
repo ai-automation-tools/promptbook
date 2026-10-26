@@ -3,6 +3,7 @@ title: "🌌 Avante.nvim Guide"
 tags: ["agent-guides", "neovim", "avante", "ide"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: yetone/avante.nvim
 ---
 
 # Avante.nvim Guide

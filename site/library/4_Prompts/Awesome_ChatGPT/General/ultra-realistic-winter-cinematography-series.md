@@ -3,6 +3,10 @@ title: "🤖 Ultra-Realistic Winter Cinematography Series"
 tags: ["awesome-chatgpt", "ultra", "realistic", "winter", "cinematography"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Ultra-Realistic Winter Cinematography Series

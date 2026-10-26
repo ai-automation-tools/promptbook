@@ -3,6 +3,10 @@ title: "🤖 Documentation Update Automation"
 tags: ["awesome-chatgpt", "documentation", "update", "automation"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Documentation Update Automation

@@ -3,6 +3,10 @@ title: "🤖 Time Travel Guide"
 tags: ["awesome-chatgpt", "time", "travel", "guide"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Time Travel Guide

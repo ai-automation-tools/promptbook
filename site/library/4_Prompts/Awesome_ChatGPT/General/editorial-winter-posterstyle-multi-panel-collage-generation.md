@@ -3,6 +3,10 @@ title: "🤖 Editorial Winter Poster–Style Multi-Panel Collage Generation"
 tags: ["awesome-chatgpt", "editorial", "winter", "poster", "style"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Editorial Winter Poster–Style Multi-Panel Collage Generation

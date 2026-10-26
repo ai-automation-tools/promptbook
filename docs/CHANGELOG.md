@@ -4,6 +4,22 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-26 — The repo link at the top of every card, in all six sections; unlinked items archived
+
+**Changes**
+- Guides and prompts now show the same GitHub panel at the top of the item page that skills, agents, system prompts and MCP cards already had. `sourceOf()` in `site/lib/library.ts` reads a guide's bare `repo:` as a third source after `upstream.repo` and `server.repo`.
+- The 1,349 Awesome ChatGPT prompts carry an `upstream:` block (`match: similar`, `repo: f/awesome-chatgpt-prompts`, `checked: 2026-10-26`), the collection their footers already named.
+- 70 guides carry `repo:` naming the tool they document (`anthropics/claude-code`, `openai/codex`, `Aider-AI/aider`, `cursor/cursor`, …). Each repo was checked on GitHub first; renamed ones were stamped under their current name, archived ones (Codeium, TabNine, Copilot Chat) were left out.
+- Everything that still named no repo was archived (Mike: "we only want cards that contain links now"): 669 hand-written prompts, every `4_Prompts` category except `Awesome_ChatGPT`, and 28 guides (the six Concepts pages, five hand-written agent configs, and tools with no public repo such as Windsurf, JetBrains AI Assistant, Supermaven, Kite, Cody, Docker AI, OpenClaw). They moved, paths intact, to `archive/unlinked-2026-10-26/` at the repo root, outside the deploy root; `archive/README.md` says how to restore one. The library goes from 2,598 items to 1,897 (the index builder now also skips a lowercase `readme.md`, which had put three folder notes under System Prompts as cards).
+- `scripts/upstream.test.mjs` now fails CI on a prompt without `upstream.repo` or a guide without `repo:`, as it already did for the other four sections.
+
+**Docs**
+- `AGENTS.md` and `docs/CONTRIBUTING.md`: the rule, where each section's repo comes from, the archive, and the checklist line. Prompt and guide templates show the new frontmatter; the `1_Guides` and `4_Prompts` folder READMEs describe what is there now.
+
+_Touched: `site/lib/library.ts`, `site/src/components/SourcePanel.tsx`, `site/library/4_Prompts/**`, `site/library/1_Guides/**`, `archive/`, `site/api/prompt-index.json`, `scripts/upstream.test.mjs`, `AGENTS.md`, `docs/CONTRIBUTING.md`, `docs/features/MCP-SERVER.md`, `docs/templates/*`._
+
+---
+
 ## 2026-10-26 — Stale dev server shows an error, not a black page
 
 **Fixes**

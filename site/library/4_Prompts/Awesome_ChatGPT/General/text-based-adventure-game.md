@@ -3,6 +3,10 @@ title: "🤖 Text Based Adventure Game"
 tags: ["awesome-chatgpt", "text", "based", "adventure", "game"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Text Based Adventure Game

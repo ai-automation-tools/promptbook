@@ -3,6 +3,10 @@ title: "🤖 Act as an Etsy Niche Product Researcher"
 tags: ["awesome-chatgpt", "etsy", "niche", "product", "researcher"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Act as an Etsy Niche Product Researcher

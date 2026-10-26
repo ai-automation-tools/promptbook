@@ -3,6 +3,10 @@ title: "🤖 Cafe Window Seat (close-up, tactile realism)"
 tags: ["awesome-chatgpt", "cafe", "window", "seat", "close"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Cafe Window Seat (close-up, tactile realism)

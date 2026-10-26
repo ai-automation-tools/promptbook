@@ -3,6 +3,10 @@ title: "🤖 Girl Taking Selfie with Avatar Characters in Cinema"
 tags: ["awesome-chatgpt", "girl", "taking", "selfie", "avatar"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Girl Taking Selfie with Avatar Characters in Cinema

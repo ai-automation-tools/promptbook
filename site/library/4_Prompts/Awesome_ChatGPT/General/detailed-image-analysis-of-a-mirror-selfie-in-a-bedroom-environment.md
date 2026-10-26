@@ -3,6 +3,10 @@ title: "🤖 Detailed Image Analysis of a Mirror Selfie in a Bedroom Environment
 tags: ["awesome-chatgpt", "detailed", "image", "analysis", "mirror"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Detailed Image Analysis of a Mirror Selfie in a Bedroom Environment

@@ -3,6 +3,10 @@ title: "🤖 Yamuna River Cleanup Plan for Vrindavan"
 tags: ["awesome-chatgpt", "yamuna", "river", "cleanup", "plan"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Yamuna River Cleanup Plan for Vrindavan

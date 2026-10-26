@@ -3,6 +3,10 @@ title: "🤖 Markdown Notes"
 tags: ["awesome-chatgpt", "markdown", "notes"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Markdown Notes

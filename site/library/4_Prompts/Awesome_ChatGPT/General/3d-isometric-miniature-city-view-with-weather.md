@@ -3,6 +3,10 @@ title: "🤖 3D Isometric Miniature City View with Weather"
 tags: ["awesome-chatgpt", "isometric", "miniature", "city", "view"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # 3D Isometric Miniature City View with Weather

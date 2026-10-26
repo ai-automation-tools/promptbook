@@ -3,6 +3,10 @@ title: "🤖 TypeScript Unit Testing with Vitest"
 tags: ["awesome-chatgpt", "typescript", "unit", "testing", "vitest"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # TypeScript Unit Testing with Vitest

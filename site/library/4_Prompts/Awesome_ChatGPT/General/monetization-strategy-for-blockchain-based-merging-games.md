@@ -3,6 +3,10 @@ title: "🤖 Monetization Strategy for Blockchain-Based Merging Games"
 tags: ["awesome-chatgpt", "monetization", "strategy", "blockchain", "based"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Monetization Strategy for Blockchain-Based Merging Games

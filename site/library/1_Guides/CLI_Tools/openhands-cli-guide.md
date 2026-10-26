@@ -3,6 +3,7 @@ title: "💻 OpenHands CLI Guide"
 tags: ["agent-guides", "openhands", "development", "cli"]
 category: "Agent_Guides"
 subcategory: "CLI_Tools"
+repo: OpenHands/OpenHands
 ---
 
 # OpenHands CLI Guide

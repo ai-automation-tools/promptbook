@@ -3,6 +3,7 @@ title: "💻 VS Code Inline Chat Guide"
 tags: ["agent-guides", "vscode", "development"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: microsoft/vscode
 ---
 
 # VS Code Inline Chat Guide

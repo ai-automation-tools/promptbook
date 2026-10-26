@@ -3,6 +3,10 @@ title: "🤖 Minimal Studio “iPhone Candid” (pro-quality but awkward framing
 tags: ["awesome-chatgpt", "minimal", "studio", "iphone", "candid"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Minimal Studio “iPhone Candid” (pro-quality but awkward framing)

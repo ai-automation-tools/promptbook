@@ -3,6 +3,7 @@ title: "💻 Amazon Q Guide"
 tags: ["agent-guides", "amazon-q", "ide-extension", "aws"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: aws/amazon-q-developer-cli
 ---
 
 # Amazon Q Guide

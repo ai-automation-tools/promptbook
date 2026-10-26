@@ -3,6 +3,10 @@ title: "🤖 Create Satirical and Bold Song Lyrics"
 tags: ["awesome-chatgpt", "create", "satirical", "bold", "song"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Create Satirical and Bold Song Lyrics

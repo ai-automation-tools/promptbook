@@ -3,6 +3,10 @@ title: "🤖 Dual Lighting Narrative Scene"
 tags: ["awesome-chatgpt", "dual", "lighting", "narrative", "scene"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Dual Lighting Narrative Scene

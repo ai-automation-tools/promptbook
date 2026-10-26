@@ -4,6 +4,7 @@ tags: ["gemini-cli", "flags", "cli", "reference", "google", "options"]
 category: "Agent_Guides"
 subcategory: "Gemini_CLI"
 checked: 2026-10-13
+repo: google-gemini/gemini-cli
 ---
 
 <!-- Last Updated: 2026-10-13 - Checked against github.com/google-gemini/gemini-cli docs/cli/cli-reference.md -->

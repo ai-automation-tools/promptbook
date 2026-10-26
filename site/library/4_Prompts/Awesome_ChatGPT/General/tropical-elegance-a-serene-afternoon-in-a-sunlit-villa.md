@@ -3,6 +3,10 @@ title: "🤖 Tropical Elegance: A Serene Afternoon in a Sunlit Villa"
 tags: ["awesome-chatgpt", "tropical", "elegance", "serene", "afternoon"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Tropical Elegance: A Serene Afternoon in a Sunlit Villa

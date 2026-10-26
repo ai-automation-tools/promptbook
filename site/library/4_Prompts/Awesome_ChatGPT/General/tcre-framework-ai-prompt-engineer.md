@@ -3,6 +3,10 @@ title: "🤖 TCRE Framework - AI Prompt Engineer"
 tags: ["awesome-chatgpt", "tcre", "framework", "engineer"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # TCRE Framework - AI Prompt Engineer

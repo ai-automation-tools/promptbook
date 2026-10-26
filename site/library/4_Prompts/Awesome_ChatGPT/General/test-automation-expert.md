@@ -3,6 +3,10 @@ title: "🤖 Test Automation Expert"
 tags: ["awesome-chatgpt", "test", "automation", "expert"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Test Automation Expert

@@ -3,6 +3,10 @@ title: "🤖 Hyperrealistic Food Video Creator"
 tags: ["awesome-chatgpt", "hyperrealistic", "food", "video", "creator"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Hyperrealistic Food Video Creator

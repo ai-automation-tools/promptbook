@@ -3,6 +3,10 @@ title: "🤖 12-Month AI and Computer Vision Roadmap for Defense Applications"
 tags: ["awesome-chatgpt", "month", "computer", "vision", "roadmap"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # 12-Month AI and Computer Vision Roadmap for Defense Applications

@@ -3,6 +3,10 @@ title: "🤖 Structured Iterative Reasoning Protocol (SIRP)"
 tags: ["awesome-chatgpt", "structured", "iterative", "reasoning", "protocol"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Structured Iterative Reasoning Protocol (SIRP)

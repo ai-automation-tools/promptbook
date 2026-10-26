@@ -3,6 +3,10 @@ title: "🤖 Innovative Research Enhancement Ideas Generator"
 tags: ["awesome-chatgpt", "innovative", "research", "enhancement", "ideas"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Innovative Research Enhancement Ideas Generator

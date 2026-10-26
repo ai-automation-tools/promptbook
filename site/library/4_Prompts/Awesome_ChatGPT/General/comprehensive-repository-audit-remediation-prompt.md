@@ -3,6 +3,10 @@ title: "🤖 Comprehensive Repository Audit & Remediation Prompt"
 tags: ["awesome-chatgpt", "comprehensive", "repository", "audit", "remediation"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Comprehensive Repository Audit & Remediation Prompt

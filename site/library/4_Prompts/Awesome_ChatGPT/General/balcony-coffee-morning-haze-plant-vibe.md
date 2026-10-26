@@ -3,6 +3,10 @@ title: "🤖 Balcony Coffee (morning haze, plant vibe)"
 tags: ["awesome-chatgpt", "balcony", "coffee", "morning", "haze"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Balcony Coffee (morning haze, plant vibe)

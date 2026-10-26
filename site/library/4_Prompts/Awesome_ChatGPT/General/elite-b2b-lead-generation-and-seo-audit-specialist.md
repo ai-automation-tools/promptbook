@@ -3,6 +3,10 @@ title: "🤖 Elite B2B Lead Generation and SEO Audit Specialist"
 tags: ["awesome-chatgpt", "elite", "b2b", "lead", "generation"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Elite B2B Lead Generation and SEO Audit Specialist

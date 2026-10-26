@@ -3,6 +3,10 @@ title: "🤖 Educational Platform Support Assistant"
 tags: ["awesome-chatgpt", "educational", "platform", "support"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Educational Platform Support Assistant

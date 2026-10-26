@@ -3,6 +3,10 @@ title: "🤖 Young woman with mixed ethnicity features"
 tags: ["awesome-chatgpt", "young", "woman", "mixed", "ethnicity"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Young woman with mixed ethnicity features

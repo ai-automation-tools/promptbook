@@ -3,6 +3,10 @@ title: "🤖 Python Unit Test Generator — Comprehensive, Coverage-Mapped & Pro
 tags: ["awesome-chatgpt", "python", "unit", "test", "comprehensive"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Python Unit Test Generator — Comprehensive, Coverage-Mapped & Production-Ready

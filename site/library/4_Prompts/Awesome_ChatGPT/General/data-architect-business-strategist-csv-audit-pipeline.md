@@ -3,6 +3,10 @@ title: "🤖 Data Architect & Business Strategist (CSV Audit & Pipeline)"
 tags: ["awesome-chatgpt", "data", "architect", "business", "strategist"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Data Architect & Business Strategist (CSV Audit & Pipeline)

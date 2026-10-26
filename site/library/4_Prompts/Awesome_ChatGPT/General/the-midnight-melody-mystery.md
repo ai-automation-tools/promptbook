@@ -3,6 +3,10 @@ title: "🤖 The Midnight Melody Mystery"
 tags: ["awesome-chatgpt", "midnight", "melody", "mystery"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # The Midnight Melody Mystery

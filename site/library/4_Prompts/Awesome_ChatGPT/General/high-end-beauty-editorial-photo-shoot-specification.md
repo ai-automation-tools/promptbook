@@ -3,6 +3,10 @@ title: "🤖 High-End Beauty Editorial Photo Shoot Specification"
 tags: ["awesome-chatgpt", "high", "end", "beauty", "editorial"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # High-End Beauty Editorial Photo Shoot Specification

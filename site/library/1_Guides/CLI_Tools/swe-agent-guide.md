@@ -3,6 +3,7 @@ title: "💻 SWE-agent CLI Guide"
 tags: ["agent-guides", "swe-agent", "development", "cli"]
 category: "Agent_Guides"
 subcategory: "CLI_Tools"
+repo: SWE-agent/SWE-agent
 ---
 
 <!-- Last Updated: 2026-04-18 - Synced with upstream documentation -->

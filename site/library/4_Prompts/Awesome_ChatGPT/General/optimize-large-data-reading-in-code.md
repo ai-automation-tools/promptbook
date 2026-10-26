@@ -3,6 +3,10 @@ title: "🤖 Optimize Large Data Reading in Code"
 tags: ["awesome-chatgpt", "optimize", "large", "data", "reading"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Optimize Large Data Reading in Code
