@@ -15,8 +15,8 @@ upstream:
   match: exact
   repo: ai-automation-tools/agent-skills
   path: skills/projects/agent-chat/agent-chat-conv-types/SKILL.md
-  ref: 6f36b558eb82b55e9a68814da0941dd968dfe5f7
-  checked: 2026-10-21
+  ref: 6536761e3768ac77cb0d5a8e62c72dba3a552996
+  checked: 2026-10-26
 ---
 
 # Conversation types and sub-types
@@ -114,9 +114,9 @@ Full detail in [`references/add-a-type.md`](references/add-a-type.md). The short
 - [ ] A `_ROLE_BRIEFS` entry in `src/agent_chat_mcp.py` for **every** role the type can assign, extras included
 - [ ] `skills/<type>-mode/SKILL.md` — read by the participating CLIs at runtime
 - [ ] A `.gitignore` line for `.claude/skills/<type>-mode/` (the junction would otherwise commit as files full of this machine's paths)
-- [ ] `docs/Guides/<type>.md` + its row in the Guides index, and `ConvType.guide_url` pointing at it
+- [ ] `docs/guides/<type>.md` + its row in the Guides index, and `ConvType.guide_url` pointing at it
 - [ ] A `PRESETS` default flavour, with `for_types` naming the new key
-- [ ] `docs/CHANGELOG.md` entry; `docs/Roadmap.md` row moved Open→Done with a `YYYY-MM-DD` date if it closes one
+- [ ] `docs/CHANGELOG.md` entry; `docs/ROADMAP.md` row moved Open→Done with a `YYYY-MM-DD` date if it closes one
 - [ ] `.\.venv\Scripts\python.exe tests\test_conv_types.py` and `tests\test_deliverable_flow.py` pass
 - [ ] Seed a real `--max-turns 2` run of the new type and confirm the row reaches `status='complete'`
 

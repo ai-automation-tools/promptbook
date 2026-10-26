@@ -1,0 +1,50 @@
+{
+  "name": "Design Pack",
+  "id": "design-pack",
+  "description": "Every skill under 3_Skills/Design (6), bundled so the whole folder installs in one click. Generated from the library tree; see the folder for the individual skills.",
+  "icon": "🎨",
+  "version": "1.0.0",
+  "author": "promptbook",
+  "generated": true,
+  "tags": [
+    "design",
+    "accessibility-compliance",
+    "archify",
+    "diagram"
+  ],
+  "category": "Design",
+  "skills": [
+    {
+      "path": "library/3_Skills/Design/accessibility-compliance/SKILL.md",
+      "name": "Accessibility-Compliance",
+      "description": "Implement WCAG 2.2 compliant interfaces with screen reader support, keyboard navigation, focus management, and mobile accessibility patterns."
+    },
+    {
+      "path": "library/3_Skills/Design/archify/SKILL.md",
+      "name": "Archify",
+      "description": "Create validated architecture, workflow, sequence, data-flow, lifecycle/state, ERD, class, tree, timeline, and waterfall diagrams as explorable standalone HTML with dark/light themes, motion and image/SVG/WebM export."
+    },
+    {
+      "path": "library/3_Skills/Design/design-taste-frontend/SKILL.md",
+      "name": "Design-Taste-Frontend",
+      "description": "tasteskill v2, the anti-slop frontend skill."
+    },
+    {
+      "path": "library/3_Skills/Design/diagram-design/SKILL.md",
+      "name": "Diagram-Design",
+      "description": "Create branded architecture, architecture delta, IT current-state, flowchart, sequence, state machine, ER/data model, timeline, swimlane, quadrant, radar/spider, polar chart (polar/radial lollipop), loop/flywheel, nested"
+    },
+    {
+      "path": "library/3_Skills/Design/interaction-design/SKILL.md",
+      "name": "Interaction-Design",
+      "description": "Design interaction flows, states, and microinteractions for usability and feedback clarity."
+    },
+    {
+      "path": "library/3_Skills/Design/popular-web-designs/SKILL.md",
+      "name": "Popular-Web-Designs",
+      "description": "54 real-world design systems ready for use when generating HTML/CSS."
+    }
+  ],
+  "created_at": "2026-10-26",
+  "updated_at": "2026-10-26"
+}

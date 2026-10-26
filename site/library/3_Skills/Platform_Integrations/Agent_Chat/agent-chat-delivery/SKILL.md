@@ -16,8 +16,8 @@ upstream:
   match: exact
   repo: ai-automation-tools/agent-skills
   path: skills/projects/agent-chat/agent-chat-delivery/SKILL.md
-  ref: 6f36b558eb82b55e9a68814da0941dd968dfe5f7
-  checked: 2026-10-21
+  ref: 6536761e3768ac77cb0d5a8e62c72dba3a552996
+  checked: 2026-10-26
 ---
 
 # Delivery, notifications and the watchdog
@@ -42,7 +42,7 @@ Windows text mode would rewrite every `\n` to `\r\n` and the unpacked copy would
 zip. `tests/test_delivery.py` compares against a real `render_export_zip()` output, not a fixture.
 
 **A format change belongs in `src/orchestrator/export.py`** and its contract doc
-(`docs/App/export-format.md`), never in a sink. The one non-bundle file, `result.md`, is opt-in
+(`docs/app/export-format.md`), never in a sink. The one non-bundle file, `result.md`, is opt-in
 (`include_result: true`) for exactly that reason.
 
 ## 2. Three sinks, deliberately
@@ -184,9 +184,9 @@ Lives in `inspect_conversations`, not in the module — `orchestrator` is a pack
 - [ ] New sink type → it must swallow its own exceptions and return a string
 - [ ] New END path → a `deliver()` call **outside** the transaction, plus a case in `tests/test_delivery.py`
 - [ ] New event → add to `EVENTS`, decide whether it belongs in the **default** `events` list (`started` shows why it might not), and template-document it
-- [ ] Format change → `export.py` + `docs/App/export-format.md` + its three external consumers, not a sink
+- [ ] Format change → `export.py` + `docs/app/export-format.md` + its three external consumers, not a sink
 - [ ] `.\.venv\Scripts\python.exe tests\test_delivery.py` and `tests\test_notifications.py`
-- [ ] `docs/App/delivery.md` / `notifications.md` + `docs/CHANGELOG.md`
+- [ ] `docs/app/delivery.md` / `notifications.md` + `docs/CHANGELOG.md`
 
 ## Anti-patterns
 

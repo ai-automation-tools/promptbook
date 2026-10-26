@@ -4,6 +4,16 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-26 — 4 skills refreshed from agent-skills
+
+**Content**
+- Brought level with `ai-automation-tools/agent-skills` at `6536761` (body and support files; local frontmatter kept, `ref`/`checked` bumped):
+  - `3_Skills/Development/Web_Development/project-hub-scaffold/`
+  - `3_Skills/Platform_Integrations/Agent_Chat/agent-chat-conv-types/`
+  - `3_Skills/Platform_Integrations/Agent_Chat/agent-chat-delivery/`
+  - `3_Skills/Platform_Integrations/Project_Hub/project-hub-demo/`
+
+_Touched: the folders above, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 ## 2026-10-26 — Prompts: 437 from four more public collections
 
 Mike asked for popular prompts from top GitHub repos and sites. The Prompts section held one collection; it now holds five, each in its own top-level folder with the collection's grouping under it. Every file has an `upstream:` block (`repo`, `path`, `ref` = the commit read, `checked: 2026-10-26`) and tags. Every licence is MIT, read this run. The index goes from 1,920 items to 2,357.

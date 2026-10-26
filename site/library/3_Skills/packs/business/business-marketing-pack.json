@@ -1,17 +1,35 @@
 {
   "name": "Marketing Pack",
   "id": "business-marketing-pack",
-  "description": "Every skill under 3_Skills/Business/Marketing (6), bundled so the whole folder installs in one click. Generated from the library tree; see the folder for the individual skills.",
+  "description": "Every skill under 3_Skills/Business/Marketing (12), bundled so the whole folder installs in one click. Generated from the library tree; see the folder for the individual skills.",
   "icon": "💼",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "promptbook",
   "generated": true,
   "tags": [
     "business",
-    "marketing"
+    "marketing",
+    "ab-testing",
+    "experiments",
+    "churn"
   ],
   "category": "Business",
   "skills": [
+    {
+      "path": "library/3_Skills/Business/Marketing/ab-testing/SKILL.md",
+      "name": "Ab-Testing",
+      "description": "When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program."
+    },
+    {
+      "path": "library/3_Skills/Business/Marketing/churn-prevention/SKILL.md",
+      "name": "Churn-Prevention",
+      "description": "When the user wants to reduce churn, build cancellation flows, set up save offers, recover failed payments, or implement retention strategies."
+    },
+    {
+      "path": "library/3_Skills/Business/Marketing/cold-email/SKILL.md",
+      "name": "Cold-Email",
+      "description": "Write and run B2B cold outbound that gets replies, from cold emails and follow-ups to sending setup, LinkedIn, multichannel cadences, and reply handling."
+    },
     {
       "path": "library/3_Skills/Business/Marketing/content-creator/SKILL.md",
       "name": "Content-Creator",
@@ -23,6 +41,11 @@
       "description": "Assists in writing high-quality content by conducting research, adding citations, improving hooks, iterating on outlines, and providing real-time feedback on each section."
     },
     {
+      "path": "library/3_Skills/Business/Marketing/cro/SKILL.md",
+      "name": "Cro",
+      "description": "When the user wants to optimize, improve, or increase conversions on any marketing page or form — including homepage, landing pages, pricing pages, feature pages, lead capture forms, or contact forms."
+    },
+    {
       "path": "library/3_Skills/Business/Marketing/launch-strategy/SKILL.md",
       "name": "Launch-Strategy",
       "description": "When the user wants to plan a product launch, feature announcement, or release strategy."
@@ -31,6 +54,16 @@
       "path": "library/3_Skills/Business/Marketing/marketing-demand-acquisition/SKILL.md",
       "name": "Marketing-Demand-Acquisition",
       "description": "Multi-channel demand generation, paid media optimization, SEO strategy, and partnership programs for Series A+ startups."
+    },
+    {
+      "path": "library/3_Skills/Business/Marketing/marketing-psychology/SKILL.md",
+      "name": "Marketing-Psychology",
+      "description": "When the user wants to apply psychological principles, mental models, or behavioral science to marketing."
+    },
+    {
+      "path": "library/3_Skills/Business/Marketing/onboarding/SKILL.md",
+      "name": "Onboarding",
+      "description": "When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value."
     },
     {
       "path": "library/3_Skills/Business/Marketing/seo-fundamentals/SKILL.md",
@@ -44,5 +77,5 @@
     }
   ],
   "created_at": "2026-10-21",
-  "updated_at": "2026-10-21"
+  "updated_at": "2026-10-26"
 }

@@ -1,9 +1,9 @@
 {
   "name": "Engineering Pack",
   "id": "development-engineering-pack",
-  "description": "Every skill under 3_Skills/Development/Engineering (9), bundled so the whole folder installs in one click. Generated from the library tree; see the folder for the individual skills.",
+  "description": "Every skill under 3_Skills/Development/Engineering (16), bundled so the whole folder installs in one click. Generated from the library tree; see the folder for the individual skills.",
   "icon": "💻",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "promptbook",
   "generated": true,
   "tags": [
@@ -16,14 +16,39 @@
   "category": "Development",
   "skills": [
     {
+      "path": "library/3_Skills/Development/Engineering/code-review-and-quality/SKILL.md",
+      "name": "Code-Review-And-Quality",
+      "description": "Conducts multi-axis code review."
+    },
+    {
+      "path": "library/3_Skills/Development/Engineering/context-engineering/SKILL.md",
+      "name": "Context-Engineering",
+      "description": "Optimizes agent context setup."
+    },
+    {
       "path": "library/3_Skills/Development/Engineering/debugging-methodology/SKILL.md",
       "name": "Debugging-Methodology",
       "description": "Debug systematically instead of by guessing — reproduce reliably first, form and test one hypothesis at a time, bisect to localize, read the actual error and stack, and confirm the fix addresses the root cause rather tha"
     },
     {
+      "path": "library/3_Skills/Development/Engineering/doubt-driven-development/SKILL.md",
+      "name": "Doubt-Driven-Development",
+      "description": "Subjects every non-trivial decision to a fresh-context adversarial review before it stands."
+    },
+    {
+      "path": "library/3_Skills/Development/Engineering/incremental-implementation/SKILL.md",
+      "name": "Incremental-Implementation",
+      "description": "Delivers changes incrementally in thin, verifiable slices."
+    },
+    {
       "path": "library/3_Skills/Development/Engineering/performance-optimization/SKILL.md",
       "name": "Performance-Optimization",
       "description": "Make a slow app faster without guessing where the time goes — measure and profile before changing anything, fix the biggest bottleneck first, and cover the usual suspects: N+1 queries and missing indexes, oversized paylo"
+    },
+    {
+      "path": "library/3_Skills/Development/Engineering/planning-with-files/SKILL.md",
+      "name": "Planning-With-Files",
+      "description": "Persistent file-based planning for multi-step AI-agent work."
     },
     {
       "path": "library/3_Skills/Development/Engineering/ponytail/SKILL.md",
@@ -56,11 +81,21 @@
       "description": "Quality review of a change: is the logic right, is it safe, does it hold"
     },
     {
+      "path": "library/3_Skills/Development/Engineering/security-and-hardening/SKILL.md",
+      "name": "Security-And-Hardening",
+      "description": "Hardens code against vulnerabilities."
+    },
+    {
+      "path": "library/3_Skills/Development/Engineering/spec-driven-development/SKILL.md",
+      "name": "Spec-Driven-Development",
+      "description": "Creates specs before coding."
+    },
+    {
       "path": "library/3_Skills/Development/Engineering/testing-strategy/SKILL.md",
       "name": "Testing-Strategy",
       "description": "Decide what to test and at which level so the suite catches real regressions without becoming slow and brittle — the test shape (heavily unit, fewer integration, few end-to-end), testing behavior rather than implementati"
     }
   ],
   "created_at": "2026-10-23",
-  "updated_at": "2026-10-23"
+  "updated_at": "2026-10-26"
 }

@@ -1,0 +1,71 @@
+{
+  "name": "Strategy Pack",
+  "id": "business-strategy-pack",
+  "description": "Every skill under 3_Skills/Business/Strategy (10), bundled so the whole folder installs in one click. Generated from the library tree; see the folder for the individual skills.",
+  "icon": "💼",
+  "version": "1.0.0",
+  "author": "promptbook",
+  "generated": true,
+  "tags": [
+    "business",
+    "strategy",
+    "agent-skills",
+    "product",
+    "prd"
+  ],
+  "category": "Business",
+  "skills": [
+    {
+      "path": "library/3_Skills/Business/Strategy/business-plan-builder/SKILL.md",
+      "name": "Business-Plan-Builder",
+      "description": "Take a business idea — a one-line hunch, a napkin pitch, or a finished"
+    },
+    {
+      "path": "library/3_Skills/Business/Strategy/create-prd/SKILL.md",
+      "name": "Create-Prd",
+      "description": "Create a lean, decision-ready Product Requirements Document with an 8-section template: summary, contacts, background, objective, market segments, value propositions (6-part JTBD template), solution, and release."
+    },
+    {
+      "path": "library/3_Skills/Business/Strategy/customer-discovery/SKILL.md",
+      "name": "Customer-Discovery",
+      "description": "Design and run customer interviews that produce evidence instead of encouragement — asking about past behavior rather than future intent, avoiding leading and pitch-shaped questions, sampling for disconfirmation, and syn"
+    },
+    {
+      "path": "library/3_Skills/Business/Strategy/go-to-market/SKILL.md",
+      "name": "Go-To-Market",
+      "description": "Plan how a product actually reaches buyers — segment and beachhead selection, positioning against the alternative the buyer would otherwise pick, choosing channels that fit the price point and sales motion, sequencing a "
+    },
+    {
+      "path": "library/3_Skills/Business/Strategy/lean-canvas/SKILL.md",
+      "name": "Lean-Canvas",
+      "description": "Generate a Lean Canvas with problem, solution, metrics, cost structure, UVP, unfair advantage, channels, segments, and revenue."
+    },
+    {
+      "path": "library/3_Skills/Business/Strategy/north-star-metric/SKILL.md",
+      "name": "North-Star-Metric",
+      "description": "Define a North Star Metric and 3-5 supporting input metrics that form a metrics constellation."
+    },
+    {
+      "path": "library/3_Skills/Business/Strategy/opportunity-solution-tree/SKILL.md",
+      "name": "Opportunity-Solution-Tree",
+      "description": "Build an Opportunity Solution Tree (OST) to structure product discovery — map a desired outcome to opportunities, solutions, and experiments."
+    },
+    {
+      "path": "library/3_Skills/Business/Strategy/pre-mortem/SKILL.md",
+      "name": "Pre-Mortem",
+      "description": "Run a pre-mortem risk analysis on a PRD or launch plan."
+    },
+    {
+      "path": "library/3_Skills/Business/Strategy/pricing-strategy/SKILL.md",
+      "name": "Pricing-Strategy",
+      "description": "Set or change a price with an argument behind it — choosing the value metric, structuring tiers and packaging, estimating willingness to pay from evidence rather than from competitors' pages, modeling the revenue effect "
+    },
+    {
+      "path": "library/3_Skills/Business/Strategy/strategy-red-team/SKILL.md",
+      "name": "Strategy-Red-Team",
+      "description": "Red-team a PRD, roadmap, or strategy by attacking its load-bearing assumptions before reality does."
+    }
+  ],
+  "created_at": "2026-10-26",
+  "updated_at": "2026-10-26"
+}

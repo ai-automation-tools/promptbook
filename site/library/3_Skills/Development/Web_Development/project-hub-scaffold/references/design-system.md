@@ -1,6 +1,6 @@
-# Design system — extracted from a reference `Hub/index.html`
+# Design system — extracted from a reference `hub/index.html`
 
-Everything here is pulled from the live source of the reference `Hub/index.html` this
+Everything here is pulled from the live source of the reference `hub/index.html` this
 skill scaffolds against. If you're touching Mode A or B, you don't need this file — you're
 reusing the file directly. This is for Mode C (visual-language-only match) and for
 understanding what you're looking at when you do touch the shared source.
@@ -245,7 +245,7 @@ product.
 
 The 2026-10-05 restyle (`obsidian`) changed shapes, type and the default scheme, not
 layout or behaviour; see Typography, Shapes and Color schemes above, and the
-`project-hub` repo's `Docs/REDESIGN.md` for the full record. The accent and the state
+`project-hub` repo's `docs/REDESIGN.md` for the full record. The accent and the state
 colour are separate tokens since then. The hub moves every viewer onto `obsidian` once on
 first load after the change (`hub.design` in `localStorage`); any scheme picked after that
 stands.

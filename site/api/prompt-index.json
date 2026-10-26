@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "buildTime": "2026-10-26T16:34:55.315Z",
+  "buildTime": "2026-10-26T17:00:16.674Z",
   "promptCount": 2357,
   "prompts": [
     {
@@ -4752,8 +4752,8 @@
         "web-development",
         "agent-skills"
       ],
-      "contentPreview": "\n# Project Hub scaffold\n\nReuse an existing Project Hub engine: a local filesystem scanner and vanilla-JS\nexplorer. Find the checkout containing `Hub/hub.mjs` and `Hub/index.html` from the\nuser's conte",
-      "lastModified": "2026-10-21T18:38:08.429Z",
+      "contentPreview": "\n# Project Hub scaffold\n\nReuse an existing Project Hub engine: a local filesystem scanner and vanilla-JS\nexplorer. Find the checkout containing `hub/hub.mjs` and `hub/index.html` from the\nuser's conte",
+      "lastModified": "2026-10-26T17:00:11.019Z",
       "isUserOwned": false
     },
     {
@@ -5770,7 +5770,7 @@
         "agent-skills"
       ],
       "contentPreview": "\n# Conversation types and sub-types\n\nTwo axes, and keeping them apart is the whole design.\n\n| | `conv_type` | `preset` |\n|:---|:---|:---|\n| **Is** | The room's **structure** — who is in it, what each ",
-      "lastModified": "2026-10-21T18:38:08.458Z",
+      "lastModified": "2026-10-26T17:00:11.053Z",
       "isUserOwned": false
     },
     {
@@ -5786,7 +5786,7 @@
         "agent-skills"
       ],
       "contentPreview": "\n# Delivery, notifications and the watchdog\n\nThe web UI is the **viewer** — a conversation lives in `db/chat.db` and you go look at it.\nDelivery is the **push** half: when a run finishes (or posts its",
-      "lastModified": "2026-10-21T18:38:08.461Z",
+      "lastModified": "2026-10-26T17:00:11.056Z",
       "isUserOwned": false
     },
     {
@@ -5945,8 +5945,8 @@
         "project-hub",
         "agent-skills"
       ],
-      "contentPreview": "\n# The hosted demo\n\n**Nothing in `Demo/` reimplements the hub.** The build runs the real `Hub/hub.mjs` against a\nfictional workspace, crawls every response it produces, and writes those out beside an\n",
-      "lastModified": "2026-10-21T18:38:08.490Z",
+      "contentPreview": "\n# The hosted demo\n\n**Nothing in `demo/` reimplements the hub.** The build runs the real `hub/hub.mjs` against a\nfictional workspace, crawls every response it produces, and writes those out beside an\n",
+      "lastModified": "2026-10-26T17:00:11.075Z",
       "isUserOwned": false
     },
     {

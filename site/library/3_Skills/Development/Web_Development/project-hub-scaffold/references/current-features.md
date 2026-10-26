@@ -1,6 +1,6 @@
 # Current engine features
 
-Reference snapshot: 2026-09-09. The source checkout `Hub/README.md` remains authoritative.
+Reference snapshot: 2026-09-09. The source checkout `hub/README.md` remains authoritative.
 
 ## Sidebar context menu
 
@@ -10,6 +10,7 @@ Right-click any row in the tree — folder or file — for copy and launch actio
 |:---|:---|
 | Add / Remove Bookmark | Pins the row, or unpins it. The label reflects the current state; same action as the header's `☆ bookmark` button and `Ctrl+D`. See [Bookmarks and recents](#bookmarks-and-recents). |
 | Rename Bookmark | Bookmark rows only. Opens the same in-place editor as double-clicking the label, which is otherwise undiscoverable. |
+| Move to ‹group› / Move to New Group… / Remove from Group | Bookmark rows only. Files the bookmark under a group header in the Bookmarks view; see [Bookmarks and recents](#bookmarks-and-recents). |
 | Copy Path | Absolute Windows path, backslashes. |
 | Copy Relative Path | The tree id itself (drive-relative, `~/...` for user scope). |
 | Copy Hub Link | Stable Hub URL for this item. The document header also preserves the current heading. |
@@ -28,11 +29,11 @@ launch actions now use `open-native.mjs`, with paths passed through an environme
 
 Pictures is a lightweight root in `/api/scan`. Expanding or opening a folder loads only its immediate children; following a picture deep link fetches that file and the ancestor path. Previously loaded folders are retained across ordinary project refreshes. Raw image delivery still uses `/api/raw`.
 
-A search that includes Pictures gets a separate results section. Its metadata index is built asynchronously on the first relevant query and reused, with up to 200 results per page. Project-only searches and repo/skill/CLI queries do not build it. Search preserves the former scan depth limit of seven recursive levels; deeper folders are still browsable, and the UI explains the search boundary. Unreadable folders are disclosed rather than silently counted as complete coverage.
+A search that includes Pictures gets a separate results section. Its metadata index is built asynchronously on the first relevant query and reused, with up to 200 results per page. Project-only searches and repo/skill/CLI queries do not build it. Search follows the same configurable scan depth as the rest of the hub (default 10); deeper folders are still browsable, and the UI explains the search boundary. Unreadable folders are disclosed rather than silently counted as complete coverage.
 
 The Pictures watcher invalidates only Pictures and emits a `pictures` SSE event. Directory metadata `change` notifications are ignored; file changes and directory `rename` events invalidate the cache, so new empty folders appear too. `/api/health` reports `pictures.state`, version, cache counts, read errors, and search build duration. The main scan's node count now excludes the lazy subtree; Pictures counts live in the separate status data once indexed.
 
-Measured on September 8: the ordinary payload fell from 118,220 to 40,191 nodes and from 1,675,465 to 921,701 gzip bytes. Fresh-scan directory walks fell from about 6.1 to 2.0 seconds; total scan time still varied with Git. The first image search on the final build took 1.384 seconds, with no image content read. See P7 measurements and limits (see the source checkout Docs/). Refresh an existing browser tab to load this client change.
+Measured on September 8: the ordinary payload fell from 118,220 to 40,191 nodes and from 1,675,465 to 921,701 gzip bytes. Fresh-scan directory walks fell from about 6.1 to 2.0 seconds; total scan time still varied with Git. The first image search on the final build took 1.384 seconds, with no image content read. See P7 measurements and limits (see the source checkout docs/). Refresh an existing browser tab to load this client change.
 
 ## Report browsing and recovery
 
@@ -40,7 +41,7 @@ PDF and HTML files have their own searchable types. Use `pdf:`, `html:`, or `ima
 
 PDFs use the browser's native iframe viewer, with Open and Download when the browser cannot render them. HTML previews resolve companion files through a signed directory route; nested `charts/`, scripts, styles, fonts, and JSON work within that directory. Parent-directory escapes and root-relative assets are not supported. HTML/SVG responses enforce a sandbox even when opened directly; signed preview URLs expire on server restart, so bookmark the stable Hub link instead.
 
-Document links retain heading fragments, and Copy Hub Link preserves the selected heading. Old `#Projects/...` links still work; section destinations use `#<encoded-file-id>?heading=<encoded-heading>`.
+Document links retain heading fragments, and Copy Hub Link preserves the selected heading. Old `#projects/...` links still work; section destinations use `#<encoded-file-id>?heading=<encoded-heading>`.
 
 A search has its own route too, so Back returns to the results you came from rather than the
 document you were on before them. Searching sets `#?q=<encoded-query>`, adding `scoped=1` when the
@@ -52,19 +53,21 @@ share or bookmark.
 
 A failed refresh leaves the current page visible with a stale-data message and Retry. SSE reconnects also retry after a startup failure. File modification times now participate in the change signature, including same-size edits. `/api/health` exposes walk/Git/assembly/serialization/gzip timing fields under `lastScan.timings`.
 
-The September 8 work passed 52 tests plus 11 live HTTP checks and a browser verification pass that confirmed nine acceptance criteria in Chrome. Narrow-pane layout and connection recovery are still unverified. See the P7 shipping record (see the source checkout Docs/) for exact coverage and remaining work.
+The September 8 work passed 52 tests plus 11 live HTTP checks and a browser verification pass that confirmed nine acceptance criteria in Chrome. Narrow-pane layout and connection recovery are still unverified. See the P7 shipping record (see the source checkout docs/) for exact coverage and remaining work.
 
 ## Bookmarks and recents
 
-**How to use them: `../Docs/BOOKMARKS.md` (see the source checkout Docs/).** What follows is how they work.
+**How to use them: `../docs/BOOKMARKS.md` (see the source checkout docs/).** What follows is how they work.
 
 The sidebar has five views, and `#activity`, a VS Code-style icon row above the header, picks one of them: **Explorer** (`#tree`), **Bookmarks** (pinned by hand), **Recent** (automatic, 20 items), **Favorites** (`#webmarks`; see [Favorites](#favorites)) and **Settings** (`#settings`; see [Settings](#settings)). `setSideView()` sets `#app[data-side]`, CSS shows only the matching host, and `renderPins()` builds only the list that is visible. The view persists in `hub.side` and defaults to the Explorer. Clicking the active icon calls `setRail(true)`, and in the rail the icons stack vertically and reopen the sidebar on their view. The Bookmarks icon carries a count badge (`#bm-count`).
 
-The list logic is pure and lives in `navigation.mjs` (`parseList`, `toggleBookmark`, `renameBookmark`, `moveBookmark`, `pushRecent`, `resolveBookmarks`) so it is tested without a DOM; `index.html` owns the sidebar and the wiring. Three entry points — the document header's star button, the tree context menu, and `Ctrl+D` — all route through one `togglePin()`, so the button's `aria-pressed`, the menu label, and the sidebar cannot disagree. `Ctrl+D` prefers the tree's keyboard cursor over the open document.
+The list logic is pure and lives in `navigation.mjs` (`parseList`, `toggleBookmark`, `renameBookmark`, `moveBookmark`, `setBookmarkGroup`, `renameBookmarkGroup`, `groupBookmarks`, `pushRecent`, `resolveBookmarks`) so it is tested without a DOM; `index.html` owns the sidebar and the wiring. Three entry points — the document header's star button, the tree context menu, and `Ctrl+D` — all route through one `togglePin()`, so the button's `aria-pressed`, the menu label, and the sidebar cannot disagree. `Ctrl+D` prefers the tree's keyboard cursor over the open document.
 
 `#pins` has its own `contextmenu` listener reusing `showCtxMenu()`, so pinned rows offer the same actions as tree rows. Rename dispatches a `dblclick` at the row's label rather than growing a second editor.
 
-Storage is `localStorage`, two keys, `{path, label, addedAt}` and nothing else — no server component, no per-user server state, and no document contents. `parseList()` distrusts what it reads: a corrupted or older-format value returns an empty list rather than throwing, and duplicate paths collapse to one row.
+Bookmark groups are an optional `group` name on each bookmark, so a group exists while it has a member and the stored list stays one flat array; `groupBookmarks()` splits it into ungrouped rows followed by each group in first-appearance order, and `pinSection()` renders each part under a `.pingrp` header. A bookmark row's menu adds **Move to ‹group›**, **Move to New Group…** and **Remove from Group**; dragging carries the path rather than an index, and a drop on a row or header also sets the group. The sticky **+ new group** row at the bottom of `#pins` creates a group before it has members — those names, and which groups are folded, live in `hub.bmgroups` (`{closed, empty}`), and `savePins()` drops a name from `empty` as soon as a bookmark carries it. Every rename — bookmark or group — goes through one `inlineEdit()`.
+
+Storage is `localStorage`: two lists of `{path, label, addedAt, group?}` plus the `hub.bmgroups` display state, and nothing else — no server component, no per-user server state, and no document contents. `parseList()` distrusts what it reads: a corrupted or older-format value returns an empty list rather than throwing, and duplicate paths collapse to one row.
 
 Every scan re-resolves bookmarks against `S.byId`. A missing path is dimmed and kept, never dropped, because a temporarily unreadable folder must not silently eat pins; where exactly one node in the same root shares the basename, a single relink offer appears, and nothing is repointed automatically. `pinExists()` also asks `pictureNodes.owns()`, so a bookmarked photo that is legitimately unloaded is not called a dead link, and nothing is marked missing before the first scan lands.
 
@@ -76,7 +79,7 @@ Renaming swaps the label for an input in place rather than calling `prompt()`, w
 
 The search box is also a proper combobox as of the same day: `role="combobox"` with `aria-expanded`, `aria-controls` and `aria-activedescendant`, and one `syncCombobox()` that assigns row ids at sync time so the arrow keys walk the document and Pictures listboxes as one contiguous sequence.
 
-Together the September 8–9 work passes **64 tests** plus the live HTTP and browser checks recorded in the P7 shipping record (see the source checkout Docs/).
+Together the September 8–9 work passes **64 tests** plus the live HTTP and browser checks recorded in the P7 shipping record (see the source checkout docs/).
 
 ## Settings
 
