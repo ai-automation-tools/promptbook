@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-10-26T16:34:55.315Z",
-  "promptCount": 2357,
+  "buildTime": "2026-10-26T21:03:26.907Z",
+  "promptCount": 2360,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -605,6 +605,23 @@
       ],
       "contentPreview": "\n<!-- Last Updated: 2026-10-13 - Checked against code.claude.com/docs/en/cli-reference -->\n\n# Claude Code CLI Flags Reference\n\nOfficial command-line flags available in Claude Code CLI.\n\n**Source**: [c",
       "lastModified": "2026-10-26T15:17:35.376Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/Claude_Code/hooks-guide.md",
+      "title": "🪝 Claude Code Hooks Guide",
+      "section": "1_Guides",
+      "category": "Claude_Code",
+      "subcategory": "hooks-guide",
+      "tags": [
+        "claude-code",
+        "hooks",
+        "automation",
+        "guardrails",
+        "settings"
+      ],
+      "contentPreview": "\n<!-- Last Updated: 2026-10-26 - Checked against code.claude.com/docs/en/hooks-guide -->\n\n# Claude Code Hooks Guide\n\nHooks run your own commands at fixed points in Claude Code's lifecycle, so somethin",
+      "lastModified": "2026-10-26T21:03:08.361Z",
       "isUserOwned": false
     },
     {
@@ -13669,6 +13686,22 @@
       "isUserOwned": false
     },
     {
+      "id": "4_Prompts/Awesome_ChatGPT/General/ethereum-developer.md",
+      "title": "⛓️ Ethereum Developer",
+      "section": "4_Prompts",
+      "category": "Awesome_ChatGPT",
+      "subcategory": "General",
+      "tags": [
+        "awesome-chatgpt",
+        "ethereum",
+        "solidity",
+        "smart-contract"
+      ],
+      "contentPreview": "\n# Ethereum Developer\n\nImagine you are an experienced Ethereum developer tasked with creating a smart contract for a blockchain messenger. The objective is to save messages on the blockchain, making t",
+      "lastModified": "2026-10-26T21:01:52.294Z",
+      "isUserOwned": false
+    },
+    {
       "id": "4_Prompts/Awesome_ChatGPT/General/ethreal-current.md",
       "title": "🤖 Ethreal Current",
       "section": "4_Prompts",
@@ -23700,6 +23733,22 @@
       ],
       "contentPreview": "\n# Source-Hunting / OSINT Mode\n\nAct as an Open-Source Intelligence (OSINT) and Investigative Source Hunter. Your specialty is uncovering surveillance programs, government monitoring initiatives, and B",
       "lastModified": "2026-10-26T15:17:03.125Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Awesome_ChatGPT/General/spec-interview.md",
+      "title": "🧠 Spec Interview",
+      "section": "4_Prompts",
+      "category": "Awesome_ChatGPT",
+      "subcategory": "General",
+      "tags": [
+        "awesome-chatgpt",
+        "spec",
+        "interview",
+        "planning"
+      ],
+      "contentPreview": "\n# Spec Interview\n\nread this${specmd:spec.md} and interview me in detail using the\nAskUserQuestionTool (or similar tool) about literally anything: technical\nimplementation, UI & UX, concerns, tradeoff",
+      "lastModified": "2026-10-26T21:01:52.336Z",
       "isUserOwned": false
     },
     {

@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-26 — Two Awesome ChatGPT prompts and a Claude Code hooks guide
+
+Two prompts from `f/awesome-chatgpt-prompts` (now `f/prompts.chat`) @ `cd7ac608`, `prompts.csv`, both `match: similar`: **Spec Interview** and **Ethereum Developer**, in `4_Prompts/Awesome_ChatGPT/General/`. One guide in `1_Guides/Claude_Code/`: **Claude Code Hooks Guide** (`hooks-guide.md`, repo `anthropics/claude-code`), written from the official [hooks guide](https://code.claude.com/docs/en/hooks-guide) read this run: settings locations, event table, exit codes, three recipes, timeouts and troubleshooting. The folder had flags, slash commands and tips but nothing on hooks.
+
+_Touched: `site/library/4_Prompts/Awesome_ChatGPT/General/{spec-interview,ethereum-developer}.md`, `site/library/1_Guides/Claude_Code/hooks-guide.md`, `site/api/prompt-index.json`._
+
+---
+
 ## 2026-10-26 — Source link on items you create
 
 Every Public Library card names where it comes from; now your own items can too. The New item / Edit item form has a **Source link** field for the GitHub repo or site an item stems from. It is saved as `source_url` in the My Library file's frontmatter, shown at the top of the item page (GitHub icon for a repo, globe for any other site), kept in the Download `.md`, and accepted by `POST`/`PUT /api/prompts` as `sourceUrl` and by the MCP `save_to_my_library` / `update_my_prompt` tools as `source_url` (`get_item` prints it). The store refuses anything but an `http(s)` URL, so a `javascript:` link can't be saved and clicked.
