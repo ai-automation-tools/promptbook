@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-27 — Backend agents checked for near-duplicates
+
+The Phase 3 duplicates item is closed with nothing merged. A 4-word-shingle overlap across all 77 agents found one pair above 15%: `microsoft-agent-framework-python` and `semantic-kernel-python` (26%), one vendor template filled in for two different frameworks, so both stay. The backend folder's same-role groups (three C# agents, three Rust, two C++) come from different authors with different instructions, and stay as alternatives. `CSharpExpert.md` was the one item file name with capitals, against the library's lowercase rule; it is now `csharp-expert.md` (its id changes), and `scripts/upstream.test.mjs` fails on a case-only path clash or an uppercase item file name.
+
+_Touched: `site/library/2_Agents/Development/Backend/csharp-expert.md`, `site/api/prompt-index.json`, `scripts/upstream.test.mjs`, `AGENTS.md`, `docs/ROADMAP.md`._
+
+---
+
 ## 2026-10-27 — Roadmap rewritten to match the library
 
 `docs/ROADMAP.md` had grown a status note per day and two finished phases' worth of done items. It now has one current "Where we are" note, and Phases 1 and 2 are collapsed to a summary each, both done. Their open items moved because they don't block a release: F04 (branch protection) to **Public release**, where it is a gate beside F10, and the remote MCP endpoint, the npm package and the registry listing to **Publish and promote**. Two items that no longer applied were removed (the agent-skills licence, since nothing is copied from that repo, and the generated-pack label, since no generated packs remain). Four were brought up to date: O02 now covers only the listing cards, since the item page has shown source, commit, check date and drift since 2026-10-26; O01 no longer waits on F05–F07, which are done; the starter collections wait on the Skill Packs decision; and the Awesome ChatGPT and Skill Packs items carry today's counts. The "Kept current by" table gains the Prompts & Agents Refresh and the Upstream Check.

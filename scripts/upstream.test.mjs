@@ -221,6 +221,16 @@ assert.equal(readUpstream(stampUpstream(tagsLast, { ref: "newsha", checked: "202
   for (const f of walk(path.join(LIB, "3_Skills"), () => true)) {
     if (!/^3_Skills\/(README\.md$|Libraries\/|packs\/)/.test(rel(f)) && !inSkill(f)) wrong.push(`${rel(f)}: outside any skill folder`);
   }
+  // Paths under library/ are case-unique (one file on Windows, two on Linux, and the index
+  // desynced once), and an item's own file name is lowercase, since it is the item's id.
+  const seen = new Map();
+  for (const f of walk(LIB, () => true)) {
+    const r = rel(f), k = r.toLowerCase();
+    if (seen.has(k)) wrong.push(`${r}: differs from ${seen.get(k)} only in case`);
+    seen.set(k, r);
+    const name = path.basename(f);
+    if (name.endsWith(".md") && /[A-Z]/.test(name) && name !== "SKILL.md" && name !== "README.md" && !inSkill(f)) wrong.push(`${r}: an item's file name is lowercase`);
+  }
   assert.deepEqual(wrong, [], "every record has the metadata its kind needs");
   console.log(`  ${kinds.original} original and ${kinds.attributed} attributed records, each with its kind's metadata; every skill licensed to redistribute`);
 }
