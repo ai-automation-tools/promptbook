@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "buildTime": "2026-10-27T18:56:16.149Z",
+  "buildTime": "2026-10-27T19:26:38.954Z",
   "promptCount": 2162,
   "prompts": [
     {
@@ -2535,9 +2535,9 @@
         "data",
         "scholar-evaluation"
       ],
-      "checked": "2026-10-18",
-      "contentPreview": "\n# Scholar Evaluation\n\n## Overview\n\nApply the ScholarEval framework to systematically evaluate scholarly and research work. This skill provides structured evaluation methodology based on peer-reviewed",
-      "lastModified": "2026-10-27T17:30:59.011Z",
+      "checked": "2026-10-27",
+      "contentPreview": "\n# Scholar Evaluation\n\n## Purpose\n\nProvide developmental, evidence-traceable feedback on a **scholarly work**:\npaper, draft, protocol, literature synthesis, or research idea. Use\nqualitative judgment ",
+      "lastModified": "2026-10-27T19:24:56.808Z",
       "isUserOwned": false
     },
     {
