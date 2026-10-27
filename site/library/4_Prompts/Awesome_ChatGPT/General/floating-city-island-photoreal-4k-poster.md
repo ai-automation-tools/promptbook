@@ -3,6 +3,10 @@ title: "🤖 Floating City Island - Photoreal 4K Poster"
 tags: ["awesome-chatgpt", "floating", "city", "island", "photoreal"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Floating City Island - Photoreal 4K Poster

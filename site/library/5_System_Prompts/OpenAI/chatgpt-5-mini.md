@@ -3,6 +3,12 @@ title: "🧠 ChatGPT 5 Mini"
 tags: ["openai", "llm", "instructions", "chatgpt", "gpt5mini"]
 category: "LLM Instructions"
 subcategory: "Openai"
+upstream:
+  match: exact
+  repo: jujumilk3/leaked-system-prompts
+  path: openai-chatgpt5-mini_20251206.md
+  ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
+  checked: 2026-10-23
 ---
 
 ## Purpose

@@ -3,6 +3,10 @@ title: "🤖 Retro-futuristic 1970s sci-fi"
 tags: ["awesome-chatgpt", "retro", "futuristic", "1970s", "sci"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Retro-futuristic 1970s sci-fi

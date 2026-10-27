@@ -3,6 +3,12 @@ title: "📝 Acli Rovodev Interactive"
 tags: ["atlassian", "llm", "instructions", "acli", "rovodev", "interactive"]
 category: "LLM Instructions"
 subcategory: "Atlassian"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Atlassian/20250801-acli-rovodev-interactive.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 This is the full system prompt for [Rovo Dev Agent](https://www.atlassian.com/blog/announcements/rovo-dev-command-line-interface) by Atlassian as of August 1, 2025.

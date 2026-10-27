@@ -3,6 +3,10 @@ title: "🤖 Critical-Parallel Inquiry Format"
 tags: ["awesome-chatgpt", "critical", "parallel", "inquiry", "format"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Critical-Parallel Inquiry Format

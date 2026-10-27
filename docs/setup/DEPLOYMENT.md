@@ -42,8 +42,10 @@ Vercel sets `VERCEL` in every build and function. The app treats that the same a
 - **Server** (`site/lib/my-library.ts`): every write route (create, update, delete, copy to
   My Library, add or remove a skill pack) returns `403` with
   `"This copy of the library is read-only. Clone the repo to keep your own prompts."`
+  The My Library reads are closed as well: its list and installed packs are empty, and a
+  My Library id is not served.
 - **UI** (`site/vite.config.ts` bakes `__READ_ONLY__` into the bundle; `site/src/lib/mode.ts`
-  reads it): the Public / My Library switch, **New prompt**, **Save to My Library**, and
+  reads it): the Public / My Library switch, **New item**, **Save to My Library**, and
   skill-pack add/remove are hidden.
 
 There is no writable disk on Vercel and the demo is shared by every visitor, so there is no

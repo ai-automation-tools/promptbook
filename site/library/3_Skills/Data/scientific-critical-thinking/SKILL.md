@@ -5,10 +5,13 @@ name: "scientific-critical-thinking"
 description: "Evaluate research rigor. Assess methodology, experimental design, statistical validity, biases, confounding, evidence quality (GRADE, Cochrane ROB), for critical analysis of scientific claims."
 allowed-tools: [Read, Write, Edit, Bash]
 upstream:
-  match: ambiguous
-  copies: 4
-  candidates: [hkphysics/scientific-agent-skills, k-dense-ai/claude-scientific-skills, k-dense-ai/claude-scientific-writer, sonofmagic/weapp-tailwindcss]
-  checked: 2026-08-26
+  match: exact
+  repo: sonofmagic/weapp-tailwindcss
+  path: .codex/skills/scientific-critical-thinking/SKILL.md
+  ref: fdc3d5856c8dd4b9dbb6417e1206cb9b3cf3d417
+  checked: 2026-10-23
+  was: ambiguous
+  license: MIT
 ---
 
 # Scientific Critical Thinking

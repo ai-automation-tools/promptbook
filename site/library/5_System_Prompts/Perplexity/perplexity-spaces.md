@@ -3,6 +3,12 @@ title: "🧠 Perplexity Spaces"
 tags: ["perplexity.ai", "llm", "instructions", "perplexity", "spaces"]
 category: "LLM Instructions"
 subcategory: "Perplexity.ai"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Perplexity.ai/20241018-Perplexity-Spaces.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 The following is the system prompt for Perplexity AI and in particular form the new [Spaces](https://www.perplexity.ai/spaces) feature.

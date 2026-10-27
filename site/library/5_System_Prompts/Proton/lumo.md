@@ -3,6 +3,12 @@ title: "📝 Lumo"
 tags: ["proton", "llm", "instructions", "lumo"]
 category: "LLM Instructions"
 subcategory: "Proton"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Proton/20250723-Lumo.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 Lumo, Proton's AI System prompt. See full blog here: https://proton.me/blog/lumo-ai

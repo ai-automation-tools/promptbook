@@ -3,6 +3,10 @@ title: "🤖 .NET API Project Analysis"
 tags: ["awesome-chatgpt", "net", "api", "project", "analysis"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # .NET API Project Analysis

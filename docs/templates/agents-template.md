@@ -5,6 +5,12 @@ tools: Read, Write, Edit, Bash, Glob, Grep  # only what it needs
 model: sonnet  # optional: haiku | sonnet | opus | inherit
 title: "🤖 [Agent Name]"
 tags: ["agent", "[category]", "[topic]"]
+upstream:                 # REQUIRED since 2026-10-23: CI fails an agent with no GitHub source
+  match: exact
+  repo: [owner/repo]
+  path: [path/to/agent.md]
+  ref: [full commit sha you copied from]
+  checked: [YYYY-MM-DD]
 ---
 <!-- A Claude Code subagent definition: the file drops into .claude/agents/ as-is. A role-play
      or "act as X" prompt without name:/description: belongs in 4_Prompts, not here

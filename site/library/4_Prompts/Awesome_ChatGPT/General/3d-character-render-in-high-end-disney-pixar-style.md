@@ -3,6 +3,10 @@ title: "🤖 3D Character Render In High-End Disney Pixar Style"
 tags: ["awesome-chatgpt", "character", "render", "high", "end"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # 3D Character Render In High-End Disney Pixar Style

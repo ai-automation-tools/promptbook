@@ -3,6 +3,12 @@ title: "📝 Gemini 1.5 04112024"
 tags: ["google", "llm", "instructions", "gemini", "1_5", "04112024"]
 category: "LLM Instructions"
 subcategory: "Google"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Google/gemini-1.5-04112024.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 Gemini 1.5 System Prompt by [@elder_plinius](https://twitter.com/elder_plinius/status/1777817164101357744)

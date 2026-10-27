@@ -3,6 +3,12 @@ title: "📊 Rawdata"
 tags: ["rabbit-r1", "llm", "instructions", "rawdata"]
 category: "LLM Instructions"
 subcategory: "rabbit-r1"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/rabbit-r1/04242024-rawdata.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 This is part of the system instructions as extracted by user [Didier Lopes / @didier_lopes](https://x.com/didier_lopes/status/1783343149005394150):

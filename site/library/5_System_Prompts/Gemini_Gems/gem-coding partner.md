@@ -1,6 +1,12 @@
 ---
 title: "gem-coding partner"
 tags: ["system-prompt","gemini-gems"]
+upstream:
+  match: similar
+  repo: LouisShark/chatgpt_system_prompt
+  path: prompts/official-product/google/CodingPartner.md
+  ref: de74fd8a5262cc7b23b94e1a8ab32a4530325d24
+  checked: 2026-10-23
 ---
 
 name: "Coding partner"

@@ -4,6 +4,504 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-27 — Freshness on the listing cards (O02)
+
+A card in the grid now says when its item was last checked against its source repo ("checked Oct 18, 2026"), in place of the file's modified time, which on the demo is only when Vercel's checkout wrote it. Past 90 days it gets a `stale` chip. Nothing claims an item is verified: an undated item (most guides, the skill library cards) shows its file date and no chip. The prebuilt index and the live library walk both carry `checked`, from `upstream.checked`, an MCP card's `server.checked` or a guide's `checked:`, on 2,071 of the 2,162 items; the oldest is 2026-08-26, so the first chips appear in late November. `test:read-only` checks the index and the walk agree on `checked` and `inputs`, and pins the 90-day edge. That check also caught the walk listing three lowercase `readme.md` files the index skips, now fixed. The `git log` half of the old O02 stays open for Mike: it needs a Vercel preview.
+
+_Touched: `site/lib/library.ts`, `site/api/{index.ts,prompt-index.json}`, `site/scripts/{build-prompt-index.js,read-only.test.mjs}`, `site/src/lib/freshness.ts`, `site/src/components/PromptCard.tsx`, `AGENTS.md`, `docs/ROADMAP.md`._
+
+---
+
+## 2026-10-27 — Backend agents checked for near-duplicates
+
+The Phase 3 duplicates item is closed with nothing merged. A 4-word-shingle overlap across all 77 agents found one pair above 15%: `microsoft-agent-framework-python` and `semantic-kernel-python` (26%), one vendor template filled in for two different frameworks, so both stay. The backend folder's same-role groups (three C# agents, three Rust, two C++) come from different authors with different instructions, and stay as alternatives. `CSharpExpert.md` was the one item file name with capitals, against the library's lowercase rule; it is now `csharp-expert.md` (its id changes), and `scripts/upstream.test.mjs` fails on a case-only path clash or an uppercase item file name.
+
+_Touched: `site/library/2_Agents/Development/Backend/csharp-expert.md`, `site/api/prompt-index.json`, `scripts/upstream.test.mjs`, `AGENTS.md`, `docs/ROADMAP.md`._
+
+---
+
+## 2026-10-27 — Roadmap rewritten to match the library
+
+`docs/ROADMAP.md` had grown a status note per day and two finished phases' worth of done items. It now has one current "Where we are" note, and Phases 1 and 2 are collapsed to a summary each, both done. Their open items moved because they don't block a release: F04 (branch protection) to **Public release**, where it is a gate beside F10, and the remote MCP endpoint, the npm package and the registry listing to **Publish and promote**. Two items that no longer applied were removed (the agent-skills licence, since nothing is copied from that repo, and the generated-pack label, since no generated packs remain). Four were brought up to date: O02 now covers only the listing cards, since the item page has shown source, commit, check date and drift since 2026-10-26; O01 no longer waits on F05–F07, which are done; the starter collections wait on the Skill Packs decision; and the Awesome ChatGPT and Skill Packs items carry today's counts. The "Kept current by" table gains the Prompts & Agents Refresh and the Upstream Check.
+
+_Touched: `docs/ROADMAP.md`._
+
+---
+
+## 2026-10-27 — Prompt placeholders as MCP arguments (O03)
+
+A prompt can declare its `[placeholder]` fields in an `inputs:` frontmatter list, and an MCP client then asks for each one instead of taking a single free-text `input`. The MCP server registers every public prompt that declares inputs by name, with one required argument per input, beside `input`, which still appends; My Library prompts get the same. Only declared names are filled, in one literal pass (`[N]`, `[dict]` and links stay as written), and `npm run test:mcp` fails on a declaration that names a placeholder the body lacks. The index carries `inputs` for the prompts that have it. To start, two Awesome ChatGPT prompts declare `[topic]`.
+
+_Touched: `site/lib/{prompt-inputs,library}.ts`, `site/mcp/server.ts`, `site/scripts/{build-prompt-index.js,mcp-server.test.mjs}`, `site/api/prompt-index.json`, two prompts in `site/library/4_Prompts/Awesome_ChatGPT/General/`, `AGENTS.md`, `docs/{mcp-server,CONTRIBUTING,ROADMAP}.md`, `docs/features/MCP-SERVER.md`._
+
+---
+
+## 2026-10-27 — Loose files out of 3_Skills
+
+81 files sat in `site/library/3_Skills/` outside any skill folder: 78 single-file prompt-style "skills" from before the AgentSkills layout, a stale Skill Packs list in `Development/README.md` and two orphaned `plugin.json` manifests. The index only reads `SKILL.md` files and library cards, so the app never showed them (the index is unchanged at 2,162 items), but they were still published in the repo with no source named. They moved to `archive/loose-skill-files-2026-10-27/`, paths kept, and `scripts/upstream.test.mjs` now fails on any file outside a skill folder other than the section README, `Libraries/` and `packs/`. `3_Skills/README.md` is rewritten for the current layout (30 library cards, 28 single skills) in place of the 256-skill tables from August.
+
+_Touched: `site/library/3_Skills/`, `archive/`, `scripts/upstream.test.mjs`._
+
+---
+
+## 2026-10-27 — Every skill ships with its licence (F17)
+
+The provenance check proved that items named a repo, not that they could be given away. `scripts/upstream.test.mjs` now sorts every record into original (guides and library cards, which must not carry an upstream block), attributed (`repo` as owner/name, a `checked` date, a fork's `note`, a vendor page's `url`) or unresolved (fails), and a skill, which people download as files, needs a redistributable SPDX `license:` in its block and a LICENSE beside `SKILL.md`. `scripts/vendor-skill-licenses.mjs` writes both from the source repo with `gh`: 26 of the 32 skills had no licence file, so the NOTICE's "each vendored skill keeps its own LICENSE" was not true until now. `resync-upstream.mjs` keeps a vendored LICENSE instead of pruning it as stale. `test:read-only` opens a skill ZIP and every Skill Pack ZIP and checks each skill's LICENSE is inside.
+
+Four skills could not be cleared and moved to `archive/unlicensed-2026-10-27/` (Mike's call): `scientific-schematics` and `market-mechanics-betting` (repos with no licence), `document-writer` (MIT with a rider barring OpenAI, Anthropic and anyone acting for them) and `scientific-writing` (a GPL/AGPL combined work). So did `postgres-schema-design`, saved as `SKILL.MD` with no upstream block, which the index never saw; the check now fails on a skill file not named exactly `SKILL.md`. The writing-documentation and prediction-markets packs lost one skill each (2 and 1 left).
+
+_Touched: `scripts/{upstream.test.mjs,vendor-skill-licenses.mjs,resync-upstream.mjs}`, `site/library/3_Skills/`, `site/api/prompt-index.json`, `site/scripts/{read-only.test.mjs,bench-endpoints.mjs}`, `archive/`, `NOTICE`, `AGENTS.md`, `docs/{ROADMAP,CONTRIBUTING}.md`._
+
+---
+
+## 2026-10-27 — Roadmap brought up to date after the library cards
+
+Four roadmap items went stale when skill libraries became cards. Skill attribution is closed: the 60 `ambiguous` and 163 `unknown` skills all came from multi-skill repos, which are cards now, and the 32 single skills left are all attributed. The agent-skills licence item and the generated-pack label are dropped, since nothing is copied from agent-skills and no generated packs remain. The duplicates item keeps only the backend agents. A new item asks Mike what Skill Packs are for, with three small packs left, and the "Kept current by" table lists the weekly Library Cards Refresh.
+
+_Touched: `docs/ROADMAP.md`._
+
+---
+
+## 2026-10-27 — Favorites on detail pages and Skill Packs
+
+The star lived only in a card's hover actions, so an open item could not be starred, and Skill Packs had no star at all. The detail page now has a star beside the share buttons, and every pack has one on its card and on its own page. Packs share the one favorites list as `pack:<id>`, which `useFavoritePrompts` skips when it fetches the other library's items, and the Packs sidebar gets a Favorites row that lists only the starred packs. Skills' Libraries view gets its own Favorites row too: under Skills it lists starred skills, under Libraries starred library cards, so the two don't mix.
+
+_Touched: `site/src/components/{PromptDetail,SkillPacksView,Sidebar}.tsx`, `site/src/hooks/useFavoritePrompts.ts`, `site/src/App.tsx`, `AGENTS.md`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`._
+
+---
+
+## 2026-10-27 — Library cards carry the repo's README
+
+Each skill library card now holds the repo's whole README under its own header (title, description, link), so a library reads as it does on GitHub without leaving Promptbook. `site/scripts/refresh-library-cards.mjs` writes them from `gh`: all 41 cards, 30 public and 11 in My Library (`Zpankz/mcp-skillset` has no README and keeps its header only). Relative links and images become absolute GitHub URLs; a README that has not changed keeps its "copied" date, so a rerun is a no-op. The READMEs were checked before copying: six email addresses, all the authors' own published contacts.
+
+READMEs are mostly HTML (badges, centred blocks, tables), which the detail page and the editor preview printed as text. Markdown now renders HTML through `rehype-raw` and `rehype-sanitize` (GitHub's allow-list, so no scripts, iframes or styles), and markdown images are inline, so a badge row is a row.
+
+_Touched: `site/scripts/refresh-library-cards.mjs`, `site/library/3_Skills/Libraries/`, `site/api/prompt-index.json`, `site/src/components/{PromptDetail,PromptEditorModal}.tsx`, `site/src/index.css`, `site/package.json`, `site/package-lock.json`, `AGENTS.md`, `docs/ROADMAP.md`._
+
+---
+
+## 2026-10-27 — Skill libraries are one card each
+
+The Skills section mixed single skills (blader/humanizer), skill libraries (a repo like addyosmani/agent-skills that ships dozens) and Skill Packs (our bundles). A library now gets one card that describes it and links its GitHub repo, instead of a copy of each of its skills to keep in step:
+
+- **Public Library:** 30 cards in `site/library/3_Skills/Libraries/`, one per repo we had copied 2 or more skills from, each with the repo's own GitHub description. The 224 skill folders they replace moved to `archive/skill-libraries-2026-10-27/` (paths kept), with two orphaned finance_skills plugin manifests. 32 single skills stay. `scripts/upstream.test.mjs` requires a `repo:` line on every card.
+- **My Library:** the same card is any item tagged `skill-library`. Ten cards were added and 98 copies moved to `my-library/_archived/`, which the store does not list; Scientific Agent Skills, already a README of the whole collection, got the tag. 8 single skills stay.
+- **Skill Packs:** the 13 generated packs (one per folder of 6+ skills) are gone, since no folder keeps 6 skills, and `build-skill-packs.mjs --write` dropped the dead paths from the hand packs. Two came out empty and were deleted (`finance-portfolio-pack`, `project-management-pack`). Three remain.
+- **Upkeep:** `scripts/sync-agent-skills.mjs` is deleted. It copied ai-automation-tools/agent-skills into the library each week, and that repo is a card now. The drift workflow no longer skips agent-skills.
+- **UI:** a `Skills | Libraries | Packs` switch sits at the top of the Skills sidebar (as pills under the hero on phones). Packs no longer has its own tile on the rail or the phone strip; it lives under Skills, which stays lit while you're there. Under Libraries the grid shows the library cards and the sidebar lists them instead of the category tree. The cards stay out of the Skills grid, its category tree and its count, and the hero's third counter is Libraries. A card downloads as markdown, not a skill zip.
+
+The tests and the bench that used `analytics-tracking`, `canvas-design`, `mcp-builder` and the two big finance packs now use skills and packs that stay; `docs/development/PERFORMANCE.md` has the new baseline, every row inside the budgets.
+
+_Touched: `site/library/3_Skills/{Libraries,packs}/`, `archive/`, `site/scripts/{build-prompt-index.js,bench-endpoints.mjs,read-only.test.mjs}`, `site/api/{index.ts,prompt-index.json}`, `site/src/components/{SkillLibraries,Sidebar,SectionRail,TopBar}.tsx`, `site/src/hooks/{usePromptFilters,useLibraryRoute}.ts`, `site/src/lib/sections.ts`, `site/src/App.tsx`, `scripts/{build-skill-packs.mjs,upstream.test.mjs}`, `.github/workflows/upstream-drift.yml`, `AGENTS.md`, `docs/{ARCHITECTURE,ROADMAP}.md`, `docs/skill-packs/README.md`, `archive/README.md`._
+
+---
+
+## 2026-10-26 — Sections one tap away on phones
+
+On a phone the only way to change section was the ☰ button, which looks like a site menu, so going from Prompts to Skills wasn't findable. Phones now get a swipeable strip of section chips under the top bar (the rail's job from md up); the current chip is highlighted and scrolled into view. The ☰ sheet keeps just the Resources links. Checked at 390px with touch emulation: no horizontal overflow, and the strip hides from 768px.
+
+_Touched: `site/src/components/{TopBar,SectionRail}.tsx`, `site/src/index.css`, `AGENTS.md`, `docs/ARCHITECTURE.md`._
+
+---
+
+## 2026-10-26 — One set of favorites in both libraries
+
+Favorites were already one list of ids in the browser, but each library only showed the stars it had loaded, and Public Library cards had no star button at all. Now every card has the star, in both libraries and on the read-only demo. The sidebar's Favorites view and the toolbar's Favorites panel list the current section's stars from both libraries: `useFavoritePrompts` fetches the other library's starred items by id (`GET /api/prompts/:id`). Each card shows the buttons of the library it belongs to, and opening one from the other library switches there first, the way the ⌘K palette does.
+
+_Touched: `site/src/hooks/useFavoritePrompts.ts`, `site/src/App.tsx`, `site/src/components/{PromptCard,PromptGrid}.tsx`, `AGENTS.md`, `docs/ARCHITECTURE.md`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`._
+
+---
+
+## 2026-10-26 — Card blurbs skip README badges
+
+A My Library item imported from a README (Scientific Agent Skills) showed `[](LICENSE.md) [](https://arxiv.org/` as its card blurb. Its first 200 characters were all badges, and `stripMarkdown` removed the image inside each `[![…](…)](…)` but left the empty link around it, plus the badge the 200-character cut split in half. The My Library listing now drops lines that are only images before taking the preview (`previewOf` in `api/index.ts`), and `stripMarkdown` drops empty links and a link left open at the cut. `npm run test:preview` pins both. The Public Library index has no badge-led previews, so `prompt-index.json` is unchanged.
+
+_Touched: `site/api/index.ts`, `site/src/components/PromptCard.tsx`, `site/scripts/preview.test.mjs`, `site/package.json`, `.github/workflows/ci.yml`, `AGENTS.md`, `README.md`, `docs/{ARCHITECTURE,README}.md`, `docs/features/API.md`, `docs/setup/SETUP.md`._
+
+---
+
+## 2026-10-26 — Two Awesome ChatGPT prompts and a Claude Code hooks guide
+
+Two prompts from `f/awesome-chatgpt-prompts` (now `f/prompts.chat`) @ `cd7ac608`, `prompts.csv`, both `match: similar`: **Spec Interview** and **Ethereum Developer**, in `4_Prompts/Awesome_ChatGPT/General/`. One guide in `1_Guides/Claude_Code/`: **Claude Code Hooks Guide** (`hooks-guide.md`, repo `anthropics/claude-code`), written from the official [hooks guide](https://code.claude.com/docs/en/hooks-guide) read this run: settings locations, event table, exit codes, three recipes, timeouts and troubleshooting. The folder had flags, slash commands and tips but nothing on hooks.
+
+_Touched: `site/library/4_Prompts/Awesome_ChatGPT/General/{spec-interview,ethereum-developer}.md`, `site/library/1_Guides/Claude_Code/hooks-guide.md`, `site/api/prompt-index.json`._
+
+---
+
+## 2026-10-26 — Source link on items you create
+
+Every Public Library card names where it comes from; now your own items can too. The New item / Edit item form has a **Source link** field for the GitHub repo or site an item stems from. It is saved as `source_url` in the My Library file's frontmatter, shown at the top of the item page (GitHub icon for a repo, globe for any other site), kept in the Download `.md`, and accepted by `POST`/`PUT /api/prompts` as `sourceUrl` and by the MCP `save_to_my_library` / `update_my_prompt` tools as `source_url` (`get_item` prints it). The store refuses anything but an `http(s)` URL, so a `javascript:` link can't be saved and clicked.
+
+_Touched: `site/lib/my-library.ts`, `site/api/index.ts`, `site/src/components/{PromptEditorModal,PromptDetail}.tsx`, `site/src/lib/markdown-file.ts`, `site/mcp/server.ts`, `site/scripts/{my-library,mcp-server}.test.mjs`, `docs/features/{API,MCP-SERVER}.md`, `docs/mcp-server.md`._
+
+---
+
+## 2026-10-26 — "New prompt" is now "New item"
+
+The create button in the top right said "New prompt", but the editor files into any section (guides, agents, skills, prompts, system prompts, MCP). It now says **New item**, as do the floating button on phones, the ⌘K action ("Create a prompt, agent, skill or guide in My Library"), the My Library empty state and the editor itself ("New item" / "Edit item", "Create item").
+
+_Touched: `site/src/components/{TopBar,CommandPalette,EmptyState,PromptEditorModal}.tsx`, `site/src/App.tsx`, `AGENTS.md`, `docs/ARCHITECTURE.md`, `docs/setup/DEPLOYMENT.md`._
+
+---
+
+## 2026-10-26 — Prompts: 437 from four more public collections
+
+Mike asked for popular prompts from top GitHub repos and sites. The Prompts section held one collection; it now holds five, each in its own top-level folder with the collection's grouping under it. Every file has an `upstream:` block (`repo`, `path`, `ref` = the commit read, `checked: 2026-10-26`) and tags. Every licence is MIT, read this run. The index goes from 1,920 items to 2,357.
+
+| Folder | Source | Prompts | Match |
+|:---|:---|---:|:---|
+| `Fabric/<topic>/` | `danielmiessler/Fabric` @ `bf8dcf72`, `data/patterns/*/system.md` | 265 | `exact`: the body is `system.md` byte for byte, so the weekly drift resync keeps it current |
+| `ChatGPT_Shortcut/<tag>/` | `rockbenben/ChatGPT-Shortcut` @ `f91ed81e`, English cards | 119 | `similar` (from JSON) |
+| `ChatGPT_System_Prompts/<group>/` | `mustvlad/ChatGPT-System-Prompts` @ `e19d82a2` | 38 | `similar` |
+| `Microsoft_Prompts_For_Edu/<audience>/` | `microsoft/prompts-for-edu` @ `508567d4` | 15 | `similar` (purpose and the fenced prompt) |
+
+- Deduped by title against everything already in `4_Prompts`. ChatGPT-Shortcut's 160 cards copied from Awesome ChatGPT were left out, as were 8 of mustvlad's 46.
+- Not taken: leaked or extracted system-prompt dumps (`x1xhlol/…`, `asgeirtj/…`, `elder-plinius/…`, `LouisShark/…`, `0xeb/TheBigPromptLibrary`), GPL or licence-less lists, Chinese-only collections, and prompt sites with no GitHub repo behind them (CI requires one). `github/awesome-copilot` moved its prompts into skills, so it belongs in `3_Skills` if anywhere.
+- `NOTICE` lists each collection with its licence. `4_Prompts/README.md` shows the five folders. The four repos are `done` rows in `docs/DISCOVERY.md`. The Awesome ChatGPT roadmap item notes that `f/awesome-chatgpt-prompts` is now `f/prompts.chat` and no longer the whole section.
+
+_Touched: `site/library/4_Prompts/{Fabric,ChatGPT_Shortcut,ChatGPT_System_Prompts,Microsoft_Prompts_For_Edu}/**`, `site/library/4_Prompts/README.md`, `site/api/prompt-index.json`, `NOTICE`, `docs/DISCOVERY.md`, `docs/ROADMAP.md`, `docs/features/MCP-SERVER.md`._
+
+---
+
+## 2026-10-26 — Library refresh: 22 skills and an MCP card from the discovery ledger
+
+Mike asked for new and popular items. The six `accept` rows in `docs/DISCOVERY.md` were vendored, today's discovery run was written to the ledger (25 new `pending` rows), and three of the top finds were taken straight away. Every file carries an `upstream:` block (`match: exact`, `repo`, `path`, `ref`, `checked: 2026-10-26`) and `tags`; every licence is MIT, read this run. The index goes from 1,897 to 1,920 items.
+
+**Skills (`3_Skills/`)**
+- `Development/Engineering/`: code-review-and-quality, spec-driven-development, incremental-implementation, security-and-hardening, context-engineering, doubt-driven-development from `addyosmani/agent-skills`; planning-with-files (with its scripts and templates) from `OthmanAdi/planning-with-files`.
+- `Business/Marketing/`: cro, ab-testing, cold-email, marketing-psychology, onboarding, churn-prevention from `coreyhaines31/marketingskills` (pricing skipped: `Business/Strategy/pricing-strategy` covers it).
+- `Business/Strategy/`: create-prd, pre-mortem, opportunity-solution-tree, north-star-metric, lean-canvas, strategy-red-team from `phuryn/pm-skills`.
+- `Design/`: diagram-design (SKILL.md, references and scripts; the 150 example HTML files were left out) from `cathrynlavery/diagram-design`; design-taste-frontend (SKILL.md and references; its asset, library and script folders were left out) from `Leonxlnx/taste-skill`.
+- `Content/General/`: i-have-adhd from `ayghri/i-have-adhd`.
+- `Content/General/humanizer` was an older copy of `blader/humanizer` attributed to a mirror as `match: similar`. It now points at the origin (`match: exact`) and carries its current v3.1.0 text, README and licence; the mirror's `WARP.md` is gone.
+
+**MCP card (`6_MCP_Servers/Developer_Tools/`)**
+- codebase-memory (`DeusData/codebase-memory-mcp`, MIT): install lines and the 17-tool list read from its README today.
+
+**Ledger**
+- The six accepted rows and the three new picks are `done` with a note of what was taken and left. The 25 rows from today's run are `pending` for Mike. `planning-with-files`, `pm-skills` and `codebase-memory-mcp` were added to the table by hand, since the script skips a repo the library already names.
+
+_Touched: `site/library/3_Skills/**` (22 new folders, humanizer), `site/library/6_MCP_Servers/Developer_Tools/codebase-memory.md`, the two section READMEs' counts, `site/api/prompt-index.json`, `docs/DISCOVERY.md`._
+
+---
+
+## 2026-10-26 — The repo link at the top of every card, in all six sections; unlinked items archived
+
+**Changes**
+- Guides and prompts now show the same GitHub panel at the top of the item page that skills, agents, system prompts and MCP cards already had. `sourceOf()` in `site/lib/library.ts` reads a guide's bare `repo:` as a third source after `upstream.repo` and `server.repo`.
+- The 1,349 Awesome ChatGPT prompts carry an `upstream:` block (`match: similar`, `repo: f/awesome-chatgpt-prompts`, `checked: 2026-10-26`), the collection their footers already named.
+- 70 guides carry `repo:` naming the tool they document (`anthropics/claude-code`, `openai/codex`, `Aider-AI/aider`, `cursor/cursor`, …). Each repo was checked on GitHub first; renamed ones were stamped under their current name, archived ones (Codeium, TabNine, Copilot Chat) were left out.
+- Everything that still named no repo was archived (Mike: "we only want cards that contain links now"): 669 hand-written prompts, every `4_Prompts` category except `Awesome_ChatGPT`, and 28 guides (the six Concepts pages, five hand-written agent configs, and tools with no public repo such as Windsurf, JetBrains AI Assistant, Supermaven, Kite, Cody, Docker AI, OpenClaw). They moved, paths intact, to `archive/unlinked-2026-10-26/` at the repo root, outside the deploy root; `archive/README.md` says how to restore one. The library goes from 2,598 items to 1,897 (the index builder now also skips a lowercase `readme.md`, which had put three folder notes under System Prompts as cards).
+- `scripts/upstream.test.mjs` now fails CI on a prompt without `upstream.repo` or a guide without `repo:`, as it already did for the other four sections.
+
+**Docs**
+- `AGENTS.md` and `docs/CONTRIBUTING.md`: the rule, where each section's repo comes from, the archive, and the checklist line. Prompt and guide templates show the new frontmatter; the `1_Guides` and `4_Prompts` folder READMEs describe what is there now.
+
+**Follow-up (after the merge, same day)**
+- `scripts/prompt_generation/`, which wrote prompt files from templates, moved to `archive/prompt_generation/`: nothing may write a prompt into the library now.
+- Roadmap: the `4_Prompts` provenance item is ticked (done by stamping the one corpus and archiving the rest; CI is the gate now), the Awesome ChatGPT decision notes it is the whole prompts section, and the "Where we are" note has a 2026-10-26 paragraph.
+- Example ids in the API, library-mode and template docs, and in the MCP server's instructions, point at paths that exist (`4_Prompts/Awesome_ChatGPT/General/…`).
+- The scheduled jobs that touch this repo (in `C:\Users\mikes\.claude\Routines`) follow the rule: Add Prompts copies prompts from public collections with an `upstream:` block instead of writing them, and every guide it adds names its tool's repo; the Prompts & Agents Refresh leaves prompt bodies alone (all vendored now) and only re-checks collection repos; Monthly Upkeep extends its no-source check to prompts and guides and archives, rather than deletes, what it cannot re-source; the org PR sweep merges new vendored prompts and archive moves instead of holding them.
+
+_Touched: `site/lib/library.ts`, `site/src/components/SourcePanel.tsx`, `site/library/4_Prompts/**`, `site/library/1_Guides/**`, `archive/`, `site/api/prompt-index.json`, `site/mcp/server.ts`, `site/scripts/mcp-server.test.mjs`, `scripts/upstream.test.mjs`, `AGENTS.md`, `docs/ROADMAP.md`, `docs/CONTRIBUTING.md`, `docs/features/API.md`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`, `docs/features/MCP-SERVER.md`, `docs/templates/*`._
+
+---
+
+## 2026-10-26 — Stale dev server shows an error, not a black page
+
+**Fixes**
+- The black page on opening a prompt came back: the local dev server had run since 2026-10-23 14:19, through the library commit and the `body-parser` lockfile bump, so Vite served outdated deps and the API still listed 213 deleted items. `lazyReload()`'s one reload cannot fix a stale server, so the second failure blanked the page. A top-level `ErrorBoundary` (`src/components/ErrorBoundary.tsx`, mounted in `main.tsx`) now shows "Something failed to load", says to restart the dev server, and offers Reload.
+
+**Docs**
+- `AGENTS.md` (read by Claude Code through `CLAUDE.md`): restart the dev server after any `npm install`, lockfile change or `api/`/`lib/`/`library/` change, and check its start time first when a black page is reported.
+- Debug Guide issue 6 and SETUP troubleshooting: restart is the fix, the reload alone is not; how to spot a stale server.
+
+_Touched: `site/src/components/ErrorBoundary.tsx`, `site/src/main.tsx`, `site/src/App.tsx`, `AGENTS.md`, `docs/development/DEBUG_UI.md`, `docs/setup/SETUP.md`._
+
+---
+
+## 2026-10-23 — body-parser 1.20.9 (Dependabot #14)
+
+**Security**
+- `body-parser` 1.20.8 → 1.20.9 (via Express 4.22.3) in `site/package-lock.json`: a high-severity denial of service from trailing bytes after a compressed request body. In-range update, lockfile only; `npm audit --omit=dev` reports 0 vulnerabilities.
+
+_Touched: `site/package-lock.json`._
+
+---
+
+## 2026-10-23 — Every vendored item names its source
+
+**Library**
+- Deleted the 150 skills and agents the attribution pass could not trace to any repo (141 skills, 9 agents; Mike). Skills 375 → 234, agents 87 → 78. `build-skill-packs.mjs --write` regenerated the folder packs and dropped the dead paths from 6 hand packs; `game-design-pack` lost all 15 skills and was removed.
+- System prompts got provenance for the first time. `scripts/attribute-system-prompts.mjs` (new) matched each file against seven public collections (jujumilk3/leaked-system-prompts, asgeirtj/system_prompts_leaks, elder-plinius/CL4R1T4S, x1xhlol/system-prompts-and-models-of-ai-tools, 0xeb/TheBigPromptLibrary, LouisShark/chatgpt_system_prompt, dontriskit/awesome-ai-system-prompts), including their git history: 142 matched (5 only as earlier captures, stamped `match: fork`), 3 are Anthropic's own release notes (`match: vendor` + `url`).
+- Deleted the 63 system prompts with no source (Mike). They matched nothing anywhere, and 38 shared one generated `<system_info>` template, one of them for a "Claude 3.5 Opus" that never shipped. 211 → 148 files.
+- The drift check now covers system prompts too (reported and shown on the item page, never auto-resynced: each is a dated capture).
+
+**CI**
+- `scripts/upstream.test.mjs` fails on any skill, agent, system prompt or MCP card that names no source (`upstream.repo`, `match: vendor` + `url`, or `server.repo`). Folder READMEs are exempt. `vendor` joins the `match:` vocabulary.
+
+**Docs**
+- `docs/audits/` removed (the 2026-08 repo audit, the direction plan and three drift reports; git history keeps them); `docs/README.md` and `AGENTS.md` no longer link there.
+- `docs/templates/system-prompts-template.md` was the `<system_info>` template the invented prompts were written from; it is now a frontmatter-plus-verbatim-capture template with the `upstream:` block. The agent and skill templates carry the block too, and `CONTRIBUTING.md` states the rule.
+
+_Touched: `scripts/attribute-system-prompts.mjs` (new), `scripts/upstream.test.mjs`, `scripts/check-upstream-drift.mjs`, `.github/workflows/upstream-drift.yml`, `site/lib/library.ts`, `site/src/components/SourcePanel.tsx`, `site/library/` (213 deletions, 145 stamped, packs), `site/api/upstream-status.json`, `site/api/prompt-index.json`, `docs/templates/`, `docs/CONTRIBUTING.md`, `AGENTS.md`, `docs/README.md`, `docs/ARCHITECTURE.md`._
+
+---
+
+## 2026-10-23 — Change control for vendored skills and agents
+
+**Library**
+- The Monday `upstream-drift.yml` no longer only reports. It still posts to the rolling issue, then resyncs every skill and agent whose local copy adds under 10% of its own lines (skipping `ai-automation-tools/agent-skills`, which the fleet's Skills Sync refreshes), writes `site/api/upstream-status.json`, rebuilds the index and opens one **Resync from upstream** PR on `upstream/resync`. Never merged automatically: it is third-party text people install.
+- First run, done by hand: 8 skills resynced (`x-twitter-scraper`, `repo-docs-builder`, `agent-workspace-builder`, three `edge-spectrum-*`, two `project-hub-*`).
+- `scripts/reattribute-unclear.mjs` (new) re-checked the 231 skills and agents with no single upstream by GitHub code search: 81 now resolve (75 exact, 6 similar; 59 of the 60 `ambiguous`, 22 of the 171 `unknown`) and carry `repo`/`path`/`ref` plus `was:`. 150 still have no source found; that list waits on Mike before anything is deleted. 28 of the new matches are repos with no licence.
+- 305 items are now drift-tracked, up from 224.
+
+**App**
+- An item's page shows a Source panel for skills, agents and MCP cards: the GitHub repo (or the exact file), the commit it was copied at, its verdict at the last weekly check (up to date, minor upstream changes, behind, removed upstream, kept copy) and a link to everything upstream changed since that commit. MCP `get_item` adds the same source line.
+- `check-upstream-drift.mjs --json` writes the status file; `lib/library.ts` `sourceOf()` reads it.
+
+_Touched: `.github/workflows/upstream-drift.yml`, `scripts/check-upstream-drift.mjs`, `scripts/reattribute-unclear.mjs` (new), `scripts/sync-agent-skills.mjs` (header), `site/api/upstream-status.json` (new), `site/lib/library.ts`, `site/api/index.ts`, `site/mcp/server.ts`, `site/src/components/SourcePanel.tsx` (new), `PromptDetail.tsx`, `PromptCard.tsx`, 108 files under `site/library/`, `site/api/prompt-index.json`, `AGENTS.md`, `docs/README.md`, `docs/ARCHITECTURE.md`._
+
+---
+
+## 2026-10-23 — Twelve themes, no source bar locally
+
+**UI**
+- Settings → Appearance offers twelve themes instead of four accent swaps: Sky (the house default), Midnight, Forest, Ember, Wine, Ocean, Slate, Sand, Solar, Synthwave, Sakura and Mono. Each washes the ground, panels, lines and secondary text in its own hue, in light and dark, and the picker previews each one's ground with its accent. Saved violet / emerald / ember choices carry over as Midnight / Forest / Ember.
+- The "Open source · View source" bar shows only on the read-only demo.
+- The categories toggle left the top-left of the content area: from md the panel closes from its own head, and clicking the current section in the rail hides or shows it. Phones keep the toggle in the top bar.
+- `vercel.json` carries the new hash for index.html's pre-paint script.
+
+_Touched: `site/src/index.css`, `hooks/useTheme.ts`, `components/SettingsModal.tsx`, `SectionRail.tsx`, `Sidebar.tsx`, `TopBar.tsx`, `App.tsx`, `site/index.html`, `site/vercel.json`, `AGENTS.md`, `README.md`, `docs/ARCHITECTURE.md`._
+
+---
+
+## 2026-10-23 — Colour-rail redesign (design 1a)
+
+**UI**
+- The sections leave the top bar for an always-visible icon rail on the left (md up): one hue tile per section, Settings at the foot. The current section's cell takes the categories panel's colour and runs into it, with inverted corners, so the open section and its categories read as one tab.
+- The categories panel is tinted with the current section's hue; each category gets its own stable hue (`categoryHue()`), shown as a dot in the tree, as a colour band across the top of its cards and in the card's glyph and hover ring.
+- A category or sub-category page shows its sub-categories as pills, so you can hop sideways without going back to the tree.
+- The top bar's ⌘K button is now a search field; the hero glow follows the section hue. Phones keep the menu sheet for sections.
+
+_Touched: `site/src/components/SectionRail.tsx` (new), `TopBar.tsx`, `Sidebar.tsx`, `PromptCard.tsx`, `App.tsx`, `lib/sections.ts`, `index.css`, `AGENTS.md`, `docs/ARCHITECTURE.md`._
+
+---
+
+## 2026-10-23 — Docs caught up with the day's fixes
+
+**Docs**
+- The root `README.md`, `docs/README.md`, `docs/setup/SETUP.md` and `docs/features/API.md` list every check: `test:mcp`, `test:safe-path` and `test:browser` (after a build, needs Chrome). The root README and `docs/README.md` also list `npm run bench`.
+- `CONTRIBUTING.md` and the PR template name the new checks, and ask for `npm run bench` against [PERFORMANCE.md](development/PERFORMANCE.md) when a change touches the listing, the detail read or the ZIPs.
+- `SECURITY.md`'s CI line covers path and link escapes and the page CSP.
+- `AGENTS.md` and `docs/ARCHITECTURE.md` list the browser smoke test, the benchmark and the containment test in their layout trees.
+- `docs/ROADMAP.md`'s status note says what's done (F01–F03, F05–F09, F11–F16, F18–F20), what waits on Mike (F04, F10, Node 24), and that roadmap work is paused.
+
+_Touched: `README.md`, `CONTRIBUTING.md`, `.github/PULL_REQUEST_TEMPLATE.md`, `SECURITY.md`, `AGENTS.md`, `docs/README.md`, `docs/setup/SETUP.md`, `docs/features/API.md`, `docs/ARCHITECTURE.md`, `docs/ROADMAP.md`._
+
+## 2026-10-23 — The full listing no longer blocks the server
+
+**Measured first** (`npm run bench`, new). Before the change, a full listing (every body, 10.6 MB) walked the library with synchronous reads. It held the event loop for about a second, so a detail read that arrived meanwhile waited up to 927 ms. Five concurrent exports took 3.6 s each. The baseline, the results and the budgets are in [`docs/development/PERFORMANCE.md`](development/PERFORMANCE.md). Roadmap item F12.
+
+**Changed**
+- `GET /api/prompts` walks the library with async I/O (`walkLibrary`). The output is byte-identical to before in all three modes.
+- Public listings, lightweight and full, are cached for five minutes as the bytes sent, with their ETag. Requests that arrive while one is being built share it. Serialization yields every 200 rows. The detail read's p95 during a cold export is now 128 ms, the stall 126 ms (once per five minutes), and a warm export takes 149 ms. The lightweight list's stall dropped from 55 ms to 9 ms, and `304`s still work.
+- Skill and pack ZIPs use zlib's default level 6 instead of 9. On the largest skill that is about 40% less CPU for a 0.15% bigger file.
+- A library edit can now take up to five minutes to show in a listing (it already did for the lightweight list).
+
+**Fixed**
+- `test:browser` matched any text containing "N results". A card blurb mentioning "10 results" made it fail, so the match is now anchored.
+
+_Touched: `site/api/index.ts`, `site/api/skill-packs.ts`, `site/scripts/bench-endpoints.mjs`, `site/scripts/browser-smoke.test.mjs`, `site/package.json`, `docs/development/PERFORMANCE.md`, `docs/ARCHITECTURE.md`, `docs/features/API.md`, `docs/README.md`, `AGENTS.md`, `docs/ROADMAP.md`._
+
+## 2026-10-23 — Resources links on phones and narrow windows
+
+**Fixed**
+- The Resources links were only reachable from 1536px up. Between 1360 and 1535px there was neither a Resources dropdown nor a menu button. The menu button and its sheet now last until 1536px. The sheet lists every Resources group under the sections, and its section buttons hide from 1360px, where the bar already shows them. The sheet scrolls when it is taller than three quarters of the screen. Roadmap item F16.
+
+_Touched: `site/src/components/TopBar.tsx`, `site/src/components/ResourcesNav.tsx`, `site/src/index.css`, `docs/ARCHITECTURE.md`, `docs/ROADMAP.md`._
+
+## 2026-10-23 — The demo's pages get a CSP
+
+**Added**
+- `site/vercel.json` sends a Content Security Policy, `X-Frame-Options: DENY`, `nosniff` and `Referrer-Policy` with the demo's HTML and assets (everything but `/api/`, which keeps helmet's). Scripts may come from the site itself, from `index.html`'s inline theme script (allowed by hash) and from `consent.js`; styles from the site, Google Fonts and inline; no framing. Roadmap item F18.
+- `npm run test:browser` serves the same headers and checks that the hash matches `index.html`, so editing the theme script without updating `vercel.json` fails CI with the new hash in the message.
+
+**Checked** on the PR's Vercel preview: headers present, fonts load, the saved theme applies before paint, `consent.js` loads, navigation and a skill ZIP download work. Vercel's preview-only feedback toolbar is blocked by the policy; production doesn't load it.
+
+_Touched: `site/vercel.json`, `site/scripts/browser-smoke.test.mjs`, `AGENTS.md`, `SECURITY.md`, `docs/ARCHITECTURE.md`, `docs/ROADMAP.md`._
+
+## 2026-10-23 — Links can't reach outside the library
+
+**Fixed**
+- `resolveInside()` compares real paths as well as strings. A symlink or junction inside `library/` that points elsewhere is refused for detail reads, skill downloads, MCP support files and Skill Pack reads. Roadmap item F14.
+- The skill ZIP used `archive.directory()`, which followed a junction inside a skill folder and zipped whatever it pointed at. The skill ZIP, the pack ZIP and the MCP file list now walk with `filesUnder()`, which skips links.
+- Skill Pack manifest paths go through `resolveInside()` instead of a bare `path.join`, so a manifest can't name a file outside the library.
+
+**Added**
+- `npm run test:safe-path` replaces the old mirrored self-check. It imports the real module and makes real junctions (and file symlinks where the OS allows), including two temporary ones in `site/library/3_Skills` for the HTTP checks, removed afterwards. It fails with either fix reverted.
+
+**Docs**
+- `ARCHITECTURE.md`, `SECURITY.md`, `MCP-SERVER.md` and `AGENTS.md` describe the real-path check, which closes F20.
+
+_Touched: `site/lib/safe-path.ts`, `site/lib/safe-path.test.mjs`, `site/api/index.ts`, `site/api/skill-packs.ts`, `site/mcp/server.ts`, `site/package.json`, `.github/workflows/ci.yml`, `AGENTS.md`, `SECURITY.md`, `docs/ARCHITECTURE.md`, `docs/features/MCP-SERVER.md`, `docs/features/API.md`, `docs/README.md`, `docs/setup/SETUP.md`, `docs/ROADMAP.md`._
+
+## 2026-10-23 — A browser smoke test in CI
+
+**Added**
+- `npm run test:browser` (`site/scripts/browser-smoke.test.mjs`) serves the built `dist/` with the real Express app and drives Chrome through `playwright-core`. It loads the listing, opens a detail page, checks the hero counter names its section, and checks that the Settings dialog keeps focus and returns it on Escape. Any page error, console error or failed request fails it. Removing the dialog's Tab trap turns it red. CI runs it after the MCP test. Roadmap item F09 is done.
+- `playwright-core` 1.64.0 is a dev dependency. It bundles no browser and uses the installed Chrome; `CHROME_PATH` points it at another Chromium.
+
+_Touched: `site/scripts/browser-smoke.test.mjs`, `site/package.json`, `site/package-lock.json`, `.github/workflows/ci.yml`, `AGENTS.md`, `docs/ROADMAP.md`._
+
+## 2026-10-23 — Dialogs keep keyboard focus
+
+**Fixed**
+- The editor and Settings dialogs manage focus. Opening one moves focus inside (the editor's title field, or the first control), Tab and Shift+Tab wrap within it, and the page behind is `inert`, so it can't be clicked, tabbed into or read by a screen reader. Escape closes it and focus returns to the button that opened it. Roadmap item F08.
+- The colour palette in Settings is a proper radio group: one tab stop, and the arrow keys move the choice.
+
+_Touched: `site/src/components/ui/primitives.tsx`, `site/src/components/SettingsModal.tsx`, `site/src/components/PromptEditorModal.tsx`, `docs/ROADMAP.md`._
+
+## 2026-10-23 — Strict TypeScript, honest copy toasts, and a resync fix
+
+**Fixed**
+- Copy on the detail page, and both "copy link" buttons, wait for the clipboard: the success toast shows only when the write lands, and a refused or missing clipboard shows "Failed to copy" instead of an unhandled rejection. Roadmap item F19.
+- `scripts/resync-upstream.mjs` no longer writes `tags: [...]---` when `tags:` follows the `upstream:` block; `stampUpstream` always ends on a newline. A new case in `scripts/upstream.test.mjs` fails without the fix.
+- MCP `update_my_prompt` declares `destructiveHint: true`, since it replaces a body. `scripts/mcp-server.test.mjs` checks the hint on all four write tools. Roadmap item F15.
+
+**Changed**
+- `strict` is on in `site/tsconfig.json`. The three errors it raised are fixed, and the explicit `any`s at the API and UI boundaries are typed (`ListedPrompt`, `LibraryIndex`, `SkillPack`, `PromptDraft`). `@types/react` and `@types/react-dom` are direct dev dependencies. Roadmap item F11.
+- The hero's first counter names what the section holds (Servers, Skills, Agents…) from a new `noun` field in `src/lib/sections.ts`.
+- CI runs `npm run build` after the type-check, so a broken bundle fails the PR (part of F09).
+
+**Docs**
+- `docs/setup/SETUP.md` and `docs/README.md` drop "Node 20 works" (Node 20 is past end of life); the `server.ts` comment stops naming the removed `cookieParser` (part of F20). `AGENTS.md` and `docs/features/MCP-SERVER.md` follow.
+
+_Touched: `site/src/hooks/usePromptContent.ts`, `site/src/App.tsx`, `site/src/components/PromptEditorModal.tsx`, `site/src/lib/sections.ts`, `site/api/index.ts`, `site/api/skill-packs.ts`, `site/lib/library.ts`, `site/mcp/server.ts`, `site/scripts/mcp-server.test.mjs`, `site/server.ts`, `site/tsconfig.json`, `site/package.json`, `scripts/resync-upstream.mjs`, `scripts/upstream.test.mjs`, `.github/workflows/ci.yml`, `AGENTS.md`, `docs/setup/SETUP.md`, `docs/README.md`, `docs/features/MCP-SERVER.md`, `docs/ROADMAP.md`._
+
+## 2026-10-23 — Docs caught up with the audit fixes
+
+**Docs**
+- `docs/ROADMAP.md`: the status badge is now Phase 2, and the note records which audit items are done (F01–F03, F05–F07, F13) and what is next (F08). F09 and F20 note their progress so far.
+- `SECURITY.md` lists today's protections: read-only hiding My Library, the Host and Origin check, and checked, atomic, conflict-aware writes. Its CI line names the new tests.
+- `CONTRIBUTING.md` and the PR template ask for every `npm run test:*` script, not just `test:routes`.
+- `docs/ARCHITECTURE.md` describes how the UI handles a failed prompt load and a save conflict.
+
+_Touched: `docs/ROADMAP.md`, `SECURITY.md`, `CONTRIBUTING.md`, `.github/PULL_REQUEST_TEMPLATE.md`, `docs/ARCHITECTURE.md`._
+
+## 2026-10-23 — Saves can't half-write a file or overwrite a newer edit
+
+**Changed**
+- My Library replaces a file by writing a temp file in the same folder and renaming it over the original, so a crash or a full disk mid-save leaves the old prompt whole.
+- Every My Library prompt carries a `version`, a hash of the file on disk. The editor sends back the version it opened. If the file changed in the meantime (another tab, an agent over MCP, or a text editor, which `updated` alone would miss), the save is refused with `409`. The editor then reloads with the saved text and says so, instead of silently overwriting it. MCP `update_my_prompt` takes the same optional `version`, and `get_item` shows it. Roadmap item F07.
+- Adding a skill pack is all or nothing: if one skill fails, the ones that request already wrote are deleted, so a retry starts clean.
+
+**Added**
+- `scripts/my-library.test.mjs`:
+  - two stale writers (the first save wins);
+  - a hand edit that leaves `updated` alone;
+  - an injected rename failure (old file intact, no temp left);
+  - the HTTP `409` and its `current`;
+  - a pack install that fails on its second skill (nothing left behind, and the retry adds each skill once).
+- `scripts/mcp-server.test.mjs` checks a stale `version` is refused.
+
+**Docs**
+- `docs/features/API.md` documents `version`, the `409` and the all-or-nothing pack install; `docs/features/MCP-SERVER.md`, `docs/mcp-server.md`, `docs/ARCHITECTURE.md` and `docs/setup/SETUP.md` follow.
+
+_Touched: `site/lib/my-library.ts`, `site/api/index.ts`, `site/api/skill-packs.ts`, `site/mcp/server.ts`, `site/src/App.tsx`, `site/src/components/PromptCard.tsx`, `site/scripts/my-library.test.mjs`, `site/scripts/mcp-server.test.mjs`, `docs/features/API.md`, `docs/features/MCP-SERVER.md`, `docs/mcp-server.md`, `docs/ARCHITECTURE.md`, `docs/setup/SETUP.md`, `docs/ROADMAP.md`._
+
+## 2026-10-23 — Downloaded prompts are valid markdown files
+
+**Fixed**
+- The Download button built the file's frontmatter by pasting values into a template. A title containing `: ` made the YAML invalid. Tags came out as one comma-separated string, a missing subcategory as the word `None`, and every other frontmatter key was dropped, so a downloaded My Library skill lost the `name` and `description` it needs to load. Now `src/lib/markdown-file.ts` writes each value as JSON, which YAML reads as-is. The skill's own keys come first, and the body follows unchanged. Roadmap item F06.
+- Download file names no longer start with dashes when a title opens with an emoji.
+
+**Changed**
+- `GET /api/prompts/:id` returns `extra`, the file's frontmatter beyond the standard fields, for both libraries.
+
+**Added**
+- `scripts/markdown-file.test.mjs` (`npm run test:markdown-file`, in CI) downloads four awkward prompts and reads each back through the My Library store unchanged: colons, quotes, a newline in the title, emoji tags, a body containing `---`, and a skill with `name`, `description`, `license`, `allowed-tools` and nested `metadata`.
+
+**Docs**
+- `docs/features/API.md` documents `extra`. `README.md`, `AGENTS.md`, `docs/README.md`, `docs/ARCHITECTURE.md`, `docs/features/API.md` and `docs/setup/SETUP.md` list the new test and file.
+
+_Touched: `site/src/lib/markdown-file.ts`, `site/src/App.tsx`, `site/src/components/PromptCard.tsx`, `site/api/index.ts`, `site/scripts/markdown-file.test.mjs`, `site/package.json`, `.github/workflows/ci.yml`, `README.md`, `AGENTS.md`, `docs/README.md`, `docs/ARCHITECTURE.md`, `docs/features/API.md`, `docs/setup/SETUP.md`, `docs/ROADMAP.md`._
+
+## 2026-10-23 — My Library writes check their fields
+
+**Changed**
+- Every My Library write is checked in one place, the store's `create` and `update`, so the HTTP routes, the MCP tools, copies and pack installs all apply the same rules. Title and category must be non-blank text, section one of the six library folders, subcategory text or null, tags a list of up to 50 non-blank strings, content non-blank and at most 500 KB. Limits sit well above anything in the Public Library. A refused write changes no file and comes back as `400` naming the field (an error result over MCP). Roadmap item F05.
+- An empty `content` (or title) on an update is now refused. Before, the store's `||` reported success and quietly kept the old body.
+
+**Fixed**
+- Objects, numbers and unknown sections no longer reach the frontmatter on disk.
+
+**Added**
+- `scripts/my-library.test.mjs` covers 14 bad creates, 5 bad updates (file unchanged), a Unicode round trip and the HTTP `400`s; `scripts/mcp-server.test.mjs` checks `update_my_prompt` refuses an empty body.
+
+**Docs**
+- `docs/features/API.md` has a field-rules table and the new `400`s; `docs/features/MCP-SERVER.md` and `docs/ARCHITECTURE.md` point at the shared check.
+
+_Touched: `site/lib/my-library.ts`, `site/api/index.ts`, `site/scripts/my-library.test.mjs`, `site/scripts/mcp-server.test.mjs`, `docs/features/API.md`, `docs/features/MCP-SERVER.md`, `docs/ARCHITECTURE.md`, `docs/ROADMAP.md`._
+
+## 2026-10-23 — A prompt that fails to load is not opened from its preview
+
+**Fixed**
+- When a prompt's full text could not be loaded (server error, network failure, bad response), the app fell back to the listing copy, which is a 200-character preview for My Library and nothing for the Public Library. Edit then opened on the preview, and saving wrote it over the real file. Download and card Copy reported success with the preview or an empty body, and the detail page opened on the preview, so its Copy did too. Now each shows an error and stops: the editor stays shut, nothing is downloaded or copied, and the page you were on stays put. Roadmap item F03.
+
+**Added**
+- `scripts/prompt-content.test.mjs` (`npm run test:prompt-content`, in CI) checks that `fetchFullPrompt` throws on 503, 404, a network failure, invalid JSON and a missing body, and returns a 5,000-character body whole.
+
+**Docs**
+- `README.md`, `AGENTS.md`, `docs/README.md`, `docs/ARCHITECTURE.md`, `docs/features/API.md` and `docs/setup/SETUP.md` list the new test; `AGENTS.md` describes the fail-closed fetch.
+
+_Touched: `site/src/hooks/usePromptContent.ts`, `site/src/App.tsx`, `site/scripts/prompt-content.test.mjs`, `site/package.json`, `.github/workflows/ci.yml`, `README.md`, `AGENTS.md`, `docs/README.md`, `docs/ARCHITECTURE.md`, `docs/features/API.md`, `docs/setup/SETUP.md`, `docs/ROADMAP.md`._
+
+## 2026-10-23 — One Host and Origin check in front of every route
+
+**Security**
+- The local server refuses a request whose `Host` is not `localhost`, `*.localhost`, an IP address or a name in `ALLOWED_HOSTS`, on every route: the API, skill packs, and the pages in both `npm run dev` and `npm start`. A page that rebinds its own domain to `127.0.0.1` (DNS rebinding) can no longer read My Library. Until now only Vite checked Host, and only for pages in dev. Vercel skips the check. Roadmap item F02.
+- The cross-site `Origin` check moved out of `requireWritable` into the same middleware and now covers every write, so skill-pack add and remove refuse other sites too instead of relying on `READ_ONLY` and `confirm`. Roadmap item F13.
+
+**Changed**
+- `ALLOWED_HOSTS` now applies to the API and `npm start` as well as the dev server, and takes `.suffix` entries for subdomains, like Vite.
+
+**Added**
+- `scripts/my-library.test.mjs` covers foreign Hosts on reads, writes and packs, the trusted names, and cross-site versus same-origin pack add and remove. It fails with the middleware removed.
+
+**Docs**
+- `README.md`, `AGENTS.md`, `site/.env.example`, `docs/setup/SETUP.md`, `docs/ARCHITECTURE.md` and `docs/features/API.md` describe the Host and Origin checks and the wider reach of `ALLOWED_HOSTS`. `AGENTS.md` lists all five optional settings.
+
+_Touched: `site/api/index.ts`, `site/scripts/my-library.test.mjs`, `site/.env.example`, `README.md`, `AGENTS.md`, `docs/setup/SETUP.md`, `docs/ARCHITECTURE.md`, `docs/features/API.md`, `docs/ROADMAP.md`._
+
+## 2026-10-23 — Read-only mode keeps My Library private
+
+**Fixed**
+- With `READ_ONLY` set (or on Vercel), the server no longer serves My Library: `GET /api/prompts?library=my` returns an empty list, a My Library id on `GET /api/prompts/:id` is not found, and `GET /api/skill-packs?library=my` lists no packs. Writes were already refused; reads were not, so a server exposed read-only as `docs/setup/SETUP.md` suggests could hand out a personal library. Roadmap item F01. The MCP server is unchanged: over stdio, read-only still reads My Library.
+
+**Added**
+- `scripts/read-only.test.mjs` (`npm run test:read-only`, in CI): seeds a private prompt in a temp folder, checks the three routes hide it and that public list, detail, skill download and packs still work. It fails with the guards removed.
+
+**Docs**
+- `docs/setup/SETUP.md` says `READ_ONLY` means Public Library only, instead of implying it shares My Library read-only. `README.md`, `docs/README.md`, `docs/ARCHITECTURE.md`, `docs/features/API.md` and `docs/setup/DEPLOYMENT.md` describe the closed reads and list the new test.
+
+_Touched: `site/api/index.ts`, `site/api/skill-packs.ts`, `site/scripts/read-only.test.mjs`, `site/package.json`, `.github/workflows/ci.yml`, `AGENTS.md`, `README.md`, `docs/README.md`, `docs/ARCHITECTURE.md`, `docs/features/API.md`, `docs/setup/SETUP.md`, `docs/setup/DEPLOYMENT.md`, `docs/ROADMAP.md`._
+
+## 2026-10-23 — The audit's findings are on the roadmap
+
+**Docs**
+- `docs/ROADMAP.md` gains **Phase 2: Audit fixes**, from the 2026-10-23 audit (health 6.4/10, no P0): read-only mode hiding My Library (F01), one Host/Origin check including pack writes (F02, F13), failing closed when a prompt body cannot load (F03), shared write schemas, lossless export, atomic conflict-aware writes, modal focus, MCP hint and clipboard fixes, CI build and contract tests, required checks on `main`, symlink-safe paths, demo headers and stale setup claims. Loose ends becomes Phase 3 and gains strict TypeScript (F11) and endpoint budgets (F12).
+- Findings that matched an existing item were merged into it: the Resources menu (F16), the history secret scan (F10, now run, with 138 candidates left to triage), provenance (F17), source and freshness badges (O02), export/import (O01) and placeholder arguments (O03). Evaluation export (O04) is new.
+
+_Touched: `docs/ROADMAP.md`._
+
+## 2026-10-23 — A Favorites button in the sidebar
+
+**Added**
+- A **Favorites** row tops the sidebar's category list, set off by a thin rule, in every section but Skill Packs and in both libraries. Its count and the view it opens cover the starred prompts in the current section and library, sorted by title, laid out like a category page with a "Favorites" breadcrumb.
+
+_Touched: `site/src/App.tsx`, `site/src/components/Sidebar.tsx`._
+
 ## 2026-10-23 — Upstream check
 
 **Changed**

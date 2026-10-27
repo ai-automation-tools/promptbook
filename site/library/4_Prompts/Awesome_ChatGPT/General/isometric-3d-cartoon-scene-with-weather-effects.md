@@ -3,6 +3,10 @@ title: "🤖 Isometric 3D Cartoon Scene with Weather Effects"
 tags: ["awesome-chatgpt", "isometric", "cartoon", "scene", "weather"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Isometric 3D Cartoon Scene with Weather Effects

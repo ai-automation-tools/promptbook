@@ -42,6 +42,31 @@ subcategory: "Subcategory_Name"    # Required: Second-level category
 ---
 ```
 
+**Skills, agents, system prompts and MCP server cards also name their source** (since
+2026-10-23). This library keeps copies of things maintained elsewhere, and the weekly drift
+check can only keep a copy current if it knows where it came from:
+
+```yaml
+upstream:
+  match: exact                 # exact | similar
+  repo: owner/repo             # on GitHub
+  path: path/in/repo.md
+  ref: <full commit sha>       # the commit you copied from
+  checked: YYYY-MM-DD
+```
+
+MCP cards use `server.repo` instead (see the MCP template). A system prompt the vendor publishes
+only on its own docs page uses `match: vendor` + `url`. `scripts/upstream.test.mjs` fails CI on
+any of these files without a source, so an item with no repo doesn't go in.
+
+Prompts and guides carry a repo too, so every card shows the same GitHub link at the top
+(since 2026-10-26). A prompt copied from a collection gets the `upstream:` block above
+(`match: similar`, `repo: f/awesome-chatgpt-prompts` for the Awesome ChatGPT set). A guide is
+written here, not copied, so it names the tool it documents with a bare `repo: owner/name` line
+instead. The same CI check fails on a prompt or guide without one; the hand-written prompts and
+guides that had no repo live in `archive/unlinked-2026-10-26/` at the repo root, not in the
+library.
+
 ### Field Rules
 
 **1. `title`**
@@ -129,6 +154,7 @@ library/
 ### Use Placeholders
 - Wrap replaceable content in `[brackets]`
 - Example: `[Your company name]`, `[Target audience]`
+- To have MCP clients ask for each one, declare it: `inputs: ["Your company name", "Target audience"]` in the frontmatter (names exactly as between the brackets). See [the MCP server design](features/MCP-SERVER.md)
 
 ### Structure Well
 - Use headings for organization
@@ -163,12 +189,13 @@ library/
 - Integration points
 
 ### 📝 System Prompts
-- Complete system identity
-- Capabilities and constraints
-- Response formatting rules
-- Multiple examples
+- The real prompt, copied verbatim; never written or reconstructed
+- An `upstream:` block (or `match: vendor` + `url`) naming where it was copied from
+- One capture per file; a newer version is a new file
 
 ### 🔧 Skills
+- An `upstream:` block naming the GitHub repo the skill lives in
+- Its licence: `node scripts/vendor-skill-licenses.mjs --write` (repo root) stamps `license:` in that block and puts the LICENSE beside `SKILL.md`. A repo with no licence, or one that does not allow redistribution, can't be added
 - Prerequisites and setup
 - Usage examples with real commands
 - Configuration options
@@ -182,6 +209,8 @@ Before submitting, verify:
 
 - [ ] Used correct template for content type
 - [ ] All 4 required metadata fields present
+- [ ] Skill, agent, system prompt or MCP card: its source is named (`upstream:` or `server.repo`)
+- [ ] Prompt copied from a collection: `upstream:` names it; guide: `repo:` names the tool it documents
 - [ ] Title includes appropriate emoji icon
 - [ ] Tags are relevant (3-6)
 - [ ] File name is lowercase with hyphens

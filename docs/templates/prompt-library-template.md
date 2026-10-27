@@ -3,6 +3,11 @@ title: "📌 [Your Prompt Title]"
 tags: ["tag1", "tag2", "tag3", "featured"]  # Optional: Add "featured" tag for Featured section
 category: "[Category_Name]"
 subcategory: "[Subcategory_Name]"
+# A prompt copied from a public collection names it, so the card shows the repo link at the top:
+# upstream:
+#   match: similar            # exact | similar (our copy is reformatted into this template)
+#   repo: [owner/repo]        # e.g. f/awesome-chatgpt-prompts
+#   checked: [YYYY-MM-DD]
 ---
 
 # [Your Prompt Title]

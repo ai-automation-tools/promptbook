@@ -102,8 +102,9 @@ path under `library/` with forward slashes, e.g. `2_Agents/Developer/General/dev
 Section, category and subcategory come from the path; title and tags from frontmatter.
 
 `npm run build:index` walks the library and writes `api/prompt-index.json`. The API serves
-lightweight listings from that index (and a 5-minute in-memory cache), falling back to a
-filesystem walk when no index exists. CI fails if the committed index is stale.
+lightweight listings from that index, falling back to a filesystem walk when no index exists.
+The full listing (every body) always walks, asynchronously. Both are cached for five minutes as
+the bytes sent, with their ETag; see [PERFORMANCE.md](development/PERFORMANCE.md). CI fails if the committed index is stale.
 
 ### My Library
 
@@ -160,8 +161,8 @@ library=public → cache hit?        → return cached
 PromptEditorModal
     ↓ fetch('/api/prompts', { method: 'POST', body })
 requireWritable          → 403 if READ_ONLY
-    ↓ validate title/section/category/content
-myLibrary.create()       → write <slug>-<hex>.md (exclusive create)
+myLibrary.create()       → field checks (400 InvalidPromptError, shared with MCP)
+                         → write <slug>-<hex>.md (exclusive create)
     ↓ return the prompt
 Frontend refreshes My Library
 ```
@@ -200,10 +201,11 @@ Vercel). It is checked in two places:
 
 - **Server:** `READ_ONLY` in `lib/my-library.ts`. The `requireWritable` middleware in
   `api/index.ts`, and the add/remove handlers in `api/skill-packs.ts`, return `403` for
-  every write.
+  every write. The reads hide My Library too: its list and installed packs come back empty
+  and a My Library id is not served, so a read-only server never hands out personal files.
 - **UI:** `vite.config.ts` bakes the same test into the bundle as `__READ_ONLY__`, which
   `src/lib/mode.ts` exports. When it is true the app forces the Public Library and hides
-  the library switch, New prompt, Save to My Library and pack add/remove.
+  the library switch, New item, Save to My Library and pack add/remove.
 
 The server check is the real one; the UI flag only keeps buttons that would fail out of
 sight.
@@ -222,7 +224,7 @@ promptbook/
 │   ├── lib/
 │   │   ├── library.ts            # Shared reader: library path, sections, index, readLibraryItem()
 │   │   ├── my-library.ts         # My Library file store + READ_ONLY (keeps unmanaged frontmatter)
-│   │   ├── safe-path.ts          # resolveInside(): path containment check
+│   │   ├── safe-path.ts          # resolveInside() + filesUnder(): path and link containment
 │   │   └── vercel-types.ts
 │   ├── mcp/
 │   │   ├── server.ts             # MCP server over stdio (npm run mcp), see features/MCP-SERVER.md
@@ -230,8 +232,10 @@ promptbook/
 │   ├── src/
 │   │   ├── components/           # React components
 │   │   ├── hooks/                # usePromptFilters, usePromptPreviews, usePromptContent,
-│   │   │                         #   useLibraryRoute (URL-backed navigation state)
+│   │   │                         #   useLibraryRoute (URL-backed navigation state),
+│   │   │                         #   useFavoritePrompts (stars from both libraries)
 │   │   ├── lib/mode.ts           # READ_ONLY for the UI (from __READ_ONLY__)
+│   │   ├── lib/markdown-file.ts  # A prompt as a standalone .md (the Download button)
 │   │   ├── App.tsx               # App shell
 │   │   └── main.tsx              # Entry point
 │   ├── library/                  # Public Library content
@@ -246,6 +250,12 @@ promptbook/
 │   ├── scripts/build-prompt-index.js   # Walks library/, sorts by id, skips >500 KB, keeps unchanged timestamps
 │   ├── scripts/api-routes.test.mjs     # Pins the route table (npm run test:routes)
 │   ├── scripts/my-library.test.mjs     # File-store round trip (npm run test:my-library)
+│   ├── scripts/read-only.test.mjs      # READ_ONLY hides My Library (npm run test:read-only)
+│   ├── scripts/prompt-content.test.mjs # Full prompt loads fail closed (npm run test:prompt-content)
+│   ├── scripts/markdown-file.test.mjs  # Download .md round trip (npm run test:markdown-file)
+│   ├── scripts/preview.test.mjs        # Card blurbs survive badge rows (npm run test:preview)
+│   ├── scripts/browser-smoke.test.mjs  # Built app in Chrome (npm run test:browser)
+│   ├── scripts/bench-endpoints.mjs     # Heavy-endpoint benchmark (npm run bench)
 │   ├── scripts/mcp-server.test.mjs     # MCP server end to end over stdio (npm run test:mcp)
 │   ├── server.ts                 # Local server: imports api/index.ts's app, mounts
 │   │                             #   api/skill-packs.ts, adds Vite HMR or serves dist/ (:3010)
@@ -257,9 +267,10 @@ promptbook/
 ├── homepage/                     # Static project homepage (GitHub Pages)
 ├── scripts/                      # Repo utilities, outside the app
 │   ├── attribute-upstream.mjs    # Stamp upstream provenance on skills (--agents: agents)
-│   ├── check-upstream-drift.mjs  # Weekly drift report
+│   ├── check-upstream-drift.mjs  # Weekly drift report; --json → site/api/upstream-status.json
 │   ├── resync-upstream.mjs       # Pull a skill or agent back level with its upstream
-│   ├── sync-agent-skills.mjs     # Add and refresh skills from ai-automation-tools/agent-skills
+│   ├── reattribute-unclear.mjs   # Code-search pass for unknown/ambiguous provenance
+│   ├── attribute-system-prompts.mjs # Stamp system prompts from the public collections
 │   ├── build-skill-packs.mjs     # One generated Skill Pack per skills folder; repairs hand packs
 │   ├── backfill-tags.mjs         # Path-derived tags for any file without them
 │   ├── discover-repos.mjs        # New and popular GitHub repos into docs/DISCOVERY.md
@@ -282,11 +293,13 @@ promptbook/
 ### Frontend Components
 
 ```
-App.tsx                       app shell, data fetching (routing state: hooks/useLibraryRoute)
-├── SourceBar                 "View source" bar
-├── Sidebar                   library-mode switcher (hidden when read-only) + category tree (a drawer on phones)
-├── TopBar                    brand, section nav (a sheet under the bar below 1360px), ⌘K, ResourcesNav (≥1536px),
-│   │                         New prompt (hidden when read-only), Settings, Light | Dark ThemeSwitch
+ErrorBoundary                 main.tsx: a render or chunk failure shows "Something failed to load" + Reload, not a black page
+└── App.tsx                   app shell, data fetching (routing state: hooks/useLibraryRoute)
+├── SourceBar                 "View source" bar (READ_ONLY demo only)
+├── SectionRail               md up: logo, six sections (Skill Packs sits under Skills), Settings; the current section's cell joins the Sidebar
+├── Sidebar                   library-mode switcher (hidden when read-only) + category tree in per-category hues (a drawer on phones)
+├── TopBar                    ⌘K search, ResourcesNav (≥1536px; a sheet below), the swipeable section strip (phones only),
+│   │                         New item (hidden when read-only), Light | Dark ThemeSwitch; brand + Settings on phones only
 │   └── ResourcesNav          data-driven external-link menus
 ├── Breadcrumbs               library › section › category › prompt, above the content
 ├── LibraryHero               section heading + search field
@@ -295,10 +308,13 @@ App.tsx                       app shell, data fetching (routing state: hooks/use
 │   └── PromptCardGrid        responsive card grid (also used by featured + subcategory views)
 │       └── PromptCard        title, tags, preview, row actions
 ├── PromptDetail              single-prompt view
+│   └── SourcePanel           GitHub repo, copied-at commit, weekly drift verdict, compare link
+├── SkillKindSwitch           Skills | Libraries | Packs pills (phones; the Sidebar has it as a segmented control from md up)
+├── SkillLibrariesView        the library cards (tag `skill-library`, public ones in 3_Skills/Libraries/)
 ├── SkillPacksView            skill-pack catalog (own tab)
 ├── EmptyState                empty My Library
 ├── PromptEditorModal         create / edit a My Library prompt
-├── SettingsModal             appearance (mode + colour palette), local data, keyboard shortcuts
+├── SettingsModal             appearance (mode + one of 12 themes), local data, keyboard shortcuts
 ├── CommandPalette            ⌘K across prompts, sections, actions and the two themes
 └── ToastContainer
 ```
@@ -339,8 +355,9 @@ same way.
 ### 4. Prebuilt index + in-memory cache
 
 The public listing is built once at build time, so a cold Vercel function does not walk
-thousands of files. The 5-minute in-memory cache covers warm instances. No external cache:
-it is a read-only, read-heavy workload.
+thousands of files. A 5-minute in-memory cache of the serialized listings, lightweight and
+full, covers warm instances; concurrent requests share one build. No external cache: it is a
+read-only, read-heavy workload. `npm run bench` measures it ([PERFORMANCE.md](development/PERFORMANCE.md)).
 
 ### 5. Read-only by environment
 
@@ -354,14 +371,28 @@ forget to set a flag and end up writable.
 - **Binding:** the server listens on `127.0.0.1` unless `HOST` is set. With no accounts,
   loopback is the access control. Exposing it needs `READ_ONLY=true` or an auth layer in
   front.
+- **Host and Origin:** one middleware at the top of `api/index.ts` runs before every route
+  on the shared app (prompt API, the dev-mounted skill-packs handler, Vite, `dist/`). It
+  refuses a Host that is not `localhost`, `*.localhost`, an IP address or in `ALLOWED_HOSTS`
+  (DNS rebinding), and a cross-site `Origin` on any write. Vercel skips the Host check: its
+  edge routes by domain and the demo is read-only.
 - **Read-only enforcement:** on the server, for every write route, not only in the UI.
-- **Path containment:** public-library reads go through `resolveInside()`
-  (`lib/safe-path.ts`), which resolves first and compares after, so `a/../../b` is refused.
-  Skill downloads must also land under `3_Skills/`. My Library ids are restricted to
+- **My Library writes:** one field check in the store (`checkFields`); replacements go to a
+  temp file and are renamed over the original, so a crash never leaves half a prompt; an
+  update that names a stale `version` (a hash of the file) is refused with `409`; a pack
+  install deletes what it wrote if any skill fails.
+- **Path containment:** public-library reads, including Skill Pack manifest paths, go through
+  `resolveInside()` (`lib/safe-path.ts`), which resolves first and compares after, so
+  `a/../../b` is refused, and compares real paths for anything that exists, so a symlink or
+  junction pointing out of `library/` is refused too. Skill downloads must also land under
+  `3_Skills/`. ZIPs and the MCP file list walk folders with `filesUnder()`, which skips links. My Library ids are restricted to
   `^[a-z0-9-]+$`.
-- **Headers and limits:** `helmet` sets the standard response headers. CSP is off on purpose
-  (Vite's inline module preloads and Google Fonts); HSTS is Vercel's. JSON bodies are capped
-  at 1 MB.
+- **Headers and limits:** `helmet` sets the standard response headers on the API, with CSP off
+  there; HSTS is Vercel's. On the demo, `vercel.json` gives the HTML and assets a CSP (scripts
+  from self, the inline theme script by hash and `consent.js`; Google Fonts; inline styles),
+  `frame-ancestors 'none'`, `X-Frame-Options`, `nosniff` and a referrer policy.
+  `npm run test:browser` serves the same headers, so a change to `index.html`'s inline script
+  that the hash doesn't match fails CI. JSON bodies are capped at 1 MB.
 - **No secrets:** the app needs none. `site/.env.example` holds only optional settings.
 
 See [SECURITY.md](../SECURITY.md) for the threat model and reporting.
@@ -412,6 +443,9 @@ return `{ "error": "..." }` with a `4xx`/`5xx` status.
 ### Frontend
 
 - **Network errors:** toast, the app keeps running
+- **A prompt's full text fails to load:** toast, and nothing opens, copies or downloads;
+  the app never falls back to the listing's preview
+- **Save conflict (`409`):** the editor reloads with the saved version and says why
 - **Read-only 403s:** should not happen from the UI, since the controls are hidden
 - **Empty state:** an empty My Library offers to browse the Public Library
 
@@ -424,6 +458,12 @@ CI (`.github/workflows/ci.yml`) runs on every PR:
 - `npm run lint` — type-check
 - `npm run test:routes` — the route table, and that no auth router is mounted
 - `npm run test:my-library` — the file store round trip and id containment, in a temp folder
+- `npm run test:read-only` — under `READ_ONLY`, a seeded private prompt is never listed or served
+- `npm run test:prompt-content` — `fetchFullPrompt` throws on a failed load instead of returning the preview
+- `npm run test:markdown-file` — a downloaded `.md` reads back through the store unchanged
+- `npm run test:preview` — a card blurb drops badge rows and links cut off at 200 characters
+- `npm run test:safe-path` — `../` escapes and real junctions/symlinks out of the library, for detail and ZIPs
+- `npm run test:browser` — after a build: the built app in Chrome, listing, detail and the dialog focus trap
 - provenance and Agent Skills frontmatter checks, homepage links, diagram drift (warning)
 - prompt index freshness
 

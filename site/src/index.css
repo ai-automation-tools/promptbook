@@ -32,6 +32,8 @@
   --bar: rgba(6, 6, 6, 0.72);
   --bar-line: rgba(39, 39, 42, 0.7);
   --rail-bg: #08080a;
+  --rail-ground: #040405;
+  --cat-l: 0.78;
   --srcbar-bg: #0a0a0b;
   --menu-bg: #0a0a0c;
   --pop-bg: #0c0c0f;
@@ -98,6 +100,8 @@
 
   /* The current section's accent, from data-section on <html>; falls back to --accent. */
   --c: var(--section-c, var(--accent));
+  /* The categories panel, tinted with the current section; the rail's active tab wears it too. */
+  --side-bg: color-mix(in srgb, var(--section-c, var(--accent)) 7%, var(--rail-bg));
 }
 
 /* ===== Tokens: light (opt-in from the switch) =====
@@ -119,6 +123,8 @@ html.light {
   --bar: rgba(250, 250, 250, 0.8);
   --bar-line: #e4e4e7;
   --rail-bg: #f4f4f5;
+  --rail-ground: #e9e9ec;
+  --cat-l: 0.5;
   --srcbar-bg: #f4f4f5;
   --menu-bg: #fafafa;
   --pop-bg: #fff;
@@ -160,61 +166,82 @@ html.light {
   --sec-skill-packs: #0f766e;
 }
 
-/* ===== Colour palettes (Settings → Appearance) =====
-   Each swaps the accent on top of the mode, 400 shade in dark / 700 in light, and in
-   dark tints the ground a hair toward the hue, the way the old themes it is named
-   after did. Everything else (surfaces, text, lines) is the house set unchanged. */
+/* ===== Themes (Settings → Appearance) =====
+   A theme is a --tone (the hue the whole ground, panels and lines are washed in) and an
+   --accent per mode; every other token below is derived from those two, so a new theme
+   is three lines. Sky, the house default, sets no data-palette and keeps the plain zinc set.
+   Ids violet / emerald / ember predate the rename and stay so saved choices survive. */
 
-html[data-palette='violet'] {
-  --bg: #08060e;
-  --accent: #a78bfa;
-  --accent-hover: #c4b5fd;
-  --accent-ink: #1e1033;
-  --glow-a: rgba(167, 139, 250, 0.14);
-  --glow-b: rgba(56, 189, 248, 0.05);
+html[data-palette] {
+  --accent-hover: color-mix(in srgb, var(--accent) 75%, var(--mix-ink));
+  --accent-ink: #09090b;
+  --glow-a: color-mix(in srgb, var(--accent) 16%, transparent);
+  --glow-b: color-mix(in srgb, var(--tone) 14%, transparent);
+  --bg: color-mix(in srgb, var(--tone) 12%, #040404);
+  --bg-2: color-mix(in srgb, var(--tone) 14%, #070708);
+  --dots: color-mix(in srgb, var(--tone) 30%, rgba(255, 255, 255, 0.04));
+  --surface: color-mix(in srgb, var(--tone) 12%, rgba(24, 24, 27, 0.5));
+  --surface-2: color-mix(in srgb, var(--tone) 14%, rgba(24, 24, 27, 0.85));
+  --field: color-mix(in srgb, var(--tone) 10%, rgba(24, 24, 27, 0.45));
+  --hover-bg: color-mix(in srgb, var(--tone) 16%, rgba(24, 24, 27, 0.75));
+  --bar: color-mix(in srgb, var(--bg) 78%, transparent);
+  --rail-bg: color-mix(in srgb, var(--tone) 15%, #060607);
+  --rail-ground: color-mix(in srgb, var(--tone) 9%, #020202);
+  --srcbar-bg: var(--rail-ground);
+  --menu-bg: var(--bg-2);
+  --pop-bg: color-mix(in srgb, var(--tone) 16%, #0a0a0c);
+  --kbd-bg: var(--pop-bg);
+  --line: color-mix(in srgb, var(--tone) 24%, rgba(63, 63, 70, 0.45));
+  --line-2: color-mix(in srgb, var(--tone) 28%, rgba(63, 63, 70, 0.8));
+  --rule: color-mix(in srgb, var(--tone) 22%, rgba(39, 39, 42, 0.6));
+  --bar-line: var(--rule);
+  --fg-2: color-mix(in srgb, var(--tone) 8%, #d4d4d8);
+  --fg-3: color-mix(in srgb, var(--tone) 12%, #a1a1aa);
 }
 
-html[data-palette='emerald'] {
-  --bg: #060908;
-  --accent: #34d399;
-  --accent-hover: #6ee7b7;
-  --accent-ink: #04120c;
-  --glow-a: rgba(52, 211, 153, 0.12);
-  --glow-b: rgba(45, 212, 191, 0.05);
-}
-
-html[data-palette='ember'] {
-  --bg: #0a0705;
-  --accent: #fb923c;
-  --accent-hover: #fdba74;
-  --accent-ink: #1a0c04;
-  --glow-a: rgba(251, 146, 60, 0.12);
-  --glow-b: rgba(251, 113, 133, 0.05);
-}
-
-html.light[data-palette='violet'] {
-  --bg: #fafafa;
-  --accent: #6d28d9;
-  --accent-hover: #5b21b6;
+html.light[data-palette] {
   --accent-ink: #fff;
-  --glow-a: rgba(167, 139, 250, 0.12);
+  --bg: color-mix(in srgb, var(--tone) 9%, #fbfbfb);
+  --bg-2: color-mix(in srgb, var(--tone) 13%, #f6f6f7);
+  --dots: color-mix(in srgb, var(--tone) 25%, rgba(0, 0, 0, 0.05));
+  --surface: color-mix(in srgb, var(--tone) 4%, rgba(255, 255, 255, 0.8));
+  --surface-2: color-mix(in srgb, var(--tone) 3%, #fff);
+  --field: #fff;
+  --hover-bg: color-mix(in srgb, var(--tone) 12%, #f4f4f5);
+  --rail-bg: color-mix(in srgb, var(--tone) 15%, #f4f4f5);
+  --rail-ground: color-mix(in srgb, var(--tone) 24%, #e9e9ec);
+  --pop-bg: color-mix(in srgb, var(--tone) 3%, #fff);
+  --line: color-mix(in srgb, var(--tone) 22%, #e4e4e7);
+  --line-2: color-mix(in srgb, var(--tone) 26%, #d4d4d8);
+  --rule: var(--line);
+  --fg-2: #27272a;
+  --fg-3: #52525b;
 }
 
-html.light[data-palette='emerald'] {
-  --bg: #fafafa;
-  --accent: #047857;
-  --accent-hover: #065f46;
-  --accent-ink: #fff;
-  --glow-a: rgba(52, 211, 153, 0.12);
-}
+/* Swatches in useTheme.ts PALETTES mirror these; keep the two in step. */
+html[data-palette='violet']    { --tone: #7c3aed; --accent: #a78bfa; }
+html[data-palette='emerald']   { --tone: #059669; --accent: #34d399; }
+html[data-palette='ember']     { --tone: #ea580c; --accent: #fb923c; }
+html[data-palette='wine']      { --tone: #be123c; --accent: #fb7185; }
+html[data-palette='ocean']     { --tone: #1d4ed8; --accent: #22d3ee; }
+html[data-palette='slate']     { --tone: #475569; --accent: #93c5fd; }
+html[data-palette='sand']      { --tone: #a16207; --accent: #fbbf24; }
+html[data-palette='solar']     { --tone: #0f766e; --accent: #facc15; }
+html[data-palette='synthwave'] { --tone: #6d28d9; --accent: #f472b6; }
+html[data-palette='sakura']    { --tone: #db2777; --accent: #f9a8d4; }
+html[data-palette='mono']      { --tone: #71717a; --accent: #f4f4f5; }
 
-html.light[data-palette='ember'] {
-  --bg: #fafafa;
-  --accent: #c2410c;
-  --accent-hover: #9a3412;
-  --accent-ink: #fff;
-  --glow-a: rgba(251, 146, 60, 0.12);
-}
+html.light[data-palette='violet']    { --accent: #6d28d9; }
+html.light[data-palette='emerald']   { --accent: #047857; }
+html.light[data-palette='ember']     { --accent: #c2410c; }
+html.light[data-palette='wine']      { --accent: #be123c; }
+html.light[data-palette='ocean']     { --accent: #1d4ed8; }
+html.light[data-palette='slate']     { --accent: #334155; }
+html.light[data-palette='sand']      { --accent: #92400e; }
+html.light[data-palette='solar']     { --accent: #0f766e; }
+html.light[data-palette='synthwave'] { --accent: #a21caf; }
+html.light[data-palette='sakura']    { --accent: #be185d; }
+html.light[data-palette='mono']      { --accent: #18181b; }
 
 /* Per-section accent (--section-c), from data-section on <html>. */
 :root[data-section='prompts'] { --section-c: var(--sec-prompts); }
@@ -431,64 +458,6 @@ html.light[data-palette='ember'] {
     outline-offset: -1px;
   }
 
-  .nav {
-    display: none;
-    align-items: center;
-    gap: 6px;
-    margin-left: 6px;
-  }
-
-  /* Section links as bordered buttons; the current one fills with its section's hue
-     (the landing page's .act-primary treatment). */
-  .nav button {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    height: 32px;
-    padding: 0 11px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--fg-3);
-    border: 1px solid var(--line-2);
-    border-radius: var(--r-md);
-    background: var(--field);
-    white-space: nowrap;
-    transition: color 0.2s, border-color 0.2s, background 0.2s;
-  }
-
-  /* Icons only where six buttons plus the right cluster still fit beside the panel. */
-  .nav button svg {
-    display: none;
-    width: 14px;
-    height: 14px;
-    color: var(--fg-4);
-    transition: color 0.2s;
-  }
-
-  @media (min-width: 1536px) {
-    .nav button svg { display: block; }
-  }
-
-  .nav button:hover {
-    color: var(--fg);
-    border-color: var(--line-hover);
-    background: var(--hover-bg);
-  }
-
-  .nav button:hover svg {
-    color: var(--c);
-  }
-
-  .nav button[aria-current="true"] {
-    color: color-mix(in srgb, var(--c) var(--tint-k), var(--mix-ink));
-    border-color: color-mix(in srgb, var(--c) 45%, transparent);
-    background: color-mix(in srgb, var(--c) 14%, transparent);
-  }
-
-  .nav button[aria-current="true"] svg {
-    color: var(--c);
-  }
-
   .topbar-right {
     margin-left: auto;
     display: flex;
@@ -500,8 +469,9 @@ html.light[data-palette='ember'] {
     display: none;
     align-items: center;
     gap: 8px;
-    height: 32px;
-    padding: 0 10px 0 12px;
+    width: min(320px, 28vw);
+    height: 34px;
+    padding: 0 8px 0 12px;
     border: 1px solid var(--line-2);
     border-radius: var(--r-md);
     background: var(--field);
@@ -537,34 +507,238 @@ html.light[data-palette='ember'] {
 
   .mobile-nav.open {
     display: block;
+    max-height: 75dvh;
+    overflow-y: auto;
   }
 
-  .mobile-nav button {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    padding: 12px 20px;
-    font-size: 15px;
-    text-align: left;
-    color: var(--fg-2);
+  .mobile-nav-group {
+    padding: 14px 20px 6px;
     border-top: 1px solid var(--rule);
   }
 
-  .mobile-nav button[aria-current="true"] {
-    color: var(--fg);
-    background: color-mix(in srgb, var(--c) 10%, transparent);
+  .mobile-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: var(--fg-3);
   }
 
-  /* Seven section links plus the right cluster need ~1060px beside the 272px
-     categories panel, so the links fold into the sheet below 1360px. */
-  @media (min-width: 1360px) {
-    .nav { display: flex; }
-    .menu-btn { display: none; }
+  .mobile-nav a:hover {
+    color: var(--fg);
+    background: var(--hover-bg);
+  }
+
+  /* Phones: the sections as a swipeable chip strip under the top bar (the rail takes over from md). */
+  .section-strip {
+    display: flex;
+    flex: none;
+    gap: 6px;
+    padding: 8px 12px;
+    overflow-x: auto;
+    scroll-padding-inline: 12px;
+    scrollbar-width: none;
+    border-bottom: 1px solid var(--bar-line);
+    background: var(--bar);
+  }
+
+  .section-strip::-webkit-scrollbar { display: none; }
+
+  .section-strip button {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    gap: 6px;
+    height: 36px;
+    padding: 0 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--fg-3);
+  }
+
+  .section-strip button[aria-current] {
+    color: var(--fg);
+    border-color: color-mix(in srgb, var(--c) 45%, transparent);
+    background: color-mix(in srgb, var(--c) 14%, transparent);
+  }
+
+  @media (min-width: 768px) {
+    .section-strip { display: none; }
+  }
+
+  @media (min-width: 1536px) {
+    .menu-btn,
+    .mobile-nav.open { display: none; }
   }
 
   @media (min-width: 768px) {
     .kbd-btn { display: inline-flex; }
+  }
+
+  /* ===== Section rail (md up) ===== */
+
+  .rail {
+    display: none;
+    flex: none;
+    flex-direction: column;
+    gap: 4px;
+    width: 76px;
+    padding: 12px 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+    background: var(--rail-ground);
+    /* An inset shadow, not a border: the active tab has to paint over it, and
+       overflow clips children at the padding box, short of a border. */
+    box-shadow: inset -1px 0 0 var(--rule);
+    position: relative;
+    z-index: 30;
+  }
+
+  @media (min-width: 768px) {
+    .rail { display: flex; }
+  }
+
+  .rail-logo {
+    display: grid;
+    place-items: center;
+    margin: 0 auto 12px;
+  }
+
+  .rail-logo img {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    outline: 1px solid var(--line-2);
+    outline-offset: -1px;
+  }
+
+  .rail-btn {
+    position: relative;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin: 0 6px;
+    padding: 7px 0;
+    border-radius: 12px;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--fg-4);
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .rail-btn .ic {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    color: var(--c);
+    background: color-mix(in srgb, var(--c) 14%, transparent);
+    transition: transform 0.2s var(--ease), background 0.2s, box-shadow 0.2s;
+  }
+
+  .rail-btn .ic svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .rail-btn .ic-plain {
+    color: var(--fg-4);
+    background: transparent;
+  }
+
+  .rail-btn:hover { color: var(--fg-2); }
+  .rail-btn:hover .ic { transform: translateY(-2px); }
+  .rail-btn:hover .ic-plain { color: var(--fg); }
+
+  .rail-btn[aria-current="true"] { color: var(--fg); }
+
+  .rail-btn[aria-current="true"] .ic {
+    color: var(--on-fg);
+    background: var(--c);
+    box-shadow: 0 6px 22px -6px var(--c);
+  }
+
+  /* The bleed: with the panel open, the current cell takes the panel's colour and
+     runs over the rail's right edge into it, with inverted corners above and below. */
+  .rail[data-joined] .rail-btn[aria-current="true"] {
+    margin-right: 0;
+    padding-right: 6px;
+    border-radius: 12px 0 0 12px;
+    background: var(--side-bg);
+  }
+
+  .rail[data-joined] .rail-btn[aria-current="true"]::before,
+  .rail[data-joined] .rail-btn[aria-current="true"]::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    pointer-events: none;
+  }
+
+  .rail[data-joined] .rail-btn[aria-current="true"]::before {
+    bottom: 100%;
+    background: radial-gradient(circle at 0 0, transparent 11.5px, var(--side-bg) 12px);
+  }
+
+  .rail[data-joined] .rail-btn[aria-current="true"]::after {
+    top: 100%;
+    background: radial-gradient(circle at 0 100%, transparent 11.5px, var(--side-bg) 12px);
+  }
+
+  /* A category's own colour: set --hue (categoryHue()) and everything tinted from --c follows. */
+  .hue {
+    --c: oklch(var(--cat-l) 0.14 var(--hue));
+  }
+
+  .hue-dot {
+    width: 8px;
+    height: 8px;
+    flex: none;
+    border-radius: 3px;
+    background: var(--c);
+  }
+
+  /* Sub-category pills; the current one fills with --c. */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    height: 30px;
+    padding: 0 12px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    color: var(--fg-2);
+    border: 1px solid var(--line);
+    background: var(--surface);
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+
+  .pill:hover {
+    color: var(--fg);
+    border-color: color-mix(in srgb, var(--c) 45%, var(--line));
+  }
+
+  .pill[aria-pressed="true"] {
+    font-weight: 500;
+    color: var(--on-fg);
+    background: var(--c);
+    border-color: transparent;
+  }
+
+  /* The colour band across the top of a card. */
+  .spot > .card-band {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: var(--c);
   }
 
   /* Theme switch: Light | Dark segmented pill. */
@@ -620,8 +794,8 @@ html.light[data-palette='ember'] {
     pointer-events: none;
     z-index: 0;
     background:
-      radial-gradient(640px 360px at 70% 8%, var(--glow-a), transparent 70%),
-      radial-gradient(420px 260px at 18% 30%, var(--glow-b), transparent 70%);
+      radial-gradient(640px 260px at 12% 0%, color-mix(in srgb, var(--c) 16%, transparent), transparent 70%),
+      radial-gradient(520px 240px at 72% -10%, var(--glow-b), transparent 70%);
     mask-image: linear-gradient(#000 60%, transparent);
   }
 
@@ -1225,6 +1399,9 @@ html.light[data-palette='ember'] {
 }
 
 .markdown-body img {
+  /* Inline, as on GitHub: Tailwind's preflight makes images block, which stacks a README's badge row. */
+  display: inline-block;
+  vertical-align: middle;
   max-width: 100%;
   border-radius: var(--r-md);
 }

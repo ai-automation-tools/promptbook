@@ -3,6 +3,12 @@ title: "🧠 Metaai Llama3 04182024"
 tags: ["meta.ai", "llm", "instructions", "metaai", "llama3", "04182024"]
 category: "LLM Instructions"
 subcategory: "Meta.ai"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Meta.ai/metaai_llama3-04182024.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 

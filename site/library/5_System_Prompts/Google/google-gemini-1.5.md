@@ -3,6 +3,12 @@ title: "📝 Google Gemini 1.5 System Prompt"
 tags: ["system-prompt", "llm", "instructions", "google", "gemini"]
 category: "System_Prompts"
 subcategory: "Google"
+upstream:
+  match: similar
+  repo: jujumilk3/leaked-system-prompts
+  path: google-gemini-1.5_20240411.md
+  ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
+  checked: 2026-10-23
 ---
 
 # Google Gemini 1.5 System Prompt

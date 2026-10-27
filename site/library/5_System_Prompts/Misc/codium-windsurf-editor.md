@@ -3,6 +3,12 @@ title: "📝 Codium Windsurf Editor"
 tags: ["misc", "llm", "instructions", "codium", "windsurf", "editor"]
 category: "LLM Instructions"
 subcategory: "Misc"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Misc/20241208-codium-windsurf-editor.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 This is the system prompt for [Codium's Windsurf Editor](https://codeium.com/windsurf/download) by Reddit user [Otherwise-Log7426](https://www.reddit.com/user/Otherwise-Log7426/) as found [here](https://www.reddit.com/r/LocalLLaMA/comments/1h7sjyt/windsurf_cascade_leaked_system_prompt/).

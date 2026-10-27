@@ -3,6 +3,7 @@ title: "💻 Open Interpreter Guide"
 tags: ["agent-guides", "open-interpreter", "cli"]
 category: "Agent_Guides"
 subcategory: "CLI_Tools"
+repo: openinterpreter/openinterpreter
 ---
 
 # Open Interpreter Guide

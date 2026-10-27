@@ -3,6 +3,12 @@ title: "🧠 Gpt4o Web 10312024"
 tags: ["openai", "llm", "instructions", "gpt4o", "web", "10312024"]
 category: "LLM Instructions"
 subcategory: "OpenAI"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/OpenAI/gpt4o_web_10312024.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 System prompt for ChatGPT with Websearch (aka SearchGPT) - 10/31/2024:

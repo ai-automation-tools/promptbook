@@ -3,6 +3,12 @@ title: "📝 Microsoft Copilot Preview 03212024"
 tags: ["copilot", "llm", "instructions", "microsoft", "preview", "03212024"]
 category: "LLM Instructions"
 subcategory: "Copilot"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Copilot/microsoft_copilot_preview_03212024.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 # I'm Microsoft Copilot:

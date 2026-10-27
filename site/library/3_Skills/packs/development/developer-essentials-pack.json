@@ -2,8 +2,8 @@
   "name": "Developer Essentials Pack",
   "id": "developer-essentials-pack",
   "description": "Complete toolkit for modern full-stack development including Git workflows, API design, web development, and database optimization.",
-  "icon": "\ud83d\udcbb",
-  "version": "1.0.0",
+  "icon": "💻",
+  "version": "1.0.2",
   "author": "promptbook",
   "tags": [
     "development",
@@ -16,54 +16,14 @@
   "category": "Development",
   "skills": [
     {
-      "path": "library/3_Skills/Development/Git/gh-address-comments/SKILL.md",
-      "name": "GitHub PR Comment Handler",
-      "description": "Address review comments on GitHub PRs"
-    },
-    {
-      "path": "library/3_Skills/Development/Git/git-commit-helper/SKILL.md",
-      "name": "Git Commit Helper",
-      "description": "Craft clear, conventional commits"
-    },
-    {
-      "path": "library/3_Skills/Development/Git/github-actions-creator/SKILL.md",
-      "name": "GitHub Actions Creator",
-      "description": "Build CI/CD workflows with GitHub Actions"
-    },
-    {
-      "path": "library/3_Skills/Development/API/backend-api-design/SKILL.md",
-      "name": "Backend API Design",
-      "description": "Design RESTful and GraphQL APIs"
-    },
-    {
-      "path": "library/3_Skills/Development/Web_Development/react-component-generator/SKILL.md",
-      "name": "React Component Generator",
-      "description": "Generate React components with best practices"
-    },
-    {
       "path": "library/3_Skills/Development/Web_Development/frontend-design/SKILL.md",
       "name": "Frontend Design",
       "description": "Build responsive, accessible UIs"
     },
     {
-      "path": "library/3_Skills/Development/docker-compose-generator/SKILL.md",
-      "name": "Docker Compose Generator",
-      "description": "Create Docker Compose configurations"
-    },
-    {
-      "path": "library/3_Skills/Development/sql-query-optimizer/SKILL.md",
-      "name": "SQL Query Optimizer",
-      "description": "Optimize database queries for performance"
-    },
-    {
       "path": "library/3_Skills/Development/NextJS/nextjs-best-practices/SKILL.md",
       "name": "Next.js Best Practices",
       "description": "Follow Next.js patterns and conventions"
-    },
-    {
-      "path": "library/3_Skills/Development/Web_Development/webapp-testing/SKILL.md",
-      "name": "Web App Testing",
-      "description": "Test web applications effectively"
     }
   ],
   "prerequisites": {
@@ -92,9 +52,7 @@
     "Optimizing application performance",
     "Code review and collaboration"
   ],
-  "related_packs": [
-    "project-management-pack"
-  ],
+  "related_packs": [],
   "created_at": "2026-03-28",
-  "updated_at": "2026-04-01"
+  "updated_at": "2026-10-27"
 }

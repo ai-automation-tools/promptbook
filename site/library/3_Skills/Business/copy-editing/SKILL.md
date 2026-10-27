@@ -4,10 +4,14 @@ tags: ["skill","business","copy-editing"]
 name: "copy-editing"
 description: "When the user wants to edit, review, or improve existing marketing copy. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy feedback,' 'proofread,' 'polish this,' 'make this better,' or 'copy sweep.' This skill provides a systematic approach to editing marketing copy through multiple focused passes."
 upstream:
-  match: ambiguous
-  copies: 14
-  candidates: [aaaaqwq/agi-super-skills, aaaaqwq/claude-code-skills, aitytech/agentkits-marketing, antoniotravisani/marketingskills, automindtechnologie-jpg/ultimate-skill.md, bradycassidy/marketingskills, derklinke/codex-config, hainamchung/agent-assistant]
-  checked: 2026-08-26
+  match: exact
+  repo: aaaaqwq/agi-super-skills
+  path: skills/copy-editing/SKILL.md
+  ref: 4c7b20bc52ad8d4a89fa3f5185abc455ef9248de
+  checked: 2026-10-23
+  was: ambiguous
+  candidates: [aaaaqwq/claude-code-skills, aitytech/agentkits-marketing]
+  license: MIT
 ---
 
 # Copy Editing

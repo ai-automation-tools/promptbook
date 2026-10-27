@@ -82,7 +82,10 @@ const readUpstream = (fm) => {
 };
 
 /** Rewrite ref/checked/match inside the existing upstream: block, leaving every
- *  other key (declared, path, repo) and the rest of the frontmatter untouched. */
+ *  other key (declared, path, repo) and the rest of the frontmatter untouched.
+ *  splitFrontmatter's `fm` has no trailing newline, so when a key such as `tags:`
+ *  follows the block the result must still end on one, or the file closes as
+ *  `tags: [...]---`. */
 const stampUpstream = (fm, { ref, checked }) =>
   fm.replace(/^upstream:\n((?:[ \t]+.*\n?)*)/m, (_all, block) => {
     const keep = block
@@ -90,7 +93,7 @@ const stampUpstream = (fm, { ref, checked }) =>
       .filter((l) => l.trim() && !/^\s+(ref|checked|match):/.test(l));
     return ["upstream:", "  match: exact", ...keep, `  ref: ${ref}`, `  checked: ${checked}`]
       .join("\n") + "\n";
-  });
+  }).replace(/\n?$/, "\n");
 
 const walk = (dir, out = []) => {
   let es;
@@ -213,7 +216,10 @@ for (const rel of skills) {
     fs.writeFileSync(dest, out);
   }
 
-  const extra = walk(localDir).filter((p) => !written.has(p));
+  // A LICENSE beside SKILL.md that upstream keeps at its repo root was vendored here on
+  // purpose (vendor-skill-licenses.mjs); it is not stale.
+  const vendoredLicense = (p) => path.dirname(p) === localDir && /^(LICENSE|COPYING)(\.(md|txt))?$/i.test(path.basename(p));
+  const extra = walk(localDir).filter((p) => !written.has(p) && !vendoredLicense(p));
   for (const p of extra) {
     const show = path.relative(SKILLS, p).split(path.sep).join("/");
     if (KEEP_EXTRA) { console.log(`  kept local-only ${show}`); continue; }

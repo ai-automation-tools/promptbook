@@ -3,6 +3,12 @@ title: "📝 Claude3.7 Sonnet"
 tags: ["anthropic", "llm", "instructions", "claude3_7", "sonnet"]
 category: "LLM Instructions"
 subcategory: "Anthropic"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Anthropic/20250225-Claude3.7-Sonnet.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 

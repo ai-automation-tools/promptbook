@@ -69,7 +69,7 @@ if (libraryMode === 'my' || prompt.isUserOwned) {
 **Behavior**:
 - **Public Library**: Edit/Delete hidden for all prompts (unless user somehow has user-owned prompts showing)
 - **My Library**: Edit/Delete visible for all prompts (since filter already ensures only user-owned)
-- **Favorite button**: Always visible in both modes
+- **Favorite button**: Always visible in both modes, read-only demo included: on every card, on the item's detail page, and on Skill Packs (stored as `pack:<id>`; the Packs sidebar's Favorites lists them). Favorites are one set (`prompt-favorites` in localStorage): the Favorites view lists the current section's stars from both libraries, and opening one from the other library switches to it
 - **Copy button**: Always visible in both modes
 
 ---
@@ -112,8 +112,8 @@ Current behavior: Copies to `My_Prompts/<category>/<subcategory>/`
 
 **Recommendation**: 
 ```
-Source: 4_Prompts/Business/Marketing/market-research.md
-Target: My_Prompts/Prompt_Library/Business/Marketing/market-research.md
+Source: 4_Prompts/Awesome_ChatGPT/General/emoji-translator.md
+Target: My_Prompts/Prompt_Library/Awesome_ChatGPT/General/emoji-translator.md
          ^^^^^^^^^ (new top-level section for all user-owned)
 ```
 

@@ -5,6 +5,12 @@ category: "Skills"
 subcategory: "[Category_Name]"  # e.g., Git, Docker, Cloud
 name: [skill-name-lowercase]
 description: "[One-sentence description of what this skill does and when to use it]. Use when: (1) [use case 1], (2) [use case 2], (3) [use case 3]. NOT for: [anti-patterns or when not to use]."
+upstream:                 # REQUIRED since 2026-10-23: CI fails a skill with no GitHub source
+  match: exact
+  repo: [owner/repo]
+  path: [path/to/skill/SKILL.md]
+  ref: [full commit sha you copied from]
+  checked: [YYYY-MM-DD]
 ---
 
 # [Skill Name/Title]

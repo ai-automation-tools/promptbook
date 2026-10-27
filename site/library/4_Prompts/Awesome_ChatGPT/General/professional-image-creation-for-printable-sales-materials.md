@@ -3,6 +3,10 @@ title: "🤖 Professional Image Creation for Printable Sales Materials"
 tags: ["awesome-chatgpt", "professional", "image", "creation", "printable"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Professional Image Creation for Printable Sales Materials

@@ -1,22 +1,39 @@
 name: Upstream drift
 
-# Weekly check of every vendored skill against its upstream. Opens or updates a
-# single issue with the results — it never edits library content. The curation
-# (categories, naming, what got kept) is the product; an auto-PR that reflowed
-# 300 files into the wrong folders would destroy it. A human reads the table and
-# decides what to resync.
+# Weekly check of every vendored skill and agent against its upstream repo.
+#
+# 1. The drift report goes to one rolling issue, as before.
+# 2. Items that are behind or drifted, and whose local copy adds little of its
+#    own (under 10% of its lines are not in upstream), are resynced: upstream
+#    body, our frontmatter. Anything with more local content than that is
+#    curation a resync would destroy, so it stays in the issue for a person.
+# 3. site/api/upstream-status.json is refreshed (the site's Source panel reads
+#    it), the prompt index is rebuilt, and all of it lands as ONE pull request.
+#
+# Never merged automatically. A resync puts a third party's new text into
+# skills and agents people install, so a person reads the diff first.
+#
+# Repo setting needed once: Settings → Actions → General → "Allow GitHub
+# Actions to create and approve pull requests". PRs opened with GITHUB_TOKEN do
+# not trigger ci.yml; push an empty commit to the branch (or re-run CI) before merging.
 on:
   schedule:
     - cron: "0 9 * * 1" # Mondays 09:00 UTC
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   issues: write
+  pull-requests: write
 
 concurrency:
   group: upstream-drift
   cancel-in-progress: false
+
+env:
+  BRANCH: upstream/resync
+  # Share of a local copy's lines that upstream lacks, above which it is not resynced unattended.
+  MAX_LOCAL_EXTRA: "0.10"
 
 jobs:
   check:
@@ -28,12 +45,10 @@ jobs:
         with:
           node-version: "22"
 
-      # No dependencies: the script is plain Node against the GitHub API, so
-      # there is nothing to install and nothing to keep patched.
       - name: Check drift
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node scripts/check-upstream-drift.mjs --out drift.md
+        run: node scripts/check-upstream-drift.mjs --out drift.md --json drift.json
 
       - name: Open or update the drift issue
         env:
@@ -41,14 +56,73 @@ jobs:
         run: |
           set -euo pipefail
           TITLE="Upstream drift"
-          # One rolling issue rather than a new one every Monday, which would
-          # turn into 52 stale issues a year that nobody closes.
+          # One rolling issue rather than a new one every Monday.
           NUM=$(gh issue list --state open --search "$TITLE in:title" \
                   --json number,title \
                   --jq "[.[] | select(.title | startswith(\"$TITLE\"))][0].number // empty")
           if [ -n "$NUM" ]; then
             gh issue comment "$NUM" --body-file drift.md
-            echo "commented on #$NUM"
           else
             gh issue create --title "$TITLE" --body-file drift.md
+          fi
+
+      - name: Resync what is safe to resync
+        id: resync
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          # resync-upstream.mjs takes skills relative to 3_Skills and agents as 2_Agents/….
+          node -e '
+            const { items } = require("./drift.json");
+            const max = Number(process.env.MAX_LOCAL_EXTRA);
+            for (const [file, s] of Object.entries(items))
+              if ((s.verdict === "behind" || s.verdict === "drifted") && (s.extra ?? 1) < max
+                  && !file.startsWith("5_System_Prompts/"))  // dated captures: report, never overwrite
+                console.log(file.replace(/^3_Skills\//, ""));
+          ' > resync.txt
+          echo "count=$(wc -l < resync.txt)" >> "$GITHUB_OUTPUT"
+          if [ -s resync.txt ]; then
+            # One failed item must not sink the rest; the PR body lists what ran.
+            tr '\n' '\0' < resync.txt | xargs -0 node scripts/resync-upstream.mjs | tee resync.log || true
+          fi
+
+      - name: Refresh the status file and the prompt index
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          # After a resync those items are current; re-check so the file says so.
+          if [ "${{ steps.resync.outputs.count }}" != "0" ]; then
+            node scripts/check-upstream-drift.mjs --out /dev/null --json site/api/upstream-status.json
+          else
+            cp drift.json site/api/upstream-status.json
+          fi
+          cd site && npm ci --ignore-scripts && npm run build:index
+
+      - name: Open or update the resync pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git add -A site/library site/api/upstream-status.json site/api/prompt-index.json
+          if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git commit -q -m "Resync from upstream ($(date -u +%F))"
+          git push -f origin "$BRANCH"
+          {
+            echo "Weekly resync from upstream repos. **Review the diff before merging**: this is third-party text that ends up in skills and agents people install."
+            echo
+            echo "Resynced ${{ steps.resync.outputs.count }} item(s) whose local copy adds under $(awk "BEGIN{print $MAX_LOCAL_EXTRA*100}")% of its own lines. Items with more local content are left for a person; see the Upstream drift issue."
+            echo
+            echo '```'
+            cat resync.log 2>/dev/null || echo "(status file only)"
+            echo '```'
+          } > pr.md
+          if gh pr view "$BRANCH" --json state --jq .state 2>/dev/null | grep -q OPEN; then
+            gh pr edit "$BRANCH" --body-file pr.md
+          else
+            gh pr create --base main --head "$BRANCH" --title "Resync from upstream" --body-file pr.md
           fi

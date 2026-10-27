@@ -3,6 +3,12 @@ title: "📝 Gemini 3 Flash Android App Contributed 20260221"
 tags: ["google", "llm", "instructions", "gemini", "3", "flash", "android", "app", "contributed", "20260221"]
 category: "LLM Instructions"
 subcategory: "Google"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Google/gemini-3-flash-android-app-contributed_20260221.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 # Gemini 3 Flash - Android Gemini App (unverified)

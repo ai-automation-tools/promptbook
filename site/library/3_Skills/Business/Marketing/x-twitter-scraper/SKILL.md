@@ -5,8 +5,9 @@ upstream:
   match: exact
   repo: xquik-dev/x-twitter-scraper
   path: x-twitter-scraper/SKILL.md
-  ref: ef87f447a8447badaa79050add2f8efed93bca87
-  checked: 2026-10-13
+  ref: 8c54c050158e2da665597ad663453e791d4e693e
+  checked: 2026-10-23
+  license: MIT
 tags: ["skill","business","marketing"]
 ---
 
@@ -25,7 +26,7 @@ account connected in the Xquik dashboard.
 
 | Item | Value |
 | --- | --- |
-| Base URL | `https://xquik.com/api/v1`. Route tables omit `/api/v1`; full URLs include it |
+| Base URL | `https://xquik.com/api/v1`. Route tables omit `/api/v1`, and full URLs include it |
 | Auth | Lowercase `x-api-key` header, read from `XQUIK_API_KEY` or the client's secret store |
 | MCP server | `https://xquik.com/mcp`, Streamable HTTP, OAuth first, API key fallback |
 | MCP tools | `docs` for guidance, `search` for a route contract, `execute` for a call |
@@ -37,7 +38,7 @@ account connected in the Xquik dashboard.
   Refuse redirects. Never reuse authenticated headers for returned links.
 - Client permissions enforce access limits. Skill metadata does not.
 - With the Xquik MCP server connected, make live calls through its tools.
-  Otherwise give the exact request: method, full URL, headers & body.
+  Otherwise give the exact request with its method, full URL, headers & body.
 - Run no shell command and install no package. The user runs code in their
   own environment.
 - A recurring job is a script plus a scheduler entry, such as cron. The user

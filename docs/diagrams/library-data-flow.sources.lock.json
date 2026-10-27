@@ -1,15 +1,17 @@
 {
-  "revision": "95638e65b8885a20227c7df2df894b566b4e54ec",
+  "revision": "dd093ae33544de420cec18a86eb085c75d814ff9",
   "files": {
-    ".github/workflows/upstream-drift.yml": "8d3a3d824b6a8e5151862420db7d147ab6c19e75",
-    "scripts/resync-upstream.mjs": "f8cd8a8cb4bb61c77a622e984ad6ae0d24559cdf",
-    "site/api/index.ts": "73db96f61c6cc6ad888c1d511cf107e2452d8659",
-    "site/api/skill-packs.ts": "5f06e51b3fccc40efdbab4ad087f46643105508b",
-    "site/lib/my-library.ts": "43c6fadc6bdec532a6e36f7d8d4d5e91b5be5740",
-    "site/package.json": "0760ad3af6220520b426459d0a7575776a6c6910",
-    "site/scripts/build-prompt-index.js": "39c93507cf015b22d30d2fe902be00be1ff475fd",
-    "site/src/App.tsx": "5fa2cde72ad004bd4b7fd4a38591e0302f5f0a31",
-    "site/src/hooks/usePromptContent.ts": "c2e18bab235626e22e20da05c166df4dbf0b9541",
+    ".github/workflows/upstream-drift.yml": "141d3b80ecda4f748dd8dfcbb04da8f7857df27b",
+    "scripts/resync-upstream.mjs": "792b79c123d074ac00ea3929056f0d9c8cb61164",
+    "site/api/index.ts": "74cee5f41f8b7ef21e5b90ed45dbf24a78d381a0",
+    "site/api/skill-packs.ts": "a8eac4e2ea6e581f4a8fc3bd3e19a4cf5e6dc6d4",
+    "site/lib/library.ts": "21675d660197a62e192d305a4e6fd1f5bad8cd2d",
+    "site/lib/my-library.ts": "e9a745f13e36a71a12ba75d0e7885edcb4c53ab6",
+    "site/mcp/server.ts": "7ea92a0b3384c3265312445d87e6084595f4eeee",
+    "site/package.json": "2cc00a16d88fb5552f12db92b8f47e321bbff73f",
+    "site/scripts/build-prompt-index.js": "6281aeb2ca408f4b954840c4d58b65de8a7a8ef6",
+    "site/src/App.tsx": "5039f1f51a557e8916a89d6983d6297934bfb87a",
+    "site/src/hooks/usePromptContent.ts": "246c4b642e7611cdfa05861710b91edd6888323d",
     "site/src/hooks/usePromptPreviews.ts": "adc0d81181652d4c519a70d0faa2e14046bfd9a8"
   }
 }

@@ -3,6 +3,10 @@ title: "🤖 Starting a Flutter Project"
 tags: ["awesome-chatgpt", "starting", "flutter", "project"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Starting a Flutter Project

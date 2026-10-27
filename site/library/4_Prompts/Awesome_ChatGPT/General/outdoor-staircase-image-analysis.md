@@ -3,6 +3,10 @@ title: "🤖 Outdoor Staircase Image Analysis"
 tags: ["awesome-chatgpt", "outdoor", "staircase", "image", "analysis"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Outdoor Staircase Image Analysis

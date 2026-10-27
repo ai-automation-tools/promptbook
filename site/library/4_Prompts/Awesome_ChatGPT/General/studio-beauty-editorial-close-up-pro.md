@@ -3,6 +3,10 @@ title: "🤖 Studio Beauty Editorial (close-up, pro)"
 tags: ["awesome-chatgpt", "studio", "beauty", "editorial", "close"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Studio Beauty Editorial (close-up, pro)

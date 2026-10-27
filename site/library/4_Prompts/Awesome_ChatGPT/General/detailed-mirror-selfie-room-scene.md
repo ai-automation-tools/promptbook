@@ -3,6 +3,10 @@ title: "🤖 Detailed mirror-selfie room scene"
 tags: ["awesome-chatgpt", "detailed", "mirror", "selfie", "room"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Detailed mirror-selfie room scene

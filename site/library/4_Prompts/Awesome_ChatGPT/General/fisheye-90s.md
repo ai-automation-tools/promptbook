@@ -3,6 +3,10 @@ title: "🤖 Fisheye 90s"
 tags: ["awesome-chatgpt", "fisheye", "90s"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Fisheye 90s

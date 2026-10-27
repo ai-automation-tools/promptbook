@@ -3,6 +3,10 @@ title: "🤖 Cinematic Vertical Portrait of Vintage Car Radio at Night"
 tags: ["awesome-chatgpt", "cinematic", "vertical", "portrait", "vintage"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Cinematic Vertical Portrait of Vintage Car Radio at Night

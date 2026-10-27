@@ -3,6 +3,12 @@ title: "📝 Github Copilot Web Contributed 20260221"
 tags: ["copilot", "llm", "instructions", "github", "web", "contributed", "20260221"]
 category: "LLM Instructions"
 subcategory: "Copilot"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Copilot/github_copilot_web_contributed_20260221.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 # GitHub Copilot - github.com Web Chat (unverified)

@@ -3,6 +3,12 @@ title: "🧠 Chatgpt Study Mode 07292025"
 tags: ["openai", "llm", "instructions", "chatgpt", "study", "mode", "07292025"]
 category: "LLM Instructions"
 subcategory: "OpenAI"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/OpenAI/chatgpt_study_mode_07292025.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 The following is the "Study mode" part of the system prompt

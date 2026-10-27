@@ -3,6 +3,10 @@ title: "🤖 Cozy Couch Lamp (close-up, warm tungsten)"
 tags: ["awesome-chatgpt", "cozy", "couch", "lamp", "close"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Cozy Couch Lamp (close-up, warm tungsten)

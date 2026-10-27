@@ -39,6 +39,11 @@ jobs:
       - name: Type-check
         run: npm run lint
 
+      # The same build Vercel runs (index, tsc, vite), so a broken bundle or
+      # import fails the PR instead of the deploy.
+      - name: Build
+        run: npm run build
+
       # server.ts and the Vercel function serve the same Express app; this pins
       # the route table so a dropped handler fails here, not in the browser.
       - name: API route table
@@ -49,8 +54,26 @@ jobs:
       - name: My Library file store
         run: npm run test:my-library
 
+      # READ_ONLY serves the Public Library only: a seeded personal prompt must
+      # not come back from the list, detail or installed-packs routes.
+      - name: Read-only hides My Library
+        run: npm run test:read-only
+
+      # Edit, Copy, Download and the detail page act on fetchFullPrompt's result,
+      # so a failed load must throw rather than hand back the 200-char preview.
+      - name: Full prompt loads fail closed
+        run: npm run test:prompt-content
+
+      # The Download button's .md must read back through the store unchanged.
+      - name: Markdown download round trip
+        run: npm run test:markdown-file
+
+      # A README full of badges still gives its card a readable blurb.
+      - name: Card preview blurbs
+        run: npm run test:preview
+
       - name: Library path containment
-        run: node lib/safe-path.test.mjs
+        run: npm run test:safe-path
 
       # Spawns mcp/server.ts over real stdio with the SDK client: every tool, the
       # MCP prompts, path-traversal refusals, a My Library round trip in a temp
@@ -58,6 +81,12 @@ jobs:
       # writes to stdout.
       - name: MCP server
         run: npm run test:mcp
+
+      # Serves the dist/ the Build step made and drives the runner's Google
+      # Chrome: listing, detail page, hero counter and the Settings dialog's
+      # focus trap, failing on any page error, console error or failed request.
+      - name: Browser smoke test
+        run: npm run test:browser
 
       # The provenance scripts live at the repo root, outside site/. They are
       # dependency-free except for gray-matter, which npm ci above installed.

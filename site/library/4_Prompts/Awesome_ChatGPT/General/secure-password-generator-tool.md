@@ -3,6 +3,10 @@ title: "🤖 Secure Password Generator Tool"
 tags: ["awesome-chatgpt", "secure", "password", "tool"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Secure Password Generator Tool

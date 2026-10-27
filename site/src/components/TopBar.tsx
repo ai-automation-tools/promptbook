@@ -3,13 +3,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Menu, PanelLeft, Plus, Search, Settings, X } from 'lucide-react';
-import { SECTIONS } from '../lib/sections';
+import { NAV_SECTIONS, navTab } from '../lib/sections';
 import type { LibraryTab } from '../hooks/useLibraryRoute';
 import type { Theme } from '../hooks/useTheme';
 import { READ_ONLY } from '../lib/mode';
-import ResourcesNav from './ResourcesNav';
+import ResourcesNav, { RESOURCE_GROUPS } from './ResourcesNav';
 import ThemeSwitch from './ThemeSwitch';
 import { Button, IconButton, Kbd, MOD_KEY } from './ui/primitives';
 
@@ -26,10 +26,11 @@ interface TopBarProps {
 }
 
 /**
- * The house-style top bar: categories toggle, brand, the seven sections as nav
- * bordered buttons (the current one filled in its section hue), then ⌘K, Resources,
- * New prompt, Settings and the Light | Dark switch. Below 1360px the sections
- * fold into a sheet under the bar, opened by the menu button.
+ * The house-style top bar: categories toggle (phones), then search (⌘K), Resources,
+ * New item and the Light | Dark switch. From md the sections, brand and
+ * Settings live in SectionRail; on phones the brand and Settings stay here and
+ * the sections are a swipeable strip under the bar. Below 1536px the menu button
+ * opens a sheet with the Resources links, whose dropdown only fits from 1536px.
  */
 export default function TopBar({
   sidebarOpen,
@@ -43,6 +44,12 @@ export default function TopBar({
   setTheme,
 }: TopBarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const stripRef = useRef<HTMLElement>(null);
+
+  // Keep the current section's chip in view when it changes (deep link, palette, rail).
+  useEffect(() => {
+    stripRef.current?.querySelector('[aria-current]')?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  }, [activeTab]);
 
   const pick = (tab: LibraryTab) => {
     onSelectSection(tab);
@@ -52,37 +59,19 @@ export default function TopBar({
   return (
     <>
       <header className="topbar">
-        <IconButton label={sidebarOpen ? 'Hide categories' : 'Show categories'} onClick={onToggleSidebar} aria-expanded={sidebarOpen}>
+        {/* Phones only: from md the panel closes from its own head and reopens from the rail. */}
+        <IconButton label={sidebarOpen ? 'Hide categories' : 'Show categories'} onClick={onToggleSidebar} aria-expanded={sidebarOpen} className="md:hidden">
           <PanelLeft className="h-4 w-4" />
         </IconButton>
 
-        <button type="button" className="brand" onClick={() => pick('prompt-library')} aria-label="Promptbook home">
+        <button type="button" className="brand md:hidden" onClick={() => pick('prompt-library')} aria-label="Promptbook home">
           <img src="/favicon.svg" alt="" width={24} height={24} />
-          {/* The wordmark only on very wide windows: six section buttons come first. */}
-          <span className="hidden min-[1720px]:inline">Promptbook</span>
         </button>
-
-        <nav className="nav" aria-label="Sections">
-          {SECTIONS.map(section => {
-            const Icon = section.icon;
-            return (
-              <button
-                key={section.id}
-                type="button"
-                aria-current={section.id === activeTab ? 'true' : undefined}
-                onClick={() => pick(section.id)}
-                style={{ ['--c' as string]: section.accent }}
-              >
-                <Icon aria-hidden="true" />
-                {section.label}
-              </button>
-            );
-          })}
-        </nav>
 
         <div className="topbar-right">
           <button type="button" className="kbd-btn" onClick={onOpenPalette} aria-label="Search the library">
             <Search className="h-3.5 w-3.5" aria-hidden="true" />
+            <span className="mr-auto">Search the library…</span>
             <Kbd>{MOD_KEY}</Kbd>
             <Kbd>K</Kbd>
           </button>
@@ -95,11 +84,11 @@ export default function TopBar({
 
           {!READ_ONLY && (
             <Button variant="primary" size="sm" icon={<Plus className="h-3.5 w-3.5" />} onClick={onNewPrompt} className="hidden sm:inline-flex">
-              New prompt
+              New item
             </Button>
           )}
 
-          <IconButton label="Settings" framed onClick={onOpenSettings}>
+          <IconButton label="Settings" framed onClick={onOpenSettings} className="md:hidden">
             <Settings className="h-4 w-4" />
           </IconButton>
 
@@ -118,22 +107,41 @@ export default function TopBar({
         </div>
       </header>
 
-      <nav id="mobile-nav" className={menuOpen ? 'mobile-nav open' : 'mobile-nav'} aria-label="Sections">
-        {SECTIONS.map(section => {
+      {/* Phones only: the sections stay one tap away, where the rail would be on wider screens. */}
+      <nav ref={stripRef} className="section-strip" aria-label="Sections">
+        {NAV_SECTIONS.map(section => {
           const Icon = section.icon;
+          const current = section.id === navTab(activeTab);
           return (
             <button
               key={section.id}
               type="button"
-              aria-current={section.id === activeTab ? 'true' : undefined}
+              aria-current={current ? 'page' : undefined}
               onClick={() => pick(section.id)}
               style={{ ['--c' as string]: section.accent }}
             >
-              <Icon className="h-4 w-4 text-[var(--c)]" aria-hidden="true" />
-              {section.label}
+              <Icon className="h-3.5 w-3.5 text-[var(--c)]" aria-hidden="true" />
+              {section.short}
             </button>
           );
         })}
+      </nav>
+
+      <nav id="mobile-nav" className={menuOpen ? 'mobile-nav open' : 'mobile-nav'} aria-label="Resources">
+        {RESOURCE_GROUPS.map(group => (
+          <div key={group.id} style={{ ['--c' as string]: group.accent }}>
+            <p className="mobile-nav-group eyebrow">{group.label}</p>
+            {group.links.map(link => {
+              const Icon = link.icon;
+              return (
+                <a key={link.href + link.label} href={link.href} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>
+                  <Icon className="h-4 w-4 text-[var(--c)]" aria-hidden="true" />
+                  {link.label}
+                </a>
+              );
+            })}
+          </div>
+        ))}
       </nav>
     </>
   );

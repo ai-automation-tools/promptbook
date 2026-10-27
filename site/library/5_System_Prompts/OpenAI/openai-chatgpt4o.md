@@ -3,6 +3,12 @@ title: "📝 ChatGPT-4o System Prompt"
 tags: ["system-prompt", "llm", "instructions", "openai", "gpt-4o"]
 category: "System_Prompts"
 subcategory: "OpenAI"
+upstream:
+  match: similar
+  repo: jujumilk3/leaked-system-prompts
+  path: openai-chatgpt4o_20240520.md
+  ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
+  checked: 2026-10-23
 ---
 
 # ChatGPT-4o System Prompt

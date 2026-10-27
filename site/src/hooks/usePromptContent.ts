@@ -21,6 +21,20 @@ import { type Prompt } from '../components/PromptCard';
  * `PromptDetail` never had the problem — `handlePromptClick` fetches the full
  * prompt before opening it — so it keeps the plain `copyContent(text, id)` path.
  */
+
+/**
+ * The full prompt from `GET /api/prompts/:id`. Throws instead of falling back to
+ * the listing copy: that holds a 200-character preview (or nothing), and opening,
+ * editing, copying or downloading it would quietly lose the real body.
+ */
+export async function fetchFullPrompt(prompt: Prompt): Promise<Prompt> {
+  const response = await fetch(`/api/prompts/${encodeURIComponent(prompt.id)}`);
+  if (!response.ok) throw new Error(`Loading "${prompt.title}" failed (HTTP ${response.status})`);
+  const full = await response.json();
+  if (typeof full?.content !== 'string') throw new Error(`Loading "${prompt.title}" returned no content`);
+  return full;
+}
+
 export function usePromptContent(showToast: (type: 'success' | 'error', message: string) => void) {
   const [copied, setCopied] = useState<string | null>(null);
 
@@ -31,26 +45,20 @@ export function usePromptContent(showToast: (type: 'success' | 'error', message:
   }, [showToast]);
 
   /** Copy text already in hand. Used by `PromptDetail`, which has the full body. */
-  const copyContent = useCallback((content: string, promptId: string) => {
-    navigator.clipboard.writeText(content);
-    markCopied(promptId);
-  }, [markCopied]);
-
-  /** The real body of a prompt. Falls back to whatever the caller had on failure. */
-  const fetchFullContent = useCallback(async (prompt: Prompt): Promise<string> => {
+  const copyContent = useCallback(async (content: string, promptId: string) => {
     try {
-      const response = await fetch(`/api/prompts/${encodeURIComponent(prompt.id)}`);
-      if (response.ok) {
-        const full = await response.json();
-        if (typeof full?.content === 'string') {
-          return full.content;
-        }
-      }
+      // `navigator.clipboard` is missing on plain-http origins; that throws here too.
+      await navigator.clipboard.writeText(content);
+      markCopied(promptId);
     } catch (err) {
-      console.error('Failed to fetch full prompt content:', err);
+      console.error('Failed to copy prompt:', err);
+      showToast('error', 'Failed to copy');
     }
-    return prompt.content;
-  }, []);
+  }, [markCopied, showToast]);
+
+  /** The real body of a prompt. Throws when it can't be loaded; see `fetchFullPrompt`. */
+  const fetchFullContent = useCallback(async (prompt: Prompt): Promise<string> =>
+    (await fetchFullPrompt(prompt)).content, []);
 
   /** Copy from a card, which only holds a blurb — so the body is fetched first. */
   const copyPrompt = useCallback(async (prompt: Prompt) => {

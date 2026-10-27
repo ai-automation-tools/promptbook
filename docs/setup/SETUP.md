@@ -8,7 +8,7 @@ prompts (My Library) are markdown files in a folder you choose.
 
 ## Prerequisites
 
-- **Node.js** 22 ([download](https://nodejs.org/)) — CI pins 22; 20 works
+- **Node.js** 22 ([download](https://nodejs.org/)) or 24 — CI pins 22 (Node 20 is past end of life)
 - **npm**
 - **Git** ([download](https://git-scm.com/))
 
@@ -55,7 +55,7 @@ uncomment what you want:
 | `MY_LIBRARY_DIR` | `my-library` | Folder that holds My Library. Relative paths resolve against `site/`; absolute paths are used as-is. |
 | `HOST` | `127.0.0.1` | Address the server listens on. See [Exposing it beyond localhost](#exposing-it-beyond-localhost). |
 | `READ_ONLY` | `false` | `true` serves the Public Library only and refuses every write with `403`. Vercel turns this on automatically. |
-| `ALLOWED_HOSTS` | (none) | Extra hostnames the dev server answers to, comma-separated. Needed behind a proxy that forwards its own Host header, such as `tailscale serve`; see [Over Tailscale](#over-tailscale). |
+| `ALLOWED_HOSTS` | (none) | Extra hostnames the server answers to (pages and API, in `npm run dev` and `npm start`), comma-separated; a leading dot (`.ts.net`) allows subdomains. `localhost`, `*.localhost` and IP addresses always work. Needed behind a proxy that forwards its own Host header, such as `tailscale serve`; see [Over Tailscale](#over-tailscale). |
 
 ---
 
@@ -85,7 +85,9 @@ file in `MY_LIBRARY_DIR` (default `site/my-library/`, which is gitignored).
 
 - **Hand-editing is fine.** Missing fields fall back to defaults (`section` → `4_Prompts`,
   `category` → `Uncategorized`, `updated` → the file's modified time). A file you add by
-  hand must use a lowercase `a-z0-9-` name to be picked up as an id.
+  hand must use a lowercase `a-z0-9-` name to be picked up as an id. If you change a file
+  while the app's editor has it open, saving in the app is refused and the editor reloads
+  your version instead of overwriting it.
 - **Skill packs** you add are ordinary My Library files tagged `skill-pack:<packId>`.
   Removing the pack deletes the files with that tag.
 
@@ -114,15 +116,18 @@ tailscale serve --bg --http=3010 http://127.0.0.1:3010
 ```
 
 Then set `ALLOWED_HOSTS` in `site/.env` to the names Tailscale forwards, for example
-`ALLOWED_HOSTS=my-pc,my-pc.tailnet-name.ts.net`. Vite answers `403` to any other Host,
-middleware mode included. The tailnet is the authentication here: every device on it can
+`ALLOWED_HOSTS=my-pc,my-pc.tailnet-name.ts.net`. The server answers `403` to any other
+Host name, on pages and API alike, so a site that rebinds its own domain to your PC cannot
+read My Library through it. The tailnet is the authentication here: every device on it can
 read **and edit** My Library, exactly as this PC can, while pages on other sites still cannot
-post to it (the Origin check). Add `READ_ONLY=true` if the other devices should only read.
+post to it (the Origin check). `READ_ONLY=true` turns the server into a Public Library
+browser for everyone, this PC included: My Library is neither shown nor served, not just
+locked against edits.
 
 The MCP server is not affected by any of this: it talks to agents over stdio on this machine.
 
 > [!NOTE]
-> `READ_ONLY` is read twice: by the server, which refuses writes, and by `vite build`, which
+> `READ_ONLY` is read twice: by the server, which refuses writes and stops serving My Library, and by `vite build`, which
 > hides the write controls in the UI. Both load `site/.env`, so one line there covers
 > `npm run dev` and `npm start` alike.
 
@@ -134,6 +139,13 @@ The MCP server is not affected by any of this: it talks to agents over stdio on 
 npm run lint             # tsc --noEmit
 npm run test:routes      # the API route table is intact
 npm run test:my-library  # My Library file store round-trip, in a temp folder
+npm run test:read-only   # read-only mode hides My Library
+npm run test:prompt-content  # a failed prompt load never falls back to the preview
+npm run test:markdown-file   # a downloaded .md reads back unchanged
+npm run test:preview         # badge rows do not become the card blurb
+npm run test:mcp             # the MCP server, end to end over stdio
+npm run test:safe-path       # ../ escapes and links out of library/ are refused
+npm run test:browser         # after npm run build: the built app in Chrome
 npm run build:index      # rebuild api/prompt-index.json after editing library/
 ```
 
@@ -161,8 +173,12 @@ your shell).
 
 ### The page goes black when opening a prompt
 
-Vite's dependency cache went stale under the running dev server. Stop it, delete
-`site/node_modules/.vite`, run `npm run dev` again and hard-refresh. A black screen on a
+The dev server is stale. Restart it (stop it, `npm run dev`) and hard-refresh; if that is not
+enough, delete `site/node_modules/.vite` and restart again. Restart after every `npm install`,
+lockfile update (a Dependabot merge, a `git pull`) or library/API change: the server loads the
+prompt index and API code once and does not pick up changes. A stale one also lists deleted
+items that 404 when opened. Since 2026-10-26 the page shows "Something failed to load" with a
+Reload button instead of going black. A black screen on a
 Skill Pack was a separate bug, fixed the same day. Details in the
 [Debug Guide](../development/DEBUG_UI.md#issue-6-black-screen-when-opening-a-prompt).
 

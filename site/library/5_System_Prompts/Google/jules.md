@@ -3,6 +3,12 @@ title: "📝 Jules"
 tags: ["google", "llm", "instructions", "jules"]
 category: "LLM Instructions"
 subcategory: "Google"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Google/20250804-Jules.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 Contributed by [DiaAviLinden](https://github.com/0xeb/TheBigPromptLibrary/issues/36)

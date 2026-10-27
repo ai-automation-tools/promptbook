@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/now-phase_1:_MCP_server-F59E0B?style=for-the-badge" alt="Now: Phase 1, MCP server">
+  <img src="https://img.shields.io/badge/now-after_release:_features-F59E0B?style=for-the-badge" alt="Now: after release, features">
   <img src="https://img.shields.io/badge/stage-public_since_2026--10--12-2ea44f?style=for-the-badge" alt="Stage: public since 2026-10-12">
   <a href="README.md"><img src="https://img.shields.io/badge/↩-docs_home-6B7280?style=for-the-badge" alt="Back to docs"></a>
 </p>
@@ -24,53 +24,61 @@ Markers: `- [ ]` open, `- [-]` claimed by a run in progress, `- [x]` done, `- [!
 marks one only Mike can do.
 
 > [!NOTE]
-> **Where we are, 2026-10-21.** Rewritten from scratch today; everything finished before this
-> date is in the [changelog](CHANGELOG.md). The app is local-first (clone and run, My Library
-> is a folder of markdown files) with a read-only demo at
-> `promptbook-demo.ai-automation-tools.dev`. The library has six sections plus Skill
-> Packs, and seven scheduled jobs keep it growing and current. The local MCP server shipped the
-> same day, so an agent can search the library and pull a prompt, skill or agent straight into
-> its work. Phase 1's three remaining items each make something public and wait on Mike; the
-> roadmap routine moves on to Phase 2 meanwhile.
+> **Where we are, 2026-10-27.** The app is local-first (clone and run; My Library is a folder
+> of markdown files) with a read-only demo at `promptbook-demo.ai-automation-tools.dev`, and a
+> local MCP server lets an agent search the library and pull items into its work. The library
+> holds 2,162 indexed items, every one naming its source repo. Skill libraries are one card each
+> (30 in `3_Skills/Libraries/`); the 28 single skills each ship with a redistributable licence
+> beside `SKILL.md`; prompts can declare `[placeholder]` inputs that MCP clients ask for.
+> What took items out of the library is in `archive/` at the repo root.
+>
+> Phases 1 and 2 are done, and so is Phase 3's agent work. The open work an agent can take is
+> the after-release features (starter collections, O01, O04). Everything
+> else waits on Mike: branch protection (F04) and the secret-scan triage (F10) gate the next
+> release, and the Node 24 move, the Awesome ChatGPT and Skill Packs decisions, and the public
+> MCP endpoint and npm package are his calls.
 
-## 🔌 Phase 1: MCP server for the library
+## 🔌 Phase 1: MCP server for the library (done 2026-10-21)
 
-The library becomes a tool an agent calls, not just a site a person reads. A stdio server ships
-in this repo and reads the same `site/library/` and My Library folder the app does; a
-read-only remote endpoint on the demo comes after it.
+The stdio server (`site/mcp/server.ts`, `npm run mcp`, design in
+[features/MCP-SERVER.md](features/MCP-SERVER.md)): search, browse, skill and Skill Pack tools,
+My Library writes (not registered under `READ_ONLY`), library prompts as MCP prompts, and the
+install docs, all proved by `npm run test:mcp` in CI. See the 2026-10-21 changelog entries. Its
+three hosting and publishing items (a remote endpoint, an npm package, the MCP registry) moved
+to **Publish and promote** on 2026-10-27, since none of them gates a release.
 
-- [x] Design note in `docs/features/MCP-SERVER.md`: the tool list with input and output shapes, which tools write, the stdio transport and how the server finds `site/library/` and `MY_LIBRARY_DIR`, and how it shares code with `api/` instead of duplicating it. Done when the note exists and the tools below match it — done 2026-10-21: `docs/features/MCP-SERVER.md` (shape, stdout rule, tool table, prompts, what is not built)
-- [x] Walking skeleton: `npm run mcp` in `site/` starts a stdio server on `@modelcontextprotocol/sdk` with two tools, `search_library` (query, section, tags, limit; ranked results with id, title, section, tags) and `get_item` (id; the full markdown body and frontmatter). Proved by `scripts/mcp-server.test.mjs`, which spawns the server, lists tools and calls both, and runs in CI — done 2026-10-21: `site/mcp/server.ts` on `@modelcontextprotocol/server` 2.3 via `serveStdio()`, `scripts/mcp-server.test.mjs` as `npm run test:mcp`, CI step "MCP server"
-- [x] Browse tools: `list_sections` (the seven sections with counts) and `list_categories` (section → category → subcategory tree with counts), both from `api/prompt-index.json`, covered by the same test — done 2026-10-21: `list_sections`, `list_categories`
-- [x] Skill tools: `get_skill` returns a skill's `SKILL.md` and the list of its support files, `get_skill_file` returns one of them (paths confined to the skill folder by `resolveInside()`), `list_skill_packs` and `get_skill_pack` read `3_Skills/packs/`. Test includes a path-traversal attempt that must be refused — done 2026-10-21: `get_skill`, `get_skill_file`, `list_skill_packs`, `get_skill_pack`; four traversal attempts refused in the test, and a deliberately broken guard made the test fail
-- [x] MCP prompts: every `4_Prompts` and `5_System_Prompts` file is exposed through `prompts/list` (paged, filterable by section) and `prompts/get`, with `[placeholder]` fields turned into prompt arguments where the file declares them, so clients show library prompts as slash commands — done 2026-10-21: built differently from this wording, on purpose: ~2,200 named prompts would flood every client's slash menu, so the server registers `library_prompt` (any id) plus the featured prompts and every My Library prompt by name, each with one optional `input` argument. Placeholder-to-argument parsing is a separate item under Later
-- [x] My Library write tools: `save_to_my_library` (copy a public item, or write a new one), `update_my_prompt`, `delete_my_prompt`, going through `site/lib/my-library.ts` with its id rules, and refusing every write when `READ_ONLY` is set. Test covers a round trip and the read-only refusal — done 2026-10-21: `save_to_my_library`, `update_my_prompt`, `delete_my_prompt`; not registered at all under `READ_ONLY`, and each handler checks again
-- [x] Install docs: an "Use it from an agent" section in `README.md` with the `claude mcp add my-prompt-library -- …` line and an `mcpServers` JSON block, the server's own card in `site/library/6_MCP_Servers/Developer_Tools/my-prompt-library.md`, and a card on the homepage. `homepage.test.mjs` still passes — done 2026-10-21: README "Use It From An Agent", `6_MCP_Servers/Developer_Tools/my-prompt-library.md`, homepage feature card and install block. The `npm --prefix … run --silent mcp` line was tested with a real Claude Code session
-- [ ] Remote read-only endpoint on the demo: Streamable HTTP at `/api/mcp` on Vercel, read tools and MCP prompts only, no write tools registered, a per-IP rate limit, and the CSP and headers the rest of the API has. Proved by a deployed smoke test with a real MCP client 🔒 Needs Mike (it opens a new public endpoint)
-- [ ] Publish the stdio server as an npm package so `npx promptbook-mcp` works without a clone, with the library bundled or fetched from the demo 🔒 Needs Mike (npm account and package name)
-- [ ] List the server in the official MCP registry (`modelcontextprotocol/registry`) once it is on npm 🔒 Needs Mike
+## 🛡️ Phase 2: Audit fixes (done 2026-10-23)
 
-## 🧹 Phase 2: Loose ends
+The 2026-10-23 audit's findings F01–F03, F05–F09, F11–F16 and F18–F20 are fixed, each with a
+check that fails when its fix is reverted (PRs #415–#428; changelog, 2026-10-23). The
+reports are kept outside the repo in `.claude/temp/audits/2026-10-23/` because the secret-scan
+appendix must stay private. F04 (branch protection) and F10 (the secret scan) are release
+gates and sit under **Public release**, F11, F12 and F16 are ticked under Phase 3, and F17 and
+O01–O04 are under **After public release**.
 
+## 🧹 Phase 3: Loose ends
+
+- [x] Resolve the near-duplicates the byte-level dedupe cannot see among the 49 backend specialists in `2_Agents/Development/Backend/`. Each merge or removal gets a changelog reason. (The two skill groups this item also named, `skill-creator` and `brand-guidelines`, were archived with their libraries on 2026-10-27.) — done 2026-10-27, nothing merged or removed: a 4-word-shingle overlap across all 77 agents found one pair above 15% (`microsoft-agent-framework-python` and `semantic-kernel-python`, 26%), the same template for two different frameworks. The same-role groups (C# ×3, Rust ×3, C++ ×2) are different authors' agents with different instructions, kept as alternatives. `CSharpExpert.md` broke the lowercase rule and is now `csharp-expert.md`; `scripts/upstream.test.mjs` now fails on a case-only path clash or an uppercase item file name
 - [ ] Move off Node 22 before its end of life on 2027-04-30: CI and `upstream-drift.yml` on `node-version: "24"`, `@types/node` `^24`, `engines` pinned in `site/package.json`, CI green. The Vercel project's Node setting is part of done 🔒 Needs Mike (dashboard)
 - [ ] Move `actions/checkout@v4` and `actions/setup-node@v4` in `ci.yml` and `upstream-drift.yml` to v7 (`homepage.yml` already uses checkout@v7). Why: v7.0.1 and v7.1.0 are current (github.com/actions/checkout/releases, github.com/actions/setup-node/releases) and v4 still runs on Node 20, which is past its end of life (nodejs.org schedule, 2026-04-30). Done when CI is green on the new tags 🔒 Needs Mike (`.github/workflows/` is a hold path)
 - [ ] Move to Express 5 (`site/package.json` has `^4.22.3`; npm `latest` is 5.3.0, registry.npmjs.org/express). Why: v4 is the old major. Touches `site/api/index.ts`, `site/api/skill-packs.ts`, `site/server.ts` (path-to-regexp wildcard syntax such as `/api/(.*)`, async error handling, `req.query`) and `@types/express`. Done when `lint`, `test:routes`, `test:my-library` and `test:mcp` pass and the dev server and a production start both serve every route
 - [ ] Move to Vite 8 with `@vitejs/plugin-react` 6 and check `@tailwindcss/vite` against it (`site/package.json` has Vite `^6.4.4`, plugin-react `^5.2.0`; npm `latest` is 8.3.5 and 6.1.2, which needs Node `^20.19.0 || >=22.12.0`). Touches `site/vite.config.ts` (`__READ_ONLY__` define) and `site/server.ts` (Vite middleware mode). Done when `npm run build` and `npm run dev` work and the demo build is unchanged in behaviour
 - [ ] Try TypeScript 7 (`~5.9.3` today; npm `latest` is 7.0.2, registry.npmjs.org/typescript). Touches `site/tsconfig.json` and every file `npm run lint` checks. Done when `npm run lint` passes on the new major with no `any` added, or the blockers are written down here
-- [ ] `small` The Resources menu is reachable below 1536px: its groups appear in the section sheet the menu button opens, so phones and narrow windows get the links too. Checked at 390, 1280 and 1600px
-- [ ] `small` The hero counters name what a section holds ("servers", "skills", "agents") instead of "prompts" everywhere, from a field in `sections.ts`
-- [ ] Resolve the semantic duplicates the byte-level dedupe cannot see: the two skill groups that share an upstream file (`skill-creator`, `brand-guidelines`), and any near-duplicates among the 49 backend specialists in `2_Agents/Development/Backend/`. Each merge or removal gets a changelog reason
 - [ ] Delete the stale `roadmap/auto-2026-08-31` branch (its PR #332 was closed unmerged) or recover its one commit 🔒 Needs Mike
-- [ ] Decide what happens to `4_Prompts/Awesome_ChatGPT/` (1,349 files from one upstream corpus): resync it on a schedule like the skills, or tag it `vendored` and freeze it 🔒 Needs Mike
-- [ ] `ai-automation-tools/agent-skills` gets a `LICENSE` file, so the 40 skills synced from it carry a stated licence in this public repo, and `NOTICE` names it 🔒 Needs Mike
-- [ ] `small` `scripts/resync-upstream.mjs` writes `tags: [...]---` on one line when `tags:` is the last frontmatter key of an agent (`stampUpstream` drops the newline), which breaks the frontmatter; hit on 3 agents on 2026-10-22. Fix it to always end the block with a newline. Done when resyncing `2_Agents/AI_ML/Other/model-evaluator.md` from a pre-sync copy yields valid frontmatter, with a case in `scripts/upstream.test.mjs`
+- [ ] Decide what happens to `4_Prompts/Awesome_ChatGPT/` (about 1,350 files from one upstream corpus, now renamed `f/prompts.chat` on GitHub; four other collections, 437 prompts, sit beside it; the Prompts & Agents Refresh re-checks their repos but never edits bodies): resync it on a schedule like the agents (the drift check would need to read `prompts.csv`, one file for all of them), or freeze it as the dated capture it is 🔒 Needs Mike
+- [x] `small` **F16** The Resources menu is reachable below 1536px: its groups appear in the section sheet the menu button opens, so phones and narrow windows get the links too. Checked at 390, 1280 and 1600px, by touch and keyboard, with no horizontal overflow or lost focus — done 2026-10-23: the menu button and sheet now last until 1536px (they stopped at 1360px, leaving 1360–1535px with neither), and the sheet lists every Resources group under the sections; the section buttons in it hide from 1360px, where the bar shows them. Checked at 390, 1280, 1440 and 1600px: keyboard reaches the links, no horizontal overflow
+- [x] `small` **F11** Turn on `strict` in `site/tsconfig.json` and fix what it reports (the audit counted three diagnostics, plus explicit `any` at the API and UI boundaries), with no blanket `@ts-ignore`. `npm run lint` and `npm run build` both pass — done 2026-10-23: the three diagnostics fixed (`loadIndex`'s return, an editor `PromptDraft` type, `@types/react-dom`), and the boundary `any`s typed (`ListedPrompt`, `LibraryIndex`, `SkillPack`, `catch (error)` narrowed)
+- [x] **F12** Measure, then bound, the expensive endpoints: record p50/p95 and bytes for the metadata list, a detail read and representative skill ZIPs under a small concurrency test, then stop the full public list from parsing every body synchronously and stop ZIPs recompressing at level 9 on every request (cache or lower the level). A full export must not block ordinary reads. Budgets come from the measured baseline — done 2026-10-23: `npm run bench` and `docs/development/PERFORMANCE.md` (baseline, after, budgets). The full listing walks asynchronously, listings are cached as bytes with their ETag (concurrent requests share one build), and ZIPs use zlib level 6. A detail read during a cold export went from p95 927 ms to 128 ms, the export's event-loop stall from 989 ms to 126 ms (once per 5 minutes), and a warm export from 3.6 s to 149 ms
+- [x] `small` The hero counters name what a section holds ("servers", "skills", "agents") instead of "prompts" everywhere, from a field in `sections.ts` — done 2026-10-23: `noun` on each section
+- [x] `small` `scripts/resync-upstream.mjs` writes `tags: [...]---` on one line when `tags:` is the last frontmatter key of an agent (`stampUpstream` drops the newline), which breaks the frontmatter; hit on 3 agents on 2026-10-22. Fix it to always end the block with a newline. Done when resyncing `2_Agents/AI_ML/Other/model-evaluator.md` from a pre-sync copy yields valid frontmatter, with a case in `scripts/upstream.test.mjs` — done 2026-10-23: `stampUpstream` always ends on a newline; a real resync of `model-evaluator.md` closed its frontmatter correctly
 
 ## 🚦 Public release
 
 - [x] CI green on push and PR: lint, the route table, the My Library store and safe-path tests, the homepage test, provenance self-checks and prompt-index freshness — done 2026-08-27, extended since: `.github/workflows/ci.yml`
 - [x] `LICENSE` (Apache 2.0), `NOTICE` for vendored content, `SECURITY.md`, `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md` — done 2026-10-05: see the changelog
 - [x] Live: homepage at `promptbook.ai-automation-tools.dev` — done 2026-10-12; the app at `promptbook-demo.ai-automation-tools.dev` since 2026-10-19, read-only since 2026-10-21: see the changelog
-- [ ] A full-history secret scan (`gitleaks detect` over all of history) run and its findings written to `docs/audits/`; the one known hit, the old Neon credential, is closed because that database was deleted on 2026-10-21
+- [ ] **F04** `main` requires a pull request and the CI `check` job before merge. Done when a throwaway PR with a failing check cannot merge and the PR sweep still merges a passing one without bypassing it 🔒 Needs Mike (repository ruleset)
+- [ ] **F10** A full-history secret scan with every finding dispositioned. The scan ran on 2026-10-23 (Gitleaks 8.30.1, 1,103 commits): 138 redacted candidates over 40 file/rule pairs, mostly prompt examples and vendored docs, none confirmed live. Left: classify each pair privately, revoke any real credential at its issuer before closing, add narrow per-fingerprint allowlists for reviewed examples, and scan new commits in CI (proved with a seeded fake secret that the job catches without printing). The disposition record stays out of this public repo. The old Neon credential is already closed: that database was deleted on 2026-10-21 🔒 Needs Mike (private triage and any revocation)
 
 ## After public release
 
@@ -79,20 +87,26 @@ Nothing below blocks go-live.
 ### 🧾 Content provenance
 
 - [ ] Decide whether a skill's `description:` is our curation or upstream content. Resync keeps the whole local frontmatter, so bodies match upstream while some descriptions are a year old, and the drift check strips frontmatter so it cannot see the gap. Done when resync and the drift report both handle `description` per the decision 🔒 Needs Mike
-- [ ] Stamp `upstream:` provenance on `4_Prompts` and `5_System_Prompts` files that came from a public repo, with `attribute-upstream.mjs` learning single-file prompts. Done when the Monday health table's "no provenance" column drops for both sections
-- [ ] Raise skill attribution above its current share: 60 skills are `ambiguous` and 163 `unknown`. Matching support files as well as `SKILL.md` against the mirror is the likely lever
-- [ ] Show freshness in the UI: the index carries `upstream.checked` (and `server.checked` for MCP cards), the card shows a stale badge past 90 days, and the CI freshness gate knows the new field. Sourcing `lastModified` from `git log` instead of file mtime needs a Vercel preview to prove the shallow clone works 🔒 Needs Mike for that half
+- [x] **O02** Freshness on the listing cards. The item page's Source panel already shows the repo, the copied-at commit, the last check date and the drift verdict (2026-10-26); the cards in the grid show none of it. The index carries `upstream.checked` (`server.checked` for MCP cards) and a card shows a stale badge when the last check is over 90 days old, with no "verified" claim the data cannot back. The index stays reproducible, no private path reaches a public payload, and the CI freshness gate knows the new field — done 2026-10-27: the index and the live walk carry `checked` (`checkedOf()` in `lib/library.ts`: `upstream.checked`, `server.checked` or a guide's `checked:`), on 2,071 of 2,162 items. A card shows "checked <date>" in place of the file's mtime, and a `stale` chip past 90 days (`src/lib/freshness.ts`); undated items (most guides, the library cards) show neither. `test:read-only` checks the index and the walk agree and pins the 90-day edge. The walk also stopped listing three lowercase `readme.md` files the index skips
+- [ ] `lastModified` from `git log` instead of file mtime, so an item without a check date shows when it last changed rather than when the checkout wrote it. Needs a Vercel preview to prove the shallow clone has the history 🔒 Needs Mike
+- [x] Stamp `upstream:` provenance on `4_Prompts` and `5_System_Prompts` files that came from a public repo, with `attribute-upstream.mjs` learning single-file prompts. Done when the Monday health table's "no provenance" column drops for both sections — done 2026-10-26, differently: system prompts were stamped on 2026-10-23 (`attribute-system-prompts.mjs`), the 1,349 Awesome ChatGPT prompts carry `upstream: f/awesome-chatgpt-prompts` (one corpus, so no per-file matcher was needed), and the 669 prompts with no public source were archived rather than attributed. CI (`upstream.test.mjs`) now fails on an unstamped prompt or guide, which is a stronger gate than the health column
+- [x] Raise skill attribution above its current share: 60 skills are `ambiguous` and 163 `unknown`. Matching support files as well as `SKILL.md` against the mirror is the likely lever — done 2026-10-27, differently: the unattributed skills all came from multi-skill repos, which became library cards (each names its repo), and the copies were archived. The 32 single skills left are 25 `exact`, 5 `similar` and 2 `fork`, none `ambiguous` or `unknown`
+- [x] **F17** The provenance self-check tells original, attributed and unresolved records apart and checks each has the metadata its kind needs, and a sampled Skill Pack ZIP is verified to carry its `LICENSE`/`NOTICE` files. Today the frontmatter tests prove syntax and vocabulary, not that content may be redistributed — done 2026-10-27: `scripts/upstream.test.mjs` checks originals (guides, library cards: no upstream block), attributed records (`repo`, `checked`, a fork's `note`, a vendor's `url`) and fails on unresolved ones, and every skill needs a redistributable `license:` and a LICENSE beside it (`scripts/vendor-skill-licenses.mjs`; 26 were added). `test:read-only` opens a skill ZIP and every pack ZIP and checks each skill's LICENSE is in it. Four skills had no redistributable licence and were archived with one unindexed `SKILL.MD`, to `archive/unlicensed-2026-10-27/`. The repo's own `NOTICE` is not added to ZIPs
 
 ### ✨ Features
 
-- [ ] Role-based starter collections for prompts and agents (a "frontend engineer" or "founder" set), served like Skill Packs and installable into My Library in one step
-- [ ] Skill Packs show whether a pack is generated from a folder or hand-picked, and the generated ones say which folder
-- [ ] Export My Library as a zip, and import one, from Settings
-- [ ] Library prompts with `[placeholder]` fields expose them as MCP prompt arguments, so a client asks for each value instead of one free-text `input`
+- [ ] Decide what Skill Packs are for, now that three small hand-picked packs are left (`developer-essentials-pack` 2 skills, `writing-documentation-pack` 2, `prediction-markets-pack` 1): grow them, fold them into the starter collections below, or retire the Packs view 🔒 Needs Mike
+- [ ] Role-based starter collections for prompts and agents (a "frontend engineer" or "founder" set), installable into My Library in one step the way a Skill Pack is. Done when at least three collections exist, each installs and uninstalls cleanly in a test, and the read-only demo serves them without the install button. Wait for the Skill Packs decision above, which may make the two one feature
+- [ ] **O01** Export My Library as a zip, and import one, from Settings. Done when a mixed library (Unicode names, tags, extra frontmatter, long bodies) round-trips identically, an import never overwrites without showing the conflicts first, archive traversal and oversized entries are refused, and a cancelled import changes nothing. Its prerequisites F05–F07 are done
+- [x] **O03** Library prompts with `[placeholder]` fields expose them as MCP prompt arguments, so a client asks for each value instead of one free-text `input`. Driven by an explicit, optional `inputs:` list in frontmatter, not by guessing at every bracketed phrase: declared inputs are required, unknown placeholders and literals are left alone, no template code runs, and the free-text `input` keeps working for existing clients — done 2026-10-27: `lib/prompt-inputs.ts` validates the list and fills in one literal pass; the index carries `inputs` for prompts that declare it, and the MCP server registers each such prompt by name with a required argument per input (My Library prompts too). Two Awesome ChatGPT prompts declare `[topic]` to start. `test:mcp` covers parsing, filling, required arguments and a My Library prompt, and fails on an invalid declaration in the library. `library_prompt` keeps `id` + `input` only
+- [ ] **O04** Export selected prompts as an evaluation project (versioned prompt files plus synthetic examples) that an evaluator the user configures can run. Paths are relative and safe, and the export makes no network call and needs no provider key. Depends on O01
 
 ### 📣 Publish and promote
 
-- [ ] Launch post for the MCP server once Phase 1 is done, linked from the org landing page card 🔒 Needs Mike
+- [ ] Remote read-only endpoint on the demo: Streamable HTTP at `/api/mcp` on Vercel, read tools and MCP prompts only, no write tools registered, a per-IP rate limit, and the CSP and headers the rest of the API has. Proved by a deployed smoke test with a real MCP client 🔒 Needs Mike (it opens a new public endpoint)
+- [ ] Publish the stdio server as an npm package so `npx promptbook-mcp` works without a clone, with the library bundled or fetched from the demo 🔒 Needs Mike (npm account and package name)
+- [ ] List the server in the official MCP registry (`modelcontextprotocol/registry`) once it is on npm 🔒 Needs Mike
+- [ ] Launch post for the MCP server once it installs without a clone (the npm item above), linked from the org landing page card 🔒 Needs Mike
 
 ---
 
@@ -103,13 +117,15 @@ job owns which part of the library.
 
 | Job | Owns |
 |:---|:---|
-| Skills Sync (weekly, no model) | `3_Skills` intake and refresh from `ai-automation-tools/agent-skills`, and the generated Skill Packs |
 | Add Prompts (weekly) | New `4_Prompts` and `1_Guides` files |
 | Discovery (weekly, no model) | New GitHub repos into [`DISCOVERY.md`](DISCOVERY.md); `link` rows into the Resources menu |
 | Guides Refresh (biweekly) | Fixing `1_Guides` against official docs |
-| Catalog Refresh (biweekly) | `5_System_Prompts`, `2_Agents`, `6_MCP_Servers`, and the ledger's `accept` rows |
+| Catalog Refresh (biweekly) | `5_System_Prompts`, `2_Agents`, `6_MCP_Servers`, and the ledger's `accept` rows (a multi-skill repo becomes a library card; a single skill is vendored with its licence) |
+| Prompts & Agents Refresh (biweekly) | Resyncing drifted `2_Agents` definitions, and re-checking the collection repos `4_Prompts` is copied from |
+| Upstream Check (biweekly) | The app's own dependencies and platforms in [`UPSTREAMS.md`](UPSTREAMS.md); bigger changes become items here |
+| Library Cards Refresh (weekly, no model) | The skill library cards' descriptions and READMEs (`site/scripts/refresh-library-cards.mjs --write`), and dead hand-pack paths, as a `library-cards/auto-*` PR |
 | Weekly Roadmap | This file, and resyncing skills and agents the drift issue marks `behind` |
-| Monthly Upkeep | Updates and removals, hand-written Skill Packs, Resources links, MCP cards, `featured` and tags |
+| Monthly Upkeep | Updates and removals, hand-written Skill Packs (dead paths: `build-skill-packs.mjs`), skill library cards (`3_Skills/Libraries/`, READMEs refreshed with `site/scripts/refresh-library-cards.mjs --write`), Resources links, MCP cards, `featured` and tags |
 | `upstream-drift.yml` (weekly, GitHub Actions) | The rolling drift issue with its per-section health table |
 
 ---

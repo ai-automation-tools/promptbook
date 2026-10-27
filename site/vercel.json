@@ -5,6 +5,20 @@
       "includeFiles": "library/3_Skills/**"
     }
   },
+  "headers": [
+    {
+      "source": "/((?!api/).*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'sha256-p5lokw5txbf2TqMavan2lUCJm7+zuzSkIiXfYEBweVY=' https://ai-automation-tools.dev; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+        },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ],
   "rewrites": [
     { "source": "/api/skill-packs/:path*", "destination": "/api/skill-packs" },
     { "source": "/api/(.*)", "destination": "/api" },

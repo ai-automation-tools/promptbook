@@ -3,6 +3,10 @@ title: "🤖 Custom Travel Plan Generator"
 tags: ["awesome-chatgpt", "custom", "travel", "plan"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Custom Travel Plan Generator

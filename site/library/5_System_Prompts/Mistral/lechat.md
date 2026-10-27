@@ -3,6 +3,12 @@ title: "💬 Lechat 02122025"
 tags: ["mistral", "llm", "instructions", "lechat", "02122025"]
 category: "LLM Instructions"
 subcategory: "Mistral"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Mistral/lechat-02122025.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 This is Mistral's [LeChat](https://chat.mistral.ai/) system prompt:

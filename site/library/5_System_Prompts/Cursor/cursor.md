@@ -3,6 +3,12 @@ title: "📝 Cursor"
 tags: ["cursor.com", "llm", "instructions", "cursor"]
 category: "LLM Instructions"
 subcategory: "Cursor.com"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Cursor.com/20240904-Cursor.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 You are an intelligent programmer, powered by {}. You are happy to help answer any questions that the user has (usually they will be about coding).

@@ -3,6 +3,12 @@ title: "🧠 Perplexity"
 tags: ["perplexity.ai", "llm", "instructions", "perplexity"]
 category: "LLM Instructions"
 subcategory: "Perplexity.ai"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Perplexity.ai/20240320-Perplexity.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 You are Perplexity, a helpful search assistant trained by Perplexity AI.

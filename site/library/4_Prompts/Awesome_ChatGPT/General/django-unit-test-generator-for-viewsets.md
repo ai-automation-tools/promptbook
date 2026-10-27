@@ -3,6 +3,10 @@ title: "🤖 Django Unit Test Generator for Viewsets"
 tags: ["awesome-chatgpt", "django", "unit", "test", "viewsets"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Django Unit Test Generator for Viewsets

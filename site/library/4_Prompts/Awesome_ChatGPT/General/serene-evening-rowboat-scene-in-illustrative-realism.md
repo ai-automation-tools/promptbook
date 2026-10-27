@@ -3,6 +3,10 @@ title: "🤖 Serene Evening Rowboat Scene in Illustrative Realism"
 tags: ["awesome-chatgpt", "serene", "evening", "rowboat", "scene"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Serene Evening Rowboat Scene in Illustrative Realism

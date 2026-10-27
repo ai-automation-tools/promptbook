@@ -3,6 +3,10 @@ title: "🤖 Set Up W&B and Run Pod During Training"
 tags: ["awesome-chatgpt", "set", "run", "pod", "during"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Set Up W&B and Run Pod During Training

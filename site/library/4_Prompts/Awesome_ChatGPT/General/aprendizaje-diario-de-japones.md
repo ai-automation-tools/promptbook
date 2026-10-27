@@ -3,6 +3,10 @@ title: "🤖 Aprendizaje Diario de Japonés"
 tags: ["awesome-chatgpt", "aprendizaje", "diario", "japon"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Aprendizaje Diario de Japonés

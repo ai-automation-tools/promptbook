@@ -3,6 +3,10 @@ title: "🤖 Expo + Supabase Edge Function Cold Start & Mobile Performance Analy
 tags: ["awesome-chatgpt", "expo", "supabase", "edge", "function"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Expo + Supabase Edge Function Cold Start & Mobile Performance Analysis

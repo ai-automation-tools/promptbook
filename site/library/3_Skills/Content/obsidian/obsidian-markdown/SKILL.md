@@ -4,10 +4,13 @@ tags: ["skill","content","obsidian"]
 name: "obsidian-markdown"
 description: Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts, properties, and other Obsidian-specific syntax. Use when working with .md files in Obsidian, or when the user mentions wikilinks, callouts, frontmatter, tags, embeds, or Obsidian notes.
 upstream:
-  match: ambiguous
-  copies: 3
-  candidates: [hhu3637kr/skills, julianobarbosa/claude-code-skills, majiayu000/claude-skill-registry]
-  checked: 2026-08-26
+  match: similar
+  repo: julianobarbosa/claude-code-skills
+  path: skills/obsidian-markdown/SKILL.md
+  ref: c093cd8ad70b82f686f96fb802b968b713bbf348
+  checked: 2026-10-23
+  was: ambiguous
+  license: MIT
 ---
 
 # Obsidian Flavored Markdown Skill

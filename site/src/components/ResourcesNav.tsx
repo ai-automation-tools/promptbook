@@ -56,7 +56,7 @@ const ICONS: Record<string, LucideIcon> = {
   compass: Compass,
 };
 
-const RESOURCE_GROUPS: ResourceGroup[] = resources.groups.map(g => ({
+export const RESOURCE_GROUPS: ResourceGroup[] = resources.groups.map(g => ({
   ...g,
   icon: ICONS[g.icon] ?? Compass,
   links: g.links.map(l => ({ ...l, icon: ICONS[l.icon] ?? ExternalLink })),

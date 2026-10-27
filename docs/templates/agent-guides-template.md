@@ -3,6 +3,7 @@ title: "💻 [Guide Title]"
 tags: ["agent-guides", "platform-name", "domain"]
 category: "Agent_Guides"
 subcategory: "[Agent_Platform]"  # e.g., Claude_Code, Codex, Cursor, etc.
+repo: [owner/repo]  # the GitHub repo of the tool this guide documents; shown as the link at the top of the card
 ---
 
 # [Guide Title]

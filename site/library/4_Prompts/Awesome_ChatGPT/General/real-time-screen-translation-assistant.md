@@ -3,6 +3,10 @@ title: "🤖 Real-Time Screen Translation Assistant"
 tags: ["awesome-chatgpt", "real", "time", "screen", "translation"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Real-Time Screen Translation Assistant

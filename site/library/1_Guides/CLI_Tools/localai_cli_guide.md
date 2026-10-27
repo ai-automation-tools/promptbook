@@ -3,6 +3,7 @@ title: "💻 LocalAI CLI Tools"
 tags: ["cli", "localai"]
 category: "Agent_Guides"
 subcategory: "CLI_Tools"
+repo: mudler/LocalAI
 ---
 
 # LocalAI CLI Tools

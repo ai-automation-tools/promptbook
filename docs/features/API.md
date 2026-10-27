@@ -18,8 +18,19 @@ other `/api/*` path to the first.
 There are no accounts, sessions or API keys. Every endpoint is open to whoever can reach the
 server, which by default is only this machine (the server binds to `127.0.0.1`).
 
+Two checks run before every route, locally:
+
+- **Host:** a request whose `Host` is not `localhost`, `*.localhost`, an IP address or a name
+  in `ALLOWED_HOSTS` gets `403 { "error": "Unknown Host refused. Add it to ALLOWED_HOSTS if it is yours." }`.
+  This is what stops DNS rebinding. Skipped on Vercel.
+- **Origin:** a write (`POST`, `PUT`, `DELETE`, `PATCH`) whose `Origin` is another site, or
+  `null`, gets `403 { "error": "Cross-site request refused" }`. Requests with no `Origin`
+  (curl, scripts) pass.
+
 **Read-only mode** is on when `READ_ONLY=true`, and always on Vercel (which sets `VERCEL`).
-In that mode every route that writes to My Library returns:
+It serves the Public Library only: the My Library list and `?library=my` packs are empty, and
+a My Library id on `GET /api/prompts/:id` is refused like any other non-library path. Every
+route that writes to My Library returns:
 
 ```
 403 Forbidden
@@ -34,7 +45,7 @@ and `DELETE /api/skill-packs/:packId/remove-from-library`. All reads keep workin
 
 | Library | Id looks like | Where it lives |
 |:---|:---|:---|
-| Public | `4_Prompts/Business/Marketing/market-research.md` (path under `site/library/`, forward slashes) | `site/library/` |
+| Public | `4_Prompts/Awesome_ChatGPT/General/emoji-translator.md` (path under `site/library/`, forward slashes) | `site/library/` |
 | My Library | `market-research-plan-3fa9c1` (bare file name, no `.md`, no `/`) | `MY_LIBRARY_DIR`, default `site/my-library/` |
 
 `GET /api/prompts/:id` uses the slash to tell them apart. My Library ids match
@@ -62,8 +73,8 @@ List prompts.
 **My Library (`?library=my`):**
 - Every `.md` file in the My Library folder, newest `updated` first
 - `isUserOwned: true`
-- Returns `[]` when the folder does not exist yet (and always on the read-only demo, which
-  has none)
+- Returns `[]` when the folder does not exist yet, and always in read-only mode, whatever
+  the folder holds
 
 **Lightweight Mode (`?lightweight=true`):**
 - Public library: `content` is an empty string. No body text of any kind, not even a
@@ -110,7 +121,7 @@ since the lightweight listing ships none.
 
 **Request:**
 ```json
-{ "ids": ["1_Guides/API_Providers/anthropic-api-guide.md", "4_Prompts/Business/x.md"] }
+{ "ids": ["1_Guides/API_Providers/anthropic_api_guide.md", "4_Prompts/Awesome_ChatGPT/General/x.md"] }
 ```
 
 **Response (200 OK):** a map of id → first 200 characters of the body.
@@ -169,6 +180,11 @@ For a public prompt, `section`, `category` and `subcategory` come from the path 
 from frontmatter, the first `#` heading, or the file name. For a My Library prompt they come
 from the file's frontmatter and `isUserOwned` is `true`.
 
+A My Library prompt also carries `version`, the value a `PUT` sends back to detect a
+conflicting edit. Both carry `extra`: the file's frontmatter beyond the fields above (a skill's `name`,
+`description`, `license`, `allowed-tools`…; never `upstream`). The Download button writes it
+back into the `.md`, so a downloaded skill still loads.
+
 A My Library prompt also carries `upstream`: `null` when it has no Public Library source, or
 `{ "source": "<public id>", "updateAvailable": bool, "localEdits": bool }`. `updateAvailable`
 means the public content changed since the copy was saved; `localEdits` means the copy was
@@ -201,11 +217,28 @@ mode.**
   "category": "Business",
   "subcategory": "Marketing",
   "tags": ["custom", "marketing"],
+  "sourceUrl": "https://github.com/owner/repo",
   "content": "Full prompt content in markdown..."
 }
 ```
 
-`subcategory` and `tags` are optional.
+`subcategory`, `tags` and `sourceUrl` are optional. `sourceUrl` is where the item stems from;
+it is stored as `source_url` in the file's frontmatter and comes back as `sourceUrl` on the
+prompt, which the item page shows as a link. On `PUT`, `""` or `null` clears it.
+
+**Field rules** (the same for `PUT`, and for the MCP write tools, because the My Library store
+checks them):
+
+| Field | Rule |
+|:---|:---|
+| `title`, `category` | Text, not blank. Title up to 300 characters, category up to 100 |
+| `section` | One of `1_Guides`, `2_Agents`, `3_Skills`, `4_Prompts`, `5_System_Prompts`, `6_MCP_Servers` |
+| `subcategory` | Text up to 100 characters, or `null` |
+| `tags` | A list of up to 50 non-blank strings, each up to 100 characters |
+| `sourceUrl` | An `http(s)` URL up to 2,000 characters, or `null` |
+| `content` | Text, not blank, up to 500 KB |
+
+A refused write changes no file.
 
 **Response (200 OK):**
 ```json
@@ -227,7 +260,8 @@ The id is the slugged title (up to 60 characters) plus 6 random hex characters. 
 the file name, and it does not change when the prompt is renamed later.
 
 **Errors:**
-- `400 Bad Request`: missing `title`, `section`, `category` or `content`
+- `400 Bad Request`: a field is missing or breaks a rule above; `error` names it, e.g.
+  `{ "error": "category must be text" }`
 - `403 Forbidden`: read-only mode
 - `500 Internal Server Error`: the file could not be written
 
@@ -253,14 +287,25 @@ Update a My Library prompt in place. **Write route: `403` in read-only mode.**
 - `id`: My Library id (e.g. `my-custom-prompt-a41f0e`)
 
 **Request:** any of `title`, `section`, `category`, `subcategory`, `tags`, `content`. Fields
-left out (or empty) keep their current value; send `"subcategory": null` to clear it.
+left out keep their current value; send `"subcategory": null` to clear it. A field that is
+sent must pass the field rules above: an empty `content` or `title` is refused with `400`,
+not ignored.
+
+Send `version` (from `GET /api/prompts/:id`, a hash of the file on disk) to make the update
+conditional: if the file changed since, from another tab, the MCP server or a text editor,
+the update is refused with `409` and nothing is written. Leave it out for an unconditional
+update. The file is replaced atomically (temp file, then rename), so a crash mid-write
+leaves the old one whole.
 
 **Response (200 OK):** the updated prompt, same shape as `POST /api/prompts`, with
 `"message": "Prompt updated successfully"`.
 
 **Errors:**
+- `400 Bad Request`: a field breaks a rule above
 - `403 Forbidden`: read-only mode
 - `404 Not Found`: no My Library file with that id
+- `409 Conflict`: `version` is stale. The body carries `current`, the prompt as it is now
+  (with its new `version`); the app reloads its editor with it
 
 **Example:**
 ```bash
@@ -300,7 +345,7 @@ The copy also gets `forked_from` (the public id) and `forked_hash` (a hash of th
 as copied), which `upstream` and `pull-upstream` compare against. **Write route: `403` in read-only mode.**
 
 **URL Parameters:**
-- `path`: public prompt path, e.g. `4_Prompts/Business/Marketing/market-research.md`
+- `path`: public prompt path, e.g. `4_Prompts/Awesome_ChatGPT/General/emoji-translator.md`
 
 **Request:** no body.
 
@@ -366,8 +411,8 @@ List packs as summaries (`id`, `name`, `description`, `icon`, `version`, `tags`,
 `category`, `skillCount`, `author`, `created_at`, `updated_at`).
 
 - `public` (default): every pack
-- `my`: only packs with at least one My Library prompt tagged `skill-pack:<packId>`. On the
-  read-only demo this is always empty.
+- `my`: only packs with at least one My Library prompt tagged `skill-pack:<packId>`. Always empty
+  in read-only mode.
 
 ### GET /api/skill-packs/:packId
 
@@ -379,7 +424,10 @@ cannot be read are left out.
 ### POST /api/skill-packs/:packId/add-to-library
 
 Copy every skill in the pack into My Library, in section `3_Skills`, tagged
-`skill-pack:<packId>`. **Write route: `403` in read-only mode.**
+`skill-pack:<packId>`. All or nothing: if any skill fails to read or save, the skills this
+request already wrote are deleted and it returns `500`, so a retry starts clean. Skills
+already in My Library are skipped, so a retry never duplicates. **Write route: `403` in
+read-only mode.**
 
 **Body:**
 ```json
@@ -492,6 +540,13 @@ hand-edited files.
 ```bash
 npm run test:routes      # the route table, and that no auth router is mounted
 npm run test:my-library  # the file store, against a temp folder
+npm run test:read-only   # read-only mode hides My Library
+npm run test:prompt-content  # the UI's full-prompt fetch fails closed
+npm run test:markdown-file   # the Download button's .md round-trips
+npm run test:preview         # badge rows do not become the card blurb
+npm run test:mcp             # the MCP server shares these readers and the store
+npm run test:safe-path       # ../ escapes and links out of library/ are refused
+npm run test:browser         # after npm run build: the built app in Chrome
 ```
 
 **Quick cURL round trip** (local, not read-only):
@@ -557,7 +612,9 @@ committed file byte for byte. CI relies on that.
 
 ### Caching
 
-- 5-minute in-memory cache for public library lightweight listings
+- 5-minute in-memory cache for public listings, lightweight and full, kept as the bytes sent with
+  their ETag, so a repeat request costs no parsing, stringifying or hashing; `If-None-Match` gets a `304`
+- A library edit can take up to five minutes to show in a listing
 - Resets on server restart (or a new Vercel instance)
 - The My Library listing is never cached; it reads the folder on every request, so
   hand-edits show up on the next load

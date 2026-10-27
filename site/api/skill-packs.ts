@@ -5,25 +5,16 @@ import { fileURLToPath } from 'url';
 import matter from 'gray-matter';
 import archiver from 'archiver';
 import { myLibrary, READ_ONLY } from '../lib/my-library.js';
-import { carriedFrontmatter } from '../lib/library.js';
+import { carriedFrontmatter, LIBRARY_PATH } from '../lib/library.js';
+import { filesUnder, resolveInside } from '../lib/safe-path.js';
 
 // Recursively get all files in a directory
-async function getAllFiles(dirPath: string, arrayOfFiles: string[] = []): Promise<string[]> {
-  const files = await fs.readdir(dirPath);
-
-  for (const file of files) {
-    const filePath = path.join(dirPath, file);
-    const stat = await fs.stat(filePath);
-    
-    if (stat.isDirectory()) {
-      arrayOfFiles = await getAllFiles(filePath, arrayOfFiles);
-    } else {
-      arrayOfFiles.push(filePath);
-    }
-  }
-
-  return arrayOfFiles;
-}
+/**
+ * A manifest's `library/…` skill path, contained like any other library path:
+ * null when it climbs out with `..` or through a link.
+ */
+const packPath = (p: string) =>
+  (p.startsWith('library/') ? resolveInside(LIBRARY_PATH, p.slice('library/'.length)) : null);
 
 // App root. Resolve from this file, not process.cwd(): on Vercel the function
 // runs with cwd=/var/task while the app (Root Directory = site) is bundled at
@@ -52,8 +43,24 @@ async function getAllPackFiles(dirPath: string): Promise<string[]> {
   return files.flat();
 }
 
+/** A pack manifest as stored in library/3_Skills/packs/**.json. */
+export interface SkillPack {
+  id: string;
+  name: string;
+  description: string;
+  icon?: string;
+  version?: string;
+  author?: string;
+  generated?: boolean;
+  tags: string[];
+  category: string;
+  skills: { path: string; name: string; description?: string }[];
+  created_at?: string;
+  updated_at?: string;
+}
+
 // Helper to read all pack files
-export async function getAllPacks(): Promise<any[]> {
+export async function getAllPacks(): Promise<SkillPack[]> {
   try {
     const packFiles = await getAllPackFiles(packsDir);
     
@@ -74,7 +81,8 @@ export async function getAllPacks(): Promise<any[]> {
 // Helper to resolve skill paths and read skill metadata
 async function resolveSkillData(skillPath: string) {
   try {
-    const fullPath = path.join(APP_ROOT, skillPath);
+    const fullPath = packPath(skillPath);
+    if (!fullPath) return null;
     const content = await fs.readFile(fullPath, 'utf-8');
     const { data } = matter(content);
     
@@ -103,7 +111,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       const libraryMode = (req.query.library as string) || 'public';
       let filtered = packs;
 
-      if (libraryMode === 'my') {
+      if (libraryMode === 'my' && READ_ONLY) {
+        filtered = [];
+      } else if (libraryMode === 'my') {
         const tags = new Set(myLibrary.list().flatMap(p => p.tags));
         filtered = packs.filter(pack => tags.has(installTag(pack.id)));
       }
@@ -147,31 +157,39 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       const existing = myLibrary.list();
       const existingKeys = new Set(existing.map(p => `${p.title}::${p.section}::${p.category}`));
 
-      let added = 0;
+      // All or nothing: a skill that fails to read or save takes back the ones
+      // this install already wrote, so a retry starts clean instead of half-done.
+      const created: string[] = [];
       let skipped = 0;
-      for (const skill of pack.skills) {
-        const fullPath = path.join(APP_ROOT, skill.path);
-        const raw = await fs.readFile(fullPath, 'utf-8');
-        const { data, content } = matter(raw);
+      try {
+        for (const skill of pack.skills) {
+          const fullPath = packPath(skill.path);
+          if (!fullPath) throw new Error(`Pack path outside the library: ${skill.path}`);
+          const raw = await fs.readFile(fullPath, 'utf-8');
+          const { data, content } = matter(raw);
 
-        const title = data.name || data.title || skill.name || path.basename(fullPath, '.md');
-        const section = '3_Skills';
-        const category = data.category || pack.category || 'Skill Packs';
-        const subcategory = data.subcategory || pack.name;
-        const tags = Array.isArray(data.tags) ? data.tags : (Array.isArray(pack.tags) ? pack.tags : []);
-        const tag = installTag(pack.id);
-        const tagsWithInstall = tags.includes(tag) ? tags : [...tags, tag];
+          const title = data.name || data.title || skill.name || path.basename(fullPath, '.md');
+          const section = '3_Skills';
+          const category = data.category || pack.category || 'Skill Packs';
+          const subcategory = data.subcategory || pack.name;
+          const tags = Array.isArray(data.tags) ? data.tags : (Array.isArray(pack.tags) ? pack.tags : []);
+          const tag = installTag(pack.id);
+          const tagsWithInstall = tags.includes(tag) ? tags : [...tags, tag];
 
-        const dedupeKey = `${title}::${section}::${category}`;
-        if (existingKeys.has(dedupeKey)) {
-          skipped++;
-          continue;
+          const dedupeKey = `${title}::${section}::${category}`;
+          if (existingKeys.has(dedupeKey)) {
+            skipped++;
+            continue;
+          }
+
+          created.push(myLibrary.create({ title, section, category, subcategory, tags: tagsWithInstall, content, extra: carriedFrontmatter(data) }).id);
+          existingKeys.add(dedupeKey);
         }
-
-        myLibrary.create({ title, section, category, subcategory, tags: tagsWithInstall, content, extra: carriedFrontmatter(data) });
-        existingKeys.add(dedupeKey);
-        added++;
+      } catch (err) {
+        for (const id of created) myLibrary.delete(id);
+        throw err;
       }
+      const added = created.length;
 
       return res.status(200).json({
         message: `Added ${added} skill${added === 1 ? '' : 's'} from ${pack.name}${skipped > 0 ? ` (${skipped} skipped)` : ''}`,
@@ -232,7 +250,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       
       // Resolve skill metadata for each skill in the pack
       const skillsWithData = await Promise.all(
-        pack.skills.map(async (skill: any) => {
+        pack.skills.map(async (skill) => {
           const skillData = await resolveSkillData(skill.path);
           return {
             ...skill,
@@ -270,7 +288,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       
       // Create ZIP archive
       const archive = archiver('zip', {
-        zlib: { level: 9 } // Maximum compression
+        zlib: { level: 6 } // zlib default; level 9 cost 40% more CPU for 0.15% smaller ZIPs
       });
       
       // Handle errors
@@ -289,7 +307,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       
       // Add each skill's entire directory to the ZIP
       for (const skill of pack.skills) {
-        const skillPath = path.join(APP_ROOT, skill.path);
+        const skillPath = packPath(skill.path);
+        if (!skillPath) {
+          console.error(`  Skipping ${skill.path}: outside the library`);
+          continue;
+        }
         const skillDir = path.dirname(skillPath);
         const skillDirName = path.basename(skillDir);
         
@@ -310,7 +332,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           
           if (stats.isDirectory()) {
             // Read all files in the skill directory recursively
-            const allFiles = await getAllFiles(skillDir);
+            const allFiles = filesUnder(skillDir);
             
             console.log(`  Found ${allFiles.length} files in ${skillDirName}`);
             

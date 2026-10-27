@@ -3,6 +3,10 @@ title: "🤖 Removing visual noise in the neural network's response"
 tags: ["awesome-chatgpt", "removing", "visual", "noise", "neural"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Removing visual noise in the neural network's response

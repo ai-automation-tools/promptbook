@@ -3,6 +3,12 @@ title: "📝 Microsoft Copilot Enterprise 20251202"
 tags: ["copilot", "llm", "instructions", "microsoft", "enterprise", "20251202"]
 category: "LLM Instructions"
 subcategory: "Copilot"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Copilot/microsoft_copilot_enterprise_20251202.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 -- System prompt for Microsoft Copilot for Work (enterprise)

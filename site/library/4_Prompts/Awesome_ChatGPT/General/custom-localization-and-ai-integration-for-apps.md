@@ -3,6 +3,10 @@ title: "🤖 Custom Localization and AI Integration for Apps"
 tags: ["awesome-chatgpt", "custom", "localization", "integration", "apps"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Custom Localization and AI Integration for Apps

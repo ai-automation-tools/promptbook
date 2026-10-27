@@ -33,6 +33,12 @@
  * Usage:
  *   node scripts/check-upstream-drift.mjs                 # markdown to stdout
  *   node scripts/check-upstream-drift.mjs --out drift.md
+ *   node scripts/check-upstream-drift.mjs --out drift.md --json site/api/upstream-status.json
+ *
+ * `--json` also writes each checked file's verdict, its real upstream path and
+ * branch, and the local-only share (`extra`). The site reads it for the Source
+ * panel on an item; the weekly workflow reads `extra` to pick what it may resync
+ * unattended (see .github/workflows/upstream-drift.yml).
  *
  * Agents are the `2_Agents` files carrying an `upstream:` block — the subagent
  * definitions `attribute-upstream.mjs --agents` stamped, not the role-play
@@ -49,6 +55,7 @@ import crypto from "node:crypto";
 
 const args = process.argv.slice(2);
 const OUT = args.includes("--out") ? args[args.indexOf("--out") + 1] : null;
+const JSON_OUT = args.includes("--json") ? args[args.indexOf("--json") + 1] : null;
 const LIB = path.join(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1")),
   "..", "site", "library");
 
@@ -125,6 +132,9 @@ const targets = [], skipped = { unknown: 0, ambiguous: 0, fork: 0, none: 0 };
 const files = [
   ...walk(path.join(LIB, "3_Skills"), (n) => n === "SKILL.md"),
   ...walk(path.join(LIB, "2_Agents"), (n) => n.endsWith(".md")),
+  // System prompts, stamped since 2026-10-23. Named by file like agents. Reported
+  // here and shown on the item page, never auto-resynced: each is a dated capture.
+  ...walk(path.join(LIB, "5_System_Prompts"), (n) => n.endsWith(".md")),
 ];
 let unstampedAgents = 0; // real subagent definitions (`name:` frontmatter) with no upstream block
 for (const f of files) {
@@ -138,6 +148,7 @@ for (const f of files) {
   if (u.match === "unknown") { skipped.unknown++; continue; }
   if (u.match === "ambiguous") { skipped.ambiguous++; continue; }
   if (u.match === "fork") { skipped.fork++; continue; }  // upstream deleted the file; this copy is ours now
+  if (u.match === "vendor") continue;  // a vendor docs page, no repo to diff against
   if (!u.repo) { skipped.none++; continue; }
   const rel = path.relative(LIB, f).split(path.sep).join("/");
   targets.push({ file: rel, u, body, name: nameOf(rel) });
@@ -303,6 +314,23 @@ if (by("current").length) {
 const text = md.join("\n") + "\n";
 if (OUT) { fs.writeFileSync(OUT, text); console.error(`wrote ${OUT}`); }
 else console.log(text);
+
+if (JSON_OUT) {
+  // Sorted keys and rounded shares, so a week with no upstream movement is a no-op diff.
+  const items = {};
+  for (const r of [...rows].sort((a, b) => a.file.localeCompare(b.file))) {
+    const tree = trees.get(r.u.repo);
+    items[r.file] = {
+      verdict: r.verdict,
+      repo: r.u.repo,
+      ...(r.resolved ? { path: r.resolved } : {}),
+      ...(tree?.branch ? { branch: tree.branch } : {}),
+      ...(r.extra !== undefined ? { extra: Math.round(r.extra * 100) / 100 } : {}),
+    };
+  }
+  fs.writeFileSync(JSON_OUT, JSON.stringify({ checked: new Date().toISOString().slice(0, 10), items }, null, 2) + "\n");
+  console.error(`wrote ${JSON_OUT}`);
+}
 
 // Drift is the expected output, so finding it is not a failure. A red X every
 // week just teaches people to ignore the job.

@@ -3,6 +3,10 @@ title: "🤖 Istanbul Travel Journal"
 tags: ["awesome-chatgpt", "istanbul", "travel", "journal"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Istanbul Travel Journal

@@ -3,6 +3,12 @@ title: "📝 Deepseek V2"
 tags: ["deepseek", "llm", "instructions", "v2"]
 category: "LLM Instructions"
 subcategory: "DeepSeek"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/DeepSeek/20251029-DeepSeek-V2.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 DeepSeek AI System Identity and Core Instructions

@@ -3,6 +3,12 @@ title: "🧠 Claude Cowork"
 tags: ["featured", "anthropic", "llm", "instructions", "claude", "cowork"]
 category: "LLM Instructions"
 subcategory: "Anthropic"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Anthropic/20260112-Claude-Cowork.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 Claude Cowork System Prompt

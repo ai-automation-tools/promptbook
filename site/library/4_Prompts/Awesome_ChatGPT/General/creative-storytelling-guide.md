@@ -3,6 +3,10 @@ title: "🤖 Creative Storytelling Guide"
 tags: ["awesome-chatgpt", "creative", "storytelling", "guide"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Creative Storytelling Guide

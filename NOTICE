@@ -5,12 +5,46 @@ Licensed under the Apache License, Version 2.0. See LICENSE.
 
 This repository bundles third-party content under site/library/ that is
 NOT covered by the repository license. Each vendored skill keeps its own
-LICENSE file next to its SKILL.md (Apache-2.0 and MIT at the time of
-writing) and carries an `upstream:` block in its frontmatter naming the
-source repository and path. Provenance tooling and the full upstream list
+LICENSE file next to its SKILL.md (the skill's own, or else its source
+repository's) and carries an `upstream:` block in its frontmatter naming the
+source repository, path and SPDX `license`; only redistributable licences
+(MIT, Apache-2.0, CC0-1.0 at the time of writing) are accepted, and the
+skill ZIPs and Skill Pack ZIPs ship that LICENSE file. Provenance tooling and the full upstream list
 live in docs/UPSTREAMS.md. Content with no upstream stamp is original to
 this library or of unknown origin; treat the latter as all-rights-reserved
 by its author until attributed.
 
-Prompts under site/library/4_Prompts/Awesome_ChatGPT/ derive from
-f/awesome-chatgpt-prompts (CC0 1.0).
+Prompts under site/library/4_Prompts/ come from public collections, one
+top-level folder each:
+
+- Awesome_ChatGPT/ derives from f/awesome-chatgpt-prompts, now
+  f/prompts.chat (prompt data CC0 1.0).
+- Fabric/ derives from danielmiessler/Fabric, data/patterns/*/system.md
+  (MIT License, Copyright (c) 2012-2024 Scott Chacon and others).
+- ChatGPT_Shortcut/ derives from rockbenben/ChatGPT-Shortcut,
+  src/data/cards/*_en.json (MIT License, Copyright (c) 2023 rockbenben).
+- ChatGPT_System_Prompts/ derives from mustvlad/ChatGPT-System-Prompts
+  (MIT License, Copyright (c) 2023 Vlad Alexandru).
+- Microsoft_Prompts_For_Edu/ derives from microsoft/prompts-for-edu
+  (MIT License, Copyright (c) Microsoft Corporation).
+
+The MIT License for those four collections reads:
+
+  Permission is hereby granted, free of charge, to any person obtaining a
+  copy of this software and associated documentation files (the
+  "Software"), to deal in the Software without restriction, including
+  without limitation the rights to use, copy, modify, merge, publish,
+  distribute, sublicense, and/or sell copies of the Software, and to
+  permit persons to whom the Software is furnished to do so, subject to
+  the following conditions:
+
+  The above copyright notice and this permission notice shall be included
+  in all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+  OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+  CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

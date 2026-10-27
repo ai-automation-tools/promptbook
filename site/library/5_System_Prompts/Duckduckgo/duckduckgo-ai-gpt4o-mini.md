@@ -3,6 +3,13 @@ title: "🧠 DuckDuckGo AI (GPT-4o Mini)"
 tags: ["duckduckgo", "ai", "gpt4o-mini", "system-prompt"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
+upstream:
+  match: fork
+  note: an earlier capture; the collection has since replaced or removed it
+  repo: jujumilk3/leaked-system-prompts
+  path: duckai-gpt-4o-mini_20251110.md
+  ref: ee65d5421c5b75de71c5fcd938d6cffde7b166f8
+  checked: 2026-10-23
 ---
 
 # DuckDuckGo AI (GPT-4o Mini)

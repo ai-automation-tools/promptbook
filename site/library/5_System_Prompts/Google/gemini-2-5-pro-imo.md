@@ -3,6 +3,12 @@ title: "📝 Gemini 2.5 Pro Imo"
 tags: ["google", "llm", "instructions", "gemini", "2_5", "pro", "imo"]
 category: "LLM Instructions"
 subcategory: "Google"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Google/20250723-gemini-2.5-pro-imo.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 # Info

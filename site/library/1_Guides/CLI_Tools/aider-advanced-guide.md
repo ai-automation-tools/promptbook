@@ -3,6 +3,7 @@ title: "💻 Aider Advanced Usage Guide"
 tags: ["agent-guides", "aider", "cli", "advanced"]
 category: "Agent_Guides"
 subcategory: "CLI_Tools"
+repo: Aider-AI/aider
 ---
 
 # Aider Advanced Usage Guide

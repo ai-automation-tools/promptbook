@@ -3,6 +3,12 @@ title: "📝 Claude 3.5 Haiku System Prompt"
 tags: ["system-prompt", "llm", "instructions", "anthropic", "claude"]
 category: "System_Prompts"
 subcategory: "Anthropic"
+upstream:
+  match: similar
+  repo: jujumilk3/leaked-system-prompts
+  path: anthropic-claude-haiku-4.5_20251015.md
+  ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
+  checked: 2026-10-23
 ---
 
 # Claude 3.5 Haiku System Prompt

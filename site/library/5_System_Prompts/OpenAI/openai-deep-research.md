@@ -3,6 +3,13 @@ title: "🧠 OpenAI Deep Research"
 tags: ["ai", "openai", "deep-research", "chatgpt"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
+upstream:
+  match: fork
+  note: an earlier capture; the collection has since replaced or removed it
+  repo: jujumilk3/leaked-system-prompts
+  path: openai-deep-research_20250204.md
+  ref: 31fa7770b24ff477dd8a3c28d5f5df89e2d3ee66
+  checked: 2026-10-23
 ---
 
 # OpenAI Deep Research

@@ -3,6 +3,12 @@ title: "🧠 Gpt4 Bio 04262024"
 tags: ["openai", "llm", "instructions", "gpt4", "bio", "04262024"]
 category: "LLM Instructions"
 subcategory: "OpenAI"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/OpenAI/gpt4_bio_04262024.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 This is the updated ChatGPT 4 system prompt with the bio tool enabled.

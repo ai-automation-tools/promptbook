@@ -3,6 +3,10 @@ title: "🤖 Create a PS5-themed Portfolio"
 tags: ["awesome-chatgpt", "create", "ps5", "themed", "portfolio"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Create a PS5-themed Portfolio

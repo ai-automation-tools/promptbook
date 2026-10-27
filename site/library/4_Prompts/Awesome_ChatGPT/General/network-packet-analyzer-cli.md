@@ -3,6 +3,10 @@ title: "🤖 Network Packet Analyzer CLI"
 tags: ["awesome-chatgpt", "network", "packet", "analyzer", "cli"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Network Packet Analyzer CLI

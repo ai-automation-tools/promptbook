@@ -3,6 +3,10 @@ title: "🤖 Senior Frontend Developer"
 tags: ["awesome-chatgpt", "senior", "frontend", "developer"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Senior Frontend Developer

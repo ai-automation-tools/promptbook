@@ -3,6 +3,12 @@ title: "🧠 System Prompt"
 tags: ["hume.ai", "llm", "instructions", "system", "prompt"]
 category: "LLM Instructions"
 subcategory: "Hume.ai"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Hume.ai/05042024-system-prompt.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 From [elder_plinius](https://x.com/elder_plinius/status/1786833984367837246):

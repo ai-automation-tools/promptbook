@@ -3,6 +3,10 @@ title: "🤖 Speech-Language Pathologist (SLP)"
 tags: ["awesome-chatgpt", "speech", "language", "pathologist", "slp"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Speech-Language Pathologist (SLP)

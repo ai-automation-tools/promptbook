@@ -3,6 +3,10 @@ title: "🤖 Web App for Task Management and Scheduling"
 tags: ["awesome-chatgpt", "web", "app", "task", "management"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Web App for Task Management and Scheduling

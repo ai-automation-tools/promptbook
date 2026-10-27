@@ -3,6 +3,12 @@ title: "📝 Notebooklm"
 tags: ["google", "llm", "instructions", "notebooklm"]
 category: "LLM Instructions"
 subcategory: "Google"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Google/20251110-notebooklm.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 You are a helpful expert who will respond to my query drawing on information in the sources and our conversation history.

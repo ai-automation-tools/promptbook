@@ -7,9 +7,11 @@ import { memo, useCallback, type MouseEvent as ReactMouseEvent } from 'react';
 import { Check, Copy, Download, FileText, FolderPlus, Pencil, Star, Trash2 } from 'lucide-react';
 import { m } from 'motion/react';
 import { cn } from '../lib/cn';
-import { humanize } from '../lib/sections';
+import { categoryHue, humanize } from '../lib/sections';
 import { IconButton } from './ui/primitives';
+import type { ItemSource } from './SourcePanel';
 import { READ_ONLY } from '../lib/mode';
+import { isStale, STALE_DAYS } from '../lib/freshness';
 
 export interface Prompt {
   id: string;
@@ -20,12 +22,20 @@ export interface Prompt {
   tags: string[];
   content: string;
   lastModified: string;
+  /** Library items: when last checked against the source repo, YYYY-MM-DD, from the index. */
+  checked?: string;
   featured?: boolean;
   isUserOwned?: boolean;
   anchor?: string;
   sourceUrl?: string;
+  /** Library items from `GET /api/prompts/:id` only: the GitHub repo it is copied from and how it stands. */
+  source?: ItemSource;
   /** My Library copies only: how this copy stands against the public item it came from. */
   upstream?: { source: string; updateAvailable: boolean; localEdits: boolean } | null;
+  /** From `GET /api/prompts/:id` only: frontmatter beyond the fields above (a skill's name, description…). */
+  extra?: Record<string, unknown>;
+  /** My Library only: the file's version, sent back on save so a stale edit is refused (409). */
+  version?: string;
 }
 
 export function extractEmoji(text: string): { emoji: string | null; title: string } {
@@ -73,7 +83,10 @@ export function stripMarkdown(markdown: string): string {
     .replace(/```[^\n]*/g, ' ')
     .replace(/^\s{0,3}#{1,6}\s+.*$/gm, ' ')
     .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
-    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    // An image inside a link (a badge) leaves `[](url)` once the image is gone
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    // The preview is cut at 200 characters, often mid-link: drop the open `[text](url`
+    .replace(/!?\[[^\]\n]*(?:\]\([^)\n]*)?$/, '')
     .replace(/^\s*(?:[-*+]|\d+[.)])\s+/gm, '')
     .replace(/^\s*>\s?/gm, '')
     .replace(/[*_~`]+/g, '')
@@ -123,7 +136,8 @@ const PromptCard = memo(function PromptCard({
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: Math.min(index * 0.025, 0.4), ease: [0.2, 0.7, 0.2, 1] }}
-      className="spot group flex cursor-pointer flex-col"
+      className="spot hue group flex cursor-pointer flex-col"
+      style={{ ['--hue' as string]: categoryHue(prompt.category) }}
       onMouseMove={trackSpotlight}
       onClick={open}
       onKeyDown={e => {
@@ -136,6 +150,7 @@ const PromptCard = memo(function PromptCard({
       role="button"
       aria-label={`Open ${title}`}
     >
+      <span className="card-band" aria-hidden="true" />
       <div className="flex flex-1 flex-col gap-3 p-4 pb-3.5">
         <div className="flex items-start gap-3">
           <span className="glyph">
@@ -150,6 +165,14 @@ const PromptCard = memo(function PromptCard({
               {prompt.subcategory && <span> / {humanize(prompt.subcategory)}</span>}
             </p>
           </div>
+          {isStale(prompt.checked) && (
+            <span
+              className="chip h-[20px] shrink-0 border-[color-mix(in_srgb,var(--warn)_40%,transparent)] text-[var(--warn)]"
+              title={`Not checked against its source in over ${STALE_DAYS} days (last ${prompt.checked})`}
+            >
+              stale
+            </span>
+          )}
           {isFavorite && <Star className="h-3.5 w-3.5 shrink-0 fill-[var(--warn)] text-[var(--warn)]" aria-label="Favorite" />}
         </div>
 
@@ -185,9 +208,25 @@ const PromptCard = memo(function PromptCard({
           '[@media(hover:none)]:translate-y-0 [@media(hover:none)]:opacity-100',
         )}
       >
-        <span className="mono mr-auto pl-1 text-[10.5px] text-[var(--fg-5)]">
-          {new Date(prompt.lastModified).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
+        {/* A library item shows when it was last checked against its source; the file's mtime is
+            only when this checkout wrote it. */}
+        <span
+          className="mono mr-auto pl-1 text-[10.5px] text-[var(--fg-5)]"
+          title={prompt.checked ? 'Last checked against its source repo' : undefined}
+        >
+          {prompt.checked && 'checked '}
+          {new Date(prompt.checked ?? prompt.lastModified).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric', ...(prompt.checked && { timeZone: 'UTC' }) })}
         </span>
+        {/* Favorites are one set in the browser, so every card has the star, read-only demo included */}
+        {onToggleFavorite && (
+          <IconButton
+            label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+            onClick={e => onToggleFavorite(prompt.id, e)}
+            className={cn('h-7 w-7', isFavorite && 'text-[var(--warn)]')}
+          >
+            <Star className={cn('h-3.5 w-3.5', isFavorite && 'fill-current')} />
+          </IconButton>
+        )}
         {READ_ONLY ? null : libraryMode === 'public' ? (
           <IconButton
             label={copyingToMyPromptsId === prompt.id ? 'Saving…' : 'Save to My Library'}
@@ -199,15 +238,6 @@ const PromptCard = memo(function PromptCard({
           </IconButton>
         ) : (
           <>
-            {onToggleFavorite && (
-              <IconButton
-                label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
-                onClick={e => onToggleFavorite(prompt.id, e)}
-                className={cn('h-7 w-7', isFavorite && 'text-[var(--warn)]')}
-              >
-                <Star className={cn('h-3.5 w-3.5', isFavorite && 'fill-current')} />
-              </IconButton>
-            )}
             {onEditPrompt && (
               <IconButton label="Edit prompt" onClick={stop(() => onEditPrompt(prompt))} className="h-7 w-7">
                 <Pencil className="h-3.5 w-3.5" />

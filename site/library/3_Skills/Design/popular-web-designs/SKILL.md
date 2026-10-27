@@ -6,8 +6,14 @@ tags: [design, css, html, ui, web-development, design-systems, templates]
 category: "Skills"
 subcategory: "Design"
 upstream:
-  match: unknown
-  checked: 2026-08-26
+  match: exact
+  repo: ArgentAIOS/argentos-core
+  path: skills/hermes/creative/popular-web-designs/SKILL.md
+  ref: acbf92944b9748c74691808953f580f1cd1fee9a
+  checked: 2026-10-23
+  was: unknown
+  candidates: [NousResearch/hermes-agent, yc-software/qm, moltis-org/moltis, Prismer-AI/PrismerCloud, mateaix/mateclaw, EvolvingAgentsLabs/evolving-agents, graniet/kheish, Devsoul2026/Hermes-One-Click]
+  license: MIT
 ---
 
 # Popular Web Designs

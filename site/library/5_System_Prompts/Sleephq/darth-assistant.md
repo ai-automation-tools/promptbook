@@ -3,6 +3,12 @@ title: "🤝 Darth Assistant"
 tags: ["sleephq", "llm", "instructions", "darth", "assistant"]
 category: "LLM Instructions"
 subcategory: "SleepHQ"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/SleepHQ/20250728-Darth-Assistant.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 See: [https://community.sleephq.com/messages](https://community.sleephq.com/messages).

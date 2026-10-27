@@ -3,6 +3,12 @@ title: "📝 Microsoft Copilot Website 02252025"
 tags: ["copilot", "llm", "instructions", "microsoft", "website", "02252025"]
 category: "LLM Instructions"
 subcategory: "Copilot"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Copilot/microsoft_copilot_website_02252025.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 System Prompt for [Microsoft Copilot (Website)](https://copilot.microsoft.com/)

@@ -3,6 +3,12 @@ title: "🧠 Perplexity Desktop App"
 tags: ["perplexity.ai", "llm", "instructions", "perplexity", "desktop", "app"]
 category: "LLM Instructions"
 subcategory: "Perplexity.ai"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Perplexity.ai/20241024-Perplexity-Desktop-App.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 

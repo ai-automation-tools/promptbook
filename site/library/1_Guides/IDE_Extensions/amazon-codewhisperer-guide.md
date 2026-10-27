@@ -3,6 +3,7 @@ title: "💻 Amazon CodeWhisperer Guide"
 tags: ["agent-guides", "ide-extensions", "amazon"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: aws/amazon-q-developer-cli
 ---
 
 # Amazon CodeWhisperer Guide

@@ -3,6 +3,10 @@ title: "🤖 Müzisyenler için Kariyer Yönetimi Desteği"
 tags: ["awesome-chatgpt", "zisyenler", "kariyer", "netimi", "deste"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Müzisyenler için Kariyer Yönetimi Desteği

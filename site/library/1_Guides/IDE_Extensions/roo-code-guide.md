@@ -3,6 +3,7 @@ title: "💻 Roo Code Guide"
 tags: ["agent-guides", "roo-code", "ide-extension"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: RooVetGit/Roo-Code
 ---
 
 # Roo Code Guide

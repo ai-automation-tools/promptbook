@@ -3,6 +3,10 @@ title: "🤖 AI Tour Guide Business Plan for Foreign Tourists in China"
 tags: ["awesome-chatgpt", "tour", "guide", "business", "plan"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # AI Tour Guide Business Plan for Foreign Tourists in China

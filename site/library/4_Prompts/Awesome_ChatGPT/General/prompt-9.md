@@ -3,6 +3,10 @@ title: "🤖 电商与社交平台内容创作提示词"
 tags: ["awesome-chatgpt"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # 电商与社交平台内容创作提示词

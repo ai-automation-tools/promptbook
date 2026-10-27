@@ -3,6 +3,12 @@ title: "🧠 Gpt 4 Gizmo 20231116"
 tags: ["openai", "llm", "instructions", "gpt", "4", "gizmo", "20231116"]
 category: "LLM Instructions"
 subcategory: "OpenAI"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/OpenAI/gpt-4-gizmo-20231116.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 ```markdown

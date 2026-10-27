@@ -3,6 +3,10 @@ title: "🤖 OSINT Threat Intelligence Analysis Workflow"
 tags: ["awesome-chatgpt", "osint", "threat", "intelligence", "analysis"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # OSINT Threat Intelligence Analysis Workflow

@@ -46,6 +46,21 @@ export interface IndexEntry {
   tags: string[];
   contentPreview?: string;
   lastModified: string;
+  /** The frontmatter `inputs:` list, as written; lib/prompt-inputs.ts validates it. */
+  inputs?: unknown[];
+  /** When the item was last checked against its source, YYYY-MM-DD (checkedOf). */
+  checked?: string;
+}
+
+/**
+ * upstream.checked, server.checked (MCP cards) or a guide's checked:, as YYYY-MM-DD. YAML reads a
+ * bare date as a Date. scripts/build-prompt-index.js has the same rule, for the prebuilt index.
+ */
+export function checkedOf(data: Record<string, unknown>): string | null {
+  const block = (k: string) => (data[k] && typeof data[k] === 'object' ? (data[k] as Record<string, unknown>).checked : undefined);
+  const v = block('upstream') ?? block('server') ?? data.checked;
+  const day = v instanceof Date ? v.toISOString().slice(0, 10) : typeof v === 'string' ? v.slice(0, 10) : null;
+  return day && /^\d{4}-\d{2}-\d{2}$/.test(day) ? day : null;
 }
 
 export interface LibraryIndex {
@@ -65,7 +80,7 @@ export function loadIndex(): LibraryIndex | null {
   } catch {
     cachedIndex = null;
   }
-  return cachedIndex;
+  return cachedIndex ?? null;
 }
 
 export const extractFirstHeading = (content: string): string | null => {
@@ -99,6 +114,82 @@ export function sourceUrlOf(frontmatter: Record<string, unknown>): string | unde
   if (typeof server?.repo !== 'string' || !/^[\w.-]+\/[\w.-]+$/.test(server.repo)) return undefined;
   const base = `https://github.com/${server.repo}`;
   return typeof server.path === 'string' && server.path ? `${base}/tree/HEAD/${server.path}` : base;
+}
+
+/** Freshness verdicts check-upstream-drift.mjs writes into api/upstream-status.json. */
+export type SourceVerdict = 'current' | 'drifted' | 'behind' | 'upstream-gone' | 'repo-gone' | 'error';
+
+interface StatusFile {
+  checked: string;
+  items: Record<string, { verdict: SourceVerdict; path?: string; branch?: string }>;
+}
+
+let cachedStatus: StatusFile | null | undefined;
+/** The weekly drift check's per-file verdicts, or null before the first run. Read once. */
+function loadStatus(): StatusFile | null {
+  if (cachedStatus !== undefined) return cachedStatus;
+  try {
+    const file = path.join(APP_ROOT, 'api', 'upstream-status.json');
+    cachedStatus = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf-8')) : null;
+  } catch {
+    cachedStatus = null;
+  }
+  return cachedStatus ?? null;
+}
+
+/** Where a library item comes from on GitHub, and how it stands against it. */
+export interface ItemSource {
+  repo: string;
+  /** The repo, or the file in it when its real path is known. */
+  url: string;
+  /** Commit we copied from, with the GitHub compare from there to the default branch. */
+  ref?: string;
+  compareUrl?: string;
+  /** `fork`: upstream deleted the file and this copy is ours now. */
+  match?: string;
+  verdict?: SourceVerdict;
+  checked?: string;
+}
+
+const REPO = /^[\w.-]+\/[\w.-]+$/;
+
+/**
+ * An item's source: the `upstream:` block attribute-upstream.mjs stamps on skills,
+ * agents, system prompts and prompts, an MCP card's `server.repo`, or a guide's bare
+ * `repo:` (the tool it documents), plus the weekly verdict where there is one.
+ * Undefined when no single repo is known (`unknown`, `ambiguous`, nothing stamped).
+ */
+export function sourceOf(id: string, frontmatter: Record<string, unknown>): ItemSource | undefined {
+  const up = frontmatter.upstream as Record<string, unknown> | undefined;
+  const server = frontmatter.server as Record<string, unknown> | undefined;
+  // A system prompt published on the vendor's own docs page: no repo, so no commit or drift.
+  if (up?.match === 'vendor' && typeof up.url === 'string' && /^https:\/\//.test(up.url)) {
+    const checked = up.checked instanceof Date ? up.checked.toISOString().slice(0, 10) : typeof up.checked === 'string' ? up.checked : undefined;
+    return { repo: new URL(up.url).hostname, url: up.url, match: 'vendor', ...(checked ? { checked } : {}) };
+  }
+  const repo = [up?.repo, server?.repo, frontmatter.repo].find((r): r is string => typeof r === 'string');
+  if (!repo || !REPO.test(repo)) return undefined;
+  if (up && (up.match === 'unknown' || up.match === 'ambiguous')) return undefined;
+
+  const status = loadStatus();
+  const s = status?.items[id];
+  const base = `https://github.com/${repo}`;
+  const filePath = s?.path ?? (typeof server?.path === 'string' && server.path ? server.path : undefined);
+  const url = filePath ? `${base}/${s?.path ? 'blob' : 'tree'}/${s?.branch ?? 'HEAD'}/${filePath}` : base;
+  // gray-matter reads a bare 40-hex sha as a string, but a short all-digit one as a number.
+  const ref = up?.ref !== undefined && /^[0-9a-f]{7,40}$/.test(String(up.ref)) ? String(up.ref) : undefined;
+  const checked = s ? status!.checked : up?.checked instanceof Date ? up.checked.toISOString().slice(0, 10) : typeof up?.checked === 'string' ? up.checked : undefined;
+
+  return {
+    repo,
+    url,
+    ...(ref ? { ref } : {}),
+    // Compare needs a real branch name; the status file has it once the drift check has run.
+    ...(ref && s?.branch ? { compareUrl: `${base}/compare/${ref}...${s.branch}` } : {}),
+    ...(typeof up?.match === 'string' ? { match: up.match } : {}),
+    ...(s ? { verdict: s.verdict } : {}),
+    ...(checked ? { checked } : {}),
+  };
 }
 
 export interface LibraryItem {

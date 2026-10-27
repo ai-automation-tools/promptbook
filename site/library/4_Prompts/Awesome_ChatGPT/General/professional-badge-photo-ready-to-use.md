@@ -3,6 +3,10 @@ title: "🤖 Professional Badge Photo, Ready to Use"
 tags: ["awesome-chatgpt", "professional", "badge", "photo", "ready"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Professional Badge Photo, Ready to Use

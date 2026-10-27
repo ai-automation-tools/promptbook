@@ -3,6 +3,10 @@ title: "🤖 Escritor de Livros Completo"
 tags: ["awesome-chatgpt", "escritor", "livros", "completo"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Escritor de Livros Completo

@@ -3,6 +3,12 @@ title: "🤖 Gpt5"
 tags: ["featured", "openai", "llm", "instructions", "gpt5"]
 category: "LLM Instructions"
 subcategory: "OpenAI"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/OpenAI/20251027-gpt5.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 You are ChatGPT, a large language model trained by OpenAI.

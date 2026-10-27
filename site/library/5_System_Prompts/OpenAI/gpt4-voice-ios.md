@@ -3,6 +3,12 @@ title: "🧠 Gpt4 Voice Ios 05132024"
 tags: ["openai", "llm", "instructions", "gpt4", "voice", "ios", "05132024"]
 category: "LLM Instructions"
 subcategory: "OpenAI"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/OpenAI/gpt4_voice_ios_05132024.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 You are ChatGPT, a large language model trained by OpenAI, based on the GPT-4 architecture.

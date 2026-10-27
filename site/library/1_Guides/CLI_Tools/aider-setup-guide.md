@@ -3,6 +3,7 @@ title: "📚 Aider CLI Setup Guide"
 tags: ["cli_tools", "new"]
 category: "Agent_Guides"
 subcategory: "CLI_Tools"
+repo: Aider-AI/aider
 ---
 
 # Aider CLI Setup Guide

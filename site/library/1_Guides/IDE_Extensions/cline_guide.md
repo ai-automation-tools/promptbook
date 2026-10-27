@@ -3,6 +3,7 @@ title: "Cline AI IDE Extension Guide"
 tags: ["ide", "extension", "cline", "ai-assistant"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: cline/cline
 ---
 
 # Cline AI IDE Extension Guide

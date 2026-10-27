@@ -3,6 +3,12 @@ title: "📝 Voilà"
 tags: ["voilà", "llm", "instructions", "voil"]
 category: "LLM Instructions"
 subcategory: "Voilà"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Voilà/20240723-Voilà.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 Knowledge cutoff: 2023-10

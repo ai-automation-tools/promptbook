@@ -3,6 +3,10 @@ title: "⚙️ Anthropic Claude Sonnet 3.5"
 tags: ["anthropic", "claude", "sonnet", "llm", "system-prompt"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
+upstream:
+  match: vendor
+  url: https://docs.anthropic.com/en/docs/\“\n\nWhen
+  checked: 2026-10-23
 ---
 
 # Anthropic Claude Sonnet 3.5

@@ -3,6 +3,12 @@ title: "🧠 Docker AI 20250731"
 tags: ["docker", "llm", "instructions", "ai", "20250731"]
 category: "LLM Instructions"
 subcategory: "Docker"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Docker/docker_ai_20250731.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 ```markdown

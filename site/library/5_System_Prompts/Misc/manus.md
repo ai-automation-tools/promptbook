@@ -3,6 +3,12 @@ title: "📝 Manus"
 tags: ["misc", "llm", "instructions", "manus"]
 category: "LLM Instructions"
 subcategory: "Misc"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Misc/20250309-Manus.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 [Manus](https://manus.im) prompts and artifacts

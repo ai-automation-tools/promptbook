@@ -7,14 +7,14 @@ Created **5 comprehensive templates** for the Promptbook project to guide agents
 ### 1. 📌 Prompt Library Template
 - **Purpose:** General-purpose AI prompts for ChatGPT, Claude, etc.
 - **Size:** 2.1 KB
-- **Key Sections:** Frontmatter, Purpose, Instructions, Output Format, Examples, Tips
+- **Key Sections:** Frontmatter (plus an `upstream:` block when copied from a collection), Purpose, Instructions, Output Format, Examples, Tips
 - **Icon:** 📌
 - **Use Case:** Traditional prompt engineering content
 
 ### 2. 📋 Agent Guides Template
 - **Purpose:** Documentation and guides for AI agent platforms and tools
 - **Size:** 4.3 KB
-- **Key Sections:** Overview, Configuration, System prompt, Workflow, Examples, Troubleshooting, Integration
+- **Key Sections:** Frontmatter with `repo:` (the tool's GitHub repo), Overview, Configuration, System prompt, Workflow, Examples, Troubleshooting, Integration
 - **Icon:** Various (depending on platform)
 - **Use Case:** Platform documentation, CLI references, usage guides
 
@@ -26,9 +26,8 @@ Created **5 comprehensive templates** for the Promptbook project to guide agents
 - **Use Case:** Installable subagent definitions (`name:` + `description:` frontmatter); role-play prompts go in `4_Prompts`
 
 ### 4. 📝 System Prompts Template
-- **Purpose:** Complete LLM system instructions and platform configurations
-- **Size:** 6.8 KB
-- **Key Sections:** System identity, Capabilities, Response formatting, Domain knowledge, Examples
+- **Purpose:** A real system prompt, copied verbatim, with its source
+- **Key Sections:** Frontmatter with an `upstream:` block (repo, path, commit, or a vendor `url`), then the prompt unchanged
 - **Icon:** 📝
 - **Use Case:** Full AI platform system prompts (v0.dev, Claude, etc.)
 

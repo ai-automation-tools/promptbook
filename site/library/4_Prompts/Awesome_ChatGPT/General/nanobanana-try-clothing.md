@@ -3,6 +3,10 @@ title: "🤖 nanobanana try clothing"
 tags: ["awesome-chatgpt", "nanobanana", "try", "clothing"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # nanobanana try clothing

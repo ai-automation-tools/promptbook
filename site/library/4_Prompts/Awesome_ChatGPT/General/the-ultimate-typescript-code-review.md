@@ -3,6 +3,10 @@ title: "🤖 The Ultimate TypeScript Code Review"
 tags: ["awesome-chatgpt", "ultimate", "typescript", "code", "review"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # The Ultimate TypeScript Code Review

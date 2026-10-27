@@ -3,6 +3,10 @@ title: "🤖 Recursive Niche Deconstruction for Market Research"
 tags: ["awesome-chatgpt", "recursive", "niche", "deconstruction", "market"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Recursive Niche Deconstruction for Market Research

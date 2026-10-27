@@ -3,6 +3,12 @@ title: "📝 Github Copilot Vs 02292024"
 tags: ["copilot", "llm", "instructions", "github", "vs", "02292024"]
 category: "LLM Instructions"
 subcategory: "Copilot"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Copilot/github_copilot_vs_02292024.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 # 1

@@ -5,10 +5,14 @@ name: "api-patterns"
 description: API design principles and decision-making. REST vs GraphQL vs tRPC selection, response formats, versioning, pagination.
 allowed-tools: Read, Write, Edit, Glob, Grep
 upstream:
-  match: ambiguous
-  copies: 11
-  candidates: [automindtechnologie-jpg/ultimate-skill.md, baotoq/agent-skills, baotoq/micro-commerce, congdon1207/agents.md, dokhacgiakhoa/antigravity-ide, kjibba/listo.family, poletron/custom-rules, sebas-aikon-intelligence/antigravity-awesome-skills]
-  checked: 2026-08-26
+  match: exact
+  repo: dokhacgiakhoa/antigravity-ide
+  path: .agent/skills/api-patterns/SKILL.md
+  ref: c4a059bbf7a8d6b2162071f0fbfe74053faa6d20
+  checked: 2026-10-23
+  was: ambiguous
+  candidates: [congdon1207/agents.md, poletron/custom-rules]
+  license: MIT
 ---
 
 # API Patterns

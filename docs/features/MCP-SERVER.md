@@ -43,8 +43,8 @@ All tools return markdown text. Read tools carry `readOnlyHint`.
 | `get_skill_file` | `skill`, `path` | One text file inside the skill. Refuses paths outside the folder, files over 500 KB and binaries |
 | `list_skill_packs` | none | Every pack: id, name, skill count, generated or hand-picked |
 | `get_skill_pack` | `id` | The pack's skills with their `SKILL.md` ids |
-| `save_to_my_library` | `id` to copy, or `title` + `content`, or `title` + `file` (+ `section`, `category`, `subcategory`, `tags`) | The new My Library id. A copy refuses a duplicate title in the same place, as the app does, and keeps the item's own frontmatter (a skill's `name`, `description`, `license`…); new content may start with its own frontmatter block |
-| `update_my_prompt` | `id` + any of `title`, `content`, `file`, `category`, `subcategory`, `tags` | Confirmation |
+| `save_to_my_library` | `id` to copy, or `title` + `content`, or `title` + `file` (+ `section`, `category`, `subcategory`, `tags`, `source_url`) | The new My Library id. A copy refuses a duplicate title in the same place, as the app does, and keeps the item's own frontmatter (a skill's `name`, `description`, `license`…); new content may start with its own frontmatter block |
+| `update_my_prompt` | `id` + any of `title`, `content`, `file`, `category`, `subcategory`, `tags`, `source_url` (`""` clears it), `version?` | Confirmation. With `version` (shown by `get_item` for My Library items) the update is refused if the file changed since. Both write tools follow the store's field rules (see `POST /api/prompts` in [API.md](API.md)); an empty `content` is an error, not "leave it". `destructiveHint`: it replaces the body |
 | `update_from_public` | `id` | Replaces a copy's body with the current version of the public item it was saved from |
 | `delete_my_prompt` | `id` | Confirmation. `destructiveHint`; the server's instructions tell the agent to ask first |
 
@@ -62,19 +62,36 @@ preface, such as a `> Source:` line.
 
 **Containment.** Every caller-supplied path goes through `resolveInside()`: library ids against
 `site/library/`, skill folders against `site/library/3_Skills/` (and the folder must hold a
-`SKILL.md`), support files against their skill folder. The test tries `../` escapes against
-each and fails if one returns anything.
+`SKILL.md`), support files against their skill folder. It compares real paths too, so a link inside a skill
+that points elsewhere is refused, and `get_skill`'s file list skips links. The test tries `../`
+escapes against each and fails if one returns anything; `npm run test:safe-path` covers links.
 
 ## Prompts
 
 MCP prompts appear in clients as slash commands, and clients list all of them. Registering all
-~2,200 prompts and system prompts would bury the menu, so the server registers:
+~1,900 prompts and system prompts would bury the menu, so the server registers:
 
 - `library_prompt` with arguments `id` and `input`: any prompt, system prompt or agent by id;
-- every `featured` prompt and system prompt, by a slug of its file name;
+- every `featured` prompt and system prompt, and every one that declares `inputs:`, by a slug of
+  its file name;
 - every My Library prompt, as `my-<id>`.
 
-Each takes an optional `input`, appended after the prompt text as one user message. The
+Each takes an optional `input`, appended after the prompt text as one user message. A prompt
+that declares `inputs:` in its frontmatter (since 2026-10-27) also gets one required argument
+per declared `[placeholder]`, so the client asks for each value:
+
+```yaml
+inputs:
+  - name: topic                 # the text between the brackets, [topic]
+    description: The subject    # shown to the user; optional
+  - target audience             # a bare name works too; the argument is target_audience
+```
+
+Nothing is guessed: brackets that are not declared (`[N]`, `[dict]`, links) stay as written,
+and filling is one literal text swap, never a template. A name that is not in the body as
+`[name]`, is malformed, or would collide with `input` is dropped, and `npm run test:mcp` fails
+on such a declaration in the library (`lib/prompt-inputs.ts`). `library_prompt` keeps only `id`
+and `input`, since its arguments are fixed before the id is known. The
 factory runs per connection, so the My Library list is current as of connecting.
 
 ## How it stays current

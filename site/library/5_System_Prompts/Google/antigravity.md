@@ -3,6 +3,12 @@ title: "🚀 Antigravity"
 tags: ["featured", "google", "llm", "instructions", "antigravity"]
 category: "LLM Instructions"
 subcategory: "Google"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Google/20251118-Antigravity.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 System Prompt for [Google Antigravity](https://blog.google/products/gemini/gemini-3/)

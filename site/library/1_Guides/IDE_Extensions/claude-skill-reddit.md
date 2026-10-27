@@ -3,6 +3,7 @@ title: "💻 Claude Skill Reddit Guide"
 tags: ["agent-guides", "Reddit", "IDE_Extensions"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: PHY041/claude-skill-reddit
 ---
 
 # Claude Skill Reddit Guide

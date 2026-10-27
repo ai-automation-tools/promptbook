@@ -3,6 +3,10 @@ title: "🤖 提取查询 json 中的查询条件"
 tags: ["awesome-chatgpt", "json"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # 提取查询 json 中的查询条件

@@ -3,6 +3,12 @@ title: "📝 Claude Opus4.5 Soul Document"
 tags: ["anthropic", "llm", "instructions", "claude", "opus4_5", "soul", "document"]
 category: "LLM Instructions"
 subcategory: "Anthropic"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Anthropic/20251202-Claude-Opus4.5-Soul-Document.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 **Richard Weiss** discovered that Claude 4.5 Opus would occasionally hallucinate references to a "soul_overview" section in its system message. Rather than dismissing this as mere hallucination, they investigated and eventually extracted what appears to be a comprehensive internal document about Claude's values, training, and intended behavior.

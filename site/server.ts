@@ -32,8 +32,8 @@ async function startServer() {
   // Vercel routes /api/skill-packs/* to its own serverless function
   // (see vercel.json), so api/index.ts does not mount it. Dev is one process,
   // so mount it here — onto the imported app, which already has express.json()
-  // and cookieParser() registered. The handler routes on the absolute
-  // `req.url`, so it must be matched by pattern rather than `app.use(prefix)`,
+  // registered. The handler routes on the absolute `req.url`, so it must be
+  // matched by pattern rather than `app.use(prefix)`,
   // which would strip the prefix it matches against.
   app.all(/^\/api\/skill-packs(\/|$)/, (req, res) =>
     skillPacksHandler(req as unknown as VercelRequest, res as unknown as VercelResponse),

@@ -3,6 +3,10 @@ title: "🤖 Photorealistic Image Prompt for Fashion and Environment"
 tags: ["awesome-chatgpt", "photorealistic", "image", "fashion", "environment"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Photorealistic Image Prompt for Fashion and Environment

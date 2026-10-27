@@ -3,6 +3,12 @@ title: "🦆 Duck.ai GPT-4o-Mini System Prompt"
 tags: ["duck.ai", "duckduckgo", "privacy", "assistant"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
+upstream:
+  match: similar
+  repo: jujumilk3/leaked-system-prompts
+  path: duckai-gpt-4o-mini_20251110.md
+  ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
+  checked: 2026-10-23
 ---
 
 # Duck.ai GPT-4o-Mini System Prompt

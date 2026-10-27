@@ -3,6 +3,12 @@ title: "🧠 Gpt4 Advanced Data Analysis 20231018"
 tags: ["openai", "llm", "instructions", "gpt4", "advanced", "data", "analysis", "20231018"]
 category: "LLM Instructions"
 subcategory: "OpenAI"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/OpenAI/gpt4_advanced_data_analysis_20231018.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 ```markdown

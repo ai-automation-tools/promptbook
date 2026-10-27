@@ -3,6 +3,10 @@ title: "🤖 Table in PDF to CSV conversion"
 tags: ["awesome-chatgpt", "table", "pdf", "csv", "conversion"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Table in PDF to CSV conversion

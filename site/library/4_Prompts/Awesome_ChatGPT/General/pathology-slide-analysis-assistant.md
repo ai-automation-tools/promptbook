@@ -3,6 +3,10 @@ title: "🤖 Pathology Slide Analysis Assistant"
 tags: ["awesome-chatgpt", "pathology", "slide", "analysis"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Pathology Slide Analysis Assistant

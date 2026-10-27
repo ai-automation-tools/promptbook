@@ -3,6 +3,12 @@ title: "⚙️ Discord Clyde"
 tags: ["discord", "clyde", "chatbot"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
+upstream:
+  match: similar
+  repo: jujumilk3/leaked-system-prompts
+  path: discord-clyde_20230716-2.md
+  ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
+  checked: 2026-10-23
 ---
 
 # Discord Clyde

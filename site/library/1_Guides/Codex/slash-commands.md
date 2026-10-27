@@ -4,6 +4,7 @@ tags: ["codex", "slash-commands", "cli", "reference", "openai"]
 category: "Agent_Guides"
 subcategory: "Codex"
 checked: 2026-10-13
+repo: openai/codex
 ---
 
 <!-- Last Updated: 2026-10-13 - Partially checked: see note below -->

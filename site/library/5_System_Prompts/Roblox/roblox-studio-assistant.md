@@ -3,6 +3,12 @@ title: "🧱 Roblox Studio Assistant"
 tags: ["roblox", "ai", "assistant"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
+upstream:
+  match: similar
+  repo: jujumilk3/leaked-system-prompts
+  path: roblox-studio-assistant_20240320.md
+  ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
+  checked: 2026-10-23
 ---
 
 # 🧱 Roblox Studio Assistant

@@ -3,6 +3,12 @@ title: "🧠 Claude Sonnet4.5"
 tags: ["featured", "anthropic", "llm", "instructions", "claude", "sonnet4_5"]
 category: "LLM Instructions"
 subcategory: "Anthropic"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Anthropic/20251028-Claude-Sonnet4.5.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 <claude_info>

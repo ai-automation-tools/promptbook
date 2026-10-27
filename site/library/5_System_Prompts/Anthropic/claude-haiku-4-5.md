@@ -3,6 +3,12 @@ title: "🧠 Claude Haiku 4.5"
 tags: ["anthropic", "llm", "instructions", "claude", "haiku"]
 category: "LLM Instructions"
 subcategory: "Anthropic"
+upstream:
+  match: similar
+  repo: jujumilk3/leaked-system-prompts
+  path: anthropic-claude-haiku-4.5_20251119.md
+  ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
+  checked: 2026-10-23
 ---
 
 ## Purpose

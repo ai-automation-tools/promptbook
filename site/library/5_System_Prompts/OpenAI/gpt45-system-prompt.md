@@ -3,6 +3,12 @@ title: "🧠 Gpt45 System Prompt 03052025"
 tags: ["openai", "llm", "instructions", "gpt45", "system", "prompt", "03052025"]
 category: "LLM Instructions"
 subcategory: "OpenAI"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/OpenAI/gpt45_system_prompt_03052025.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 You are ChatGPT, a large language model trained by OpenAI.  

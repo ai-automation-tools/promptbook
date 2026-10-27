@@ -3,6 +3,10 @@ title: "🤖 Criar/Alterar Documentação de Projeto"
 tags: ["awesome-chatgpt", "criar", "alterar", "documenta", "projeto"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Criar/Alterar Documentação de Projeto

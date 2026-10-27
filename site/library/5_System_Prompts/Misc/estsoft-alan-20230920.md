@@ -3,6 +3,12 @@ title: "📝 ESTsoft Alan"
 tags: ["system-prompt", "llm", "instructions", "misc"]
 category: "System_Prompts"
 subcategory: "Misc"
+upstream:
+  match: exact
+  repo: jujumilk3/leaked-system-prompts
+  path: ESTsoft-alan_20230920.md
+  ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
+  checked: 2026-10-23
 ---
 # ESTsoft-alan_20230920
 

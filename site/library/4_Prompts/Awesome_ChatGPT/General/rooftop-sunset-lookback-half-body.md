@@ -3,6 +3,10 @@ title: "🤖 Rooftop Sunset Lookback (half-body)"
 tags: ["awesome-chatgpt", "rooftop", "sunset", "lookback", "half"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Rooftop Sunset Lookback (half-body)

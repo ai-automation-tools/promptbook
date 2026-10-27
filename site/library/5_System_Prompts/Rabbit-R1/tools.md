@@ -3,6 +3,12 @@ title: "📝 Tools"
 tags: ["rabbit-r1", "llm", "instructions", "tools"]
 category: "LLM Instructions"
 subcategory: "rabbit-r1"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/rabbit-r1/04242024-tools.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 This is part of the system prompt as extracted by [Ethan Sutin / @EthanSutin](https://x.com/EthanSutin/status/1783289237787513203):

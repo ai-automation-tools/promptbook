@@ -3,6 +3,12 @@ title: "🧠 Chatgpt 5 08072025"
 tags: ["openai", "llm", "instructions", "chatgpt", "5", "08072025"]
 category: "LLM Instructions"
 subcategory: "OpenAI"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/OpenAI/chatgpt_5_08072025.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 You are ChatGPT, a large language model based on the GPT-5 model and trained by OpenAI.  

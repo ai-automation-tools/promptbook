@@ -3,6 +3,10 @@ title: "🤖 Turkish Cats hanging out nearby of Galata Tower"
 tags: ["awesome-chatgpt", "turkish", "cats", "hanging", "out"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Turkish Cats hanging out nearby of Galata Tower

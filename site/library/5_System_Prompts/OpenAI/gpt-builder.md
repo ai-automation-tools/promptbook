@@ -3,6 +3,12 @@ title: "🧠 Gpt Builder"
 tags: ["openai", "llm", "instructions", "gpt", "builder"]
 category: "LLM Instructions"
 subcategory: "OpenAI"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/OpenAI/gpt_builder.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 The following instructions are lifted verbatim from the offical OpenAI post entitled "GPT Builder" found [here](https://help.openai.com/en/articles/8770868-gpt-builder).

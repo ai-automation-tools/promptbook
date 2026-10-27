@@ -2,8 +2,8 @@
   "name": "Prediction Markets Pack",
   "id": "prediction-markets-pack",
   "description": "Comprehensive toolkit for prediction markets, sports betting, and trading analysis including arbitrage detection, odds modeling, bankroll management, and market sentiment analysis.",
-  "icon": "\ud83d\udcca",
-  "version": "1.0.0",
+  "icon": "📊",
+  "version": "1.0.2",
   "author": "promptbook",
   "tags": [
     "prediction-markets",
@@ -16,54 +16,9 @@
   "category": "Finance",
   "skills": [
     {
-      "path": "library/3_Skills/Finance/arbitrage-scanner/SKILL.md",
-      "name": "Arbitrage Scanner",
-      "description": "Detect arbitrage opportunities across prediction markets"
-    },
-    {
-      "path": "library/3_Skills/Finance/bankroll-management/SKILL.md",
-      "name": "Bankroll Management",
-      "description": "Manage betting capital and risk allocation"
-    },
-    {
-      "path": "library/3_Skills/Finance/futures-trading/SKILL.md",
-      "name": "Futures Trading",
-      "description": "Trade futures contracts and derivatives"
-    },
-    {
-      "path": "library/3_Skills/Finance/Betting_&_Gambling/kalshi-markets/SKILL.md",
-      "name": "Kalshi Markets",
-      "description": "Trade on Kalshi prediction markets"
-    },
-    {
-      "path": "library/3_Skills/Finance/live-betting-strategy/SKILL.md",
-      "name": "Live Betting Strategy",
-      "description": "Develop strategies for in-play betting"
-    },
-    {
-      "path": "library/3_Skills/Finance/Betting_&_Gambling/market-mechanics-betting/SKILL.md",
-      "name": "Market Mechanics Betting",
-      "description": "Understand betting market dynamics"
-    },
-    {
-      "path": "library/3_Skills/Finance/market-sentiment/SKILL.md",
-      "name": "Market Sentiment",
-      "description": "Analyze market sentiment and crowd behavior"
-    },
-    {
-      "path": "library/3_Skills/Finance/odds-modeling/SKILL.md",
-      "name": "Odds Modeling",
-      "description": "Model and calculate fair odds"
-    },
-    {
       "path": "library/3_Skills/Finance/Betting_&_Gambling/polymarket/SKILL.md",
       "name": "Polymarket",
       "description": "Trade on Polymarket prediction platform"
-    },
-    {
-      "path": "library/3_Skills/Finance/sports-betting/SKILL.md",
-      "name": "Sports Betting",
-      "description": "Analyze and place sports bets strategically"
     }
   ],
   "prerequisites": {
@@ -89,9 +44,7 @@
     "Market sentiment analysis",
     "Odds calculation and modeling"
   ],
-  "related_packs": [
-    "finance-portfolio-pack"
-  ],
+  "related_packs": [],
   "created_at": "2026-03-30",
-  "updated_at": "2026-04-01"
+  "updated_at": "2026-10-27"
 }

@@ -3,6 +3,10 @@ title: "🤖 Prompt Generator for claude code"
 tags: ["awesome-chatgpt", "claude", "code"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Prompt Generator for claude code

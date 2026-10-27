@@ -3,6 +3,10 @@ title: "🤖 Quantitative Factor Research Engineer"
 tags: ["awesome-chatgpt", "quantitative", "factor", "research", "engineer"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Quantitative Factor Research Engineer

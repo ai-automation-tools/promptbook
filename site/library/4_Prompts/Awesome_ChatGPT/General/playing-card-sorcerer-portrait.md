@@ -3,6 +3,10 @@ title: "🤖 Playing Card Sorcerer Portrait"
 tags: ["awesome-chatgpt", "playing", "card", "sorcerer", "portrait"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Playing Card Sorcerer Portrait

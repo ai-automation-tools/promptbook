@@ -3,6 +3,10 @@ title: "🤖 Startup Tech Lawyer"
 tags: ["awesome-chatgpt", "startup", "tech", "lawyer"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Startup Tech Lawyer

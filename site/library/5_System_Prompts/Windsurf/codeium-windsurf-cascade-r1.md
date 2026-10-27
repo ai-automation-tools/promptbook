@@ -3,6 +3,13 @@ title: "💻 Codeium Windsurf Cascade R1"
 tags: ["codeium", "windsurf", "cascade", "r1", "system-prompt"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
+upstream:
+  match: fork
+  note: an earlier capture; the collection has since replaced or removed it
+  repo: jujumilk3/leaked-system-prompts
+  path: codeium-windsurf-cascade-R1_20250201.md
+  ref: 31fa7770b24ff477dd8a3c28d5f5df89e2d3ee66
+  checked: 2026-10-23
 ---
 
 # Codeium Windsurf Cascade R1

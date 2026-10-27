@@ -3,6 +3,12 @@ title: "🧠 Venice"
 tags: ["venice.ai", "llm", "instructions", "venice"]
 category: "LLM Instructions"
 subcategory: "Venice.ai"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Venice.ai/20240724-Venice.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 **Editor’s note:** this is where Venice places any custom system prompts you have enabled, if any. They don’t label or demarcate them in any way; they simply append everything below this paragraph below your enabled system prompts. If—and only if—you have *no* custom system prompts enabled, it adds a default line here instead:

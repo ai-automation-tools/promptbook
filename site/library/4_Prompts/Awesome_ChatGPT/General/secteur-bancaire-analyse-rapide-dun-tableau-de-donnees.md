@@ -3,6 +3,10 @@ title: "🤖 Secteur Bancaire - Analyse rapide d’un tableau de données"
 tags: ["awesome-chatgpt", "secteur", "bancaire", "analyse", "rapide"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Secteur Bancaire - Analyse rapide d’un tableau de données

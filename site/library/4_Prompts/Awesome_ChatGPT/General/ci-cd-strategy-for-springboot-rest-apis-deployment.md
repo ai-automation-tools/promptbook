@@ -3,6 +3,10 @@ title: "🤖 CI/CD Strategy for SpringBoot REST APIs Deployment"
 tags: ["awesome-chatgpt", "strategy", "springboot", "rest", "apis"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # CI/CD Strategy for SpringBoot REST APIs Deployment

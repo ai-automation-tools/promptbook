@@ -3,6 +3,12 @@ title: "🧠 Chatgpt With Projects 12152024"
 tags: ["openai", "llm", "instructions", "chatgpt", "with", "projects", "12152024"]
 category: "LLM Instructions"
 subcategory: "OpenAI"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/OpenAI/chatgpt_with_projects_12152024.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 **The following is the system prompt for ChatGPT chats within a [Project](https://help.openai.com/en/articles/10169521-using-projects-in-chatgpt). Note the placeholder `$custominstructions` below.**

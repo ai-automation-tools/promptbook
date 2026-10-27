@@ -3,6 +3,7 @@ title: "🌐 xAI API Guide"
 tags: ["guide", "api", "xai", "grok"]
 category: "Agent_Guides"
 subcategory: "API_Providers"
+repo: xai-org/xai-sdk-python
 ---
 
 # xAI API Guide

@@ -3,6 +3,10 @@ title: "🤖 Social Media Cocktail Web Site Post"
 tags: ["awesome-chatgpt", "social", "media", "cocktail", "web"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Social Media Cocktail Web Site Post

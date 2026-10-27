@@ -3,6 +3,12 @@ title: "🧠 Metaai Llama4 04082025"
 tags: ["meta.ai", "llm", "instructions", "metaai", "llama4", "04082025"]
 category: "LLM Instructions"
 subcategory: "Meta.ai"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Meta.ai/metaai_llama4-04082025.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 [llama4 system prompt](https://github.com/meta-llama/llama-models/blob/main/models/llama4/MODEL_CARD.md)

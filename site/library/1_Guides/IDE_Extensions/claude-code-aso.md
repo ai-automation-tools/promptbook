@@ -3,6 +3,7 @@ title: "💻 Claude Code ASO Skill Guide"
 tags: ["agent-guides", "ASO", "IDE_Extensions"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: alirezarezvani/claude-code-aso-skill
 ---
 
 # Claude Code ASO Skill Guide

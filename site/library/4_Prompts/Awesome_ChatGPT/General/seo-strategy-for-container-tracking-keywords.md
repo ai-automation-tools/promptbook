@@ -3,6 +3,10 @@ title: "🤖 SEO Strategy for Container Tracking Keywords"
 tags: ["awesome-chatgpt", "seo", "strategy", "container", "tracking"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # SEO Strategy for Container Tracking Keywords

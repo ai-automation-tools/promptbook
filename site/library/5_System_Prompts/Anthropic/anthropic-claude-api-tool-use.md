@@ -3,6 +3,12 @@ title: "Anthropic Claude API Tool Use"
 tags: ["anthropic", "claude", "api", "tool-use"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
+upstream:
+  match: similar
+  repo: jujumilk3/leaked-system-prompts
+  path: anthropic-claude-api-tool-use_20250119.md
+  ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
+  checked: 2026-10-23
 ---
 
 # Anthropic Claude API Tool Use

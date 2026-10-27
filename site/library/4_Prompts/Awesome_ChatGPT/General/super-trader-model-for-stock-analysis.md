@@ -3,6 +3,10 @@ title: "🤖 Super Trader Model for Stock Analysis"
 tags: ["awesome-chatgpt", "super", "trader", "model", "stock"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Super Trader Model for Stock Analysis

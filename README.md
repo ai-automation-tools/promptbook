@@ -64,7 +64,7 @@
 
 🎨 **Modern UI**
 - Responsive design (mobile, tablet, desktop)
-- The org house style shared with [ai-automation-tools.dev](https://ai-automation-tools.dev): sections in the top bar, a Light | Dark switch, and a Settings dialog with four colour palettes (sky, violet, emerald, ember), all remembered per browser; per-section accent colours
+- The org house style shared with [ai-automation-tools.dev](https://ai-automation-tools.dev): sections in a colour rail whose current tab joins the categories panel, a Light | Dark switch, and a Settings dialog with twelve themes that wash the whole page in a colour (Sky, Midnight, Forest, Ember, Wine, Ocean, Slate, Sand, Solar, Synthwave, Sakura, Mono), all remembered per browser; per-section and per-category colours
 - ⌘K command palette across every prompt, section and action
 - Fuzzy search with Fuse.js
 - Title-prioritized search ranking (title starts-with/contains first)
@@ -97,8 +97,8 @@ Copy `site/.env.example` to `site/.env` to change a default:
 |:---|:---|:---|
 | `MY_LIBRARY_DIR` | `my-library` | Where My Library is kept. Relative to `site/`, or absolute. |
 | `HOST` | `127.0.0.1` | Address to listen on. There are no accounts, so read [this](docs/setup/SETUP.md#exposing-it-beyond-localhost) before opening it up. |
-| `READ_ONLY` | `false` | `true` serves the Public Library only and refuses every write. |
-| `ALLOWED_HOSTS` | (none) | Extra hostnames the dev server answers to, comma-separated, for a proxy such as `tailscale serve`. See [this](docs/setup/SETUP.md#over-tailscale). |
+| `READ_ONLY` | `false` | `true` serves the Public Library only (My Library is neither listed nor served) and refuses every write. |
+| `ALLOWED_HOSTS` | (none) | Extra hostnames the server answers to, comma-separated, for a proxy such as `tailscale serve`. Any other name gets `403`, which blocks DNS rebinding. See [this](docs/setup/SETUP.md#over-tailscale). |
 
 ### Checks
 
@@ -106,8 +106,15 @@ Copy `site/.env.example` to `site/.env` to change a default:
 npm run lint             # tsc --noEmit
 npm run test:routes      # the API route table is intact
 npm run test:my-library  # the My Library file store
+npm run test:read-only   # read-only mode hides My Library
+npm run test:prompt-content  # a failed prompt load never falls back to the preview
+npm run test:markdown-file   # a downloaded .md reads back unchanged
+npm run test:preview         # badge rows do not become the card blurb
 npm run test:mcp         # the MCP server, end to end over stdio
+npm run test:safe-path   # ../ escapes and links out of library/ are refused
+npm run test:browser     # after npm run build: the built app in Chrome (needs Chrome installed)
 npm run build:index      # rebuild api/prompt-index.json after editing library/
+npm run bench            # latency and event-loop stall of the heavy endpoints (not a test)
 
 node scripts/upstream.test.mjs           # provenance frontmatter (run from the repo root)
 node scripts/skill-frontmatter.test.mjs  # Agent Skills spec compliance
@@ -228,7 +235,7 @@ promptbook/
 │   │   ├── 5_System_Prompts/
 │   │   └── 6_MCP_Servers/
 │   ├── my-library/           # Your prompts (gitignored, created on first save)
-│   ├── scripts/              # build-prompt-index.js, the route, My Library and MCP tests
+│   ├── scripts/              # build-prompt-index.js, the API, MCP and browser tests, the benchmark
 │   └── server.ts             # Local server around the same app api/ exports (port 3010)
 ├── homepage/                 # Static project homepage (GitHub Pages)
 ├── .github/workflows/ci.yml  # lint + route, store and MCP tests + provenance checks + index freshness

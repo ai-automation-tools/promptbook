@@ -17,7 +17,7 @@
         if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fafafa');
         try {
           var p = localStorage.getItem('my-prompt-library.palette');
-          if (p === 'violet' || p === 'emerald' || p === 'ember') document.documentElement.setAttribute('data-palette', p);
+          if (/^(violet|emerald|ember|wine|ocean|slate|sand|solar|synthwave|sakura|mono)$/.test(p)) document.documentElement.setAttribute('data-palette', p);
         } catch (e) {}
       })();
     </script>

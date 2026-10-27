@@ -3,6 +3,10 @@ title: "🤖 AI2sql SQL Model — Query Generator"
 tags: ["awesome-chatgpt", "ai2sql", "sql", "model", "query"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # AI2sql SQL Model — Query Generator

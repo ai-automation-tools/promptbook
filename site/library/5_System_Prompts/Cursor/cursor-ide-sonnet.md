@@ -3,6 +3,12 @@ title: "⚙️ Cursor IDE Sonnet System Prompt"
 tags: ["system-prompt", "llm", "cursor", "sonnet"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
+upstream:
+  match: exact
+  repo: jujumilk3/leaked-system-prompts
+  path: cursor-ide-sonnet_20241224.md
+  ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
+  checked: 2026-10-23
 ---
 
 # Cursor IDE Sonnet System Prompt

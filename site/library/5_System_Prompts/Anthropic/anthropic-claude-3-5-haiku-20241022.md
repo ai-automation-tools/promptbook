@@ -3,6 +3,10 @@ title: "📝 Anthropic Claude 3.5 Haiku"
 tags: ["system-prompt", "anthropic", "claude"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
+upstream:
+  match: vendor
+  url: https://docs.anthropic.com/en/docs/
+  checked: 2026-10-23
 ---
 
 # Anthropic Claude 3.5 Haiku

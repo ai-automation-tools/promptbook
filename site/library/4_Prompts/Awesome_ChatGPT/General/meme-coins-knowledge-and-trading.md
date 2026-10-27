@@ -3,6 +3,10 @@ title: "🤖 Meme coins knowledge  and trading"
 tags: ["awesome-chatgpt", "meme", "coins", "knowledge", "trading"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Meme coins knowledge  and trading

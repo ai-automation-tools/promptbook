@@ -3,6 +3,12 @@ title: "📝 Cluely"
 tags: ["misc", "llm", "instructions", "cluely"]
 category: "LLM Instructions"
 subcategory: "Misc"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Misc/20260616-Cluely.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 Source: https://gist.github.com/cablej/ccfe7fe097d8bbb05519bacfeb910038

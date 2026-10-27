@@ -3,6 +3,7 @@ title: "Mistral AI CLI Guide"
 tags: ["mistral", "cli", "reference", "api", "european-ai"]
 category: "Agent_Guides"
 subcategory: "API_Providers"
+repo: mistralai/mistral-vibe
 ---
 ## CLI Sync Notes (March 2026)
 

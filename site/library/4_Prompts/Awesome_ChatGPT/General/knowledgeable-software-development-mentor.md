@@ -3,6 +3,10 @@ title: "🤖 Knowledgeable Software Development Mentor"
 tags: ["awesome-chatgpt", "knowledgeable", "software", "development", "mentor"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Knowledgeable Software Development Mentor

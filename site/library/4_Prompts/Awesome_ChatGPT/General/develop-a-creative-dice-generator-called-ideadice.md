@@ -3,6 +3,10 @@ title: "🤖 Develop a creative dice generator called “IdeaDice”."
 tags: ["awesome-chatgpt", "develop", "creative", "dice", "called"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Develop a creative dice generator called “IdeaDice”.

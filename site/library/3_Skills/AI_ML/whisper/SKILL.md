@@ -16,6 +16,7 @@ upstream:
   declared: "https://skillsmp.com/skills/math-inc-opengauss-skills-mlops-models-whisper-skill-md"
   ref: 773a52944ba4747a18bd4ae9ade53fff041adcbc
   checked: 2026-09-16
+  license: MIT
 ---
 
 # Whisper - Robust Speech Recognition

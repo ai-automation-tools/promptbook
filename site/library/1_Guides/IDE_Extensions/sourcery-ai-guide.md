@@ -3,6 +3,7 @@ title: "💻 Sourcery AI Guide"
 tags: ["agent-guides", "sourcery", "python", "refactoring"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: sourcery-ai/sourcery
 ---
 
 # Sourcery AI Guide

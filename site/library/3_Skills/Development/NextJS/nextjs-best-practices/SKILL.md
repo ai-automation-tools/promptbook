@@ -3,10 +3,14 @@ name: nextjs-best-practices
 description: Next.js App Router principles. Server Components, data fetching, routing patterns.
 allowed-tools: Read, Write, Edit, Glob, Grep
 upstream:
-  match: ambiguous
-  copies: 10
-  candidates: [automindtechnologie-jpg/ultimate-skill.md, baotoq/agent-skills, baotoq/micro-commerce, congdon1207/agents.md, hainamchung/agent-assistant, poletron/custom-rules, sebas-aikon-intelligence/antigravity-awesome-skills, sickn33/antigravity-awesome-skills]
-  checked: 2026-08-26
+  match: exact
+  repo: poletron/custom-rules
+  path: packages/cli/.agent/skills/nextjs-best-practices/SKILL.md
+  ref: aba66687773d681a1f906748852d58ea0ed60704
+  checked: 2026-10-23
+  was: ambiguous
+  candidates: [sickn33/antigravity-awesome-skills]
+  license: CC0-1.0
 tags: ["skill","development","nextjs"]
 ---
 

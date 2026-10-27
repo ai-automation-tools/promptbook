@@ -3,6 +3,12 @@ title: "🧠 Grok4 Expert"
 tags: ["xai", "llm", "instructions", "grok4", "expert"]
 category: "LLM Instructions"
 subcategory: "xAI"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/xAI/20251030-Grok4-Expert.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 ## Safety Instructions

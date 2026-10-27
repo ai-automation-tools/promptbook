@@ -3,6 +3,10 @@ title: "🤖 Analyze PDF and Create MATLAB Code"
 tags: ["awesome-chatgpt", "analyze", "pdf", "create", "matlab"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Analyze PDF and Create MATLAB Code

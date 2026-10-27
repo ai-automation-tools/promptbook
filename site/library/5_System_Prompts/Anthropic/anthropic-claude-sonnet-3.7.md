@@ -3,6 +3,12 @@ title: "📝 Claude Sonnet 3.7"
 tags: ["system-prompt", "llm", "instructions", "anthropic", "claude-sonnet-3.7"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
+upstream:
+  match: exact
+  repo: jujumilk3/leaked-system-prompts
+  path: anthropic-claude-sonnet-3.7_20250224.md
+  ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
+  checked: 2026-10-23
 ---
 # anthropic-claude-sonnet-3.7_20250224
 

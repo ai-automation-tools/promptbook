@@ -2,8 +2,8 @@
 /**
  * Keep `site/library/3_Skills/packs/` in step with the skills tree.
  *
- * Two jobs, both deterministic, so the Monday Skills Sync and the Monthly Upkeep
- * run this instead of asking a model to write JSON:
+ * Two jobs, both deterministic, so the Monthly Upkeep runs this instead of asking
+ * a model to write JSON:
  *
  *   1. Generated packs. Every `Category/Subcategory` (or bare `Category`) folder
  *      under 3_Skills with at least MIN skills gets a pack, `generated: true`, at

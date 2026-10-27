@@ -19,11 +19,12 @@ import * as z from 'zod/v4';
 import { McpServer } from '@modelcontextprotocol/server';
 import { serveStdio } from '@modelcontextprotocol/server/stdio';
 import {
-  LIBRARY_PATH, SECTIONS, SECTION_KEYS, SKILLS_SECTION, carriedFrontmatter, loadIndex, readLibraryItem,
+  LIBRARY_PATH, SECTIONS, SECTION_KEYS, SKILLS_SECTION, carriedFrontmatter, loadIndex, readLibraryItem, sourceOf,
   type IndexEntry, type SectionKey,
 } from '../lib/library.js';
-import { forkExtra, myLibrary, pullUpstream, READ_ONLY, upstreamStatus, type UserPrompt } from '../lib/my-library.js';
-import { resolveInside } from '../lib/safe-path.js';
+import { forkExtra, myLibrary, PromptConflictError, pullUpstream, READ_ONLY, upstreamStatus, type UserPrompt } from '../lib/my-library.js';
+import { filesUnder, resolveInside } from '../lib/safe-path.js';
+import { declaredInputs, fillInputs, type PromptInput } from '../lib/prompt-inputs.js';
 import { getAllPacks } from '../api/skill-packs.js';
 
 const MAX_FILE = 500 * 1024;
@@ -89,14 +90,9 @@ function skillDir(id: string): string | null {
   return fs.existsSync(path.join(dir, 'SKILL.md')) ? dir : null;
 }
 
-const listFiles = (dir: string, base = dir, out: { path: string; bytes: number }[] = []) => {
-  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-    const p = path.join(dir, e.name);
-    if (e.isDirectory()) listFiles(p, base, out);
-    else out.push({ path: path.relative(base, p).split(path.sep).join('/'), bytes: fs.statSync(p).size });
-  }
-  return out;
-};
+const listFiles = (dir: string) => filesUnder(dir).map(p => ({
+  path: path.relative(dir, p).split(path.sep).join('/'), bytes: fs.statSync(p).size,
+}));
 
 const slug = (s: string) => s.toLowerCase().replace(/\.md$/, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
 
@@ -111,7 +107,7 @@ const promptMessages = (body: string, input?: string) => ({
 const INSTRUCTIONS = `Promptbook: ${loadIndex()?.promptCount ?? 'thousands of'} prompts, agent definitions, guides, system prompts, skills and MCP server cards, plus the user's own My Library.
 Use search_library to find items (filter by section: ${SECTION_KEYS.join(', ')}), then get_item for the full text.
 Skills: get_skill returns SKILL.md and its file list; get_skill_file reads one support file.
-Ids are library paths like "4_Prompts/Engineering/Code_Generation/x.md"; My Library ids are bare slugs.
+Ids are library paths like "4_Prompts/Awesome_ChatGPT/General/x.md"; My Library ids are bare slugs.
 ${READ_ONLY ? 'This server is read-only.' : 'save_to_my_library, update_my_prompt and delete_my_prompt change the user\'s own files; confirm with the user before deleting.'}`;
 
 export function createServer(): McpServer {
@@ -174,13 +170,15 @@ export function createServer(): McpServer {
       const note = up?.updateAvailable
         ? `\nPublic version \`${up.source}\` has changed${up.localEdits ? ' (this copy is edited too)' : ''}; update_from_public pulls it.`
         : '';
-      return text(`# ${mine.title}\n\nMy Library · ${keyOf(mine.section)} › ${mine.category}${mine.tags.length ? ` · tags: ${mine.tags.join(', ')}` : ''}${note}\n\n${body}`);
+      return text(`# ${mine.title}\n\nMy Library · ${keyOf(mine.section)} › ${mine.category}${mine.tags.length ? ` · tags: ${mine.tags.join(', ')}` : ''}${mine.sourceUrl ? ` · source: ${mine.sourceUrl}` : ''} · version: ${mine.version}${note}\n\n${body}`);
     }
     const item = readLibraryItem(id);
     if (item === 'invalid') return fail(`"${id}" is not a library path. Ids look like "4_Prompts/<Category>/<file>.md".`);
     if (!item) return fail(`No library item "${id}".`);
     const head = `${keyOf(item.section)} › ${[item.category, item.subcategory].filter(Boolean).join(' › ')}${item.tags.length ? ` · tags: ${item.tags.join(', ')}` : ''}`;
-    return text(`# ${item.title}\n\n\`${item.id}\` · ${head}\n\n${item.content}`);
+    const src = sourceOf(item.id, item.frontmatter);
+    const from = src ? ` · source: ${src.url}${src.verdict ? ` (${src.verdict} at the ${src.checked} check)` : ''}` : '';
+    return text(`# ${item.title}\n\n\`${item.id}\` · ${head}${from}\n\n${item.content}`);
   });
 
   // ---------- browse ----------
@@ -304,9 +302,10 @@ export function createServer(): McpServer {
         category: z.string().optional(),
         subcategory: z.string().optional(),
         tags: z.array(z.string()).optional(),
+        source_url: z.string().optional().describe('Where it stems from: the GitHub repo or site URL (http/https)'),
       }),
       annotations: writeHints,
-    }, async ({ id, title, content, file, section, category, subcategory, tags }) => {
+    }, async ({ id, title, content, file, section, category, subcategory, tags, source_url: sourceUrl }) => {
       if (READ_ONLY) return fail('This library is read-only.');
       if (file && !id) {
         const imported = readImport(file);
@@ -314,7 +313,7 @@ export function createServer(): McpServer {
         if (!title?.trim()) return fail('Pass a title with file.');
         const saved = myLibrary.create({
           title: title.trim(), content: withPreface(content, imported.content), section: folderOf(section) ?? '4_Prompts',
-          category: category || 'Uncategorized', subcategory: subcategory || null, tags: tags ?? [], extra: imported.extra,
+          category: category || 'Uncategorized', subcategory: subcategory || null, tags: tags ?? [], sourceUrl, extra: imported.extra,
         });
         return text(`Saved \`${file}\` to My Library as \`${saved.id}\`.`);
       }
@@ -326,7 +325,7 @@ export function createServer(): McpServer {
         if (dup) return fail(`Already in My Library as "${dup.id}".`);
         const saved = myLibrary.create({
           title: title || item.title, section: item.section, category: item.category,
-          subcategory: item.subcategory, tags: tags ?? item.tags, content: item.content,
+          subcategory: item.subcategory, tags: tags ?? item.tags, content: item.content, sourceUrl,
           extra: forkExtra(item),
         });
         return text(`Copied to My Library as \`${saved.id}\`.`);
@@ -334,7 +333,7 @@ export function createServer(): McpServer {
       if (!title?.trim() || !content?.trim()) return fail('Pass an id to copy, or both title and content.');
       const saved = myLibrary.create({
         title: title.trim(), content, section: folderOf(section) ?? '4_Prompts',
-        category: category || 'Uncategorized', subcategory: subcategory || null, tags: tags ?? [],
+        category: category || 'Uncategorized', subcategory: subcategory || null, tags: tags ?? [], sourceUrl,
       });
       return text(`Saved to My Library as \`${saved.id}\`.`);
     });
@@ -350,17 +349,27 @@ export function createServer(): McpServer {
         category: z.string().optional(),
         subcategory: z.string().optional(),
         tags: z.array(z.string()).optional(),
+        source_url: z.string().optional().describe('Where it stems from: the GitHub repo or site URL (http/https); "" clears it'),
+        version: z.string().optional().describe('The version get_item showed; the update is refused if the file changed since'),
       }),
-      annotations: { ...writeHints, idempotentHint: true },
-    }, async ({ id, file, ...fields }) => {
+      // Destructive: it replaces the body, including wholesale from `file`.
+      annotations: { ...writeHints, destructiveHint: true, idempotentHint: true },
+    }, async ({ id, file, version, source_url: sourceUrl, ...rest }) => {
       if (READ_ONLY) return fail('This library is read-only.');
+      const fields = { ...rest, sourceUrl };
       let changes: Parameters<typeof myLibrary.update>[1] = fields;
       if (file) {
         const imported = readImport(file);
         if (typeof imported === 'string') return fail(imported);
         changes = { ...fields, content: withPreface(fields.content, imported.content), extra: imported.extra };
       }
-      const updated = myLibrary.update(id, changes);
+      let updated;
+      try {
+        updated = myLibrary.update(id, changes, version);
+      } catch (err) {
+        if (err instanceof PromptConflictError) return fail(`\`${id}\` changed since version ${version}; it is now ${err.current.version}. get_item it again before updating.`);
+        throw err;
+      }
       return updated ? text(`Updated \`${updated.id}\`.`) : fail(`No My Library prompt "${id}".`);
     });
 
@@ -388,10 +397,19 @@ export function createServer(): McpServer {
 
   // ---------- MCP prompts ----------
   // Every library prompt would be ~2,200 slash commands; clients list them all.
-  // So: one generic prompt that takes any id, plus the featured prompts and the
-  // user's own by name.
+  // So: one generic prompt that takes any id, plus by name the featured prompts, the ones
+  // that declare `inputs:`, and the user's own.
 
   const inputArg = z.string().optional().describe('Your material or request, appended after the prompt');
+
+  // A prompt's declared `[placeholder]`s become required arguments, beside the free-text `input`.
+  // Registered from the declaration at connect time; filled from the file as it is when used.
+  const argsFor = (inputs: PromptInput[]) => z.object({
+    ...Object.fromEntries(inputs.map(i => [i.arg, z.string().describe(i.description ?? `Replaces [${i.name}] in the prompt`)])),
+    input: inputArg,
+  });
+  const filled = (frontmatter: Record<string, unknown> | undefined, body: string, args: Record<string, string | undefined>) =>
+    promptMessages(fillInputs(body, declaredInputs(frontmatter, body).inputs, args), args.input);
 
   server.registerPrompt('library_prompt', {
     title: 'Use a library prompt',
@@ -413,17 +431,20 @@ export function createServer(): McpServer {
     return name;
   };
 
-  const featured = publicRows().filter(r =>
-    r.tags.includes('featured') && (r.section === '4_Prompts' || r.section === '5_System_Prompts'));
-  for (const r of featured) {
+  const named = publicRows().filter(r => (r.section === '4_Prompts' || r.section === '5_System_Prompts')
+    && (r.tags.includes('featured') || r.inputs?.length));
+  for (const r of named) {
+    const item = r.inputs?.length ? readLibraryItem(r.id) : null;
+    const { inputs } = item && item !== 'invalid' ? declaredInputs(item.frontmatter, item.content) : { inputs: [] };
+    if (!r.tags.includes('featured') && !inputs.length) continue;
     server.registerPrompt(uniqueName(slug(path.basename(r.id))), {
       title: r.title.replace(/^[^\p{L}\p{N}]+/u, ''),
-      description: `${keyOf(r.section)} › ${r.category} (featured)`,
-      argsSchema: z.object({ input: inputArg }),
-    }, ({ input }) => {
-      const item = readLibraryItem(r.id);
-      if (!item || item === 'invalid') throw new Error(`${r.id} is gone from the library.`);
-      return promptMessages(item.content, input);
+      description: `${keyOf(r.section)} › ${r.category}${r.tags.includes('featured') ? ' (featured)' : ''}`,
+      argsSchema: argsFor(inputs),
+    }, (args: Record<string, string | undefined>) => {
+      const fresh = readLibraryItem(r.id);
+      if (!fresh || fresh === 'invalid') throw new Error(`${r.id} is gone from the library.`);
+      return filled(fresh.frontmatter, fresh.content, args);
     });
   }
 
@@ -431,11 +452,11 @@ export function createServer(): McpServer {
     server.registerPrompt(uniqueName(`my-${p.id}`), {
       title: p.title,
       description: `My Library › ${p.category}`,
-      argsSchema: z.object({ input: inputArg }),
-    }, ({ input }) => {
+      argsSchema: argsFor(declaredInputs(p.extra, p.content).inputs),
+    }, (args: Record<string, string | undefined>) => {
       const fresh = myLibrary.get(p.id);
       if (!fresh) throw new Error(`My Library prompt "${p.id}" was deleted.`);
-      return promptMessages(fresh.content, input);
+      return filled(fresh.extra, fresh.content, args);
     });
   }
 

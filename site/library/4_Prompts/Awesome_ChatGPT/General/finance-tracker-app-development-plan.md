@@ -3,6 +3,10 @@ title: "🤖 Finance Tracker App Development Plan"
 tags: ["awesome-chatgpt", "finance", "tracker", "app", "development"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Finance Tracker App Development Plan

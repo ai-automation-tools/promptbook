@@ -28,6 +28,10 @@ export interface SectionMeta {
   /** Value of `data-section` on <html>; drives `--section-c`. */
   slug: string;
   label: string;
+  /** One-word label under the rail icon. */
+  short: string;
+  /** What the hero's first counter counts ("Servers", "Skills"), capitalised. */
+  noun: string;
   /** Folder under `library/`; empty for Skill Packs, which are served separately. */
   folder: string;
   icon: LucideIcon;
@@ -40,6 +44,8 @@ export const SECTIONS: readonly SectionMeta[] = [
     id: 'prompt-library',
     slug: 'prompts',
     label: 'Prompts',
+    short: 'Prompts',
+    noun: 'Prompts',
     folder: '4_Prompts',
     icon: Sparkles,
     accent: 'var(--sec-prompts)',
@@ -49,6 +55,8 @@ export const SECTIONS: readonly SectionMeta[] = [
     id: 'agents',
     slug: 'agents',
     label: 'Agents',
+    short: 'Agents',
+    noun: 'Agents',
     folder: '2_Agents',
     icon: Bot,
     accent: 'var(--sec-agents)',
@@ -58,6 +66,8 @@ export const SECTIONS: readonly SectionMeta[] = [
     id: 'agent-guides',
     slug: 'guides',
     label: 'Guides',
+    short: 'Guides',
+    noun: 'Guides',
     folder: '1_Guides',
     icon: BookOpen,
     accent: 'var(--sec-guides)',
@@ -67,6 +77,8 @@ export const SECTIONS: readonly SectionMeta[] = [
     id: 'system-prompts',
     slug: 'system-prompts',
     label: 'System Prompts',
+    short: 'System',
+    noun: 'System prompts',
     folder: '5_System_Prompts',
     icon: TerminalSquare,
     accent: 'var(--sec-system-prompts)',
@@ -76,6 +88,8 @@ export const SECTIONS: readonly SectionMeta[] = [
     id: 'skills',
     slug: 'skills',
     label: 'Skills',
+    short: 'Skills',
+    noun: 'Skills',
     folder: '3_Skills',
     icon: Wrench,
     accent: 'var(--sec-skills)',
@@ -85,6 +99,8 @@ export const SECTIONS: readonly SectionMeta[] = [
     id: 'mcp-servers',
     slug: 'mcp',
     label: 'MCP Servers',
+    short: 'MCP',
+    noun: 'Servers',
     folder: '6_MCP_Servers',
     icon: Plug,
     accent: 'var(--sec-mcp)',
@@ -94,12 +110,22 @@ export const SECTIONS: readonly SectionMeta[] = [
     id: 'skill-packs',
     slug: 'skill-packs',
     label: 'Skill Packs',
+    short: 'Packs',
+    noun: 'Packs',
     folder: '',
     icon: Package,
     accent: 'var(--sec-skill-packs)',
     description: 'Curated collections of skills for a domain or workflow.',
   },
 ];
+
+/** The rail and phone strip: Skill Packs is reached from the Skills switch, not its own tile. */
+export const NAV_SECTIONS = SECTIONS.filter(s => s.id !== 'skill-packs');
+
+/** The nav tile a tab lights up: Skill Packs lives under Skills. */
+export function navTab(tab: LibraryTab): LibraryTab {
+  return tab === 'skill-packs' ? 'skills' : tab;
+}
 
 /** Legacy tab spellings still accepted from old links. */
 const LEGACY_TABS: Record<string, LibraryTab> = {
@@ -133,4 +159,15 @@ export function humanize(segment: string | null | undefined): string {
 /** Lower-case a label for running text, keeping acronyms ("MCP Servers" → "MCP servers"). */
 export function lowerLabel(label: string): string {
   return label.split(' ').map(w => (/^[A-Z]{2,}$/.test(w) ? w : w.toLowerCase())).join(' ');
+}
+
+/** Hues (oklch degrees) a category can take; index.css turns one into `--c` via `.hue`. */
+const CATEGORY_HUES = [15, 45, 80, 120, 160, 185, 210, 240, 270, 295, 330, 355];
+
+/** A stable hue for a category name, so it wears the same colour in the sidebar and on its cards. */
+export function categoryHue(name: string): number {
+  // FNV-1a: a plain *31 hash mod 12 leans on the last letter and bunches the hues.
+  let h = 0x811c9dc5;
+  for (const ch of name) h = Math.imul(h ^ ch.charCodeAt(0), 0x01000193) >>> 0;
+  return CATEGORY_HUES[h % CATEGORY_HUES.length];
 }

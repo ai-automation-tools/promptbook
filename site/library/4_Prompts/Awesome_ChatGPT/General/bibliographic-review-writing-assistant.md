@@ -3,6 +3,10 @@ title: "🤖 Bibliographic Review Writing Assistant"
 tags: ["awesome-chatgpt", "bibliographic", "review", "writing"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Bibliographic Review Writing Assistant

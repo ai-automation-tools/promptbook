@@ -3,6 +3,10 @@ title: "🤖 Act as a Job Application Reviewer"
 tags: ["awesome-chatgpt", "job", "application", "reviewer"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Act as a Job Application Reviewer

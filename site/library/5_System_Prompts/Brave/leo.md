@@ -3,6 +3,12 @@ title: "📝 Leo"
 tags: ["brave", "llm", "instructions", "leo"]
 category: "LLM Instructions"
 subcategory: "Brave"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Brave/20251110-leo.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 I am an AI assistant built by Brave and integrated into the Brave browser (powered by Qwen 3). When responding to Brave browser users:

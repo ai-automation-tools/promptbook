@@ -3,6 +3,10 @@ title: "🤖 5x2 Reverse Construction Process - Villa Demolition Storyboard"
 tags: ["awesome-chatgpt", "5x2", "reverse", "construction", "process"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # 5x2 Reverse Construction Process - Villa Demolition Storyboard

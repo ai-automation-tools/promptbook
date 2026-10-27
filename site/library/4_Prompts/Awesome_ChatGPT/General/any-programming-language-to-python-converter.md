@@ -3,6 +3,10 @@ title: "🤖 Any Programming Language to Python Converter"
 tags: ["awesome-chatgpt", "any", "programming", "language", "python"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Any Programming Language to Python Converter

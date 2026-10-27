@@ -4,7 +4,8 @@
  * index.css so every call site gets the same sizes, states and motion.
  */
 
-import { forwardRef, useEffect, type ButtonHTMLAttributes, type ReactNode } from 'react';
+import { forwardRef, useEffect, useRef, useState, type ButtonHTMLAttributes, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 import { m } from 'motion/react';
 import { X } from 'lucide-react';
 import { cn } from '../../lib/cn';
@@ -99,12 +100,23 @@ export interface ModalProps {
   className?: string;
 }
 
+const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
 /**
  * Backdrop + dialog frame with the spring-in used by every dialog in the app.
  * Mount it only while open (the callers lazy-load the dialog chunk anyway), so
- * there is no `open` prop. Escape closes.
+ * there is no `open` prop.
+ *
+ * It is portalled to <body> and makes #root `inert` while open, so the page
+ * behind can't be clicked, tabbed into or read by a screen reader. Focus moves
+ * in on open (to a `data-autofocus` field, else the first control), Tab and
+ * Shift+Tab wrap inside, Escape closes, and focus goes back to the trigger.
  */
 export function Modal({ onClose, size = 'md', labelledBy, children, className }: ModalProps) {
+  const dialogRef = useRef<HTMLDivElement>(null);
+  // Read during the first render, before anything inside can take focus.
+  const [trigger] = useState(() => (document.activeElement instanceof HTMLElement ? document.activeElement : null));
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -113,7 +125,34 @@ export function Modal({ onClose, size = 'md', labelledBy, children, className }:
     return () => window.removeEventListener('keydown', onKey);
   }, [onClose]);
 
-  return (
+  useEffect(() => {
+    const root = document.getElementById('root');
+    root?.setAttribute('inert', '');
+    const dialog = dialogRef.current;
+    (dialog?.querySelector<HTMLElement>('[data-autofocus]') ?? dialog?.querySelector<HTMLElement>(FOCUSABLE) ?? dialog)?.focus();
+    return () => {
+      root?.removeAttribute('inert');
+      if (trigger?.isConnected) trigger.focus();
+    };
+  }, [trigger]);
+
+  const trapTab = (e: ReactKeyboardEvent) => {
+    if (e.key !== 'Tab' || !dialogRef.current) return;
+    const items = [...dialogRef.current.querySelectorAll<HTMLElement>(FOCUSABLE)].filter(el => el.tabIndex >= 0 && el.offsetParent !== null);
+    if (items.length === 0) return e.preventDefault();
+    const first = items[0];
+    const last = items[items.length - 1];
+    const active = document.activeElement;
+    if (e.shiftKey && (active === first || active === dialogRef.current)) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && active === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  };
+
+  return createPortal(
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       <m.div
         initial={{ opacity: 0 }}
@@ -123,9 +162,12 @@ export function Modal({ onClose, size = 'md', labelledBy, children, className }:
         className="absolute inset-0 bg-[var(--scrim)] backdrop-blur-sm"
       />
       <m.div
+        ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby={labelledBy}
+        tabIndex={-1}
+        onKeyDown={trapTab}
         initial={{ opacity: 0, scale: 0.96, y: 14 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ type: 'spring', stiffness: 420, damping: 34, mass: 0.8 }}
@@ -137,7 +179,8 @@ export function Modal({ onClose, size = 'md', labelledBy, children, className }:
       >
         {children}
       </m.div>
-    </div>
+    </div>,
+    document.body,
   );
 }
 

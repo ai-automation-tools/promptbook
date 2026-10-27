@@ -3,6 +3,10 @@ title: "🤖 Master App Store Localization & ASO Prompt (2025) – Full Metadata
 tags: ["awesome-chatgpt", "master", "app", "store", "localization"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Master App Store Localization & ASO Prompt (2025) – Full Metadata Generator

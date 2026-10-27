@@ -12,14 +12,18 @@ This template is for traditional prompt engineering - creating reusable prompts 
 
 **Key Features:**
 - Required frontmatter: title (with 📌 icon), tags, category, subcategory
+- A prompt copied from a public collection adds an `upstream:` block (`match`, `repo`,
+  `checked`), which the card shows as the repo link at the top
 - Purpose, instructions, output format sections
 - Optional examples and tips
 - Support for "featured" tag
 
-**Example Subcategories:**
-- 4_Prompts/Business/Marketing
-- 4_Prompts/Engineering/Code_Review
-- 4_Prompts/Writing/Content_Creation
+**Example Subcategories:** one folder per source collection, then the collection's own grouping
+- 4_Prompts/Awesome_ChatGPT/General
+- 4_Prompts/<Another_Collection>/<Its_Category>
+
+(The hand-written categories, `Business/`, `Engineering/` and the rest, were archived on 2026-10-26: a
+prompt without a public repo behind it no longer goes in the library.)
 
 ---
 
@@ -30,7 +34,8 @@ This template is for traditional prompt engineering - creating reusable prompts 
 This template documents how to configure and use AI coding assistants and agents (Claude Code, Codex, Cursor, etc.).
 
 **Key Features:**
-- Required frontmatter: title (with 💻 icon), tags, category, subcategory
+- Required frontmatter: title (with 💻 icon), tags, category, subcategory, and `repo:` naming
+  the GitHub repo of the tool the guide documents (the link at the top of the card)
 - Agent configuration settings (model, temperature, tools)
 - Complete system prompt
 - Workflow and procedures
@@ -68,18 +73,16 @@ This template defines a subagent: frontmatter with `name:` and `description:` (p
 
 ### 4. 📝 System Prompts Template
 **File:** `system-prompts-template.md`  
-**Use for:** Complete LLM system instructions and platform configurations
+**Use for:** A real system prompt, copied verbatim from a source you can link
 
-This template documents the full system prompts used by AI platforms like v0.dev, Claude, ChatGPT, etc. These are comprehensive instruction sets that define how an AI system behaves.
+`5_System_Prompts` archives the prompts AI products actually run. Nothing here is written or
+reconstructed: the body is the source's text, unchanged.
 
 **Key Features:**
 - Required frontmatter: title (with 📝 icon), tags, category, subcategory
-- XML-style structured tags (`<system_info>`, `<capability>`, etc.)
-- System identity and capabilities
-- Response formatting rules
-- Domain knowledge sections
-- Citation and refusal guidelines
-- Multiple interaction examples
+- An `upstream:` block naming the GitHub repo, path and commit it was copied from, or
+  `match: vendor` + `url` for a prompt the vendor publishes only on its own page
+- CI (`scripts/upstream.test.mjs`) fails on a file with neither
 
 **Example Subcategories:**
 - 5_System_Prompts/V0.Dev/

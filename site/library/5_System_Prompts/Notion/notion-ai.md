@@ -3,6 +3,12 @@ title: "🧠 Notion AI"
 tags: ["notion", "ai", "assistant"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
+upstream:
+  match: exact
+  repo: jujumilk3/leaked-system-prompts
+  path: notion-ai_20221228.md
+  ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
+  checked: 2026-10-23
 ---
 
 # Notion AI

@@ -3,6 +3,12 @@ title: "💻 Augmentcode"
 tags: ["augment code", "llm", "instructions", "augmentcode"]
 category: "LLM Instructions"
 subcategory: "Augment Code"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Augment Code/20250724-augmentcode.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 Augment Agent system prompt. Check: [https://www.augmentcode.com/blog/meet-augment-agent](https://www.augmentcode.com/blog/meet-augment-agent)

@@ -3,6 +3,10 @@ title: "🤖 SciSim Pro - Simulator for science (ASCII/Textual Art spatial diagr
 tags: ["awesome-chatgpt", "scisim", "pro", "simulator", "science"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # SciSim Pro - Simulator for science (ASCII/Textual Art spatial diagrams support)

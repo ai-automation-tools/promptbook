@@ -3,6 +3,12 @@ title: "💬 Mistral Le Chat Pro System Prompt"
 tags: ["mistral", "le-chat", "le-chat-pro", "system-prompt"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
+upstream:
+  match: similar
+  repo: jujumilk3/leaked-system-prompts
+  path: mistral-le-chat-pro_20250425.md
+  ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
+  checked: 2026-10-23
 ---
 
 # Mistral Le Chat Pro System Prompt

@@ -4,10 +4,14 @@ tags: ["skill","data","scientific-visualization"]
 name: "scientific-visualization"
 description: "Create publication figures with matplotlib/seaborn/plotly. Multi-panel layouts, error bars, significance markers, colorblind-safe, export PDF/EPS/TIFF, for journal-ready scientific plots."
 upstream:
-  match: ambiguous
-  copies: 4
-  candidates: [hughyau/academicforge, jackspace/claudeskillz, ovachiever/droid-tings, thegovind/claude-scientific-skills]
-  checked: 2026-08-26
+  match: exact
+  repo: hughyau/academicforge
+  path: skills/scientific-visualization/SKILL.md
+  ref: 01b6d90c5b50ba0aa48b6564e45ee4a0ade9487c
+  checked: 2026-10-23
+  was: ambiguous
+  candidates: [ovachiever/droid-tings]
+  license: MIT
 ---
 
 # Scientific Visualization

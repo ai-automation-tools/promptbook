@@ -3,6 +3,10 @@ title: "🤖 logo designer"
 tags: ["awesome-chatgpt", "logo", "designer"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # logo designer

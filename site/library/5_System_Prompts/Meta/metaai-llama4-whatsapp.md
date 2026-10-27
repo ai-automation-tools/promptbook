@@ -3,6 +3,12 @@ title: "🧠 Metaai Llama4 Whatsapp 07292025"
 tags: ["meta.ai", "llm", "instructions", "metaai", "llama4", "whatsapp", "07292025"]
 category: "LLM Instructions"
 subcategory: "Meta.ai"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Meta.ai/metaai_llama4-whatsapp-07292025.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 Meta AI (Llama 4) - WhatsApp's chatbot

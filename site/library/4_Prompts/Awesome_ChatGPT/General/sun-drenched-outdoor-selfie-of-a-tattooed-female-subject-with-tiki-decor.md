@@ -3,6 +3,10 @@ title: "🤖 Sun-Drenched Outdoor Selfie of a Tattooed Female Subject with Tiki 
 tags: ["awesome-chatgpt", "sun", "drenched", "outdoor", "selfie"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Sun-Drenched Outdoor Selfie of a Tattooed Female Subject with Tiki Decor

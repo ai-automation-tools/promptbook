@@ -3,6 +3,10 @@ title: "🤖 Radical Responsibility Mirror (Shadow Work)"
 tags: ["awesome-chatgpt", "radical", "responsibility", "mirror", "shadow"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Radical Responsibility Mirror (Shadow Work)

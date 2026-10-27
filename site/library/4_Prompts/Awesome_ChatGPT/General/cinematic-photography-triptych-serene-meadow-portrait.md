@@ -3,6 +3,10 @@ title: "🤖 Cinematic Photography Triptych: Serene Meadow Portrait"
 tags: ["awesome-chatgpt", "cinematic", "photography", "triptych", "serene"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Cinematic Photography Triptych: Serene Meadow Portrait

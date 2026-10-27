@@ -3,6 +3,12 @@ title: "📝 Anthropic Claude Sonnet 4.5 (2025-11-19)"
 tags: ["system-prompt", "llm", "instructions", "Anthropic"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
+upstream:
+  match: similar
+  repo: jujumilk3/leaked-system-prompts
+  path: anthropic-claude-sonnet-4.5_20251119.md
+  ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
+  checked: 2026-10-23
 ---
 
 # Anthropic Claude Sonnet 4.5 (2025-11-19)

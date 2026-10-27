@@ -3,6 +3,12 @@ title: "📊 Dbrx Instruct 03272024"
 tags: ["databricks", "llm", "instructions", "dbrx", "instruct", "03272024"]
 category: "LLM Instructions"
 subcategory: "Databricks"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/Databricks/DBRX Instruct_03272024.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 # Databrick's DBRX Instruct model system prompt

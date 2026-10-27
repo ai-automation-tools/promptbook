@@ -3,6 +3,12 @@ title: "🧠 Grok4"
 tags: ["xai", "llm", "instructions", "grok4"]
 category: "LLM Instructions"
 subcategory: "xAI"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/xAI/20251027-Grok4.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 System: You are Grok built by xAI.

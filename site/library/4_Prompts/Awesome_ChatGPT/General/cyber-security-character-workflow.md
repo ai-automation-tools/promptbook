@@ -3,6 +3,10 @@ title: "🤖 Cyber Security Character Workflow"
 tags: ["awesome-chatgpt", "cyber", "security", "character", "workflow"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Cyber Security Character Workflow

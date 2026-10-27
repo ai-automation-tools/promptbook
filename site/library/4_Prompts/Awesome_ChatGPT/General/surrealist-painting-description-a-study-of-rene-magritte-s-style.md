@@ -3,6 +3,10 @@ title: "🤖 Surrealist Painting Description: A Study of René Magritte's Style"
 tags: ["awesome-chatgpt", "surrealist", "painting", "description", "study"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Surrealist Painting Description: A Study of René Magritte's Style

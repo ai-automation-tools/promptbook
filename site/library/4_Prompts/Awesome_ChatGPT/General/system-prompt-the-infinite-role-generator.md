@@ -3,6 +3,10 @@ title: "🤖 SYSTEM PROMPT: THE INFINITE ROLE GENERATOR"
 tags: ["awesome-chatgpt", "system", "infinite", "role"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # SYSTEM PROMPT: THE INFINITE ROLE GENERATOR

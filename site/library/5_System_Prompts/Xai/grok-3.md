@@ -3,6 +3,12 @@ title: "🧠 xAI Grok 3 System Prompt"
 tags: ["xai", "grok", "grok-3", "system-prompt"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
+upstream:
+  match: exact
+  repo: jujumilk3/leaked-system-prompts
+  path: xAI-grok3_20250605.md
+  ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
+  checked: 2026-10-23
 ---
 
 # xAI Grok 3 System Prompt

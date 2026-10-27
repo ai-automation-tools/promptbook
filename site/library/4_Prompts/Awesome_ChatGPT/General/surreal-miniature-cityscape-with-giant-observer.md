@@ -3,6 +3,10 @@ title: "🤖 Surreal Miniature Cityscape with Giant Observer"
 tags: ["awesome-chatgpt", "surreal", "miniature", "cityscape", "giant"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Surreal Miniature Cityscape with Giant Observer

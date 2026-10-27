@@ -3,6 +3,12 @@ title: "🧠 Grok2 Fun"
 tags: ["xai", "llm", "instructions", "grok2", "fun"]
 category: "LLM Instructions"
 subcategory: "xAI"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/xAI/20241212-Grok2-fun.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
     Please note the placeholders: `$name` and `$handle` which are replaced by your account info

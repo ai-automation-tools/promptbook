@@ -3,6 +3,10 @@ title: "🤖 Agent Organization Expert"
 tags: ["awesome-chatgpt", "agent", "organization", "expert"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Agent Organization Expert

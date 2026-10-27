@@ -69,7 +69,7 @@ assert.notEqual(norm(splitFrontmatter(local).body), norm(splitFrontmatter(change
 const LIB = path.join(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1")),
   "..", "site", "library", "3_Skills");
 if (fs.existsSync(LIB)) {
-  const sample = path.join(LIB, "AI_ML", "MCP", "mcp-builder", "SKILL.md");
+  const sample = path.join(LIB, "Content", "General", "humanizer", "SKILL.md");
   if (fs.existsSync(sample)) {
     const fm = splitFrontmatter(fs.readFileSync(sample, "utf8")).fm;
     assert.equal((fm.match(/^upstream:$/gm) || []).length, 1, "exactly one upstream block");
@@ -87,7 +87,7 @@ const stampUpstream = (fm, { ref, checked }) =>
     const keep = block.split("\n").filter((l) => l.trim() && !/^\s+(ref|checked|match):/.test(l));
     return ["upstream:", "  match: exact", ...keep, `  ref: ${ref}`, `  checked: ${checked}`]
       .join("\n") + "\n";
-  });
+  }).replace(/\n?$/, "\n");
 
 const before = "name: \"🛠️ thing\"\ntags: [\"a\"]\nupstream:\n  match: similar\n" +
   "  repo: a/b\n  path: skills/thing/SKILL.md\n  ref: old\n  checked: 2020-01-01\n";
@@ -105,6 +105,14 @@ assert.ok(after.includes("tags: [\"a\"]"), "local curation outside the block is 
 // Idempotent: stamping the result again changes nothing.
 assert.equal(stampUpstream(after, { ref: "newsha", checked: "2026-08-26" }), after);
 
+// `tags:` after the block, the way splitFrontmatter hands it over (no trailing
+// newline, as in 2_Agents/AI_ML/Other/model-evaluator.md): `---` gets its own line.
+const tagsLast = "name: model-evaluator\nupstream:\n  match: exact\n  repo: a/b\n" +
+  "  path: agents/model-evaluator.md\n  ref: old\n  checked: 2020-01-01\ntags: [\"agent\"]";
+const restamped = `---\n${stampUpstream(tagsLast, { ref: "newsha", checked: "2026-10-23" })}---\nbody`;
+assert.ok(restamped.endsWith("\ntags: [\"agent\"]\n---\nbody"), "frontmatter closes on its own line");
+assert.equal(readUpstream(stampUpstream(tagsLast, { ref: "newsha", checked: "2026-10-23" })).ref, "newsha");
+
 // --- the `match:` vocabulary is attribution confidence, never a drift verdict ---
 // `behind` is check-upstream-drift.mjs's verdict for "a quarter or more of
 // upstream's lines are absent from this copy".
@@ -114,7 +122,8 @@ assert.equal(stampUpstream(after, { ref: "newsha", checked: "2026-08-26" }), aft
 {
   const HERE = path.dirname(new URL(import.meta.url).pathname.replace(/^[/]([A-Za-z]:)/, "$1"));
   const LIB = path.join(HERE, "..", "site", "library");
-  const KNOWN = new Set(["exact", "prefix", "similar", "ambiguous", "unknown", "fork"]);
+  // `vendor`: a system prompt the vendor publishes only on its own page (`url`, no repo).
+  const KNOWN = new Set(["exact", "prefix", "similar", "ambiguous", "unknown", "fork", "vendor"]);
   const walk = (dir, match, out = []) => {
     for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
       const p = path.join(dir, e.name);
@@ -129,6 +138,8 @@ assert.equal(stampUpstream(after, { ref: "newsha", checked: "2026-08-26" }), aft
   const files = [
     ...walk(path.join(LIB, "3_Skills"), (n) => n === "SKILL.md"),
     ...walk(path.join(LIB, "2_Agents"), (n) => n.endsWith(".md")),
+    // System prompts since 2026-10-23 (attribute-system-prompts.mjs).
+    ...walk(path.join(LIB, "5_System_Prompts"), (n) => n.endsWith(".md") && n.toLowerCase() !== "readme.md"),
   ];
   for (const f of files) {
     const u = readUpstream(splitFrontmatter(fs.readFileSync(f, "utf8")).fm);
@@ -137,7 +148,91 @@ assert.equal(stampUpstream(after, { ref: "newsha", checked: "2026-08-26" }), aft
     if (!KNOWN.has(u.match)) bad.push(path.relative(LIB, f) + ": match: " + u.match);
   }
   assert.deepEqual(bad, [], "every upstream.match must be a known attribution verdict");
-  console.log("  " + stamped + " stamped skills and agents, every match: value in the vocabulary");
+  console.log("  " + stamped + " stamped skills, agents and system prompts, every match: value in the vocabulary");
+
+  // --- every vendored item names its source (Mike, 2026-10-23) ---
+  // Skills, agents and system prompts carry an `upstream:` block with a GitHub
+  // `repo` (unknown/ambiguous do not count: they name no single repo), or, for a
+  // system prompt a vendor publishes only on its own page, `match: vendor` + `url`.
+  // MCP cards name theirs in `server.repo`. Folder README files are not items.
+  const unsourced = [];
+  const block = (fm, key) => {
+    const m = fm.match(new RegExp(`^${key}:\\n((?:[ \\t]+.*\\n?)*)`, "m"));
+    return m ? Object.fromEntries(m[1].split("\n").map((l) => l.match(/^\s+([a-z_]+):\s*(.*)$/)).filter(Boolean)
+      .map(([, k, v]) => [k, v.trim().replace(/^["']|["']$/g, "")])) : null;
+  };
+  for (const f of files) {
+    if (path.basename(f).toLowerCase() === "readme.md") continue;
+    const u = readUpstream(splitFrontmatter(fs.readFileSync(f, "utf8")).fm);
+    const named = u && ((u.repo && u.match !== "unknown" && u.match !== "ambiguous") || (u.match === "vendor" && u.url));
+    if (!named) unsourced.push(path.relative(LIB, f).split(path.sep).join("/"));
+  }
+  for (const f of walk(path.join(LIB, "6_MCP_Servers"), (n) => n.endsWith(".md") && n.toLowerCase() !== "readme.md")) {
+    if (!block(splitFrontmatter(fs.readFileSync(f, "utf8")).fm, "server")?.repo) unsourced.push(path.relative(LIB, f).split(path.sep).join("/"));
+  }
+  // Guides and prompts too (Mike, 2026-10-26: every card shows a repo link, the unlinked ones
+  // were archived). A prompt copied from a collection carries `upstream.repo`; a guide is
+  // written here, so it names the tool it documents in a bare `repo:` line.
+  const isMd = (n) => n.endsWith(".md") && n.toLowerCase() !== "readme.md";
+  for (const f of walk(path.join(LIB, "4_Prompts"), isMd)) {
+    const u = readUpstream(splitFrontmatter(fs.readFileSync(f, "utf8")).fm);
+    if (!u?.repo || u.match === "unknown" || u.match === "ambiguous") unsourced.push(path.relative(LIB, f).split(path.sep).join("/"));
+  }
+  // Skill library cards (3_Skills/Libraries, one per repo since 2026-10-27) are written here
+  // too, so like a guide they name their repo in a bare `repo:` line.
+  for (const f of [...walk(path.join(LIB, "1_Guides"), isMd), ...walk(path.join(LIB, "3_Skills", "Libraries"), isMd)]) {
+    if (!/^repo:\s*[\w.-]+\/[\w.-]+\s*$/m.test(splitFrontmatter(fs.readFileSync(f, "utf8")).fm)) unsourced.push(path.relative(LIB, f).split(path.sep).join("/"));
+  }
+  assert.deepEqual(unsourced, [], "every item must name a repo (upstream.repo, match: vendor + url, server.repo, or a guide's repo:)");
+  console.log("  every skill, agent, system prompt, MCP card, prompt and guide names a repo");
+
+  // --- F17: each record's kind has the metadata that kind needs ---
+  // Original: written here (guides, library cards) — a bare `repo:` and no upstream block,
+  // which would claim it was copied. Attributed: copied, so the block says from where and
+  // when (`repo` as owner/name, `checked` as a date), a fork says how it differs (`note`),
+  // and a vendor-page prompt has its `url`. Unresolved (unknown/ambiguous) already fails above.
+  // A skill ships as files people download, so it also needs a redistributable `license:`
+  // and the licence text beside SKILL.md (scripts/vendor-skill-licenses.mjs writes both).
+  const REDISTRIBUTABLE = new Set(["MIT", "Apache-2.0", "CC0-1.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Unlicense", "CC-BY-4.0"]);
+  const kinds = { original: 0, attributed: 0 };
+  const wrong = [];
+  const rel = (f) => path.relative(LIB, f).split(path.sep).join("/");
+  for (const f of [...walk(path.join(LIB, "1_Guides"), isMd), ...walk(path.join(LIB, "3_Skills", "Libraries"), isMd)]) {
+    kinds.original++;
+    if (readUpstream(splitFrontmatter(fs.readFileSync(f, "utf8")).fm)) wrong.push(`${rel(f)}: original, but carries an upstream block`);
+  }
+  for (const f of [...files.filter((f) => path.basename(f).toLowerCase() !== "readme.md"), ...walk(path.join(LIB, "4_Prompts"), isMd)]) {
+    const u = readUpstream(splitFrontmatter(fs.readFileSync(f, "utf8")).fm);
+    kinds.attributed++;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(u.checked || "")) wrong.push(`${rel(f)}: no checked date`);
+    if (u.match === "vendor") { if (!/^https:\/\//.test(u.url)) wrong.push(`${rel(f)}: vendor without an https url`); continue; }
+    if (!/^[\w.-]+\/[\w.-]+$/.test(u.repo)) wrong.push(`${rel(f)}: repo is not owner/name`);
+    if (u.match === "fork" && !u.note) wrong.push(`${rel(f)}: fork without a note`);
+    if (path.basename(f) !== "SKILL.md") continue;
+    if (!REDISTRIBUTABLE.has(u.license)) wrong.push(`${rel(f)}: license ${u.license || "missing"} is not redistributable`);
+    if (!fs.readdirSync(path.dirname(f)).some((n) => /^(LICENSE|COPYING)(\.(md|txt))?$/i.test(n))) wrong.push(`${rel(f)}: no LICENSE beside it`);
+  }
+  // A skill file named anything but SKILL.md (SKILL.MD, skill.md) is invisible to the index on
+  // Linux and to every check above, so it would ship unattributed.
+  for (const f of walk(path.join(LIB, "3_Skills"), (n) => n.toLowerCase() === "skill.md" && n !== "SKILL.md")) wrong.push(`${rel(f)}: name it SKILL.md`);
+  // Nor is a file outside every skill folder (81 such were archived 2026-10-27), apart from the
+  // section README, the library cards and the packs.
+  const inSkill = (f) => { for (let d = path.dirname(f); d.length > LIB.length; d = path.dirname(d)) if (fs.existsSync(path.join(d, "SKILL.md"))) return true; return false; };
+  for (const f of walk(path.join(LIB, "3_Skills"), () => true)) {
+    if (!/^3_Skills\/(README\.md$|Libraries\/|packs\/)/.test(rel(f)) && !inSkill(f)) wrong.push(`${rel(f)}: outside any skill folder`);
+  }
+  // Paths under library/ are case-unique (one file on Windows, two on Linux, and the index
+  // desynced once), and an item's own file name is lowercase, since it is the item's id.
+  const seen = new Map();
+  for (const f of walk(LIB, () => true)) {
+    const r = rel(f), k = r.toLowerCase();
+    if (seen.has(k)) wrong.push(`${r}: differs from ${seen.get(k)} only in case`);
+    seen.set(k, r);
+    const name = path.basename(f);
+    if (name.endsWith(".md") && /[A-Z]/.test(name) && name !== "SKILL.md" && name !== "README.md" && !inSkill(f)) wrong.push(`${r}: an item's file name is lowercase`);
+  }
+  assert.deepEqual(wrong, [], "every record has the metadata its kind needs");
+  console.log(`  ${kinds.original} original and ${kinds.attributed} attributed records, each with its kind's metadata; every skill licensed to redistribute`);
 }
 
 console.log("upstream: all checks passed");

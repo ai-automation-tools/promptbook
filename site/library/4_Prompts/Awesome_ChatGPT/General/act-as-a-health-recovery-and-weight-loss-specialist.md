@@ -3,6 +3,10 @@ title: "🤖 Act as a Health Recovery and Weight Loss Specialist"
 tags: ["awesome-chatgpt", "health", "recovery", "weight", "loss"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Act as a Health Recovery and Weight Loss Specialist

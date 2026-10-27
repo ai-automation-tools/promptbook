@@ -3,6 +3,10 @@ title: "🤖 Code Translator: Any Language to Any Language"
 tags: ["awesome-chatgpt", "code", "translator", "any", "language"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Code Translator: Any Language to Any Language

@@ -3,6 +3,10 @@ title: "🤖 Setting Up a New iOS App in Xcode"
 tags: ["awesome-chatgpt", "setting", "new", "ios", "app"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Setting Up a New iOS App in Xcode

@@ -72,13 +72,48 @@ const serverFolders = [...fs.readFileSync(path.join(SITE, 'lib', 'library.ts'), 
 assert.ok(appFolders.length >= 6, `found the app's sections (${appFolders.length})`);
 assert.deepEqual(serverFolders, appFolders, 'lib/library.ts SECTIONS must list the same folders as src/lib/sections.ts');
 
+// ---------- declared prompt inputs (O03) ----------
+const { declaredInputs, fillInputs } = await import('../lib/prompt-inputs.ts');
+{
+  const body = 'Teach [topic] to [target audience]. Skip [N] tips, keep [dict] and [link](x).';
+  const { inputs, problems } = declaredInputs({ inputs: ['topic', { name: 'target audience', description: 'Who reads it' }, 'missing', 'input', '../x'] }, body);
+  assert.deepEqual(inputs.map((i) => i.arg), ['topic', 'target_audience']);
+  assert.equal(inputs[1].description, 'Who reads it');
+  assert.equal(problems.length, 3, 'names not in the body (missing, input) and a malformed one are dropped');
+  assert.equal(declaredInputs({ inputs: 'topic' }, body).problems.length, 1, 'a non-list is refused');
+  assert.equal(declaredInputs({}, body).inputs.length, 0, 'no declaration, no inputs');
+  const out = fillInputs(body, inputs, { topic: 'Rust [target audience] $& ${x}', target_audience: 'beginners' });
+  assert.equal(out, 'Teach Rust [target audience] $& ${x} to beginners. Skip [N] tips, keep [dict] and [link](x).',
+    'one literal pass: values are not filled again, $ patterns stay, undeclared brackets stay');
+  assert.match(declaredInputs({ inputs: ['input'] }, 'use [input]').problems[0], /clashes/);
+}
+// Every declaration in the library must be valid, so a typo fails CI instead of silently dropping.
+for (const e of index.prompts.filter((p) => p.inputs)) {
+  const raw = fs.readFileSync(path.join(SITE, 'library', e.id), 'utf-8');
+  const matter = (await import('gray-matter')).default(raw);
+  assert.deepEqual(declaredInputs(matter.data, matter.content).problems, [], `${e.id}: inputs`);
+}
+const withInputs = index.prompts.find((p) => p.inputs && p.section === '4_Prompts');
+assert.ok(withInputs, 'the library has a prompt that declares inputs');
+
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'mcp-my-library-'));
+// A My Library prompt with inputs, there before connect (My Library prompts are registered then).
+fs.writeFileSync(path.join(tmp, 'brief-abc123.md'), ['---', 'title: Brief', 'section: 4_Prompts', 'category: Test', 'subcategory: null',
+  'tags: []', 'inputs: [audience]', "created: '2026-10-27T00:00:00.000Z'", "updated: '2026-10-27T00:00:00.000Z'", '---', '', 'Write for [audience].', ''].join('\n'));
 let client;
 try {
   // ---------- writable ----------
   client = await connect({ MY_LIBRARY_DIR: tmp, READ_ONLY: 'false', VERCEL: '', IMPORT_ROOTS: '' });
 
-  const tools = (await client.listTools()).tools.map((t) => t.name).sort();
+  const listed = (await client.listTools()).tools;
+  const tools = listed.map((t) => t.name).sort();
+  // Every write tool says whether it can lose data; the ones that overwrite or delete say so.
+  const destructive = { save_to_my_library: false, update_my_prompt: true, update_from_public: true, delete_my_prompt: true };
+  for (const [name, hint] of Object.entries(destructive)) {
+    const a = listed.find((t) => t.name === name)?.annotations;
+    assert.equal(a?.readOnlyHint, false, `${name} readOnlyHint`);
+    assert.equal(a?.destructiveHint, hint, `${name} destructiveHint`);
+  }
   assert.deepEqual(tools, [
     'delete_my_prompt', 'get_item', 'get_skill', 'get_skill_file', 'get_skill_pack', 'list_categories',
     'list_sections', 'list_skill_packs', 'save_to_my_library', 'search_library', 'update_from_public', 'update_my_prompt',
@@ -107,7 +142,7 @@ try {
   await ok(client, 'get_skill_file', { skill: skill.dir, path: skill.file });
   await refused(client, 'get_skill_file', { skill: skill.dir, path: '../../../../../.env' });
   await refused(client, 'get_skill_file', { skill: skill.dir, path: '../../../../api/index.ts' });
-  await refused(client, 'get_skill', { id: '4_Prompts/Engineering' });
+  await refused(client, 'get_skill', { id: '4_Prompts/Awesome_ChatGPT' });
   await refused(client, 'get_skill', { id: '3_Skills/../../api' });
 
   assert.match(await ok(client, 'list_skill_packs'), /developer-essentials-pack/);
@@ -121,18 +156,40 @@ try {
   const got = await client.getPrompt({ name: 'library_prompt', arguments: { id: libPrompt.id, input: 'MY-INPUT-MARKER' } });
   assert.match(got.messages[0].content.text, /MY-INPUT-MARKER/);
 
+  // Declared inputs are required named arguments, filled in place; `input` still appends.
+  const listedPrompts = (await client.listPrompts()).prompts;
+  const named = listedPrompts.find((p) => p.arguments?.some((a) => a.name === 'topic'));
+  assert.ok(named, `${withInputs.id} is listed with a topic argument`);
+  assert.equal(named.arguments.find((a) => a.name === 'topic').required, true, 'a declared input is required');
+  assert.equal(named.arguments.find((a) => a.name === 'input').required, false, 'input stays optional');
+  const filledIn = (await client.getPrompt({ name: named.name, arguments: { topic: 'TOPIC-MARKER', input: 'EXTRA' } })).messages[0].content.text;
+  assert.match(filledIn, /TOPIC-MARKER/);
+  assert.doesNotMatch(filledIn, /\[topic\]/);
+  assert.match(filledIn, /---\n\nEXTRA$/);
+  await assert.rejects(client.getPrompt({ name: named.name, arguments: {} }), 'a missing required input is refused');
+  const mine = listedPrompts.find((p) => p.name.startsWith('my-brief'));
+  assert.equal(mine?.arguments?.find((a) => a.name === 'audience')?.required, true, 'My Library prompts get their inputs too');
+  assert.equal((await client.getPrompt({ name: mine.name, arguments: { audience: 'CFOs' } })).messages[0].content.text, 'Write for CFOs.');
+
   // My Library round trip, in the temp folder
   const saved = await ok(client, 'save_to_my_library', { id: libPrompt.id });
   const myId = saved.match(/`([a-z0-9-]+)`/)?.[1];
   assert.ok(myId, `save returned an id: ${saved}`);
-  assert.equal(fs.readdirSync(tmp).length, 1, 'one file written to MY_LIBRARY_DIR');
+  assert.equal(fs.readdirSync(tmp).filter((f) => f !== 'brief-abc123.md').length, 1, 'one file written to MY_LIBRARY_DIR');
   await refused(client, 'save_to_my_library', { id: libPrompt.id }); // duplicate
   await refused(client, 'save_to_my_library', { title: 'no content' });
   assert.match(await ok(client, 'search_library', { library: 'my' }), new RegExp(myId));
   await ok(client, 'update_my_prompt', { id: myId, content: 'UPDATED-BODY' });
+  await refused(client, 'update_my_prompt', { id: myId, content: '' }); // the store's field check, as over HTTP
+  await refused(client, 'update_my_prompt', { id: myId, content: 'STALE', version: '0000000000000000' }); // changed since that version
   assert.match(await ok(client, 'get_item', { id: myId }), /UPDATED-BODY/);
-  const fresh = await ok(client, 'save_to_my_library', { title: 'Fresh prompt', content: 'Hello', section: 'prompts', tags: ['t1'] });
+  const fresh = await ok(client, 'save_to_my_library', { title: 'Fresh prompt', content: 'Hello', section: 'prompts', tags: ['t1'], source_url: 'https://github.com/owner/repo' });
   assert.match(fresh, /Saved to My Library/);
+  const freshId = fresh.match(/`([a-z0-9-]+)`/)?.[1];
+  assert.match(await ok(client, 'get_item', { id: freshId }), /source: https:\/\/github\.com\/owner\/repo/);
+  await refused(client, 'update_my_prompt', { id: freshId, source_url: 'javascript:alert(1)' });
+  await ok(client, 'update_my_prompt', { id: freshId, source_url: '' });
+  assert.doesNotMatch(await ok(client, 'get_item', { id: freshId }), /source:/);
   // A skill keeps its frontmatter through save, edit and read-back.
   const skillSaved = await ok(client, 'save_to_my_library', {
     title: 'test-skill', section: 'skills', category: 'Development', tags: ['t'],
@@ -201,7 +258,7 @@ try {
   await client.close();
   client = null;
 
-  console.log('mcp-server: 11 tools, prompts, traversal refusals, My Library round trip and read-only mode all pass');
+  console.log('mcp-server: 11 tools, prompts (with declared inputs), traversal refusals, My Library round trip and read-only mode all pass');
 } catch (err) {
   console.error('mcp-server test FAILED:', err?.message ?? err);
   process.exitCode = 1;

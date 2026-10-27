@@ -3,6 +3,10 @@ title: "🤖 Big 4 style report for retail traders - Enter the name and ticker o
 tags: ["awesome-chatgpt", "big", "style", "report", "retail"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Big 4 style report for retail traders - Enter the name and ticker of a U.S. publicly traded company.

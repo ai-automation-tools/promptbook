@@ -3,6 +3,10 @@ title: "🤖 Mirror Product Photo"
 tags: ["awesome-chatgpt", "mirror", "product", "photo"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Mirror Product Photo

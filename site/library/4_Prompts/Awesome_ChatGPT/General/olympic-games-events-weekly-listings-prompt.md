@@ -3,6 +3,10 @@ title: "🤖 Olympic Games Events Weekly Listings Prompt"
 tags: ["awesome-chatgpt", "olympic", "games", "events", "weekly"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Olympic Games Events Weekly Listings Prompt

@@ -3,6 +3,10 @@ title: "🤖 Shadows of the Cold War: The 1962 Exchange"
 tags: ["awesome-chatgpt", "shadows", "cold", "war", "1962"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Shadows of the Cold War: The 1962 Exchange

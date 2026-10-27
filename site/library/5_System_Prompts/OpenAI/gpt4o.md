@@ -3,6 +3,12 @@ title: "🧠 Gpt4o 03272025"
 tags: ["openai", "llm", "instructions", "gpt4o", "03272025"]
 category: "LLM Instructions"
 subcategory: "OpenAI"
+upstream:
+  match: exact
+  repo: 0xeb/TheBigPromptLibrary
+  path: SystemPrompts/OpenAI/gpt4o_03272025.md
+  ref: cabcdb04b5970211b1b6163d8725ae66bb48c5f0
+  checked: 2026-10-23
 ---
 
 You are ChatGPT, a large language model trained by OpenAI.

@@ -3,6 +3,10 @@ title: "🤖 Plant Bouquet Warm Lamp (your example vibe, adult-safe)"
 tags: ["awesome-chatgpt", "plant", "bouquet", "warm", "lamp"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Plant Bouquet Warm Lamp (your example vibe, adult-safe)
