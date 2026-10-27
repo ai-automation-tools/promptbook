@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
+import matter from './frontmatter.js';
 import { fileURLToPath } from 'url';
 import { resolveInside } from './safe-path.js';
 

@@ -5,7 +5,7 @@ import fs from "fs";
 import path from "path";
 import net from "net";
 import crypto from "crypto";
-import matter from "gray-matter";
+import matter from "../lib/frontmatter.js";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 import archiver from "archiver";

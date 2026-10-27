@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-26 — Front matter can no longer run code (security sweep)
+
+gray-matter hands front matter that opens with `---js` or `---javascript` to `eval()`, and library files come from third-party collections. Every parse in `site/` now goes through `site/lib/frontmatter.js`, which turns that engine off, so such a file fails to parse instead of running. `scripts/skill-frontmatter.test.mjs` checks the refusal and that nothing in `site/` imports gray-matter directly. A new `.gitleaksignore` suppresses 71 gitleaks false positives: "LinkedIn" in prompt titles, and example tokens in vendored docs and prompts.
+
+_Touched: `site/lib/frontmatter.js` (new), `site/{api/index.ts,api/skill-packs.ts,lib/library.ts,lib/my-library.ts,mcp/server.ts,scripts/build-prompt-index.js}`, `scripts/skill-frontmatter.test.mjs`, `.gitleaksignore`._
+
+---
+
 ## 2026-10-26 — Two Awesome ChatGPT prompts and a Claude Code hooks guide
 
 Two prompts from `f/awesome-chatgpt-prompts` (now `f/prompts.chat`) @ `cd7ac608`, `prompts.csv`, both `match: similar`: **Spec Interview** and **Ethereum Developer**, in `4_Prompts/Awesome_ChatGPT/General/`. One guide in `1_Guides/Claude_Code/`: **Claude Code Hooks Guide** (`hooks-guide.md`, repo `anthropics/claude-code`), written from the official [hooks guide](https://code.claude.com/docs/en/hooks-guide) read this run: settings locations, event table, exit codes, three recipes, timeouts and troubleshooting. The folder had flags, slash commands and tips but nothing on hooks.

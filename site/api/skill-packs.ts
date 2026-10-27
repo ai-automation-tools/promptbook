@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from '../lib/vercel-types.js';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import matter from 'gray-matter';
+import matter from '../lib/frontmatter.js';
 import archiver from 'archiver';
 import { myLibrary, READ_ONLY } from '../lib/my-library.js';
 import { carriedFrontmatter, LIBRARY_PATH } from '../lib/library.js';
