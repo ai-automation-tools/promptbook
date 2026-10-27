@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-27 — Loose files out of 3_Skills
+
+81 files sat in `site/library/3_Skills/` outside any skill folder: 78 single-file prompt-style "skills" from before the AgentSkills layout, a stale Skill Packs list in `Development/README.md` and two orphaned `plugin.json` manifests. The index only reads `SKILL.md` files and library cards, so the app never showed them (the index is unchanged at 2,162 items), but they were still published in the repo with no source named. They moved to `archive/loose-skill-files-2026-10-27/`, paths kept, and `scripts/upstream.test.mjs` now fails on any file outside a skill folder other than the section README, `Libraries/` and `packs/`. `3_Skills/README.md` is rewritten for the current layout (30 library cards, 28 single skills) in place of the 256-skill tables from August.
+
+_Touched: `site/library/3_Skills/`, `archive/`, `scripts/upstream.test.mjs`._
+
+---
+
 ## 2026-10-27 — Every skill ships with its licence (F17)
 
 The provenance check proved that items named a repo, not that they could be given away. `scripts/upstream.test.mjs` now sorts every record into original (guides and library cards, which must not carry an upstream block), attributed (`repo` as owner/name, a `checked` date, a fork's `note`, a vendor page's `url`) or unresolved (fails), and a skill, which people download as files, needs a redistributable SPDX `license:` in its block and a LICENSE beside `SKILL.md`. `scripts/vendor-skill-licenses.mjs` writes both from the source repo with `gh`: 26 of the 32 skills had no licence file, so the NOTICE's "each vendored skill keeps its own LICENSE" was not true until now. `resync-upstream.mjs` keeps a vendored LICENSE instead of pruning it as stale. `test:read-only` opens a skill ZIP and every Skill Pack ZIP and checks each skill's LICENSE is inside.

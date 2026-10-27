@@ -215,6 +215,12 @@ assert.equal(readUpstream(stampUpstream(tagsLast, { ref: "newsha", checked: "202
   // A skill file named anything but SKILL.md (SKILL.MD, skill.md) is invisible to the index on
   // Linux and to every check above, so it would ship unattributed.
   for (const f of walk(path.join(LIB, "3_Skills"), (n) => n.toLowerCase() === "skill.md" && n !== "SKILL.md")) wrong.push(`${rel(f)}: name it SKILL.md`);
+  // Nor is a file outside every skill folder (81 such were archived 2026-10-27), apart from the
+  // section README, the library cards and the packs.
+  const inSkill = (f) => { for (let d = path.dirname(f); d.length > LIB.length; d = path.dirname(d)) if (fs.existsSync(path.join(d, "SKILL.md"))) return true; return false; };
+  for (const f of walk(path.join(LIB, "3_Skills"), () => true)) {
+    if (!/^3_Skills\/(README\.md$|Libraries\/|packs\/)/.test(rel(f)) && !inSkill(f)) wrong.push(`${rel(f)}: outside any skill folder`);
+  }
   assert.deepEqual(wrong, [], "every record has the metadata its kind needs");
   console.log(`  ${kinds.original} original and ${kinds.attributed} attributed records, each with its kind's metadata; every skill licensed to redistribute`);
 }
