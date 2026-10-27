@@ -53,6 +53,12 @@ marks one only Mike can do.
 > the repo of the tool it documents in `repo:`. `scripts/upstream.test.mjs` fails CI on a
 > prompt or guide without one. 1,897 items. The Monday Add Prompts job now copies prompts
 > from public collections instead of writing them.
+>
+> **2026-10-27:** a skill library is one card now, not a copy of each skill. The 30 cards in
+> `3_Skills/Libraries/` each link their repo and carry its README; the 224 copies they
+> replaced are in `archive/skill-libraries-2026-10-27/`, and 32 single skills stay. That
+> closed the skill-attribution item and made two others moot (the agent-skills licence, the
+> generated-pack label), and left a new question for Mike: what Skill Packs are for now.
 
 ## 🔌 Phase 1: MCP server for the library
 
@@ -98,10 +104,10 @@ that fails when the fix is reverted, run against a temporary `MY_LIBRARY_DIR`, n
 - [x] `small` **F11** Turn on `strict` in `site/tsconfig.json` and fix what it reports (the audit counted three diagnostics, plus explicit `any` at the API and UI boundaries), with no blanket `@ts-ignore`. `npm run lint` and `npm run build` both pass — done 2026-10-23: the three diagnostics fixed (`loadIndex`'s return, an editor `PromptDraft` type, `@types/react-dom`), and the boundary `any`s typed (`ListedPrompt`, `LibraryIndex`, `SkillPack`, `catch (error)` narrowed)
 - [x] **F12** Measure, then bound, the expensive endpoints: record p50/p95 and bytes for the metadata list, a detail read and representative skill ZIPs under a small concurrency test, then stop the full public list from parsing every body synchronously and stop ZIPs recompressing at level 9 on every request (cache or lower the level). A full export must not block ordinary reads. Budgets come from the measured baseline — done 2026-10-23: `npm run bench` and `docs/development/PERFORMANCE.md` (baseline, after, budgets). The full listing walks asynchronously, listings are cached as bytes with their ETag (concurrent requests share one build), and ZIPs use zlib level 6. A detail read during a cold export went from p95 927 ms to 128 ms, the export's event-loop stall from 989 ms to 126 ms (once per 5 minutes), and a warm export from 3.6 s to 149 ms
 - [x] `small` The hero counters name what a section holds ("servers", "skills", "agents") instead of "prompts" everywhere, from a field in `sections.ts` — done 2026-10-23: `noun` on each section
-- [ ] Resolve the semantic duplicates the byte-level dedupe cannot see: the two skill groups that share an upstream file (`skill-creator`, `brand-guidelines`), and any near-duplicates among the 49 backend specialists in `2_Agents/Development/Backend/`. Each merge or removal gets a changelog reason
+- [ ] Resolve the near-duplicates the byte-level dedupe cannot see among the 49 backend specialists in `2_Agents/Development/Backend/`. Each merge or removal gets a changelog reason. (The two skill groups this item also named, `skill-creator` and `brand-guidelines`, were archived with their libraries on 2026-10-27.)
 - [ ] Delete the stale `roadmap/auto-2026-08-31` branch (its PR #332 was closed unmerged) or recover its one commit 🔒 Needs Mike
 - [ ] Decide what happens to `4_Prompts/Awesome_ChatGPT/` (1,349 files from one upstream corpus, now renamed `f/prompts.chat` on GitHub; since the 2026-10-26 refresh four other collections sit beside it): resync it on a schedule like the skills (the drift check would need to read `prompts.csv`, one file for all 1,349), or freeze it as the dated capture it is 🔒 Needs Mike
-- [ ] `ai-automation-tools/agent-skills` gets a `LICENSE` file, so the 40 skills synced from it carry a stated licence in this public repo, and `NOTICE` names it 🔒 Needs Mike
+- [x] ~~`ai-automation-tools/agent-skills` gets a `LICENSE` file, so the 40 skills synced from it carry a stated licence in this public repo, and `NOTICE` names it~~ — dropped 2026-10-27: no skills are copied from it any more. The sync was deleted and the repo is one library card (`3_Skills/Libraries/ai-automation-tools-agent-skills.md`) that links it and carries its README
 - [x] `small` `scripts/resync-upstream.mjs` writes `tags: [...]---` on one line when `tags:` is the last frontmatter key of an agent (`stampUpstream` drops the newline), which breaks the frontmatter; hit on 3 agents on 2026-10-22. Fix it to always end the block with a newline. Done when resyncing `2_Agents/AI_ML/Other/model-evaluator.md` from a pre-sync copy yields valid frontmatter, with a case in `scripts/upstream.test.mjs` — done 2026-10-23: `stampUpstream` always ends on a newline; a real resync of `model-evaluator.md` closed its frontmatter correctly
 
 ## 🚦 Public release
@@ -119,14 +125,15 @@ Nothing below blocks go-live.
 
 - [ ] Decide whether a skill's `description:` is our curation or upstream content. Resync keeps the whole local frontmatter, so bodies match upstream while some descriptions are a year old, and the drift check strips frontmatter so it cannot see the gap. Done when resync and the drift report both handle `description` per the decision 🔒 Needs Mike
 - [x] Stamp `upstream:` provenance on `4_Prompts` and `5_System_Prompts` files that came from a public repo, with `attribute-upstream.mjs` learning single-file prompts. Done when the Monday health table's "no provenance" column drops for both sections — done 2026-10-26, differently: system prompts were stamped on 2026-10-23 (`attribute-system-prompts.mjs`), the 1,349 Awesome ChatGPT prompts carry `upstream: f/awesome-chatgpt-prompts` (one corpus, so no per-file matcher was needed), and the 669 prompts with no public source were archived rather than attributed. CI (`upstream.test.mjs`) now fails on an unstamped prompt or guide, which is a stronger gate than the health column
-- [ ] Raise skill attribution above its current share: 60 skills are `ambiguous` and 163 `unknown`. Matching support files as well as `SKILL.md` against the mirror is the likely lever
+- [x] Raise skill attribution above its current share: 60 skills are `ambiguous` and 163 `unknown`. Matching support files as well as `SKILL.md` against the mirror is the likely lever — done 2026-10-27, differently: the unattributed skills all came from multi-skill repos, which became library cards (each names its repo), and the copies were archived. The 32 single skills left are 25 `exact`, 5 `similar` and 2 `fork`, none `ambiguous` or `unknown`
 - [ ] **F17** The provenance self-check tells original, attributed and unresolved records apart and checks each has the metadata its kind needs, and a sampled Skill Pack ZIP is verified to carry its `LICENSE`/`NOTICE` files. Today the frontmatter tests prove syntax and vocabulary, not that content may be redistributed
 - [ ] **O02** Show source and freshness in the UI: the index carries `upstream.checked` (and `server.checked` for MCP cards), cards and the detail page say whether an item is original, attributed or unresolved and show a stale badge past 90 days, with no "verified" claim the data cannot back. The index stays reproducible, no private path reaches a public payload, and the CI freshness gate knows the new field. Depends on F17. Sourcing `lastModified` from `git log` instead of file mtime needs a Vercel preview to prove the shallow clone works 🔒 Needs Mike for that half
 
 ### ✨ Features
 
 - [ ] Role-based starter collections for prompts and agents (a "frontend engineer" or "founder" set), served like Skill Packs and installable into My Library in one step
-- [ ] Skill Packs show whether a pack is generated from a folder or hand-picked, and the generated ones say which folder
+- [x] ~~Skill Packs show whether a pack is generated from a folder or hand-picked, and the generated ones say which folder~~ — dropped 2026-10-27: the generated packs are gone, and the three left are all hand-picked
+- [ ] Decide the future of Skill Packs now that three small hand-picked packs are left (2, 3 and 2 skills): grow them, fold them into starter collections (the item above), or retire the Packs view 🔒 Needs Mike
 - [ ] **O01** Export My Library as a zip, and import one, from Settings. Done when a mixed library (Unicode names, tags, extra frontmatter, long bodies) round-trips identically, an import never overwrites without showing the conflicts first, archive traversal and oversized entries are refused, and a cancelled import changes nothing. Depends on F05, F06 and F07
 - [ ] **O03** Library prompts with `[placeholder]` fields expose them as MCP prompt arguments, so a client asks for each value instead of one free-text `input`. Driven by an explicit, optional `inputs:` list in frontmatter, not by guessing at every bracketed phrase: declared inputs are required, unknown placeholders and literals are left alone, no template code runs, and the free-text `input` keeps working for existing clients
 - [ ] **O04** Export selected prompts as an evaluation project (versioned prompt files plus synthetic examples) that an evaluator the user configures can run. Paths are relative and safe, and the export makes no network call and needs no provider key. Depends on O01
@@ -148,6 +155,7 @@ job owns which part of the library.
 | Discovery (weekly, no model) | New GitHub repos into [`DISCOVERY.md`](DISCOVERY.md); `link` rows into the Resources menu |
 | Guides Refresh (biweekly) | Fixing `1_Guides` against official docs |
 | Catalog Refresh (biweekly) | `5_System_Prompts`, `2_Agents`, `6_MCP_Servers`, and the ledger's `accept` rows |
+| Library Cards Refresh (weekly, no model) | The skill library cards' descriptions and READMEs (`site/scripts/refresh-library-cards.mjs --write`), and dead hand-pack paths, as a `library-cards/auto-*` PR |
 | Weekly Roadmap | This file, and resyncing skills and agents the drift issue marks `behind` |
 | Monthly Upkeep | Updates and removals, hand-written Skill Packs (dead paths: `build-skill-packs.mjs`), skill library cards (`3_Skills/Libraries/`, READMEs refreshed with `site/scripts/refresh-library-cards.mjs --write`), Resources links, MCP cards, `featured` and tags |
 | `upstream-drift.yml` (weekly, GitHub Actions) | The rolling drift issue with its per-section health table |
