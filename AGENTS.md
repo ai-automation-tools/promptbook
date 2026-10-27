@@ -73,7 +73,7 @@ provenance self-checks (`scripts/upstream.test.mjs`, `scripts/skill-frontmatter.
 a rebuild of the prompt index, failing if the rebuilt file is not byte-identical to the committed one.
 A second job, `secrets`, runs gitleaks 8.30.1 (checksum-pinned) over the whole history with
 `.gitleaks.toml`: the default rules, with four loose pattern rules (generic API key, curl auth
-header, JWT, LinkedIn client ID) off in library text only. Locally: `gitleaks git . --redact`.
+header, JWT, LinkedIn client ID) off in library text only. Locally: `gitleaks git . --redact` (CI scans only `HEAD`'s history; locally that flag scans every branch).
 A new finding is either a real secret (revoke it at its issuer first, then rewrite) or an
 example: narrow the allowlist to that commit and file, never widen the path list for it.
 Rebuild and commit `api/prompt-index.json` whenever you touch `library/`.

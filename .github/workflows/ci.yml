@@ -145,5 +145,7 @@ jobs:
           tar -xzf gitleaks.tar.gz gitleaks
           rm gitleaks.tar.gz
 
+      # The history of the commit under test only: fetch-depth 0 brings every branch, and by
+      # default gitleaks scans them all, so another branch's finding would fail this PR.
       - name: Scan the history for secrets
-        run: ./gitleaks git . --config .gitleaks.toml --redact --no-banner --exit-code 1
+        run: ./gitleaks git . --config .gitleaks.toml --redact --no-banner --exit-code 1 --log-opts="--full-history HEAD"
