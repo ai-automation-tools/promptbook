@@ -7,9 +7,9 @@ upstream:
   match: exact
   repo: K-Dense-AI/claude-scientific-skills
   path: skills/scholar-evaluation/SKILL.md
-  ref: a1043ef544e3a100c28e70a736b6cf32554d0677
-  checked: 2026-10-18
   license: MIT
+  ref: 5f2bc0341354fd5590aef76a533ada1e1e5b4e62
+  checked: 2026-10-27
 ---
 
 # Scholar Evaluation
