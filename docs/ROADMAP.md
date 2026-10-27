@@ -34,9 +34,9 @@ marks one only Mike can do.
 >
 > Phases 1 and 2 are done. The open work an agent can take is Phase 3's framework majors
 > (Express 5, Vite 8, TypeScript 7; queued by the 2026-10-23 upstream check), then the
-> after-release features (starter collections, O01, O04). Everything
-> else waits on Mike: branch protection (F04) is the last gate before the next release, and the Node 24 and Actions v7 moves, the Awesome ChatGPT and Skill Packs decisions, and the public
-> MCP endpoint and npm package are his calls.
+> after-release features (starter collections, O01, O04). Every release gate is done (F04 and
+> F10 closed 2026-10-27). Mike's calls: the Node 24 and Actions v7 moves, the Awesome ChatGPT
+> and Skill Packs decisions, and the public MCP endpoint and npm package.
 
 ## 🔌 Phase 1: MCP server for the library (done 2026-10-21)
 
@@ -77,7 +77,7 @@ O01–O04 are under **After public release**.
 - [x] CI green on push and PR: lint, the route table, the My Library store and safe-path tests, the homepage test, provenance self-checks and prompt-index freshness — done 2026-08-27, extended since: `.github/workflows/ci.yml`
 - [x] `LICENSE` (Apache 2.0), `NOTICE` for vendored content, `SECURITY.md`, `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md` — done 2026-10-05: see the changelog
 - [x] Live: homepage at `promptbook.ai-automation-tools.dev` — done 2026-10-12; the app at `promptbook-demo.ai-automation-tools.dev` since 2026-10-19, read-only since 2026-10-21: see the changelog
-- [ ] **F04** `main` requires a pull request and the CI `check` job before merge. Done when a throwaway PR with a failing check cannot merge and the PR sweep still merges a passing one without bypassing it 🔒 Needs Mike (repository ruleset)
+- [x] **F04** `main` requires a pull request and the CI `check` job before merge. Done when a throwaway PR with a failing check cannot merge and the PR sweep still merges a passing one without bypassing it — done 2026-10-27: the existing `main` ruleset ("Rule1", which already blocked deletion and force pushes) now also requires a pull request (0 approvals, since the sweep merges as Mike) and the `check` and `secrets` CI jobs, with no bypass actors; merge, squash and rebase stay allowed and branches need not be up to date. Set in the browser with Mike's confirmation. A throwaway PR with `secrets` failing (#466) was refused by `gh pr merge --squash` ("the base branch policy prohibits the merge"), and this item's own PR, with both checks green, merged with the sweep's exact command (`gh pr merge --squash --delete-branch`, no `--admin`)
 - [x] **F10** A full-history secret scan with every finding dispositioned. The scan ran on 2026-10-23 (Gitleaks 8.30.1, 1,103 commits): 138 redacted candidates over 40 file/rule pairs, mostly prompt examples and vendored docs, none confirmed live. Left: classify each pair privately, revoke any real credential at its issuer before closing, add narrow per-fingerprint allowlists for reviewed examples, and scan new commits in CI (proved with a seeded fake secret that the job catches without printing). The disposition record stays out of this public repo. The old Neon credential is already closed: that database was deleted on 2026-10-21 — done 2026-10-27 (Mike's sign-off on the triage): a fresh full-history scan (Gitleaks 8.30.1, 1,168 commits) found 142 candidates, all from four loose pattern rules; no fixed-format key rule (private key, AWS, GitHub, Stripe, OpenAI, Anthropic…) matched in any commit, so nothing needed revoking. 132 were example tokens, placeholder headers, sample JWTs and "LinkedIn" in library text (every place the library has lived, the built index files, `archive/`); 10 were a made-up `abc123_<timestamp>` session token in the March `docs/API.md` and `docs/DATABASE.md`, since deleted. `.gitleaks.toml` turns the four loose rules off for library paths only and allowlists those two commits in those two files; the strict rules still scan everything (a fake AWS key and a private key under `site/library/` were caught). CI's new `secrets` job scans the history on every push and PR; a seeded fake secret on a throwaway PR failed it without printing the value. The triage detail stays in the private scan reports, outside the repo
 
 ## After public release

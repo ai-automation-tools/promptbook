@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-27 — main is protected (F04)
+
+The `main` ruleset, which already blocked deletion and force pushes, now also requires a pull request and the CI `check` and `secrets` jobs before anything merges, with no bypass for anyone. No approval is required, since the PR sweep merges as Mike, and merge, squash and rebase all stay allowed. A throwaway PR with a failing `secrets` check (#466) could not be merged; this entry's PR, with both checks green, merged with the sweep's own command. That was the last open release gate.
+
+_Touched: `AGENTS.md`, `docs/ROADMAP.md` (the ruleset itself is repository settings)._
+
+---
+
 ## 2026-10-27 — Secret scan triaged, configured and in CI (F10)
 
 A fresh gitleaks scan of the whole history (8.30.1, 1,168 commits) found 142 candidates and no real credential: every one came from four loose pattern rules, and none of the fixed-format key rules (private keys, AWS, GitHub, Stripe, OpenAI, Anthropic and the rest of the defaults) matched in any commit. 132 were example tokens, placeholder `Authorization` headers, sample JWTs and the word "LinkedIn" in library text; 10 were a made-up `abc123_<timestamp>` session token in the first `docs/API.md` and `docs/DATABASE.md` (2026-03-16, both since deleted), for the login removed on 2026-10-21. The new `.gitleaks.toml` keeps the default rules and turns those four off in library text only (`site/library/`, the built index files, `archive/`, the gitignored `site/my-library/` and the library's older locations), plus an allowlist for just those two commits in just those two files. The strict rules still scan everything: a fake AWS key and a private key placed under `site/library/` were both caught. CI gains a `secrets` job that runs the scan over the full history on every push and PR, with the binary checksum-pinned and values redacted; a throwaway PR with a seeded fake secret failed it. The 2026-10-26 security sweep's `.gitleaksignore` (71 per-finding fingerprints) was never merged; this replaces it with rules.
