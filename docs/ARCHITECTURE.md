@@ -252,6 +252,7 @@ promptbook/
 │   ├── scripts/read-only.test.mjs      # READ_ONLY hides My Library (npm run test:read-only)
 │   ├── scripts/prompt-content.test.mjs # Full prompt loads fail closed (npm run test:prompt-content)
 │   ├── scripts/markdown-file.test.mjs  # Download .md round trip (npm run test:markdown-file)
+│   ├── scripts/preview.test.mjs        # Card blurbs survive badge rows (npm run test:preview)
 │   ├── scripts/browser-smoke.test.mjs  # Built app in Chrome (npm run test:browser)
 │   ├── scripts/bench-endpoints.mjs     # Heavy-endpoint benchmark (npm run bench)
 │   ├── scripts/mcp-server.test.mjs     # MCP server end to end over stdio (npm run test:mcp)
@@ -458,6 +459,7 @@ CI (`.github/workflows/ci.yml`) runs on every PR:
 - `npm run test:read-only` — under `READ_ONLY`, a seeded private prompt is never listed or served
 - `npm run test:prompt-content` — `fetchFullPrompt` throws on a failed load instead of returning the preview
 - `npm run test:markdown-file` — a downloaded `.md` reads back through the store unchanged
+- `npm run test:preview` — a card blurb drops badge rows and links cut off at 200 characters
 - `npm run test:safe-path` — `../` escapes and real junctions/symlinks out of the library, for detail and ZIPs
 - `npm run test:browser` — after a build: the built app in Chrome, listing, detail and the dialog focus trap
 - provenance and Agent Skills frontmatter checks, homepage links, diagram drift (warning)

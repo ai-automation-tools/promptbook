@@ -17,6 +17,7 @@
     "test:read-only": "tsx scripts/read-only.test.mjs",
     "test:prompt-content": "tsx scripts/prompt-content.test.mjs",
     "test:markdown-file": "tsx scripts/markdown-file.test.mjs",
+    "test:preview": "tsx scripts/preview.test.mjs",
     "mcp": "tsx mcp/server.ts",
     "test:mcp": "tsx scripts/mcp-server.test.mjs",
     "test:browser": "tsx scripts/browser-smoke.test.mjs",

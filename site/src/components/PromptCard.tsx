@@ -80,7 +80,10 @@ export function stripMarkdown(markdown: string): string {
     .replace(/```[^\n]*/g, ' ')
     .replace(/^\s{0,3}#{1,6}\s+.*$/gm, ' ')
     .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
-    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    // An image inside a link (a badge) leaves `[](url)` once the image is gone
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    // The preview is cut at 200 characters, often mid-link: drop the open `[text](url`
+    .replace(/!?\[[^\]\n]*(?:\]\([^)\n]*)?$/, '')
     .replace(/^\s*(?:[-*+]|\d+[.)])\s+/gm, '')
     .replace(/^\s*>\s?/gm, '')
     .replace(/[*_~`]+/g, '')

@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-26 — Card blurbs skip README badges
+
+A My Library item imported from a README (Scientific Agent Skills) showed `[](LICENSE.md) [](https://arxiv.org/` as its card blurb. Its first 200 characters were all badges, and `stripMarkdown` removed the image inside each `[![…](…)](…)` but left the empty link around it, plus the badge the 200-character cut split in half. The My Library listing now drops lines that are only images before taking the preview (`previewOf` in `api/index.ts`), and `stripMarkdown` drops empty links and a link left open at the cut. `npm run test:preview` pins both. The Public Library index has no badge-led previews, so `prompt-index.json` is unchanged.
+
+_Touched: `site/api/index.ts`, `site/src/components/PromptCard.tsx`, `site/scripts/preview.test.mjs`, `site/package.json`, `.github/workflows/ci.yml`, `AGENTS.md`, `README.md`, `docs/{ARCHITECTURE,README}.md`, `docs/features/API.md`, `docs/setup/SETUP.md`._
+
+---
+
 ## 2026-10-26 — Two Awesome ChatGPT prompts and a Claude Code hooks guide
 
 Two prompts from `f/awesome-chatgpt-prompts` (now `f/prompts.chat`) @ `cd7ac608`, `prompts.csv`, both `match: similar`: **Spec Interview** and **Ethereum Developer**, in `4_Prompts/Awesome_ChatGPT/General/`. One guide in `1_Guides/Claude_Code/`: **Claude Code Hooks Guide** (`hooks-guide.md`, repo `anthropics/claude-code`), written from the official [hooks guide](https://code.claude.com/docs/en/hooks-guide) read this run: settings locations, event table, exit codes, three recipes, timeouts and troubleshooting. The folder had flags, slash commands and tips but nothing on hooks.
