@@ -23,6 +23,7 @@ import {
   Mail,
   Pencil,
   RefreshCw,
+  Star,
   Tag,
   Trash2,
 } from 'lucide-react';
@@ -55,6 +56,8 @@ interface PromptDetailProps {
   onCopy: (content: string, promptId: string) => void;
   onSubcategoryClick: (category: string, subcategory: string | 'ALL') => void;
   onShowAllPrompts: () => void;
+  isFavorite: boolean;
+  onToggleFavorite: (promptId: string) => void;
 }
 
 function wordCount(text: string): number {
@@ -77,6 +80,8 @@ export default function PromptDetail({
   onCopy,
   onSubcategoryClick,
   onShowAllPrompts,
+  isFavorite,
+  onToggleFavorite,
 }: PromptDetailProps) {
   const { emoji, title } = extractEmoji(prompt.title);
   const words = useMemo(() => wordCount(prompt.content), [prompt.content]);
@@ -137,6 +142,15 @@ export default function PromptDetail({
           <Button size="sm" onClick={() => onDownloadMarkdown(prompt)} icon={<Download className="h-3.5 w-3.5" />}>
             Download
           </Button>
+          <IconButton
+            label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+            framed
+            aria-pressed={isFavorite}
+            onClick={() => onToggleFavorite(prompt.id)}
+            className={cn('h-[30px] w-[30px]', isFavorite && 'text-[var(--warn)]')}
+          >
+            <Star className={cn('h-3.5 w-3.5', isFavorite && 'fill-current')} />
+          </IconButton>
           <IconButton
             label={copiedShareLink ? 'Link copied' : 'Copy direct link'}
             framed

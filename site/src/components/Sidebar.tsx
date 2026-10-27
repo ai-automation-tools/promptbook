@@ -259,29 +259,28 @@ export default function Sidebar({
                 )}
               </>
             ) : (<>
-            {activeTab !== 'skill-packs' && (
-              <button
-                type="button"
-                onClick={onShowFavorites}
-                aria-current={showFavorites ? 'true' : undefined}
+            {/* Favorites: starred items, or starred packs on Skill Packs */}
+            <button
+              type="button"
+              onClick={onShowFavorites}
+              aria-current={showFavorites ? 'true' : undefined}
+              className={cn(
+                'group mb-1.5 flex w-full items-center gap-2 rounded-[var(--r-md)] px-2 py-[6px] text-left text-[13px] transition-colors',
+                showFavorites
+                  ? 'bg-[var(--surface)] text-[var(--fg)]'
+                  : 'text-[var(--fg-3)] hover:bg-[var(--surface)] hover:text-[var(--fg)]',
+              )}
+            >
+              <Star
                 className={cn(
-                  'group mb-1.5 flex w-full items-center gap-2 rounded-[var(--r-md)] px-2 py-[6px] text-left text-[13px] transition-colors',
-                  showFavorites
-                    ? 'bg-[var(--surface)] text-[var(--fg)]'
-                    : 'text-[var(--fg-3)] hover:bg-[var(--surface)] hover:text-[var(--fg)]',
+                  'h-3.5 w-3.5 shrink-0 transition-colors',
+                  showFavorites || favoriteCount > 0 ? 'fill-[var(--warn)] text-[var(--warn)]' : 'text-[var(--fg-4)]',
                 )}
-              >
-                <Star
-                  className={cn(
-                    'h-3.5 w-3.5 shrink-0 transition-colors',
-                    showFavorites || favoriteCount > 0 ? 'fill-[var(--warn)] text-[var(--warn)]' : 'text-[var(--fg-4)]',
-                  )}
-                />
-                <span className="flex-1 truncate font-medium">Favorites</span>
-                <span className="mono text-[10.5px] tabular-nums text-[var(--fg-5)]">{favoriteCount}</span>
-              </button>
-            )}
-            {activeTab !== 'skill-packs' && <hr className="mx-2 mb-1.5 border-t border-[var(--line)]" aria-hidden="true" />}
+              />
+              <span className="flex-1 truncate font-medium">Favorites</span>
+              <span className="mono text-[10.5px] tabular-nums text-[var(--fg-5)]">{favoriteCount}</span>
+            </button>
+            <hr className="mx-2 mb-1.5 border-t border-[var(--line)]" aria-hidden="true" />
             {activeTab === 'skill-packs'
               ? packsByCategory.map(([cat, packs]) => {
                   const expanded = !!expandedCategories[cat];
