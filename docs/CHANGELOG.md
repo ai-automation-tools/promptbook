@@ -96,6 +96,14 @@ _Touched: `site/library/3_Skills/{Libraries,packs}/`, `archive/`, `site/scripts/
 
 ---
 
+## 2026-10-26 — The homepage mentions the twelve themes
+
+`homepage/index.html` gets a Themes card for the Light | Dark switch and the twelve themes in Settings → Appearance (2026-10-23).
+
+_Touched: `homepage/index.html`._
+
+---
+
 ## 2026-10-26 — Sections one tap away on phones
 
 On a phone the only way to change section was the ☰ button, which looks like a site menu, so going from Prompts to Skills wasn't findable. Phones now get a swipeable strip of section chips under the top bar (the rail's job from md up); the current chip is highlighted and scrolled into view. The ☰ sheet keeps just the Resources links. Checked at 390px with touch emulation: no horizontal overflow, and the strip hides from 768px.
