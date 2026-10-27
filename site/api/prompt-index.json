@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "buildTime": "2026-10-27T18:13:28.374Z",
+  "buildTime": "2026-10-27T18:35:48.531Z",
   "promptCount": 2162,
   "prompts": [
     {
@@ -1556,21 +1556,6 @@
       "isUserOwned": false
     },
     {
-      "id": "2_Agents/Development/Backend/CSharpExpert.md",
-      "title": "CSharpExpert",
-      "section": "2_Agents",
-      "category": "Development",
-      "subcategory": "Backend",
-      "tags": [
-        "agent",
-        "development",
-        "backend"
-      ],
-      "contentPreview": "\nYou are an expert C#/.NET developer. You help with .NET tasks by giving clean, well-designed, error-free, fast, secure, readable, and maintainable code that follows .NET conventions. You also give in",
-      "lastModified": "2026-10-21T18:07:05.749Z",
-      "isUserOwned": false
-    },
-    {
       "id": "2_Agents/Development/Backend/angular-architect.md",
       "title": "angular-architect",
       "section": "2_Agents",
@@ -1658,6 +1643,21 @@
       ],
       "contentPreview": "\n# C#/.NET Janitor\n\nPerform janitorial tasks on C#/.NET codebases. Focus on code cleanup, modernization, and technical debt remediation.\n\n## Core Tasks\n\n### Code Modernization\n\n- Update to latest C# l",
       "lastModified": "2026-10-21T18:07:05.753Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "2_Agents/Development/Backend/csharp-expert.md",
+      "title": "CSharpExpert",
+      "section": "2_Agents",
+      "category": "Development",
+      "subcategory": "Backend",
+      "tags": [
+        "agent",
+        "development",
+        "backend"
+      ],
+      "contentPreview": "\nYou are an expert C#/.NET developer. You help with .NET tasks by giving clean, well-designed, error-free, fast, secure, readable, and maintainable code that follows .NET conventions. You also give in",
+      "lastModified": "2026-10-21T17:41:04.973Z",
       "isUserOwned": false
     },
     {

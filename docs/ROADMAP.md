@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/now-phase_3:_loose_ends-F59E0B?style=for-the-badge" alt="Now: Phase 3, loose ends">
+  <img src="https://img.shields.io/badge/now-after_release:_features-F59E0B?style=for-the-badge" alt="Now: after release, features">
   <img src="https://img.shields.io/badge/stage-public_since_2026--10--12-2ea44f?style=for-the-badge" alt="Stage: public since 2026-10-12">
   <a href="README.md"><img src="https://img.shields.io/badge/↩-docs_home-6B7280?style=for-the-badge" alt="Back to docs"></a>
 </p>
@@ -32,8 +32,8 @@ marks one only Mike can do.
 > beside `SKILL.md`; prompts can declare `[placeholder]` inputs that MCP clients ask for.
 > What took items out of the library is in `archive/` at the repo root.
 >
-> Phases 1 and 2 are done. The open work an agent can take is Phase 3's backend-agent
-> duplicates, then the after-release features (O02, starter collections, O01, O04). Everything
+> Phases 1 and 2 are done, and so is Phase 3's agent work. The open work an agent can take is
+> the after-release features (O02, starter collections, O01, O04). Everything
 > else waits on Mike: branch protection (F04) and the secret-scan triage (F10) gate the next
 > release, and the Node 24 move, the Awesome ChatGPT and Skill Packs decisions, and the public
 > MCP endpoint and npm package are his calls.
@@ -58,7 +58,7 @@ O01–O04 are under **After public release**.
 
 ## 🧹 Phase 3: Loose ends
 
-- [ ] Resolve the near-duplicates the byte-level dedupe cannot see among the 49 backend specialists in `2_Agents/Development/Backend/`. Each merge or removal gets a changelog reason. (The two skill groups this item also named, `skill-creator` and `brand-guidelines`, were archived with their libraries on 2026-10-27.)
+- [x] Resolve the near-duplicates the byte-level dedupe cannot see among the 49 backend specialists in `2_Agents/Development/Backend/`. Each merge or removal gets a changelog reason. (The two skill groups this item also named, `skill-creator` and `brand-guidelines`, were archived with their libraries on 2026-10-27.) — done 2026-10-27, nothing merged or removed: a 4-word-shingle overlap across all 77 agents found one pair above 15% (`microsoft-agent-framework-python` and `semantic-kernel-python`, 26%), the same template for two different frameworks. The same-role groups (C# ×3, Rust ×3, C++ ×2) are different authors' agents with different instructions, kept as alternatives. `CSharpExpert.md` broke the lowercase rule and is now `csharp-expert.md`; `scripts/upstream.test.mjs` now fails on a case-only path clash or an uppercase item file name
 - [ ] Move off Node 22 before its end of life on 2027-04-30: CI and `upstream-drift.yml` on `node-version: "24"`, `@types/node` `^24`, `engines` pinned in `site/package.json`, CI green. The Vercel project's Node setting is part of done 🔒 Needs Mike (dashboard)
 - [ ] Delete the stale `roadmap/auto-2026-08-31` branch (its PR #332 was closed unmerged) or recover its one commit 🔒 Needs Mike
 - [ ] Decide what happens to `4_Prompts/Awesome_ChatGPT/` (about 1,350 files from one upstream corpus, now renamed `f/prompts.chat` on GitHub; four other collections, 437 prompts, sit beside it; the Prompts & Agents Refresh re-checks their repos but never edits bodies): resync it on a schedule like the agents (the drift check would need to read `prompts.csv`, one file for all of them), or freeze it as the dated capture it is 🔒 Needs Mike

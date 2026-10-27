@@ -272,7 +272,9 @@ is copied in as a `SKILL.md` folder. The 224 copies this replaced are in
   `api/prompt-index.json` verbatim, so a CRLF file makes the index unreproducible on Linux and
   the CI gate fails.
 - **Lowercase, case-unique paths under `library/`.** Two files differing only in case are one
-  file on Windows and two on Linux; that desynced the index once already.
+  file on Windows and two on Linux; that desynced the index once already. `scripts/upstream.test.mjs`
+  fails on a case-only clash or an uppercase item file name (`SKILL.md`, `README.md` and a skill's
+  own support files excepted).
 - When bulk-importing content, check what you are about to publish: an upstream corpus put
   350 contributor email addresses one commit away from a public site.
 - Match the existing file's style. `App.tsx` is huge — when touching the UI, prefer
