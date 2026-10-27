@@ -200,6 +200,16 @@ const PromptCard = memo(function PromptCard({
         <span className="mono mr-auto pl-1 text-[10.5px] text-[var(--fg-5)]">
           {new Date(prompt.lastModified).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
         </span>
+        {/* Favorites are one set in the browser, so every card has the star, read-only demo included */}
+        {onToggleFavorite && (
+          <IconButton
+            label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+            onClick={e => onToggleFavorite(prompt.id, e)}
+            className={cn('h-7 w-7', isFavorite && 'text-[var(--warn)]')}
+          >
+            <Star className={cn('h-3.5 w-3.5', isFavorite && 'fill-current')} />
+          </IconButton>
+        )}
         {READ_ONLY ? null : libraryMode === 'public' ? (
           <IconButton
             label={copyingToMyPromptsId === prompt.id ? 'Saving…' : 'Save to My Library'}
@@ -211,15 +221,6 @@ const PromptCard = memo(function PromptCard({
           </IconButton>
         ) : (
           <>
-            {onToggleFavorite && (
-              <IconButton
-                label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
-                onClick={e => onToggleFavorite(prompt.id, e)}
-                className={cn('h-7 w-7', isFavorite && 'text-[var(--warn)]')}
-              >
-                <Star className={cn('h-3.5 w-3.5', isFavorite && 'fill-current')} />
-              </IconButton>
-            )}
             {onEditPrompt && (
               <IconButton label="Edit prompt" onClick={stop(() => onEditPrompt(prompt))} className="h-7 w-7">
                 <Pencil className="h-3.5 w-3.5" />

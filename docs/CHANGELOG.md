@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-26 — One set of favorites in both libraries
+
+Favorites were already one list of ids in the browser, but each library only showed the stars it had loaded, and Public Library cards had no star button at all. Now every card has the star, in both libraries and on the read-only demo. The sidebar's Favorites view and the toolbar's Favorites panel list the current section's stars from both libraries: `useFavoritePrompts` fetches the other library's starred items by id (`GET /api/prompts/:id`). Each card shows the buttons of the library it belongs to, and opening one from the other library switches there first, the way the ⌘K palette does.
+
+_Touched: `site/src/hooks/useFavoritePrompts.ts`, `site/src/App.tsx`, `site/src/components/{PromptCard,PromptGrid}.tsx`, `AGENTS.md`, `docs/ARCHITECTURE.md`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`._
+
+---
+
 ## 2026-10-26 — Card blurbs skip README badges
 
 A My Library item imported from a README (Scientific Agent Skills) showed `[](LICENSE.md) [](https://arxiv.org/` as its card blurb. Its first 200 characters were all badges, and `stripMarkdown` removed the image inside each `[![…](…)](…)` but left the empty link around it, plus the badge the 200-character cut split in half. The My Library listing now drops lines that are only images before taking the preview (`previewOf` in `api/index.ts`), and `stripMarkdown` drops empty links and a link left open at the cut. `npm run test:preview` pins both. The Public Library index has no badge-led previews, so `prompt-index.json` is unchanged.

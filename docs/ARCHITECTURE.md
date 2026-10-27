@@ -232,7 +232,8 @@ promptbook/
 │   ├── src/
 │   │   ├── components/           # React components
 │   │   ├── hooks/                # usePromptFilters, usePromptPreviews, usePromptContent,
-│   │   │                         #   useLibraryRoute (URL-backed navigation state)
+│   │   │                         #   useLibraryRoute (URL-backed navigation state),
+│   │   │                         #   useFavoritePrompts (stars from both libraries)
 │   │   ├── lib/mode.ts           # READ_ONLY for the UI (from __READ_ONLY__)
 │   │   ├── lib/markdown-file.ts  # A prompt as a standalone .md (the Download button)
 │   │   ├── App.tsx               # App shell
