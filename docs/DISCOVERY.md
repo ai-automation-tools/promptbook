@@ -92,4 +92,29 @@ column, so never delete a row: change its status instead.
 | [xpzouying/xiaohongshu-mcp](https://github.com/xpzouying/xiaohongshu-mcp) | mcp | 16,583 | apache-2.0 | 2026-10-26 | 2026-10-26 | pending | popular |
 | [budtmo/docker-android](https://github.com/budtmo/docker-android) | mcp | 16,040 | Other | 2026-10-26 | 2026-10-26 | pending | popular |
 | [travisvn/awesome-claude-skills](https://github.com/travisvn/awesome-claude-skills) | skills | 15,573 | none | 2026-04-28 | 2026-10-26 | pending | popular; no licence, ask before vendoring |
+| [yusufkaraaslan/Skill_Seekers](https://github.com/yusufkaraaslan/Skill_Seekers) | skills | 15,235 | mit | 2026-09-30 | 2026-10-27 | pending | popular |
+| [nidhinjs/prompt-master](https://github.com/nidhinjs/prompt-master) | skills | 15,148 | mit | 2026-10-22 | 2026-10-27 | pending | new |
+| [NevaMind-AI/memU](https://github.com/NevaMind-AI/memU) | skills | 14,567 | Other | 2026-10-27 | 2026-10-27 | pending | popular |
+| [Vincentwei1021/video-shotcraft](https://github.com/Vincentwei1021/video-shotcraft) | skills | 14,059 | apache-2.0 | 2026-10-17 | 2026-10-27 | pending | new |
+| [YouMind-OpenLab/awesome-nano-banana-pro-prompts](https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts) | prompts | 13,696 | Other | 2026-10-27 | 2026-10-27 | pending | new |
+| [Piebald-AI/claude-code-system-prompts](https://github.com/Piebald-AI/claude-code-system-prompts) | prompts | 13,014 | mit | 2026-10-26 | 2026-10-27 | pending | new |
+| [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills) | skills | 12,085 | mit | 2026-10-26 | 2026-10-27 | pending | popular |
+| [BehiSecc/awesome-claude-skills](https://github.com/BehiSecc/awesome-claude-skills) | skills | 10,314 | none | 2026-09-21 | 2026-10-27 | pending | popular; no licence, ask before vendoring |
+| [YouMind-OpenLab/awesome-gpt-image-2](https://github.com/YouMind-OpenLab/awesome-gpt-image-2) | prompts | 10,183 | Other | 2026-10-27 | 2026-10-27 | pending | new |
+| [SnailSploit/Claude-Red](https://github.com/SnailSploit/Claude-Red) | skills | 9,598 | mit | 2026-10-12 | 2026-10-27 | pending | new |
+| [nexu-io/html-anything](https://github.com/nexu-io/html-anything) | skills | 9,263 | apache-2.0 | 2026-10-13 | 2026-10-27 | pending | new |
+| [anbeime/skill](https://github.com/anbeime/skill) | skills | 8,766 | none | 2026-10-27 | 2026-10-27 | pending | new; no licence, ask before vendoring |
+| [zenstory-ai/oh-story-claudecode](https://github.com/zenstory-ai/oh-story-claudecode) | skills | 8,055 | mit | 2026-10-26 | 2026-10-27 | pending | new |
+| [WenyuChiou/awesome-agentic-ai-zh](https://github.com/WenyuChiou/awesome-agentic-ai-zh) | skills | 8,038 | mit | 2026-10-27 | 2026-10-27 | pending | new |
+| [SawyerHood/dev-browser](https://github.com/SawyerHood/dev-browser) | skills | 6,704 | mit | 2026-10-18 | 2026-10-27 | pending | new |
+| [joeseesun/qiaomu-anything-to-notebooklm](https://github.com/joeseesun/qiaomu-anything-to-notebooklm) | skills | 6,418 | mit | 2026-10-22 | 2026-10-27 | pending | new |
+| [Jakeschincariol/replica-skill](https://github.com/Jakeschincariol/replica-skill) | skills | 5,989 | mit | 2026-10-03 | 2026-10-27 | pending | new |
+| [irinabuht12-oss/marketing-skills](https://github.com/irinabuht12-oss/marketing-skills) | skills | 5,928 | none | 2026-10-27 | 2026-10-27 | pending | new; no licence, ask before vendoring |
+| [langgptai/awesome-claude-prompts](https://github.com/langgptai/awesome-claude-prompts) | prompts | 5,551 | none | 2026-10-15 | 2026-10-27 | pending | popular; no licence, ask before vendoring |
+| [sergebulaev/linkedin-skills](https://github.com/sergebulaev/linkedin-skills) | skills | 5,251 | mit | 2026-10-27 | 2026-10-27 | pending | new |
+| [gamedev-skills/awesome-gamedev-agent-skills](https://github.com/gamedev-skills/awesome-gamedev-agent-skills) | skills | 5,062 | apache-2.0 | 2026-10-24 | 2026-10-27 | pending | new |
+| [jherrodthomas/automotive-skills-suite](https://github.com/jherrodthomas/automotive-skills-suite) | skills | 3,326 | mit | 2026-10-16 | 2026-10-27 | pending | new |
+| [Jakeschincariol/instagram-agent-skill](https://github.com/Jakeschincariol/instagram-agent-skill) | skills | 3,299 | mit | 2026-09-13 | 2026-10-27 | pending | new |
+| [Jakeschincariol/youtube-agent-skill](https://github.com/Jakeschincariol/youtube-agent-skill) | skills | 3,290 | mit | 2026-09-16 | 2026-10-27 | pending | new |
+| [yaojingang/yao-open-prompts](https://github.com/yaojingang/yao-open-prompts) | prompts | 2,953 | Other | 2026-10-08 | 2026-10-27 | pending | new |
 <!-- discover-repos: new rows go above this line -->
