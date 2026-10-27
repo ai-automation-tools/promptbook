@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/now-after_release:_features-F59E0B?style=for-the-badge" alt="Now: after release, features">
+  <img src="https://img.shields.io/badge/now-phase_3:_loose_ends-F59E0B?style=for-the-badge" alt="Now: Phase 3, loose ends">
   <img src="https://img.shields.io/badge/stage-public_since_2026--10--12-2ea44f?style=for-the-badge" alt="Stage: public since 2026-10-12">
   <a href="README.md"><img src="https://img.shields.io/badge/↩-docs_home-6B7280?style=for-the-badge" alt="Back to docs"></a>
 </p>
@@ -32,10 +32,11 @@ marks one only Mike can do.
 > beside `SKILL.md`; prompts can declare `[placeholder]` inputs that MCP clients ask for.
 > What took items out of the library is in `archive/` at the repo root.
 >
-> Phases 1 and 2 are done, and so is Phase 3's agent work. The open work an agent can take is
-> the after-release features (starter collections, O01, O04). Everything
+> Phases 1 and 2 are done. The open work an agent can take is Phase 3's framework majors
+> (Express 5, Vite 8, TypeScript 7; queued by the 2026-10-23 upstream check), then the
+> after-release features (starter collections, O01, O04). Everything
 > else waits on Mike: branch protection (F04) and the secret-scan triage (F10) gate the next
-> release, and the Node 24 move, the Awesome ChatGPT and Skill Packs decisions, and the public
+> release, and the Node 24 and Actions v7 moves, the Awesome ChatGPT and Skill Packs decisions, and the public
 > MCP endpoint and npm package are his calls.
 
 ## 🔌 Phase 1: MCP server for the library (done 2026-10-21)
@@ -62,7 +63,7 @@ O01–O04 are under **After public release**.
 - [ ] Move off Node 22 before its end of life on 2027-04-30: CI and `upstream-drift.yml` on `node-version: "24"`, `@types/node` `^24`, `engines` pinned in `site/package.json`, CI green. The Vercel project's Node setting is part of done 🔒 Needs Mike (dashboard)
 - [ ] Move `actions/checkout@v4` and `actions/setup-node@v4` in `ci.yml` and `upstream-drift.yml` to v7 (`homepage.yml` already uses checkout@v7). Why: v7.0.1 and v7.1.0 are current (github.com/actions/checkout/releases, github.com/actions/setup-node/releases) and v4 still runs on Node 20, which is past its end of life (nodejs.org schedule, 2026-04-30). Done when CI is green on the new tags 🔒 Needs Mike (`.github/workflows/` is a hold path)
 - [ ] Move to Express 5 (`site/package.json` has `^4.22.3`; npm `latest` is 5.3.0, registry.npmjs.org/express). Why: v4 is the old major. Touches `site/api/index.ts`, `site/api/skill-packs.ts`, `site/server.ts` (path-to-regexp wildcard syntax such as `/api/(.*)`, async error handling, `req.query`) and `@types/express`. Done when `lint`, `test:routes`, `test:my-library` and `test:mcp` pass and the dev server and a production start both serve every route
-- [ ] Move to Vite 8 with `@vitejs/plugin-react` 6 and check `@tailwindcss/vite` against it (`site/package.json` has Vite `^6.4.4`, plugin-react `^5.2.0`; npm `latest` is 8.3.5 and 6.1.2, which needs Node `^20.19.0 || >=22.12.0`). Touches `site/vite.config.ts` (`__READ_ONLY__` define) and `site/server.ts` (Vite middleware mode). Done when `npm run build` and `npm run dev` work and the demo build is unchanged in behaviour
+- [ ] Move to Vite 8 with `@vitejs/plugin-react` 6 and check `@tailwindcss/vite` against it (`site/package.json` has Vite `^6.4.5`, plugin-react `^5.2.0`; npm `latest` is 8.3.5 and 6.1.2, which needs Node `^20.19.0 || >=22.12.0`). Touches `site/vite.config.ts` (`__READ_ONLY__` define) and `site/server.ts` (Vite middleware mode). Done when `npm run build` and `npm run dev` work and the demo build is unchanged in behaviour
 - [ ] Try TypeScript 7 (`~5.9.3` today; npm `latest` is 7.0.2, registry.npmjs.org/typescript). Touches `site/tsconfig.json` and every file `npm run lint` checks. Done when `npm run lint` passes on the new major with no `any` added, or the blockers are written down here
 - [ ] Delete the stale `roadmap/auto-2026-08-31` branch (its PR #332 was closed unmerged) or recover its one commit 🔒 Needs Mike
 - [ ] Decide what happens to `4_Prompts/Awesome_ChatGPT/` (about 1,350 files from one upstream corpus, now renamed `f/prompts.chat` on GitHub; four other collections, 437 prompts, sit beside it; the Prompts & Agents Refresh re-checks their repos but never edits bodies): resync it on a schedule like the agents (the drift check would need to read `prompts.csv`, one file for all of them), or freeze it as the dated capture it is 🔒 Needs Mike

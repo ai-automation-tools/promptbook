@@ -43,7 +43,7 @@ tracked here until then.)
 | zod | `^4` (imported as `zod/v4` by the MCP server) | github.com/colinhacks/zod/releases | 2026-10-23 |
 | React / react-dom | `^19.3.1` | react.dev/blog | 2026-10-23 |
 | Express | `^4.22.3` (Express 5 is a breaking major, now `latest` on npm) | expressjs.com/en/changelog; github.com/expressjs/express/releases | 2026-10-23 |
-| Vite, @vitejs/plugin-react | `^6.4.4`, `^5.2.0` (Vite 8 and plugin-react 6 are out) | github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md | 2026-10-23 |
+| Vite, @vitejs/plugin-react | `^6.4.5`, `^5.2.0` (Vite 8 and plugin-react 6 are out) | github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md | 2026-10-23 |
 | Tailwind CSS v4, @tailwindcss/vite | `^4.1.14`, `^4.3.3` | github.com/tailwindlabs/tailwindcss/releases | 2026-10-23 |
 | TypeScript | `~5.9.3` (TypeScript 7 is `latest` on npm) | devblogs.microsoft.com/typescript | 2026-10-23 |
 | helmet | `^8.3.0` (response headers) | github.com/helmetjs/helmet/releases | 2026-10-23 |

@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-27 — Roadmap note after the PR review
+
+The 2026-10-23 upstream check (#412) queued Express 5, Vite 8 and TypeScript 7 into Phase 3, so the roadmap's "Where we are" note and badge point back at Phase 3 instead of the after-release features, and list the Actions v7 move among Mike's. Vite is `^6.4.5` in `site/package.json` now, not the `^6.4.4` that check recorded; fixed in its roadmap item and in `UPSTREAMS.md`.
+
+_Touched: `docs/ROADMAP.md`, `docs/UPSTREAMS.md`._
+
+---
+
 ## 2026-10-27 — scholar-evaluation resynced from upstream
 
 `Data/scholar-evaluation` ← `K-Dense-AI/claude-scientific-skills` @ `5f2bc03`, the drift report's `behind` row. Upstream rewrote the skill around developmental feedback on scholarly work, with a hard ban on hiring, admissions, grant and other personnel uses and no prestige or citation metrics. 15 new support files (`assets/` templates, 4 references, 7 local scripts); `references/evaluation_framework.md` and `scripts/calculate_scores.py` replaced. It is still a scholarly-work evaluator, so it stays in Data, and its `license: MIT` and LICENSE file carry over. Opened by the 2026-10-24 roadmap run (#434), which also resynced `Content/brainstorming`; that skill was archived with its library on 2026-10-27, so only this half landed, re-run against today's upstream. The local `description:` still describes the old skill: that is the open "whose description" roadmap decision.
