@@ -95,9 +95,9 @@ if (process.argv.includes("--server")) {
     await row("Detail read", { url: `/api/prompts/${encodeURIComponent(detailId)}` }),
     await row("Card previews (50 ids)", { url: "/api/prompts/previews", init: json({ ids: previewIds }) }),
     await row("Skill ZIP, small (copy-editing, 16 KB)", { url: "/api/skills/download/3_Skills/Business/copy-editing" }),
-    await row("Skill ZIP, largest (diagram-design, 0.9 MB)", { url: "/api/skills/download/3_Skills/Design/diagram-design" }, Math.min(RUNS, 10)),
-    await row("Pack ZIP, median (finance-investing-pack, 10 skills)", { url: "/api/skill-packs/finance-investing-pack/download" }, Math.min(RUNS, 10)),
-    await row("Pack ZIP, largest (finance-portfolio-management-pack, 34 skills)", { url: "/api/skill-packs/finance-portfolio-management-pack/download" }, Math.min(RUNS, 10)),
+    await row("Skill ZIP, largest (diagram-design, 1.1 MB)", { url: "/api/skills/download/3_Skills/Design/diagram-design" }, Math.min(RUNS, 10)),
+    await row("Pack ZIP, small (developer-essentials-pack, 2 skills)", { url: "/api/skill-packs/developer-essentials-pack/download" }, Math.min(RUNS, 10)),
+    await row("Pack ZIP, largest (writing-documentation-pack, 3 skills)", { url: "/api/skill-packs/writing-documentation-pack/download" }, Math.min(RUNS, 10)),
     blocking,
   ];
 

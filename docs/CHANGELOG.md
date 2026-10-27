@@ -24,7 +24,7 @@ The Skills section mixed single skills (blader/humanizer), skill libraries (a re
 - **Upkeep:** `scripts/sync-agent-skills.mjs` is deleted. It copied ai-automation-tools/agent-skills into the library each week, and that repo is a card now. The drift workflow no longer skips agent-skills.
 - **UI:** a `Skills | Libraries | Packs` switch sits at the top of the Skills sidebar (as pills under the hero on phones). Packs no longer has its own tile on the rail or the phone strip; it lives under Skills, which stays lit while you're there. Under Libraries the grid shows the library cards and the sidebar lists them instead of the category tree. The cards stay out of the Skills grid, its category tree and its count, and the hero's third counter is Libraries. A card downloads as markdown, not a skill zip.
 
-The tests and the bench that used `analytics-tracking`, `canvas-design` and `mcp-builder` now use skills that stay.
+The tests and the bench that used `analytics-tracking`, `canvas-design`, `mcp-builder` and the two big finance packs now use skills and packs that stay; `docs/development/PERFORMANCE.md` has the new baseline, every row inside the budgets.
 
 _Touched: `site/library/3_Skills/{Libraries,packs}/`, `archive/`, `site/scripts/{build-prompt-index.js,bench-endpoints.mjs,read-only.test.mjs}`, `site/api/{index.ts,prompt-index.json}`, `site/src/components/{SkillLibraries,Sidebar,SectionRail,TopBar}.tsx`, `site/src/hooks/{usePromptFilters,useLibraryRoute}.ts`, `site/src/lib/sections.ts`, `site/src/App.tsx`, `scripts/{build-skill-packs.mjs,upstream.test.mjs}`, `.github/workflows/upstream-drift.yml`, `AGENTS.md`, `docs/{ARCHITECTURE,ROADMAP}.md`, `docs/skill-packs/README.md`, `archive/README.md`._
 
