@@ -288,10 +288,19 @@ export default function App() {
   const favoritePrompts = useFavoritePrompts(favorites, prompts);
 
   /** The sidebar's Favorites view: starred items in the current section, from either library. */
+  // On Skills it follows the view: starred skills under Skills, starred library cards under Libraries.
   const sectionFavorites = useMemo(
-    () => favoritePrompts.filter(p => p.section === activeSection).sort((a, b) => a.title.localeCompare(b.title)),
-    [favoritePrompts, activeSection],
+    () => favoritePrompts
+      .filter(p => p.section === activeSection)
+      .filter(p => activeTab !== 'skills' || isLibraryItem(p) === (skillView === 'libraries'))
+      .sort((a, b) => a.title.localeCompare(b.title)),
+    [favoritePrompts, activeSection, activeTab, skillView],
   );
+
+  /** The sidebar's Favorites count: starred items in this section, or starred packs on Skill Packs. */
+  const sidebarFavoriteCount = activeTab === 'skill-packs'
+    ? favorites.filter(id => id.startsWith('pack:')).length
+    : sectionFavorites.length;
 
   const recentlyViewedPrompts = useMemo(() => {
     return recentlyViewed
@@ -815,7 +824,7 @@ export default function App() {
         selectedSubcategory={selectedSubcategory}
         handleSubcategoryClick={handleSubcategoryClick}
         handleShowAllPrompts={handleShowAllPrompts}
-        favoriteCount={sectionFavorites.length}
+        favoriteCount={sidebarFavoriteCount}
         showFavorites={showFavorites}
         onShowFavorites={handleShowFavorites}
         skillKind={activeTab === 'skill-packs' ? 'packs' : activeTab === 'skills' ? skillView : undefined}
@@ -916,6 +925,8 @@ export default function App() {
                     <SkillPacksView
                       libraryMode={libraryMode}
                       onToast={showToast}
+                      favorites={favorites}
+                      onToggleFavorite={toggleFavorite}
                     />
                   </Suspense>
                 )}
@@ -963,17 +974,27 @@ export default function App() {
                     <ArrowLeft className="h-4 w-4" />
                   </button>
                   <div className="min-w-0">
-                    <p className="eyebrow mb-1.5">{getSectionDisplayName(activeTab)}</p>
+                    <p className="eyebrow mb-1.5">{showLibraries ? 'Skill libraries' : getSectionDisplayName(activeTab)}</p>
                     <h1 className="text-[1.5rem] font-semibold leading-tight tracking-[-0.02em] text-[var(--fg)] md:text-[1.85rem]">
                       Favorites
                     </h1>
                     <p className="mono mt-1.5 text-[11px] text-[var(--fg-4)]">
-                      {sectionFavorites.length.toLocaleString()} {sectionFavorites.length === 1 ? 'prompt' : 'prompts'}
+                      {sidebarFavoriteCount.toLocaleString()} {activeTab === 'skill-packs' ? (sidebarFavoriteCount === 1 ? 'pack' : 'packs') : sidebarFavoriteCount === 1 ? 'item' : 'items'}
                     </p>
                   </div>
                 </div>
 
-                {sectionFavorites.length > 0 ? (
+                {activeTab === 'skill-packs' ? (
+                  <Suspense fallback={chunkSpinner}>
+                    <SkillPacksView
+                      libraryMode={libraryMode}
+                      onToast={showToast}
+                      favorites={favorites}
+                      onToggleFavorite={toggleFavorite}
+                      onlyFavorites
+                    />
+                  </Suspense>
+                ) : sectionFavorites.length > 0 ? (
                   <PromptCardGrid prompts={sectionFavorites} actions={favoriteCardActions} />
                 ) : (
                   <p className="py-16 text-center text-[14px] text-[var(--fg-3)]">
@@ -1062,6 +1083,8 @@ export default function App() {
                   onCopy={copyContent}
                   onSubcategoryClick={handleSubcategoryClick}
                   onShowAllPrompts={handleShowAllPrompts}
+                  isFavorite={favorites.includes(selectedPrompt.id)}
+                  onToggleFavorite={toggleFavorite}
                 />
               </Suspense>
 

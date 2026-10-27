@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-27 — Favorites on detail pages and Skill Packs
+
+The star lived only in a card's hover actions, so an open item could not be starred, and Skill Packs had no star at all. The detail page now has a star beside the share buttons, and every pack has one on its card and on its own page. Packs share the one favorites list as `pack:<id>`, which `useFavoritePrompts` skips when it fetches the other library's items, and the Packs sidebar gets a Favorites row that lists only the starred packs. Skills' Libraries view gets its own Favorites row too: under Skills it lists starred skills, under Libraries starred library cards, so the two don't mix.
+
+_Touched: `site/src/components/{PromptDetail,SkillPacksView,Sidebar}.tsx`, `site/src/hooks/useFavoritePrompts.ts`, `site/src/App.tsx`, `AGENTS.md`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`._
+
+---
+
 ## 2026-10-27 — Library cards carry the repo's README
 
 Each skill library card now holds the repo's whole README under its own header (title, description, link), so a library reads as it does on GitHub without leaving Promptbook. `site/scripts/refresh-library-cards.mjs` writes them from `gh`: all 41 cards, 30 public and 11 in My Library (`Zpankz/mcp-skillset` has no README and keeps its header only). Relative links and images become absolute GitHub URLs; a README that has not changed keeps its "copied" date, so a rerun is a no-op. The READMEs were checked before copying: six email addresses, all the authors' own published contacts.

@@ -88,7 +88,8 @@ site/
                        return the listing's preview; callers show an error and stop)
                        useLibraryRoute (section/category/subcategory/?prompt= URL state, plus
                        Skills' ?view=libraries)
-                       useFavoritePrompts (one set of stars in both libraries; the other library's are fetched by id)
+                       useFavoritePrompts (one set of stars in both libraries; the other library's are fetched by id;
+                       Skill Packs star as `pack:<id>` in the same list, packFavoriteId in SkillPacksView)
     hooks/useTheme     Light | Dark (`html.light`, key `my-prompt-library.theme`) and the theme
                        (`html[data-palette]`, key `my-prompt-library.palette`, 12 themes in PALETTES;
                        both keys keep the pre-rename name so saved preferences survive);

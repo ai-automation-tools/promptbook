@@ -20,7 +20,8 @@ const fetched = new Map<string, Prompt | null>();
 export function useFavoritePrompts(favorites: string[], prompts: Prompt[]): Prompt[] {
   const [version, bump] = useReducer((n: number) => n + 1, 0);
   const loaded = useMemo(() => new Map(prompts.map(p => [p.id, p])), [prompts]);
-  const missingKey = favorites.filter(id => !loaded.has(id) && !fetched.has(id)).join('\n');
+  // `pack:<id>` entries are Skill Packs (packFavoriteId), not items to fetch.
+  const missingKey = favorites.filter(id => !id.startsWith('pack:') && !loaded.has(id) && !fetched.has(id)).join('\n');
 
   useEffect(() => {
     if (!missingKey) return;
