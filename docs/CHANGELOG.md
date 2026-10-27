@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-27 — Roadmap brought up to date after the library cards
+
+Four roadmap items went stale when skill libraries became cards. Skill attribution is closed: the 60 `ambiguous` and 163 `unknown` skills all came from multi-skill repos, which are cards now, and the 32 single skills left are all attributed. The agent-skills licence item and the generated-pack label are dropped, since nothing is copied from agent-skills and no generated packs remain. The duplicates item keeps only the backend agents. A new item asks Mike what Skill Packs are for, with three small packs left, and the "Kept current by" table lists the weekly Library Cards Refresh.
+
+_Touched: `docs/ROADMAP.md`._
+
+---
+
 ## 2026-10-27 — Favorites on detail pages and Skill Packs
 
 The star lived only in a card's hover actions, so an open item could not be starred, and Skill Packs had no star at all. The detail page now has a star beside the share buttons, and every pack has one on its card and on its own page. Packs share the one favorites list as `pack:<id>`, which `useFavoritePrompts` skips when it fetches the other library's items, and the Packs sidebar gets a Favorites row that lists only the starred packs. Skills' Libraries view gets its own Favorites row too: under Skills it lists starred skills, under Libraries starred library cards, so the two don't mix.
