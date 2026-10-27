@@ -299,7 +299,7 @@ ErrorBoundary                 main.tsx: a render or chunk failure shows "Somethi
 ├── SourceBar                 "View source" bar (READ_ONLY demo only)
 ├── SectionRail               md up: logo, the seven sections, Settings; the current section's cell joins the Sidebar
 ├── Sidebar                   library-mode switcher (hidden when read-only) + category tree in per-category hues (a drawer on phones)
-├── TopBar                    ⌘K search, ResourcesNav (≥1536px; a sheet below, which also holds the sections on phones),
+├── TopBar                    ⌘K search, ResourcesNav (≥1536px; a sheet below), the swipeable section strip (phones only),
 │   │                         New item (hidden when read-only), Light | Dark ThemeSwitch; brand + Settings on phones only
 │   └── ResourcesNav          data-driven external-link menus
 ├── Breadcrumbs               library › section › category › prompt, above the content

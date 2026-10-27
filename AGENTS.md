@@ -97,7 +97,7 @@ site/
                        categoryHue() gives each category a stable hue, applied with the .hue class)
     components/        SectionRail (md up: logo, the seven sections as hue tiles, Settings; the current
                        one's cell bleeds into the categories panel), TopBar (⌘K search, Resources menu,
-                       New item, ThemeSwitch; brand, Settings and the section sheet on phones),
+                       New item, ThemeSwitch; brand, Settings and the section strip on phones),
                        Sidebar (section-tinted: library switch, category tree with hue dots),
                        Breadcrumbs, SettingsModal (mode + theme, local data, shortcuts),
                        CommandPalette (⌘K: prompts / sections / actions / themes),
