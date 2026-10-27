@@ -288,9 +288,13 @@ export default function App() {
   const favoritePrompts = useFavoritePrompts(favorites, prompts);
 
   /** The sidebar's Favorites view: starred items in the current section, from either library. */
+  // On Skills it follows the view: starred skills under Skills, starred library cards under Libraries.
   const sectionFavorites = useMemo(
-    () => favoritePrompts.filter(p => p.section === activeSection).sort((a, b) => a.title.localeCompare(b.title)),
-    [favoritePrompts, activeSection],
+    () => favoritePrompts
+      .filter(p => p.section === activeSection)
+      .filter(p => activeTab !== 'skills' || isLibraryItem(p) === (skillView === 'libraries'))
+      .sort((a, b) => a.title.localeCompare(b.title)),
+    [favoritePrompts, activeSection, activeTab, skillView],
   );
 
   /** The sidebar's Favorites count: starred items in this section, or starred packs on Skill Packs. */
@@ -970,7 +974,7 @@ export default function App() {
                     <ArrowLeft className="h-4 w-4" />
                   </button>
                   <div className="min-w-0">
-                    <p className="eyebrow mb-1.5">{getSectionDisplayName(activeTab)}</p>
+                    <p className="eyebrow mb-1.5">{showLibraries ? 'Skill libraries' : getSectionDisplayName(activeTab)}</p>
                     <h1 className="text-[1.5rem] font-semibold leading-tight tracking-[-0.02em] text-[var(--fg)] md:text-[1.85rem]">
                       Favorites
                     </h1>

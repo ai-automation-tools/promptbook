@@ -6,7 +6,7 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ## 2026-10-27 — Favorites on detail pages and Skill Packs
 
-The star lived only in a card's hover actions, so an open item could not be starred, and Skill Packs had no star at all. The detail page now has a star beside the share buttons, and every pack has one on its card and on its own page. Packs share the one favorites list as `pack:<id>`, which `useFavoritePrompts` skips when it fetches the other library's items, and the Packs sidebar gets a Favorites row that lists only the starred packs.
+The star lived only in a card's hover actions, so an open item could not be starred, and Skill Packs had no star at all. The detail page now has a star beside the share buttons, and every pack has one on its card and on its own page. Packs share the one favorites list as `pack:<id>`, which `useFavoritePrompts` skips when it fetches the other library's items, and the Packs sidebar gets a Favorites row that lists only the starred packs. Skills' Libraries view gets its own Favorites row too: under Skills it lists starred skills, under Libraries starred library cards, so the two don't mix.
 
 _Touched: `site/src/components/{PromptDetail,SkillPacksView,Sidebar}.tsx`, `site/src/hooks/useFavoritePrompts.ts`, `site/src/App.tsx`, `AGENTS.md`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`._
 

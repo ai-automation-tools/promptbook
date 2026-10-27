@@ -238,28 +238,7 @@ export default function Sidebar({
           )}
 
           <div className="min-h-0 flex-1 space-y-0.5 overflow-y-auto px-3 pb-3">
-            {showLibraries ? (
-              <>
-                {libraries.map(lib => (
-                  <button
-                    key={lib.id}
-                    type="button"
-                    onClick={() => onOpenLibrary?.(lib)}
-                    title={lib.title}
-                    className="flex w-full items-center gap-2 rounded-[var(--r-md)] px-2 py-[6px] text-left text-[13px] text-[var(--fg-3)] transition-colors hover:bg-[var(--surface)] hover:text-[var(--fg)]"
-                  >
-                    <Library className="h-3.5 w-3.5 shrink-0 text-[var(--fg-4)]" />
-                    <span className="min-w-0 flex-1 truncate">{lib.title}</span>
-                  </button>
-                ))}
-                {libraries.length === 0 && (
-                  <p className="px-2 py-6 text-center text-[12.5px] text-[var(--fg-5)]">
-                    {categoryFilter ? 'No libraries match.' : 'No libraries here.'}
-                  </p>
-                )}
-              </>
-            ) : (<>
-            {/* Favorites: starred items, or starred packs on Skill Packs */}
+            {/* Favorites, in every view: starred skills, library cards or packs, whichever this view lists */}
             <button
               type="button"
               onClick={onShowFavorites}
@@ -281,6 +260,27 @@ export default function Sidebar({
               <span className="mono text-[10.5px] tabular-nums text-[var(--fg-5)]">{favoriteCount}</span>
             </button>
             <hr className="mx-2 mb-1.5 border-t border-[var(--line)]" aria-hidden="true" />
+            {showLibraries ? (
+              <>
+                {libraries.map(lib => (
+                  <button
+                    key={lib.id}
+                    type="button"
+                    onClick={() => onOpenLibrary?.(lib)}
+                    title={lib.title}
+                    className="flex w-full items-center gap-2 rounded-[var(--r-md)] px-2 py-[6px] text-left text-[13px] text-[var(--fg-3)] transition-colors hover:bg-[var(--surface)] hover:text-[var(--fg)]"
+                  >
+                    <Library className="h-3.5 w-3.5 shrink-0 text-[var(--fg-4)]" />
+                    <span className="min-w-0 flex-1 truncate">{lib.title}</span>
+                  </button>
+                ))}
+                {libraries.length === 0 && (
+                  <p className="px-2 py-6 text-center text-[12.5px] text-[var(--fg-5)]">
+                    {categoryFilter ? 'No libraries match.' : 'No libraries here.'}
+                  </p>
+                )}
+              </>
+            ) : (<>
             {activeTab === 'skill-packs'
               ? packsByCategory.map(([cat, packs]) => {
                   const expanded = !!expandedCategories[cat];
