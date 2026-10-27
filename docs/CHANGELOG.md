@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-27 — Freshness on the listing cards (O02)
+
+A card in the grid now says when its item was last checked against its source repo ("checked Oct 18, 2026"), in place of the file's modified time, which on the demo is only when Vercel's checkout wrote it. Past 90 days it gets a `stale` chip. Nothing claims an item is verified: an undated item (most guides, the skill library cards) shows its file date and no chip. The prebuilt index and the live library walk both carry `checked`, from `upstream.checked`, an MCP card's `server.checked` or a guide's `checked:`, on 2,071 of the 2,162 items; the oldest is 2026-08-26, so the first chips appear in late November. `test:read-only` checks the index and the walk agree on `checked` and `inputs`, and pins the 90-day edge. That check also caught the walk listing three lowercase `readme.md` files the index skips, now fixed. The `git log` half of the old O02 stays open for Mike: it needs a Vercel preview.
+
+_Touched: `site/lib/library.ts`, `site/api/{index.ts,prompt-index.json}`, `site/scripts/{build-prompt-index.js,read-only.test.mjs}`, `site/src/lib/freshness.ts`, `site/src/components/PromptCard.tsx`, `AGENTS.md`, `docs/ROADMAP.md`._
+
+---
+
 ## 2026-10-27 — Backend agents checked for near-duplicates
 
 The Phase 3 duplicates item is closed with nothing merged. A 4-word-shingle overlap across all 77 agents found one pair above 15%: `microsoft-agent-framework-python` and `semantic-kernel-python` (26%), one vendor template filled in for two different frameworks, so both stay. The backend folder's same-role groups (three C# agents, three Rust, two C++) come from different authors with different instructions, and stay as alternatives. `CSharpExpert.md` was the one item file name with capitals, against the library's lowercase rule; it is now `csharp-expert.md` (its id changes), and `scripts/upstream.test.mjs` fails on a case-only path clash or an uppercase item file name.

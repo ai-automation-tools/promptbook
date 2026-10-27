@@ -145,7 +145,9 @@ site/
   library/             Public content, numbered sections (see below)
   scripts/build-prompt-index.js   Walks library/ → api/prompt-index.json (site build step).
                        Sorts by id and skips files over 500 KB. Under 3_Skills it takes
-                       SKILL.md files and the Libraries/ cards. Carries `lastModified` and
+                       SKILL.md files and the Libraries/ cards. Each entry carries `checked`
+                       (last check against its source, checkedOf() in lib/library.ts; the
+                       cards' stale badge) and, where declared, `inputs`. Carries `lastModified` and
                        `buildTime` forward for unchanged entries, so rebuilding an untouched
                        library leaves the file byte-identical.
   scripts/refresh-library-cards.mjs  Skill library cards ← each repo's description + README, via `gh`
