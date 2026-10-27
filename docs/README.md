@@ -140,8 +140,8 @@ and match the containing directory, and `description` is required. Run
 
 | Layer | Technology |
 |:---|:---|
-| Frontend | React 19, TypeScript, Vite 6, Tailwind v4, Fuse.js |
-| Backend | One Express app: `server.ts` locally, Vercel serverless handlers for the demo |
+| Frontend | React 19, TypeScript 7, Vite 8, Tailwind v4, Fuse.js |
+| Backend | One Express 5 app: `server.ts` locally, Vercel serverless handlers for the demo |
 | Data | Public Library = markdown in `site/library/`; My Library = markdown files in `MY_LIBRARY_DIR` (default `site/my-library/`) |
 | Auth | None. The server binds to `127.0.0.1`; the demo is read-only |
 | Hosting | Runs locally; read-only demo on Vercel (Root Directory `site`) |

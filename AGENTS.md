@@ -19,7 +19,7 @@ serves **Skill Packs** (zipped skill bundles) and a large **System Prompts** arc
 reach the server owns My Library, so `server.ts` binds to `127.0.0.1`. Don't reintroduce auth or a
 database for the local app; if the hosted demo ever needs writes, that is a new decision for Mike.
 
-- **Frontend:** React 19 + TypeScript + Vite 6 + Tailwind v4, Fuse.js search, lucide-react icons, `motion`.
+- **Frontend:** React 19 + TypeScript 7 + Vite 8 + Tailwind v4, Fuse.js search, lucide-react icons, `motion`.
 - **Backend:** one Express app in `api/index.ts`, run by Vercel as a serverless function and
   by `server.ts` in dev. There is no second copy — `server.ts` imports it. `api/skill-packs.ts`
   is a separate Vercel function (see `vercel.json`); dev mounts it onto the same app.
