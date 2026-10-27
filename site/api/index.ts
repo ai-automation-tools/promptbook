@@ -249,8 +249,9 @@ async function walkLibrary(lightweight: boolean, dir: string = LIBRARY_PATH): Pr
 
     const relativePath = path.relative(LIBRARY_PATH, filePath);
 
-    // For Skills section, only include SKILL.md files
-    if (relativePath.startsWith(SKILLS_SECTION + path.sep) && !file.endsWith('SKILL.md')) return [];
+    // For Skills section, only include SKILL.md files and the Libraries/ cards (as the index does)
+    if (relativePath.startsWith(SKILLS_SECTION + path.sep) && !file.endsWith('SKILL.md')
+      && !relativePath.startsWith(path.join(SKILLS_SECTION, 'Libraries') + path.sep)) return [];
 
     // Skip files larger than 500KB (likely bulk collections, not individual prompts)
     if (stat.size > 500 * 1024) {

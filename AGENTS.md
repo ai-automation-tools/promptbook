@@ -86,7 +86,8 @@ site/
                        usePromptPreviews (batched card blurbs — the listing has no body text)
                        usePromptContent (copy state + fetchFullPrompt, which throws rather than
                        return the listing's preview; callers show an error and stop)
-                       useLibraryRoute (section/category/subcategory/?prompt= URL state)
+                       useLibraryRoute (section/category/subcategory/?prompt= URL state, plus
+                       Skills' ?view=libraries)
                        useFavoritePrompts (one set of stars in both libraries; the other library's are fetched by id)
     hooks/useTheme     Light | Dark (`html.light`, key `my-prompt-library.theme`) and the theme
                        (`html[data-palette]`, key `my-prompt-library.palette`, 12 themes in PALETTES;
@@ -95,7 +96,8 @@ site/
     lib/               mode (READ_ONLY), cn (clsx + tailwind-merge), markdown-file (the Download .md), sections (the seven sections: tab id, folder,
                        label, rail label, icon, accent token, blurb — every tab switch reads from here;
                        categoryHue() gives each category a stable hue, applied with the .hue class)
-    components/        SectionRail (md up: logo, the seven sections as hue tiles, Settings; the current
+    components/        SectionRail (md up: logo, six section tiles (NAV_SECTIONS: Skill Packs is reached from the Skills
+                       switch, and lights Skills), Settings; the current
                        one's cell bleeds into the categories panel), TopBar (⌘K search, Resources menu,
                        New item, ThemeSwitch; brand, Settings and the section strip on phones),
                        Sidebar (section-tinted: library switch, category tree with hue dots),
@@ -105,7 +107,9 @@ site/
                        PromptListToolbar, PromptGrid (also exports PromptCardGrid,
                        PromptCardActions, LoadingSkeleton), PromptCard (spotlight card),
                        PromptDetail, SourcePanel (the repo link at the top of every card; copied-at
-                       commit and drift status where there is one), SkillPacksView, EmptyState, Toast, ResourcesNav,
+                       commit and drift status where there is one), SkillPacksView, SkillLibraries (the Skills | Libraries | Packs switch,
+                       in the Sidebar from md up and as pills on phones, and the Libraries grid: the
+                       items tagged `skill-library`, kept out of the Skills grid and category tree), EmptyState, Toast, ResourcesNav,
                        ThemeSwitch, PromptEditorModal, ErrorBoundary (wraps App in main.tsx:
                        a render or chunk failure shows "Something failed to load", not a black page)
     components/ui/     primitives (Button, IconButton, Chip, Tag, Kbd, Modal*, Notice), CountUp
@@ -137,9 +141,12 @@ site/
                        too; test:mcp fails until the two lists match.
   library/             Public content, numbered sections (see below)
   scripts/build-prompt-index.js   Walks library/ → api/prompt-index.json (site build step).
-                       Sorts by id and skips files over 500 KB. Carries `lastModified` and
+                       Sorts by id and skips files over 500 KB. Under 3_Skills it takes
+                       SKILL.md files and the Libraries/ cards. Carries `lastModified` and
                        `buildTime` forward for unchanged entries, so rebuilding an untouched
                        library leaves the file byte-identical.
+  scripts/refresh-library-cards.mjs  Skill library cards ← each repo's description + README, via `gh`
+                       (dry run; --write). Unchanged READMEs keep their date, so a no-op run is diff-free.
   scripts/api-routes.test.mjs     Pins the route table (npm run test:routes)
   scripts/my-library.test.mjs     File-store self-check (npm run test:my-library)
   scripts/mcp-server.test.mjs     MCP server end to end over stdio (npm run test:mcp)
@@ -158,11 +165,8 @@ site/
                        into one weekly PR), reattribute-unclear.mjs (code-search pass over
                        unknown/ambiguous items), attribute-system-prompts.mjs (matches
                        5_System_Prompts against the public collections' clones and history),
-                       sync-agent-skills.mjs (copies new skills from the org's agent-skills repo into
-                       3_Skills, stamped, and refreshes the ones already here; run weekly by the
-                       Routines fleet with no model), build-skill-packs.mjs (one generated pack per
-                       3_Skills folder with 6+ skills, plus dead-path repair of the hand packs; same
-                       job), discover-repos.mjs (gh search for new/popular skills, prompt, agent and
+                       build-skill-packs.mjs (one generated pack per 3_Skills folder with 6+ skills,
+                       plus dead-path repair of the hand packs; Monthly Upkeep), discover-repos.mjs (gh search for new/popular skills, prompt, agent and
                        MCP repos → docs/DISCOVERY.md rows for a person to accept; `link` rows
                        become Resources-menu links in site/library/resources.json),
                        check-resources.mjs (dead-link report for that menu), check-mcp-servers.mjs (flags MCP cards whose repo
@@ -193,6 +197,19 @@ name, so restoring it from history would not put it back in the index.) The fron
 (`agent-guides`, `agents`, `skills`, `prompt-library`, `system-prompts`, `mcp-servers`) map to these
 folders via `getSectionFolder()` in `App.tsx`. After adding/removing content, run
 `npm run build:index` so `api/prompt-index.json` reflects it.
+
+**A skill library is one card, not copies of its skills** (Mike, 2026-10-27). A repo that
+publishes many skills (addyosmani/agent-skills, anthropics/skills…) gets one
+`3_Skills/Libraries/<owner>-<repo>.md`: `title` and `repo:` = `owner/repo`, `description` = the
+repo's GitHub description, tags `skill` + `skill-library` + its topics, and a body that links the
+repo and carries its whole README (relative links made absolute). Write the frontmatter, then
+`cd site && node scripts/refresh-library-cards.mjs --write` fills or refreshes the body of every
+card, public and My Library, and `npm run build:index`. `scripts/upstream.test.mjs` fails a card
+without `repo:`. Markdown views render HTML through `rehype-raw` + `rehype-sanitize` (GitHub's
+allow-list), because READMEs are full of it. Only a skill that stands alone
+is copied in as a `SKILL.md` folder. The 224 copies this replaced are in
+`archive/skill-libraries-2026-10-27/`. In My Library the same card is any item tagged
+`skill-library` with the repo as its source link.
 
 > Note: older docs and the README still describe the pre-rename flat layout
 > (`Prompt_Library/`, `Agents/`, `Skills/`, `System_Prompts/`). Treat the numbered

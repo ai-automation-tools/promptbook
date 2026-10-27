@@ -18,6 +18,7 @@ const OUTPUT_PATH = path.join(__dirname, '../api/prompt-index.json');
 
 // Library section folder holding skills (numbered layout)
 const SKILLS_SECTION = '3_Skills';
+const LIBRARIES_FOLDER = path.join(SKILLS_SECTION, 'Libraries');
 
 function extractFirstHeading(markdown) {
   const match = markdown.match(/^#\s+(.+)$/m);
@@ -47,9 +48,10 @@ function walkDir(dir, baseDir = LIBRARY_PATH) {
 
       const relativePath = path.relative(baseDir, filePath);
       
-      // For Skills section, only include SKILL.md files
+      // For Skills section, only include SKILL.md files, plus the one-card-per-repo
+      // skill libraries in Libraries/ (a library is a card, not copies of its skills)
       if (relativePath.startsWith(SKILLS_SECTION + path.sep)) {
-        if (!file.endsWith('SKILL.md')) {
+        if (!file.endsWith('SKILL.md') && !relativePath.startsWith(LIBRARIES_FOLDER + path.sep)) {
           return;
         }
       }

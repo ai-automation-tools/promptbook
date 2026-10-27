@@ -69,7 +69,7 @@ assert.notEqual(norm(splitFrontmatter(local).body), norm(splitFrontmatter(change
 const LIB = path.join(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1")),
   "..", "site", "library", "3_Skills");
 if (fs.existsSync(LIB)) {
-  const sample = path.join(LIB, "AI_ML", "MCP", "mcp-builder", "SKILL.md");
+  const sample = path.join(LIB, "Content", "General", "humanizer", "SKILL.md");
   if (fs.existsSync(sample)) {
     const fm = splitFrontmatter(fs.readFileSync(sample, "utf8")).fm;
     assert.equal((fm.match(/^upstream:$/gm) || []).length, 1, "exactly one upstream block");
@@ -178,7 +178,9 @@ assert.equal(readUpstream(stampUpstream(tagsLast, { ref: "newsha", checked: "202
     const u = readUpstream(splitFrontmatter(fs.readFileSync(f, "utf8")).fm);
     if (!u?.repo || u.match === "unknown" || u.match === "ambiguous") unsourced.push(path.relative(LIB, f).split(path.sep).join("/"));
   }
-  for (const f of walk(path.join(LIB, "1_Guides"), isMd)) {
+  // Skill library cards (3_Skills/Libraries, one per repo since 2026-10-27) are written here
+  // too, so like a guide they name their repo in a bare `repo:` line.
+  for (const f of [...walk(path.join(LIB, "1_Guides"), isMd), ...walk(path.join(LIB, "3_Skills", "Libraries"), isMd)]) {
     if (!/^repo:\s*[\w.-]+\/[\w.-]+\s*$/m.test(splitFrontmatter(fs.readFileSync(f, "utf8")).fm)) unsourced.push(path.relative(LIB, f).split(path.sep).join("/"));
   }
   assert.deepEqual(unsourced, [], "every item must name a repo (upstream.repo, match: vendor + url, server.repo, or a guide's repo:)");

@@ -5,7 +5,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Menu, PanelLeft, Plus, Search, Settings, X } from 'lucide-react';
-import { SECTIONS } from '../lib/sections';
+import { NAV_SECTIONS, navTab } from '../lib/sections';
 import type { LibraryTab } from '../hooks/useLibraryRoute';
 import type { Theme } from '../hooks/useTheme';
 import { READ_ONLY } from '../lib/mode';
@@ -109,9 +109,9 @@ export default function TopBar({
 
       {/* Phones only: the sections stay one tap away, where the rail would be on wider screens. */}
       <nav ref={stripRef} className="section-strip" aria-label="Sections">
-        {SECTIONS.map(section => {
+        {NAV_SECTIONS.map(section => {
           const Icon = section.icon;
-          const current = section.id === activeTab;
+          const current = section.id === navTab(activeTab);
           return (
             <button
               key={section.id}

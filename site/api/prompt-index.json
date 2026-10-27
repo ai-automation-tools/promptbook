@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-10-26T21:03:26.907Z",
-  "promptCount": 2360,
+  "buildTime": "2026-10-27T16:08:25.434Z",
+  "promptCount": 2166,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -2305,126 +2305,6 @@
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/AI_ML/Agent_Development/agent-development/SKILL.md",
-      "title": "💻 Agent Development",
-      "section": "3_Skills",
-      "category": "AI_ML",
-      "subcategory": "Agent_Development",
-      "tags": [
-        "skill",
-        "ai-ml",
-        "agent-development"
-      ],
-      "contentPreview": "\n# Agent Development for Claude Code Plugins\n\n## Overview\n\nAgents are autonomous subprocesses that handle complex, multi-step tasks independently. Understanding agent structure, triggering conditions,",
-      "lastModified": "2026-10-21T18:07:05.851Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/AI_ML/Agent_Development/agent-md-refactor/SKILL.md",
-      "title": "🛠️ agent-md-refactor",
-      "section": "3_Skills",
-      "category": "AI_ML",
-      "subcategory": "Agent_Development",
-      "tags": [
-        "skill",
-        "ai-ml",
-        "agent-development"
-      ],
-      "contentPreview": "\n# Agent MD Refactor\n\nRefactor bloated agent instruction files (AGENTS.md, CLAUDE.md, COPILOT.md, etc.) to follow **progressive disclosure principles** - keeping essentials at root and organizing the ",
-      "lastModified": "2026-10-23T23:09:04.327Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/AI_ML/Agent_Development/discernment-nudge/SKILL.md",
-      "title": "discernment-nudge",
-      "section": "3_Skills",
-      "category": "AI_ML",
-      "subcategory": "Agent_Development",
-      "tags": [
-        "skill",
-        "ai-ml",
-        "agent-development"
-      ],
-      "contentPreview": "\n# Discernment nudge\n\n## Why this exists\n\nPeople often take an AI answer at face value, especially when it's\nconfidently written and well-structured. That's usually fine — but for\nsubstantive answers ",
-      "lastModified": "2026-10-21T18:07:05.853Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/AI_ML/Agent_Development/skill-creator/SKILL.md",
-      "title": "🛠️ skill-creator",
-      "section": "3_Skills",
-      "category": "AI_ML",
-      "subcategory": "Agent_Development",
-      "tags": [
-        "skill",
-        "ai-ml",
-        "agent-development"
-      ],
-      "contentPreview": "\n# Skill Creator\n\nA skill for creating new skills and iteratively improving them.\n\nAt a high level, the process of creating a skill goes like this:\n\n- Decide what you want the skill to do and roughly ",
-      "lastModified": "2026-10-21T18:07:05.854Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/AI_ML/MCP/mcp-builder/SKILL.md",
-      "title": "📱 mcp-builder",
-      "section": "3_Skills",
-      "category": "AI_ML",
-      "subcategory": "MCP",
-      "tags": [
-        "skill",
-        "ai-ml",
-        "mcp"
-      ],
-      "contentPreview": "\n# MCP Server Development Guide\n\n## Overview\n\nCreate MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. The quality of an MCP server ",
-      "lastModified": "2026-10-21T18:07:05.856Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/AI_ML/MCP/mcp-integration/SKILL.md",
-      "title": "💻 MCP Integration",
-      "section": "3_Skills",
-      "category": "AI_ML",
-      "subcategory": "MCP",
-      "tags": [
-        "skill",
-        "ai-ml",
-        "mcp"
-      ],
-      "contentPreview": "\n# MCP Integration for Claude Code Plugins\n\n## Overview\n\nModel Context Protocol (MCP) enables Claude Code plugins to integrate with external services and APIs by providing structured tool access. Use ",
-      "lastModified": "2026-10-21T18:07:05.858Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/AI_ML/MCP/playwright/SKILL.md",
-      "title": "🐛 \"playwright\"",
-      "section": "3_Skills",
-      "category": "AI_ML",
-      "subcategory": "MCP",
-      "tags": [
-        "skill",
-        "ai-ml",
-        "mcp"
-      ],
-      "contentPreview": "\n\n# Playwright CLI Skill\n\nDrive a real browser from the terminal using `playwright-cli`. Prefer the bundled wrapper script so the CLI works even when it is not globally installed.\nTreat this skill as ",
-      "lastModified": "2026-10-21T18:07:05.859Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/AI_ML/Product_Engineer/ai-product/SKILL.md",
-      "title": "💻 ai-product",
-      "section": "3_Skills",
-      "category": "AI_ML",
-      "subcategory": "Product_Engineer",
-      "tags": [
-        "skill",
-        "ai-ml",
-        "product-engineer"
-      ],
-      "contentPreview": "\n# AI Product Development\n\nYou are an AI product engineer who has shipped LLM features to millions of\nusers. You've debugged hallucinations at 3am, optimized prompts to reduce\ncosts by 80%, and built ",
-      "lastModified": "2026-10-23T23:09:04.902Z",
-      "isUserOwned": false
-    },
-    {
       "id": "3_Skills/AI_ML/find-skills/SKILL.md",
       "title": "🔍 find-skills",
       "section": "3_Skills",
@@ -2436,22 +2316,7 @@
         "find-skills"
       ],
       "contentPreview": "\n# Find Skills\n\nThis skill helps you discover and install skills from the open agent skills ecosystem.\n\n## When to Use This Skill\n\nUse this skill when the user:\n\n- Asks \"how do I do X\" where X might b",
-      "lastModified": "2026-10-21T18:07:05.861Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/AI_ML/huggingface-llm-trainer/SKILL.md",
-      "title": "🏋️ huggingface-llm-trainer",
-      "section": "3_Skills",
-      "category": "AI_ML",
-      "subcategory": "huggingface-llm-trainer",
-      "tags": [
-        "skill",
-        "ai-ml",
-        "huggingface-llm-trainer"
-      ],
-      "contentPreview": "\n# TRL Training on Hugging Face Jobs\n\n## Overview\n\nTrain language models using TRL (Transformer Reinforcement Learning) on fully managed Hugging Face infrastructure. No local GPU setup required—models",
-      "lastModified": "2026-10-21T18:07:05.863Z",
+      "lastModified": "2026-10-21T17:41:05.267Z",
       "isUserOwned": false
     },
     {
@@ -2466,178 +2331,7 @@
         "whisper"
       ],
       "contentPreview": "\n# Whisper - Robust Speech Recognition\n\nOpenAI's multilingual speech recognition model.\n\n## When to use Whisper\n\n**Use when:**\n- Speech-to-text transcription (99 languages)\n- Podcast/video transcripti",
-      "lastModified": "2026-10-21T18:07:05.866Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/Marketing/ab-testing/SKILL.md",
-      "title": "ab-testing",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Marketing",
-      "tags": [
-        "skill",
-        "marketing",
-        "ab-testing",
-        "experiments"
-      ],
-      "contentPreview": "\n# A/B Test Setup\n\nYou are an expert in experimentation and A/B testing. Your goal is to help design tests that produce statistically valid, actionable results.\n\n## Initial Assessment\n\n**Check for pro",
-      "lastModified": "2026-10-26T16:17:28.646Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/Marketing/churn-prevention/SKILL.md",
-      "title": "churn-prevention",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Marketing",
-      "tags": [
-        "skill",
-        "marketing",
-        "churn",
-        "retention"
-      ],
-      "contentPreview": "\n# Churn Prevention\n\nYou are an expert in SaaS retention and churn prevention. Your goal is to help reduce both voluntary churn (customers choosing to cancel) and involuntary churn (failed payments) t",
-      "lastModified": "2026-10-26T16:17:28.686Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/Marketing/cold-email/SKILL.md",
-      "title": "cold-email",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Marketing",
-      "tags": [
-        "skill",
-        "marketing",
-        "cold-email",
-        "outbound"
-      ],
-      "contentPreview": "\n# Cold Email Writing\n\nYou are an expert in cold outbound. Your goal is to write emails that sound like they came from a sharp, thoughtful human — not a sales machine following a template — and to mak",
-      "lastModified": "2026-10-26T16:17:28.661Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/Marketing/content-creator/SKILL.md",
-      "title": "✨ content-creator",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Marketing",
-      "tags": [
-        "skill",
-        "business",
-        "marketing"
-      ],
-      "contentPreview": "\n# Content Creator\n\nProfessional-grade brand voice analysis, SEO optimization, and platform-specific content frameworks.\n\n## Keywords\ncontent creation, blog posts, SEO, brand voice, social media, cont",
-      "lastModified": "2026-10-23T23:09:06.271Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/Marketing/content-research-writer/SKILL.md",
-      "title": "🛠️ content-research-writer",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Marketing",
-      "tags": [
-        "skill",
-        "business",
-        "marketing"
-      ],
-      "contentPreview": "\n# Content Research Writer\n\nThis skill acts as your writing partner, helping you research, outline, draft, and refine content while maintaining your unique voice and style.\n\n## When to Use This Skill\n",
-      "lastModified": "2026-10-23T23:09:06.502Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/Marketing/cro/SKILL.md",
-      "title": "cro",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Marketing",
-      "tags": [
-        "skill",
-        "marketing",
-        "cro",
-        "conversion"
-      ],
-      "contentPreview": "\n# Conversion Rate Optimization (CRO)\n\nYou are a conversion rate optimization expert. Your goal is to analyze marketing pages and provide actionable recommendations to improve conversion rates.\n\n## Re",
-      "lastModified": "2026-10-26T16:17:28.638Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/Marketing/launch-strategy/SKILL.md",
-      "title": "🛠️ launch-strategy",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Marketing",
-      "tags": [
-        "skill",
-        "business",
-        "marketing"
-      ],
-      "contentPreview": "\n# Launch Strategy\n\nYou are an expert in SaaS product launches and feature announcements. Your goal is to help users plan launches that build momentum, capture attention, and convert interest into use",
-      "lastModified": "2026-10-23T23:09:06.503Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/Marketing/marketing-demand-acquisition/SKILL.md",
-      "title": "🧠 marketing-demand-acquisition",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Marketing",
-      "tags": [
-        "skill",
-        "business",
-        "marketing"
-      ],
-      "contentPreview": "\n# Marketing Demand & Acquisition\n\nExpert acquisition playbook for Series A+ startups scaling internationally (EU/US/Canada) with hybrid PLG/Sales-Led motion.\n\n## Keywords\ndemand generation, paid medi",
-      "lastModified": "2026-10-21T18:07:05.870Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/Marketing/marketing-psychology/SKILL.md",
-      "title": "marketing-psychology",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Marketing",
-      "tags": [
-        "skill",
-        "marketing",
-        "psychology",
-        "behavioral"
-      ],
-      "contentPreview": "\n# Marketing Psychology & Mental Models\n\nYou are an expert in applying psychological principles and mental models to marketing. Your goal is to help users understand why people buy, how to influence b",
-      "lastModified": "2026-10-26T16:17:28.667Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/Marketing/onboarding/SKILL.md",
-      "title": "onboarding",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Marketing",
-      "tags": [
-        "skill",
-        "marketing",
-        "onboarding",
-        "activation"
-      ],
-      "contentPreview": "\n# Onboarding CRO\n\nYou are an expert in user onboarding and activation. Your goal is to help users reach their \"aha moment\" as quickly as possible and establish habits that lead to long-term retention",
-      "lastModified": "2026-10-26T16:17:28.677Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/Marketing/seo-fundamentals/SKILL.md",
-      "title": "🌐 seo-fundamentals",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Marketing",
-      "tags": [
-        "skill",
-        "business",
-        "marketing"
-      ],
-      "contentPreview": "\n# SEO Fundamentals\n\n> Principles for search engine visibility.\n\n---\n\n## 1. E-E-A-T Framework\n\n| Principle | Signals |\n|-----------|---------|\n| **Experience** | First-hand knowledge, real examples |\n",
-      "lastModified": "2026-10-23T23:09:06.909Z",
+      "lastModified": "2026-10-21T17:41:05.275Z",
       "isUserOwned": false
     },
     {
@@ -2656,226 +2350,6 @@
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Business/Strategy/business-plan-builder/SKILL.md",
-      "title": "💼 business-plan-builder",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Strategy",
-      "tags": [
-        "skill",
-        "business",
-        "strategy",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# Business plan builder\n\nSomebody hands you an idea. Your job is to find out whether it holds up, and to leave behind a set of documents that show your work — so the reader can disagree with a specif",
-      "lastModified": "2026-10-21T18:38:08.411Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/Strategy/create-prd/SKILL.md",
-      "title": "create-prd",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Strategy",
-      "tags": [
-        "skill",
-        "business",
-        "product",
-        "prd"
-      ],
-      "contentPreview": "\n# Create a Product Requirements Document\n\n## Purpose\n\nYou are an experienced product manager writing a PRD for the product or feature the user describes. The PRD gets the team aligned on what to buil",
-      "lastModified": "2026-10-26T16:17:28.720Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/Strategy/customer-discovery/SKILL.md",
-      "title": "💼 customer-discovery",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Strategy",
-      "tags": [
-        "skill",
-        "business",
-        "strategy",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# Customer Discovery\n\n## What discovery is for\n\nDiscovery exists to find out whether a problem is real, painful, and already being\nworked around at cost. It is not for validating a solution, and it i",
-      "lastModified": "2026-10-21T18:38:08.440Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/Strategy/go-to-market/SKILL.md",
-      "title": "💼 go-to-market",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Strategy",
-      "tags": [
-        "skill",
-        "business",
-        "strategy",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# Go-to-Market\n\n## The gap this closes\n\nA product can be good, correctly priced, and still reach nobody. Go-to-market is the\nargument for how a specific buyer finds out this exists, decides it is for",
-      "lastModified": "2026-10-21T18:38:08.442Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/Strategy/lean-canvas/SKILL.md",
-      "title": "lean-canvas",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Strategy",
-      "tags": [
-        "skill",
-        "business",
-        "strategy",
-        "lean-canvas"
-      ],
-      "contentPreview": "# Lean Canvas\n\n## Metadata\n- **Name**: lean-canvas\n- **Description**: Generate a Lean Canvas business model with detailed sections for problem, solution, metrics, cost structure, UVP, unfair advantage",
-      "lastModified": "2026-10-26T16:17:28.741Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/Strategy/north-star-metric/SKILL.md",
-      "title": "north-star-metric",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Strategy",
-      "tags": [
-        "skill",
-        "business",
-        "product",
-        "metrics"
-      ],
-      "contentPreview": "# North Star Metric\n\nIdentify a North Star Metric and 3-5 Input Metrics that form a metrics constellation. Classifies the business game being played and validates against criteria for an effective Nor",
-      "lastModified": "2026-10-26T16:17:28.737Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/Strategy/opportunity-solution-tree/SKILL.md",
-      "title": "opportunity-solution-tree",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Strategy",
-      "tags": [
-        "skill",
-        "business",
-        "product",
-        "discovery"
-      ],
-      "contentPreview": "\n## Opportunity Solution Tree (OST)\n\nA visual framework for structuring continuous product discovery. Connects a desired **outcome** to customer **opportunities**, possible **solutions**, and **experi",
-      "lastModified": "2026-10-26T16:17:28.728Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/Strategy/pre-mortem/SKILL.md",
-      "title": "pre-mortem",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Strategy",
-      "tags": [
-        "skill",
-        "business",
-        "product",
-        "risk"
-      ],
-      "contentPreview": "\n# Pre-Mortem: Risk Analysis for Product Launch\n\n## Purpose\n\nYou are a veteran product manager conducting a pre-mortem analysis on $ARGUMENTS. This skill imagines launch failure and works backward to ",
-      "lastModified": "2026-10-26T16:17:28.724Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/Strategy/pricing-strategy/SKILL.md",
-      "title": "💼 pricing-strategy",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Strategy",
-      "tags": [
-        "skill",
-        "business",
-        "strategy",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# Pricing Strategy\n\n## Price is a product decision\n\nPricing is usually treated as a last step — build the thing, look at two\ncompetitors, land somewhere between them, round to $29. That produces a nu",
-      "lastModified": "2026-10-21T18:38:08.443Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/Strategy/strategy-red-team/SKILL.md",
-      "title": "strategy-red-team",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "Strategy",
-      "tags": [
-        "skill",
-        "business",
-        "strategy",
-        "red-team"
-      ],
-      "contentPreview": "\n# Strategy Red-Team: Attack the Assumptions Before Reality Does\n\n## Purpose\n\nYou are a sharp, fair adversary reviewing $ARGUMENTS. Most plans only survived polite feedback. This skill finds the load-",
-      "lastModified": "2026-10-26T16:17:28.744Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/analytics-tracking/SKILL.md",
-      "title": "🧪 analytics-tracking",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "analytics-tracking",
-      "tags": [
-        "skill",
-        "business",
-        "analytics-tracking"
-      ],
-      "contentPreview": "\n# Analytics Tracking\n\nYou are an expert in analytics implementation and measurement. Your goal is to help set up tracking that provides actionable insights for marketing and product decisions.\n\n## In",
-      "lastModified": "2026-10-23T23:09:05.275Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/anthropic-brand-guidelines/SKILL.md",
-      "title": "✨ brand-guidelines",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "anthropic-brand-guidelines",
-      "tags": [
-        "skill",
-        "business",
-        "anthropic-brand-guidelines"
-      ],
-      "contentPreview": "\n# Anthropic Brand Styling\n\n## Overview\n\nTo access Anthropic's official brand identity and style resources, use this skill.\n\n**Keywords**: branding, corporate identity, visual identity, post-processin",
-      "lastModified": "2026-10-21T18:07:05.873Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/app-builder/SKILL.md",
-      "title": "✨ app-builder",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "app-builder",
-      "tags": [
-        "skill",
-        "business",
-        "app-builder"
-      ],
-      "contentPreview": "\n# App Builder - Application Building Orchestrator\n\n> Analyzes user's requests, determines tech stack, plans structure, and coordinates agents.\n\n## 🎯 Selective Reading Rule\n\n**Read ONLY files relevan",
-      "lastModified": "2026-10-23T23:09:05.276Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/brand-guidelines/SKILL.md",
-      "title": "🛠️ brand-guidelines",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "brand-guidelines",
-      "tags": [
-        "skill",
-        "business",
-        "brand-guidelines"
-      ],
-      "contentPreview": "\n# Anthropic Brand Styling\n\n## Overview\n\nTo access Anthropic's official brand identity and style resources, use this skill.\n\n**Keywords**: branding, corporate identity, visual identity, post-processin",
-      "lastModified": "2026-10-21T18:07:05.877Z",
-      "isUserOwned": false
-    },
-    {
       "id": "3_Skills/Business/copy-editing/SKILL.md",
       "title": "🛠️ copy-editing",
       "section": "3_Skills",
@@ -2888,68 +2362,6 @@
       ],
       "contentPreview": "\n# Copy Editing\n\nYou are an expert copy editor specializing in marketing and conversion copy. Your goal is to systematically improve existing copy through focused editing passes while preserving the c",
       "lastModified": "2026-10-23T23:09:05.744Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/copywriting/SKILL.md",
-      "title": "🧠 copywriting",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "copywriting",
-      "tags": [
-        "skill",
-        "business",
-        "copywriting"
-      ],
-      "contentPreview": "\n# Copywriting\n\nYou are an expert conversion copywriter. Your goal is to write marketing copy that is clear, compelling, and drives action.\n\n## Before Writing\n\nGather this context (ask if not provided",
-      "lastModified": "2026-10-23T23:09:06.061Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Business/product-strategist/SKILL.md",
-      "title": "🛠️ product-strategist",
-      "section": "3_Skills",
-      "category": "Business",
-      "subcategory": "product-strategist",
-      "tags": [
-        "skill",
-        "business",
-        "product-strategist"
-      ],
-      "contentPreview": "\n# Product Strategist\n\nStrategic toolkit for Head of Product to drive vision, alignment, and organizational excellence.\n\n## Core Capabilities\n- OKR cascade generation and alignment\n- Market and compet",
-      "lastModified": "2026-10-23T23:09:07.113Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/Cooking/recipe-validator/SKILL.md",
-      "title": "✍️ recipe-validator",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "Cooking",
-      "tags": [
-        "skill",
-        "content",
-        "cooking",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# Recipe validator\n\nJudge whether food recipes are **safe to cook, healthy within reason, and made to a competent standard** — then report exactly what's wrong and how to fix it. This is a *review*, ",
-      "lastModified": "2026-10-21T18:38:08.415Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/Documentation/repo-docs-builder/SKILL.md",
-      "title": "✍️ repo-docs-builder",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "Documentation",
-      "tags": [
-        "skill",
-        "content",
-        "documentation",
-        "agent-skills"
-      ],
-      "contentPreview": "\nYou are a **Repository Builder** — you take a repo, project folder, doc library, or Obsidian vault (new or existing) and make it **professional and navigable end to end**: a clean layout, a house-sty",
-      "lastModified": "2026-10-23T22:12:43.351Z",
       "isUserOwned": false
     },
     {
@@ -3003,220 +2415,6 @@
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Content/Image_Generation/news-images/SKILL.md",
-      "title": "✍️ news-images",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "Image_Generation",
-      "tags": [
-        "skill",
-        "content",
-        "image-generation",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# News Images\n\nThis skill generates **eight** news-image variants. Each turns recent major **U.S.** news into bright cartoon-editorial imagery. Its job is **generation** — research the stories, lay o",
-      "lastModified": "2026-10-21T18:38:08.425Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/Media/captions-and-accessibility/SKILL.md",
-      "title": "✍️ captions-and-accessibility",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "Media",
-      "tags": [
-        "skill",
-        "content",
-        "media",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# Captions and Accessibility\n\n## Accessibility is part of done, not a later pass\n\nAn asset that a deaf viewer cannot follow, a blind viewer cannot understand, or a\nlow-vision viewer cannot read is no",
-      "lastModified": "2026-10-21T18:38:08.448Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/Media/media-rights-and-licensing/SKILL.md",
-      "title": "✍️ media-rights-and-licensing",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "Media",
-      "tags": [
-        "skill",
-        "content",
-        "media",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# Media Rights and Licensing\n\n## Never assert a right you did not confirm\n\nThe dangerous sentence in media production is \"that's probably fine.\" Music, a font, a\nstock clip, a voice, a likeness — eac",
-      "lastModified": "2026-10-21T18:38:08.449Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/Media/post-publish-analytics/SKILL.md",
-      "title": "✍️ post-publish-analytics",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "Media",
-      "tags": [
-        "skill",
-        "content",
-        "media",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# Post-Publish Analytics\n\n## Analytics exist to change the next piece\n\nNumbers after publish are only worth reading if they change what you make next.\nCollecting views and screenshotting a nice chart",
-      "lastModified": "2026-10-21T18:38:08.450Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/brainstorming/SKILL.md",
-      "title": "brainstorming",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "brainstorming",
-      "tags": [
-        "skill",
-        "content",
-        "brainstorming"
-      ],
-      "contentPreview": "\n# Brainstorming\n\nYou are very good at building. You build what you believe your human\npartner wants, and that belief is usually thinner than it feels. This\nskill is for finding out what they actually",
-      "lastModified": "2026-10-21T18:07:05.886Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/concise-planning/SKILL.md",
-      "title": "concise-planning",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "concise-planning",
-      "tags": [
-        "skill",
-        "content",
-        "concise-planning"
-      ],
-      "contentPreview": "\n# Concise Planning\n\n## Goal\n\nTurn a user request into a **single, actionable plan** with atomic steps.\n\n## Workflow\n\n### 1. Scan Context\n\n- Read `README.md`, docs, and relevant code files.\n- Identify",
-      "lastModified": "2026-10-23T23:09:07.114Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/doc-coauthoring/SKILL.md",
-      "title": "🛠️ doc-coauthoring",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "doc-coauthoring",
-      "tags": [
-        "skill",
-        "content",
-        "doc-coauthoring"
-      ],
-      "contentPreview": "\n# Doc Co-Authoring Workflow\n\nThis skill provides a structured workflow for guiding users through collaborative document creation. Act as an active guide, walking users through three stages: Context G",
-      "lastModified": "2026-10-21T18:07:05.890Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/documentation-templates/SKILL.md",
-      "title": "documentation-templates",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "documentation-templates",
-      "tags": [
-        "skill",
-        "content",
-        "documentation-templates"
-      ],
-      "contentPreview": "\n# Documentation Templates\n\n> Templates and structure guidelines for common documentation types.\n\n---\n\n## 1. README Structure\n\n### Essential Sections (Priority Order)\n\n| Section | Purpose |\n|---------",
-      "lastModified": "2026-10-23T23:09:07.465Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/docx/SKILL.md",
-      "title": "docx",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "docx",
-      "tags": [
-        "skill",
-        "content",
-        "docx"
-      ],
-      "contentPreview": "\n# DOCX creation, editing, and analysis\n\nA `.docx` is a ZIP archive of XML files. Choose your approach by task:\n\n| Task | Approach |\n|---|---|\n| **Create** a new document | Write a `docx` (npm) script",
-      "lastModified": "2026-10-21T18:07:05.895Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/excel/spreadsheet/SKILL.md",
-      "title": "🛠️ \"spreadsheet\"",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "excel",
-      "tags": [
-        "skill",
-        "content",
-        "excel"
-      ],
-      "contentPreview": "\n\n# Spreadsheet Skill (Create, Edit, Analyze, Visualize)\n\n## When to use\n- Build new workbooks with formulas, formatting, and structured layouts.\n- Read or analyze tabular data (filter, aggregate, piv",
-      "lastModified": "2026-10-21T18:07:05.896Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/executing-plans/SKILL.md",
-      "title": "executing-plans",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "executing-plans",
-      "tags": [
-        "skill",
-        "content",
-        "executing-plans"
-      ],
-      "contentPreview": "\n# Executing Plans\n\nExecute the plan yourself, task by task, in this session: no implementer\nsubagent per task, no reviewer per task. One fresh-context review of the\nwhole branch at the end.\n\n**Why in",
-      "lastModified": "2026-10-21T18:07:05.897Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/file-organizer/SKILL.md",
-      "title": "file-organizer",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "file-organizer",
-      "tags": [
-        "skill",
-        "content",
-        "file-organizer"
-      ],
-      "contentPreview": "\n# File Organizer\n\n## When to Use This Skill\n\n- Your Downloads folder is a chaotic mess\n- You can't find files because they're scattered everywhere\n- You have duplicate files taking up space\n- Your fo",
-      "lastModified": "2026-10-23T23:09:07.467Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/invoice-organizer/SKILL.md",
-      "title": "invoice-organizer",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "invoice-organizer",
-      "tags": [
-        "skill",
-        "content",
-        "invoice-organizer"
-      ],
-      "contentPreview": "\n# Invoice Organizer\n\nThis skill transforms chaotic folders of invoices, receipts, and financial documents into a clean, tax-ready filing system without manual effort.\n\n## When to Use This Skill\n\n- Pr",
-      "lastModified": "2026-10-23T23:09:08.021Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/json-canvas/SKILL.md",
-      "title": "json-canvas",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "json-canvas",
-      "tags": [
-        "skill",
-        "content",
-        "json-canvas"
-      ],
-      "contentPreview": "\n# JSON Canvas Skill\n\nThis skill enables Claude Code to create and edit valid JSON Canvas files (`.canvas`) used in Obsidian and other applications.\n\n## Overview\n\nJSON Canvas is an open file format fo",
-      "lastModified": "2026-10-23T23:09:08.266Z",
-      "isUserOwned": false
-    },
-    {
       "id": "3_Skills/Content/notebooklm/SKILL.md",
       "title": "notebooklm",
       "section": "3_Skills",
@@ -3229,21 +2427,6 @@
       ],
       "contentPreview": "\n# NotebookLM Research Assistant Skill\n\nInteract with Google NotebookLM to query documentation with Gemini's source-grounded answers. Each question opens a fresh browser session, retrieves the answer ",
       "lastModified": "2026-10-23T23:09:08.633Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/obsidian/obsidian-bases/SKILL.md",
-      "title": "📝 obsidian-bases",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "obsidian",
-      "tags": [
-        "skill",
-        "content",
-        "obsidian"
-      ],
-      "contentPreview": "\n# Obsidian Bases Skill\n\nThis skill enables Claude Code to create and edit valid Obsidian Bases (`.base` files) including views, filters, formulas, and all related configurations.\n\n## Overview\n\nObsidi",
-      "lastModified": "2026-10-21T18:07:05.903Z",
       "isUserOwned": false
     },
     {
@@ -3262,233 +2445,6 @@
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Content/pdf/SKILL.md",
-      "title": "pdf",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "pdf",
-      "tags": [
-        "skill",
-        "content",
-        "pdf"
-      ],
-      "contentPreview": "\n# PDF Processing Guide\n\n## Overview\n\nThis guide covers essential PDF processing operations using Python libraries and command-line tools. For advanced features, JavaScript libraries, and detailed exa",
-      "lastModified": "2026-10-21T18:07:05.904Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/plan-writing/SKILL.md",
-      "title": "plan-writing",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "plan-writing",
-      "tags": [
-        "skill",
-        "content",
-        "plan-writing"
-      ],
-      "contentPreview": "\n# Plan Writing\n\n> Source: obra/superpowers\n\n## Overview\nThis skill provides a framework for breaking down work into clear, actionable tasks with verification criteria.\n\n## Task Breakdown Principles\n\n",
-      "lastModified": "2026-10-23T23:09:08.897Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/pptx/SKILL.md",
-      "title": "pptx",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "pptx",
-      "tags": [
-        "skill",
-        "content",
-        "pptx"
-      ],
-      "contentPreview": "\n# PPTX creation, editing, and analysis\n\nA `.pptx` is a ZIP archive of XML files. Choose your approach by task:\n\n| Task | Approach |\n|---|---|\n| **Create** a new deck | Write a `pptxgenjs` script — se",
-      "lastModified": "2026-10-21T18:07:05.906Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/skill-creator/SKILL.md",
-      "title": "skill-creator",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "skill-creator",
-      "tags": [
-        "skill",
-        "content",
-        "skill-creator"
-      ],
-      "contentPreview": "\n# Skill Creator\n\nA skill for creating new skills and iteratively improving them.\n\nAt a high level, the process of creating a skill goes like this:\n\n- Decide what you want the skill to do and roughly ",
-      "lastModified": "2026-10-21T18:07:05.910Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/skill-developer/SKILL.md",
-      "title": "skill-developer",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "skill-developer",
-      "tags": [
-        "skill",
-        "content",
-        "skill-developer"
-      ],
-      "contentPreview": "\n# Skill Developer Guide\n\n## Purpose\n\nComprehensive guide for creating and managing skills in Claude Code with auto-activation system, following Anthropic's official best practices including the 500-l",
-      "lastModified": "2026-10-23T23:09:08.898Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/sora/SKILL.md",
-      "title": "🎬 \"sora\"",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "sora",
-      "tags": [
-        "skill",
-        "content",
-        "sora"
-      ],
-      "contentPreview": "\n\n# Sora Video Generation Skill\n\nCreates or manages short video clips for the current project (product demos, marketing spots, cinematic shots, UI mocks). Defaults to `sora-2` and a structured prompt ",
-      "lastModified": "2026-10-21T18:07:05.912Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/think-tank/SKILL.md",
-      "title": "think-tank",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "think-tank",
-      "tags": [
-        "skill",
-        "content",
-        "think-tank"
-      ],
-      "contentPreview": "\n# Virtual Think Tank\n\nA pre-planning skill that simulates a moderated expert debate to surface trade-offs, blind spots, and perspectives before committing to a plan. Inspired by real think tanks: the",
-      "lastModified": "2026-10-23T23:09:09.140Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/xlsx/SKILL.md",
-      "title": "xlsx",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "xlsx",
-      "tags": [
-        "skill",
-        "content",
-        "xlsx"
-      ],
-      "contentPreview": "\n# XLSX creation, editing, and analysis\n\n| Task | Approach |\n|---|---|\n| **Create** or **edit** with formulas/formatting | `openpyxl` — see gotchas below |\n| **Bulk data** in or out | `pandas` (`read_",
-      "lastModified": "2026-10-21T18:07:05.916Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Data/histolab/SKILL.md",
-      "title": "histolab",
-      "section": "3_Skills",
-      "category": "Data",
-      "subcategory": "histolab",
-      "tags": [
-        "skill",
-        "data",
-        "histolab"
-      ],
-      "contentPreview": "\n# Histolab\n\n## Overview\n\nHistolab is a Python library for processing whole slide images (WSI) in digital pathology. It automates tissue detection, extracts informative tiles from gigapixel images, an",
-      "lastModified": "2026-10-23T23:09:09.141Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Data/huggingface-gradio/SKILL.md",
-      "title": "🤗 huggingface-gradio",
-      "section": "3_Skills",
-      "category": "Data",
-      "subcategory": "huggingface-gradio",
-      "tags": [
-        "skill",
-        "data",
-        "huggingface-gradio"
-      ],
-      "contentPreview": "\n# Gradio\n\nGradio is a Python library for building interactive web UIs and ML demos. This skill covers the core API, patterns, and examples.\n\n## Guides\n\nDetailed guides on specific topics (read these ",
-      "lastModified": "2026-10-21T18:07:05.919Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Data/matlab/SKILL.md",
-      "title": "matlab",
-      "section": "3_Skills",
-      "category": "Data",
-      "subcategory": "matlab",
-      "tags": [
-        "skill",
-        "data",
-        "matlab"
-      ],
-      "contentPreview": "\n# MATLAB and GNU Octave\n\nUse this skill to design or review numerical code, migrate MATLAB releases,\nprepare reproducible projects, and plan trusted execution. MATLAB and GNU\nOctave are distinct prod",
-      "lastModified": "2026-10-21T18:07:05.920Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Data/networkx/SKILL.md",
-      "title": "networkx",
-      "section": "3_Skills",
-      "category": "Data",
-      "subcategory": "networkx",
-      "tags": [
-        "skill",
-        "data",
-        "networkx",
-        "science"
-      ],
-      "contentPreview": "\n# NetworkX\n\n## Overview\n\nNetworkX is a Python package for creating, manipulating, and analyzing complex networks and graphs. Use this skill when working with network or graph data structures, includi",
-      "lastModified": "2026-10-22T22:23:05.447Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Data/polars/SKILL.md",
-      "title": "Polars",
-      "section": "3_Skills",
-      "category": "Data",
-      "subcategory": "polars",
-      "tags": [
-        "skill",
-        "data",
-        "polars"
-      ],
-      "contentPreview": "\n# Polars\n\n## Overview\n\nPolars is a blazingly fast DataFrame library written in Rust with Python bindings. Built for performance and memory efficiency, Polars leverages parallel execution and lazy eva",
-      "lastModified": "2026-10-21T18:07:05.922Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Data/pymc/SKILL.md",
-      "title": "pymc",
-      "section": "3_Skills",
-      "category": "Data",
-      "subcategory": "pymc",
-      "tags": [
-        "skill",
-        "data",
-        "pymc",
-        "science"
-      ],
-      "contentPreview": "\n# PyMC Bayesian Modeling\n\n## Version and scope\n\nTargets **PyMC 6.3.2**, **PyTensor 3.3.2**, and **ArviZ 1.3.0**. These are\nlocal Python APIs, with no service endpoint, credentials, or remote inferenc",
-      "lastModified": "2026-10-22T22:23:05.453Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Data/scanpy/SKILL.md",
-      "title": "scanpy",
-      "section": "3_Skills",
-      "category": "Data",
-      "subcategory": "scanpy",
-      "tags": [
-        "skill",
-        "data",
-        "scanpy"
-      ],
-      "contentPreview": "\n# Scanpy: Single-Cell Analysis\n\n## Overview\n\nScanpy is a scalable Python toolkit for analyzing single-cell RNA-seq data, built on AnnData. Apply this skill for complete single-cell workflows includin",
-      "lastModified": "2026-10-23T23:09:09.142Z",
-      "isUserOwned": false
-    },
-    {
       "id": "3_Skills/Data/scholar-evaluation/SKILL.md",
       "title": "Scholar Evaluation",
       "section": "3_Skills",
@@ -3500,22 +2456,7 @@
         "scholar-evaluation"
       ],
       "contentPreview": "\n# Scholar Evaluation\n\n## Overview\n\nApply the ScholarEval framework to systematically evaluate scholarly and research work. This skill provides structured evaluation methodology based on peer-reviewed",
-      "lastModified": "2026-10-21T18:07:05.923Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Data/scientific-brainstorming/SKILL.md",
-      "title": "🔗 scientific-brainstorming",
-      "section": "3_Skills",
-      "category": "Data",
-      "subcategory": "scientific-brainstorming",
-      "tags": [
-        "skill",
-        "data",
-        "scientific-brainstorming"
-      ],
-      "contentPreview": "\n# Scientific Brainstorming\n\n## Overview\n\nScientific brainstorming is a conversational process for generating novel research ideas. Act as a research ideation partner to generate hypotheses, explore i",
-      "lastModified": "2026-10-23T23:09:09.143Z",
+      "lastModified": "2026-10-21T17:41:05.347Z",
       "isUserOwned": false
     },
     {
@@ -3545,7 +2486,7 @@
         "scientific-schematics"
       ],
       "contentPreview": "\n# Scientific Schematics and Diagrams\n\n## Overview\n\nScientific schematics and diagrams transform complex concepts into clear visual representations for publication. **This skill uses Nano Banana Pro A",
-      "lastModified": "2026-10-21T18:07:05.926Z",
+      "lastModified": "2026-10-21T17:41:05.353Z",
       "isUserOwned": false
     },
     {
@@ -3575,116 +2516,7 @@
         "scientific-writing"
       ],
       "contentPreview": "\n# Scientific Writing\n\n## Overview\n\n**This is the core skill for the deep research and writing tool**—combining AI-driven deep research with well-formatted written outputs. Every document produced is ",
-      "lastModified": "2026-10-21T18:07:05.930Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Data/scikit-learn/SKILL.md",
-      "title": "scikit-learn",
-      "section": "3_Skills",
-      "category": "Data",
-      "subcategory": "scikit-learn",
-      "tags": [
-        "skill",
-        "data",
-        "scikit-learn",
-        "science"
-      ],
-      "contentPreview": "\n# Scikit-learn\n\n## Overview\n\nThis skill provides comprehensive guidance for machine learning tasks using scikit-learn, the industry-standard Python library for classical machine learning. Use this sk",
-      "lastModified": "2026-10-22T22:23:05.459Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Data/seaborn/SKILL.md",
-      "title": "seaborn",
-      "section": "3_Skills",
-      "category": "Data",
-      "subcategory": "seaborn",
-      "tags": [
-        "skill",
-        "data",
-        "seaborn",
-        "science"
-      ],
-      "contentPreview": "\n# Seaborn Statistical Visualization\n\n## Overview\n\nSeaborn is a Python visualization library for creating publication-quality statistical graphics. Use this skill for dataset-oriented plotting, multiv",
-      "lastModified": "2026-10-22T22:23:05.472Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Data/shap/SKILL.md",
-      "title": "shap",
-      "section": "3_Skills",
-      "category": "Data",
-      "subcategory": "shap",
-      "tags": [
-        "skill",
-        "data",
-        "shap",
-        "science"
-      ],
-      "contentPreview": "\n# SHAP\n\nUse SHAP to describe how a fitted predictive model maps inputs to outputs. Work from the modern `shap.Explanation` API, make the explained output and background distribution explicit, and val",
-      "lastModified": "2026-10-22T22:23:05.478Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Data/statistical-analysis/SKILL.md",
-      "title": "statistical-analysis",
-      "section": "3_Skills",
-      "category": "Data",
-      "subcategory": "statistical-analysis",
-      "tags": [
-        "skill",
-        "data",
-        "statistical-analysis"
-      ],
-      "contentPreview": "\n# Statistical Analysis\n\n## Overview\n\nStatistical analysis is a systematic process for testing hypotheses and quantifying relationships. Conduct hypothesis tests (t-test, ANOVA, chi-square), regressio",
-      "lastModified": "2026-10-23T23:09:10.184Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Data/statsmodels/SKILL.md",
-      "title": "statsmodels",
-      "section": "3_Skills",
-      "category": "Data",
-      "subcategory": "statsmodels",
-      "tags": [
-        "skill",
-        "data",
-        "statsmodels",
-        "science"
-      ],
-      "contentPreview": "\n# Statsmodels: Statistical Modeling and Econometrics\n\n## Overview\n\nStatsmodels provides estimation, inference and diagnostics for regression, time series and econometric models. A successful fit esta",
-      "lastModified": "2026-10-22T22:23:05.487Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Data/timesfm-forecasting/SKILL.md",
-      "title": "timesfm-forecasting",
-      "section": "3_Skills",
-      "category": "Data",
-      "subcategory": "timesfm-forecasting",
-      "tags": [
-        "skill",
-        "data",
-        "timesfm-forecasting"
-      ],
-      "contentPreview": "\n# TimesFM Forecasting\n\n## Choose the model/API first\n\nThe **Python package version is 3.0.2**; checkpoint versions are separate.\n\n| Checkpoint | Interface | Quantile output | Usage terms |\n| --- | --",
-      "lastModified": "2026-10-21T18:07:05.931Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Design/accessibility-compliance/SKILL.md",
-      "title": "♿ Accessibility Compliance",
-      "section": "3_Skills",
-      "category": "Design",
-      "subcategory": "accessibility-compliance",
-      "tags": [
-        "skill",
-        "design",
-        "accessibility-compliance"
-      ],
-      "contentPreview": "\n# Accessibility Compliance\n\nMaster accessibility implementation to create inclusive experiences that work for everyone, including users with disabilities.\n\n## When to Use This Skill\n\n- Implementing W",
-      "lastModified": "2026-10-21T18:07:05.932Z",
+      "lastModified": "2026-10-21T17:41:05.357Z",
       "isUserOwned": false
     },
     {
@@ -3738,21 +2570,6 @@
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Design/interaction-design/SKILL.md",
-      "title": "🔧 Interaction Design Patterns",
-      "section": "3_Skills",
-      "category": "Design",
-      "subcategory": "interaction-design",
-      "tags": [
-        "skill",
-        "prompt",
-        "design"
-      ],
-      "contentPreview": "\n# Interaction Design\n\nCreate engaging, intuitive interactions through motion, feedback, and thoughtful state transitions that enhance usability and delight users.\n\n## When to Use This Skill\n\n- Adding",
-      "lastModified": "2026-09-20T06:00:06.837Z",
-      "isUserOwned": false
-    },
-    {
       "id": "3_Skills/Design/popular-web-designs/SKILL.md",
       "title": "Popular Web Designs",
       "section": "3_Skills",
@@ -3772,68 +2589,6 @@
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Development/API/api-client-resilience/SKILL.md",
-      "title": "💻 api-client-resilience",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "API",
-      "tags": [
-        "skill",
-        "development",
-        "api",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# API Client Resilience\n\n## The default failure\n\nAn HTTP client written without deliberate failure handling does not fail. It hangs.\nThe request goes out, the provider is degraded rather than down, n",
-      "lastModified": "2026-10-21T18:38:08.434Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/API/api-documentation-generator/SKILL.md",
-      "title": "💻 api-documentation-generator",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "API",
-      "tags": [
-        "skill",
-        "development",
-        "api"
-      ],
-      "contentPreview": "\n# API Documentation Generator\n\n## Overview\n\nAutomatically generate clear, comprehensive API documentation from your codebase. This skill helps you create professional documentation that includes endp",
-      "lastModified": "2026-10-23T23:09:11.227Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/API/api-integration-specialist/SKILL.md",
-      "title": "🔌 API Integration Specialist",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "API",
-      "tags": [
-        "skill",
-        "development",
-        "api"
-      ],
-      "contentPreview": "\n# API Integration Specialist\n\nExpert guidance for integrating external APIs into applications with production-ready patterns, security best practices, and comprehensive error handling.\n\n## When to Us",
-      "lastModified": "2026-10-23T23:09:11.228Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/API/api-integration-testing/SKILL.md",
-      "title": "💻 api-integration-testing",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "API",
-      "tags": [
-        "skill",
-        "development",
-        "api",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# API Integration Testing\n\n## The two failure modes\n\n**Tests that hit the live API.** They are slow, they fail when the provider has a\nbad morning, they burn quota, and they cannot run in CI without ",
-      "lastModified": "2026-10-21T18:38:08.435Z",
-      "isUserOwned": false
-    },
-    {
       "id": "3_Skills/Development/API/api-patterns/SKILL.md",
       "title": "🔌 api-patterns",
       "section": "3_Skills",
@@ -3849,178 +2604,6 @@
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Development/API/api-response-normalization/SKILL.md",
-      "title": "💻 api-response-normalization",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "API",
-      "tags": [
-        "skill",
-        "development",
-        "api",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# API Response Normalization\n\n## The problem\n\nFive APIs answering the same question return five shapes. One nests records under\n`data.items`, one under `results`, one returns a bare array. One dates ",
-      "lastModified": "2026-10-21T18:38:08.437Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/API/claude-api/SKILL.md",
-      "title": "💻 claude-api",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "API",
-      "tags": [
-        "skill",
-        "development",
-        "api"
-      ],
-      "contentPreview": "\n# Building LLM-Powered Applications with Claude\n\nThis skill helps you build LLM-powered applications with Claude. Choose the right surface based on your needs, detect the project language, then read ",
-      "lastModified": "2026-10-21T18:07:05.949Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/API/public-api-evaluation/SKILL.md",
-      "title": "💻 public-api-evaluation",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "API",
-      "tags": [
-        "skill",
-        "development",
-        "api",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# Public API Evaluation\n\n## Why this exists\n\nThe cost of an API is almost never the integration. It is the thing you find out in\nmonth four: the free tier was a trial, the data is refreshed quarterly",
-      "lastModified": "2026-10-21T18:38:08.438Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/API/rate-limit-and-quota-management/SKILL.md",
-      "title": "💻 rate-limit-and-quota-management",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "API",
-      "tags": [
-        "skill",
-        "development",
-        "api",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# Rate Limit and Quota Management\n\n## Two different constraints\n\nThey get conflated and they need different mechanisms.\n\n- **A rate limit** is about *speed*. Requests per second, minute, or hour. Exc",
-      "lastModified": "2026-10-21T18:38:08.439Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Analytics/google-analytics/SKILL.md",
-      "title": "google-analytics",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Analytics",
-      "tags": [
-        "skill",
-        "development",
-        "analytics"
-      ],
-      "contentPreview": "\n# Google Analytics Analysis\n\nAnalyze website performance using Google Analytics data to provide actionable insights and improvement recommendations.\n\n## Quick Start\n\n### 1. Setup Authentication\n\nThis",
-      "lastModified": "2026-10-23T23:09:11.226Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Architecture/architecture/SKILL.md",
-      "title": "🛠️ architecture",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Architecture",
-      "tags": [
-        "skill",
-        "development",
-        "architecture"
-      ],
-      "contentPreview": "\n# Architecture Decision Framework\n\n> \"Requirements drive architecture. Trade-offs inform decisions. ADRs capture rationale.\"\n\n## 🎯 Selective Reading Rule\n\n**Read ONLY files relevant to the request!*",
-      "lastModified": "2026-10-23T23:09:11.647Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Architecture/mermaid-diagram-specialist/SKILL.md",
-      "title": "🧠 mermaid-diagram-specialist",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Architecture",
-      "tags": [
-        "skill",
-        "development",
-        "architecture"
-      ],
-      "contentPreview": "\n# Mermaid Diagram Specialist\n\n## Overview\n\n**Purpose**: Expert in creating comprehensive Mermaid diagrams for\ndocumentation, architecture visualization, and process mapping\n\n**Category**: Tech **Prim",
-      "lastModified": "2026-10-23T23:09:11.648Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Automation/agent-workspace-builder/SKILL.md",
-      "title": "💻 agent-workspace-builder",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Automation",
-      "tags": [
-        "skill",
-        "development",
-        "automation",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# Agent workspace builder\n\nAn **agent workspace** is a repo you open an agent in to do one kind of work. Its `.claude/`\n(or another client's equivalent) carries skills, reviewer agents, commands, rul",
-      "lastModified": "2026-10-23T22:12:43.596Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Automation/automated-dev-pipeline/SKILL.md",
-      "title": "💻 automated-dev-pipeline",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Automation",
-      "tags": [
-        "skill",
-        "development",
-        "automation",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# Automated dev pipeline\n\nA pattern for letting scheduled, unattended AI sessions do development work: start new\nprojects, build them, publish them to GitHub, and keep every repo current afterwards. ",
-      "lastModified": "2026-10-21T18:38:08.404Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Automation/html-email-templates/SKILL.md",
-      "title": "💻 html-email-templates",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Automation",
-      "tags": [
-        "skill",
-        "development",
-        "automation",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# Email Template\n\nThree templates, used together or alone. Pick based on what the email *is* and which system generates it:\n\n| Email is... | Use | Delivery |\n|---|---|---|\n| A notification, alert, or",
-      "lastModified": "2026-10-21T18:38:08.406Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Automation/task-router/SKILL.md",
-      "title": "💻 task-router",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Automation",
-      "tags": [
-        "skill",
-        "development",
-        "automation",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# Task Router\n\nPick the **execution shape** first, the **model** second. Wrong shape is the expensive\nmistake — a fan-out for a typo burns tokens and wall-clock; an inline guess at an\narchitecture ch",
-      "lastModified": "2026-10-21T18:38:08.407Z",
-      "isUserOwned": false
-    },
-    {
       "id": "3_Skills/Development/Cloud/together-gpu-clusters/SKILL.md",
       "title": "Together GPU Clusters",
       "section": "3_Skills",
@@ -4032,37 +2615,7 @@
         "cloud"
       ],
       "contentPreview": "\n# Together GPU Clusters\n\n## Overview\n\nUse Together AI GPU clusters when the user needs infrastructure control instead of a managed\ninference product.\n\nTypical fits:\n\n- distributed training\n- multi-no",
-      "lastModified": "2026-10-21T18:07:05.955Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Database/neon-instagres/SKILL.md",
-      "title": "📊 neon-instagres",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Database",
-      "tags": [
-        "skill",
-        "development",
-        "database"
-      ],
-      "contentPreview": "\n# Neon Instagres - Instant Postgres Provisioning\n\nYou are an expert at provisioning instant, production-ready PostgreSQL databases using Neon's Instagres service.\n\n## Core Command\n\n```bash\nnpx get-db",
-      "lastModified": "2026-10-23T23:09:11.649Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Database/supabase-postgres-best-practices/SKILL.md",
-      "title": "🛠️ supabase-postgres-best-practices",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Database",
-      "tags": [
-        "skill",
-        "development",
-        "database"
-      ],
-      "contentPreview": "\n# Supabase Postgres Best Practices\n\nComprehensive performance optimization guide for Postgres, maintained by Supabase. Contains rules across 8 categories, prioritized by impact to guide automated que",
-      "lastModified": "2026-10-21T18:07:05.957Z",
+      "lastModified": "2026-10-21T17:41:05.439Z",
       "isUserOwned": false
     },
     {
@@ -4077,103 +2630,7 @@
         "database"
       ],
       "contentPreview": "\n# Neon Serverless Postgres\n\nNeon is a serverless Postgres platform that separates compute and storage to offer autoscaling, branching, instant restore, and scale-to-zero. It's fully compatible with P",
-      "lastModified": "2026-10-21T18:07:05.957Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Engineering/code-review-and-quality/SKILL.md",
-      "title": "code-review-and-quality",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Engineering",
-      "tags": [
-        "skill",
-        "development",
-        "code-review",
-        "quality"
-      ],
-      "contentPreview": "\n# Code Review and Quality\n\n## Overview\n\nMulti-dimensional code review with quality gates. Every change gets reviewed before merge — no exceptions. Review covers five axes: correctness, readability, a",
-      "lastModified": "2026-10-26T16:17:28.516Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Engineering/context-engineering/SKILL.md",
-      "title": "context-engineering",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Engineering",
-      "tags": [
-        "skill",
-        "development",
-        "context",
-        "agents"
-      ],
-      "contentPreview": "\n# Context Engineering\n\n## Overview\n\nFeed agents the right information at the right time. Context is the single biggest lever for agent output quality — too little and the agent hallucinates, too much",
-      "lastModified": "2026-10-26T16:17:28.538Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Engineering/debugging-methodology/SKILL.md",
-      "title": "💻 debugging-methodology",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Engineering",
-      "tags": [
-        "skill",
-        "development",
-        "engineering",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# Debugging Methodology\n\n## Debugging is narrowing, not guessing\n\nThe slow way to debug is to read the code, form a theory about what is probably\nwrong, change something, and see if the symptom goes ",
-      "lastModified": "2026-10-21T18:38:08.444Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Engineering/doubt-driven-development/SKILL.md",
-      "title": "doubt-driven-development",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Engineering",
-      "tags": [
-        "skill",
-        "development",
-        "review",
-        "adversarial"
-      ],
-      "contentPreview": "\n# Doubt-Driven Development\n\n## Overview\n\nA confident answer is not a correct one. Long sessions accumulate context that quietly turns assumptions into \"facts\" without anyone noticing. Doubt-driven de",
-      "lastModified": "2026-10-26T16:17:28.543Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Engineering/incremental-implementation/SKILL.md",
-      "title": "incremental-implementation",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Engineering",
-      "tags": [
-        "skill",
-        "development",
-        "incremental",
-        "delivery"
-      ],
-      "contentPreview": "\n# Incremental Implementation\n\n## Overview\n\nBuild in thin vertical slices — implement one piece, test it, verify it, then expand. Avoid implementing an entire feature in one pass. Each increment shoul",
-      "lastModified": "2026-10-26T16:17:28.526Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Engineering/performance-optimization/SKILL.md",
-      "title": "💻 performance-optimization",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Engineering",
-      "tags": [
-        "skill",
-        "development",
-        "engineering",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# Performance Optimization\n\n## Measure first, or you are guessing\n\nThe instinct on a slow system is to find the code that *looks* expensive and optimize\nit. That instinct is wrong often enough to be ",
-      "lastModified": "2026-10-21T18:38:08.445Z",
+      "lastModified": "2026-10-21T17:41:05.443Z",
       "isUserOwned": false
     },
     {
@@ -4194,210 +2651,6 @@
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Development/Engineering/ponytail-audit/SKILL.md",
-      "title": "ponytail-audit",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Engineering",
-      "tags": [
-        "skill",
-        "development",
-        "ponytail",
-        "simplicity"
-      ],
-      "contentPreview": "\nAudit the whole repo like the senior developer who just inherited it and\nwill be paged when it breaks. Order of importance: correct, safe, holds under\nload, tested, fast, lean. Lean still matters: ev",
-      "lastModified": "2026-10-22T22:23:05.506Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Engineering/ponytail-debt/SKILL.md",
-      "title": "ponytail-debt",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Engineering",
-      "tags": [
-        "skill",
-        "development",
-        "ponytail",
-        "simplicity"
-      ],
-      "contentPreview": "\nEvery deliberate ponytail shortcut is marked with a `shortcut:` comment naming\nits ceiling and upgrade path (older code may say `ponytail:`). This collects them into one ledger so a deferral\ncan't qu",
-      "lastModified": "2026-10-22T22:23:05.506Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Engineering/ponytail-gain/SKILL.md",
-      "title": "ponytail-gain",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Engineering",
-      "tags": [
-        "skill",
-        "development",
-        "ponytail",
-        "simplicity"
-      ],
-      "contentPreview": "\n# Ponytail Gain\n\nDisplay this scoreboard when invoked. One-shot: do NOT change mode, write flag\nfiles, or persist anything.\n\nThe figures are the published agentic benchmark of Ponytail 5: headless Cl",
-      "lastModified": "2026-10-22T22:23:05.507Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Engineering/ponytail-help/SKILL.md",
-      "title": "ponytail-help",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Engineering",
-      "tags": [
-        "skill",
-        "development",
-        "ponytail",
-        "simplicity"
-      ],
-      "contentPreview": "\n# Ponytail Help\n\nDisplay this reference card when invoked. One-shot, do NOT change mode,\nwrite flag files, or persist anything.\n\n## Levels\n\n| Level | Trigger | What change |\n|-------|---------|------",
-      "lastModified": "2026-10-22T22:23:05.508Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Engineering/ponytail-review/SKILL.md",
-      "title": "ponytail-review",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Engineering",
-      "tags": [
-        "skill",
-        "development",
-        "ponytail",
-        "simplicity"
-      ],
-      "contentPreview": "\nReview a change like the senior developer who will be paged when it breaks.\nOrder of importance: correct, safe, holds under load, tested, fast, lean.\nLean still matters: every extra line must be read",
-      "lastModified": "2026-10-22T22:23:05.509Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Engineering/ponytail/SKILL.md",
-      "title": "ponytail",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Engineering",
-      "tags": [
-        "skill",
-        "development",
-        "ponytail",
-        "simplicity"
-      ],
-      "contentPreview": "\n# Ponytail\n\nYou are a lazy senior developer. The best code is the code never written. You solve the whole problem with the least new code. End your reply with one or two lines: what you skipped or di",
-      "lastModified": "2026-10-22T22:23:05.510Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Engineering/security-and-hardening/SKILL.md",
-      "title": "security-and-hardening",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Engineering",
-      "tags": [
-        "skill",
-        "development",
-        "security",
-        "hardening"
-      ],
-      "contentPreview": "\n# Security and Hardening\n\n## Overview\n\nSecurity-first development practices for web applications. Treat every external input as hostile, every secret as sacred, and every authorization check as manda",
-      "lastModified": "2026-10-26T16:17:28.533Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Engineering/spec-driven-development/SKILL.md",
-      "title": "spec-driven-development",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Engineering",
-      "tags": [
-        "skill",
-        "development",
-        "specs",
-        "planning"
-      ],
-      "contentPreview": "\n# Spec-Driven Development\n\n## Overview\n\nWrite a structured specification before writing any code. The spec is the shared source of truth between you and the human engineer — it defines what we're bui",
-      "lastModified": "2026-10-26T16:17:28.521Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Engineering/testing-strategy/SKILL.md",
-      "title": "💻 testing-strategy",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Engineering",
-      "tags": [
-        "skill",
-        "development",
-        "engineering",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# Testing Strategy\n\n## Tests exist to let you change code safely\n\nThe point of a test suite is not coverage and it is not correctness proofs. It is the\nconfidence to change code without manually re-c",
-      "lastModified": "2026-10-21T18:38:08.447Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Git/commit-smart/SKILL.md",
-      "title": "✨ commit-smart",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Git",
-      "tags": [
-        "skill",
-        "development",
-        "git"
-      ],
-      "contentPreview": "\n# Smart Commit\n\nCreate meaningful conventional commits by analyzing your actual changes.\n\n## Workflow\n\n### Step 1: Assess the working tree\n\nRun these commands to understand the current state:\n\n```bas",
-      "lastModified": "2026-10-23T23:09:11.650Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Git/gh-address-comments/SKILL.md",
-      "title": "🐙 gh-address-comments",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Git",
-      "tags": [
-        "skill",
-        "development",
-        "git"
-      ],
-      "contentPreview": "\n# PR Comment Handler\n\nGuide to find the open PR for the current branch and address its comments with gh CLI. Run all `gh` commands with elevated network access.\n\nPrereq: ensure `gh` is authenticated ",
-      "lastModified": "2026-10-21T18:07:05.958Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Git/gh-fix-ci/SKILL.md",
-      "title": "💻 gh-fix-ci",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Git",
-      "tags": [
-        "skill",
-        "development",
-        "git"
-      ],
-      "contentPreview": "\n# Gh Pr Checks Plan Fix\n\n## Overview\n\nUse gh to locate failing PR checks, fetch GitHub Actions logs for actionable failures, summarize the failure snippet, then propose a fix plan and implement after",
-      "lastModified": "2026-10-21T18:07:05.959Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Git/git-commit-helper/SKILL.md",
-      "title": "📋 Git Commit Helper",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Git",
-      "tags": [
-        "skill",
-        "development",
-        "git"
-      ],
-      "contentPreview": "\n# Git Commit Helper\n\n## Quick start\n\nAnalyze staged changes and generate commit message:\n\n```bash\n# View staged changes\ngit diff --staged\n\n# Generate commit message based on changes\n# (Claude will an",
-      "lastModified": "2026-10-21T18:07:05.960Z",
-      "isUserOwned": false
-    },
-    {
       "id": "3_Skills/Development/Git/git-context-controller/SKILL.md",
       "title": "📋 gcc",
       "section": "3_Skills",
@@ -4409,7 +2662,7 @@
         "git"
       ],
       "contentPreview": "\n# Git Context Controller (GCC)\n\n## Overview\n\nGCC transforms agent memory from a passive token stream into a structured, versioned file system under `.GCC/`. Inspired by Git, it provides four operatio",
-      "lastModified": "2026-10-21T18:07:05.961Z",
+      "lastModified": "2026-10-21T17:41:05.449Z",
       "isUserOwned": false
     },
     {
@@ -4428,36 +2681,6 @@
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Development/Git/github-actions-creator/SKILL.md",
-      "title": "🐙 github-actions-creator",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Git",
-      "tags": [
-        "skill",
-        "development",
-        "git"
-      ],
-      "contentPreview": "\n# GitHub Actions Creator\n\nYou are an expert at creating GitHub Actions workflows. When the user asks you to create a GitHub Action, follow this structured process to deliver a production-ready workfl",
-      "lastModified": "2026-10-23T23:09:11.857Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Git/github-workflow-automation/SKILL.md",
-      "title": "🐙 github-workflow-automation",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Git",
-      "tags": [
-        "skill",
-        "development",
-        "git"
-      ],
-      "contentPreview": "\n# 🔧 GitHub Workflow Automation\n\n> Patterns for automating GitHub workflows with AI assistance, inspired by [Gemini CLI](https://github.com/google-gemini/gemini-cli) and modern DevOps practices.\n\n## ",
-      "lastModified": "2026-10-23T23:09:11.857Z",
-      "isUserOwned": false
-    },
-    {
       "id": "3_Skills/Development/NextJS/nextjs-best-practices/SKILL.md",
       "title": "nextjs-best-practices",
       "section": "3_Skills",
@@ -4473,246 +2696,6 @@
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Development/NextJS/nextjs-supabase-auth/SKILL.md",
-      "title": "nextjs-supabase-auth",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "NextJS",
-      "tags": [
-        "skill",
-        "development",
-        "nextjs"
-      ],
-      "contentPreview": "\n# Next.js + Supabase Auth\n\nYou are an expert in integrating Supabase Auth with Next.js App Router.\nYou understand the server/client boundary, how to handle auth in middleware,\nServer Components, Clie",
-      "lastModified": "2026-10-23T23:09:12.296Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/NodeJS/nodejs-best-practices/SKILL.md",
-      "title": "nodejs-best-practices",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "NodeJS",
-      "tags": [
-        "skill",
-        "development",
-        "nodejs"
-      ],
-      "contentPreview": "\n# Node.js Best Practices\n\n> Principles and decision-making for Node.js development in 2025.\n> **Learn to THINK, not memorize code patterns.**\n\n---\n\n## ⚠️ How to Use This Skill\n\nThis skill teaches **d",
-      "lastModified": "2026-10-23T23:09:12.297Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Python/python-design-patterns/SKILL.md",
-      "title": "🐍 Python Design Patterns",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Python",
-      "tags": [
-        "skill",
-        "development",
-        "python"
-      ],
-      "contentPreview": "\n# Python Design Patterns\n\nWrite maintainable Python code using fundamental design principles. These patterns help you build systems that are easy to understand, test, and modify.\n\n## When to Use This",
-      "lastModified": "2026-10-21T18:07:05.969Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/SME_Skills/senior-architect/SKILL.md",
-      "title": "🛠️ senior-architect",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "SME_Skills",
-      "tags": [
-        "skill",
-        "development",
-        "sme-skills"
-      ],
-      "contentPreview": "\n# Senior Architect\n\nComplete toolkit for senior architect with modern tools and best practices.\n\n## Quick Start\n\n### Main Capabilities\n\nThis skill provides three core capabilities through automated s",
-      "lastModified": "2026-10-23T23:09:12.550Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/SME_Skills/senior-backend/SKILL.md",
-      "title": "💻 senior-backend",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "SME_Skills",
-      "tags": [
-        "skill",
-        "development",
-        "sme-skills"
-      ],
-      "contentPreview": "\n# Senior Backend\n\nComplete toolkit for senior backend with modern tools and best practices.\n\n## Quick Start\n\n### Main Capabilities\n\nThis skill provides three core capabilities through automated scrip",
-      "lastModified": "2026-10-23T23:09:12.551Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/SME_Skills/senior-computer-vision/SKILL.md",
-      "title": "🎬 senior-computer-vision",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "SME_Skills",
-      "tags": [
-        "skill",
-        "development",
-        "sme-skills"
-      ],
-      "contentPreview": "\n# Senior Computer Vision Engineer\n\nWorld-class senior computer vision engineer skill for production-grade AI/ML/Data systems.\n\n## Quick Start\n\n### Main Capabilities\n\n```bash\n# Core Tool 1\npython scri",
-      "lastModified": "2026-10-23T23:09:12.552Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/SME_Skills/senior-data-engineer/SKILL.md",
-      "title": "🛠️ senior-data-engineer",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "SME_Skills",
-      "tags": [
-        "skill",
-        "development",
-        "sme-skills"
-      ],
-      "contentPreview": "\n# Senior Data Engineer\n\nWorld-class senior data engineer skill for production-grade AI/ML/Data systems.\n\n## Quick Start\n\n### Main Capabilities\n\n```bash\n# Core Tool 1\npython scripts/pipeline_orchestra",
-      "lastModified": "2026-10-23T23:09:12.553Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/SME_Skills/senior-data-scientist/SKILL.md",
-      "title": "🛠️ senior-data-scientist",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "SME_Skills",
-      "tags": [
-        "skill",
-        "development",
-        "sme-skills"
-      ],
-      "contentPreview": "\n# Senior Data Scientist\n\nWorld-class senior data scientist skill for production-grade AI/ML/Data systems.\n\n## Quick Start\n\n### Main Capabilities\n\n```bash\n# Core Tool 1\npython scripts/experiment_desig",
-      "lastModified": "2026-10-23T23:09:12.554Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/SME_Skills/senior-devops/SKILL.md",
-      "title": "💻 senior-devops",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "SME_Skills",
-      "tags": [
-        "skill",
-        "development",
-        "sme-skills"
-      ],
-      "contentPreview": "\n# Senior Devops\n\nComplete toolkit for senior devops with modern tools and best practices.\n\n## Quick Start\n\n### Main Capabilities\n\nThis skill provides three core capabilities through automated scripts",
-      "lastModified": "2026-10-23T23:09:12.555Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/SME_Skills/senior-frontend/SKILL.md",
-      "title": "💻 senior-frontend",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "SME_Skills",
-      "tags": [
-        "skill",
-        "development",
-        "sme-skills"
-      ],
-      "contentPreview": "\n# Senior Frontend\n\nComplete toolkit for senior frontend with modern tools and best practices.\n\n## Quick Start\n\n### Main Capabilities\n\nThis skill provides three core capabilities through automated scr",
-      "lastModified": "2026-10-23T23:09:12.555Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/SME_Skills/senior-fullstack/SKILL.md",
-      "title": "💻 senior-fullstack",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "SME_Skills",
-      "tags": [
-        "skill",
-        "development",
-        "sme-skills"
-      ],
-      "contentPreview": "\n# Senior Fullstack\n\nComplete toolkit for senior fullstack with modern tools and best practices.\n\n## Quick Start\n\n### Main Capabilities\n\nThis skill provides three core capabilities through automated s",
-      "lastModified": "2026-10-23T23:09:12.557Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/SME_Skills/senior-ml-engineer/SKILL.md",
-      "title": "🛠️ senior-ml-engineer",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "SME_Skills",
-      "tags": [
-        "skill",
-        "development",
-        "sme-skills"
-      ],
-      "contentPreview": "\n# Senior ML/AI Engineer\n\nWorld-class senior ml/ai engineer skill for production-grade AI/ML/Data systems.\n\n## Quick Start\n\n### Main Capabilities\n\n```bash\n# Core Tool 1\npython scripts/model_deployment",
-      "lastModified": "2026-10-21T18:07:05.977Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/SME_Skills/senior-prompt-engineer/SKILL.md",
-      "title": "🛠️ senior-prompt-engineer",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "SME_Skills",
-      "tags": [
-        "skill",
-        "development",
-        "sme-skills"
-      ],
-      "contentPreview": "\n# Senior Prompt Engineer\n\nWorld-class senior prompt engineer skill for production-grade AI/ML/Data systems.\n\n## Quick Start\n\n### Main Capabilities\n\n```bash\n# Core Tool 1\npython scripts/prompt_optimiz",
-      "lastModified": "2026-10-23T23:09:12.558Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/SME_Skills/senior-qa/SKILL.md",
-      "title": "🛠️ senior-qa",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "SME_Skills",
-      "tags": [
-        "skill",
-        "development",
-        "sme-skills"
-      ],
-      "contentPreview": "\n# Senior Qa\n\nComplete toolkit for senior qa with modern tools and best practices.\n\n## Quick Start\n\n### Main Capabilities\n\nThis skill provides three core capabilities through automated scripts:\n\n```ba",
-      "lastModified": "2026-10-21T18:07:05.978Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/SME_Skills/senior-secops/SKILL.md",
-      "title": "🛠️ senior-secops",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "SME_Skills",
-      "tags": [
-        "skill",
-        "development",
-        "sme-skills"
-      ],
-      "contentPreview": "\n# Senior Secops\n\nComplete toolkit for senior secops with modern tools and best practices.\n\n## Quick Start\n\n### Main Capabilities\n\nThis skill provides three core capabilities through automated scripts",
-      "lastModified": "2026-10-21T18:07:05.979Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/SME_Skills/senior-security/SKILL.md",
-      "title": "🛠️ senior-security",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "SME_Skills",
-      "tags": [
-        "skill",
-        "development",
-        "sme-skills"
-      ],
-      "contentPreview": "\n# Senior Security\n\nComplete toolkit for senior security with modern tools and best practices.\n\n## Quick Start\n\n### Main Capabilities\n\nThis skill provides three core capabilities through automated scr",
-      "lastModified": "2026-10-21T18:07:05.980Z",
-      "isUserOwned": false
-    },
-    {
       "id": "3_Skills/Development/Testing/testing-performance/SKILL.md",
       "title": "Performance Testing",
       "section": "3_Skills",
@@ -4724,22 +2707,7 @@
         "testing"
       ],
       "contentPreview": "\n# Performance Testing\n\nTest application speed, responsiveness, stability, and scalability under various load conditions.\n\n## When to use me\n\nUse this skill when:\n- Preparing for traffic spikes or sea",
-      "lastModified": "2026-10-21T18:07:05.981Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Web_Development/canvas-design/SKILL.md",
-      "title": "🛠️ canvas-design",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Web_Development",
-      "tags": [
-        "skill",
-        "development",
-        "web-development"
-      ],
-      "contentPreview": "\nThese are instructions for creating design philosophies - aesthetic movements that are then EXPRESSED VISUALLY. Output only .md files, .pdf files, and .png files.\n\nComplete this in two steps:\n1. Desi",
-      "lastModified": "2026-10-21T18:07:05.981Z",
+      "lastModified": "2026-10-21T17:41:05.489Z",
       "isUserOwned": false
     },
     {
@@ -4754,23 +2722,7 @@
         "web-development"
       ],
       "contentPreview": "\n# Frontend Design\n\nThis skill guides creation of distinctive, production-grade frontend interfaces that avoid generic \"AI slop\" aesthetics. Implement real working code with exceptional attention to a",
-      "lastModified": "2026-10-21T18:07:05.983Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Web_Development/project-hub-scaffold/SKILL.md",
-      "title": "💻 project-hub-scaffold",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Web_Development",
-      "tags": [
-        "skill",
-        "development",
-        "web-development",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# Project Hub scaffold\n\nReuse an existing Project Hub engine: a local filesystem scanner and vanilla-JS\nexplorer. Find the checkout containing `Hub/hub.mjs` and `Hub/index.html` from the\nuser's conte",
-      "lastModified": "2026-10-21T18:38:08.429Z",
+      "lastModified": "2026-10-21T17:41:05.494Z",
       "isUserOwned": false
     },
     {
@@ -4785,99 +2737,7 @@
         "web-development"
       ],
       "contentPreview": "\n# Rspack Tracing & Performance Profiling\n\n## When to Use This Skill\n\nUse this skill when you need to:\n\n1.  Diagnose why an Rspack build is slow.\n2.  Understand which plugins or loaders are taking the",
-      "lastModified": "2026-10-21T18:07:05.984Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Web_Development/web-artifacts-builder/SKILL.md",
-      "title": "🌐 web-artifacts-builder",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Web_Development",
-      "tags": [
-        "skill",
-        "development",
-        "web-development"
-      ],
-      "contentPreview": "\n# Web Artifacts Builder\n\nTo build powerful frontend claude.ai artifacts, follow these steps:\n1. Initialize the frontend repo using `scripts/init-artifact.sh`\n2. Develop your artifact by editing the g",
-      "lastModified": "2026-10-21T18:07:05.984Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Web_Development/web-house-style/SKILL.md",
-      "title": "💻 web-house-style",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Web_Development",
-      "tags": [
-        "skill",
-        "development",
-        "web-development",
-        "agent-skills"
-      ],
-      "contentPreview": "\n# Web house style\n\nThe sites in the `ai-automation-tools` org (the landing page, Agent Chat, Cronsole,\nEdge-Radar, Edge Spectrum, Project Hub, the Agent Skills showcase) were moved onto\none design vo",
-      "lastModified": "2026-10-21T18:38:08.433Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/Web_Development/webapp-testing/SKILL.md",
-      "title": "🐛 webapp-testing",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "Web_Development",
-      "tags": [
-        "skill",
-        "development",
-        "web-development"
-      ],
-      "contentPreview": "\n# Web Application Testing\n\nTo test local web applications, write native Python Playwright scripts.\n\n**Helper Scripts Available**:\n- `scripts/with_server.py` - Manages server lifecycle (supports multi",
-      "lastModified": "2026-10-21T18:07:05.985Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/algorithmic-art/SKILL.md",
-      "title": "💻 algorithmic-art",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "algorithmic-art",
-      "tags": [
-        "skill",
-        "development",
-        "algorithmic-art"
-      ],
-      "contentPreview": "\nAlgorithmic philosophies are computational aesthetic movements that are then expressed through code. Output .md files (philosophy), .html files (interactive viewer), and .js files (generative algorit",
-      "lastModified": "2026-10-21T18:07:05.986Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/autoresearch/SKILL.md",
-      "title": "🔬 autoresearch",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "autoresearch",
-      "tags": [
-        "skill",
-        "development",
-        "autoresearch"
-      ],
-      "contentPreview": "\n# Autoresearch: Autonomous Iterative Experimentation\n\nAn autonomous experimentation loop for any programming task. You define the goal and how to measure it; the agent iterates autonomously -- modify",
-      "lastModified": "2026-10-21T18:07:05.987Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/code-tour/SKILL.md",
-      "title": "code-tour",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "code-tour",
-      "tags": [
-        "development",
-        "onboarding",
-        "architecture",
-        "documentation"
-      ],
-      "contentPreview": "\n# Code Tour Skill\n\nYou are creating a **CodeTour** — a persona-targeted, step-by-step walkthrough of a codebase\nthat links directly to files and line numbers. CodeTour files live in `.tours/` and wor",
-      "lastModified": "2026-09-20T06:00:07.274Z",
+      "lastModified": "2026-10-21T17:41:05.497Z",
       "isUserOwned": false
     },
     {
@@ -4890,213 +2750,7 @@
         "agent-skills"
       ],
       "contentPreview": "\n**Persona:** You are a Go ecosystem expert. You know the library landscape well enough to recommend the simplest production-ready option — and to tell the developer when the standard library is alrea",
-      "lastModified": "2026-09-20T06:00:07.283Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Development/theme-factory/SKILL.md",
-      "title": "🛠️ theme-factory",
-      "section": "3_Skills",
-      "category": "Development",
-      "subcategory": "theme-factory",
-      "tags": [
-        "skill",
-        "development",
-        "theme-factory"
-      ],
-      "contentPreview": "\n\n# Theme Factory Skill\n\nThis skill provides a curated collection of professional font and color themes themes, each with carefully selected color palettes and font pairings. Once a theme is chosen, i",
-      "lastModified": "2026-10-21T18:07:05.990Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Enterprise/Brand/applying-brand-guidelines/SKILL.md",
-      "title": "🛠️ applying-brand-guidelines",
-      "section": "3_Skills",
-      "category": "Enterprise",
-      "subcategory": "Brand",
-      "tags": [
-        "skill",
-        "enterprise",
-        "brand"
-      ],
-      "contentPreview": "\n# Corporate Brand Guidelines Skill\n\nThis skill ensures all generated documents adhere to corporate brand standards for consistent, professional communication.\n\n## Brand Identity\n\n### Company: Acme Co",
-      "lastModified": "2026-10-23T23:09:12.559Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Enterprise/Communications/data-privacy-compliance/SKILL.md",
-      "title": "Data Privacy Compliance",
-      "section": "3_Skills",
-      "category": "Enterprise",
-      "subcategory": "Communications",
-      "tags": [
-        "skill",
-        "enterprise",
-        "communications"
-      ],
-      "contentPreview": "\n# Data Privacy Compliance\n\nComprehensive guidance for implementing data privacy compliance across GDPR, CCPA, HIPAA, and other global data protection regulations.\n\n## When to Use This Skill\n\nUse this",
-      "lastModified": "2026-10-23T23:09:12.560Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Enterprise/Communications/feedback-mastery/SKILL.md",
-      "title": "feedback-mastery",
-      "section": "3_Skills",
-      "category": "Enterprise",
-      "subcategory": "Communications",
-      "tags": [
-        "skill",
-        "enterprise",
-        "communications"
-      ],
-      "contentPreview": "\n# Feedback Conversations\n\n## Overview\n\nThis skill provides frameworks for navigating difficult workplace conversations and delivering effective feedback. Whether you're addressing performance issues,",
-      "lastModified": "2026-10-23T23:09:12.561Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Enterprise/Communications/internal-comms/SKILL.md",
-      "title": "internal-comms",
-      "section": "3_Skills",
-      "category": "Enterprise",
-      "subcategory": "Communications",
-      "tags": [
-        "skill",
-        "enterprise",
-        "communications"
-      ],
-      "contentPreview": "\n## When to use this skill\nTo write internal communications, use this skill for:\n- 3P updates (Progress, Plans, Problems)\n- Company newsletters\n- FAQ responses\n- Status reports\n- Leadership updates\n- ",
-      "lastModified": "2026-10-21T18:07:05.994Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Enterprise/Communications/slack-bot-builder/SKILL.md",
-      "title": "slack-bot-builder",
-      "section": "3_Skills",
-      "category": "Enterprise",
-      "subcategory": "Communications",
-      "tags": [
-        "skill",
-        "enterprise",
-        "communications"
-      ],
-      "contentPreview": "\n# Slack Bot Builder\n\n## Patterns\n\n### Bolt App Foundation Pattern\n\nThe Bolt framework is Slack's recommended approach for building apps.\nIt handles authentication, event routing, request verification",
-      "lastModified": "2026-10-23T23:09:12.561Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Enterprise/Communications/slack-gif-creator/SKILL.md",
-      "title": "slack-gif-creator",
-      "section": "3_Skills",
-      "category": "Enterprise",
-      "subcategory": "Communications",
-      "tags": [
-        "skill",
-        "enterprise",
-        "communications"
-      ],
-      "contentPreview": "\n# Slack GIF Creator\n\nA toolkit providing utilities and knowledge for creating animated GIFs optimized for Slack.\n\n## Slack Requirements\n\n**Dimensions:**\n- Emoji GIFs: 128x128 (recommended)\n- Message ",
-      "lastModified": "2026-10-21T18:07:05.995Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Enterprise/Communications/telegram-bot-builder/SKILL.md",
-      "title": "telegram-bot-builder",
-      "section": "3_Skills",
-      "category": "Enterprise",
-      "subcategory": "Communications",
-      "tags": [
-        "skill",
-        "enterprise",
-        "communications"
-      ],
-      "contentPreview": "\n# Telegram Bot Builder\n\n**Role**: Telegram Bot Architect\n\nYou build bots that people actually use daily. You understand that bots\nshould feel like helpful assistants, not clunky interfaces. You know\n",
-      "lastModified": "2026-10-23T23:09:12.563Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Enterprise/Communications/telegram-mini-app/SKILL.md",
-      "title": "telegram-mini-app",
-      "section": "3_Skills",
-      "category": "Enterprise",
-      "subcategory": "Communications",
-      "tags": [
-        "skill",
-        "enterprise",
-        "communications"
-      ],
-      "contentPreview": "\n# Telegram Mini App\n\n**Role**: Telegram Mini App Architect\n\nYou build apps where 800M+ Telegram users already are. You understand\nthe Mini App ecosystem is exploding - games, DeFi, utilities, social\n",
-      "lastModified": "2026-10-23T23:09:12.564Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Enterprise/Communications/twilio-communications/SKILL.md",
-      "title": "twilio-communications",
-      "section": "3_Skills",
-      "category": "Enterprise",
-      "subcategory": "Communications",
-      "tags": [
-        "skill",
-        "enterprise",
-        "communications"
-      ],
-      "contentPreview": "\n# Twilio Communications\n\n## Patterns\n\n### SMS Sending Pattern\n\nBasic pattern for sending SMS messages with Twilio.\nHandles the fundamentals: phone number formatting, message delivery,\nand delivery st",
-      "lastModified": "2026-10-23T23:09:12.565Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Enterprise/Communications/writing-clearly-and-concisely/SKILL.md",
-      "title": "writing-clearly-and-concisely",
-      "section": "3_Skills",
-      "category": "Enterprise",
-      "subcategory": "Communications",
-      "tags": [
-        "skill",
-        "enterprise",
-        "communications"
-      ],
-      "contentPreview": "\n# Writing Clearly and Concisely\n\n## Overview\n\nWrite with clarity and force. This skill covers what to do (Strunk) and what not to do (AI patterns).\n\n## When to Use This Skill\n\nUse this skill whenever",
-      "lastModified": "2026-10-23T23:09:12.566Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Enterprise/popular-support-analysis/SKILL.md",
-      "title": "Popular Support Analysis",
-      "section": "3_Skills",
-      "category": "Enterprise",
-      "subcategory": "popular-support-analysis",
-      "tags": [
-        "agent-skills"
-      ],
-      "contentPreview": "\n## Overview\nA framework for understanding that the success of rebellion depends primarily on the people's condition, not the leader's capabilities.\n\n## Core Principle\n**安民可与行义，而危民易与为非** - Contented p",
-      "lastModified": "2026-10-23T23:09:12.746Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Enterprise/popular-support-building-strategy/SKILL.md",
-      "title": "Popular Support Building Strategy",
-      "section": "3_Skills",
-      "category": "Enterprise",
-      "subcategory": "popular-support-building-strategy",
-      "tags": [
-        "agent-skills"
-      ],
-      "contentPreview": "\n# Popular Support Building Strategy\n\nA method for gaining popular support through asymmetric economic policies that benefit the populace.\n\n## Overview\nThis strategy involves using different measures ",
-      "lastModified": "2026-10-23T23:09:12.748Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Betting_&_Gambling/footballbin-predictions/SKILL.md",
-      "title": "🧠 footballbin-predictions",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Betting_&_Gambling",
-      "tags": [
-        "skill",
-        "finance",
-        "betting-and-gambling"
-      ],
-      "contentPreview": "\n# FootballBin Match Predictions\n\nGet AI-powered predictions for Premier League and Champions League matches via the FootballBin MCP API.\n\n## Quick Start\n\nRun `scripts/footballbin.sh` with the followi",
-      "lastModified": "2026-10-23T23:09:12.750Z",
+      "lastModified": "2026-09-17T14:00:59.281Z",
       "isUserOwned": false
     },
     {
@@ -5130,979 +2784,489 @@
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Finance/Investing/creating-financial-models/SKILL.md",
-      "title": "🛠️ creating-financial-models",
+      "id": "3_Skills/Libraries/addyosmani-agent-skills.md",
+      "title": "addyosmani/agent-skills",
       "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Investing",
+      "category": "Libraries",
+      "subcategory": "addyosmani-agent-skills",
       "tags": [
         "skill",
-        "finance",
-        "investing"
+        "skill-library",
+        "development"
       ],
-      "contentPreview": "\n# Financial Modeling Suite\n\nA comprehensive financial modeling toolkit for investment analysis, valuation, and risk assessment using industry-standard methodologies.\n\n## Core Capabilities\n\n### 1. Dis",
-      "lastModified": "2026-10-21T18:07:06.002Z",
+      "contentPreview": "# addyosmani/agent-skills\n\nProduction-grade engineering skills for AI coding agents.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/addyosmani/agent-skill",
+      "lastModified": "2026-10-27T16:04:00.299Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Finance/Investing/trading-operations/skills/counterparty-risk/SKILL.md",
-      "title": "👀 counterparty-risk",
+      "id": "3_Skills/Libraries/ai-automation-tools-agent-skills.md",
+      "title": "ai-automation-tools/agent-skills",
       "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Investing",
+      "category": "Libraries",
+      "subcategory": "ai-automation-tools-agent-skills",
       "tags": [
         "skill",
-        "finance",
-        "investing"
-      ],
-      "contentPreview": "\n# Counterparty Risk\n\n## Core Concepts\n\n### Workflow A: Assessing a New Counterparty\n\n1. **Identify the legal entity and verify netting enforceability.** Map the exact legal entity (not the corporate ",
-      "lastModified": "2026-10-21T18:07:06.003Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Investing/trading-operations/skills/exchange-connectivity/SKILL.md",
-      "title": "🔗 exchange-connectivity",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Investing",
-      "tags": [
-        "skill",
-        "finance",
-        "investing"
-      ],
-      "contentPreview": "\n# Exchange Connectivity\n\n## Core Concepts\n\n### Venue Connectivity Architecture\nTrading venues expose electronic interfaces through which broker-dealers, market makers, and institutional participants ",
-      "lastModified": "2026-10-21T18:07:06.004Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Investing/trading-operations/skills/margin-operations/SKILL.md",
-      "title": "👀 margin-operations",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Investing",
-      "tags": [
-        "skill",
-        "finance",
-        "investing"
-      ],
-      "contentPreview": "\n# Margin Operations\n\n## Core Concepts\n\n### Regulation T Initial Margin\nThe Federal Reserve's Regulation T establishes the initial margin requirement for purchasing securities on credit. Key provision",
-      "lastModified": "2026-10-21T18:07:06.004Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Investing/trading-operations/skills/operational-risk/SKILL.md",
-      "title": "📊 operational-risk",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Investing",
-      "tags": [
-        "skill",
-        "finance",
-        "investing"
-      ],
-      "contentPreview": "\n# Operational Risk\n\n## Core Concepts\n\n### Operational Risk Framework\nOperational risk is the risk of loss resulting from inadequate or failed internal processes, people, and systems, or from external",
-      "lastModified": "2026-10-21T18:07:06.006Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Investing/trading-operations/skills/order-lifecycle/SKILL.md",
-      "title": "🔗 order-lifecycle",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Investing",
-      "tags": [
-        "skill",
-        "finance",
-        "investing"
-      ],
-      "contentPreview": "\n# Order Lifecycle\n\n## Purpose\nGuide the design and implementation of order lifecycle management in trading systems. Covers order states and transitions, FIX protocol message flows, order types and ti",
-      "lastModified": "2026-10-23T23:09:13.586Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Investing/trading-operations/skills/post-trade-compliance/SKILL.md",
-      "title": "👀 post-trade-compliance",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Investing",
-      "tags": [
-        "skill",
-        "finance",
-        "investing"
-      ],
-      "contentPreview": "\n# Post-Trade Compliance\n\n## Core Concepts\n\n### Trade Surveillance Framework\nTrade surveillance is the systematic, ongoing monitoring of executed transactions to detect potential violations of securit",
-      "lastModified": "2026-10-21T18:07:06.008Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Investing/trading-operations/skills/pre-trade-compliance/SKILL.md",
-      "title": "✅ pre-trade-compliance",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Investing",
-      "tags": [
-        "skill",
-        "finance",
-        "investing"
-      ],
-      "contentPreview": "\n# Pre-Trade Compliance\n\n## Core Concepts\n\n### Pre-Trade Compliance Architecture\nThe pre-trade compliance system intercepts orders after generation by the portfolio management system or order entry in",
-      "lastModified": "2026-10-21T18:07:06.009Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Investing/trading-operations/skills/settlement-clearing/SKILL.md",
-      "title": "🐛 settlement-clearing",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Investing",
-      "tags": [
-        "skill",
-        "finance",
-        "investing"
-      ],
-      "contentPreview": "\n# Settlement & Clearing\n\n## Core Concepts\n\n### Settlement Cycle\nThe settlement cycle defines the number of business days between trade date (T) and settlement date (S), during which the buyer must de",
-      "lastModified": "2026-10-21T18:07:06.011Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Investing/trading-operations/skills/trade-execution/SKILL.md",
-      "title": "👀 trade-execution",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Investing",
-      "tags": [
-        "skill",
-        "finance",
-        "investing"
-      ],
-      "contentPreview": "\n# Trade Execution\n\n## Core Concepts\n\n### Best Execution Obligation\nBest execution is the duty to seek the most favorable terms reasonably available for client transactions under the circumstances. Th",
-      "lastModified": "2026-10-21T18:07:06.012Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/analyzing-financial-statements/SKILL.md",
-      "title": "🛠️ analyzing-financial-statements",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Financial Ratio Calculator Skill\n\nThis skill provides comprehensive financial ratio analysis for evaluating company performance, profitability, liquidity, and valuation.\n\n## Capabilities\n\nCalculate",
-      "lastModified": "2026-10-21T18:07:06.013Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/alternatives/SKILL.md",
-      "title": "🔌 alternatives",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Alternatives\n\n## Core Concepts\n\n### Hedge Fund Strategies\n- **Long/Short Equity:** Combines long positions in undervalued stocks with short positions in overvalued stocks. Net exposure can range fr",
-      "lastModified": "2026-10-21T18:07:06.014Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/asset-allocation/SKILL.md",
-      "title": "🔌 asset-allocation",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Asset Allocation\n\n## Core Concepts\n\n### Strategic Asset Allocation (SAA)\nThe long-term policy portfolio based on an investor's risk tolerance, return objectives, time horizon, and constraints. SAA ",
-      "lastModified": "2026-10-21T18:07:06.015Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/bet-sizing/SKILL.md",
-      "title": "🔌 bet-sizing",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Bet Sizing\n\n## Core Concepts\n\n### Kelly Criterion (Discrete)\nFor a binary bet with payoff odds b, win probability p, and loss probability q = 1-p:\n\nf* = (b*p - q) / b\n\nwhere f* is the optimal fract",
-      "lastModified": "2026-10-21T18:07:06.016Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/commodities/SKILL.md",
-      "title": "🛠️ commodities",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Commodities\n\n## Core Concepts\n\n### Spot vs Futures Pricing\nThe futures price is related to the spot price through the cost-of-carry model:\n\nF = S × e^((r + u - y) × t)\n\nwhere S = spot price, r = ri",
-      "lastModified": "2026-10-21T18:07:06.017Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/currencies-and-fx/SKILL.md",
-      "title": "🛠️ currencies-and-fx",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Currencies and FX\n\n## Core Concepts\n\n### Spot Rate\nThe price of one currency in terms of another for immediate delivery (T+2 settlement). Quoting convention: EUR/USD = 1.10 means 1 euro costs 1.10 ",
-      "lastModified": "2026-10-21T18:07:06.018Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/debt-management/SKILL.md",
-      "title": "🛠️ debt-management",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Debt Management\n\n## Core Concepts\n\n### Debt Avalanche\nPay minimum payments on all debts, then direct all extra payment to the debt with the **highest interest rate** first:\n\n- **Mathematically opti",
-      "lastModified": "2026-10-21T18:07:06.019Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/digital-assets/SKILL.md",
-      "title": "📋 digital-assets",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Digital Assets\n\n## Core Concepts\n\n### Blockchain Fundamentals\nA distributed ledger maintained by a network of nodes. Transactions are grouped into blocks, cryptographically linked in sequence. Immu",
-      "lastModified": "2026-10-21T18:07:06.019Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/diversification/SKILL.md",
-      "title": "🧠 diversification",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Diversification\n\n## Core Concepts\n\n### Portfolio Variance (2 Assets)\nFor a portfolio of two assets with weights w_1 and w_2, volatilities sigma_1 and sigma_2, and correlation rho_12:\n\nsigma^2_p = w",
-      "lastModified": "2026-10-21T18:07:06.020Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/emergency-fund/SKILL.md",
-      "title": "🧠 emergency-fund",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Emergency Fund Planning\n\n## Core Concepts\n\n### Rule of Thumb\n- **Employed with stable income:** 3-6 months of essential expenses\n- **Dual-income household (both stable):** 3 months may suffice (low",
-      "lastModified": "2026-10-21T18:07:06.020Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/equities/SKILL.md",
-      "title": "🧠 equities",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Equities\n\nThis skill is a decision procedure: which valuation metric to use for which company, which index methodology fits which mandate, and the order of operations for analyzing a stock. It assu",
-      "lastModified": "2026-10-21T18:07:06.022Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/finance-psychology/SKILL.md",
-      "title": "🧠 finance-psychology",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Finance Psychology — Behavioral Finance & Money Coaching\n\nPersonal finance is mostly psychology, not mechanics. Until a client understands *why* they behave the way they do with money, and *what* t",
-      "lastModified": "2026-10-21T18:07:06.022Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/fixed-income-corporate/SKILL.md",
-      "title": "🛠️ fixed-income-corporate",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Fixed Income — Corporate\n\n## Core Concepts\n\n### Credit Spreads\nCompensation for default risk, liquidity risk, and downgrade risk above the risk-free rate. Multiple spread measures exist with increa",
-      "lastModified": "2026-10-21T18:07:06.024Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/fixed-income-municipal/SKILL.md",
-      "title": "🛠️ fixed-income-municipal",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Fixed Income — Municipal\n\n## Purpose\nAnalyze municipal bonds including general obligation and revenue bonds, tax-equivalent yield calculations, AMT considerations, and muni-specific credit analysis",
-      "lastModified": "2026-10-23T23:09:13.587Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/fixed-income-sovereign/SKILL.md",
-      "title": "🛠️ fixed-income-sovereign",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Fixed Income — Sovereign\n\nScope: US Treasuries and rates analytics. Sovereign *credit* risk — emerging market debt, default analysis, country risk spreads — is out of scope for this skill.\n\n## Core",
-      "lastModified": "2026-10-21T18:07:06.026Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/fixed-income-structured/SKILL.md",
-      "title": "🛠️ fixed-income-structured",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Fixed Income — Structured Products\n\n## Purpose\nAnalyze structured fixed income products including mortgage-backed securities (MBS), asset-backed securities (ABS), and collateralized loan obligation",
-      "lastModified": "2026-10-23T23:09:13.588Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/forward-risk/SKILL.md",
-      "title": "🧪 forward-risk",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Forward-Looking Risk Analysis\n\n## Core Concepts\n\n### Parametric (Variance-Covariance) VaR\nAssumes returns are normally distributed. For a single asset or portfolio in dollar terms (assuming zero ex",
-      "lastModified": "2026-10-21T18:07:06.028Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/fund-vehicles/SKILL.md",
-      "title": "🛠️ fund-vehicles",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Fund Vehicles\n\n## Core Concepts\n\n### Vehicle Comparison: Decision-Relevant Differences\n- **Trading:** ETFs trade intraday at market prices that can deviate from NAV (premiums/discounts, especially ",
-      "lastModified": "2026-10-21T18:07:06.028Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/historical-risk/SKILL.md",
-      "title": "📊 historical-risk",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Historical Risk Analysis\n\n## Core Concepts\n\n### Close-to-Close Volatility\nThe simplest and most common volatility estimator. Compute the standard deviation of log returns and annualize.\n\n```\nsigma_",
-      "lastModified": "2026-10-21T18:07:06.029Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/investment-policy/SKILL.md",
-      "title": "🧠 investment-policy",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Investment Policy Statement Construction\n\n## Core Concepts\n\n### Investment Policy Statement (IPS)\nThe IPS is the governing document for all investment decisions. It specifies objectives (return and",
-      "lastModified": "2026-10-21T18:07:06.030Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/lending/SKILL.md",
-      "title": "🛠️ lending",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Lending Analysis\n\n## Core Concepts\n\n### Fixed-Rate Mortgage\nThe interest rate and monthly payment remain constant for the life of the loan:\n\n- **Advantages:** Predictable payments, protection again",
-      "lastModified": "2026-10-21T18:07:06.031Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/liquidity-management/SKILL.md",
-      "title": "🛠️ liquidity-management",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Liquidity Management\n\n## Core Concepts\n\n### Cash Flow Forecasting\nProject income and expenses monthly for 12+ months:\n- **Income sources**: salary, business income, investment income, rental income",
-      "lastModified": "2026-10-21T18:07:06.031Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/performance-attribution/SKILL.md",
-      "title": "🧠 performance-attribution",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Performance Attribution\n\n## Core Concepts\n\n### Brinson-Fachler Attribution (Single Period)\nThe classic equity attribution model decomposes active return (portfolio return minus benchmark return) in",
-      "lastModified": "2026-10-21T18:07:06.032Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/performance-metrics/SKILL.md",
-      "title": "🛠️ performance-metrics",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Performance Metrics\n\n## Purpose\nEvaluate investment performance on a risk-adjusted basis using industry-standard ratios and capture analysis. This skill covers the Sharpe, Sortino, Information, Tre",
-      "lastModified": "2026-10-23T23:09:13.589Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/performance-reporting/SKILL.md",
-      "title": "🛠️ performance-reporting",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Performance Reporting — Reporting & Communication\n\n## Core Concepts\n\n### Return Reporting\nAccurate and consistent return calculation is the foundation of all performance reporting.\n\n**Period return",
-      "lastModified": "2026-10-21T18:07:06.034Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/qualitative-valuation/SKILL.md",
-      "title": "🔌 qualitative-valuation",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Qualitative Valuation\n\n## Core Concepts\n\n### Economic Moats (Morningstar Framework)\nAn economic moat is a structural advantage that protects a company's profits from competition. Five sources:\n\n1. ",
-      "lastModified": "2026-10-21T18:07:06.034Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/quantitative-valuation/SKILL.md",
-      "title": "🧠 quantitative-valuation",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Quantitative Valuation\n\n## Core Concepts\n\n### Discounted Cash Flow (DCF)\nThe DCF model values a company as the present value of its future free cash flows plus a terminal value:\n\nV = Σ FCF_t / (1 +",
-      "lastModified": "2026-10-21T18:07:06.035Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/real-assets/SKILL.md",
-      "title": "🛠️ real-assets",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Real Assets\n\n## Core Concepts\n\n### Property Income and Return Metrics\n- **NOI (Net Operating Income):** effective gross rental income (after vacancy) minus operating expenses; excludes debt service",
-      "lastModified": "2026-10-21T18:07:06.036Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/rebalancing/SKILL.md",
-      "title": "🧠 rebalancing",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Rebalancing\n\n## Core Concepts\n\n### Calendar Rebalancing\nRebalance at fixed time intervals regardless of drift magnitude:\n\n- **Monthly:** Tightest tracking to targets; highest transaction costs\n- **",
-      "lastModified": "2026-10-21T18:07:06.036Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/savings-goals/SKILL.md",
-      "title": "🛠️ savings-goals",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Savings Goals\n\n## Purpose\nPlan and track savings for specific financial goals — retirement, education, home purchase, and other targets. This skill computes required savings rates, projects future ",
-      "lastModified": "2026-10-23T23:09:13.590Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/tax-efficiency/SKILL.md",
-      "title": "🧠 tax-efficiency",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Tax-Efficient Investing\n\n## Purpose\nMaximize after-tax returns through strategic asset location, tax-loss harvesting, gain/loss management, and withdrawal sequencing. This skill addresses both the ",
-      "lastModified": "2026-10-23T23:09:13.591Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/tax-loss-harvesting/SKILL.md",
-      "title": "📊 tax-loss-harvesting",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Tax-Loss Harvesting\n\n## Purpose\nExecute a complete tax-loss harvesting (TLH) workflow from candidate identification through post-harvest monitoring. Provides decision criteria, quantitative thresho",
-      "lastModified": "2026-10-23T23:09:14.067Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Portfolio_Management/wealth-management/skills/volatility-modeling/SKILL.md",
-      "title": "🛠️ volatility-modeling",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Portfolio_Management",
-      "tags": [
-        "skill",
-        "finance",
-        "portfolio-management"
-      ],
-      "contentPreview": "\n# Volatility Modeling\n\n## Core Concepts\n\n### EWMA (Exponentially Weighted Moving Average)\nA simple volatility model that gives more weight to recent observations. RiskMetrics popularized this approac",
-      "lastModified": "2026-10-21T18:07:06.039Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Platform_Integrations/Agent_Chat/agent-chat-conv-types/SKILL.md",
-      "title": "🔌 agent-chat-conv-types",
-      "section": "3_Skills",
-      "category": "Platform_Integrations",
-      "subcategory": "Agent_Chat",
-      "tags": [
-        "skill",
+        "skill-library",
+        "development",
         "platform-integrations",
-        "agent-chat",
-        "agent-skills"
+        "content",
+        "business",
+        "security"
       ],
-      "contentPreview": "\n# Conversation types and sub-types\n\nTwo axes, and keeping them apart is the whole design.\n\n| | `conv_type` | `preset` |\n|:---|:---|:---|\n| **Is** | The room's **structure** — who is in it, what each ",
-      "lastModified": "2026-10-21T18:38:08.458Z",
+      "contentPreview": "# ai-automation-tools/agent-skills\n\nPortable Agent Skills for Claude Code and compatible agents — each a self-contained SKILL.md an agent loads only when it is needed.\n\nA skill library: browse and ins",
+      "lastModified": "2026-10-27T16:04:01.955Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Platform_Integrations/Agent_Chat/agent-chat-delivery/SKILL.md",
-      "title": "🔌 agent-chat-delivery",
+      "id": "3_Skills/Libraries/aitytech-agentkits-marketing.md",
+      "title": "aitytech/agentkits-marketing",
       "section": "3_Skills",
-      "category": "Platform_Integrations",
-      "subcategory": "Agent_Chat",
+      "category": "Libraries",
+      "subcategory": "aitytech-agentkits-marketing",
       "tags": [
         "skill",
-        "platform-integrations",
-        "agent-chat",
-        "agent-skills"
+        "skill-library",
+        "business"
       ],
-      "contentPreview": "\n# Delivery, notifications and the watchdog\n\nThe web UI is the **viewer** — a conversation lives in `db/chat.db` and you go look at it.\nDelivery is the **push** half: when a run finishes (or posts its",
-      "lastModified": "2026-10-21T18:38:08.461Z",
+      "contentPreview": "# aitytech/agentkits-marketing\n\nEnterprise-grade AI marketing automation for Claude Code, Cursor, GitHub Copilot, and any AI assistant supporting agents & skills\n\nA skill library: browse and install i",
+      "lastModified": "2026-10-27T16:04:03.453Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Platform_Integrations/Agent_Chat/agent-chat-run-triage/SKILL.md",
-      "title": "🔌 agent-chat-run-triage",
+      "id": "3_Skills/Libraries/anthropics-claude-plugins-official.md",
+      "title": "anthropics/claude-plugins-official",
       "section": "3_Skills",
-      "category": "Platform_Integrations",
-      "subcategory": "Agent_Chat",
+      "category": "Libraries",
+      "subcategory": "anthropics-claude-plugins-official",
       "tags": [
         "skill",
-        "platform-integrations",
-        "agent-chat",
-        "agent-skills"
+        "skill-library",
+        "ai-ml"
       ],
-      "contentPreview": "\n# Triaging a live run\n\n**Diagnose from the database outward.** The DB is the contract between processes; a CLI window\ntelling you what it thinks is happening is a *second-hand* account of that row. R",
-      "lastModified": "2026-10-21T18:38:08.463Z",
+      "contentPreview": "# anthropics/claude-plugins-official\n\nOfficial, Anthropic-managed directory of high quality Claude Code Plugins.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://githu",
+      "lastModified": "2026-10-27T16:04:05.000Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Platform_Integrations/Cronsole/cronsole-claude-routines/SKILL.md",
-      "title": "🔌 cronsole-claude-routines",
+      "id": "3_Skills/Libraries/anthropics-skills.md",
+      "title": "anthropics/skills",
       "section": "3_Skills",
-      "category": "Platform_Integrations",
-      "subcategory": "Cronsole",
+      "category": "Libraries",
+      "subcategory": "anthropics-skills",
       "tags": [
         "skill",
-        "platform-integrations",
-        "cronsole",
-        "agent-skills"
+        "skill-library",
+        "content",
+        "development",
+        "ai-ml",
+        "business",
+        "enterprise",
+        "platform-integrations"
       ],
-      "contentPreview": "\n# Claude Code routines — scheduled agents in the cloud\n\nA **routine** is a prompt Anthropic runs on a schedule, in an isolated checkout, ending in a pull\nrequest. It is one of two places a scheduled ",
-      "lastModified": "2026-10-21T18:38:08.465Z",
+      "contentPreview": "# anthropics/skills\n\nPublic repository for Agent Skills\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/anthropics/skills). Promptbook keeps one card for i",
+      "lastModified": "2026-10-27T16:04:06.540Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Platform_Integrations/Cronsole/cronsole-windows-jobs/SKILL.md",
-      "title": "🔌 cronsole-windows-jobs",
+      "id": "3_Skills/Libraries/baojie-shiji-kb.md",
+      "title": "baojie/shiji-kb",
       "section": "3_Skills",
-      "category": "Platform_Integrations",
-      "subcategory": "Cronsole",
+      "category": "Libraries",
+      "subcategory": "baojie-shiji-kb",
       "tags": [
         "skill",
-        "platform-integrations",
-        "cronsole",
-        "agent-skills"
+        "skill-library",
+        "enterprise"
       ],
-      "contentPreview": "\n# Windows Task Scheduler jobs\n\nMost scheduled jobs worth building are **one of four shapes**. Recognize the shape, fill in its\nconfig, and let a registrar create the task — rather than hand-building ",
-      "lastModified": "2026-10-21T18:38:08.472Z",
+      "contentPreview": "# baojie/shiji-kb\n\nA collection of agent skills, published on GitHub.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/baojie/shiji-kb). Promptbook keeps on",
+      "lastModified": "2026-10-27T16:04:07.862Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Platform_Integrations/Edge_Radar/edge-radar-strategy-evidence/SKILL.md",
-      "title": "🔌 edge-radar-strategy-evidence",
+      "id": "3_Skills/Libraries/composiohq-awesome-claude-skills.md",
+      "title": "ComposioHQ/awesome-claude-skills",
       "section": "3_Skills",
-      "category": "Platform_Integrations",
-      "subcategory": "Edge_Radar",
+      "category": "Libraries",
+      "subcategory": "composiohq-awesome-claude-skills",
       "tags": [
         "skill",
-        "platform-integrations",
-        "edge-radar",
-        "agent-skills"
+        "skill-library",
+        "business",
+        "content"
       ],
-      "contentPreview": "\n# Strategy evidence\n\n**The question is never \"did it win\". It is \"does this sample support acting differently\".**\n\n> **The frame that governs everything here:** over 390 settled bets the *market's* B",
-      "lastModified": "2026-10-21T18:38:08.474Z",
+      "contentPreview": "# ComposioHQ/awesome-claude-skills\n\nA curated list of awesome Claude Skills, resources, and tools for customizing Claude AI workflows\n\nA skill library: browse and install its skills from [the repo on ",
+      "lastModified": "2026-10-27T16:04:09.413Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Platform_Integrations/Edge_Radar/edge-radar-strategy-profiles/SKILL.md",
-      "title": "🔌 edge-radar-strategy-profiles",
+      "id": "3_Skills/Libraries/congdon1207-agents-md.md",
+      "title": "CongDon1207/AGENTS.md",
       "section": "3_Skills",
-      "category": "Platform_Integrations",
-      "subcategory": "Edge_Radar",
+      "category": "Libraries",
+      "subcategory": "congdon1207-agents-md",
       "tags": [
         "skill",
-        "platform-integrations",
-        "edge-radar",
-        "agent-skills"
+        "skill-library",
+        "content",
+        "development"
       ],
-      "contentPreview": "\n# Strategy profiles\n\n**A strategy is a `.env.<name>` file and a subaccount. It is never a fork, never a second API key,\nand never an edit to the live `.env`.**\n\n> **The frame:** two strategies, one c",
-      "lastModified": "2026-10-21T18:38:08.477Z",
+      "contentPreview": "# CongDon1207/AGENTS.md\n\nCopy .* folder and AGENTS.md then paste  /root of project\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/CongDon1207/AGENTS.md). ",
+      "lastModified": "2026-10-27T16:04:10.781Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Platform_Integrations/Edge_Spectrum/edge-spectrum-dataset/SKILL.md",
-      "title": "🔌 edge-spectrum-dataset",
+      "id": "3_Skills/Libraries/coreyhaines31-marketingskills.md",
+      "title": "coreyhaines31/marketingskills",
       "section": "3_Skills",
-      "category": "Platform_Integrations",
-      "subcategory": "Edge_Spectrum",
+      "category": "Libraries",
+      "subcategory": "coreyhaines31-marketingskills",
       "tags": [
         "skill",
-        "platform-integrations",
-        "edge-spectrum",
-        "agent-skills"
+        "skill-library",
+        "business"
       ],
-      "contentPreview": "\n# The dataset and its artifacts\n\n**`site/src/data/edges.ts` is the only place these 187 records are authored. Everything else that\nholds them is generated.**\n\nEditing an artifact by hand is reverted ",
-      "lastModified": "2026-10-23T22:12:43.751Z",
+      "contentPreview": "# coreyhaines31/marketingskills\n\nMarketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.\n\nA skill library: browse and install its skills from [the rep",
+      "lastModified": "2026-10-27T16:04:12.369Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Platform_Integrations/Edge_Spectrum/edge-spectrum-endpoint/SKILL.md",
-      "title": "🔌 edge-spectrum-endpoint",
+      "id": "3_Skills/Libraries/davila7-claude-code-templates.md",
+      "title": "davila7/claude-code-templates",
       "section": "3_Skills",
-      "category": "Platform_Integrations",
-      "subcategory": "Edge_Spectrum",
+      "category": "Libraries",
+      "subcategory": "davila7-claude-code-templates",
       "tags": [
         "skill",
-        "platform-integrations",
-        "edge-spectrum",
-        "agent-skills"
+        "skill-library",
+        "development",
+        "content",
+        "enterprise",
+        "finance"
       ],
-      "contentPreview": "\n# Endpoints\n\n**Every endpoint exists twice and must behave once.** `site/server.ts` (Express, local dev only)\nand `site/api/*.ts` (Vercel serverless, production) are two adapters over the same logic ",
-      "lastModified": "2026-10-23T22:12:43.908Z",
+      "contentPreview": "# davila7/claude-code-templates\n\nCLI tool for configuring and monitoring Claude Code\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/davila7/claude-code-te",
+      "lastModified": "2026-10-27T16:04:13.752Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Platform_Integrations/Edge_Spectrum/edge-spectrum-hub-tool/SKILL.md",
-      "title": "🔌 edge-spectrum-hub-tool",
+      "id": "3_Skills/Libraries/dietrichgebert-ponytail.md",
+      "title": "DietrichGebert/ponytail",
       "section": "3_Skills",
-      "category": "Platform_Integrations",
-      "subcategory": "Edge_Spectrum",
+      "category": "Libraries",
+      "subcategory": "dietrichgebert-ponytail",
       "tags": [
         "skill",
-        "platform-integrations",
-        "edge-spectrum",
-        "agent-skills"
+        "skill-library",
+        "development"
       ],
-      "contentPreview": "\n# Adding a tool to the hub\n\n**The hub is a registry plus a page. If you touched more than two files, check why.**\n\nEverything about a tile — its title, blurb, icon, status pill, accent, and where it ",
-      "lastModified": "2026-10-23T22:12:44.062Z",
+      "contentPreview": "# DietrichGebert/ponytail\n\nMakes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.\n\nA skill library: browse and install its skills from [the repo ",
+      "lastModified": "2026-10-27T16:04:15.122Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Platform_Integrations/Project_Hub/project-hub-client/SKILL.md",
-      "title": "🔌 project-hub-client",
+      "id": "3_Skills/Libraries/github-awesome-copilot.md",
+      "title": "github/awesome-copilot",
       "section": "3_Skills",
-      "category": "Platform_Integrations",
-      "subcategory": "Project_Hub",
+      "category": "Libraries",
+      "subcategory": "github-awesome-copilot",
       "tags": [
         "skill",
-        "platform-integrations",
-        "project-hub",
-        "agent-skills"
+        "skill-library",
+        "development"
       ],
-      "contentPreview": "\n# Working in index.html\n\n**The interface is one 3,700-line file on purpose and it stays that way.** No build step, no\nbundler, no framework — the hub's whole promise is `node hub.mjs` and a browser. ",
-      "lastModified": "2026-10-23T22:12:44.226Z",
+      "contentPreview": "# github/awesome-copilot\n\nCommunity-contributed instructions, agents, skills, and configurations to help you make the most of GitHub Copilot.\n\nA skill library: browse and install its skills from [the ",
+      "lastModified": "2026-10-27T16:04:16.756Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Platform_Integrations/Project_Hub/project-hub-demo/SKILL.md",
-      "title": "🔌 project-hub-demo",
+      "id": "3_Skills/Libraries/huggingface-skills.md",
+      "title": "huggingface/skills",
       "section": "3_Skills",
-      "category": "Platform_Integrations",
-      "subcategory": "Project_Hub",
+      "category": "Libraries",
+      "subcategory": "huggingface-skills",
       "tags": [
         "skill",
-        "platform-integrations",
-        "project-hub",
-        "agent-skills"
+        "skill-library",
+        "ai-ml",
+        "data"
       ],
-      "contentPreview": "\n# The hosted demo\n\n**Nothing in `Demo/` reimplements the hub.** The build runs the real `Hub/hub.mjs` against a\nfictional workspace, crawls every response it produces, and writes those out beside an\n",
-      "lastModified": "2026-10-21T18:38:08.490Z",
+      "contentPreview": "# huggingface/skills\n\nGive your agents the power of the Hugging Face ecosystem\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/huggingface/skills). Promptb",
+      "lastModified": "2026-10-27T16:04:18.198Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Platform_Integrations/Project_Hub/project-hub-scan/SKILL.md",
-      "title": "🔌 project-hub-scan",
+      "id": "3_Skills/Libraries/jadegate-jadegate.md",
+      "title": "JadeGate/jadegate",
       "section": "3_Skills",
-      "category": "Platform_Integrations",
-      "subcategory": "Project_Hub",
+      "category": "Libraries",
+      "subcategory": "jadegate-jadegate",
       "tags": [
         "skill",
-        "platform-integrations",
-        "project-hub",
-        "agent-skills"
+        "skill-library",
+        "finance"
       ],
-      "contentPreview": "\n# Changing what the hub sees\n\n**A node is only in the tree if it survived four filters, and it is only readable if\n`resolveId()` agrees a second time.** Most \"why isn't this showing up\" bugs are one ",
-      "lastModified": "2026-10-23T22:12:44.393Z",
+      "contentPreview": "# JadeGate/jadegate\n\n💠 The security scanner for AI agents. 5-layer verification for MCP servers & skills. Zero dependencies.\n\nA skill library: browse and install its skills from [the repo on GitHub](",
+      "lastModified": "2026-10-27T16:04:19.701Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Platform_Integrations/academy-guide/SKILL.md",
-      "title": "academy-guide",
+      "id": "3_Skills/Libraries/joellewis-finance-skills.md",
+      "title": "JoelLewis/finance_skills",
       "section": "3_Skills",
-      "category": "Platform_Integrations",
-      "subcategory": "academy-guide",
+      "category": "Libraries",
+      "subcategory": "joellewis-finance-skills",
       "tags": [
         "skill",
-        "platform-integrations",
-        "academy-guide"
+        "skill-library",
+        "finance"
       ],
-      "contentPreview": "\n# Claude Academy guide\n\n## Purpose\n\nWhen a user asks a question about Claude, a Claude product, or a general\n\"how do I use AI for X\" question, check the Academy catalog (see \"The\ncatalog\" below) for ",
-      "lastModified": "2026-10-21T18:07:06.047Z",
+      "contentPreview": "# JoelLewis/finance_skills\n\nClaude Code skill plugins for financial services — 81 skills across 7 domain plugins covering investment management, compliance, advisory practice, trading, and operations.",
+      "lastModified": "2026-10-27T16:04:21.340Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Platform_Integrations/linear/SKILL.md",
-      "title": "📐 Linear",
+      "id": "3_Skills/Libraries/k-dense-ai-scientific-agent-skills.md",
+      "title": "K-Dense-AI/scientific-agent-skills",
       "section": "3_Skills",
-      "category": "Platform_Integrations",
-      "subcategory": "linear",
+      "category": "Libraries",
+      "subcategory": "k-dense-ai-scientific-agent-skills",
       "tags": [
         "skill",
-        "platform-integrations",
-        "linear"
+        "skill-library",
+        "data"
       ],
-      "contentPreview": "\n# Linear\n\nUse this skill for structured work inside Linear rather than ad hoc ticket editing.\n\n## Prerequisites\n\n- Linear tools or app connection must already be available\n- Confirm the correct works",
-      "lastModified": "2026-10-21T18:07:06.048Z",
+      "contentPreview": "# K-Dense-AI/scientific-agent-skills\n\nTurn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 250,000+ scientists worldwide. 177 ready-to-use validated skills plus 100",
+      "lastModified": "2026-10-27T16:04:23.517Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Security/Practice/security-metrics-and-posture/SKILL.md",
-      "title": "🛡️ security-metrics-and-posture",
+      "id": "3_Skills/Libraries/maslennikov-ig-claude-code-orchestrator-kit.md",
+      "title": "maslennikov-ig/claude-code-orchestrator-kit",
       "section": "3_Skills",
-      "category": "Security",
-      "subcategory": "Practice",
+      "category": "Libraries",
+      "subcategory": "maslennikov-ig-claude-code-orchestrator-kit",
       "tags": [
         "skill",
+        "skill-library",
+        "development"
+      ],
+      "contentPreview": "# maslennikov-ig/claude-code-orchestrator-kit\n\n🎼 Turn Claude Code into a production powerhouse. 33+ AI agents automate bug fixing, security scanning,   and dependency management. 19 slash commands, 6",
+      "lastModified": "2026-10-27T16:04:25.138Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/microck-ordinary-claude-skills.md",
+      "title": "Microck/ordinary-claude-skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "microck-ordinary-claude-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "data",
+        "finance",
+        "business",
+        "content",
+        "development",
+        "enterprise"
+      ],
+      "contentPreview": "# Microck/ordinary-claude-skills\n\nAn unappealing collection of Claude Skills and resources.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/Microck/ordinar",
+      "lastModified": "2026-10-27T16:04:26.854Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/obra-superpowers.md",
+      "title": "obra/superpowers",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "obra-superpowers",
+      "tags": [
+        "skill",
+        "skill-library",
+        "content"
+      ],
+      "contentPreview": "# obra/superpowers\n\nAn agentic skills framework & software development methodology that works.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/obra/superpo",
+      "lastModified": "2026-10-27T16:04:28.491Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/openai-plugins.md",
+      "title": "openai/plugins",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "openai-plugins",
+      "tags": [
+        "skill",
+        "skill-library",
+        "development",
+        "platform-integrations"
+      ],
+      "contentPreview": "# openai/plugins\n\nOpenAI Plugins\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/openai/plugins). Promptbook keeps one card for it rather than a copy of ea",
+      "lastModified": "2026-10-27T16:04:30.019Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/openai-skills.md",
+      "title": "openai/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "openai-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "content",
         "security",
-        "practice",
-        "agent-skills"
+        "ai-ml",
+        "development"
       ],
-      "contentPreview": "\n# Security Metrics and Posture\n\n## Measure to decide, not to decorate\n\nA security dashboard usually fills up with numbers that are easy to collect and\nchange nothing: total alerts, patches applied, t",
-      "lastModified": "2026-10-21T18:38:08.452Z",
+      "contentPreview": "# openai/skills\n\nSkills Catalog for Codex\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/openai/skills). Promptbook keeps one card for it rather than a co",
+      "lastModified": "2026-10-27T16:04:31.645Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Security/Practice/security-report-writing/SKILL.md",
-      "title": "🛡️ security-report-writing",
+      "id": "3_Skills/Libraries/ovachiever-droid-tings.md",
+      "title": "ovachiever/droid-tings",
       "section": "3_Skills",
-      "category": "Security",
-      "subcategory": "Practice",
+      "category": "Libraries",
+      "subcategory": "ovachiever-droid-tings",
       "tags": [
         "skill",
-        "security",
-        "practice",
-        "agent-skills"
+        "skill-library",
+        "development",
+        "business",
+        "data"
       ],
-      "contentPreview": "\n# Security Report Writing\n\n## The report is the deliverable\n\nThe testing is not the product. The report is. A brilliant assessment written up\nbadly gets skimmed, misunderstood, and shelved, and the r",
-      "lastModified": "2026-10-21T18:38:08.453Z",
+      "contentPreview": "# ovachiever/droid-tings\n\nComprehensive collection of 100+ custom Droids & 300+ Skills for FactoryAI Droid system\n\nA skill library: browse and install its skills from [the repo on GitHub](https://gith",
+      "lastModified": "2026-10-27T16:04:33.180Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Security/Practice/vulnerability-disclosure/SKILL.md",
-      "title": "🛡️ vulnerability-disclosure",
+      "id": "3_Skills/Libraries/phuryn-pm-skills.md",
+      "title": "phuryn/pm-skills",
       "section": "3_Skills",
-      "category": "Security",
-      "subcategory": "Practice",
+      "category": "Libraries",
+      "subcategory": "phuryn-pm-skills",
       "tags": [
         "skill",
-        "security",
-        "practice",
-        "agent-skills"
+        "skill-library",
+        "business"
       ],
-      "contentPreview": "\n# Vulnerability Disclosure\n\n## Two sides of the same process\n\nCoordinated disclosure is the agreement between whoever found a flaw and whoever can\nfix it: the finder gives the owner time to remediate",
-      "lastModified": "2026-10-21T18:38:08.455Z",
+      "contentPreview": "# phuryn/pm-skills\n\nPM Skills Marketplace: 100+ agentic skills, commands, and plugins — from discovery to strategy, execution, launch, and growth.\n\nA skill library: browse and install its skills from ",
+      "lastModified": "2026-10-27T16:04:34.654Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Security/active-directory-attacks/SKILL.md",
-      "title": "🛠️ Active Directory Attacks",
+      "id": "3_Skills/Libraries/silvainfm-claude-skills.md",
+      "title": "silvainfm/claude-skills",
       "section": "3_Skills",
-      "category": "Security",
-      "subcategory": "active-directory-attacks",
+      "category": "Libraries",
+      "subcategory": "silvainfm-claude-skills",
       "tags": [
         "skill",
-        "security",
-        "active-directory-attacks"
+        "skill-library",
+        "business",
+        "data"
       ],
-      "contentPreview": "\n# Active Directory Attacks\n\n## Purpose\n\nProvide comprehensive techniques for attacking Microsoft Active Directory environments. Covers reconnaissance, credential harvesting, Kerberos attacks, lateral",
-      "lastModified": "2026-10-23T23:09:14.285Z",
+      "contentPreview": "# silvainfm/claude-skills\n\nClaude Skills made and used\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/silvainfm/claude-skills). Promptbook keeps one card ",
+      "lastModified": "2026-10-27T16:04:35.981Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Security/api-security-best-practices/SKILL.md",
-      "title": "🔒 api-security-best-practices",
+      "id": "3_Skills/Libraries/softaworks-agent-toolkit.md",
+      "title": "softaworks/agent-toolkit",
       "section": "3_Skills",
-      "category": "Security",
-      "subcategory": "api-security-best-practices",
+      "category": "Libraries",
+      "subcategory": "softaworks-agent-toolkit",
       "tags": [
         "skill",
-        "security",
-        "api-security-best-practices"
+        "skill-library",
+        "enterprise",
+        "ai-ml"
       ],
-      "contentPreview": "\n# API Security Best Practices\n\n## Overview\n\nGuide developers in building secure APIs by implementing authentication, authorization, input validation, rate limiting, and protection against common vuln",
-      "lastModified": "2026-10-23T23:09:14.286Z",
+      "contentPreview": "# softaworks/agent-toolkit\n\nA curated collection of skills for AI coding agents. Skills are packaged instructions and scripts that extend agent capabilities across development, documentation, planning",
+      "lastModified": "2026-10-27T16:04:37.429Z",
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Security/aws-penetration-testing/SKILL.md",
-      "title": "🛠️ AWS Penetration Testing",
+      "id": "3_Skills/Libraries/vudovn-ag-kit.md",
+      "title": "vudovn/ag-kit",
       "section": "3_Skills",
-      "category": "Security",
-      "subcategory": "aws-penetration-testing",
+      "category": "Libraries",
+      "subcategory": "vudovn-ag-kit",
       "tags": [
         "skill",
-        "security",
-        "aws-penetration-testing"
+        "skill-library",
+        "business",
+        "development",
+        "security"
       ],
-      "contentPreview": "\n# AWS Penetration Testing\n\n## Purpose\n\nProvide comprehensive techniques for penetration testing AWS cloud environments. Covers IAM enumeration, privilege escalation, SSRF to metadata endpoint, S3 buc",
-      "lastModified": "2026-10-23T23:09:14.287Z",
+      "contentPreview": "# vudovn/ag-kit\n\nA collection of agent skills, published on GitHub.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/vudovn/ag-kit). Promptbook keeps one ca",
+      "lastModified": "2026-10-27T16:04:38.842Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/wshobson-agents.md",
+      "title": "wshobson/agents",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "wshobson-agents",
+      "tags": [
+        "skill",
+        "skill-library",
+        "design",
+        "development"
+      ],
+      "contentPreview": "# wshobson/agents\n\nMulti-harness agentic plugin marketplace for Claude Code, Codex, Cursor, OpenCode, GitHub Copilot, Google Antigravity, and Pi\n\nA skill library: browse and install its skills from [t",
+      "lastModified": "2026-10-27T16:06:55.296Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/xfstudio-skills.md",
+      "title": "xfstudio/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "xfstudio-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "enterprise",
+        "content",
+        "development",
+        "ai-ml",
+        "business",
+        "security"
+      ],
+      "contentPreview": "# xfstudio/skills\n\n“npx add-skill xfstudio/skills” to install common awsome skills for all AI ide or cli coding tools\n\nA skill library: browse and install its skills from [the repo on GitHub](https://",
+      "lastModified": "2026-10-27T16:06:57.115Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/zebbern-claude-code-guide.md",
+      "title": "zebbern/claude-code-guide",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "zebbern-claude-code-guide",
+      "tags": [
+        "skill",
+        "skill-library",
+        "security"
+      ],
+      "contentPreview": "# zebbern/claude-code-guide\n\nClaude Code Guide - Setup, Commands, workflows, agents, skills & tips-n-tricks from beginner to power user!\n\nA skill library: browse and install its skills from [the repo ",
+      "lastModified": "2026-10-27T16:06:58.580Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/zpankz-mcp-skillset.md",
+      "title": "Zpankz/mcp-skillset",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "zpankz-mcp-skillset",
+      "tags": [
+        "skill",
+        "skill-library",
+        "content"
+      ],
+      "contentPreview": "# Zpankz/mcp-skillset\n\nMCP Skillset - Claude Code skills, references, and knowledge base\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/Zpankz/mcp-skillse",
+      "lastModified": "2026-10-27T16:06:59.866Z",
       "isUserOwned": false
     },
     {
@@ -6117,112 +3281,7 @@
         "broken-authentication"
       ],
       "contentPreview": "\n> **⚠️ AUTHORIZED USE ONLY**\n> This skill is for educational purposes or authorized security assessments only.\n> You must have explicit, written permission from the system owner before using this too",
-      "lastModified": "2026-10-21T18:07:06.054Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Security/linux-privilege-escalation/SKILL.md",
-      "title": "🛠️ Linux Privilege Escalation",
-      "section": "3_Skills",
-      "category": "Security",
-      "subcategory": "linux-privilege-escalation",
-      "tags": [
-        "skill",
-        "security",
-        "linux-privilege-escalation"
-      ],
-      "contentPreview": "\n# Linux Privilege Escalation\n\n## Purpose\n\nExecute systematic privilege escalation assessments on Linux systems to identify and exploit misconfigurations, vulnerable services, and security weaknesses ",
-      "lastModified": "2026-10-23T23:09:14.288Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Security/pentest-checklist/SKILL.md",
-      "title": "🛠️ Pentest Checklist",
-      "section": "3_Skills",
-      "category": "Security",
-      "subcategory": "pentest-checklist",
-      "tags": [
-        "skill",
-        "security",
-        "pentest-checklist"
-      ],
-      "contentPreview": "\n# Pentest Checklist\n\n## Purpose\n\nProvide a comprehensive checklist for planning, executing, and following up on penetration tests. Ensure thorough preparation, proper scoping, and effective remediati",
-      "lastModified": "2026-10-23T23:09:14.289Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Security/security-best-practices/SKILL.md",
-      "title": "💻 \"security-best-practices\"",
-      "section": "3_Skills",
-      "category": "Security",
-      "subcategory": "security-best-practices",
-      "tags": [
-        "skill",
-        "security",
-        "security-best-practices"
-      ],
-      "contentPreview": "\n# Security Best Practices\n\n## Overview\n\nThis skill provides a description of how to identify the language and frameworks used by the current context, and then to load information from this skill's re",
-      "lastModified": "2026-10-21T18:07:06.056Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Security/security-threat-model/SKILL.md",
-      "title": "💻 \"security-threat-model\"",
-      "section": "3_Skills",
-      "category": "Security",
-      "subcategory": "security-threat-model",
-      "tags": [
-        "skill",
-        "security",
-        "security-threat-model"
-      ],
-      "contentPreview": "\n# Threat Model Source Code Repo\n\nDeliver an actionable AppSec-grade threat model that is specific to the repository or a project path, not a generic checklist. Anchor every architectural claim to evi",
-      "lastModified": "2026-10-21T18:07:06.056Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Security/sql-injection-testing/SKILL.md",
-      "title": "🛠️ SQL Injection Testing",
-      "section": "3_Skills",
-      "category": "Security",
-      "subcategory": "sql-injection-testing",
-      "tags": [
-        "skill",
-        "security",
-        "sql-injection-testing"
-      ],
-      "contentPreview": "\n# SQL Injection Testing\n\n## Purpose\n\nExecute comprehensive SQL injection vulnerability assessments on web applications to identify database security flaws, demonstrate exploitation techniques, and va",
-      "lastModified": "2026-10-23T23:09:14.291Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Security/vulnerability-scanner/SKILL.md",
-      "title": "🔒 vulnerability-scanner",
-      "section": "3_Skills",
-      "category": "Security",
-      "subcategory": "vulnerability-scanner",
-      "tags": [
-        "skill",
-        "security",
-        "vulnerability-scanner"
-      ],
-      "contentPreview": "\n# Vulnerability Scanner\n\n> Think like an attacker, defend like an expert. 2025 threat landscape awareness.\n\n## 🔧 Runtime Scripts\n\n**Execute for automated validation:**\n\n| Script | Purpose | Usage |\n",
-      "lastModified": "2026-10-23T23:09:14.292Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Security/windows-privilege-escalation/SKILL.md",
-      "title": "🛠️ Windows Privilege Escalation",
-      "section": "3_Skills",
-      "category": "Security",
-      "subcategory": "windows-privilege-escalation",
-      "tags": [
-        "skill",
-        "security",
-        "windows-privilege-escalation"
-      ],
-      "contentPreview": "\n# Windows Privilege Escalation\n\n## Purpose\n\nProvide systematic methodologies for discovering and exploiting privilege escalation vulnerabilities on Windows systems during penetration testing engageme",
-      "lastModified": "2026-10-23T23:09:14.293Z",
+      "lastModified": "2026-10-21T17:41:05.596Z",
       "isUserOwned": false
     },
     {

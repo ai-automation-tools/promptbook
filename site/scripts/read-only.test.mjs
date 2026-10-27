@@ -52,7 +52,7 @@ try {
   const list = await (await get("/api/prompts?library=public&lightweight=true")).json();
   assert.ok(list.length > 0, "public list");
   assert.equal((await get(`/api/prompts/${encodeURIComponent("1_Guides/README.md")}`)).status, 200, "public detail");
-  const zip = await get(`/api/skills/download/${encodeURIComponent("3_Skills/Business/analytics-tracking")}`);
+  const zip = await get(`/api/skills/download/${encodeURIComponent("3_Skills/Business/copy-editing")}`);
   assert.equal(zip.status, 200, "public skill download");
   const publicPacks = await (await get("/api/skill-packs")).json();
   assert.ok(publicPacks.length > 0, "public pack list");

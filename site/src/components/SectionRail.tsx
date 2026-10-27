@@ -4,7 +4,7 @@
  */
 
 import { Settings } from 'lucide-react';
-import { SECTIONS } from '../lib/sections';
+import { NAV_SECTIONS, navTab } from '../lib/sections';
 import type { LibraryTab } from '../hooks/useLibraryRoute';
 
 interface SectionRailProps {
@@ -31,9 +31,9 @@ export default function SectionRail({ activeTab, onSelectSection, onHome, onOpen
         <img src="/favicon.svg" alt="" width={36} height={36} />
       </button>
 
-      {SECTIONS.map(section => {
+      {NAV_SECTIONS.map(section => {
         const Icon = section.icon;
-        const current = section.id === activeTab;
+        const current = section.id === navTab(activeTab);
         return (
           <button
             key={section.id}

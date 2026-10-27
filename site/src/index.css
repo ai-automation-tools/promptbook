@@ -1399,6 +1399,9 @@ html.light[data-palette='mono']      { --accent: #18181b; }
 }
 
 .markdown-body img {
+  /* Inline, as on GitHub: Tailwind's preflight makes images block, which stacks a README's badge row. */
+  display: inline-block;
+  vertical-align: middle;
   max-width: 100%;
   border-radius: var(--r-md);
 }
