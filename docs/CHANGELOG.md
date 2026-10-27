@@ -518,6 +518,14 @@ _Touched: `docs/ROADMAP.md`._
 
 _Touched: `site/src/App.tsx`, `site/src/components/Sidebar.tsx`._
 
+## 2026-10-23 — Upstream check
+
+**Changed**
+- `UPSTREAMS.md`: every row checked. The Vercel row now records that its default Node is 24, with 22 still offered and 20 deprecated since 2026-10-01 ([docs](https://vercel.com/docs/functions/runtimes/node-js/node-js-versions)); the framework rows carry the declared versions from `site/package.json`.
+- Four roadmap items queued: `actions/*@v4` to v7, Express 5, Vite 8 with plugin-react 6, TypeScript 7. The MCP SDK (2.3.1) and its test are current.
+
+---
+
 ## 2026-10-22 — The MCP write tools can import a local file
 
 **Added**
