@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-26 — The homepage mentions the twelve themes
+
+`homepage/index.html` gets a Themes card for the Light | Dark switch and the twelve themes in Settings → Appearance (2026-10-23).
+
+_Touched: `homepage/index.html`._
+
+---
+
 ## 2026-10-26 — Two Awesome ChatGPT prompts and a Claude Code hooks guide
 
 Two prompts from `f/awesome-chatgpt-prompts` (now `f/prompts.chat`) @ `cd7ac608`, `prompts.csv`, both `match: similar`: **Spec Interview** and **Ethereum Developer**, in `4_Prompts/Awesome_ChatGPT/General/`. One guide in `1_Guides/Claude_Code/`: **Claude Code Hooks Guide** (`hooks-guide.md`, repo `anthropics/claude-code`), written from the official [hooks guide](https://code.claude.com/docs/en/hooks-guide) read this run: settings locations, event table, exit codes, three recipes, timeouts and troubleshooting. The folder had flags, slash commands and tips but nothing on hooks.
