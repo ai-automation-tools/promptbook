@@ -46,6 +46,8 @@ export interface IndexEntry {
   tags: string[];
   contentPreview?: string;
   lastModified: string;
+  /** The frontmatter `inputs:` list, as written; lib/prompt-inputs.ts validates it. */
+  inputs?: unknown[];
 }
 
 export interface LibraryIndex {

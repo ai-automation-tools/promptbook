@@ -154,6 +154,7 @@ library/
 ### Use Placeholders
 - Wrap replaceable content in `[brackets]`
 - Example: `[Your company name]`, `[Target audience]`
+- To have MCP clients ask for each one, declare it: `inputs: ["Your company name", "Target audience"]` in the frontmatter (names exactly as between the brackets). See [the MCP server design](features/MCP-SERVER.md)
 
 ### Structure Well
 - Use headings for organization

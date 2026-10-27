@@ -130,6 +130,8 @@ site/
                        [a-z0-9-] so an id can never name a path outside the folder.
   lib/safe-path.ts     resolveInside(): keeps library paths inside library/, by real path;
                        filesUnder(): folder walks that skip symlinks and junctions
+  lib/prompt-inputs.ts A prompt's declared `inputs:` ([placeholder] fields): validated, then
+                       filled in one literal pass; the MCP server makes them prompt arguments
   lib/library.ts       Shared by the API and the MCP server: LIBRARY_PATH, the section keys,
                        the prebuilt-index loader and readLibraryItem(). Never writes to stdout.
   mcp/server.ts        The MCP server (npm run mcp; stdio, @modelcontextprotocol/server v2):
