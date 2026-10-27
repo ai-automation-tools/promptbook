@@ -19,6 +19,7 @@ import PromptGrid, { PromptCardGrid, type PromptCardActions } from './components
 import PromptListToolbar from './components/PromptListToolbar';
 import { Button } from './components/ui/primitives';
 import { usePromptFilters } from './hooks/usePromptFilters';
+import { useFavoritePrompts } from './hooks/useFavoritePrompts';
 import { fetchFullPrompt, usePromptContent } from './hooks/usePromptContent';
 import { toMarkdownFile } from './lib/markdown-file';
 import { useLibraryRoute, slugifyPromptPath, type LibraryTab } from './hooks/useLibraryRoute';
@@ -270,14 +271,13 @@ export default function App() {
     return featured;
   }, [sectionPrompts, favorites]);
 
-  const favoritePrompts = useMemo(() => {
-    return prompts.filter(p => favorites.includes(p.id));
-  }, [prompts, favorites]);
+  // One set of favorites, the same in both libraries
+  const favoritePrompts = useFavoritePrompts(favorites, prompts);
 
-  /** The sidebar's Favorites view: starred prompts in the current section and library. */
+  /** The sidebar's Favorites view: starred items in the current section, from either library. */
   const sectionFavorites = useMemo(
-    () => sectionPrompts.filter(p => favorites.includes(p.id)).sort((a, b) => a.title.localeCompare(b.title)),
-    [sectionPrompts, favorites],
+    () => favoritePrompts.filter(p => p.section === activeSection).sort((a, b) => a.title.localeCompare(b.title)),
+    [favoritePrompts, activeSection],
   );
 
   const recentlyViewedPrompts = useMemo(() => {
@@ -720,6 +720,12 @@ export default function App() {
     copyPrompt,
   ]);
 
+  /** A favorite can live in the other library: opening it switches there first. */
+  const favoriteCardActions: PromptCardActions = useMemo(
+    () => ({ ...promptCardActions, onPromptClick: openPromptFromPalette }),
+    [promptCardActions, openPromptFromPalette],
+  );
+
   /** Breadcrumb trail for the top bar: library › section › category › subcategory › prompt. */
   const crumbs = useMemo<Crumb[]>(() => {
     const trail: Crumb[] = [
@@ -838,7 +844,7 @@ export default function App() {
                     totalCount={sortedPrompts.length}
                     favoritePrompts={favoritePrompts}
                     recentlyViewedPrompts={recentlyViewedPrompts}
-                    onPromptSelect={handlePromptClick}
+                    onPromptSelect={openPromptFromPalette}
                     allTags={allTags}
                     selectedTags={selectedTags}
                     onTagToggle={handleTagToggle}
@@ -934,7 +940,7 @@ export default function App() {
                 </div>
 
                 {sectionFavorites.length > 0 ? (
-                  <PromptCardGrid prompts={sectionFavorites} actions={promptCardActions} />
+                  <PromptCardGrid prompts={sectionFavorites} actions={favoriteCardActions} />
                 ) : (
                   <p className="py-16 text-center text-[14px] text-[var(--fg-3)]">
                     No favorites in this section yet. Star a prompt to pin it here.

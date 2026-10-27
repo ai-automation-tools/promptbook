@@ -87,6 +87,7 @@ site/
                        usePromptContent (copy state + fetchFullPrompt, which throws rather than
                        return the listing's preview; callers show an error and stop)
                        useLibraryRoute (section/category/subcategory/?prompt= URL state)
+                       useFavoritePrompts (one set of stars in both libraries; the other library's are fetched by id)
     hooks/useTheme     Light | Dark (`html.light`, key `my-prompt-library.theme`) and the theme
                        (`html[data-palette]`, key `my-prompt-library.palette`, 12 themes in PALETTES;
                        both keys keep the pre-rename name so saved preferences survive);
