@@ -543,6 +543,7 @@ npm run test:my-library  # the file store, against a temp folder
 npm run test:read-only   # read-only mode hides My Library
 npm run test:prompt-content  # the UI's full-prompt fetch fails closed
 npm run test:markdown-file   # the Download button's .md round-trips
+npm run test:preview         # badge rows do not become the card blurb
 npm run test:mcp             # the MCP server shares these readers and the store
 npm run test:safe-path       # ../ escapes and links out of library/ are refused
 npm run test:browser         # after npm run build: the built app in Chrome

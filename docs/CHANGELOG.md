@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-26 — Card blurbs skip README badges
+
+A My Library item imported from a README (Scientific Agent Skills) showed `[](LICENSE.md) [](https://arxiv.org/` as its card blurb. Its first 200 characters were all badges, and `stripMarkdown` removed the image inside each `[![…](…)](…)` but left the empty link around it, plus the badge the 200-character cut split in half. The My Library listing now drops lines that are only images before taking the preview (`previewOf` in `api/index.ts`), and `stripMarkdown` drops empty links and a link left open at the cut. `npm run test:preview` pins both. The Public Library index has no badge-led previews, so `prompt-index.json` is unchanged.
+
+_Touched: `site/api/index.ts`, `site/src/components/PromptCard.tsx`, `site/scripts/preview.test.mjs`, `site/package.json`, `.github/workflows/ci.yml`, `AGENTS.md`, `README.md`, `docs/{ARCHITECTURE,README}.md`, `docs/features/API.md`, `docs/setup/SETUP.md`._
+
+---
+
 ## 2026-10-26 — Source link on items you create
 
 Every Public Library card names where it comes from; now your own items can too. The New item / Edit item form has a **Source link** field for the GitHub repo or site an item stems from. It is saved as `source_url` in the My Library file's frontmatter, shown at the top of the item page (GitHub icon for a repo, globe for any other site), kept in the Download `.md`, and accepted by `POST`/`PUT /api/prompts` as `sourceUrl` and by the MCP `save_to_my_library` / `update_my_prompt` tools as `source_url` (`get_item` prints it). The store refuses anything but an `http(s)` URL, so a `javascript:` link can't be saved and clicked.
