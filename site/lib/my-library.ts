@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
+import matter from './frontmatter.js';
 import { createHash, randomBytes } from 'node:crypto';
 import { fileURLToPath } from 'url';
 import { carriedFrontmatter, loadIndex, readLibraryItem, SECTIONS, type LibraryItem } from './library.js';

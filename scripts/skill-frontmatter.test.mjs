@@ -5,7 +5,7 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
-import matter from "../site/node_modules/gray-matter/index.js";
+import matter from "../site/lib/frontmatter.js";
 
 // Mirrors of the helpers under test.
 const hasKey = (fm, key) => new RegExp(`^${key}:`, "m").test(fm);
@@ -94,6 +94,29 @@ if (fs.existsSync(LIB)) {
   assert.deepEqual(noName, [], "every SKILL.md must have a name");
   assert.deepEqual(badName.slice(0, 5), [], "name must equal the directory slug");
   console.log(`  ${checked} SKILL.md files parse, all names match their directory`);
+}
+
+// site/lib/frontmatter.js turns off gray-matter's eval engine: a `---js` file
+// must fail to parse, never run. And nothing in site/ may bypass the wrapper.
+{
+  globalThis.__fmRan = false;
+  assert.throws(() => matter(["---js", "{ x: globalThis.__fmRan = true }", "---", "body"].join("\n")), /not allowed/);
+  assert.throws(() => matter(["---javascript", "{ x: 1 }", "---", "body"].join("\n")), /not allowed/);
+  assert.equal(globalThis.__fmRan, false, "JavaScript front matter must never run");
+  assert.equal(matter(["---", "name: x", "---", "body"].join("\n")).data.name, "x", "YAML still parses");
+
+  const SITE = path.resolve("site");
+  const direct = [];
+  for (const dir of ["api", "lib", "mcp", "scripts", "src"]) {
+    const root = path.join(SITE, dir);
+    if (!fs.existsSync(root)) continue;
+    for (const f of fs.readdirSync(root, { recursive: true })) {
+      if (!/\.(m?[jt]sx?)$/.test(f) || f === "frontmatter.js") continue;
+      if (/from ["']gray-matter["']|(import|require)\(\s*["']gray-matter["']\s*\)/.test(fs.readFileSync(path.join(root, f), "utf8"))) direct.push(`${dir}/${f}`);
+    }
+  }
+  assert.deepEqual(direct, [], "import site/lib/frontmatter.js, not gray-matter");
+  console.log("  JavaScript front matter is refused; every site/ parse goes through the wrapper");
 }
 
 console.log("skill-frontmatter: all checks passed");

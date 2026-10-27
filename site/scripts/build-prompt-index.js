@@ -6,7 +6,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
+import matter from '../lib/frontmatter.js';
 import { execFileSync } from 'child_process';
 import { fileURLToPath } from 'url';
 

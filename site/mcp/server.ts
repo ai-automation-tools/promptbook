@@ -14,7 +14,7 @@ import './setup.js'; // first: stdout guard and .env, before anything can log
 import fs from 'fs';
 import path from 'path';
 import Fuse from 'fuse.js';
-import matter from 'gray-matter';
+import matter from '../lib/frontmatter.js';
 import * as z from 'zod/v4';
 import { McpServer } from '@modelcontextprotocol/server';
 import { serveStdio } from '@modelcontextprotocol/server/stdio';

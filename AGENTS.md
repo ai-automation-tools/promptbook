@@ -128,6 +128,8 @@ site/
                        Library while any My Library prompt carries its `skill-pack:<id>` tag.
   lib/my-library.ts    My Library file store + READ_ONLY. Ids are file names, restricted to
                        [a-z0-9-] so an id can never name a path outside the folder.
+  lib/frontmatter.js   gray-matter with its `---js` eval engine off. Every front-matter parse in
+                       site/ imports this, never gray-matter (skill-frontmatter.test.mjs checks)
   lib/safe-path.ts     resolveInside(): keeps library paths inside library/, by real path;
                        filesUnder(): folder walks that skip symlinks and junctions
   lib/prompt-inputs.ts A prompt's declared `inputs:` ([placeholder] fields): validated, then

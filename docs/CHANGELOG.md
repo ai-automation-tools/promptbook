@@ -96,6 +96,14 @@ _Touched: `site/library/3_Skills/{Libraries,packs}/`, `archive/`, `site/scripts/
 
 ---
 
+## 2026-10-26 — Front matter can no longer run code (security sweep)
+
+gray-matter hands front matter that opens with `---js` or `---javascript` to `eval()`, and library files come from third-party collections. Every parse in `site/` now goes through `site/lib/frontmatter.js`, which turns that engine off, so such a file fails to parse instead of running. `scripts/skill-frontmatter.test.mjs` checks the refusal and that nothing in `site/` imports gray-matter directly. The `.gitleaksignore` this run proposed was left out: allowlisting secret-scan findings is roadmap item F10, which is Mike's private triage.
+
+_Touched: `site/lib/frontmatter.js` (new), `site/{api/index.ts,api/skill-packs.ts,lib/library.ts,lib/my-library.ts,mcp/server.ts,scripts/build-prompt-index.js}`, `scripts/skill-frontmatter.test.mjs`._
+
+---
+
 ## 2026-10-26 — The homepage mentions the twelve themes
 
 `homepage/index.html` gets a Themes card for the Light | Dark switch and the twelve themes in Settings → Appearance (2026-10-23).

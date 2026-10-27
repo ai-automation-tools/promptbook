@@ -90,7 +90,7 @@ const { declaredInputs, fillInputs } = await import('../lib/prompt-inputs.ts');
 // Every declaration in the library must be valid, so a typo fails CI instead of silently dropping.
 for (const e of index.prompts.filter((p) => p.inputs)) {
   const raw = fs.readFileSync(path.join(SITE, 'library', e.id), 'utf-8');
-  const matter = (await import('gray-matter')).default(raw);
+  const matter = (await import('../lib/frontmatter.js')).default(raw);
   assert.deepEqual(declaredInputs(matter.data, matter.content).problems, [], `${e.id}: inputs`);
 }
 const withInputs = index.prompts.find((p) => p.inputs && p.section === '4_Prompts');
