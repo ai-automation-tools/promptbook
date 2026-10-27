@@ -3,6 +3,10 @@ title: "🤖 Master Storyteller and Sales Copywriter Prompt"
 tags: ["awesome-chatgpt", "master", "storyteller", "sales", "copywriter"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Master Storyteller and Sales Copywriter Prompt

@@ -3,6 +3,7 @@ title: "📚 Ohmyzsh CLI Guide"
 tags: ["cli", "guide", "tools"]
 category: "Agent_Guides"
 subcategory: "CLI_Tools"
+repo: ohmyzsh/ohmyzsh
 ---
 
 # Ohmyzsh CLI Guide

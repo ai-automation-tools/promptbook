@@ -3,6 +3,10 @@ title: "🤖 CLAUDE.md Generator for AI Coding Agents"
 tags: ["awesome-chatgpt", "claude", "coding", "agents"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # CLAUDE.md Generator for AI Coding Agents

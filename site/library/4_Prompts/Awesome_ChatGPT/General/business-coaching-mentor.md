@@ -3,6 +3,10 @@ title: "🤖 Business Coaching Mentor"
 tags: ["awesome-chatgpt", "business", "coaching", "mentor"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Business Coaching Mentor

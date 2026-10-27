@@ -3,6 +3,10 @@ title: "🤖 Sidebar Dashboard Design"
 tags: ["awesome-chatgpt", "sidebar", "dashboard", "design"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Sidebar Dashboard Design

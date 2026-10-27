@@ -3,6 +3,10 @@ title: "🤖 Serene Mirror-Selfie Portrait in Sunlit Bedroom"
 tags: ["awesome-chatgpt", "serene", "mirror", "selfie", "portrait"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Serene Mirror-Selfie Portrait in Sunlit Bedroom

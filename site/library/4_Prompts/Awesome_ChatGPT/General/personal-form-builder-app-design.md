@@ -3,6 +3,10 @@ title: "🤖 Personal Form Builder App Design"
 tags: ["awesome-chatgpt", "personal", "form", "builder", "app"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Personal Form Builder App Design

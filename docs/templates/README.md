@@ -12,14 +12,18 @@ This template is for traditional prompt engineering - creating reusable prompts 
 
 **Key Features:**
 - Required frontmatter: title (with 📌 icon), tags, category, subcategory
+- A prompt copied from a public collection adds an `upstream:` block (`match`, `repo`,
+  `checked`), which the card shows as the repo link at the top
 - Purpose, instructions, output format sections
 - Optional examples and tips
 - Support for "featured" tag
 
-**Example Subcategories:**
-- 4_Prompts/Business/Marketing
-- 4_Prompts/Engineering/Code_Review
-- 4_Prompts/Writing/Content_Creation
+**Example Subcategories:** one folder per source collection, then the collection's own grouping
+- 4_Prompts/Awesome_ChatGPT/General
+- 4_Prompts/<Another_Collection>/<Its_Category>
+
+(The hand-written categories, `Business/`, `Engineering/` and the rest, were archived on 2026-10-26: a
+prompt without a public repo behind it no longer goes in the library.)
 
 ---
 
@@ -30,7 +34,8 @@ This template is for traditional prompt engineering - creating reusable prompts 
 This template documents how to configure and use AI coding assistants and agents (Claude Code, Codex, Cursor, etc.).
 
 **Key Features:**
-- Required frontmatter: title (with 💻 icon), tags, category, subcategory
+- Required frontmatter: title (with 💻 icon), tags, category, subcategory, and `repo:` naming
+  the GitHub repo of the tool the guide documents (the link at the top of the card)
 - Agent configuration settings (model, temperature, tools)
 - Complete system prompt
 - Workflow and procedures

@@ -3,6 +3,10 @@ title: "🤖 Topic Article"
 tags: ["awesome-chatgpt", "topic", "article"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Topic Article

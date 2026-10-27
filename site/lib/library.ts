@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
+import matter from './frontmatter.js';
 import { fileURLToPath } from 'url';
 import { resolveInside } from './safe-path.js';
 
@@ -46,6 +46,21 @@ export interface IndexEntry {
   tags: string[];
   contentPreview?: string;
   lastModified: string;
+  /** The frontmatter `inputs:` list, as written; lib/prompt-inputs.ts validates it. */
+  inputs?: unknown[];
+  /** When the item was last checked against its source, YYYY-MM-DD (checkedOf). */
+  checked?: string;
+}
+
+/**
+ * upstream.checked, server.checked (MCP cards) or a guide's checked:, as YYYY-MM-DD. YAML reads a
+ * bare date as a Date. scripts/build-prompt-index.js has the same rule, for the prebuilt index.
+ */
+export function checkedOf(data: Record<string, unknown>): string | null {
+  const block = (k: string) => (data[k] && typeof data[k] === 'object' ? (data[k] as Record<string, unknown>).checked : undefined);
+  const v = block('upstream') ?? block('server') ?? data.checked;
+  const day = v instanceof Date ? v.toISOString().slice(0, 10) : typeof v === 'string' ? v.slice(0, 10) : null;
+  return day && /^\d{4}-\d{2}-\d{2}$/.test(day) ? day : null;
 }
 
 export interface LibraryIndex {
@@ -139,8 +154,9 @@ export interface ItemSource {
 const REPO = /^[\w.-]+\/[\w.-]+$/;
 
 /**
- * An item's source: the `upstream:` block attribute-upstream.mjs stamps on skills
- * and agents, or an MCP card's `server.repo`, plus the weekly verdict for it.
+ * An item's source: the `upstream:` block attribute-upstream.mjs stamps on skills,
+ * agents, system prompts and prompts, an MCP card's `server.repo`, or a guide's bare
+ * `repo:` (the tool it documents), plus the weekly verdict where there is one.
  * Undefined when no single repo is known (`unknown`, `ambiguous`, nothing stamped).
  */
 export function sourceOf(id: string, frontmatter: Record<string, unknown>): ItemSource | undefined {
@@ -151,7 +167,7 @@ export function sourceOf(id: string, frontmatter: Record<string, unknown>): Item
     const checked = up.checked instanceof Date ? up.checked.toISOString().slice(0, 10) : typeof up.checked === 'string' ? up.checked : undefined;
     return { repo: new URL(up.url).hostname, url: up.url, match: 'vendor', ...(checked ? { checked } : {}) };
   }
-  const repo = typeof up?.repo === 'string' ? up.repo : typeof server?.repo === 'string' ? server.repo : undefined;
+  const repo = [up?.repo, server?.repo, frontmatter.repo].find((r): r is string => typeof r === 'string');
   if (!repo || !REPO.test(repo)) return undefined;
   if (up && (up.match === 'unknown' || up.match === 'ambiguous')) return undefined;
 

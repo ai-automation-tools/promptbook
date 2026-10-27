@@ -3,6 +3,10 @@ title: "🤖 Close-up black and white portrait"
 tags: ["awesome-chatgpt", "close", "black", "white", "portrait"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Close-up black and white portrait

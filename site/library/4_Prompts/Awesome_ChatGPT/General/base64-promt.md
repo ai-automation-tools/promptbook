@@ -3,6 +3,10 @@ title: "🤖 Base64 Promt"
 tags: ["awesome-chatgpt", "base64", "promt"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Base64 Promt

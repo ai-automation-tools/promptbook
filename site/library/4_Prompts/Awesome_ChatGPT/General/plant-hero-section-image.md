@@ -3,6 +3,10 @@ title: "🤖 Plant Hero Section Image"
 tags: ["awesome-chatgpt", "plant", "hero", "section", "image"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Plant Hero Section Image

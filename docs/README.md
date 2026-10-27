@@ -90,9 +90,11 @@ docs/
     └── PERFORMANCE.md
 ```
 
-> Superseded planning docs (`archive/`, `QUICK_REFERENCE.md`, `library-update-logs/`) were
+> Superseded planning docs (an older `docs/archive/`, `QUICK_REFERENCE.md`, `library-update-logs/`) were
 > removed on 2026-08-26. They remain in Git history; the entries worth keeping were folded
-> into [CHANGELOG.md](CHANGELOG.md).
+> into [CHANGELOG.md](CHANGELOG.md). The repo-root `archive/` is different: since 2026-10-26 it holds
+> the library items taken out of service (the prompts and guides with no GitHub repo) and the
+> retired prompt generators; see [`archive/README.md`](../archive/README.md).
 
 ---
 
@@ -163,6 +165,7 @@ npm run test:my-library     # My Library file store
 npm run test:read-only      # read-only mode hides My Library
 npm run test:prompt-content # a failed prompt load never falls back to the preview
 npm run test:markdown-file  # a downloaded .md reads back unchanged
+npm run test:preview        # badge rows do not become the card blurb
 npm run test:mcp            # the MCP server, end to end over stdio
 npm run test:safe-path      # ../ escapes and links out of library/ are refused
 npm run test:browser        # after npm run build: the built app in Chrome

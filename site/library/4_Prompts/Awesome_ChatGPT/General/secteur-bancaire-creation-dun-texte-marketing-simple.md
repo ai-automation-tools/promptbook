@@ -3,6 +3,10 @@ title: "🤖 Secteur Bancaire - Création d’un texte marketing simple"
 tags: ["awesome-chatgpt", "secteur", "bancaire", "ation", "texte"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Secteur Bancaire - Création d’un texte marketing simple

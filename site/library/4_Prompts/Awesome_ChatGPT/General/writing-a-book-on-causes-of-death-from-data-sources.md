@@ -3,6 +3,10 @@ title: "🤖 Writing a Book on Causes of Death from Data Sources"
 tags: ["awesome-chatgpt", "writing", "book", "causes", "death"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Writing a Book on Causes of Death from Data Sources

@@ -3,6 +3,7 @@ title: "💻 Together AI Guide"
 tags: ["agent-guides", "together-ai", "api"]
 category: "Agent_Guides"
 subcategory: "API_Providers"
+repo: togethercomputer/together-python
 ---
 
 # Together AI Guide

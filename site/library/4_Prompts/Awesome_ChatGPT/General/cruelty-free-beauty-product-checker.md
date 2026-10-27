@@ -3,6 +3,10 @@ title: "🤖 Cruelty-Free Beauty Product Checker"
 tags: ["awesome-chatgpt", "cruelty", "free", "beauty", "product"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Cruelty-Free Beauty Product Checker

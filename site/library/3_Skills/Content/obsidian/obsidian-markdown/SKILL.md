@@ -10,6 +10,7 @@ upstream:
   ref: c093cd8ad70b82f686f96fb802b968b713bbf348
   checked: 2026-10-23
   was: ambiguous
+  license: MIT
 ---
 
 # Obsidian Flavored Markdown Skill

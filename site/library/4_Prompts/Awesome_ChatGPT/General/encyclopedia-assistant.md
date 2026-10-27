@@ -3,6 +3,10 @@ title: "🤖 Encyclopedia Assistant"
 tags: ["awesome-chatgpt", "encyclopedia"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Encyclopedia Assistant

@@ -3,6 +3,10 @@ title: "🤖 Creating a Comprehensive Elasticsearch Search Project with FastAPI"
 tags: ["awesome-chatgpt", "creating", "comprehensive", "elasticsearch", "search"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Creating a Comprehensive Elasticsearch Search Project with FastAPI

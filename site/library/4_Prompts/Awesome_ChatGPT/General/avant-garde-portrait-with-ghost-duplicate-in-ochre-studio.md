@@ -3,6 +3,10 @@ title: "🤖 Avant-Garde Portrait with Ghost Duplicate in Ochre Studio"
 tags: ["awesome-chatgpt", "avant", "garde", "portrait", "ghost"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Avant-Garde Portrait with Ghost Duplicate in Ochre Studio

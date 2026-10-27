@@ -3,6 +3,7 @@ title: "Anthropic API Provider Guide"
 tags: ["api", "anthropic", "claude"]
 category: "Agent_Guides"
 subcategory: "API_Providers"
+repo: anthropics/anthropic-sdk-python
 ---
 
 # Anthropic API Provider Guide

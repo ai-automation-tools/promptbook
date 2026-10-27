@@ -3,6 +3,7 @@ title: "💻 PearAI Guide"
 tags: ["agent-guides", "pearai", "ide"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: trypear/pearai-app
 ---
 
 # PearAI Guide

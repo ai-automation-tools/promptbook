@@ -3,6 +3,10 @@ title: "🤖 HTS Veri Analiz Portalı Geliştirme ve Hata Ayıklama"
 tags: ["awesome-chatgpt", "hts", "veri", "analiz", "portal"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # HTS Veri Analiz Portalı Geliştirme ve Hata Ayıklama

@@ -17,8 +17,10 @@ import Breadcrumbs, { type Crumb } from './components/Breadcrumbs';
 import LibraryHero from './components/LibraryHero';
 import PromptGrid, { PromptCardGrid, type PromptCardActions } from './components/PromptGrid';
 import PromptListToolbar from './components/PromptListToolbar';
+import { SkillKindSwitch, SkillLibrariesView, isLibraryItem, type SkillKind } from './components/SkillLibraries';
 import { Button } from './components/ui/primitives';
 import { usePromptFilters } from './hooks/usePromptFilters';
+import { useFavoritePrompts } from './hooks/useFavoritePrompts';
 import { fetchFullPrompt, usePromptContent } from './hooks/usePromptContent';
 import { toMarkdownFile } from './lib/markdown-file';
 import { useLibraryRoute, slugifyPromptPath, type LibraryTab } from './hooks/useLibraryRoute';
@@ -32,6 +34,7 @@ import { READ_ONLY } from './lib/mode';
 // what fetches its chunk — mounting them closed would defeat the split.
 // A chunk that fails to load (stale Vite dep cache in dev, a new deploy in prod)
 // would unmount the whole tree and leave a black screen; reload once instead.
+// If it fails again (dev server still stale), ErrorBoundary in main.tsx says to restart.
 function lazyReload<P extends object>(load: () => Promise<{ default: ComponentType<P> }>) {
   return lazy(() => load().then((mod) => {
     try { sessionStorage.removeItem('chunk-reload'); } catch { /* storage blocked */ }
@@ -142,6 +145,8 @@ export default function App() {
     setActiveCategory,
     activeSubcategory,
     setActiveSubcategory,
+    skillView,
+    setSkillView,
     promptPathParam,
     setPromptPathParam,
   } = useLibraryRoute({ selectedPrompt, setSelectedPrompt, setLibraryMode });
@@ -229,6 +234,13 @@ export default function App() {
     libraryMode,
   });
 
+  // The Libraries view belongs to Skills; leaving the section drops it.
+  useEffect(() => {
+    if (activeTab !== 'skills') setSkillView('skills');
+  }, [activeTab, setSkillView]);
+
+  const showLibraries = activeTab === 'skills' && skillView === 'libraries';
+
   const heroStats = useMemo(() => {
     if (activeTab === 'skill-packs') {
       return [
@@ -238,11 +250,14 @@ export default function App() {
       ];
     }
     return [
-      { label: getSection(activeTab).noun, value: sectionPrompts.length },
+      // Skills counts skills only; its library cards are the third counter.
+      { label: getSection(activeTab).noun, value: activeTab === 'skills' ? sectionPrompts.filter(p => !isLibraryItem(p)).length : sectionPrompts.length },
       { label: 'Categories', value: Object.keys(categories).length },
-      { label: 'Tags', value: allTags.length },
+      activeTab === 'skills'
+        ? { label: 'Libraries', value: sectionPrompts.filter(isLibraryItem).length }
+        : { label: 'Tags', value: allTags.length },
     ];
-  }, [activeTab, skillPacks, sectionPrompts.length, categories, allTags.length]);
+  }, [activeTab, skillPacks, sectionPrompts, categories, allTags.length]);
 
   const subcategoryPrompts = useMemo(() => {
     if (!selectedSubcategory) return [];
@@ -269,15 +284,23 @@ export default function App() {
     return featured;
   }, [sectionPrompts, favorites]);
 
-  const favoritePrompts = useMemo(() => {
-    return prompts.filter(p => favorites.includes(p.id));
-  }, [prompts, favorites]);
+  // One set of favorites, the same in both libraries
+  const favoritePrompts = useFavoritePrompts(favorites, prompts);
 
-  /** The sidebar's Favorites view: starred prompts in the current section and library. */
+  /** The sidebar's Favorites view: starred items in the current section, from either library. */
+  // On Skills it follows the view: starred skills under Skills, starred library cards under Libraries.
   const sectionFavorites = useMemo(
-    () => sectionPrompts.filter(p => favorites.includes(p.id)).sort((a, b) => a.title.localeCompare(b.title)),
-    [sectionPrompts, favorites],
+    () => favoritePrompts
+      .filter(p => p.section === activeSection)
+      .filter(p => activeTab !== 'skills' || isLibraryItem(p) === (skillView === 'libraries'))
+      .sort((a, b) => a.title.localeCompare(b.title)),
+    [favoritePrompts, activeSection, activeTab, skillView],
   );
+
+  /** The sidebar's Favorites count: starred items in this section, or starred packs on Skill Packs. */
+  const sidebarFavoriteCount = activeTab === 'skill-packs'
+    ? favorites.filter(id => id.startsWith('pack:')).length
+    : sectionFavorites.length;
 
   const recentlyViewedPrompts = useMemo(() => {
     return recentlyViewed
@@ -456,7 +479,8 @@ export default function App() {
   }, [promptPathParam, prompts, selectedPrompt, activeTab, libraryMode, activeCategory, activeSubcategory, handlePromptClick]);
 
   const handleDownloadMarkdown = useCallback(async (prompt: Prompt) => {
-    if (prompt.section === '3_Skills' && !prompt.isUserOwned) {
+    // A skill downloads as its folder zipped; a library card (Libraries/*.md) as plain markdown.
+    if (prompt.section === '3_Skills' && !prompt.isUserOwned && prompt.id.endsWith('/SKILL.md')) {
       try {
         const skillDirPath = prompt.id.replace(/\/SKILL\.md$/, '');
         const response = await fetch(`/api/skills/download/${encodeURIComponent(skillDirPath)}`);
@@ -692,6 +716,14 @@ export default function App() {
     handleShowAllPrompts();
   }, [handleShowAllPrompts]);
 
+  /** Skills | Libraries | Packs. Packs is its own section; the other two are views of Skills. */
+  const selectSkillKind = useCallback((kind: SkillKind) => {
+    if (window.innerWidth < 768) setIsSidebarOpen(false);
+    if (kind === 'packs') return openSectionFromPalette('skill-packs');
+    openSectionFromPalette('skills'); // also leaves a category or prompt view for the list
+    setSkillView(kind);
+  }, [openSectionFromPalette, setSkillView]);
+
   /** Card-level props shared by the featured, all-prompts and subcategory grids. */
   const promptCardActions: PromptCardActions = useMemo(() => ({
     libraryMode,
@@ -719,6 +751,12 @@ export default function App() {
     copyPrompt,
   ]);
 
+  /** A favorite can live in the other library: opening it switches there first. */
+  const favoriteCardActions: PromptCardActions = useMemo(
+    () => ({ ...promptCardActions, onPromptClick: openPromptFromPalette }),
+    [promptCardActions, openPromptFromPalette],
+  );
+
   /** Breadcrumb trail for the top bar: library › section › category › subcategory › prompt. */
   const crumbs = useMemo<Crumb[]>(() => {
     const trail: Crumb[] = [
@@ -740,7 +778,7 @@ export default function App() {
   }, [libraryMode, activeTab, showFavorites, selectedSubcategory, selectedPrompt, handleShowAllPrompts, handleSubcategoryClick]);
 
   const showFeatured =
-    activeTab !== 'skill-packs' && libraryMode === 'public' && !debouncedSearch && selectedTags.length === 0 && featuredPrompts.length > 0;
+    activeTab !== 'skill-packs' && !showLibraries && libraryMode === 'public' && !debouncedSearch && selectedTags.length === 0 && featuredPrompts.length > 0;
 
   return (
     <LazyMotion features={domAnimation} strict>
@@ -786,9 +824,15 @@ export default function App() {
         selectedSubcategory={selectedSubcategory}
         handleSubcategoryClick={handleSubcategoryClick}
         handleShowAllPrompts={handleShowAllPrompts}
-        favoriteCount={sectionFavorites.length}
+        favoriteCount={sidebarFavoriteCount}
         showFavorites={showFavorites}
         onShowFavorites={handleShowFavorites}
+        skillKind={activeTab === 'skill-packs' ? 'packs' : activeTab === 'skills' ? skillView : undefined}
+        onSkillKind={selectSkillKind}
+        onOpenLibrary={prompt => {
+          void handlePromptClick(prompt);
+          if (window.innerWidth < 768) setIsSidebarOpen(false);
+        }}
       />
 
       {/* Main Content */}
@@ -817,7 +861,7 @@ export default function App() {
               libraryMode={libraryMode}
               stats={heroStats}
               searchQuery={searchQuery}
-              onSearchChange={activeTab === 'skill-packs' ? undefined : setSearchQuery}
+              onSearchChange={activeTab === 'skill-packs' || showLibraries ? undefined : setSearchQuery}
             />
           )}
 
@@ -832,12 +876,18 @@ export default function App() {
                 transition={{ duration: 0.3, ease: [0.2, 0.7, 0.2, 1] }}
                 className="w-full"
               >
-                {activeTab !== 'skill-packs' && (
+                {(activeTab === 'skills' || activeTab === 'skill-packs') && (
+                  <SkillKindSwitch value={activeTab === 'skill-packs' ? 'packs' : skillView} onChange={selectSkillKind} />
+                )}
+
+                {showLibraries && <SkillLibrariesView prompts={sectionPrompts} actions={promptCardActions} />}
+
+                {activeTab !== 'skill-packs' && !showLibraries && (
                   <PromptListToolbar
                     totalCount={sortedPrompts.length}
                     favoritePrompts={favoritePrompts}
                     recentlyViewedPrompts={recentlyViewedPrompts}
-                    onPromptSelect={handlePromptClick}
+                    onPromptSelect={openPromptFromPalette}
                     allTags={allTags}
                     selectedTags={selectedTags}
                     onTagToggle={handleTagToggle}
@@ -875,6 +925,8 @@ export default function App() {
                     <SkillPacksView
                       libraryMode={libraryMode}
                       onToast={showToast}
+                      favorites={favorites}
+                      onToggleFavorite={toggleFavorite}
                     />
                   </Suspense>
                 )}
@@ -891,7 +943,7 @@ export default function App() {
                   </div>
                 )}
 
-                {activeTab !== 'skill-packs' && (
+                {activeTab !== 'skill-packs' && !showLibraries && (
                   <PromptGrid
                     isLoading={isLoading}
                     prompts={paginatedPrompts}
@@ -922,18 +974,28 @@ export default function App() {
                     <ArrowLeft className="h-4 w-4" />
                   </button>
                   <div className="min-w-0">
-                    <p className="eyebrow mb-1.5">{getSectionDisplayName(activeTab)}</p>
+                    <p className="eyebrow mb-1.5">{showLibraries ? 'Skill libraries' : getSectionDisplayName(activeTab)}</p>
                     <h1 className="text-[1.5rem] font-semibold leading-tight tracking-[-0.02em] text-[var(--fg)] md:text-[1.85rem]">
                       Favorites
                     </h1>
                     <p className="mono mt-1.5 text-[11px] text-[var(--fg-4)]">
-                      {sectionFavorites.length.toLocaleString()} {sectionFavorites.length === 1 ? 'prompt' : 'prompts'}
+                      {sidebarFavoriteCount.toLocaleString()} {activeTab === 'skill-packs' ? (sidebarFavoriteCount === 1 ? 'pack' : 'packs') : sidebarFavoriteCount === 1 ? 'item' : 'items'}
                     </p>
                   </div>
                 </div>
 
-                {sectionFavorites.length > 0 ? (
-                  <PromptCardGrid prompts={sectionFavorites} actions={promptCardActions} />
+                {activeTab === 'skill-packs' ? (
+                  <Suspense fallback={chunkSpinner}>
+                    <SkillPacksView
+                      libraryMode={libraryMode}
+                      onToast={showToast}
+                      favorites={favorites}
+                      onToggleFavorite={toggleFavorite}
+                      onlyFavorites
+                    />
+                  </Suspense>
+                ) : sectionFavorites.length > 0 ? (
+                  <PromptCardGrid prompts={sectionFavorites} actions={favoriteCardActions} />
                 ) : (
                   <p className="py-16 text-center text-[14px] text-[var(--fg-3)]">
                     No favorites in this section yet. Star a prompt to pin it here.
@@ -1021,6 +1083,8 @@ export default function App() {
                   onCopy={copyContent}
                   onSubcategoryClick={handleSubcategoryClick}
                   onShowAllPrompts={handleShowAllPrompts}
+                  isFavorite={favorites.includes(selectedPrompt.id)}
+                  onToggleFavorite={toggleFavorite}
                 />
               </Suspense>
 
@@ -1061,14 +1125,14 @@ export default function App() {
         </div>
       </main>
 
-      {/* Floating "new prompt" — phones only; the top bar carries it elsewhere. */}
+      {/* Floating "new item" — phones only; the top bar carries it elsewhere. */}
       {!READ_ONLY && (
       <m.button
         type="button"
         whileTap={{ scale: 0.94 }}
         onClick={handleNewPrompt}
         className="fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-[var(--accent)] text-[var(--accent-ink)] shadow-[0_12px_32px_-8px_var(--glow)] sm:hidden"
-        aria-label="New prompt"
+        aria-label="New item"
       >
         <Plus className="h-6 w-6" />
       </m.button>

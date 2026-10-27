@@ -3,6 +3,7 @@ title: "💻 GitHub Copilot CLI Guide"
 tags: ["featured", "github", "copilot", "cli", "gh", "terminal-ai"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: github/gh-copilot
 ---
 
 <!-- Last Updated: 2026-03-31 - Based on official GitHub Copilot CLI documentation -->

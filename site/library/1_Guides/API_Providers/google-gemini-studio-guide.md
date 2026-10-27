@@ -3,6 +3,7 @@ title: "💻 Google Gemini Studio Guide"
 tags: ["agent-guides", "google", "api"]
 category: "Agent_Guides"
 subcategory: "API_Providers"
+repo: google-gemini/cookbook
 ---
 
 # Google Gemini Studio Guide

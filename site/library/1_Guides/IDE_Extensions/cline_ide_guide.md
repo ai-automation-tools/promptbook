@@ -3,6 +3,7 @@ title: "🧩 Cline IDE Extension Guide"
 tags: ["guide", "ide", "cline", "vscode"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: cline/cline
 ---
 
 # Cline IDE Extension Guide

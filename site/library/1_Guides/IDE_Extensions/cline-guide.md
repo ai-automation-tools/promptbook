@@ -3,6 +3,7 @@ title: "💻 Cline Guide"
 tags: ["agent-guides", "cline", "ide-extension"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: cline/cline
 ---
 
 # Cline Guide

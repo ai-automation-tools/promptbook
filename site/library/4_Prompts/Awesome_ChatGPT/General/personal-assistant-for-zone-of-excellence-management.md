@@ -3,6 +3,10 @@ title: "🤖 Personal Assistant for Zone of Excellence Management"
 tags: ["awesome-chatgpt", "personal", "zone", "excellence", "management"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Personal Assistant for Zone of Excellence Management

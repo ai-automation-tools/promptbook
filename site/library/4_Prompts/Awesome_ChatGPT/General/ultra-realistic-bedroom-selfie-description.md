@@ -3,6 +3,10 @@ title: "🤖 Ultra Realistic Bedroom Selfie Description"
 tags: ["awesome-chatgpt", "ultra", "realistic", "bedroom", "selfie"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Ultra Realistic Bedroom Selfie Description

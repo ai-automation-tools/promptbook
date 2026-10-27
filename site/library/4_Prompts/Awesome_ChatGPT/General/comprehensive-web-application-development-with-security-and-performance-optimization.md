@@ -3,6 +3,10 @@ title: "🤖 Comprehensive Web Application Development with Security and Perform
 tags: ["awesome-chatgpt", "comprehensive", "web", "application", "development"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Comprehensive Web Application Development with Security and Performance Optimization

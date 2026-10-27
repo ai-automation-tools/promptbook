@@ -3,6 +3,10 @@ title: "🤖 Google Ads Title Copywriter"
 tags: ["awesome-chatgpt", "google", "ads", "title", "copywriter"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Google Ads Title Copywriter

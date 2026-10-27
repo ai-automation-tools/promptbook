@@ -3,6 +3,10 @@ title: "🤖 AI Agent Security Evaluation Checklist"
 tags: ["awesome-chatgpt", "agent", "security", "evaluation", "checklist"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # AI Agent Security Evaluation Checklist

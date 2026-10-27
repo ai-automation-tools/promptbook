@@ -68,6 +68,10 @@ jobs:
       - name: Markdown download round trip
         run: npm run test:markdown-file
 
+      # A README full of badges still gives its card a readable blurb.
+      - name: Card preview blurbs
+        run: npm run test:preview
+
       - name: Library path containment
         run: npm run test:safe-path
 

@@ -37,13 +37,15 @@ The README also has the `mcpServers` JSON block for other clients.
 | `get_skill_file` | One text file from inside a skill folder |
 | `list_skill_packs` | Every Skill Pack: id, name, skill count, what it covers |
 | `get_skill_pack` | One Skill Pack with every skill in it |
-| `save_to_my_library` | Copies a library item into My Library, or writes a new prompt from text or a local `.md` file (not registered when read-only) |
-| `update_my_prompt` | Changes a My Library prompt's title, content, tags or place; `file` re-reads the body from a local `.md` file; `version` (from `get_item`) refuses the update if the file changed since (not registered when read-only) |
+| `save_to_my_library` | Copies a library item into My Library, or writes a new prompt from text or a local `.md` file, with an optional `source_url` (not registered when read-only) |
+| `update_my_prompt` | Changes a My Library prompt's title, content, tags, source link or place; `file` re-reads the body from a local `.md` file; `version` (from `get_item`) refuses the update if the file changed since (not registered when read-only) |
 | `update_from_public` | Pulls the current public version into a My Library copy; the public item is never changed (not registered when read-only) |
 | `delete_my_prompt` | Deletes one of the user's own prompts (not registered when read-only) |
 
 It also serves MCP prompts: `library_prompt` (any prompt, system prompt or agent by id), every
-featured prompt and system prompt, and every My Library prompt as `my-<id>`.
+featured prompt and system prompt, every prompt that declares `inputs:` (each declared
+`[placeholder]` becomes a required argument; see [the design](features/MCP-SERVER.md)), and
+every My Library prompt as `my-<id>`.
 
 ## Environment
 

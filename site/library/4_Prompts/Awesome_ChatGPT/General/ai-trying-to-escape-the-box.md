@@ -3,6 +3,10 @@ title: "🤖 AI Trying to Escape the Box"
 tags: ["awesome-chatgpt", "trying", "escape", "box"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # AI Trying to Escape the Box

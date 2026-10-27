@@ -3,6 +3,10 @@ title: "🤖 Develop a Lazy Learner Software"
 tags: ["awesome-chatgpt", "develop", "lazy", "learner", "software"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Develop a Lazy Learner Software

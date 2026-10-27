@@ -3,6 +3,10 @@ title: "🤖 Project System and Art Style Consistency Instructions"
 tags: ["awesome-chatgpt", "project", "system", "art", "style"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Project System and Art Style Consistency Instructions

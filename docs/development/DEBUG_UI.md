@@ -143,15 +143,26 @@ the dev server was running, typically after an `npm install`. `PromptDetail` is 
 its imports are only requested when you first open a prompt. They come back with old version
 hashes, Vite rejects them, and the failed import used to unmount the whole React tree.
 
-**Fix:** Since 2026-10-22 the lazy views in `App.tsx` go through `lazyReload()`, which reloads the
-page once when a chunk fails to load (a `chunk-reload` flag in sessionStorage stops a loop).
-If you still hit it:
+**Fix: restart the dev server.** The reload alone does not help while the server is still stale:
+it serves the same outdated deps on the second try. Since 2026-10-22 the lazy views in `App.tsx`
+go through `lazyReload()`, which reloads the page once when a chunk fails to load (a
+`chunk-reload` flag in sessionStorage stops a loop). Since 2026-10-26 a second failure lands on
+an error panel (`ErrorBoundary` in `main.tsx`, "Something failed to load") instead of a black page.
 ```bash
-# Stop the dev server, drop the dep cache, restart
+# Stop the dev server (Ctrl+C, or kill the node … server.ts process), then
+npm run dev
+# Still failing? Drop the dep cache too
 rm -rf node_modules/.vite
 npm run dev
 ```
 Then hard-refresh the tab (Ctrl+Shift+R).
+
+**Seen again 2026-10-26:** a dev server started 2026-10-23 14:19 outlived a library commit
+(17:00) and the Dependabot `body-parser` lockfile bump (17:05). It still listed 213 deleted items
+(404 on open) and blanked on prompts. `tsx server.ts` does not watch `api/`, `lib/` or
+`api/prompt-index.json`, so restart after any of those change, and after any `npm install` or
+lockfile change. Quick check: the server log's `[INDEX] Loaded prebuilt index with N prompts`
+should match the `id` count in `site/api/prompt-index.json`.
 
 **Same symptom, different cause — Skill Packs:** opening a pack went black with
 `TypeError: Cannot read properties of undefined (reading 'length')` in `SkillPacksView`. The

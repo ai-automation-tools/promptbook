@@ -3,6 +3,10 @@ title: "🤖 The Architect: Hacker-Protector & Viral Engineer"
 tags: ["awesome-chatgpt", "architect", "hacker", "protector", "viral"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # The Architect: Hacker-Protector & Viral Engineer

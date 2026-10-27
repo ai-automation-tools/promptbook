@@ -3,6 +3,10 @@ title: "🤖 Blog System Development Guide"
 tags: ["awesome-chatgpt", "blog", "system", "development", "guide"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Blog System Development Guide

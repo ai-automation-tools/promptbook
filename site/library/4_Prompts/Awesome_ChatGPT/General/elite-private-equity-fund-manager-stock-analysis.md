@@ -3,6 +3,10 @@ title: "🤖 Elite Private Equity Fund Manager Stock Analysis"
 tags: ["awesome-chatgpt", "elite", "private", "equity", "fund"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Elite Private Equity Fund Manager Stock Analysis

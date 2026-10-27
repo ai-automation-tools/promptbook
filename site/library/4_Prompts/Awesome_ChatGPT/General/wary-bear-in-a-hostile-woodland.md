@@ -3,6 +3,10 @@ title: "🤖 Wary Bear in a Hostile Woodland"
 tags: ["awesome-chatgpt", "wary", "bear", "hostile", "woodland"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Wary Bear in a Hostile Woodland

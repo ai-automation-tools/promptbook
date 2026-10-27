@@ -8,7 +8,7 @@
     "output": "library-data-flow.html",
     "repository": {
       "url": "https://github.com/ai-automation-tools/promptbook.git",
-      "revision": "95638e65b8885a20227c7df2df894b566b4e54ec"
+      "revision": "dd093ae33544de420cec18a86eb085c75d814ff9"
     }
   },
   "stages": [
@@ -45,7 +45,7 @@
         {
           "path": ".github/workflows/upstream-drift.yml",
           "line": 1,
-          "end_line": 11
+          "end_line": 18
         }
       ]
     },
@@ -53,19 +53,24 @@
       "id": "library",
       "type": "database",
       "label": "library/ markdown",
-      "sublabel": "Five sections, in Git",
+      "sublabel": "Six sections, in Git",
       "stage": 0,
       "row": 1,
       "sources": [
         {
-          "path": "site/api/index.ts",
-          "line": 123,
-          "end_line": 144
+          "path": "site/lib/library.ts",
+          "line": 15,
+          "end_line": 35
+        },
+        {
+          "path": "site/lib/library.ts",
+          "line": 194,
+          "end_line": 216
         },
         {
           "path": "site/scripts/build-prompt-index.js",
-          "line": 27,
-          "end_line": 55
+          "line": 28,
+          "end_line": 57
         }
       ]
     },
@@ -79,13 +84,13 @@
       "sources": [
         {
           "path": "site/api/skill-packs.ts",
-          "line": 30,
-          "end_line": 32
+          "line": 22,
+          "end_line": 24
         },
         {
           "path": "site/api/skill-packs.ts",
-          "line": 42,
-          "end_line": 71
+          "line": 34,
+          "end_line": 79
         }
       ]
     },
@@ -100,17 +105,17 @@
         {
           "path": "site/package.json",
           "line": 6,
-          "end_line": 17
+          "end_line": 14
         },
         {
           "path": "site/scripts/build-prompt-index.js",
-          "line": 57,
-          "end_line": 115
+          "line": 59,
+          "end_line": 119
         },
         {
           "path": "site/scripts/build-prompt-index.js",
-          "line": 152,
-          "end_line": 171
+          "line": 156,
+          "end_line": 175
         }
       ]
     },
@@ -124,13 +129,13 @@
       "sources": [
         {
           "path": "site/scripts/build-prompt-index.js",
-          "line": 164,
-          "end_line": 171
+          "line": 168,
+          "end_line": 175
         },
         {
           "path": "site/api/index.ts",
-          "line": 93,
-          "end_line": 121
+          "line": 151,
+          "end_line": 187
         }
       ]
     },
@@ -144,18 +149,18 @@
       "sources": [
         {
           "path": "site/lib/my-library.ts",
-          "line": 28,
-          "end_line": 47
+          "line": 50,
+          "end_line": 67
         },
         {
           "path": "site/lib/my-library.ts",
-          "line": 54,
-          "end_line": 85
+          "line": 74,
+          "end_line": 133
         },
         {
           "path": "site/lib/my-library.ts",
-          "line": 90,
-          "end_line": 149
+          "line": 201,
+          "end_line": 267
         }
       ]
     },
@@ -169,18 +174,18 @@
       "sources": [
         {
           "path": "site/api/index.ts",
-          "line": 167,
-          "end_line": 189
+          "line": 123,
+          "end_line": 149
         },
         {
           "path": "site/api/index.ts",
-          "line": 290,
-          "end_line": 323
+          "line": 194,
+          "end_line": 229
         },
         {
           "path": "site/api/index.ts",
-          "line": 336,
-          "end_line": 373
+          "line": 297,
+          "end_line": 368
         }
       ]
     },
@@ -194,18 +199,18 @@
       "sources": [
         {
           "path": "site/api/index.ts",
-          "line": 41,
-          "end_line": 83
+          "line": 37,
+          "end_line": 103
         },
         {
           "path": "site/api/index.ts",
-          "line": 377,
-          "end_line": 443
+          "line": 370,
+          "end_line": 458
         },
         {
           "path": "site/api/index.ts",
-          "line": 446,
-          "end_line": 498
+          "line": 460,
+          "end_line": 503
         }
       ]
     },
@@ -219,18 +224,43 @@
       "sources": [
         {
           "path": "site/api/skill-packs.ts",
-          "line": 98,
+          "line": 107,
+          "end_line": 140
+        },
+        {
+          "path": "site/api/skill-packs.ts",
+          "line": 143,
+          "end_line": 204
+        },
+        {
+          "path": "site/api/skill-packs.ts",
+          "line": 273,
+          "end_line": 359
+        }
+      ]
+    },
+    {
+      "id": "mcp",
+      "type": "backend",
+      "label": "MCP server",
+      "sublabel": "mcp/server.ts, stdio",
+      "stage": 3,
+      "row": 0,
+      "sources": [
+        {
+          "path": "site/mcp/server.ts",
+          "line": 1,
+          "end_line": 11
+        },
+        {
+          "path": "site/mcp/server.ts",
+          "line": 113,
           "end_line": 125
         },
         {
-          "path": "site/api/skill-packs.ts",
-          "line": 132,
-          "end_line": 185
-        },
-        {
-          "path": "site/api/skill-packs.ts",
-          "line": 254,
-          "end_line": 300
+          "path": "site/mcp/server.ts",
+          "line": 288,
+          "end_line": 296
         }
       ]
     },
@@ -244,8 +274,8 @@
       "sources": [
         {
           "path": "site/src/App.tsx",
-          "line": 127,
-          "end_line": 141
+          "line": 154,
+          "end_line": 168
         },
         {
           "path": "site/src/hooks/usePromptPreviews.ts",
@@ -254,8 +284,23 @@
         },
         {
           "path": "site/src/hooks/usePromptContent.ts",
-          "line": 40,
-          "end_line": 53
+          "line": 25,
+          "end_line": 36
+        }
+      ]
+    },
+    {
+      "id": "agent",
+      "type": "external",
+      "label": "Agent CLI",
+      "sublabel": "MCP client",
+      "stage": 4,
+      "row": 0,
+      "sources": [
+        {
+          "path": "site/package.json",
+          "line": 21,
+          "end_line": 21
         }
       ]
     }
@@ -264,7 +309,7 @@
     {
       "from": "upstream",
       "to": "library",
-      "label": "Resync by hand",
+      "label": "Weekly resync PR",
       "variant": "dashed"
     },
     {
@@ -330,6 +375,16 @@
       "from": "packs_api",
       "to": "app",
       "label": "Packs / ZIP"
+    },
+    {
+      "from": "index",
+      "to": "mcp",
+      "label": "Search"
+    },
+    {
+      "from": "mcp",
+      "to": "agent",
+      "label": "Tools + prompts"
     }
   ],
   "cards": [
@@ -339,7 +394,8 @@
       "items": [
         "The Public Library is markdown in site/library/, versioned in Git and shipped with each deploy. Nothing in the app writes to it: POST, PUT and DELETE on /api/prompts all go to My Library.",
         "My Library is a local folder, site/my-library/ unless MY_LIBRARY_DIR moves it, with one markdown file per prompt and its title, section, category and tags in frontmatter. There are no accounts: the server listens on 127.0.0.1, and on the Vercel demo READ_ONLY refuses every write.",
-        "Add to My Library reads the public file, strips its frontmatter, refuses a duplicate title in the same section and category, and writes a copy as a new file whose name is its id."
+        "Add to My Library reads the public file, strips its frontmatter, refuses a duplicate title in the same section and category, and writes a copy as a new file whose name is its id. The copy records which public file it came from, so the app can offer the newer public version later.",
+        "The MCP server (npm run mcp) reads the same index and folders the app does, so an agent can search, read and, unless READ_ONLY is set, save to My Library without the web server running."
       ]
     },
     {
@@ -348,7 +404,7 @@
       "items": [
         "The lightweight public listing comes from prompt-index.json with every content field emptied, and is cached in the function for 5 minutes.",
         "Cards ask POST /api/prompts/previews for the blurbs they render (up to 200 ids per request), served from the index's 200-character previews with a file fallback.",
-        "The real body comes from GET /api/prompts/:id, fetched when a prompt is opened, copied, downloaded or edited."
+        "The real body comes from GET /api/prompts/:id, fetched when a prompt is opened, copied, downloaded or edited. A failed fetch is an error, never the 200-character preview."
       ]
     },
     {
@@ -364,7 +420,7 @@
       "dot": "emerald",
       "title": "Where the content comes from",
       "items": [
-        "Vendored skills and agents carry an upstream: block. The weekly Upstream drift workflow reports which are behind in one GitHub issue and never edits the library; resync-upstream.mjs is run by hand to pull a body back level.",
+        "Vendored skills and agents carry an upstream: block. The weekly Upstream drift workflow reports drift in one GitHub issue, resyncs the items with little local content of their own, and opens one pull request that a person merges. resync-upstream.mjs does the same by hand.",
         "After any library change, npm run build:index regenerates the index. CI rebuilds it and fails when the committed file differs, and vercel-build rebuilds it on every deploy."
       ]
     }

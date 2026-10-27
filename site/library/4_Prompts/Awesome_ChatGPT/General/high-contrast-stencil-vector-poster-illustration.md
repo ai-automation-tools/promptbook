@@ -3,6 +3,10 @@ title: "🤖 High-Contrast Stencil Vector Poster Illustration"
 tags: ["awesome-chatgpt", "high", "contrast", "stencil", "vector"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # High-Contrast Stencil Vector Poster Illustration

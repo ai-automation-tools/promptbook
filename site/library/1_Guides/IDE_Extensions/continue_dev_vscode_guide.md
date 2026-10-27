@@ -3,6 +3,7 @@ title: "💻 Continue.dev VSCode Extension"
 tags: ["ide", "continue", "vscode"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: continuedev/continue
 ---
 
 # Continue.dev VSCode Extension

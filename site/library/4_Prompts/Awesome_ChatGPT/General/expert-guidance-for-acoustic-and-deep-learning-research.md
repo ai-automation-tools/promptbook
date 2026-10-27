@@ -3,6 +3,10 @@ title: "🤖 Expert Guidance for Acoustic and Deep Learning Research"
 tags: ["awesome-chatgpt", "expert", "guidance", "acoustic", "deep"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Expert Guidance for Acoustic and Deep Learning Research

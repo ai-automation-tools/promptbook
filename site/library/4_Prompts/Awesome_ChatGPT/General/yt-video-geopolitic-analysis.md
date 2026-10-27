@@ -3,6 +3,10 @@ title: "🤖 YT video  geopolitic analysis"
 tags: ["awesome-chatgpt", "video", "geopolitic", "analysis"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # YT video  geopolitic analysis

@@ -3,6 +3,10 @@ title: "🤖 GitHub Repository Analysis and Enhancement"
 tags: ["awesome-chatgpt", "github", "repository", "analysis", "enhancement"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # GitHub Repository Analysis and Enhancement

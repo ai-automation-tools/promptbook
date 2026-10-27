@@ -3,6 +3,10 @@ title: "🤖 Christmas Poster - Festive Holiday Scene"
 tags: ["awesome-chatgpt", "christmas", "poster", "festive", "holiday"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Christmas Poster - Festive Holiday Scene

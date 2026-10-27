@@ -3,6 +3,10 @@ title: "🤖 Bug Discovery Code Assistant"
 tags: ["awesome-chatgpt", "bug", "discovery", "code"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Bug Discovery Code Assistant

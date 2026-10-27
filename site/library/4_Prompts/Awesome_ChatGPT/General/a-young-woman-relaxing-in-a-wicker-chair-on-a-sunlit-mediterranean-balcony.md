@@ -3,6 +3,10 @@ title: "🤖 A young woman relaxing in a wicker chair on a sunlit Mediterranean 
 tags: ["awesome-chatgpt", "young", "woman", "relaxing", "wicker"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # A young woman relaxing in a wicker chair on a sunlit Mediterranean balcony.

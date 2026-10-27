@@ -3,6 +3,10 @@ title: "🤖 Precious Metals Price Analyst"
 tags: ["awesome-chatgpt", "precious", "metals", "price", "analyst"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Precious Metals Price Analyst

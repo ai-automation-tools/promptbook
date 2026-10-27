@@ -3,6 +3,10 @@ title: "🤖 Workplace English Speaking Coach"
 tags: ["awesome-chatgpt", "workplace", "english", "speaking", "coach"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Workplace English Speaking Coach

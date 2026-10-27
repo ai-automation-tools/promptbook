@@ -3,6 +3,10 @@ title: "🤖 Ankara Night Scene in a Meyhane"
 tags: ["awesome-chatgpt", "ankara", "night", "scene", "meyhane"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Ankara Night Scene in a Meyhane

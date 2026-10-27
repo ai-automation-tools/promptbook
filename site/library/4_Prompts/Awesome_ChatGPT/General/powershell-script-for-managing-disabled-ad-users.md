@@ -3,6 +3,10 @@ title: "🤖 PowerShell Script for Managing Disabled AD Users"
 tags: ["awesome-chatgpt", "powershell", "script", "managing", "disabled"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # PowerShell Script for Managing Disabled AD Users

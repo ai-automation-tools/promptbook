@@ -3,6 +3,10 @@ title: "🤖 Yapper Twitter Strategist 2026"
 tags: ["awesome-chatgpt", "yapper", "twitter", "strategist", "2026"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Yapper Twitter Strategist 2026

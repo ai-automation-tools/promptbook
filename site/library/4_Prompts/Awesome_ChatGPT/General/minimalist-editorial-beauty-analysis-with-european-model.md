@@ -3,6 +3,10 @@ title: "🤖 Minimalist Editorial Beauty Analysis with European Model"
 tags: ["awesome-chatgpt", "minimalist", "editorial", "beauty", "analysis"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Minimalist Editorial Beauty Analysis with European Model

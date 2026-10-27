@@ -3,6 +3,10 @@ title: "🤖 Joyful Woman in Nordic Sweater Dancing at a Nostalgic Family Christ
 tags: ["awesome-chatgpt", "joyful", "woman", "nordic", "sweater"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Joyful Woman in Nordic Sweater Dancing at a Nostalgic Family Christmas Gathering

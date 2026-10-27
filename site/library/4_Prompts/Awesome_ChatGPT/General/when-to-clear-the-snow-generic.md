@@ -3,6 +3,10 @@ title: "🤖 When to clear the snow (generic)"
 tags: ["awesome-chatgpt", "when", "clear", "snow", "generic"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # When to clear the snow (generic)

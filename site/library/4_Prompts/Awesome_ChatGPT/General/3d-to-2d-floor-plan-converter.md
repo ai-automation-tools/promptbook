@@ -3,6 +3,10 @@ title: "🤖 3D to 2D Floor Plan Converter"
 tags: ["awesome-chatgpt", "floor", "plan", "converter"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # 3D to 2D Floor Plan Converter

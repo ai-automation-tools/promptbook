@@ -3,6 +3,10 @@ title: "🤖 Cold Start Safe Architecture"
 tags: ["awesome-chatgpt", "cold", "start", "safe", "architecture"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Cold Start Safe Architecture

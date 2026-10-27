@@ -3,6 +3,10 @@ title: "🤖 Hyper-Realistic Clay Bust From Photo Template"
 tags: ["awesome-chatgpt", "hyper", "realistic", "clay", "bust"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Hyper-Realistic Clay Bust From Photo Template

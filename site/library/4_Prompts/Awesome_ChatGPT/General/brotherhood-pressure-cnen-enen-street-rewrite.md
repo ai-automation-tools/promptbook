@@ -3,6 +3,10 @@ title: "🤖 Brotherhood Pressure — CN→EN & EN→EN Street Rewrite"
 tags: ["awesome-chatgpt", "brotherhood", "pressure", "street", "rewrite"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Brotherhood Pressure — CN→EN & EN→EN Street Rewrite

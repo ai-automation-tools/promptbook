@@ -3,6 +3,10 @@ title: "🤖 Production-Grade PostHog Integration for Next.js 15 (App Router)"
 tags: ["awesome-chatgpt", "production", "grade", "posthog", "integration"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Production-Grade PostHog Integration for Next.js 15 (App Router)

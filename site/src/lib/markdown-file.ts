@@ -15,6 +15,7 @@ export function toMarkdownFile(prompt: Prompt): string {
     category: prompt.category,
     subcategory: prompt.subcategory ?? null,
     tags: prompt.tags,
+    source_url: prompt.sourceUrl,
     created: prompt.lastModified,
     source: 'Promptbook',
   };

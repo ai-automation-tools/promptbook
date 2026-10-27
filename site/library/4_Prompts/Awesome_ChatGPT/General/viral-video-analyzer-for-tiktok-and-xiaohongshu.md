@@ -3,6 +3,10 @@ title: "🤖 Viral Video Analyzer for TikTok and Xiaohongshu"
 tags: ["awesome-chatgpt", "viral", "video", "analyzer", "tiktok"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Viral Video Analyzer for TikTok and Xiaohongshu

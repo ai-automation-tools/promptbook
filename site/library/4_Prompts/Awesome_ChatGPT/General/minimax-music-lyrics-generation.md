@@ -3,6 +3,10 @@ title: "🤖 Minimax Music & Lyrics Generation"
 tags: ["awesome-chatgpt", "minimax", "music", "lyrics", "generation"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Minimax Music & Lyrics Generation

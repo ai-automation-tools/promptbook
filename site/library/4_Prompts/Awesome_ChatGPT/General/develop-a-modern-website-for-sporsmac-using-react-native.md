@@ -3,6 +3,10 @@ title: "🤖 Develop a Modern Website for Sporsmaç Using React Native"
 tags: ["awesome-chatgpt", "develop", "modern", "website", "sporsma"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Develop a Modern Website for Sporsmaç Using React Native

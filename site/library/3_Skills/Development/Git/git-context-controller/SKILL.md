@@ -9,6 +9,7 @@ upstream:
   repo: faugustdev/git-context-controller
   path: gcc/SKILL.md
   checked: 2026-08-26
+  license: MIT
 ---
 
 # Git Context Controller (GCC)

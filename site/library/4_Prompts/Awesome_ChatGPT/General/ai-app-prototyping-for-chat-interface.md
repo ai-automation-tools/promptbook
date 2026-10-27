@@ -3,6 +3,10 @@ title: "🤖 AI App Prototyping for Chat Interface"
 tags: ["awesome-chatgpt", "app", "prototyping", "chat", "interface"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # AI App Prototyping for Chat Interface

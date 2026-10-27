@@ -6,6 +6,7 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import Fuse from 'fuse.js';
 import { type Prompt } from '../components/PromptCard';
+import { isLibraryItem } from '../components/SkillLibraries';
 
 export type SortOption = 'title-asc' | 'title-desc' | 'modified-desc' | 'modified-asc';
 
@@ -70,12 +71,13 @@ export function usePromptFilters({
 
   const categories = useMemo(() => {
     const map: Record<string, Set<string>> = {};
-    sectionPrompts.forEach(p => {
+    // The skills category tree leaves out library cards (Libraries/), as the skills list does.
+    sectionPrompts.filter(p => activeTab !== 'skills' || !isLibraryItem(p)).forEach(p => {
       if (!map[p.category]) map[p.category] = new Set();
       if (p.subcategory) map[p.category].add(p.subcategory);
     });
     return map;
-  }, [sectionPrompts]);
+  }, [sectionPrompts, activeTab]);
 
   const allTags = useMemo(() => {
     const tags = new Set<string>();
@@ -102,6 +104,12 @@ export function usePromptFilters({
       if (activeSubcategory) {
         currentPrompts = currentPrompts.filter(p => p.subcategory === activeSubcategory);
       }
+    }
+
+    // Library cards have their own view (Skills › Libraries), not a place in the skills list;
+    // a picked category (the detail page's "Libraries" crumb) still lists what is in it.
+    if (activeTab === 'skills' && !activeCategory) {
+      currentPrompts = currentPrompts.filter(p => !isLibraryItem(p));
     }
 
     if (selectedTags.length > 0) {

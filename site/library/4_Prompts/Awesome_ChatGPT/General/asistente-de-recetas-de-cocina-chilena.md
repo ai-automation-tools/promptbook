@@ -3,6 +3,10 @@ title: "🤖 Asistente de Recetas de Cocina Chilena"
 tags: ["awesome-chatgpt", "asistente", "recetas", "cocina", "chilena"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Asistente de Recetas de Cocina Chilena

@@ -3,6 +3,10 @@ title: "🤖 Claude Code Command: review-and-commit.md"
 tags: ["awesome-chatgpt", "claude", "code", "command", "review"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Claude Code Command: review-and-commit.md

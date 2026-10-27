@@ -3,6 +3,10 @@ title: "🤖 White-Box Web Application Security Audit & Penetration Testing Prom
 tags: ["awesome-chatgpt", "white", "box", "web", "application"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # White-Box Web Application Security Audit & Penetration Testing Prompt for AI Code Editors (Cursor, Windsurf, Antigravity)

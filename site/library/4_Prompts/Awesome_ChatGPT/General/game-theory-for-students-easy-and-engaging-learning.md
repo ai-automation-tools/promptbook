@@ -3,6 +3,10 @@ title: "🤖 Game Theory for Students: Easy and Engaging Learning"
 tags: ["awesome-chatgpt", "game", "theory", "students", "easy"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Game Theory for Students: Easy and Engaging Learning

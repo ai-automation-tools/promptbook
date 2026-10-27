@@ -3,6 +3,10 @@ title: "🤖 create a drag-and-drop experience using UniApp"
 tags: ["awesome-chatgpt", "create", "drag", "drop", "experience"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # create a drag-and-drop experience using UniApp

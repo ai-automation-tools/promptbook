@@ -3,6 +3,10 @@ title: "🤖 Candlestick Reversal Pattern Detector in Pine Script"
 tags: ["awesome-chatgpt", "candlestick", "reversal", "pattern", "detector"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Candlestick Reversal Pattern Detector in Pine Script

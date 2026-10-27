@@ -3,6 +3,10 @@ title: "🤖 Build a Web3 Wallet on Playnance Blockchain"
 tags: ["awesome-chatgpt", "build", "web3", "wallet", "playnance"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Build a Web3 Wallet on Playnance Blockchain

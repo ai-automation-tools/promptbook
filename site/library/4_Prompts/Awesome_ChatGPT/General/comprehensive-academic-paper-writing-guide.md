@@ -3,6 +3,10 @@ title: "🤖 Comprehensive Academic Paper Writing Guide"
 tags: ["awesome-chatgpt", "comprehensive", "academic", "paper", "writing"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Comprehensive Academic Paper Writing Guide

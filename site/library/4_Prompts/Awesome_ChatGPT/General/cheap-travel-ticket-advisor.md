@@ -3,6 +3,10 @@ title: "🤖 Cheap Travel Ticket Advisor"
 tags: ["awesome-chatgpt", "cheap", "travel", "ticket", "advisor"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Cheap Travel Ticket Advisor

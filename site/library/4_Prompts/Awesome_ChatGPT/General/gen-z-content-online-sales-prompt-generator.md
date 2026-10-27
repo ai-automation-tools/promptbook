@@ -3,6 +3,10 @@ title: "🤖 Gen Z Content & Online Sales Prompt Generator"
 tags: ["awesome-chatgpt", "gen", "content", "online", "sales"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Gen Z Content & Online Sales Prompt Generator

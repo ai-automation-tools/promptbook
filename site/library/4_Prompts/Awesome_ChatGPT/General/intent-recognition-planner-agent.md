@@ -3,6 +3,10 @@ title: "🤖 Intent Recognition Planner Agent"
 tags: ["awesome-chatgpt", "intent", "recognition", "planner", "agent"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Intent Recognition Planner Agent

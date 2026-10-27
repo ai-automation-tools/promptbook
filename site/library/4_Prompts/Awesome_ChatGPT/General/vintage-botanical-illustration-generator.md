@@ -3,6 +3,10 @@ title: "🤖 Vintage Botanical Illustration Generator"
 tags: ["awesome-chatgpt", "vintage", "botanical", "illustration"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Vintage Botanical Illustration Generator

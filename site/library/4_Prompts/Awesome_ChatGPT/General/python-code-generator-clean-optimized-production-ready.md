@@ -3,6 +3,10 @@ title: "🤖 Python Code Generator — Clean, Optimized & Production-Ready"
 tags: ["awesome-chatgpt", "python", "code", "clean", "optimized"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Python Code Generator — Clean, Optimized & Production-Ready

@@ -45,7 +45,7 @@ and `DELETE /api/skill-packs/:packId/remove-from-library`. All reads keep workin
 
 | Library | Id looks like | Where it lives |
 |:---|:---|:---|
-| Public | `4_Prompts/Business/Marketing/market-research.md` (path under `site/library/`, forward slashes) | `site/library/` |
+| Public | `4_Prompts/Awesome_ChatGPT/General/emoji-translator.md` (path under `site/library/`, forward slashes) | `site/library/` |
 | My Library | `market-research-plan-3fa9c1` (bare file name, no `.md`, no `/`) | `MY_LIBRARY_DIR`, default `site/my-library/` |
 
 `GET /api/prompts/:id` uses the slash to tell them apart. My Library ids match
@@ -121,7 +121,7 @@ since the lightweight listing ships none.
 
 **Request:**
 ```json
-{ "ids": ["1_Guides/API_Providers/anthropic-api-guide.md", "4_Prompts/Business/x.md"] }
+{ "ids": ["1_Guides/API_Providers/anthropic_api_guide.md", "4_Prompts/Awesome_ChatGPT/General/x.md"] }
 ```
 
 **Response (200 OK):** a map of id → first 200 characters of the body.
@@ -217,11 +217,14 @@ mode.**
   "category": "Business",
   "subcategory": "Marketing",
   "tags": ["custom", "marketing"],
+  "sourceUrl": "https://github.com/owner/repo",
   "content": "Full prompt content in markdown..."
 }
 ```
 
-`subcategory` and `tags` are optional.
+`subcategory`, `tags` and `sourceUrl` are optional. `sourceUrl` is where the item stems from;
+it is stored as `source_url` in the file's frontmatter and comes back as `sourceUrl` on the
+prompt, which the item page shows as a link. On `PUT`, `""` or `null` clears it.
 
 **Field rules** (the same for `PUT`, and for the MCP write tools, because the My Library store
 checks them):
@@ -232,6 +235,7 @@ checks them):
 | `section` | One of `1_Guides`, `2_Agents`, `3_Skills`, `4_Prompts`, `5_System_Prompts`, `6_MCP_Servers` |
 | `subcategory` | Text up to 100 characters, or `null` |
 | `tags` | A list of up to 50 non-blank strings, each up to 100 characters |
+| `sourceUrl` | An `http(s)` URL up to 2,000 characters, or `null` |
 | `content` | Text, not blank, up to 500 KB |
 
 A refused write changes no file.
@@ -341,7 +345,7 @@ The copy also gets `forked_from` (the public id) and `forked_hash` (a hash of th
 as copied), which `upstream` and `pull-upstream` compare against. **Write route: `403` in read-only mode.**
 
 **URL Parameters:**
-- `path`: public prompt path, e.g. `4_Prompts/Business/Marketing/market-research.md`
+- `path`: public prompt path, e.g. `4_Prompts/Awesome_ChatGPT/General/emoji-translator.md`
 
 **Request:** no body.
 
@@ -539,6 +543,7 @@ npm run test:my-library  # the file store, against a temp folder
 npm run test:read-only   # read-only mode hides My Library
 npm run test:prompt-content  # the UI's full-prompt fetch fails closed
 npm run test:markdown-file   # the Download button's .md round-trips
+npm run test:preview         # badge rows do not become the card blurb
 npm run test:mcp             # the MCP server shares these readers and the store
 npm run test:safe-path       # ../ escapes and links out of library/ are refused
 npm run test:browser         # after npm run build: the built app in Chrome

@@ -3,6 +3,10 @@ title: "🤖 Spongebob's Magic Conch Shell"
 tags: ["awesome-chatgpt", "spongebob", "magic", "conch", "shell"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Spongebob's Magic Conch Shell

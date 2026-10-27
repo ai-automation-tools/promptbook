@@ -3,6 +3,10 @@ title: "🤖 Cinematic 3x3 Focal Lengths Grid"
 tags: ["awesome-chatgpt", "cinematic", "3x3", "focal", "lengths"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Cinematic 3x3 Focal Lengths Grid

@@ -3,6 +3,10 @@ title: "🤖 Step 4a: Implementation Plan"
 tags: ["awesome-chatgpt", "step", "implementation", "plan"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Step 4a: Implementation Plan

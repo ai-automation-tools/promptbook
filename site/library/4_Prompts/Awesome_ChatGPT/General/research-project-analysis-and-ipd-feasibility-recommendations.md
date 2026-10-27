@@ -3,6 +3,10 @@ title: "🤖 Research Project Analysis and IPD Feasibility Recommendations"
 tags: ["awesome-chatgpt", "research", "project", "analysis", "ipd"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Research Project Analysis and IPD Feasibility Recommendations

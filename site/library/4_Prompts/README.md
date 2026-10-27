@@ -1,144 +1,34 @@
-# 4_Prompts - Prompt Templates & Examples
+# 4_Prompts
 
-**Last Updated:** April 19, 2026  
-**Status:** ✅ Reorganized (main category expansion)
-
----
-
-## 📂 Directory Structure
-
-This directory contains prompt templates, collections, and examples for various domains and use cases.
-
-### Categories (12 total)
+Prompts copied from public collections, one markdown file each. Every file names the
+collection it came from in an `upstream:` block, and the item page shows that repo at the
+top; `scripts/upstream.test.mjs` fails CI on a prompt without one.
 
 ```
 4_Prompts/
-├── AI_ML/                  # AI & Machine Learning prompts
-├── Automation/             # Automation tools & integrations
-├── Business/               # Business operations & strategy
-├── Content/                # Content creation & writing
-├── Data/                   # Data analysis & data-adjacent prompts
-├── DevOps/                 # Platform, infra, and operational tooling
-├── Domain_Specific/        # Education, Legal, etc.
-├── Engineering/            # Software engineering & core development
-├── Finance/                # Financial analysis & planning
-├── IT_Security/            # Security, IAM, governance, response
-└── Media/                  # Images, Video, Social Media
+├── Awesome_ChatGPT/General/       # f/awesome-chatgpt-prompts, 1,349 prompts
+├── Fabric/<Topic>/                # danielmiessler/Fabric patterns, 265 prompts (match: exact)
+├── ChatGPT_Shortcut/<Tag>/        # rockbenben/ChatGPT-Shortcut, 119 prompts
+├── ChatGPT_System_Prompts/<Group>/  # mustvlad/ChatGPT-System-Prompts, 38 prompts
+└── Microsoft_Prompts_For_Edu/<Audience>/  # microsoft/prompts-for-edu, 15 prompts
 ```
 
----
+One top-level folder per collection, then the collection's own grouping. Every collection is
+MIT (CC0 for Awesome ChatGPT); `NOTICE` at the repo root carries each licence. A Fabric file
+is the pattern's `system.md` byte for byte, so the weekly drift resync keeps it current; the
+others were reshaped from JSON or Markdown sections and are `match: similar`. ChatGPT-Shortcut
+cards that it copied from Awesome ChatGPT, and any prompt whose title is already here, were
+left out.
 
-## 📊 Current Snapshot
+The hand-written categories that used to live here (AI_ML, Business, Content, Engineering,
+Finance, Media, …) named no repo and were moved, paths intact, to
+`archive/unlinked-2026-10-26/4_Prompts/` at the repo root on 2026-10-26. See
+`archive/README.md` to bring one back.
 
-### Files by Category
+## Adding prompts
 
-| Category | Files |
-|----------|-------|
-| AI_ML | 139 |
-| Automation | 9 |
-| Business | 139 |
-| Content | 44 |
-| Data | 2 |
-| DevOps | 13 |
-| Domain_Specific | 27 |
-| Engineering | 79 |
-| Finance | 17 |
-| IT_Security | 17 |
-| Media | 44 |
-
----
-
-## 🎯 What Changed (April 19, 2026)
-
-Main category expansion was completed to reduce overload in `Development/`.
-
-### Added main categories
-- ✅ `Engineering/`
-- ✅ `DevOps/`
-- ✅ `IT_Security/`
-- ✅ `Data/`
-- ✅ `Automation/`
-
-### Rebalanced from `Development/`
-`Development/` was split into the categories above and removed.
-
-Examples:
-- Core software prompts moved to `Engineering/` (architecture, API design, testing, code generation, version control)
-- Platform/ops prompts moved to `DevOps/` (Firebase, Google Workspace, Supabase, operations)
-- Security/IAM/governance prompts moved to `IT_Security/`
-- Data-oriented prompts moved to `Data/`
-- Tool/integration workflows moved to `Automation/` (n8n, Notion, Obsidian, Serper)
-
----
-
-## 🔍 Finding Prompts
-
-### By development workstream
-- **Core build/code tasks:** `Engineering/`
-- **Infra/platform/ops tasks:** `DevOps/`
-- **Security and IAM tasks:** `IT_Security/`
-- **Data tasks:** `Data/`
-- **Automation/workflow tasks:** `Automation/`
-
-### Other domains
-- **AI prompts:** `AI_ML/`
-- **Business prompts:** `Business/`
-- **Content prompts:** `Content/`
-- **Media prompts:** `Media/`
-- **Education/Legal:** `Domain_Specific/`
-- **Finance:** `Finance/`
-
----
-
-## 📝 File Format
-
-Prompts should follow a consistent format:
-
-```markdown
----
-title: "Prompt Name"
-tags: ["tag1", "tag2"]
-category: "Prompts"
-subcategory: "AI_ML|Business|Engineering|DevOps|IT_Security|..."
----
-
-# Prompt Title
-
-## Context
-[Background and use case]
-
-## Prompt
-[The actual prompt text]
-
-## Variables
-[Template variables if applicable]
-
-## Example Output
-[Sample response]
-
-## Tips
-[Best practices for using this prompt]
-```
-
----
-
-## 🔄 Maintenance
-
-### Adding New Prompts
-
-1. Choose the most specific category first
-2. Follow the standard file format
-3. Include frontmatter + examples where useful
-4. Update this README if a new subcategory is introduced
-
-### Updating Existing Prompts
-
-- Keep changes documented in git history
-- Preserve naming consistency
-- Prefer moving prompts over duplicating prompts
-
----
-
-**Migration Notes:**
-- Previous balancing pass: March 31, 2026
-- Category expansion pass: April 19, 2026
+1. Copy the prompt from a public collection; do not write one here.
+2. Use `docs/templates/prompt-library-template.md`: frontmatter with `title`, `tags`,
+   `category`, `subcategory` and the `upstream:` block (`match`, `repo`, `checked`).
+3. Keep the collection's attribution line at the end of the body.
+4. Run `npm run build:index` from `site/` and commit `api/prompt-index.json` with it.

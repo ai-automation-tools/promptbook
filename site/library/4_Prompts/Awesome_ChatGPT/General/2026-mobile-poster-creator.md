@@ -3,6 +3,10 @@ title: "🤖 2026 Mobile Poster Creator"
 tags: ["awesome-chatgpt", "2026", "mobile", "poster", "creator"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # 2026 Mobile Poster Creator

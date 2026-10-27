@@ -3,6 +3,10 @@ title: "🤖 Dreamy Artistic Photograph of a Young Woman in a Meadow"
 tags: ["awesome-chatgpt", "dreamy", "artistic", "photograph", "young"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Dreamy Artistic Photograph of a Young Woman in a Meadow

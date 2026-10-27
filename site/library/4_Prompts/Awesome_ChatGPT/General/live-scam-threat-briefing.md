@@ -3,6 +3,10 @@ title: "🤖 Live Scam Threat Briefing"
 tags: ["awesome-chatgpt", "live", "scam", "threat", "briefing"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Live Scam Threat Briefing

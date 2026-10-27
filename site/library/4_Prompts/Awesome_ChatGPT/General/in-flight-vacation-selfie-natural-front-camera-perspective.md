@@ -3,6 +3,10 @@ title: "🤖 In-Flight Vacation Selfie — Natural Front Camera Perspective"
 tags: ["awesome-chatgpt", "flight", "vacation", "selfie", "natural"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # In-Flight Vacation Selfie — Natural Front Camera Perspective

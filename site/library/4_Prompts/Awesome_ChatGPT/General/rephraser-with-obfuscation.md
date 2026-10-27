@@ -3,6 +3,10 @@ title: "🤖 Rephraser with Obfuscation"
 tags: ["awesome-chatgpt", "rephraser", "obfuscation"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Rephraser with Obfuscation

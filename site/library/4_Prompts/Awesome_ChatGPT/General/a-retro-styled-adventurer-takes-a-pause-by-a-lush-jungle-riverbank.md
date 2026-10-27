@@ -3,6 +3,10 @@ title: "🤖 A retro-styled adventurer takes a pause by a lush jungle riverbank.
 tags: ["awesome-chatgpt", "retro", "styled", "adventurer", "takes"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # A retro-styled adventurer takes a pause by a lush jungle riverbank.

@@ -3,6 +3,10 @@ title: "🤖 Creating a Project Management Tool"
 tags: ["awesome-chatgpt", "creating", "project", "management", "tool"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Creating a Project Management Tool

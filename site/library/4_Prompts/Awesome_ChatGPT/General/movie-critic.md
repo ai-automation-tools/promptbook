@@ -3,6 +3,10 @@ title: "🤖 Movie Critic"
 tags: ["awesome-chatgpt", "movie", "critic"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Movie Critic

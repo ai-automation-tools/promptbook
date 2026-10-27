@@ -3,6 +3,10 @@ title: "🤖 Créer une Carte Mentale pour Séance d'Idéation"
 tags: ["awesome-chatgpt", "une", "carte", "mentale", "pour"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Créer une Carte Mentale pour Séance d'Idéation

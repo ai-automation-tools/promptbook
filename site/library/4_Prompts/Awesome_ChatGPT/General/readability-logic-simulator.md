@@ -3,6 +3,10 @@ title: "🤖 Readability Logic Simulator - 全功能翻译版"
 tags: ["awesome-chatgpt", "readability", "logic", "simulator"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Readability Logic Simulator - 全功能翻译版

@@ -3,6 +3,10 @@ title: "🤖 Creative Writing Adventure"
 tags: ["awesome-chatgpt", "creative", "writing", "adventure"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Creative Writing Adventure

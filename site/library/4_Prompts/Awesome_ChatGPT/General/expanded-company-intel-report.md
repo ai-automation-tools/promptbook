@@ -3,6 +3,10 @@ title: "🤖 Expanded Company Intel Report"
 tags: ["awesome-chatgpt", "expanded", "company", "intel", "report"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Expanded Company Intel Report

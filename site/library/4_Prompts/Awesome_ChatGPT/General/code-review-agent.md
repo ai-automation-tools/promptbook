@@ -3,6 +3,10 @@ title: "🤖 Code Review Agent"
 tags: ["awesome-chatgpt", "code", "review", "agent"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Code Review Agent

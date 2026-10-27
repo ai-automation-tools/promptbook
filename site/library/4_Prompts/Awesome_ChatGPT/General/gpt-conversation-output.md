@@ -3,6 +3,10 @@ title: "🤖 GPT_conversation_output"
 tags: ["awesome-chatgpt", "gpt", "conversation", "output"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # GPT_conversation_output

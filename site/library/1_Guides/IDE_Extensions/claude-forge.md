@@ -3,6 +3,7 @@ title: "💻 ClaudeForge Guide"
 tags: ["agent-guides", "ClaudeForge", "IDE_Extensions"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
+repo: alirezarezvani/ClaudeForge
 ---
 
 # ClaudeForge Guide

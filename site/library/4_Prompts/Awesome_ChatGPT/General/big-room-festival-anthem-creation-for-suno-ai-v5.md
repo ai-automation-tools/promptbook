@@ -3,6 +3,10 @@ title: "🤖 Big Room Festival Anthem Creation for Suno AI v5"
 tags: ["awesome-chatgpt", "big", "room", "festival", "anthem"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Big Room Festival Anthem Creation for Suno AI v5

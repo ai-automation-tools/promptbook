@@ -3,6 +3,10 @@ title: "🤖 Transform Subjects into Adorable Plush Forms"
 tags: ["awesome-chatgpt", "transform", "subjects", "adorable", "plush"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Transform Subjects into Adorable Plush Forms

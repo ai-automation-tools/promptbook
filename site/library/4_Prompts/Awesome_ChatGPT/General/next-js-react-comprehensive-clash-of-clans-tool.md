@@ -3,6 +3,10 @@ title: "🤖 Next.js React Comprehensive Clash of Clans Tool"
 tags: ["awesome-chatgpt", "next", "react", "comprehensive", "clash"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Next.js React Comprehensive Clash of Clans Tool

@@ -3,6 +3,10 @@ title: "🤖 Ultimate 2025-2026 AI Life Strategist & Retrospective"
 tags: ["awesome-chatgpt", "ultimate", "2025", "2026", "life"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Ultimate 2025-2026 AI Life Strategist & Retrospective

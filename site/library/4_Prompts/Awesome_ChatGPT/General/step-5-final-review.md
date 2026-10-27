@@ -3,6 +3,10 @@ title: "🤖 Step 5: Final Review"
 tags: ["awesome-chatgpt", "step", "final", "review"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Step 5: Final Review

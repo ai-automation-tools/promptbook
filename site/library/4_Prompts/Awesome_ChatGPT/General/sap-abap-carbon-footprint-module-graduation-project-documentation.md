@@ -3,6 +3,10 @@ title: "🤖 SAP ABAP Carbon Footprint Module Graduation Project Documentation"
 tags: ["awesome-chatgpt", "sap", "abap", "carbon", "footprint"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # SAP ABAP Carbon Footprint Module Graduation Project Documentation

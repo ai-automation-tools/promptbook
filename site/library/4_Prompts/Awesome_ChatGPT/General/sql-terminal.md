@@ -3,6 +3,10 @@ title: "🤖 SQL Terminal"
 tags: ["awesome-chatgpt", "sql", "terminal"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # SQL Terminal

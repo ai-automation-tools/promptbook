@@ -3,6 +3,10 @@ title: "🤖 The Technical Co-Founder: Building Real Products Together"
 tags: ["awesome-chatgpt", "technical", "founder", "building", "real"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # The Technical Co-Founder: Building Real Products Together

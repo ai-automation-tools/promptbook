@@ -3,6 +3,10 @@ title: "🤖 PowerShell Script to Move Disabled AD Users to Specific OU"
 tags: ["awesome-chatgpt", "powershell", "script", "move", "disabled"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # PowerShell Script to Move Disabled AD Users to Specific OU

@@ -4,6 +4,7 @@ tags: ["agent-guides", "openai", "api"]
 category: "Agent_Guides"
 subcategory: "API_Providers"
 checked: 2026-10-13
+repo: openai/openai-python
 ---
 
 # OpenAI API Best Practices Guide

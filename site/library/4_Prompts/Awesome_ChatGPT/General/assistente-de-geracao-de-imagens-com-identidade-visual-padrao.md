@@ -3,6 +3,10 @@ title: "🤖 Assistente de Geração de Imagens com Identidade Visual Padrão"
 tags: ["awesome-chatgpt", "assistente", "gera", "imagens", "com"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Assistente de Geração de Imagens com Identidade Visual Padrão

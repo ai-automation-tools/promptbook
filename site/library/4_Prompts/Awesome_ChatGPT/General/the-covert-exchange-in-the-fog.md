@@ -3,6 +3,10 @@ title: "🤖 The Covert Exchange in the Fog"
 tags: ["awesome-chatgpt", "covert", "exchange", "fog"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # The Covert Exchange in the Fog

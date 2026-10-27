@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react';
 import { AlertCircle, Code2, Eye, Save, X } from 'lucide-react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+import rehypeSanitize from 'rehype-sanitize';
 import { LayoutGroup, m } from 'motion/react';
 import { cn } from '../lib/cn';
 import { SECTIONS } from '../lib/sections';
@@ -21,6 +23,8 @@ export interface PromptDraft {
   subcategory: string | null;
   tags: string[];
   content: string;
+  /** Where it stems from: a GitHub repo or a site. */
+  sourceUrl?: string | null;
 }
 
 interface PromptEditorModalProps {
@@ -40,6 +44,7 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
   const [subcategory, setSubcategory] = useState('');
   const [tags, setTags] = useState<string[]>([]);
   const [tagInput, setTagInput] = useState('');
+  const [sourceUrl, setSourceUrl] = useState('');
   const [content, setContent] = useState('');
   const [mode, setMode] = useState<'write' | 'preview'>('write');
   const [saving, setSaving] = useState(false);
@@ -53,6 +58,7 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
       setCategory(editingPrompt.category);
       setSubcategory(editingPrompt.subcategory || '');
       setTags(editingPrompt.tags || []);
+      setSourceUrl(editingPrompt.sourceUrl || '');
       setContent(editingPrompt.content);
     } else {
       setTitle('');
@@ -61,6 +67,7 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
       setSubcategory('');
       setTags([]);
       setTagInput('');
+      setSourceUrl('');
       setContent('');
     }
     setMode('write');
@@ -99,6 +106,7 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
         category: category.trim(),
         subcategory: subcategory.trim() || null,
         tags,
+        sourceUrl: sourceUrl.trim() || null,
         content: content.trim(),
       });
       onClose();
@@ -118,7 +126,7 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
       <ModalHeader
         id="editor-title"
         eyebrow={editingPrompt ? 'Editing' : 'My Library'}
-        title={editingPrompt ? 'Edit prompt' : 'New prompt'}
+        title={editingPrompt ? 'Edit item' : 'New item'}
         description="Markdown body, plus the metadata the library files on."
         onClose={onClose}
       />
@@ -166,6 +174,13 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
               </label>
               <input id="prompt-subcategory" type="text" value={subcategory} onChange={e => setSubcategory(e.target.value)} className="input" placeholder="Optional" disabled={!!editingPrompt} />
             </div>
+          </div>
+
+          <div>
+            <label htmlFor="prompt-source" className={LABEL}>
+              Source link <span className="font-normal text-[var(--fg-4)]">· GitHub repo or site it stems from</span>
+            </label>
+            <input id="prompt-source" type="url" inputMode="url" value={sourceUrl} onChange={e => setSourceUrl(e.target.value)} className="input" placeholder="https://github.com/owner/repo" pattern="https?://.+" title="An http(s) link" />
           </div>
 
           <div>
@@ -224,7 +239,8 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
               <div className="surface min-h-[380px] p-5">
                 {content.trim() ? (
                   <div className="markdown-body">
-                    <Markdown remarkPlugins={[remarkGfm]}>{content}</Markdown>
+                    {/* HTML in the markdown (READMEs are full of it) renders, through GitHub's own allow-list. */}
+            <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, rehypeSanitize]}>{content}</Markdown>
                   </div>
                 ) : (
                   <p className="text-[13.5px] text-[var(--fg-4)]">Nothing to preview yet.</p>
@@ -252,7 +268,7 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
             Cancel
           </Button>
           <Button type="submit" variant="primary" disabled={saving} icon={<Save className="h-4 w-4" />}>
-            {saving ? 'Saving…' : editingPrompt ? 'Save changes' : 'Create prompt'}
+            {saving ? 'Saving…' : editingPrompt ? 'Save changes' : 'Create item'}
           </Button>
         </ModalFooter>
       </form>

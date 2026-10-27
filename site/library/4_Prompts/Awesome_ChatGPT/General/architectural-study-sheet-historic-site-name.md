@@ -3,6 +3,10 @@ title: "🤖 Architectural Study Sheet: [HISTORIC_SITE_NAME]"
 tags: ["awesome-chatgpt", "architectural", "study", "sheet", "historic"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Architectural Study Sheet: [HISTORIC_SITE_NAME]

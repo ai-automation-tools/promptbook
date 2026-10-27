@@ -3,6 +3,10 @@ title: "🤖 Make Flowers Bloom in an Image"
 tags: ["awesome-chatgpt", "make", "flowers", "bloom", "image"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Make Flowers Bloom in an Image

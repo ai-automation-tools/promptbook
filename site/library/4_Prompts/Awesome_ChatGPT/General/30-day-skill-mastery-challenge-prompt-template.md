@@ -3,6 +3,10 @@ title: "🤖 30-Day Skill Mastery Challenge Prompt Template"
 tags: ["awesome-chatgpt", "day", "skill", "mastery", "challenge"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # 30-Day Skill Mastery Challenge Prompt Template

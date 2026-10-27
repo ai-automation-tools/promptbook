@@ -3,6 +3,10 @@ title: "🤖 Darksynth Synthwave Music Composition Guide"
 tags: ["awesome-chatgpt", "darksynth", "synthwave", "music", "composition"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Darksynth Synthwave Music Composition Guide

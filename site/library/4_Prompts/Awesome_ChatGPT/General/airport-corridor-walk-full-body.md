@@ -3,6 +3,10 @@ title: "🤖 Airport Corridor Walk (full-body)"
 tags: ["awesome-chatgpt", "airport", "corridor", "walk", "full"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Airport Corridor Walk (full-body)

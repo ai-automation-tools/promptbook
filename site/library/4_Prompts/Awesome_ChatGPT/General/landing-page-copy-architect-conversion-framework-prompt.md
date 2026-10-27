@@ -3,6 +3,10 @@ title: "🤖 Landing Page Copy Architect – Conversion Framework Prompt"
 tags: ["awesome-chatgpt", "landing", "page", "copy", "architect"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Landing Page Copy Architect – Conversion Framework Prompt

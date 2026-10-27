@@ -3,6 +3,10 @@ title: "🤖 Internal Project Proposal for Hospital Collaboration"
 tags: ["awesome-chatgpt", "internal", "project", "proposal", "hospital"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Internal Project Proposal for Hospital Collaboration

@@ -3,6 +3,10 @@ title: "🤖 The Quant Edge Engine"
 tags: ["awesome-chatgpt", "quant", "edge", "engine"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # The Quant Edge Engine

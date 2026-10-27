@@ -3,6 +3,10 @@ title: "🤖 Master Skills & Experience Summary Generator"
 tags: ["awesome-chatgpt", "master", "skills", "experience", "summary"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Master Skills & Experience Summary Generator

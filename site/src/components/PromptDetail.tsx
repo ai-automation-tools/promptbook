@@ -14,6 +14,7 @@ import {
   FolderOpen,
   FolderPlus,
   Github,
+  Globe,
   Hash,
   Layers,
   LayoutGrid,
@@ -22,11 +23,14 @@ import {
   Mail,
   Pencil,
   RefreshCw,
+  Star,
   Tag,
   Trash2,
 } from 'lucide-react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+import rehypeSanitize from 'rehype-sanitize';
 import { m } from 'motion/react';
 import SourcePanel from './SourcePanel';
 import { cn } from '../lib/cn';
@@ -52,6 +56,8 @@ interface PromptDetailProps {
   onCopy: (content: string, promptId: string) => void;
   onSubcategoryClick: (category: string, subcategory: string | 'ALL') => void;
   onShowAllPrompts: () => void;
+  isFavorite: boolean;
+  onToggleFavorite: (promptId: string) => void;
 }
 
 function wordCount(text: string): number {
@@ -74,6 +80,8 @@ export default function PromptDetail({
   onCopy,
   onSubcategoryClick,
   onShowAllPrompts,
+  isFavorite,
+  onToggleFavorite,
 }: PromptDetailProps) {
   const { emoji, title } = extractEmoji(prompt.title);
   const words = useMemo(() => wordCount(prompt.content), [prompt.content]);
@@ -135,6 +143,15 @@ export default function PromptDetail({
             Download
           </Button>
           <IconButton
+            label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+            framed
+            aria-pressed={isFavorite}
+            onClick={() => onToggleFavorite(prompt.id)}
+            className={cn('h-[30px] w-[30px]', isFavorite && 'text-[var(--warn)]')}
+          >
+            <Star className={cn('h-3.5 w-3.5', isFavorite && 'fill-current')} />
+          </IconButton>
+          <IconButton
             label={copiedShareLink ? 'Link copied' : 'Copy direct link'}
             framed
             onClick={() => onCopyShareLink(prompt)}
@@ -190,8 +207,10 @@ export default function PromptDetail({
               rel="noopener noreferrer"
               className="relative mb-5 inline-flex max-w-full items-center gap-2 rounded-[var(--r-md)] border border-[var(--line)] px-3 py-2 text-[13px] font-medium text-[var(--fg)] transition-colors hover:border-[color-mix(in_srgb,var(--c)_45%,var(--line))] hover:bg-[color-mix(in_srgb,var(--c)_8%,transparent)]"
             >
-              <Github className="h-4 w-4 shrink-0 text-[var(--c)]" aria-hidden="true" />
-              <span className="truncate">{prompt.sourceUrl.replace('https://github.com/', '')}</span>
+              {/^https:\/\/github\.com\//.test(prompt.sourceUrl)
+                ? <Github className="h-4 w-4 shrink-0 text-[var(--c)]" aria-hidden="true" />
+                : <Globe className="h-4 w-4 shrink-0 text-[var(--c)]" aria-hidden="true" />}
+              <span className="truncate">{prompt.sourceUrl.replace(/^https?:\/\/(www\.)?(github\.com\/)?/, '')}</span>
               <ExternalLink className="h-3.5 w-3.5 shrink-0 text-[var(--fg-4)]" aria-hidden="true" />
             </a>
           )}
@@ -206,7 +225,8 @@ export default function PromptDetail({
             </div>
           )}
           <div className="markdown-body relative">
-            <Markdown remarkPlugins={[remarkGfm]}>{prompt.content}</Markdown>
+            {/* HTML in the markdown (READMEs are full of it) renders, through GitHub's own allow-list. */}
+            <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, rehypeSanitize]}>{prompt.content}</Markdown>
           </div>
         </article>
 

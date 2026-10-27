@@ -3,6 +3,7 @@ title: "💻 Cohere Command R API Guide"
 tags: ["agent-guides", "cohere", "api"]
 category: "Agent_Guides"
 subcategory: "API_Providers"
+repo: cohere-ai/cohere-python
 ---
 
 # Cohere Command R API Guide

@@ -3,6 +3,10 @@ title: "🤖 Analyse Énergétique avec DJU, Consommation et Coûts"
 tags: ["awesome-chatgpt", "analyse", "nerg", "tique", "avec"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Analyse Énergétique avec DJU, Consommation et Coûts

@@ -3,6 +3,10 @@ title: "🤖 One-Click Design Mockup Creator"
 tags: ["awesome-chatgpt", "one", "click", "design", "mockup"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # One-Click Design Mockup Creator

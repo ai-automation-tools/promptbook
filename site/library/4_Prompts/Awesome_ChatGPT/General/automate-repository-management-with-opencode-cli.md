@@ -3,6 +3,10 @@ title: "🤖 Automate Repository Management with OpenCode CLI"
 tags: ["awesome-chatgpt", "automate", "repository", "management", "opencode"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Automate Repository Management with OpenCode CLI

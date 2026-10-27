@@ -3,6 +3,10 @@ title: "🤖 UGC-Style TikTok Script Generator for Gen Z Skincare"
 tags: ["awesome-chatgpt", "ugc", "style", "tiktok", "script"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # UGC-Style TikTok Script Generator for Gen Z Skincare

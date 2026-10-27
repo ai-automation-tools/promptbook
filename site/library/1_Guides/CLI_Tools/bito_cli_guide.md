@@ -3,6 +3,7 @@ title: "💻 Bito CLI Guide"
 tags: ["agent-guides", "bito", "cli"]
 category: "Agent_Guides"
 subcategory: "CLI_Tools"
+repo: gitbito/CLI
 ---
 
 # Bito CLI Guide

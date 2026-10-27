@@ -3,6 +3,10 @@ title: "🤖 Comprehensive Roadmap for AI and Computer Vision Specialization in 
 tags: ["awesome-chatgpt", "comprehensive", "roadmap", "computer", "vision"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Comprehensive Roadmap for AI and Computer Vision Specialization in Defense Systems

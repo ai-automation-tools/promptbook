@@ -3,6 +3,10 @@ title: "🤖 TV Premiere Weekly Listing Prompt"
 tags: ["awesome-chatgpt", "premiere", "weekly", "listing"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # TV Premiere Weekly Listing Prompt

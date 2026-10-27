@@ -3,6 +3,10 @@ title: "🤖 Candid Outdoor Group Photo in Natural Pool"
 tags: ["awesome-chatgpt", "candid", "outdoor", "group", "photo"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+upstream:
+  match: similar
+  repo: f/awesome-chatgpt-prompts
+  checked: 2026-10-26
 ---
 
 # Candid Outdoor Group Photo in Natural Pool
