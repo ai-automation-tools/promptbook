@@ -12,6 +12,7 @@ upstream:
   checked: 2026-10-23
   was: ambiguous
   candidates: [congdon1207/agents.md, poletron/custom-rules]
+  license: MIT
 ---
 
 # API Patterns

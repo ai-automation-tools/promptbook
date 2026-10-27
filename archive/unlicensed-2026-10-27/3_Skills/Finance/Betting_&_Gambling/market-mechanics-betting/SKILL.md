@@ -12,6 +12,7 @@ upstream:
   checked: 2026-10-23
   was: unknown
   candidates: [onfire7777/universal-ai-skills-library, ai-automation-tools/edge-radar, zeroxsireg/footy-predictor]
+  license: NONE
 ---
 
 # Market Mechanics & Betting

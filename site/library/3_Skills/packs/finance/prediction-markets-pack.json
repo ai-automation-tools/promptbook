@@ -3,7 +3,7 @@
   "id": "prediction-markets-pack",
   "description": "Comprehensive toolkit for prediction markets, sports betting, and trading analysis including arbitrage detection, odds modeling, bankroll management, and market sentiment analysis.",
   "icon": "📊",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "promptbook",
   "tags": [
     "prediction-markets",
@@ -15,11 +15,6 @@
   ],
   "category": "Finance",
   "skills": [
-    {
-      "path": "library/3_Skills/Finance/Betting_&_Gambling/market-mechanics-betting/SKILL.md",
-      "name": "Market Mechanics Betting",
-      "description": "Understand betting market dynamics"
-    },
     {
       "path": "library/3_Skills/Finance/Betting_&_Gambling/polymarket/SKILL.md",
       "name": "Polymarket",
@@ -51,5 +46,5 @@
   ],
   "related_packs": [],
   "created_at": "2026-03-30",
-  "updated_at": "2026-10-23"
+  "updated_at": "2026-10-27"
 }

@@ -54,8 +54,20 @@ try {
   assert.equal((await get(`/api/prompts/${encodeURIComponent("1_Guides/README.md")}`)).status, 200, "public detail");
   const zip = await get(`/api/skills/download/${encodeURIComponent("3_Skills/Business/copy-editing")}`);
   assert.equal(zip.status, 200, "public skill download");
+  // A ZIP stores entry names uncompressed, so the licence's name shows in the bytes. A skill
+  // ZIP's entries sit at its root, a pack's under each skill's folder.
+  const hasLicense = (bytes, dir = "") => new RegExp(`${dir && `${dir}[/\\\\]`}LICENSE`).test(bytes.toString("latin1"));
+  assert.ok(hasLicense(Buffer.from(await zip.arrayBuffer())), "a skill ZIP carries its LICENSE");
   const publicPacks = await (await get("/api/skill-packs")).json();
   assert.ok(publicPacks.length > 0, "public pack list");
+  // F17: every pack ZIP carries each of its skills' licences (upstream.test.mjs puts one beside every SKILL.md).
+  for (const p of await getAllPacks()) {
+    const bytes = Buffer.from(await (await get(`/api/skill-packs/${p.id}/download`)).arrayBuffer());
+    for (const s of p.skills) {
+      const dir = s.path.split("/").at(-2);
+      assert.ok(hasLicense(bytes, dir), `${p.id}.zip carries ${dir}/LICENSE`);
+    }
+  }
 } finally {
   server.close();
   fs.rmSync(dir, { recursive: true, force: true });

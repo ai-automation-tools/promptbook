@@ -5,9 +5,11 @@ Licensed under the Apache License, Version 2.0. See LICENSE.
 
 This repository bundles third-party content under site/library/ that is
 NOT covered by the repository license. Each vendored skill keeps its own
-LICENSE file next to its SKILL.md (Apache-2.0 and MIT at the time of
-writing) and carries an `upstream:` block in its frontmatter naming the
-source repository and path. Provenance tooling and the full upstream list
+LICENSE file next to its SKILL.md (the skill's own, or else its source
+repository's) and carries an `upstream:` block in its frontmatter naming the
+source repository, path and SPDX `license`; only redistributable licences
+(MIT, Apache-2.0, CC0-1.0 at the time of writing) are accepted, and the
+skill ZIPs and Skill Pack ZIPs ship that LICENSE file. Provenance tooling and the full upstream list
 live in docs/UPSTREAMS.md. Content with no upstream stamp is original to
 this library or of unknown origin; treat the latter as all-rights-reserved
 by its author until attributed.

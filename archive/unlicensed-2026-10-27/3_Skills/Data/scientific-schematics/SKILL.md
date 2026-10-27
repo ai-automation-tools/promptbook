@@ -9,6 +9,7 @@ upstream:
   repo: unerue/skills
   path: scientific-schematics/SKILL.md
   checked: 2026-08-26
+  license: NONE
 ---
 
 # Scientific Schematics and Diagrams

@@ -7,6 +7,7 @@ upstream:
   path: x-twitter-scraper/SKILL.md
   ref: 8c54c050158e2da665597ad663453e791d4e693e
   checked: 2026-10-23
+  license: MIT
 tags: ["skill","business","marketing"]
 ---
 

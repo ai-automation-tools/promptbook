@@ -1,0 +1,43 @@
+MIT License
+
+Copyright (c) 2025-2026 AOS — An ArgentOS Project
+Created by Jason Brashear
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+Acknowledgments
+
+ArgentOS is built on the shoulders of excellent open-source work:
+
+- pi-mono (https://github.com/badlogic/pi-mono) by Mario Zechner (@badlogic)
+  The agent runtime core that ArgentOS builds upon. pi-mono provides the
+  foundational agent loop, session management, and tool execution framework.
+
+- OpenClaw (https://openclaw.ai/) by Peter Steinberger (https://steipete.me/)
+  The original fork point that gave ArgentOS its launching pad. OpenClaw's
+  architecture informed early design decisions for the gateway, plugin system,
+  and channel infrastructure.
+
+- TOON (https://github.com/toon-format/toon) — Token-Oriented Object Notation
+  ArgentOS uses TOON throughout the system to encode structured data for LLM
+  prompts at 40-50% fewer tokens than JSON. Used in workflow pipeline context,
+  agent handoffs, memory recall, tool results, SpecForge task breakdowns,
+  team status, and knowledge library results.

@@ -18,6 +18,7 @@ upstream:
   path: skills/taste-skill/SKILL.md
   ref: 12af471f627f866411b4bd785b19646d3672784c
   checked: 2026-10-26
+  license: MIT
 tags: ["skill","design","frontend","taste","ui"]
 ---
 

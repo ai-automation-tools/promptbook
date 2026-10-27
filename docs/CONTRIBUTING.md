@@ -194,6 +194,7 @@ library/
 
 ### 🔧 Skills
 - An `upstream:` block naming the GitHub repo the skill lives in
+- Its licence: `node scripts/vendor-skill-licenses.mjs --write` (repo root) stamps `license:` in that block and puts the LICENSE beside `SKILL.md`. A repo with no licence, or one that does not allow redistribution, can't be added
 - Prerequisites and setup
 - Usage examples with real commands
 - Configuration options

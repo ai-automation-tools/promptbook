@@ -170,6 +170,7 @@ site/
                        plus dead-path repair of the hand packs; Monthly Upkeep), discover-repos.mjs (gh search for new/popular skills, prompt, agent and
                        MCP repos → docs/DISCOVERY.md rows for a person to accept; `link` rows
                        become Resources-menu links in site/library/resources.json),
+                       vendor-skill-licenses.mjs (each skill's `license:` and LICENSE file, from gh),
                        check-resources.mjs (dead-link report for that menu), check-mcp-servers.mjs (flags MCP cards whose repo
                        is missing, renamed, archived, relicensed or quiet), backfill-tags.mjs
                        (path-derived tags for any file with none; the Monthly Upkeep keeps it at
@@ -250,7 +251,10 @@ is copied in as a `SKILL.md` folder. The 224 copies this replaced are in
 - Never commit `.env*` (gitignored) or anything under `site/my-library/`.
 - **Every skill, agent, system prompt and MCP card names its source** (Mike, 2026-10-23): an
   `upstream:` block with a GitHub `repo` (`path`, `ref`, `checked`), `match: vendor` + `url` for a
-  system prompt published only on the vendor's page, or `server.repo` on an MCP card.
+  system prompt published only on the vendor's page, or `server.repo` on an MCP card. A skill
+  also needs a redistributable `license:` (SPDX) in that block and its LICENSE beside `SKILL.md`,
+  since it ships in ZIPs: `node scripts/vendor-skill-licenses.mjs --write` writes both, and a
+  skill whose repo has no such licence is not added (four were archived for that, 2026-10-27).
   `scripts/upstream.test.mjs` fails CI otherwise. No repo, no file. System prompts are copied
   verbatim, never written.
 - **Every card shows a GitHub repo link at the top** (Mike, 2026-10-26), the same panel in all

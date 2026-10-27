@@ -11,6 +11,7 @@ upstream:
   checked: 2026-10-23
   was: unknown
   candidates: [ai-automation-tools/edge-radar, David-Li0406/meta-skill-evloving]
+  license: NOASSERTION
 ---
 
 # Document-Writer

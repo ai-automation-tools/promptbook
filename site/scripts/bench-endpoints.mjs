@@ -97,7 +97,7 @@ if (process.argv.includes("--server")) {
     await row("Skill ZIP, small (copy-editing, 16 KB)", { url: "/api/skills/download/3_Skills/Business/copy-editing" }),
     await row("Skill ZIP, largest (diagram-design, 1.1 MB)", { url: "/api/skills/download/3_Skills/Design/diagram-design" }, Math.min(RUNS, 10)),
     await row("Pack ZIP, small (developer-essentials-pack, 2 skills)", { url: "/api/skill-packs/developer-essentials-pack/download" }, Math.min(RUNS, 10)),
-    await row("Pack ZIP, largest (writing-documentation-pack, 3 skills)", { url: "/api/skill-packs/writing-documentation-pack/download" }, Math.min(RUNS, 10)),
+    await row("Pack ZIP, largest (writing-documentation-pack, 2 skills)", { url: "/api/skill-packs/writing-documentation-pack/download" }, Math.min(RUNS, 10)),
     blocking,
   ];
 

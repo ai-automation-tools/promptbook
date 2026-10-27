@@ -3,7 +3,7 @@
   "id": "writing-documentation-pack",
   "description": "Professional writing and documentation toolkit covering technical writing, API docs, user guides, proposals, reports, and content across multiple formats (PDF, DOCX, XLSX, PPTX, Markdown).",
   "icon": "📝",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "promptbook",
   "tags": [
     "writing",
@@ -15,11 +15,6 @@
   ],
   "category": "Documentation",
   "skills": [
-    {
-      "path": "library/3_Skills/Content/General/document-writer/SKILL.md",
-      "name": "Document Writer",
-      "description": "Create professional business documents"
-    },
     {
       "path": "library/3_Skills/Content/General/humanizer/SKILL.md",
       "name": "Humanizer",

@@ -13,6 +13,7 @@ upstream:
   checked: 2026-10-23
   was: unknown
   candidates: [NousResearch/hermes-agent, yc-software/qm, moltis-org/moltis, Prismer-AI/PrismerCloud, mateaix/mateclaw, EvolvingAgentsLabs/evolving-agents, graniet/kheish, Devsoul2026/Hermes-One-Click]
+  license: MIT
 ---
 
 # Popular Web Designs
