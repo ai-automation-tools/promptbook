@@ -11,6 +11,7 @@ upstream:
   checked: 2026-10-23
   was: ambiguous
   candidates: [ovachiever/droid-tings]
+  license: MIT
 ---
 
 # Scientific Visualization

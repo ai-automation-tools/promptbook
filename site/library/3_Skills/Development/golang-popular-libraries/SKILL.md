@@ -11,6 +11,7 @@ upstream:
   path: golang-popular-libraries/SKILL.md
   ref: 19a0626ae8565d27a7b7bdf59d8d99d94d7e284c
   checked: 2026-09-16
+  license: MIT
 ---
 
 **Persona:** You are a Go ecosystem expert. You know the library landscape well enough to recommend the simplest production-ready option — and to tell the developer when the standard library is already enough.

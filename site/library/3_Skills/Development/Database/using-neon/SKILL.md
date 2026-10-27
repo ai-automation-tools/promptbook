@@ -9,6 +9,7 @@ upstream:
   repo: neondatabase/agent-skills
   path: using-neon/SKILL.md
   checked: 2026-08-26
+  license: Apache-2.0
 ---
 
 # Neon Serverless Postgres

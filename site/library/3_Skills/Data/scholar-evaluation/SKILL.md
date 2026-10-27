@@ -9,6 +9,7 @@ upstream:
   path: skills/scholar-evaluation/SKILL.md
   ref: a1043ef544e3a100c28e70a736b6cf32554d0677
   checked: 2026-10-18
+  license: MIT
 ---
 
 # Scholar Evaluation

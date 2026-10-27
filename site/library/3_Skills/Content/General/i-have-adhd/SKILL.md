@@ -12,6 +12,7 @@ upstream:
   path: skills/i-have-adhd/SKILL.md
   ref: 1ecea1993b7fce257ffbd686c070948b5e07eda6
   checked: 2026-10-26
+  license: MIT
 tags: ["skill","content","adhd","output-format","accessibility"]
 ---
 

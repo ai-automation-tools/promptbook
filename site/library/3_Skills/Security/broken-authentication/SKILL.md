@@ -12,6 +12,7 @@ upstream:
   path: broken-authentication/SKILL.md
   ref: 78acbe3f333315cfdd887c81a11aa1ffe42f8e64
   checked: 2026-09-08
+  license: MIT
 ---
 
 > **⚠️ AUTHORIZED USE ONLY**

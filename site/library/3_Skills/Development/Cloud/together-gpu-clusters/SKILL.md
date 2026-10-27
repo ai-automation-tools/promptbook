@@ -16,6 +16,7 @@ upstream:
   declared: "https://skillsmp.com/skills/neversight-learn-skills-dev-data-skills-md-zainhas-togetherai-skills-together-gpu-clusters-skill-md"
   ref: 0995dd3117c4c8acf47f739d0d917858fb92a38c
   checked: 2026-09-16
+  license: MIT
 ---
 
 # Together GPU Clusters

@@ -11,6 +11,7 @@ upstream:
   path: archify/SKILL.md
   ref: 25cf37080fc8b1dbe758a4efc3935b55f3327083
   checked: 2026-10-22
+  license: MIT
 tags: ["skill", "design", "archify", "diagram"]
 ---
 

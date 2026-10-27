@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-10-27T16:08:25.434Z",
-  "promptCount": 2166,
+  "buildTime": "2026-10-27T17:45:50.000Z",
+  "promptCount": 2162,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -2316,7 +2316,7 @@
         "find-skills"
       ],
       "contentPreview": "\n# Find Skills\n\nThis skill helps you discover and install skills from the open agent skills ecosystem.\n\n## When to Use This Skill\n\nUse this skill when the user:\n\n- Asks \"how do I do X\" where X might b",
-      "lastModified": "2026-10-21T17:41:05.267Z",
+      "lastModified": "2026-10-27T17:42:00.333Z",
       "isUserOwned": false
     },
     {
@@ -2331,7 +2331,7 @@
         "whisper"
       ],
       "contentPreview": "\n# Whisper - Robust Speech Recognition\n\nOpenAI's multilingual speech recognition model.\n\n## When to use Whisper\n\n**Use when:**\n- Speech-to-text transcription (99 languages)\n- Podcast/video transcripti",
-      "lastModified": "2026-10-21T17:41:05.275Z",
+      "lastModified": "2026-10-27T17:42:10.997Z",
       "isUserOwned": false
     },
     {
@@ -2346,7 +2346,7 @@
         "marketing"
       ],
       "contentPreview": "\n# Xquik X (Twitter) data API\n\n> Xquik is an independent third-party service. Not affiliated with X Corp. \"Twitter\" and \"X\" are trademarks of X Corp.\n\nXquik is the world's fastest and cheapest X Twitt",
-      "lastModified": "2026-10-23T22:12:42.329Z",
+      "lastModified": "2026-10-27T17:30:56.079Z",
       "isUserOwned": false
     },
     {
@@ -2361,22 +2361,7 @@
         "copy-editing"
       ],
       "contentPreview": "\n# Copy Editing\n\nYou are an expert copy editor specializing in marketing and conversion copy. Your goal is to systematically improve existing copy through focused editing passes while preserving the c",
-      "lastModified": "2026-10-23T23:09:05.744Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Content/General/document-writer/SKILL.md",
-      "title": "🔌 document-writer",
-      "section": "3_Skills",
-      "category": "Content",
-      "subcategory": "General",
-      "tags": [
-        "skill",
-        "content",
-        "general"
-      ],
-      "contentPreview": "\n# Document-Writer\n\nYou are a TECHNICAL WRITER with deep engineering background who transforms complex codebases into crystal-clear documentation. You have an innate ability to explain complex concept",
-      "lastModified": "2026-10-23T23:09:07.691Z",
+      "lastModified": "2026-10-27T17:30:56.078Z",
       "isUserOwned": false
     },
     {
@@ -2394,7 +2379,7 @@
         "options"
       ],
       "contentPreview": "\n# Humanizer: remove AI writing patterns\n\nRewrite AI-sounding text so it reads like the writer, not a chatbot. Keep what it says. Do not make anything up.\n\n## Why AI text sounds the way it does\n\nA lan",
-      "lastModified": "2026-10-26T16:17:28.751Z",
+      "lastModified": "2026-10-27T17:30:56.936Z",
       "isUserOwned": false
     },
     {
@@ -2411,7 +2396,7 @@
         "accessibility"
       ],
       "contentPreview": "\n# i-have-adhd\n\nThe reader has ADHD. Output is not just brief. It is shaped so an ADHD brain can act on it.\n\n## Persistence\n\nThese rules apply to every response for the rest of the session, not only t",
-      "lastModified": "2026-10-26T16:17:28.631Z",
+      "lastModified": "2026-10-27T17:30:57.523Z",
       "isUserOwned": false
     },
     {
@@ -2426,7 +2411,7 @@
         "notebooklm"
       ],
       "contentPreview": "\n# NotebookLM Research Assistant Skill\n\nInteract with Google NotebookLM to query documentation with Gemini's source-grounded answers. Each question opens a fresh browser session, retrieves the answer ",
-      "lastModified": "2026-10-23T23:09:08.633Z",
+      "lastModified": "2026-10-27T17:30:57.524Z",
       "isUserOwned": false
     },
     {
@@ -2441,7 +2426,7 @@
         "obsidian"
       ],
       "contentPreview": "\n# Obsidian Flavored Markdown Skill\n\nThis skill enables Claude Code to create and edit valid Obsidian Flavored Markdown, including all Obsidian-specific syntax extensions.\n\n## Overview\n\nObsidian uses ",
-      "lastModified": "2026-10-23T23:09:08.896Z",
+      "lastModified": "2026-10-27T17:30:58.109Z",
       "isUserOwned": false
     },
     {
@@ -2456,7 +2441,7 @@
         "scholar-evaluation"
       ],
       "contentPreview": "\n# Scholar Evaluation\n\n## Overview\n\nApply the ScholarEval framework to systematically evaluate scholarly and research work. This skill provides structured evaluation methodology based on peer-reviewed",
-      "lastModified": "2026-10-21T17:41:05.347Z",
+      "lastModified": "2026-10-27T17:30:59.011Z",
       "isUserOwned": false
     },
     {
@@ -2471,22 +2456,7 @@
         "scientific-critical-thinking"
       ],
       "contentPreview": "\n# Scientific Critical Thinking\n\n## Overview\n\nCritical thinking is a systematic process for evaluating scientific rigor. Assess methodology, experimental design, statistical validity, biases, confound",
-      "lastModified": "2026-10-23T23:09:09.845Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Data/scientific-schematics/SKILL.md",
-      "title": "✨ scientific-schematics",
-      "section": "3_Skills",
-      "category": "Data",
-      "subcategory": "scientific-schematics",
-      "tags": [
-        "skill",
-        "data",
-        "scientific-schematics"
-      ],
-      "contentPreview": "\n# Scientific Schematics and Diagrams\n\n## Overview\n\nScientific schematics and diagrams transform complex concepts into clear visual representations for publication. **This skill uses Nano Banana Pro A",
-      "lastModified": "2026-10-21T17:41:05.353Z",
+      "lastModified": "2026-10-27T17:30:59.873Z",
       "isUserOwned": false
     },
     {
@@ -2501,22 +2471,7 @@
         "scientific-visualization"
       ],
       "contentPreview": "\n# Scientific Visualization\n\n## Overview\n\nScientific visualization transforms data into clear, accurate figures for publication. Create journal-ready plots with multi-panel layouts, error bars, signif",
-      "lastModified": "2026-10-23T23:09:10.183Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Data/scientific-writing/SKILL.md",
-      "title": "🛠️ scientific-writing",
-      "section": "3_Skills",
-      "category": "Data",
-      "subcategory": "scientific-writing",
-      "tags": [
-        "skill",
-        "data",
-        "scientific-writing"
-      ],
-      "contentPreview": "\n# Scientific Writing\n\n## Overview\n\n**This is the core skill for the deep research and writing tool**—combining AI-driven deep research with well-formatted written outputs. Every document produced is ",
-      "lastModified": "2026-10-21T17:41:05.357Z",
+      "lastModified": "2026-10-27T17:31:01.103Z",
       "isUserOwned": false
     },
     {
@@ -2532,7 +2487,7 @@
         "diagram"
       ],
       "contentPreview": "\n# Archify\n\nCreate checked standalone HTML as a native diagram or a one-page explainer that answers a question.\n\nRun commands from your working directory. Unless the user names another location, give ",
-      "lastModified": "2026-10-22T22:23:05.497Z",
+      "lastModified": "2026-10-27T17:31:01.807Z",
       "isUserOwned": false
     },
     {
@@ -2549,7 +2504,7 @@
         "ui"
       ],
       "contentPreview": "\n# tasteskill v2\n\nA page built by a model usually looks like the average of every page the model has seen: a centred\nheadline over three lines, a little label above it, a row of icon cards, a soft gra",
-      "lastModified": "2026-10-26T16:17:28.565Z",
+      "lastModified": "2026-10-27T17:31:02.525Z",
       "isUserOwned": false
     },
     {
@@ -2566,7 +2521,7 @@
         "svg"
       ],
       "contentPreview": "\n# Diagram Design\n\nCreate diagrams as self-contained HTML files with inline SVG and an editorial design system.\n\nForty-five visual types. Semantic patterns describe behavior; type references describe ",
-      "lastModified": "2026-10-26T16:17:28.624Z",
+      "lastModified": "2026-10-27T17:31:03.158Z",
       "isUserOwned": false
     },
     {
@@ -2585,7 +2540,7 @@
         "templates"
       ],
       "contentPreview": "\n# Popular Web Designs\n\n54 real-world design systems ready for use when generating HTML/CSS. Each template captures a\nsite's complete visual language: color palette, typography hierarchy, component st",
-      "lastModified": "2026-10-23T23:09:11.224Z",
+      "lastModified": "2026-10-27T17:31:03.760Z",
       "isUserOwned": false
     },
     {
@@ -2600,7 +2555,7 @@
         "api"
       ],
       "contentPreview": "\n# API Patterns\n\n> API design principles and decision-making for 2025.\n> **Learn to THINK, not copy fixed patterns.**\n\n## 🎯 Selective Reading Rule\n\n**Read ONLY files relevant to the request!** Check ",
-      "lastModified": "2026-10-23T23:09:11.646Z",
+      "lastModified": "2026-10-27T17:31:04.595Z",
       "isUserOwned": false
     },
     {
@@ -2615,7 +2570,7 @@
         "cloud"
       ],
       "contentPreview": "\n# Together GPU Clusters\n\n## Overview\n\nUse Together AI GPU clusters when the user needs infrastructure control instead of a managed\ninference product.\n\nTypical fits:\n\n- distributed training\n- multi-no",
-      "lastModified": "2026-10-21T17:41:05.439Z",
+      "lastModified": "2026-10-27T17:31:05.515Z",
       "isUserOwned": false
     },
     {
@@ -2630,7 +2585,7 @@
         "database"
       ],
       "contentPreview": "\n# Neon Serverless Postgres\n\nNeon is a serverless Postgres platform that separates compute and storage to offer autoscaling, branching, instant restore, and scale-to-zero. It's fully compatible with P",
-      "lastModified": "2026-10-21T17:41:05.443Z",
+      "lastModified": "2026-10-27T17:31:06.221Z",
       "isUserOwned": false
     },
     {
@@ -2647,7 +2602,7 @@
         "workflow"
       ],
       "contentPreview": "\n# Planning with Files\n\nWork like Manus: Use persistent markdown files as your \"working memory on disk.\"\n\n## FIRST: Restore Project State\n\n**Before continuing**, resolve the plan this task owns:\n\n1. U",
-      "lastModified": "2026-10-26T16:17:28.715Z",
+      "lastModified": "2026-10-27T17:31:06.876Z",
       "isUserOwned": false
     },
     {
@@ -2662,7 +2617,7 @@
         "git"
       ],
       "contentPreview": "\n# Git Context Controller (GCC)\n\n## Overview\n\nGCC transforms agent memory from a passive token stream into a structured, versioned file system under `.GCC/`. Inspired by Git, it provides four operatio",
-      "lastModified": "2026-10-21T17:41:05.449Z",
+      "lastModified": "2026-10-27T17:31:07.485Z",
       "isUserOwned": false
     },
     {
@@ -2677,7 +2632,7 @@
         "git"
       ],
       "contentPreview": "\n# Git Push Workflow\n\nStage all changes, create a conventional commit, and push to the remote branch.\n\n## When to Use\n\nAutomatically activate when the user:\n\n- Explicitly asks to push changes (\"push t",
-      "lastModified": "2026-10-23T23:09:11.855Z",
+      "lastModified": "2026-10-27T17:31:08.152Z",
       "isUserOwned": false
     },
     {
@@ -2692,7 +2647,7 @@
         "nextjs"
       ],
       "contentPreview": "\n# Next.js Best Practices\n\n> Principles for Next.js App Router development.\n\n---\n\n## 1. Server vs Client Components\n\n### Decision Tree\n\n```\nDoes it need...?\n│\n├── useState, useEffect, event handlers\n│",
-      "lastModified": "2026-10-23T23:09:12.295Z",
+      "lastModified": "2026-10-27T17:42:24.735Z",
       "isUserOwned": false
     },
     {
@@ -2707,7 +2662,7 @@
         "testing"
       ],
       "contentPreview": "\n# Performance Testing\n\nTest application speed, responsiveness, stability, and scalability under various load conditions.\n\n## When to use me\n\nUse this skill when:\n- Preparing for traffic spikes or sea",
-      "lastModified": "2026-10-21T17:41:05.489Z",
+      "lastModified": "2026-10-27T17:31:10.546Z",
       "isUserOwned": false
     },
     {
@@ -2722,7 +2677,7 @@
         "web-development"
       ],
       "contentPreview": "\n# Frontend Design\n\nThis skill guides creation of distinctive, production-grade frontend interfaces that avoid generic \"AI slop\" aesthetics. Implement real working code with exceptional attention to a",
-      "lastModified": "2026-10-21T17:41:05.494Z",
+      "lastModified": "2026-10-27T17:31:10.547Z",
       "isUserOwned": false
     },
     {
@@ -2737,7 +2692,7 @@
         "web-development"
       ],
       "contentPreview": "\n# Rspack Tracing & Performance Profiling\n\n## When to Use This Skill\n\nUse this skill when you need to:\n\n1.  Diagnose why an Rspack build is slow.\n2.  Understand which plugins or loaders are taking the",
-      "lastModified": "2026-10-21T17:41:05.497Z",
+      "lastModified": "2026-10-27T17:31:11.236Z",
       "isUserOwned": false
     },
     {
@@ -2750,22 +2705,7 @@
         "agent-skills"
       ],
       "contentPreview": "\n**Persona:** You are a Go ecosystem expert. You know the library landscape well enough to recommend the simplest production-ready option — and to tell the developer when the standard library is alrea",
-      "lastModified": "2026-09-17T14:00:59.281Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "3_Skills/Finance/Betting_&_Gambling/market-mechanics-betting/SKILL.md",
-      "title": "🛠️ market-mechanics-betting",
-      "section": "3_Skills",
-      "category": "Finance",
-      "subcategory": "Betting_&_Gambling",
-      "tags": [
-        "skill",
-        "finance",
-        "betting-and-gambling"
-      ],
-      "contentPreview": "\n# Market Mechanics & Betting\n\n🔗 **Source Link:** [Market Mechanics - MCP Market](https://mcpmarket.com/tools/skills/market-mechanics-betting)\n\n## Table of Contents\n- [What is Market Mechanics?](#wha",
-      "lastModified": "2026-10-23T23:09:13.044Z",
+      "lastModified": "2026-10-27T17:31:08.817Z",
       "isUserOwned": false
     },
     {
@@ -2780,7 +2720,7 @@
         "betting-and-gambling"
       ],
       "contentPreview": "\n# Polymarket Development Suite\n\n🔗 **Source Link:** [PolyMarket Dev Suite - MCP Market](https://mcpmarket.com/tools/skills/polymarket-development-suite)\n\nComplete assistance with Polymarket developme",
-      "lastModified": "2026-10-23T23:09:13.342Z",
+      "lastModified": "2026-10-27T17:31:12.533Z",
       "isUserOwned": false
     },
     {
@@ -3281,7 +3221,7 @@
         "broken-authentication"
       ],
       "contentPreview": "\n> **⚠️ AUTHORIZED USE ONLY**\n> This skill is for educational purposes or authorized security assessments only.\n> You must have explicit, written permission from the system owner before using this too",
-      "lastModified": "2026-10-21T17:41:05.596Z",
+      "lastModified": "2026-10-27T17:31:13.373Z",
       "isUserOwned": false
     },
     {

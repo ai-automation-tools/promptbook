@@ -9,6 +9,7 @@ upstream:
   repo: openlair/dr-claw
   path: scientific-writing/SKILL.md
   checked: 2026-08-26
+  license: NOASSERTION
 ---
 
 # Scientific Writing

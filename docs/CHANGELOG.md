@@ -4,6 +4,16 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-27 — Every skill ships with its licence (F17)
+
+The provenance check proved that items named a repo, not that they could be given away. `scripts/upstream.test.mjs` now sorts every record into original (guides and library cards, which must not carry an upstream block), attributed (`repo` as owner/name, a `checked` date, a fork's `note`, a vendor page's `url`) or unresolved (fails), and a skill, which people download as files, needs a redistributable SPDX `license:` in its block and a LICENSE beside `SKILL.md`. `scripts/vendor-skill-licenses.mjs` writes both from the source repo with `gh`: 26 of the 32 skills had no licence file, so the NOTICE's "each vendored skill keeps its own LICENSE" was not true until now. `resync-upstream.mjs` keeps a vendored LICENSE instead of pruning it as stale. `test:read-only` opens a skill ZIP and every Skill Pack ZIP and checks each skill's LICENSE is inside.
+
+Four skills could not be cleared and moved to `archive/unlicensed-2026-10-27/` (Mike's call): `scientific-schematics` and `market-mechanics-betting` (repos with no licence), `document-writer` (MIT with a rider barring OpenAI, Anthropic and anyone acting for them) and `scientific-writing` (a GPL/AGPL combined work). So did `postgres-schema-design`, saved as `SKILL.MD` with no upstream block, which the index never saw; the check now fails on a skill file not named exactly `SKILL.md`. The writing-documentation and prediction-markets packs lost one skill each (2 and 1 left).
+
+_Touched: `scripts/{upstream.test.mjs,vendor-skill-licenses.mjs,resync-upstream.mjs}`, `site/library/3_Skills/`, `site/api/prompt-index.json`, `site/scripts/{read-only.test.mjs,bench-endpoints.mjs}`, `archive/`, `NOTICE`, `AGENTS.md`, `docs/{ROADMAP,CONTRIBUTING}.md`._
+
+---
+
 ## 2026-10-27 — Roadmap brought up to date after the library cards
 
 Four roadmap items went stale when skill libraries became cards. Skill attribution is closed: the 60 `ambiguous` and 163 `unknown` skills all came from multi-skill repos, which are cards now, and the 32 single skills left are all attributed. The agent-skills licence item and the generated-pack label are dropped, since nothing is copied from agent-skills and no generated packs remain. The duplicates item keeps only the backend agents. A new item asks Mike what Skill Packs are for, with three small packs left, and the "Kept current by" table lists the weekly Library Cards Refresh.

@@ -16,6 +16,7 @@ upstream:
   declared: "https://skillsmp.com/skills/neversight-learn-skills-dev-data-skills-md-rstackjs-agent-skills-rspack-tracing-skill-md"
   ref: cab916aa6b32a5084b28c10bdc9e4885a12dc1cc
   checked: 2026-09-08
+  license: MIT
 ---
 
 # Rspack Tracing & Performance Profiling
