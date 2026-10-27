@@ -51,6 +51,18 @@ try {
   // Public reads still work
   const list = await (await get("/api/prompts?library=public&lightweight=true")).json();
   assert.ok(list.length > 0, "public list");
+  // O02: the prebuilt index (lightweight) and the live walk (full) agree on `checked` and
+  // `inputs`, and every copied item carries its check date.
+  const full = await (await get("/api/prompts?library=public")).json();
+  const pick = (rows) => Object.fromEntries(rows.map((p) => [p.id, JSON.stringify([p.checked, p.inputs])]));
+  assert.deepEqual(pick(list), pick(full), "index and walk give the same checked and inputs");
+  const agents = list.filter((p) => p.section === "2_Agents");
+  assert.ok(agents.length && agents.every((p) => /^\d{4}-\d{2}-\d{2}$/.test(p.checked)), "every agent has its upstream.checked date");
+  const { isStale } = await import("../src/lib/freshness.ts");
+  const now = Date.parse("2026-10-27");
+  assert.equal(isStale("2026-07-29", now), false, "90 days is not stale");
+  assert.equal(isStale("2026-07-28", now), true, "91 days is");
+  assert.equal(isStale(undefined, now), false, "undated is not stale");
   assert.equal((await get(`/api/prompts/${encodeURIComponent("1_Guides/README.md")}`)).status, 200, "public detail");
   const zip = await get(`/api/skills/download/${encodeURIComponent("3_Skills/Business/copy-editing")}`);
   assert.equal(zip.status, 200, "public skill download");

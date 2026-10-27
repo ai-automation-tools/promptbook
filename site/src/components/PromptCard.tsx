@@ -11,6 +11,7 @@ import { categoryHue, humanize } from '../lib/sections';
 import { IconButton } from './ui/primitives';
 import type { ItemSource } from './SourcePanel';
 import { READ_ONLY } from '../lib/mode';
+import { isStale, STALE_DAYS } from '../lib/freshness';
 
 export interface Prompt {
   id: string;
@@ -21,6 +22,8 @@ export interface Prompt {
   tags: string[];
   content: string;
   lastModified: string;
+  /** Library items: when last checked against the source repo, YYYY-MM-DD, from the index. */
+  checked?: string;
   featured?: boolean;
   isUserOwned?: boolean;
   anchor?: string;
@@ -162,6 +165,14 @@ const PromptCard = memo(function PromptCard({
               {prompt.subcategory && <span> / {humanize(prompt.subcategory)}</span>}
             </p>
           </div>
+          {isStale(prompt.checked) && (
+            <span
+              className="chip h-[20px] shrink-0 border-[color-mix(in_srgb,var(--warn)_40%,transparent)] text-[var(--warn)]"
+              title={`Not checked against its source in over ${STALE_DAYS} days (last ${prompt.checked})`}
+            >
+              stale
+            </span>
+          )}
           {isFavorite && <Star className="h-3.5 w-3.5 shrink-0 fill-[var(--warn)] text-[var(--warn)]" aria-label="Favorite" />}
         </div>
 
@@ -197,8 +208,14 @@ const PromptCard = memo(function PromptCard({
           '[@media(hover:none)]:translate-y-0 [@media(hover:none)]:opacity-100',
         )}
       >
-        <span className="mono mr-auto pl-1 text-[10.5px] text-[var(--fg-5)]">
-          {new Date(prompt.lastModified).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
+        {/* A library item shows when it was last checked against its source; the file's mtime is
+            only when this checkout wrote it. */}
+        <span
+          className="mono mr-auto pl-1 text-[10.5px] text-[var(--fg-5)]"
+          title={prompt.checked ? 'Last checked against its source repo' : undefined}
+        >
+          {prompt.checked && 'checked '}
+          {new Date(prompt.checked ?? prompt.lastModified).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric', ...(prompt.checked && { timeZone: 'UTC' }) })}
         </span>
         {/* Favorites are one set in the browser, so every card has the star, read-only demo included */}
         {onToggleFavorite && (

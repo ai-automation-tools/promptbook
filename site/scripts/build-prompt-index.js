@@ -20,6 +20,13 @@ const OUTPUT_PATH = path.join(__dirname, '../api/prompt-index.json');
 const SKILLS_SECTION = '3_Skills';
 const LIBRARIES_FOLDER = path.join(SKILLS_SECTION, 'Libraries');
 
+/** upstream.checked, server.checked (MCP cards) or a guide's checked:, as YYYY-MM-DD; YAML reads a bare date as a Date. */
+function checkedOf(data) {
+  const v = data.upstream?.checked ?? data.server?.checked ?? data.checked;
+  const day = v instanceof Date ? v.toISOString().slice(0, 10) : typeof v === 'string' ? v.slice(0, 10) : null;
+  return day && /^\d{4}-\d{2}-\d{2}$/.test(day) ? day : null;
+}
+
 function extractFirstHeading(markdown) {
   const match = markdown.match(/^#\s+(.+)$/m);
   return match ? match[1].trim() : null;
@@ -97,6 +104,8 @@ function walkDir(dir, baseDir = LIBRARY_PATH) {
         tags: data.tags || [],
         // A prompt's declared fill-ins (lib/prompt-inputs.ts); the MCP server makes them arguments.
         ...(Array.isArray(data.inputs) && { inputs: data.inputs }),
+        // When the item was last checked against its source (O02); same rule as checkedOf() in lib/library.ts.
+        ...(checkedOf(data) && { checked: checkedOf(data) }),
         contentPreview: content.substring(0, 200), // Just preview for lightweight mode
         lastModified: stat.mtime.toISOString(),
         isUserOwned: false,

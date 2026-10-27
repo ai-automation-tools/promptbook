@@ -11,7 +11,7 @@ import { dirname } from "path";
 import archiver from "archiver";
 import { forkExtra, InvalidPromptError, myLibrary, PromptConflictError, pullUpstream, READ_ONLY, upstreamStatus, type UserPrompt } from "../lib/my-library.js";
 import { filesUnder, resolveInside } from "../lib/safe-path.js";
-import { LIBRARY_PATH, SKILLS_SECTION, carriedFrontmatter, extractFirstHeading, readLibraryItem, sourceOf, sourceUrlOf, type IndexEntry, type LibraryIndex } from "../lib/library.js";
+import { LIBRARY_PATH, SKILLS_SECTION, carriedFrontmatter, checkedOf, extractFirstHeading, readLibraryItem, sourceOf, sourceUrlOf, type IndexEntry, type LibraryIndex } from "../lib/library.js";
 import type { IncomingMessage, ServerResponse } from "http";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -245,7 +245,7 @@ async function walkLibrary(lightweight: boolean, dir: string = LIBRARY_PATH): Pr
       if (dir === LIBRARY_PATH && file === LEGACY_SECTION) return [];
       return walkLibrary(lightweight, filePath);
     }
-    if (!file.endsWith('.md') || file === 'README.md') return [];
+    if (!file.endsWith('.md') || file.toLowerCase() === 'readme.md') return []; // as the index builder skips them
 
     const relativePath = path.relative(LIBRARY_PATH, filePath);
 
@@ -286,6 +286,9 @@ async function walkLibrary(lightweight: boolean, dir: string = LIBRARY_PATH): Pr
       category: pathParts[1] || 'Uncategorized',
       subcategory: pathParts.length > 2 ? pathParts[2] : null,
       tags: Array.isArray(data.tags) ? data.tags : [],
+      // Same optional fields, in the same order, as the prebuilt index
+      ...(Array.isArray(data.inputs) && { inputs: data.inputs }),
+      ...(checkedOf(data) && { checked: checkedOf(data)! }),
       content: lightweight ? '' : content, // Lightweight drops the body; cards fetch previews
       lastModified: stat.mtime.toISOString(),
       isUserOwned: false,
