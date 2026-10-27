@@ -34,7 +34,7 @@ There is no database and there are no accounts. The same app also runs on Vercel
 ### Backend
 - **Express** - API server (one app, used locally and on Vercel)
 - **Node.js** + **tsx** - Runtime
-- **gray-matter** - Frontmatter parsing for both libraries
+- **gray-matter** - Frontmatter parsing for both libraries, always through `site/lib/frontmatter.js`, which turns off its JavaScript (`---js`) engine so a library file can't run code
 - **archiver** - Skill and skill-pack ZIP downloads
 - **helmet** - Response headers
 
