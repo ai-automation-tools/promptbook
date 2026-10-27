@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-27 — Roadmap rewritten to match the library
+
+`docs/ROADMAP.md` had grown a status note per day and two finished phases' worth of done items. It now has one current "Where we are" note, and Phases 1 and 2 are collapsed to a summary each, both done. Their open items moved because they don't block a release: F04 (branch protection) to **Public release**, where it is a gate beside F10, and the remote MCP endpoint, the npm package and the registry listing to **Publish and promote**. Two items that no longer applied were removed (the agent-skills licence, since nothing is copied from that repo, and the generated-pack label, since no generated packs remain). Four were brought up to date: O02 now covers only the listing cards, since the item page has shown source, commit, check date and drift since 2026-10-26; O01 no longer waits on F05–F07, which are done; the starter collections wait on the Skill Packs decision; and the Awesome ChatGPT and Skill Packs items carry today's counts. The "Kept current by" table gains the Prompts & Agents Refresh and the Upstream Check.
+
+_Touched: `docs/ROADMAP.md`._
+
+---
+
 ## 2026-10-27 — Prompt placeholders as MCP arguments (O03)
 
 A prompt can declare its `[placeholder]` fields in an `inputs:` frontmatter list, and an MCP client then asks for each one instead of taking a single free-text `input`. The MCP server registers every public prompt that declares inputs by name, with one required argument per input, beside `input`, which still appends; My Library prompts get the same. Only declared names are filled, in one literal pass (`[N]`, `[dict]` and links stay as written), and `npm run test:mcp` fails on a declaration that names a placeholder the body lacks. The index carries `inputs` for the prompts that have it. To start, two Awesome ChatGPT prompts declare `[topic]`.
