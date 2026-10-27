@@ -1,0 +1,38 @@
+# gitleaks config: the default rules, with the library's known noise turned off.
+# Run from the repo root: gitleaks git . --redact   (history)   or   gitleaks dir . --redact
+#
+# The library is text copied from public collections (prompts, skills, agents, API docs), so it
+# is full of example tokens, placeholder curl headers, sample JWTs and the word "LinkedIn".
+# Four loose pattern rules match those and nothing real; they are skipped in library paths only.
+# Every rule with a fixed key format (private keys, AWS, GitHub, Stripe, OpenAI, Anthropic and
+# the rest of the defaults) still scans the library, because the scheduled jobs import outside
+# text every week and a real key there is the leak that matters most.
+
+title = "promptbook"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Library text: example tokens, placeholder headers, sample JWTs, 'LinkedIn'"
+targetRules = ["generic-api-key", "curl-auth-header", "jwt", "linkedin-client-id"]
+paths = [
+  '''^site/library/''',
+  '''^site/api/prompt-index\.json$''', # the built index repeats the library's text
+  '''^site/api/prompt-content\.json$''', # an older built file of the same text (removed)
+  '''^archive/''', # library items taken out of service, kept as they were
+  '''^site/my-library/''', # My Library: gitignored, so only a local `gitleaks dir` sees it
+  # Where the library lived before it moved under site/ (history scans still see these)
+  '''^library/''',
+  '''^prompts/''',
+  '''^import/''',
+]
+
+[[allowlists]]
+description = "docs/API.md and docs/DATABASE.md as first written (2026-03-16, both since removed): an example session token, abc123_<timestamp>, for the local login removed on 2026-10-21"
+condition = "AND"
+commits = [
+  "a1ce64718b1edbe8d3555cd3984de328ef791239",
+  "e8a18f8b971317b8caa1bd61e546c37ac009836d",
+]
+paths = ['''^docs/(API|DATABASE)\.md$''']

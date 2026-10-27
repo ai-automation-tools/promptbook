@@ -37,7 +37,8 @@ In scope:
   writing outside the My Library folder through a prompt id.
 - Anything in the local app that a web page you visit could use against it (for example a
   cross-site request that writes to My Library).
-- Secrets or personal data committed to the repository.
+- Secrets or personal data committed to the repository. CI scans the whole history for secrets
+  on every push and pull request (gitleaks, rules in `.gitleaks.toml`).
 
 Out of scope:
 
