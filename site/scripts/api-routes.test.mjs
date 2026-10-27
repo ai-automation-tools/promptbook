@@ -14,7 +14,7 @@ import assert from "node:assert/strict";
 import { app } from "../api/index.ts";
 
 const registered = new Set();
-for (const layer of app._router.stack) {
+for (const layer of app.router.stack) {
   if (layer.route) {
     for (const method of Object.keys(layer.route.methods)) {
       registered.add(`${method.toUpperCase()} ${layer.route.path}`);
@@ -32,9 +32,9 @@ const expected = [
   "POST /api/prompts",
   "PUT /api/prompts/:id",
   "DELETE /api/prompts/:id",
-  "POST /api/prompts/:path(*)/copy-to-my-prompts",
+  "POST /api/prompts/*path/copy-to-my-prompts",
   "POST /api/prompts/:id/pull-upstream",
-  "GET /api/skills/download/:skillPath(*)",
+  "GET /api/skills/download/*skillPath",
 ];
 
 const missing = expected.filter((r) => !registered.has(r));

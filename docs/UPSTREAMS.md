@@ -42,10 +42,10 @@ tracked here until then.)
 | MCP TypeScript SDK (`@modelcontextprotocol/server`; `@modelcontextprotocol/client` for the test) | `^2.3.1`. The server uses `McpServer`, `registerTool`/`registerPrompt` with zod v4 schemas, and `serveStdio()` from `@modelcontextprotocol/server/stdio`, which also serves 2025-era clients. A v3 major, or a spec revision `serveStdio` stops negotiating, breaks `site/mcp/server.ts`; `npm run test:mcp` is the check | github.com/modelcontextprotocol/typescript-sdk/releases; modelcontextprotocol.io/specification (changelog) | 2026-10-23 |
 | zod | `^4` (imported as `zod/v4` by the MCP server) | github.com/colinhacks/zod/releases | 2026-10-23 |
 | React / react-dom | `^19.3.1` | react.dev/blog | 2026-10-23 |
-| Express | `^4.22.3` (Express 5 is a breaking major, now `latest` on npm) | expressjs.com/en/changelog; github.com/expressjs/express/releases | 2026-10-23 |
-| Vite, @vitejs/plugin-react | `^6.4.5`, `^5.2.0` (Vite 8 and plugin-react 6 are out) | github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md | 2026-10-23 |
+| Express | `^5.3.0` (moved from 4 on 2026-10-27; wildcards are `*name`, `/{*splat}`) | expressjs.com/en/changelog; github.com/expressjs/express/releases | 2026-10-27 |
+| Vite, @vitejs/plugin-react | `^8.3.5`, `^6.1.2` (moved from 6 and 5 on 2026-10-27) | github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md | 2026-10-27 |
 | Tailwind CSS v4, @tailwindcss/vite | `^4.1.14`, `^4.3.3` | github.com/tailwindlabs/tailwindcss/releases | 2026-10-23 |
-| TypeScript | `~5.9.3` (TypeScript 7 is `latest` on npm) | devblogs.microsoft.com/typescript | 2026-10-23 |
+| TypeScript | `~7.0.2` (moved from 5.9 on 2026-10-27) | devblogs.microsoft.com/typescript | 2026-10-27 |
 | helmet | `^8.3.0` (response headers) | github.com/helmetjs/helmet/releases | 2026-10-23 |
 | fuse.js, react-markdown, remark-gfm, gray-matter, archiver, motion, lucide-react, dotenv | see `package.json` | each package's GitHub releases | 2026-10-23 |
 

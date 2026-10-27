@@ -47,7 +47,7 @@ app.use((req, res, next) => {
   next();
 });
 app.use(express.static(dist));
-app.get("*", (_req, res) => res.sendFile(path.join(dist, "index.html")));
+app.get("/{*splat}", (_req, res) => res.sendFile(path.join(dist, "index.html")));
 
 const server = await new Promise((resolve) => {
   const s = app.listen(0, "127.0.0.1", () => resolve(s));

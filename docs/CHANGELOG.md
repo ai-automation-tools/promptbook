@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-27 — Express 5, Vite 8 and TypeScript 7
+
+The three framework majors the 2026-10-23 upstream check queued are in. **Express 5.3.0:** the two wildcard routes (copy to My Library, skill ZIP download) and the SPA fallbacks use the new `*name` and `/{*splat}` syntax, and `POST`/`PUT /api/prompts` cope with Express 5 leaving `req.body` undefined when no body is sent, which would otherwise have turned a 400 into a 500. **Vite 8.3.5 with plugin-react 6.1.2:** the config moved to `import.meta.dirname`, and the build now runs on Rolldown with the same vendor chunks, all under 500 kB. **TypeScript 7.0.2:** it checks side-effect imports, so `src/main.tsx` references `vite/client` for the stylesheet import; nothing else changed and no `any` was added. Every CI step passes locally, the prompt index rebuilds byte-identical, and the dev server and a production start serve every route.
+
+_Touched: `site/package.json`, `site/package-lock.json`, `site/api/index.ts`, `site/server.ts`, `site/vite.config.ts`, `site/src/main.tsx`, `site/scripts/api-routes.test.mjs`, `site/scripts/browser-smoke.test.mjs`, `AGENTS.md`, `README.md`, `docs/README.md`, `docs/ROADMAP.md`, `docs/UPSTREAMS.md`._
+
+---
+
 ## 2026-10-27 — main is protected (F04)
 
 The `main` ruleset, which already blocked deletion and force pushes, now also requires a pull request and the CI `check` and `secrets` jobs before anything merges, with no bypass for anyone. No approval is required, since the PR sweep merges as Mike, and merge, squash and rebase all stay allowed. A throwaway PR with a failing `secrets` check (#466) could not be merged; this entry's PR, with both checks green, merged with the sweep's own command. That was the last open release gate.

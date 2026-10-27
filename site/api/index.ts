@@ -94,7 +94,8 @@ app.use((req, res, next) => {
 });
 
 /** Every route that writes to My Library. Host and Origin are checked above, for every route. */
-const requireWritable: express.RequestHandler = (req, res, next) => {
+// Takes no typed req, so each route's params are still inferred from its path
+const requireWritable = (_req: unknown, res: express.Response, next: express.NextFunction) => {
   if (READ_ONLY) {
     res.status(403).json({ error: 'This copy of the library is read-only. Clone the repo to keep your own prompts.' });
     return;
@@ -373,7 +374,7 @@ app.get("/api/prompts/:id", async (req, res) => {
 // Create prompt
 app.post("/api/prompts", requireWritable, async (req, res) => {
   try {
-    const { title, section, category, subcategory, tags, content, sourceUrl } = req.body;
+    const { title, section, category, subcategory, tags, content, sourceUrl } = req.body ?? {}; // Express 5 leaves body undefined with no JSON
 
     // Field checks live in the store (InvalidPromptError → 400 below), shared with MCP
     const prompt = myLibrary.create({
@@ -398,7 +399,7 @@ app.post("/api/prompts", requireWritable, async (req, res) => {
 app.put("/api/prompts/:id", requireWritable, async (req, res) => {
   try {
     const promptId = decodeURIComponent(req.params.id);
-    const { title, tags, content, category, subcategory, section, sourceUrl, version } = req.body;
+    const { title, tags, content, category, subcategory, section, sourceUrl, version } = req.body ?? {};
     if (version !== undefined && typeof version !== 'string') {
       return res.status(400).json({ error: 'version must be text' });
     }
@@ -461,9 +462,10 @@ app.delete("/api/prompts/:id", requireWritable, async (req, res) => {
 });
 
 // Copy from public library
-app.post("/api/prompts/:path(*)/copy-to-my-prompts", requireWritable, async (req, res) => {
+app.post("/api/prompts/*path/copy-to-my-prompts", requireWritable, async (req, res) => {
   try {
-    const promptId = decodeURIComponent(req.params.path);
+    // Express 5 hands a `*path` wildcard over as its decoded segments
+    const promptId = decodeURIComponent(req.params.path.join('/'));
 
     const item = readLibraryItem(promptId);
     if (item === 'invalid') {
@@ -506,9 +508,9 @@ app.post("/api/prompts/:path(*)/copy-to-my-prompts", requireWritable, async (req
 });
 
 // Download skill as zip
-app.get("/api/skills/download/:skillPath(*)", async (req, res) => {
+app.get("/api/skills/download/*skillPath", async (req, res) => {
   try {
-    const skillPath = decodeURIComponent(req.params.skillPath).replace(/\\/g, '/');
+    const skillPath = decodeURIComponent(req.params.skillPath.join('/')).replace(/\\/g, '/');
 
     // Resolve first, then check containment — a raw startsWith() on skillPath is
     // satisfied by "3_Skills/../../db" and hands out the whole bundle.
