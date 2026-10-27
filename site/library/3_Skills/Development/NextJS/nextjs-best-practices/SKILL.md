@@ -10,6 +10,7 @@ upstream:
   checked: 2026-10-23
   was: ambiguous
   candidates: [sickn33/antigravity-awesome-skills]
+  license: CC0-1.0
 tags: ["skill","development","nextjs"]
 ---
 

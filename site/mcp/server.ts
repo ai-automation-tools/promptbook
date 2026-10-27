@@ -24,6 +24,7 @@ import {
 } from '../lib/library.js';
 import { forkExtra, myLibrary, PromptConflictError, pullUpstream, READ_ONLY, upstreamStatus, type UserPrompt } from '../lib/my-library.js';
 import { filesUnder, resolveInside } from '../lib/safe-path.js';
+import { declaredInputs, fillInputs, type PromptInput } from '../lib/prompt-inputs.js';
 import { getAllPacks } from '../api/skill-packs.js';
 
 const MAX_FILE = 500 * 1024;
@@ -396,10 +397,19 @@ export function createServer(): McpServer {
 
   // ---------- MCP prompts ----------
   // Every library prompt would be ~2,200 slash commands; clients list them all.
-  // So: one generic prompt that takes any id, plus the featured prompts and the
-  // user's own by name.
+  // So: one generic prompt that takes any id, plus by name the featured prompts, the ones
+  // that declare `inputs:`, and the user's own.
 
   const inputArg = z.string().optional().describe('Your material or request, appended after the prompt');
+
+  // A prompt's declared `[placeholder]`s become required arguments, beside the free-text `input`.
+  // Registered from the declaration at connect time; filled from the file as it is when used.
+  const argsFor = (inputs: PromptInput[]) => z.object({
+    ...Object.fromEntries(inputs.map(i => [i.arg, z.string().describe(i.description ?? `Replaces [${i.name}] in the prompt`)])),
+    input: inputArg,
+  });
+  const filled = (frontmatter: Record<string, unknown> | undefined, body: string, args: Record<string, string | undefined>) =>
+    promptMessages(fillInputs(body, declaredInputs(frontmatter, body).inputs, args), args.input);
 
   server.registerPrompt('library_prompt', {
     title: 'Use a library prompt',
@@ -421,17 +431,20 @@ export function createServer(): McpServer {
     return name;
   };
 
-  const featured = publicRows().filter(r =>
-    r.tags.includes('featured') && (r.section === '4_Prompts' || r.section === '5_System_Prompts'));
-  for (const r of featured) {
+  const named = publicRows().filter(r => (r.section === '4_Prompts' || r.section === '5_System_Prompts')
+    && (r.tags.includes('featured') || r.inputs?.length));
+  for (const r of named) {
+    const item = r.inputs?.length ? readLibraryItem(r.id) : null;
+    const { inputs } = item && item !== 'invalid' ? declaredInputs(item.frontmatter, item.content) : { inputs: [] };
+    if (!r.tags.includes('featured') && !inputs.length) continue;
     server.registerPrompt(uniqueName(slug(path.basename(r.id))), {
       title: r.title.replace(/^[^\p{L}\p{N}]+/u, ''),
-      description: `${keyOf(r.section)} › ${r.category} (featured)`,
-      argsSchema: z.object({ input: inputArg }),
-    }, ({ input }) => {
-      const item = readLibraryItem(r.id);
-      if (!item || item === 'invalid') throw new Error(`${r.id} is gone from the library.`);
-      return promptMessages(item.content, input);
+      description: `${keyOf(r.section)} › ${r.category}${r.tags.includes('featured') ? ' (featured)' : ''}`,
+      argsSchema: argsFor(inputs),
+    }, (args: Record<string, string | undefined>) => {
+      const fresh = readLibraryItem(r.id);
+      if (!fresh || fresh === 'invalid') throw new Error(`${r.id} is gone from the library.`);
+      return filled(fresh.frontmatter, fresh.content, args);
     });
   }
 
@@ -439,11 +452,11 @@ export function createServer(): McpServer {
     server.registerPrompt(uniqueName(`my-${p.id}`), {
       title: p.title,
       description: `My Library › ${p.category}`,
-      argsSchema: z.object({ input: inputArg }),
-    }, ({ input }) => {
+      argsSchema: argsFor(declaredInputs(p.extra, p.content).inputs),
+    }, (args: Record<string, string | undefined>) => {
       const fresh = myLibrary.get(p.id);
       if (!fresh) throw new Error(`My Library prompt "${p.id}" was deleted.`);
-      return promptMessages(fresh.content, input);
+      return filled(fresh.extra, fresh.content, args);
     });
   }
 

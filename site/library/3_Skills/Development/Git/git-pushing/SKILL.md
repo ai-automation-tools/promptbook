@@ -11,6 +11,7 @@ upstream:
   checked: 2026-10-23
   was: ambiguous
   candidates: [hainamchung/agent-assistant, jst-well-dan/skill-box, poletron/custom-rules]
+  license: Apache-2.0
 ---
 
 # Git Push Workflow

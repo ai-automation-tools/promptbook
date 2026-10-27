@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react';
 import { AlertCircle, Code2, Eye, Save, X } from 'lucide-react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+import rehypeSanitize from 'rehype-sanitize';
 import { LayoutGroup, m } from 'motion/react';
 import { cn } from '../lib/cn';
 import { SECTIONS } from '../lib/sections';
@@ -237,7 +239,8 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
               <div className="surface min-h-[380px] p-5">
                 {content.trim() ? (
                   <div className="markdown-body">
-                    <Markdown remarkPlugins={[remarkGfm]}>{content}</Markdown>
+                    {/* HTML in the markdown (READMEs are full of it) renders, through GitHub's own allow-list. */}
+            <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, rehypeSanitize]}>{content}</Markdown>
                   </div>
                 ) : (
                   <p className="text-[13.5px] text-[var(--fg-4)]">Nothing to preview yet.</p>

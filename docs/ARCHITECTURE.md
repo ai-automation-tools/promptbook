@@ -232,7 +232,8 @@ promptbook/
 │   ├── src/
 │   │   ├── components/           # React components
 │   │   ├── hooks/                # usePromptFilters, usePromptPreviews, usePromptContent,
-│   │   │                         #   useLibraryRoute (URL-backed navigation state)
+│   │   │                         #   useLibraryRoute (URL-backed navigation state),
+│   │   │                         #   useFavoritePrompts (stars from both libraries)
 │   │   ├── lib/mode.ts           # READ_ONLY for the UI (from __READ_ONLY__)
 │   │   ├── lib/markdown-file.ts  # A prompt as a standalone .md (the Download button)
 │   │   ├── App.tsx               # App shell
@@ -252,6 +253,7 @@ promptbook/
 │   ├── scripts/read-only.test.mjs      # READ_ONLY hides My Library (npm run test:read-only)
 │   ├── scripts/prompt-content.test.mjs # Full prompt loads fail closed (npm run test:prompt-content)
 │   ├── scripts/markdown-file.test.mjs  # Download .md round trip (npm run test:markdown-file)
+│   ├── scripts/preview.test.mjs        # Card blurbs survive badge rows (npm run test:preview)
 │   ├── scripts/browser-smoke.test.mjs  # Built app in Chrome (npm run test:browser)
 │   ├── scripts/bench-endpoints.mjs     # Heavy-endpoint benchmark (npm run bench)
 │   ├── scripts/mcp-server.test.mjs     # MCP server end to end over stdio (npm run test:mcp)
@@ -269,7 +271,6 @@ promptbook/
 │   ├── resync-upstream.mjs       # Pull a skill or agent back level with its upstream
 │   ├── reattribute-unclear.mjs   # Code-search pass for unknown/ambiguous provenance
 │   ├── attribute-system-prompts.mjs # Stamp system prompts from the public collections
-│   ├── sync-agent-skills.mjs     # Add and refresh skills from ai-automation-tools/agent-skills
 │   ├── build-skill-packs.mjs     # One generated Skill Pack per skills folder; repairs hand packs
 │   ├── backfill-tags.mjs         # Path-derived tags for any file without them
 │   ├── discover-repos.mjs        # New and popular GitHub repos into docs/DISCOVERY.md
@@ -295,9 +296,9 @@ promptbook/
 ErrorBoundary                 main.tsx: a render or chunk failure shows "Something failed to load" + Reload, not a black page
 └── App.tsx                   app shell, data fetching (routing state: hooks/useLibraryRoute)
 ├── SourceBar                 "View source" bar (READ_ONLY demo only)
-├── SectionRail               md up: logo, the seven sections, Settings; the current section's cell joins the Sidebar
+├── SectionRail               md up: logo, six sections (Skill Packs sits under Skills), Settings; the current section's cell joins the Sidebar
 ├── Sidebar                   library-mode switcher (hidden when read-only) + category tree in per-category hues (a drawer on phones)
-├── TopBar                    ⌘K search, ResourcesNav (≥1536px; a sheet below, which also holds the sections on phones),
+├── TopBar                    ⌘K search, ResourcesNav (≥1536px; a sheet below), the swipeable section strip (phones only),
 │   │                         New item (hidden when read-only), Light | Dark ThemeSwitch; brand + Settings on phones only
 │   └── ResourcesNav          data-driven external-link menus
 ├── Breadcrumbs               library › section › category › prompt, above the content
@@ -308,6 +309,8 @@ ErrorBoundary                 main.tsx: a render or chunk failure shows "Somethi
 │       └── PromptCard        title, tags, preview, row actions
 ├── PromptDetail              single-prompt view
 │   └── SourcePanel           GitHub repo, copied-at commit, weekly drift verdict, compare link
+├── SkillKindSwitch           Skills | Libraries | Packs pills (phones; the Sidebar has it as a segmented control from md up)
+├── SkillLibrariesView        the library cards (tag `skill-library`, public ones in 3_Skills/Libraries/)
 ├── SkillPacksView            skill-pack catalog (own tab)
 ├── EmptyState                empty My Library
 ├── PromptEditorModal         create / edit a My Library prompt
@@ -458,6 +461,7 @@ CI (`.github/workflows/ci.yml`) runs on every PR:
 - `npm run test:read-only` — under `READ_ONLY`, a seeded private prompt is never listed or served
 - `npm run test:prompt-content` — `fetchFullPrompt` throws on a failed load instead of returning the preview
 - `npm run test:markdown-file` — a downloaded `.md` reads back through the store unchanged
+- `npm run test:preview` — a card blurb drops badge rows and links cut off at 200 characters
 - `npm run test:safe-path` — `../` escapes and real junctions/symlinks out of the library, for detail and ZIPs
 - `npm run test:browser` — after a build: the built app in Chrome, listing, detail and the dialog focus trap
 - provenance and Agent Skills frontmatter checks, homepage links, diagram drift (warning)

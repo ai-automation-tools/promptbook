@@ -4,11 +4,135 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-27 — Freshness on the listing cards (O02)
+
+A card in the grid now says when its item was last checked against its source repo ("checked Oct 18, 2026"), in place of the file's modified time, which on the demo is only when Vercel's checkout wrote it. Past 90 days it gets a `stale` chip. Nothing claims an item is verified: an undated item (most guides, the skill library cards) shows its file date and no chip. The prebuilt index and the live library walk both carry `checked`, from `upstream.checked`, an MCP card's `server.checked` or a guide's `checked:`, on 2,071 of the 2,162 items; the oldest is 2026-08-26, so the first chips appear in late November. `test:read-only` checks the index and the walk agree on `checked` and `inputs`, and pins the 90-day edge. That check also caught the walk listing three lowercase `readme.md` files the index skips, now fixed. The `git log` half of the old O02 stays open for Mike: it needs a Vercel preview.
+
+_Touched: `site/lib/library.ts`, `site/api/{index.ts,prompt-index.json}`, `site/scripts/{build-prompt-index.js,read-only.test.mjs}`, `site/src/lib/freshness.ts`, `site/src/components/PromptCard.tsx`, `AGENTS.md`, `docs/ROADMAP.md`._
+
+---
+
+## 2026-10-27 — Backend agents checked for near-duplicates
+
+The Phase 3 duplicates item is closed with nothing merged. A 4-word-shingle overlap across all 77 agents found one pair above 15%: `microsoft-agent-framework-python` and `semantic-kernel-python` (26%), one vendor template filled in for two different frameworks, so both stay. The backend folder's same-role groups (three C# agents, three Rust, two C++) come from different authors with different instructions, and stay as alternatives. `CSharpExpert.md` was the one item file name with capitals, against the library's lowercase rule; it is now `csharp-expert.md` (its id changes), and `scripts/upstream.test.mjs` fails on a case-only path clash or an uppercase item file name.
+
+_Touched: `site/library/2_Agents/Development/Backend/csharp-expert.md`, `site/api/prompt-index.json`, `scripts/upstream.test.mjs`, `AGENTS.md`, `docs/ROADMAP.md`._
+
+---
+
+## 2026-10-27 — Roadmap rewritten to match the library
+
+`docs/ROADMAP.md` had grown a status note per day and two finished phases' worth of done items. It now has one current "Where we are" note, and Phases 1 and 2 are collapsed to a summary each, both done. Their open items moved because they don't block a release: F04 (branch protection) to **Public release**, where it is a gate beside F10, and the remote MCP endpoint, the npm package and the registry listing to **Publish and promote**. Two items that no longer applied were removed (the agent-skills licence, since nothing is copied from that repo, and the generated-pack label, since no generated packs remain). Four were brought up to date: O02 now covers only the listing cards, since the item page has shown source, commit, check date and drift since 2026-10-26; O01 no longer waits on F05–F07, which are done; the starter collections wait on the Skill Packs decision; and the Awesome ChatGPT and Skill Packs items carry today's counts. The "Kept current by" table gains the Prompts & Agents Refresh and the Upstream Check.
+
+_Touched: `docs/ROADMAP.md`._
+
+---
+
+## 2026-10-27 — Prompt placeholders as MCP arguments (O03)
+
+A prompt can declare its `[placeholder]` fields in an `inputs:` frontmatter list, and an MCP client then asks for each one instead of taking a single free-text `input`. The MCP server registers every public prompt that declares inputs by name, with one required argument per input, beside `input`, which still appends; My Library prompts get the same. Only declared names are filled, in one literal pass (`[N]`, `[dict]` and links stay as written), and `npm run test:mcp` fails on a declaration that names a placeholder the body lacks. The index carries `inputs` for the prompts that have it. To start, two Awesome ChatGPT prompts declare `[topic]`.
+
+_Touched: `site/lib/{prompt-inputs,library}.ts`, `site/mcp/server.ts`, `site/scripts/{build-prompt-index.js,mcp-server.test.mjs}`, `site/api/prompt-index.json`, two prompts in `site/library/4_Prompts/Awesome_ChatGPT/General/`, `AGENTS.md`, `docs/{mcp-server,CONTRIBUTING,ROADMAP}.md`, `docs/features/MCP-SERVER.md`._
+
+---
+
+## 2026-10-27 — Loose files out of 3_Skills
+
+81 files sat in `site/library/3_Skills/` outside any skill folder: 78 single-file prompt-style "skills" from before the AgentSkills layout, a stale Skill Packs list in `Development/README.md` and two orphaned `plugin.json` manifests. The index only reads `SKILL.md` files and library cards, so the app never showed them (the index is unchanged at 2,162 items), but they were still published in the repo with no source named. They moved to `archive/loose-skill-files-2026-10-27/`, paths kept, and `scripts/upstream.test.mjs` now fails on any file outside a skill folder other than the section README, `Libraries/` and `packs/`. `3_Skills/README.md` is rewritten for the current layout (30 library cards, 28 single skills) in place of the 256-skill tables from August.
+
+_Touched: `site/library/3_Skills/`, `archive/`, `scripts/upstream.test.mjs`._
+
+---
+
+## 2026-10-27 — Every skill ships with its licence (F17)
+
+The provenance check proved that items named a repo, not that they could be given away. `scripts/upstream.test.mjs` now sorts every record into original (guides and library cards, which must not carry an upstream block), attributed (`repo` as owner/name, a `checked` date, a fork's `note`, a vendor page's `url`) or unresolved (fails), and a skill, which people download as files, needs a redistributable SPDX `license:` in its block and a LICENSE beside `SKILL.md`. `scripts/vendor-skill-licenses.mjs` writes both from the source repo with `gh`: 26 of the 32 skills had no licence file, so the NOTICE's "each vendored skill keeps its own LICENSE" was not true until now. `resync-upstream.mjs` keeps a vendored LICENSE instead of pruning it as stale. `test:read-only` opens a skill ZIP and every Skill Pack ZIP and checks each skill's LICENSE is inside.
+
+Four skills could not be cleared and moved to `archive/unlicensed-2026-10-27/` (Mike's call): `scientific-schematics` and `market-mechanics-betting` (repos with no licence), `document-writer` (MIT with a rider barring OpenAI, Anthropic and anyone acting for them) and `scientific-writing` (a GPL/AGPL combined work). So did `postgres-schema-design`, saved as `SKILL.MD` with no upstream block, which the index never saw; the check now fails on a skill file not named exactly `SKILL.md`. The writing-documentation and prediction-markets packs lost one skill each (2 and 1 left).
+
+_Touched: `scripts/{upstream.test.mjs,vendor-skill-licenses.mjs,resync-upstream.mjs}`, `site/library/3_Skills/`, `site/api/prompt-index.json`, `site/scripts/{read-only.test.mjs,bench-endpoints.mjs}`, `archive/`, `NOTICE`, `AGENTS.md`, `docs/{ROADMAP,CONTRIBUTING}.md`._
+
+---
+
+## 2026-10-27 — Roadmap brought up to date after the library cards
+
+Four roadmap items went stale when skill libraries became cards. Skill attribution is closed: the 60 `ambiguous` and 163 `unknown` skills all came from multi-skill repos, which are cards now, and the 32 single skills left are all attributed. The agent-skills licence item and the generated-pack label are dropped, since nothing is copied from agent-skills and no generated packs remain. The duplicates item keeps only the backend agents. A new item asks Mike what Skill Packs are for, with three small packs left, and the "Kept current by" table lists the weekly Library Cards Refresh.
+
+_Touched: `docs/ROADMAP.md`._
+
+---
+
+## 2026-10-27 — Favorites on detail pages and Skill Packs
+
+The star lived only in a card's hover actions, so an open item could not be starred, and Skill Packs had no star at all. The detail page now has a star beside the share buttons, and every pack has one on its card and on its own page. Packs share the one favorites list as `pack:<id>`, which `useFavoritePrompts` skips when it fetches the other library's items, and the Packs sidebar gets a Favorites row that lists only the starred packs. Skills' Libraries view gets its own Favorites row too: under Skills it lists starred skills, under Libraries starred library cards, so the two don't mix.
+
+_Touched: `site/src/components/{PromptDetail,SkillPacksView,Sidebar}.tsx`, `site/src/hooks/useFavoritePrompts.ts`, `site/src/App.tsx`, `AGENTS.md`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`._
+
+---
+
+## 2026-10-27 — Library cards carry the repo's README
+
+Each skill library card now holds the repo's whole README under its own header (title, description, link), so a library reads as it does on GitHub without leaving Promptbook. `site/scripts/refresh-library-cards.mjs` writes them from `gh`: all 41 cards, 30 public and 11 in My Library (`Zpankz/mcp-skillset` has no README and keeps its header only). Relative links and images become absolute GitHub URLs; a README that has not changed keeps its "copied" date, so a rerun is a no-op. The READMEs were checked before copying: six email addresses, all the authors' own published contacts.
+
+READMEs are mostly HTML (badges, centred blocks, tables), which the detail page and the editor preview printed as text. Markdown now renders HTML through `rehype-raw` and `rehype-sanitize` (GitHub's allow-list, so no scripts, iframes or styles), and markdown images are inline, so a badge row is a row.
+
+_Touched: `site/scripts/refresh-library-cards.mjs`, `site/library/3_Skills/Libraries/`, `site/api/prompt-index.json`, `site/src/components/{PromptDetail,PromptEditorModal}.tsx`, `site/src/index.css`, `site/package.json`, `site/package-lock.json`, `AGENTS.md`, `docs/ROADMAP.md`._
+
+---
+
+## 2026-10-27 — Skill libraries are one card each
+
+The Skills section mixed single skills (blader/humanizer), skill libraries (a repo like addyosmani/agent-skills that ships dozens) and Skill Packs (our bundles). A library now gets one card that describes it and links its GitHub repo, instead of a copy of each of its skills to keep in step:
+
+- **Public Library:** 30 cards in `site/library/3_Skills/Libraries/`, one per repo we had copied 2 or more skills from, each with the repo's own GitHub description. The 224 skill folders they replace moved to `archive/skill-libraries-2026-10-27/` (paths kept), with two orphaned finance_skills plugin manifests. 32 single skills stay. `scripts/upstream.test.mjs` requires a `repo:` line on every card.
+- **My Library:** the same card is any item tagged `skill-library`. Ten cards were added and 98 copies moved to `my-library/_archived/`, which the store does not list; Scientific Agent Skills, already a README of the whole collection, got the tag. 8 single skills stay.
+- **Skill Packs:** the 13 generated packs (one per folder of 6+ skills) are gone, since no folder keeps 6 skills, and `build-skill-packs.mjs --write` dropped the dead paths from the hand packs. Two came out empty and were deleted (`finance-portfolio-pack`, `project-management-pack`). Three remain.
+- **Upkeep:** `scripts/sync-agent-skills.mjs` is deleted. It copied ai-automation-tools/agent-skills into the library each week, and that repo is a card now. The drift workflow no longer skips agent-skills.
+- **UI:** a `Skills | Libraries | Packs` switch sits at the top of the Skills sidebar (as pills under the hero on phones). Packs no longer has its own tile on the rail or the phone strip; it lives under Skills, which stays lit while you're there. Under Libraries the grid shows the library cards and the sidebar lists them instead of the category tree. The cards stay out of the Skills grid, its category tree and its count, and the hero's third counter is Libraries. A card downloads as markdown, not a skill zip.
+
+The tests and the bench that used `analytics-tracking`, `canvas-design`, `mcp-builder` and the two big finance packs now use skills and packs that stay; `docs/development/PERFORMANCE.md` has the new baseline, every row inside the budgets.
+
+_Touched: `site/library/3_Skills/{Libraries,packs}/`, `archive/`, `site/scripts/{build-prompt-index.js,bench-endpoints.mjs,read-only.test.mjs}`, `site/api/{index.ts,prompt-index.json}`, `site/src/components/{SkillLibraries,Sidebar,SectionRail,TopBar}.tsx`, `site/src/hooks/{usePromptFilters,useLibraryRoute}.ts`, `site/src/lib/sections.ts`, `site/src/App.tsx`, `scripts/{build-skill-packs.mjs,upstream.test.mjs}`, `.github/workflows/upstream-drift.yml`, `AGENTS.md`, `docs/{ARCHITECTURE,ROADMAP}.md`, `docs/skill-packs/README.md`, `archive/README.md`._
+
+---
+
 ## 2026-10-26 — Front matter can no longer run code (security sweep)
 
-gray-matter hands front matter that opens with `---js` or `---javascript` to `eval()`, and library files come from third-party collections. Every parse in `site/` now goes through `site/lib/frontmatter.js`, which turns that engine off, so such a file fails to parse instead of running. `scripts/skill-frontmatter.test.mjs` checks the refusal and that nothing in `site/` imports gray-matter directly. A new `.gitleaksignore` suppresses 71 gitleaks false positives: "LinkedIn" in prompt titles, and example tokens in vendored docs and prompts.
+gray-matter hands front matter that opens with `---js` or `---javascript` to `eval()`, and library files come from third-party collections. Every parse in `site/` now goes through `site/lib/frontmatter.js`, which turns that engine off, so such a file fails to parse instead of running. `scripts/skill-frontmatter.test.mjs` checks the refusal and that nothing in `site/` imports gray-matter directly. The `.gitleaksignore` this run proposed was left out: allowlisting secret-scan findings is roadmap item F10, which is Mike's private triage.
 
-_Touched: `site/lib/frontmatter.js` (new), `site/{api/index.ts,api/skill-packs.ts,lib/library.ts,lib/my-library.ts,mcp/server.ts,scripts/build-prompt-index.js}`, `scripts/skill-frontmatter.test.mjs`, `.gitleaksignore`._
+_Touched: `site/lib/frontmatter.js` (new), `site/{api/index.ts,api/skill-packs.ts,lib/library.ts,lib/my-library.ts,mcp/server.ts,scripts/build-prompt-index.js}`, `scripts/skill-frontmatter.test.mjs`._
+
+---
+
+## 2026-10-26 — The homepage mentions the twelve themes
+
+`homepage/index.html` gets a Themes card for the Light | Dark switch and the twelve themes in Settings → Appearance (2026-10-23).
+
+_Touched: `homepage/index.html`._
+
+---
+
+## 2026-10-26 — Sections one tap away on phones
+
+On a phone the only way to change section was the ☰ button, which looks like a site menu, so going from Prompts to Skills wasn't findable. Phones now get a swipeable strip of section chips under the top bar (the rail's job from md up); the current chip is highlighted and scrolled into view. The ☰ sheet keeps just the Resources links. Checked at 390px with touch emulation: no horizontal overflow, and the strip hides from 768px.
+
+_Touched: `site/src/components/{TopBar,SectionRail}.tsx`, `site/src/index.css`, `AGENTS.md`, `docs/ARCHITECTURE.md`._
+
+---
+
+## 2026-10-26 — One set of favorites in both libraries
+
+Favorites were already one list of ids in the browser, but each library only showed the stars it had loaded, and Public Library cards had no star button at all. Now every card has the star, in both libraries and on the read-only demo. The sidebar's Favorites view and the toolbar's Favorites panel list the current section's stars from both libraries: `useFavoritePrompts` fetches the other library's starred items by id (`GET /api/prompts/:id`). Each card shows the buttons of the library it belongs to, and opening one from the other library switches there first, the way the ⌘K palette does.
+
+_Touched: `site/src/hooks/useFavoritePrompts.ts`, `site/src/App.tsx`, `site/src/components/{PromptCard,PromptGrid}.tsx`, `AGENTS.md`, `docs/ARCHITECTURE.md`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`._
+
+---
+
+## 2026-10-26 — Card blurbs skip README badges
+
+A My Library item imported from a README (Scientific Agent Skills) showed `[](LICENSE.md) [](https://arxiv.org/` as its card blurb. Its first 200 characters were all badges, and `stripMarkdown` removed the image inside each `[![…](…)](…)` but left the empty link around it, plus the badge the 200-character cut split in half. The My Library listing now drops lines that are only images before taking the preview (`previewOf` in `api/index.ts`), and `stripMarkdown` drops empty links and a link left open at the cut. `npm run test:preview` pins both. The Public Library index has no badge-led previews, so `prompt-index.json` is unchanged.
+
+_Touched: `site/api/index.ts`, `site/src/components/PromptCard.tsx`, `site/scripts/preview.test.mjs`, `site/package.json`, `.github/workflows/ci.yml`, `AGENTS.md`, `README.md`, `docs/{ARCHITECTURE,README}.md`, `docs/features/API.md`, `docs/setup/SETUP.md`._
 
 ---
 

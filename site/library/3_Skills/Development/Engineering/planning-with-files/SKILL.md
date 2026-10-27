@@ -36,6 +36,7 @@ upstream:
   path: skills/planning-with-files/SKILL.md
   ref: dcdfb278de53fdb69b2067ea173dbb1de45345a3
   checked: 2026-10-26
+  license: MIT
 tags: ["skill","development","planning","agents","workflow"]
 ---
 

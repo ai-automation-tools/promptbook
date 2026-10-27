@@ -216,7 +216,10 @@ for (const rel of skills) {
     fs.writeFileSync(dest, out);
   }
 
-  const extra = walk(localDir).filter((p) => !written.has(p));
+  // A LICENSE beside SKILL.md that upstream keeps at its repo root was vendored here on
+  // purpose (vendor-skill-licenses.mjs); it is not stale.
+  const vendoredLicense = (p) => path.dirname(p) === localDir && /^(LICENSE|COPYING)(\.(md|txt))?$/i.test(path.basename(p));
+  const extra = walk(localDir).filter((p) => !written.has(p) && !vendoredLicense(p));
   for (const p of extra) {
     const show = path.relative(SKILLS, p).split(path.sep).join("/");
     if (KEEP_EXTRA) { console.log(`  kept local-only ${show}`); continue; }

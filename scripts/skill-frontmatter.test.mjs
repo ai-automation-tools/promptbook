@@ -112,7 +112,7 @@ if (fs.existsSync(LIB)) {
     if (!fs.existsSync(root)) continue;
     for (const f of fs.readdirSync(root, { recursive: true })) {
       if (!/\.(m?[jt]sx?)$/.test(f) || f === "frontmatter.js") continue;
-      if (/from ["']gray-matter["']/.test(fs.readFileSync(path.join(root, f), "utf8"))) direct.push(`${dir}/${f}`);
+      if (/from ["']gray-matter["']|(import|require)\(\s*["']gray-matter["']\s*\)/.test(fs.readFileSync(path.join(root, f), "utf8"))) direct.push(`${dir}/${f}`);
     }
   }
   assert.deepEqual(direct, [], "import site/lib/frontmatter.js, not gray-matter");

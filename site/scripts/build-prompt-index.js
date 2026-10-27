@@ -18,6 +18,14 @@ const OUTPUT_PATH = path.join(__dirname, '../api/prompt-index.json');
 
 // Library section folder holding skills (numbered layout)
 const SKILLS_SECTION = '3_Skills';
+const LIBRARIES_FOLDER = path.join(SKILLS_SECTION, 'Libraries');
+
+/** upstream.checked, server.checked (MCP cards) or a guide's checked:, as YYYY-MM-DD; YAML reads a bare date as a Date. */
+function checkedOf(data) {
+  const v = data.upstream?.checked ?? data.server?.checked ?? data.checked;
+  const day = v instanceof Date ? v.toISOString().slice(0, 10) : typeof v === 'string' ? v.slice(0, 10) : null;
+  return day && /^\d{4}-\d{2}-\d{2}$/.test(day) ? day : null;
+}
 
 function extractFirstHeading(markdown) {
   const match = markdown.match(/^#\s+(.+)$/m);
@@ -47,9 +55,10 @@ function walkDir(dir, baseDir = LIBRARY_PATH) {
 
       const relativePath = path.relative(baseDir, filePath);
       
-      // For Skills section, only include SKILL.md files
+      // For Skills section, only include SKILL.md files, plus the one-card-per-repo
+      // skill libraries in Libraries/ (a library is a card, not copies of its skills)
       if (relativePath.startsWith(SKILLS_SECTION + path.sep)) {
-        if (!file.endsWith('SKILL.md')) {
+        if (!file.endsWith('SKILL.md') && !relativePath.startsWith(LIBRARIES_FOLDER + path.sep)) {
           return;
         }
       }
@@ -93,6 +102,10 @@ function walkDir(dir, baseDir = LIBRARY_PATH) {
         category,
         subcategory,
         tags: data.tags || [],
+        // A prompt's declared fill-ins (lib/prompt-inputs.ts); the MCP server makes them arguments.
+        ...(Array.isArray(data.inputs) && { inputs: data.inputs }),
+        // When the item was last checked against its source (O02); same rule as checkedOf() in lib/library.ts.
+        ...(checkedOf(data) && { checked: checkedOf(data) }),
         contentPreview: content.substring(0, 200), // Just preview for lightweight mode
         lastModified: stat.mtime.toISOString(),
         isUserOwned: false,

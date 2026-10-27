@@ -23,11 +23,14 @@ import {
   Mail,
   Pencil,
   RefreshCw,
+  Star,
   Tag,
   Trash2,
 } from 'lucide-react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+import rehypeSanitize from 'rehype-sanitize';
 import { m } from 'motion/react';
 import SourcePanel from './SourcePanel';
 import { cn } from '../lib/cn';
@@ -53,6 +56,8 @@ interface PromptDetailProps {
   onCopy: (content: string, promptId: string) => void;
   onSubcategoryClick: (category: string, subcategory: string | 'ALL') => void;
   onShowAllPrompts: () => void;
+  isFavorite: boolean;
+  onToggleFavorite: (promptId: string) => void;
 }
 
 function wordCount(text: string): number {
@@ -75,6 +80,8 @@ export default function PromptDetail({
   onCopy,
   onSubcategoryClick,
   onShowAllPrompts,
+  isFavorite,
+  onToggleFavorite,
 }: PromptDetailProps) {
   const { emoji, title } = extractEmoji(prompt.title);
   const words = useMemo(() => wordCount(prompt.content), [prompt.content]);
@@ -135,6 +142,15 @@ export default function PromptDetail({
           <Button size="sm" onClick={() => onDownloadMarkdown(prompt)} icon={<Download className="h-3.5 w-3.5" />}>
             Download
           </Button>
+          <IconButton
+            label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+            framed
+            aria-pressed={isFavorite}
+            onClick={() => onToggleFavorite(prompt.id)}
+            className={cn('h-[30px] w-[30px]', isFavorite && 'text-[var(--warn)]')}
+          >
+            <Star className={cn('h-3.5 w-3.5', isFavorite && 'fill-current')} />
+          </IconButton>
           <IconButton
             label={copiedShareLink ? 'Link copied' : 'Copy direct link'}
             framed
@@ -209,7 +225,8 @@ export default function PromptDetail({
             </div>
           )}
           <div className="markdown-body relative">
-            <Markdown remarkPlugins={[remarkGfm]}>{prompt.content}</Markdown>
+            {/* HTML in the markdown (READMEs are full of it) renders, through GitHub's own allow-list. */}
+            <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, rehypeSanitize]}>{prompt.content}</Markdown>
           </div>
         </article>
 

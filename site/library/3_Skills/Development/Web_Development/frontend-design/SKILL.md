@@ -10,6 +10,7 @@ upstream:
   path: frontend-design/SKILL.md
   ref: 571d3d18348c6b12437c74f0d05191d1f3873a1c
   checked: 2026-09-16
+  license: Apache-2.0
 ---
 
 # Frontend Design

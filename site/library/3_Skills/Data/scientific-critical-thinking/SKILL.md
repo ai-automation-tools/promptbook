@@ -11,6 +11,7 @@ upstream:
   ref: fdc3d5856c8dd4b9dbb6417e1206cb9b3cf3d417
   checked: 2026-10-23
   was: ambiguous
+  license: MIT
 ---
 
 # Scientific Critical Thinking

@@ -9,6 +9,7 @@ upstream:
   checked: 2026-10-23
   was: ambiguous
   candidates: [guanyang/open-agent-hub]
+  license: MIT
 tags: ["skill","content","notebooklm"]
 ---
 

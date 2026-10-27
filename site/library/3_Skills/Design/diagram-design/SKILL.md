@@ -10,6 +10,7 @@ upstream:
   path: skills/diagram-design/SKILL.md
   ref: b8f36171da6e1bce05c3eb984969e5d4e7cb3a20
   checked: 2026-10-26
+  license: MIT
 tags: ["skill","design","diagrams","architecture","svg"]
 ---
 

@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState, type MouseEvent as ReactMouseEvent } from 'react';
 import { AnimatePresence, m } from 'motion/react';
-import { ArrowLeft, ArrowRight, Download, Info, Package, PackageMinus, PackagePlus, Tag, Wrench } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Download, Info, Package, PackageMinus, PackagePlus, Star, Tag, Wrench } from 'lucide-react';
 import { cn } from '../lib/cn';
 import { humanize } from '../lib/sections';
-import { Button } from './ui/primitives';
+import { Button, IconButton } from './ui/primitives';
 import { LoadingSkeleton } from './PromptGrid';
 import { READ_ONLY } from '../lib/mode';
 
@@ -48,9 +48,16 @@ interface SkillPackDetail extends SkillPackSummary {
   related_packs: string[];
 }
 
+/** A pack's id in the favorites list, which it shares with items (library paths, My Library slugs). */
+export const packFavoriteId = (packId: string) => `pack:${packId}`;
+
 interface SkillPacksViewProps {
   libraryMode: 'public' | 'my';
   onToast: (type: ToastType, message: string) => void;
+  favorites: string[];
+  onToggleFavorite: (favoriteId: string, e?: ReactMouseEvent) => void;
+  /** The sidebar's Favorites view: only the starred packs. */
+  onlyFavorites?: boolean;
 }
 
 function trackSpotlight(e: ReactMouseEvent<HTMLElement>) {
@@ -60,7 +67,7 @@ function trackSpotlight(e: ReactMouseEvent<HTMLElement>) {
   el.style.setProperty('--my', `${e.clientY - rect.top}px`);
 }
 
-export default function SkillPacksView({ libraryMode, onToast }: SkillPacksViewProps) {
+export default function SkillPacksView({ libraryMode, onToast, favorites, onToggleFavorite, onlyFavorites }: SkillPacksViewProps) {
   const [packs, setPacks] = useState<SkillPackSummary[]>([]);
   const [selectedPack, setSelectedPack] = useState<SkillPackDetail | null>(null);
   const [loading, setLoading] = useState(true);
@@ -181,6 +188,19 @@ export default function SkillPacksView({ libraryMode, onToast }: SkillPacksViewP
     }
   };
 
+  const isFavorite = (packId: string) => favorites.includes(packFavoriteId(packId));
+  const favoriteButton = (packId: string, framed = false) => (
+    <IconButton
+      label={isFavorite(packId) ? 'Remove from favorites' : 'Add to favorites'}
+      framed={framed}
+      onClick={e => onToggleFavorite(packFavoriteId(packId), e)}
+      className={cn(framed ? 'h-9 w-9' : 'h-7 w-7', isFavorite(packId) && 'text-[var(--warn)]')}
+    >
+      <Star className={cn('h-3.5 w-3.5', isFavorite(packId) && 'fill-current')} />
+    </IconButton>
+  );
+  const shown = onlyFavorites ? packs.filter(p => isFavorite(p.id)) : packs;
+
   const libraryAction = (packId: string, size: 'sm' | 'md' = 'sm') =>
     READ_ONLY ? null : libraryMode === 'public' ? (
       <Button size={size} variant="tonal" onClick={e => { e.stopPropagation(); void handleAddPackToLibrary(packId); }} disabled={addingPackId === packId} icon={<PackagePlus className="h-3.5 w-3.5" />}>
@@ -256,7 +276,8 @@ export default function SkillPacksView({ libraryMode, onToast }: SkillPacksViewP
                 All {selectedPack.skillCount} skills as one zip, with their sample code and docs.
               </p>
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap items-center gap-2">
+              {favoriteButton(selectedPack.id, true)}
               {libraryAction(selectedPack.id, 'md')}
               <Button variant="primary" onClick={() => void handleDownloadPack(selectedPack.id)} icon={<Download className="h-4 w-4" />}>
                 Download zip
@@ -373,7 +394,7 @@ export default function SkillPacksView({ libraryMode, onToast }: SkillPacksViewP
             </div>
           )}
           <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 xl:grid-cols-3">
-            {packs.map((pack, i) => (
+            {shown.map((pack, i) => (
               <m.article
                 key={pack.id}
                 initial={{ opacity: 0, y: 10 }}
@@ -418,7 +439,10 @@ export default function SkillPacksView({ libraryMode, onToast }: SkillPacksViewP
                   )}
                 </div>
                 <div className="flex items-center justify-between gap-2 border-t border-[var(--line)] px-3 py-2">
-                  {libraryAction(pack.id)}
+                  <span className="flex items-center gap-1">
+                    {favoriteButton(pack.id)}
+                    {libraryAction(pack.id)}
+                  </span>
                   <span className={cn('inline-flex items-center gap-1 text-[12px] text-[var(--fg-4)] transition-all group-hover:text-[var(--c)]')}>
                     Details
                     <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -427,6 +451,12 @@ export default function SkillPacksView({ libraryMode, onToast }: SkillPacksViewP
               </m.article>
             ))}
           </div>
+
+          {onlyFavorites && packs.length > 0 && shown.length === 0 && (
+            <p className="py-16 text-center text-[14px] text-[var(--fg-3)]">
+              No favorite packs yet. Star a pack to pin it here.
+            </p>
+          )}
 
           {packs.length === 0 && (
             <div className="flex flex-col items-center py-20 text-center">

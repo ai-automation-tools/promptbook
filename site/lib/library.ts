@@ -46,6 +46,21 @@ export interface IndexEntry {
   tags: string[];
   contentPreview?: string;
   lastModified: string;
+  /** The frontmatter `inputs:` list, as written; lib/prompt-inputs.ts validates it. */
+  inputs?: unknown[];
+  /** When the item was last checked against its source, YYYY-MM-DD (checkedOf). */
+  checked?: string;
+}
+
+/**
+ * upstream.checked, server.checked (MCP cards) or a guide's checked:, as YYYY-MM-DD. YAML reads a
+ * bare date as a Date. scripts/build-prompt-index.js has the same rule, for the prebuilt index.
+ */
+export function checkedOf(data: Record<string, unknown>): string | null {
+  const block = (k: string) => (data[k] && typeof data[k] === 'object' ? (data[k] as Record<string, unknown>).checked : undefined);
+  const v = block('upstream') ?? block('server') ?? data.checked;
+  const day = v instanceof Date ? v.toISOString().slice(0, 10) : typeof v === 'string' ? v.slice(0, 10) : null;
+  return day && /^\d{4}-\d{2}-\d{2}$/.test(day) ? day : null;
 }
 
 export interface LibraryIndex {

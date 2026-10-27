@@ -11,7 +11,7 @@ import { dirname } from "path";
 import archiver from "archiver";
 import { forkExtra, InvalidPromptError, myLibrary, PromptConflictError, pullUpstream, READ_ONLY, upstreamStatus, type UserPrompt } from "../lib/my-library.js";
 import { filesUnder, resolveInside } from "../lib/safe-path.js";
-import { LIBRARY_PATH, SKILLS_SECTION, carriedFrontmatter, extractFirstHeading, readLibraryItem, sourceOf, sourceUrlOf, type IndexEntry, type LibraryIndex } from "../lib/library.js";
+import { LIBRARY_PATH, SKILLS_SECTION, carriedFrontmatter, checkedOf, extractFirstHeading, readLibraryItem, sourceOf, sourceUrlOf, type IndexEntry, type LibraryIndex } from "../lib/library.js";
 import type { IncomingMessage, ServerResponse } from "http";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -165,6 +165,13 @@ try {
 // constant in scripts/build-prompt-index.js, which bakes `contentPreview` in.
 const PREVIEW_LENGTH = 200;
 
+// A README opens with rows of badges (`[![License](…svg)](LICENSE.md)`), which fill
+// all 200 characters and leave the card nothing to show. Lines made only of
+// images, linked or not, are dropped before the cut.
+const IMAGE_ONLY_LINE = /^[ \t]*(?:\[?!\[[^\]\n]*\]\([^)\n]*\)(?:\]\([^)\n]*\))?[ \t]*)+\r?\n?/gm;
+export const previewOf = (content: string): string =>
+  content.replace(IMAGE_ONLY_LINE, '').substring(0, PREVIEW_LENGTH);
+
 // id → contentPreview, built once from the prebuilt index.
 // The listing no longer ships previews (they were 632 KB of its 2.2 MB, and only
 // the ~50 cards on screen ever render one), so POST /api/prompts/previews serves
@@ -197,7 +204,7 @@ app.get("/api/prompts", async (req, res) => {
     // round trip — and /api/prompts/previews only knows about library files.
     return res.json(myLibrary.list().map(p => ({
       ...toApiPrompt(p),
-      content: lightweight ? p.content.substring(0, PREVIEW_LENGTH) : p.content,
+      content: lightweight ? previewOf(p.content) : p.content,
     })));
   }
 
@@ -238,12 +245,13 @@ async function walkLibrary(lightweight: boolean, dir: string = LIBRARY_PATH): Pr
       if (dir === LIBRARY_PATH && file === LEGACY_SECTION) return [];
       return walkLibrary(lightweight, filePath);
     }
-    if (!file.endsWith('.md') || file === 'README.md') return [];
+    if (!file.endsWith('.md') || file.toLowerCase() === 'readme.md') return []; // as the index builder skips them
 
     const relativePath = path.relative(LIBRARY_PATH, filePath);
 
-    // For Skills section, only include SKILL.md files
-    if (relativePath.startsWith(SKILLS_SECTION + path.sep) && !file.endsWith('SKILL.md')) return [];
+    // For Skills section, only include SKILL.md files and the Libraries/ cards (as the index does)
+    if (relativePath.startsWith(SKILLS_SECTION + path.sep) && !file.endsWith('SKILL.md')
+      && !relativePath.startsWith(path.join(SKILLS_SECTION, 'Libraries') + path.sep)) return [];
 
     // Skip files larger than 500KB (likely bulk collections, not individual prompts)
     if (stat.size > 500 * 1024) {
@@ -278,6 +286,9 @@ async function walkLibrary(lightweight: boolean, dir: string = LIBRARY_PATH): Pr
       category: pathParts[1] || 'Uncategorized',
       subcategory: pathParts.length > 2 ? pathParts[2] : null,
       tags: Array.isArray(data.tags) ? data.tags : [],
+      // Same optional fields, in the same order, as the prebuilt index
+      ...(Array.isArray(data.inputs) && { inputs: data.inputs }),
+      ...(checkedOf(data) && { checked: checkedOf(data)! }),
       content: lightweight ? '' : content, // Lightweight drops the body; cards fetch previews
       lastModified: stat.mtime.toISOString(),
       isUserOwned: false,

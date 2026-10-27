@@ -7,7 +7,6 @@ name: Upstream drift
 #    own (under 10% of its lines are not in upstream), are resynced: upstream
 #    body, our frontmatter. Anything with more local content than that is
 #    curation a resync would destroy, so it stays in the issue for a person.
-#    Skips SKIP_REPOS: agent-skills items are refreshed by the fleet's Skills Sync.
 # 3. site/api/upstream-status.json is refreshed (the site's Source panel reads
 #    it), the prompt index is rebuilt, and all of it lands as ONE pull request.
 #
@@ -35,8 +34,6 @@ env:
   BRANCH: upstream/resync
   # Share of a local copy's lines that upstream lacks, above which it is not resynced unattended.
   MAX_LOCAL_EXTRA: "0.10"
-  # Repos another job refreshes: the Routines fleet's Skills Sync owns the org's agent-skills.
-  SKIP_REPOS: "ai-automation-tools/agent-skills"
 
 jobs:
   check:
@@ -79,9 +76,8 @@ jobs:
           node -e '
             const { items } = require("./drift.json");
             const max = Number(process.env.MAX_LOCAL_EXTRA);
-            const skip = new Set(process.env.SKIP_REPOS.split(","));
             for (const [file, s] of Object.entries(items))
-              if ((s.verdict === "behind" || s.verdict === "drifted") && (s.extra ?? 1) < max && !skip.has(s.repo)
+              if ((s.verdict === "behind" || s.verdict === "drifted") && (s.extra ?? 1) < max
                   && !file.startsWith("5_System_Prompts/"))  // dated captures: report, never overwrite
                 console.log(file.replace(/^3_Skills\//, ""));
           ' > resync.txt

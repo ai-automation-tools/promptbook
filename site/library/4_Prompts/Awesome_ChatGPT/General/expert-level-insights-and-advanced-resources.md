@@ -3,6 +3,9 @@ title: "🤖 Expert-Level Insights and Advanced Resources"
 tags: ["awesome-chatgpt", "expert", "level", "insights", "advanced"]
 category: "Awesome_ChatGPT"
 subcategory: "General"
+inputs:
+  - name: topic
+    description: The subject or field, e.g. "Rust async" or "urban planning"
 upstream:
   match: similar
   repo: f/awesome-chatgpt-prompts
