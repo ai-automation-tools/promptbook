@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-27 — Prompt placeholders as MCP arguments (O03)
+
+A prompt can declare its `[placeholder]` fields in an `inputs:` frontmatter list, and an MCP client then asks for each one instead of taking a single free-text `input`. The MCP server registers every public prompt that declares inputs by name, with one required argument per input, beside `input`, which still appends; My Library prompts get the same. Only declared names are filled, in one literal pass (`[N]`, `[dict]` and links stay as written), and `npm run test:mcp` fails on a declaration that names a placeholder the body lacks. The index carries `inputs` for the prompts that have it. To start, two Awesome ChatGPT prompts declare `[topic]`.
+
+_Touched: `site/lib/{prompt-inputs,library}.ts`, `site/mcp/server.ts`, `site/scripts/{build-prompt-index.js,mcp-server.test.mjs}`, `site/api/prompt-index.json`, two prompts in `site/library/4_Prompts/Awesome_ChatGPT/General/`, `AGENTS.md`, `docs/{mcp-server,CONTRIBUTING,ROADMAP}.md`, `docs/features/MCP-SERVER.md`._
+
+---
+
 ## 2026-10-27 — Loose files out of 3_Skills
 
 81 files sat in `site/library/3_Skills/` outside any skill folder: 78 single-file prompt-style "skills" from before the AgentSkills layout, a stale Skill Packs list in `Development/README.md` and two orphaned `plugin.json` manifests. The index only reads `SKILL.md` files and library cards, so the app never showed them (the index is unchanged at 2,162 items), but they were still published in the repo with no source named. They moved to `archive/loose-skill-files-2026-10-27/`, paths kept, and `scripts/upstream.test.mjs` now fails on any file outside a skill folder other than the section README, `Libraries/` and `packs/`. `3_Skills/README.md` is rewritten for the current layout (30 library cards, 28 single skills) in place of the 256-skill tables from August.

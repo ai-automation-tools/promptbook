@@ -95,6 +95,8 @@ function walkDir(dir, baseDir = LIBRARY_PATH) {
         category,
         subcategory,
         tags: data.tags || [],
+        // A prompt's declared fill-ins (lib/prompt-inputs.ts); the MCP server makes them arguments.
+        ...(Array.isArray(data.inputs) && { inputs: data.inputs }),
         contentPreview: content.substring(0, 200), // Just preview for lightweight mode
         lastModified: stat.mtime.toISOString(),
         isUserOwned: false,
