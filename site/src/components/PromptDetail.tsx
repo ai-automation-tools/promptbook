@@ -28,6 +28,8 @@ import {
 } from 'lucide-react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+import rehypeSanitize from 'rehype-sanitize';
 import { m } from 'motion/react';
 import SourcePanel from './SourcePanel';
 import { cn } from '../lib/cn';
@@ -209,7 +211,8 @@ export default function PromptDetail({
             </div>
           )}
           <div className="markdown-body relative">
-            <Markdown remarkPlugins={[remarkGfm]}>{prompt.content}</Markdown>
+            {/* HTML in the markdown (READMEs are full of it) renders, through GitHub's own allow-list. */}
+            <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, rehypeSanitize]}>{prompt.content}</Markdown>
           </div>
         </article>
 

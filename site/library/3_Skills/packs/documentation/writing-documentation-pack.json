@@ -3,7 +3,7 @@
   "id": "writing-documentation-pack",
   "description": "Professional writing and documentation toolkit covering technical writing, API docs, user guides, proposals, reports, and content across multiple formats (PDF, DOCX, XLSX, PPTX, Markdown).",
   "icon": "📝",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "promptbook",
   "tags": [
     "writing",
@@ -21,54 +21,14 @@
       "description": "Create professional business documents"
     },
     {
-      "path": "library/3_Skills/Content/documentation-templates/SKILL.md",
-      "name": "Documentation Templates",
-      "description": "Use and customize documentation templates"
-    },
-    {
-      "path": "library/3_Skills/Content/docx/SKILL.md",
-      "name": "DOCX Documents",
-      "description": "Work with Microsoft Word documents"
-    },
-    {
       "path": "library/3_Skills/Content/General/humanizer/SKILL.md",
       "name": "Humanizer",
       "description": "Make technical content more accessible"
     },
     {
-      "path": "library/3_Skills/Content/json-canvas/SKILL.md",
-      "name": "JSON Canvas",
-      "description": "Work with JSON Canvas format for knowledge graphs"
-    },
-    {
-      "path": "library/3_Skills/Content/obsidian/obsidian-bases/SKILL.md",
-      "name": "Obsidian Bases",
-      "description": "Create Obsidian knowledge bases"
-    },
-    {
       "path": "library/3_Skills/Content/obsidian/obsidian-markdown/SKILL.md",
       "name": "Obsidian Markdown",
       "description": "Write Markdown for Obsidian with advanced features"
-    },
-    {
-      "path": "library/3_Skills/Content/pdf/SKILL.md",
-      "name": "PDF Documents",
-      "description": "Create and work with PDF documents"
-    },
-    {
-      "path": "library/3_Skills/Content/pptx/SKILL.md",
-      "name": "PowerPoint Presentations",
-      "description": "Create compelling slide presentations"
-    },
-    {
-      "path": "library/3_Skills/Content/excel/spreadsheet/SKILL.md",
-      "name": "Spreadsheet Documentation",
-      "description": "Document and explain spreadsheet data"
-    },
-    {
-      "path": "library/3_Skills/Content/xlsx/SKILL.md",
-      "name": "Excel Documents",
-      "description": "Work with Excel spreadsheets and data"
     }
   ],
   "prerequisites": {
@@ -100,5 +60,5 @@
     "developer-essentials-pack"
   ],
   "created_at": "2026-03-30",
-  "updated_at": "2026-10-23"
+  "updated_at": "2026-10-27"
 }

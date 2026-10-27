@@ -10,6 +10,7 @@ import { cn } from '../lib/cn';
 import { categoryHue, getSection, humanize } from '../lib/sections';
 import type { LibraryTab } from '../hooks/useLibraryRoute';
 import type { Prompt } from './PromptCard';
+import { SKILL_KINDS, isLibraryItem, type SkillKind } from './SkillLibraries';
 import { READ_ONLY } from '../lib/mode';
 
 export interface SkillPackSummary {
@@ -45,6 +46,11 @@ interface SidebarProps {
   favoriteCount: number;
   showFavorites: boolean;
   onShowFavorites: () => void;
+  /** Skills and Skill Packs: which of Skills | Libraries | Packs is showing. */
+  skillKind?: SkillKind;
+  onSkillKind?: (kind: SkillKind) => void;
+  /** Libraries view: the library cards replace the category tree; a row opens one. */
+  onOpenLibrary?: (library: Prompt) => void;
 }
 
 export const SIDEBAR_WIDTH = 272;
@@ -73,6 +79,9 @@ export default function Sidebar({
   favoriteCount,
   showFavorites,
   onShowFavorites,
+  skillKind,
+  onSkillKind,
+  onOpenLibrary,
 }: SidebarProps) {
   const [categoryFilter, setCategoryFilter] = useState('');
 
@@ -94,7 +103,16 @@ export default function Sidebar({
     return q ? names.filter(n => n.toLowerCase().includes(q)) : names;
   }, [categories, categoryFilter]);
 
-  const showCategoryFilter = Object.keys(categories).length > 8;
+  // Under Libraries the tree would only repeat Skills, so the panel lists the libraries instead.
+  const showLibraries = skillKind === 'libraries';
+  const libraries = useMemo(() => {
+    if (!showLibraries) return [];
+    const q = categoryFilter.trim().toLowerCase();
+    const all = sectionPrompts.filter(isLibraryItem).sort((a, b) => a.title.localeCompare(b.title));
+    return q ? all.filter(l => l.title.toLowerCase().includes(q)) : all;
+  }, [showLibraries, sectionPrompts, categoryFilter]);
+
+  const showCategoryFilter = showLibraries || Object.keys(categories).length > 8;
   const section = getSection(activeTab);
   const SectionIcon = section.icon;
 
@@ -170,12 +188,38 @@ export default function Sidebar({
         </div>
         )}
 
+        {/* Skills | Libraries | Packs */}
+        {skillKind && onSkillKind && (
+        <div className="px-3 pt-3">
+          <LayoutGroup id="skill-kind">
+            <div className="segmented w-full" role="group" aria-label="Skill kind">
+              {SKILL_KINDS.map(({ id, label, icon: Icon }) => {
+                const active = skillKind === id;
+                return (
+                  <button key={id} type="button" aria-pressed={active} onClick={() => onSkillKind(id)}>
+                    {active && (
+                      <m.span
+                        layoutId="skill-kind-thumb"
+                        className="segmented-thumb"
+                        transition={{ type: 'spring', stiffness: 500, damping: 40 }}
+                      />
+                    )}
+                    <Icon className="h-3.5 w-3.5" />
+                    {label}
+                  </button>
+                );
+              })}
+            </div>
+          </LayoutGroup>
+        </div>
+        )}
+
         {/* Categories */}
         <div className="flex min-h-0 flex-1 flex-col">
           <div className="flex items-center justify-between px-5 pb-1.5 pt-4">
-            <p className="eyebrow">{activeTab === 'skill-packs' ? 'Pack categories' : 'Categories'}</p>
+            <p className="eyebrow">{activeTab === 'skill-packs' ? 'Pack categories' : showLibraries ? 'Libraries' : 'Categories'}</p>
             <span className="mono text-[10.5px] text-[var(--fg-5)]">
-              {activeTab === 'skill-packs' ? packsByCategory.length : Object.keys(categories).length}
+              {activeTab === 'skill-packs' ? packsByCategory.length : showLibraries ? libraries.length : Object.keys(categories).length}
             </span>
           </div>
 
@@ -186,14 +230,35 @@ export default function Sidebar({
                 type="text"
                 value={categoryFilter}
                 onChange={e => setCategoryFilter(e.target.value)}
-                placeholder="Filter categories"
-                aria-label="Filter categories"
+                placeholder={showLibraries ? 'Filter libraries' : 'Filter categories'}
+                aria-label={showLibraries ? 'Filter libraries' : 'Filter categories'}
                 className="input h-8 pl-8 text-[12.5px]"
               />
             </div>
           )}
 
           <div className="min-h-0 flex-1 space-y-0.5 overflow-y-auto px-3 pb-3">
+            {showLibraries ? (
+              <>
+                {libraries.map(lib => (
+                  <button
+                    key={lib.id}
+                    type="button"
+                    onClick={() => onOpenLibrary?.(lib)}
+                    title={lib.title}
+                    className="flex w-full items-center gap-2 rounded-[var(--r-md)] px-2 py-[6px] text-left text-[13px] text-[var(--fg-3)] transition-colors hover:bg-[var(--surface)] hover:text-[var(--fg)]"
+                  >
+                    <Library className="h-3.5 w-3.5 shrink-0 text-[var(--fg-4)]" />
+                    <span className="min-w-0 flex-1 truncate">{lib.title}</span>
+                  </button>
+                ))}
+                {libraries.length === 0 && (
+                  <p className="px-2 py-6 text-center text-[12.5px] text-[var(--fg-5)]">
+                    {categoryFilter ? 'No libraries match.' : 'No libraries here.'}
+                  </p>
+                )}
+              </>
+            ) : (<>
             {activeTab !== 'skill-packs' && (
               <button
                 type="button"
@@ -282,6 +347,7 @@ export default function Sidebar({
                 {categoryFilter ? 'No categories match.' : 'No categories yet.'}
               </p>
             )}
+            </>)}
           </div>
         </div>
       </div>

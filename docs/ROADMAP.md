@@ -144,13 +144,12 @@ job owns which part of the library.
 
 | Job | Owns |
 |:---|:---|
-| Skills Sync (weekly, no model) | `3_Skills` intake and refresh from `ai-automation-tools/agent-skills`, and the generated Skill Packs |
 | Add Prompts (weekly) | New `4_Prompts` and `1_Guides` files |
 | Discovery (weekly, no model) | New GitHub repos into [`DISCOVERY.md`](DISCOVERY.md); `link` rows into the Resources menu |
 | Guides Refresh (biweekly) | Fixing `1_Guides` against official docs |
 | Catalog Refresh (biweekly) | `5_System_Prompts`, `2_Agents`, `6_MCP_Servers`, and the ledger's `accept` rows |
 | Weekly Roadmap | This file, and resyncing skills and agents the drift issue marks `behind` |
-| Monthly Upkeep | Updates and removals, hand-written Skill Packs, Resources links, MCP cards, `featured` and tags |
+| Monthly Upkeep | Updates and removals, hand-written Skill Packs (dead paths: `build-skill-packs.mjs`), skill library cards (`3_Skills/Libraries/`, READMEs refreshed with `site/scripts/refresh-library-cards.mjs --write`), Resources links, MCP cards, `featured` and tags |
 | `upstream-drift.yml` (weekly, GitHub Actions) | The rolling drift issue with its per-section health table |
 
 ---

@@ -271,7 +271,6 @@ promptbook/
 │   ├── resync-upstream.mjs       # Pull a skill or agent back level with its upstream
 │   ├── reattribute-unclear.mjs   # Code-search pass for unknown/ambiguous provenance
 │   ├── attribute-system-prompts.mjs # Stamp system prompts from the public collections
-│   ├── sync-agent-skills.mjs     # Add and refresh skills from ai-automation-tools/agent-skills
 │   ├── build-skill-packs.mjs     # One generated Skill Pack per skills folder; repairs hand packs
 │   ├── backfill-tags.mjs         # Path-derived tags for any file without them
 │   ├── discover-repos.mjs        # New and popular GitHub repos into docs/DISCOVERY.md
@@ -297,7 +296,7 @@ promptbook/
 ErrorBoundary                 main.tsx: a render or chunk failure shows "Something failed to load" + Reload, not a black page
 └── App.tsx                   app shell, data fetching (routing state: hooks/useLibraryRoute)
 ├── SourceBar                 "View source" bar (READ_ONLY demo only)
-├── SectionRail               md up: logo, the seven sections, Settings; the current section's cell joins the Sidebar
+├── SectionRail               md up: logo, six sections (Skill Packs sits under Skills), Settings; the current section's cell joins the Sidebar
 ├── Sidebar                   library-mode switcher (hidden when read-only) + category tree in per-category hues (a drawer on phones)
 ├── TopBar                    ⌘K search, ResourcesNav (≥1536px; a sheet below), the swipeable section strip (phones only),
 │   │                         New item (hidden when read-only), Light | Dark ThemeSwitch; brand + Settings on phones only
@@ -310,6 +309,8 @@ ErrorBoundary                 main.tsx: a render or chunk failure shows "Somethi
 │       └── PromptCard        title, tags, preview, row actions
 ├── PromptDetail              single-prompt view
 │   └── SourcePanel           GitHub repo, copied-at commit, weekly drift verdict, compare link
+├── SkillKindSwitch           Skills | Libraries | Packs pills (phones; the Sidebar has it as a segmented control from md up)
+├── SkillLibrariesView        the library cards (tag `skill-library`, public ones in 3_Skills/Libraries/)
 ├── SkillPacksView            skill-pack catalog (own tab)
 ├── EmptyState                empty My Library
 ├── PromptEditorModal         create / edit a My Library prompt

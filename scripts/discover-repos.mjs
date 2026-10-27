@@ -19,7 +19,7 @@
  *
  * "New": created within --days (default 365) and at least --min-stars (default 200).
  * "Popular": any age, at least 10x --min-stars. Anything the library already
- * tracks (an `upstream.repo` in frontmatter, a row in the ledger, a link in
+ * tracks (an `upstream.repo` or bare `repo:` in frontmatter, a row in the ledger, a link in
  * resources.json, a row in docs/UPSTREAMS.md) is skipped.
  *
  * Prints `FOUND`, `LINKED`, `SKIPPED` lines and a final `RUN SUMMARY:`.
@@ -79,7 +79,8 @@ const walkMd = (d, out = []) => {
 };
 for (const f of walkMd(LIB)) {
   const head = fs.readFileSync(f, "utf8").slice(0, 4000);
-  for (const m of head.matchAll(/^\s+repo:\s*["']?([\w.-]+\/[\w.-]+)/gm)) known.add(m[1].toLowerCase());
+  // `upstream.repo` / `server.repo` (indented), and a bare `repo:` (guides, skill library cards).
+  for (const m of head.matchAll(/^\s*repo:\s*["']?([\w.-]+\/[\w.-]+)/gm)) known.add(m[1].toLowerCase());
 }
 if (fs.existsSync(RESOURCES)) for (const g of JSON.parse(fs.readFileSync(RESOURCES, "utf8")).groups) for (const l of g.links) if (/github\.com/.test(l.href)) addKnown(l.href);
 if (fs.existsSync(UPSTREAMS)) for (const m of fs.readFileSync(UPSTREAMS, "utf8").matchAll(/github\.com\/([\w.-]+\/[\w.-]+)/g)) known.add(m[1].toLowerCase());

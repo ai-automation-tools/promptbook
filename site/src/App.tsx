@@ -17,6 +17,7 @@ import Breadcrumbs, { type Crumb } from './components/Breadcrumbs';
 import LibraryHero from './components/LibraryHero';
 import PromptGrid, { PromptCardGrid, type PromptCardActions } from './components/PromptGrid';
 import PromptListToolbar from './components/PromptListToolbar';
+import { SkillKindSwitch, SkillLibrariesView, isLibraryItem, type SkillKind } from './components/SkillLibraries';
 import { Button } from './components/ui/primitives';
 import { usePromptFilters } from './hooks/usePromptFilters';
 import { useFavoritePrompts } from './hooks/useFavoritePrompts';
@@ -144,6 +145,8 @@ export default function App() {
     setActiveCategory,
     activeSubcategory,
     setActiveSubcategory,
+    skillView,
+    setSkillView,
     promptPathParam,
     setPromptPathParam,
   } = useLibraryRoute({ selectedPrompt, setSelectedPrompt, setLibraryMode });
@@ -231,6 +234,13 @@ export default function App() {
     libraryMode,
   });
 
+  // The Libraries view belongs to Skills; leaving the section drops it.
+  useEffect(() => {
+    if (activeTab !== 'skills') setSkillView('skills');
+  }, [activeTab, setSkillView]);
+
+  const showLibraries = activeTab === 'skills' && skillView === 'libraries';
+
   const heroStats = useMemo(() => {
     if (activeTab === 'skill-packs') {
       return [
@@ -240,11 +250,14 @@ export default function App() {
       ];
     }
     return [
-      { label: getSection(activeTab).noun, value: sectionPrompts.length },
+      // Skills counts skills only; its library cards are the third counter.
+      { label: getSection(activeTab).noun, value: activeTab === 'skills' ? sectionPrompts.filter(p => !isLibraryItem(p)).length : sectionPrompts.length },
       { label: 'Categories', value: Object.keys(categories).length },
-      { label: 'Tags', value: allTags.length },
+      activeTab === 'skills'
+        ? { label: 'Libraries', value: sectionPrompts.filter(isLibraryItem).length }
+        : { label: 'Tags', value: allTags.length },
     ];
-  }, [activeTab, skillPacks, sectionPrompts.length, categories, allTags.length]);
+  }, [activeTab, skillPacks, sectionPrompts, categories, allTags.length]);
 
   const subcategoryPrompts = useMemo(() => {
     if (!selectedSubcategory) return [];
@@ -457,7 +470,8 @@ export default function App() {
   }, [promptPathParam, prompts, selectedPrompt, activeTab, libraryMode, activeCategory, activeSubcategory, handlePromptClick]);
 
   const handleDownloadMarkdown = useCallback(async (prompt: Prompt) => {
-    if (prompt.section === '3_Skills' && !prompt.isUserOwned) {
+    // A skill downloads as its folder zipped; a library card (Libraries/*.md) as plain markdown.
+    if (prompt.section === '3_Skills' && !prompt.isUserOwned && prompt.id.endsWith('/SKILL.md')) {
       try {
         const skillDirPath = prompt.id.replace(/\/SKILL\.md$/, '');
         const response = await fetch(`/api/skills/download/${encodeURIComponent(skillDirPath)}`);
@@ -693,6 +707,14 @@ export default function App() {
     handleShowAllPrompts();
   }, [handleShowAllPrompts]);
 
+  /** Skills | Libraries | Packs. Packs is its own section; the other two are views of Skills. */
+  const selectSkillKind = useCallback((kind: SkillKind) => {
+    if (window.innerWidth < 768) setIsSidebarOpen(false);
+    if (kind === 'packs') return openSectionFromPalette('skill-packs');
+    openSectionFromPalette('skills'); // also leaves a category or prompt view for the list
+    setSkillView(kind);
+  }, [openSectionFromPalette, setSkillView]);
+
   /** Card-level props shared by the featured, all-prompts and subcategory grids. */
   const promptCardActions: PromptCardActions = useMemo(() => ({
     libraryMode,
@@ -747,7 +769,7 @@ export default function App() {
   }, [libraryMode, activeTab, showFavorites, selectedSubcategory, selectedPrompt, handleShowAllPrompts, handleSubcategoryClick]);
 
   const showFeatured =
-    activeTab !== 'skill-packs' && libraryMode === 'public' && !debouncedSearch && selectedTags.length === 0 && featuredPrompts.length > 0;
+    activeTab !== 'skill-packs' && !showLibraries && libraryMode === 'public' && !debouncedSearch && selectedTags.length === 0 && featuredPrompts.length > 0;
 
   return (
     <LazyMotion features={domAnimation} strict>
@@ -796,6 +818,12 @@ export default function App() {
         favoriteCount={sectionFavorites.length}
         showFavorites={showFavorites}
         onShowFavorites={handleShowFavorites}
+        skillKind={activeTab === 'skill-packs' ? 'packs' : activeTab === 'skills' ? skillView : undefined}
+        onSkillKind={selectSkillKind}
+        onOpenLibrary={prompt => {
+          void handlePromptClick(prompt);
+          if (window.innerWidth < 768) setIsSidebarOpen(false);
+        }}
       />
 
       {/* Main Content */}
@@ -824,7 +852,7 @@ export default function App() {
               libraryMode={libraryMode}
               stats={heroStats}
               searchQuery={searchQuery}
-              onSearchChange={activeTab === 'skill-packs' ? undefined : setSearchQuery}
+              onSearchChange={activeTab === 'skill-packs' || showLibraries ? undefined : setSearchQuery}
             />
           )}
 
@@ -839,7 +867,13 @@ export default function App() {
                 transition={{ duration: 0.3, ease: [0.2, 0.7, 0.2, 1] }}
                 className="w-full"
               >
-                {activeTab !== 'skill-packs' && (
+                {(activeTab === 'skills' || activeTab === 'skill-packs') && (
+                  <SkillKindSwitch value={activeTab === 'skill-packs' ? 'packs' : skillView} onChange={selectSkillKind} />
+                )}
+
+                {showLibraries && <SkillLibrariesView prompts={sectionPrompts} actions={promptCardActions} />}
+
+                {activeTab !== 'skill-packs' && !showLibraries && (
                   <PromptListToolbar
                     totalCount={sortedPrompts.length}
                     favoritePrompts={favoritePrompts}
@@ -898,7 +932,7 @@ export default function App() {
                   </div>
                 )}
 
-                {activeTab !== 'skill-packs' && (
+                {activeTab !== 'skill-packs' && !showLibraries && (
                   <PromptGrid
                     isLoading={isLoading}
                     prompts={paginatedPrompts}

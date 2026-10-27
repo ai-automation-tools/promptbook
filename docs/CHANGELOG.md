@@ -4,6 +4,32 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-27 — Library cards carry the repo's README
+
+Each skill library card now holds the repo's whole README under its own header (title, description, link), so a library reads as it does on GitHub without leaving Promptbook. `site/scripts/refresh-library-cards.mjs` writes them from `gh`: all 41 cards, 30 public and 11 in My Library (`Zpankz/mcp-skillset` has no README and keeps its header only). Relative links and images become absolute GitHub URLs; a README that has not changed keeps its "copied" date, so a rerun is a no-op. The READMEs were checked before copying: six email addresses, all the authors' own published contacts.
+
+READMEs are mostly HTML (badges, centred blocks, tables), which the detail page and the editor preview printed as text. Markdown now renders HTML through `rehype-raw` and `rehype-sanitize` (GitHub's allow-list, so no scripts, iframes or styles), and markdown images are inline, so a badge row is a row.
+
+_Touched: `site/scripts/refresh-library-cards.mjs`, `site/library/3_Skills/Libraries/`, `site/api/prompt-index.json`, `site/src/components/{PromptDetail,PromptEditorModal}.tsx`, `site/src/index.css`, `site/package.json`, `site/package-lock.json`, `AGENTS.md`, `docs/ROADMAP.md`._
+
+---
+
+## 2026-10-27 — Skill libraries are one card each
+
+The Skills section mixed single skills (blader/humanizer), skill libraries (a repo like addyosmani/agent-skills that ships dozens) and Skill Packs (our bundles). A library now gets one card that describes it and links its GitHub repo, instead of a copy of each of its skills to keep in step:
+
+- **Public Library:** 30 cards in `site/library/3_Skills/Libraries/`, one per repo we had copied 2 or more skills from, each with the repo's own GitHub description. The 224 skill folders they replace moved to `archive/skill-libraries-2026-10-27/` (paths kept), with two orphaned finance_skills plugin manifests. 32 single skills stay. `scripts/upstream.test.mjs` requires a `repo:` line on every card.
+- **My Library:** the same card is any item tagged `skill-library`. Ten cards were added and 98 copies moved to `my-library/_archived/`, which the store does not list; Scientific Agent Skills, already a README of the whole collection, got the tag. 8 single skills stay.
+- **Skill Packs:** the 13 generated packs (one per folder of 6+ skills) are gone, since no folder keeps 6 skills, and `build-skill-packs.mjs --write` dropped the dead paths from the hand packs. Two came out empty and were deleted (`finance-portfolio-pack`, `project-management-pack`). Three remain.
+- **Upkeep:** `scripts/sync-agent-skills.mjs` is deleted. It copied ai-automation-tools/agent-skills into the library each week, and that repo is a card now. The drift workflow no longer skips agent-skills.
+- **UI:** a `Skills | Libraries | Packs` switch sits at the top of the Skills sidebar (as pills under the hero on phones). Packs no longer has its own tile on the rail or the phone strip; it lives under Skills, which stays lit while you're there. Under Libraries the grid shows the library cards and the sidebar lists them instead of the category tree. The cards stay out of the Skills grid, its category tree and its count, and the hero's third counter is Libraries. A card downloads as markdown, not a skill zip.
+
+The tests and the bench that used `analytics-tracking`, `canvas-design`, `mcp-builder` and the two big finance packs now use skills and packs that stay; `docs/development/PERFORMANCE.md` has the new baseline, every row inside the budgets.
+
+_Touched: `site/library/3_Skills/{Libraries,packs}/`, `archive/`, `site/scripts/{build-prompt-index.js,bench-endpoints.mjs,read-only.test.mjs}`, `site/api/{index.ts,prompt-index.json}`, `site/src/components/{SkillLibraries,Sidebar,SectionRail,TopBar}.tsx`, `site/src/hooks/{usePromptFilters,useLibraryRoute}.ts`, `site/src/lib/sections.ts`, `site/src/App.tsx`, `scripts/{build-skill-packs.mjs,upstream.test.mjs}`, `.github/workflows/upstream-drift.yml`, `AGENTS.md`, `docs/{ARCHITECTURE,ROADMAP}.md`, `docs/skill-packs/README.md`, `archive/README.md`._
+
+---
+
 ## 2026-10-26 — Sections one tap away on phones
 
 On a phone the only way to change section was the ☰ button, which looks like a site menu, so going from Prompts to Skills wasn't findable. Phones now get a swipeable strip of section chips under the top bar (the rail's job from md up); the current chip is highlighted and scrolled into view. The ☰ sheet keeps just the Resources links. Checked at 390px with touch emulation: no horizontal overflow, and the strip hides from 768px.
