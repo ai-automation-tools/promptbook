@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-27 — scholar-evaluation resynced from upstream
+
+`Data/scholar-evaluation` ← `K-Dense-AI/claude-scientific-skills` @ `5f2bc03`, the drift report's `behind` row. Upstream rewrote the skill around developmental feedback on scholarly work, with a hard ban on hiring, admissions, grant and other personnel uses and no prestige or citation metrics. 15 new support files (`assets/` templates, 4 references, 7 local scripts); `references/evaluation_framework.md` and `scripts/calculate_scores.py` replaced. It is still a scholarly-work evaluator, so it stays in Data, and its `license: MIT` and LICENSE file carry over. Opened by the 2026-10-24 roadmap run (#434), which also resynced `Content/brainstorming`; that skill was archived with its library on 2026-10-27, so only this half landed, re-run against today's upstream. The local `description:` still describes the old skill: that is the open "whose description" roadmap decision.
+
+_Touched: `site/library/3_Skills/Data/scholar-evaluation/`, `site/api/prompt-index.json`._
+
+---
+
 ## 2026-10-27 — Freshness on the listing cards (O02)
 
 A card in the grid now says when its item was last checked against its source repo ("checked Oct 18, 2026"), in place of the file's modified time, which on the demo is only when Vercel's checkout wrote it. Past 90 days it gets a `stale` chip. Nothing claims an item is verified: an undated item (most guides, the skill library cards) shows its file date and no chip. The prebuilt index and the live library walk both carry `checked`, from `upstream.checked`, an MCP card's `server.checked` or a guide's `checked:`, on 2,071 of the 2,162 items; the oldest is 2026-08-26, so the first chips appear in late November. `test:read-only` checks the index and the walk agree on `checked` and `inputs`, and pins the 90-day edge. That check also caught the walk listing three lowercase `readme.md` files the index skips, now fixed. The `git log` half of the old O02 stays open for Mike: it needs a Vercel preview.
