@@ -4,6 +4,7 @@ tags: ["featured", "codex", "flags", "cli", "reference", "openai", "options"]
 category: "Agent_Guides"
 subcategory: "Codex"
 repo: openai/codex
+checked: 2026-10-27
 ---
 
 <!-- Last Updated: 2026-04-18 - Synced with upstream v0.121.0 -->
@@ -143,10 +144,11 @@ codex exec "fix the bug in main.py"
 codex e "add tests for the auth module"
 
 # Execute with JSON output
-codex exec --output-format json "query"
+codex exec --json "query"
 
-# Execute with session resume
-codex exec --resume <session_id> "continue fixing"
+# Resume a session (--last = most recent in this directory)
+codex exec resume <session_id> "continue fixing"
+codex exec resume --last "continue fixing"
 ```
 
 ---
@@ -469,8 +471,11 @@ project_doc_max_bytes = 50000
 # OAuth login (ChatGPT Plus, Pro, Team, Edu, Enterprise) - RECOMMENDED
 codex login
 
-# API key login (requires additional setup)
-codex login --api-key
+# API key login (reads the key from stdin)
+printenv OPENAI_API_KEY | codex login --with-api-key
+
+# Check status
+codex login status
 ```
 
 **Recommended:** Sign in with your ChatGPT account to use Codex as part of your Plus, Pro, Team, Edu, or Enterprise plan. See [ChatGPT plan details](https://help.openai.com/en/articles/11369540-codex-in-chatgpt).

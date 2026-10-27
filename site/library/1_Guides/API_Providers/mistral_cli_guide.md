@@ -4,6 +4,7 @@ tags: ["mistral", "cli", "reference", "api", "european-ai"]
 category: "Agent_Guides"
 subcategory: "API_Providers"
 repo: mistralai/mistral-vibe
+checked: 2026-10-27
 ---
 ## CLI Sync Notes (March 2026)
 
@@ -454,23 +455,31 @@ response = client.chat(
 ---
 ## 10. CLI Integration
 
-### Using Mistral CLI (Unofficial)
+### Using Mistral Vibe (official CLI)
 
 ```bash
-# Install wrapper
-pip install mistral-cli
+# Install (needs Python 3.12+)
+curl -LsSf https://mistral.ai/vibe/install.sh | bash
+# or: uv tool install mistral-vibe   /   pip install mistral-vibe
 
-# Chat interactively
-mistral chat --model mistral-large-latest
+# Interactive session in the current project
+vibe
 
-# One-shot query
-mistral chat --model mistral-large-latest "Explain quantum computing"
+# One-shot, non-interactive
+vibe --prompt "Refactor the main function in cli/main.py to be more modular."
 
-# With system prompt
-mistral chat --model mistral-large-latest \
-  --system "You are a Python expert" \
-  "Explain decorators"
+# Cap a scripted run
+vibe --prompt "..." --max-turns 10 --max-price 1.00
+
+# Pick an agent profile; skip approvals
+vibe --agent ask
+vibe --prompt "..." --auto-approve
+
+# Configure the API key
+vibe --setup
 ```
+
+Source: [mistralai/mistral-vibe README](https://github.com/mistralai/mistral-vibe#readme).
 
 ### Using with LiteLLM
 

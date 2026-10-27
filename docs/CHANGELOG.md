@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-27 — Library refresh — guides
+
+Six guides checked against vendor docs this run and stamped `checked: 2026-10-27`. **claude-code-tips:** `claude login` is `claude auth login`; the `.claude.json` `instructions` key and `.claudeignore` are not documented, so project instructions now point to `CLAUDE.md` and file exclusion to `permissions.deny` (code.claude.com/docs/en/memory, /cli-reference). **anthropic_cli_guide:** model IDs updated to `claude-sonnet-5-5`, `claude-opus-5-5`, `claude-fable-5-1`, `claude-haiku-5-5` (platform.claude.com/docs/en/models/overview). **codex_cli_guide:** `exec --output-format json` is `exec --json`, `exec --resume` is `exec resume [--last]`, `login --api-key` is `login --with-api-key` (learn.chatgpt.com/docs/developer-commands). **gemini_cli_guide:** `--approval-mode` values are `default`, `auto_edit`, `plan`, `yolo`; `--yolo` is deprecated; model flags use the `pro`/`flash` aliases (docs/cli/cli-reference.md in google-gemini/gemini-cli). **gemini slash-commands:** `/compact` is `/compress`, `/policy` is `/policies`, `/shell` is `/shells`, `/setup-github-actions` is `/setup-github` (docs/reference/commands.md). **mistral_cli_guide:** the unofficial `pip install mistral-cli` (not on PyPI) is replaced by the official Mistral Vibe CLI (mistralai/mistral-vibe README).
+
+_Touched: `site/library/1_Guides/Claude_Code/claude-code-tips.md`, `site/library/1_Guides/API_Providers/anthropic_cli_guide.md`, `site/library/1_Guides/API_Providers/mistral_cli_guide.md`, `site/library/1_Guides/Codex/codex_cli_guide.md`, `site/library/1_Guides/Gemini_CLI/gemini_cli_guide.md`, `site/library/1_Guides/Gemini_CLI/slash-commands.md`, `site/api/prompt-index.json`._
+
+---
+
 ## 2026-10-27 — Express 5, Vite 8 and TypeScript 7
 
 The three framework majors the 2026-10-23 upstream check queued are in. **Express 5.3.0:** the two wildcard routes (copy to My Library, skill ZIP download) and the SPA fallbacks use the new `*name` and `/{*splat}` syntax, and `POST`/`PUT /api/prompts` cope with Express 5 leaving `req.body` undefined when no body is sent, which would otherwise have turned a 400 into a 500. **Vite 8.3.5 with plugin-react 6.1.2:** the config moved to `import.meta.dirname`, and the build now runs on Rolldown with the same vendor chunks, all under 500 kB. **TypeScript 7.0.2:** it checks side-effect imports, so `src/main.tsx` references `vite/client` for the stylesheet import; nothing else changed and no `any` was added. Every CI step passes locally, the prompt index rebuilds byte-identical, and the dev server and a production start serve every route.

@@ -4,6 +4,7 @@ tags: ["guide", "claude-code", "tips", "workflow"]
 category: "Agent_Guides"
 subcategory: "Claude_Code"
 repo: anthropics/claude-code
+checked: 2026-10-27
 ---
 
 # Claude Code Tips & Tricks
@@ -14,15 +15,14 @@ Advanced tips for maximizing productivity with the Claude Code CLI.
 Claude Code is a command-line tool that allows Claude to read your codebase, write files, and execute commands. This guide provides advanced usage strategies.
 
 ## Agent Configuration
-- **Authentication:** `claude login`.
+- **Authentication:** `claude auth login` (or `/login` inside a session); `claude auth status` shows the current method.
 - **Project Setup:** Run `claude` in your project root.
 
 ## System Prompt
-You can guide Claude's behavior using project instructions in a `.claude.json` file or via global config.
-```json
-{
-  "instructions": "You are assisting with a React/TypeScript project. Use functional components and hooks."
-}
+Guide Claude's behavior with a `CLAUDE.md` file in the project root (or `~/.claude/CLAUDE.md` for all projects). Claude Code also reads a repository's `AGENTS.md`.
+```markdown
+# CLAUDE.md
+This is a React/TypeScript project. Use functional components and hooks.
 ```
 
 ## Workflow
@@ -41,7 +41,7 @@ You can guide Claude's behavior using project instructions in a `.claude.json` f
 
 ## Customization Options
 - Custom tools and scripts can be integrated.
-- Ignore specific files/directories via `.claudeignore`.
+- Keep files out of Claude's reach with `permissions.deny` rules such as `Read(./.env)` in `.claude/settings.json`.
 
 ## Troubleshooting
 - **Context window full:** Use `/clear` or restart the session.
@@ -54,4 +54,5 @@ Integrates with standard bash/zsh tools like `grep`, `ls`, and your test runners
 - v1.0.0: Initial release of tips.
 
 ## References
-- [Anthropic Documentation](https://docs.anthropic.com/)
+- [Claude Code docs: memory](https://code.claude.com/docs/en/memory)
+- [Claude Code CLI reference](https://code.claude.com/docs/en/cli-reference)

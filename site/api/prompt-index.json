@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "buildTime": "2026-10-27T19:26:38.954Z",
+  "buildTime": "2026-10-27T22:05:44.350Z",
   "promptCount": 2162,
   "prompts": [
     {
@@ -31,8 +31,9 @@
         "anthropic",
         "claude"
       ],
+      "checked": "2026-10-27",
       "contentPreview": "\n# Anthropic API Provider Guide\n\n## Overview\nA comprehensive guide for using the Anthropic API with various CLI tools and custom scripts.\n\n## Agent Configuration\nSet your `ANTHROPIC_API_KEY` as an env",
-      "lastModified": "2026-10-26T15:19:23.476Z",
+      "lastModified": "2026-10-27T22:02:55.466Z",
       "isUserOwned": false
     },
     {
@@ -179,8 +180,9 @@
         "api",
         "european-ai"
       ],
+      "checked": "2026-10-27",
       "contentPreview": "## CLI Sync Notes (March 2026)\n\nTracks **Mistral CLI (Vibe)** changes explicitly.\n\n### Notable March 2026 CLI updates\n- New/expanded agent workflows (including theorem-proving agent setup).\n- Improved",
-      "lastModified": "2026-10-26T15:17:35.367Z",
+      "lastModified": "2026-10-27T22:05:27.910Z",
       "isUserOwned": false
     },
     {
@@ -571,8 +573,9 @@
         "tips",
         "workflow"
       ],
+      "checked": "2026-10-27",
       "contentPreview": "\n# Claude Code Tips & Tricks\n\nAdvanced tips for maximizing productivity with the Claude Code CLI.\n\n## Overview\nClaude Code is a command-line tool that allows Claude to read your codebase, write files,",
-      "lastModified": "2026-10-26T15:17:35.375Z",
+      "lastModified": "2026-10-27T22:02:55.466Z",
       "isUserOwned": false
     },
     {
@@ -662,8 +665,9 @@
         "openai",
         "options"
       ],
+      "checked": "2026-10-27",
       "contentPreview": "\n<!-- Last Updated: 2026-04-18 - Synced with upstream v0.121.0 -->\n\n# OpenAI Codex Agent Guide\n\nComprehensive reference for building and managing agents with OpenAI Codex CLI.\n\n**Key Features:**\n- 🤖 ",
-      "lastModified": "2026-10-26T15:17:35.402Z",
+      "lastModified": "2026-10-27T22:03:36.275Z",
       "isUserOwned": false
     },
     {
@@ -737,8 +741,9 @@
         "google",
         "options"
       ],
+      "checked": "2026-10-27",
       "contentPreview": "\n<!-- Last Updated: 2026-04-18 - Synced with upstream v0.38.2 -->\n\n# Gemini CLI Agent Guide\n\nComprehensive reference for building and managing agents with Gemini CLI.\n\n**Key Features:**\n- 🎯 Free tier",
-      "lastModified": "2026-10-26T15:17:35.412Z",
+      "lastModified": "2026-10-27T22:05:07.893Z",
       "isUserOwned": false
     },
     {
@@ -754,8 +759,9 @@
         "reference",
         "google"
       ],
-      "contentPreview": "\n<!-- Last Updated: 2026-03-14 - Synced with upstream documentation -->\n\n# Gemini CLI Slash Commands Reference\n\nComplete reference for built-in commands in Gemini CLI.\n\n**Source**: [geminicli.com/docs",
-      "lastModified": "2026-10-26T15:17:35.412Z",
+      "checked": "2026-10-27",
+      "contentPreview": "\n<!-- Last Updated: 2026-10-27 - Synced with upstream documentation -->\n\n# Gemini CLI Slash Commands Reference\n\nComplete reference for built-in commands in Gemini CLI.\n\n**Source**: [geminicli.com/docs",
+      "lastModified": "2026-10-27T22:04:42.223Z",
       "isUserOwned": false
     },
     {
