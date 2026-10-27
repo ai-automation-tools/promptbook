@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-26 — Sections one tap away on phones
+
+On a phone the only way to change section was the ☰ button, which looks like a site menu, so going from Prompts to Skills wasn't findable. Phones now get a swipeable strip of section chips under the top bar (the rail's job from md up); the current chip is highlighted and scrolled into view. The ☰ sheet keeps just the Resources links. Checked at 390px with touch emulation: no horizontal overflow, and the strip hides from 768px.
+
+_Touched: `site/src/components/{TopBar,SectionRail}.tsx`, `site/src/index.css`, `AGENTS.md`, `docs/ARCHITECTURE.md`._
+
+---
+
 ## 2026-10-26 — One set of favorites in both libraries
 
 Favorites were already one list of ids in the browser, but each library only showed the stars it had loaded, and Public Library cards had no star button at all. Now every card has the star, in both libraries and on the read-only demo. The sidebar's Favorites view and the toolbar's Favorites panel list the current section's stars from both libraries: `useFavoritePrompts` fetches the other library's starred items by id (`GET /api/prompts/:id`). Each card shows the buttons of the library it belongs to, and opening one from the other library switches there first, the way the ⌘K palette does.
