@@ -74,11 +74,8 @@ Packs are defined as JSON files in `library/3_Skills/packs/`.
 ```
 library/3_Skills/packs/
 ├── development/developer-essentials-pack.json
-├── development/game-design-pack.json
 ├── documentation/writing-documentation-pack.json
-├── finance/finance-portfolio-pack.json
-├── finance/prediction-markets-pack.json
-└── productivity/project-management-pack.json
+└── finance/prediction-markets-pack.json
 ```
 
 ### Manifest Format
@@ -467,50 +464,7 @@ curl -O https://promptbook-demo.ai-automation-tools.dev/api/skill-packs/develope
 
 ---
 
-### Finance & Portfolio Management Pack
-
-**ID:** `finance-portfolio-pack`  
-**Skills:** 13  
-**Focus:** Wealth management and investment
-
-**Includes:**
-- Asset Allocation
-- Portfolio Diversification
-- Risk Management
-- Financial Analysis
-- Financial Statement Analysis
-- Performance Metrics
-- Portfolio Rebalancing
-- Tax Efficiency
-- Equity Investing
-- Corporate Fixed Income
-- Alternative Investments
-- Digital Assets
-- Financial Modeling
-
-**Best for:** Portfolio managers, financial advisors, personal investors
-
 ---
-
-### Project Management & Productivity Pack
-
-**ID:** `project-management-pack`  
-**Skills:** 10  
-**Focus:** Planning and execution
-
-**Includes:**
-- Brainstorming
-- Plan Writing
-- Concise Planning
-- Executing Plans
-- Think Tank
-- File Organizer
-- Skill Creator
-- Skill Developer
-- GitHub README Creator
-- Documentation Templates
-
-**Best for:** Project managers, team leads, independent developers
 
 ---
 

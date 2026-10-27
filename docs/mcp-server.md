@@ -43,7 +43,9 @@ The README also has the `mcpServers` JSON block for other clients.
 | `delete_my_prompt` | Deletes one of the user's own prompts (not registered when read-only) |
 
 It also serves MCP prompts: `library_prompt` (any prompt, system prompt or agent by id), every
-featured prompt and system prompt, and every My Library prompt as `my-<id>`.
+featured prompt and system prompt, every prompt that declares `inputs:` (each declared
+`[placeholder]` becomes a required argument; see [the design](features/MCP-SERVER.md)), and
+every My Library prompt as `my-<id>`.
 
 ## Environment
 

@@ -76,6 +76,31 @@ The cache trade-off: a file edited in `site/library/` shows up in the listing wi
 minutes, not immediately. The demo's library never changes between deploys. Locally, restart
 the server or wait out the five minutes.
 
+## After the skill library cards (2026-10-27)
+
+The new baseline. The skills and packs the earlier rows measured were archived when each skill
+library became one card (see the 2026-10-27 CHANGELOG entry), so the ZIP rows moved to what
+is left: the largest remaining skill is `diagram-design` (1.1 MB), and the three remaining packs
+hold 2 or 3 skills each. The library is now 2,166 indexed items (18 MB on disk), which is why
+the listings got smaller. Same machine as above.
+
+| Endpoint | Cold ms | p50 ms | p95 ms | Stall ms | Bytes |
+|:--|--:|--:|--:|--:|--:|
+| List, lightweight (what the UI loads) | 10 | 11 | 15 | 16 | 681.7 KB |
+| List, full bodies (the export; cold row above) | 20 | 105 | 115 | 16 | 8.1 MB |
+| Detail read | 3 | 6 | 8 | 6 | 5.1 KB |
+| Card previews (50 ids) | 16 | 2 | 4 | 16 | 12.4 KB |
+| Skill ZIP, small (copy-editing, 16 KB) | 15 | 10 | 13 | 5 | 5.6 KB |
+| Skill ZIP, largest (diagram-design, 1.1 MB) | 77 | 202 | 241 | 8 | 382.8 KB |
+| Pack ZIP, small (developer-essentials-pack, 2 skills) | 7 | 15 | 16 | 2 | 8.8 KB |
+| Pack ZIP, largest (writing-documentation-pack, 3 skills) | 7 | 21 | 22 | 2 | 28.3 KB |
+| Detail read during a cold full listing (listing took 603 ms) | – | 3 | 26 | 108 | 0.9 KB |
+
+Every row is inside the budgets below. The ZIP rows are lighter than before only because their
+subjects are smaller, so they no longer test the worst case the budgets were set for: a pack or
+skill as large as `finance-portfolio-management-pack` (34 skills) or `canvas-design` (5.5 MB)
+should be re-measured if one is added.
+
 ## Budgets
 
 These are about twice the "after" numbers, so a normal run passes and a regression of the

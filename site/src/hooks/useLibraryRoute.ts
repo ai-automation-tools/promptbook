@@ -7,6 +7,11 @@ import { useState, useEffect } from 'react';
 import { type Prompt } from '../components/PromptCard';
 import { READ_ONLY } from '../lib/mode';
 
+/** What the Skills section lists: single skills, or the repos (libraries) that ship several. */
+export type SkillView = 'skills' | 'libraries';
+
+const parseSkillView = (v: string | null): SkillView => (v === 'libraries' ? 'libraries' : 'skills');
+
 export type LibraryTab = 'agent-guides' | 'agents' | 'prompt-library' | 'skills' | 'system-prompts' | 'mcp-servers' | 'skill-packs';
 
 const TABS: readonly LibraryTab[] = ['agent-guides', 'agents', 'prompt-library', 'skills', 'system-prompts', 'mcp-servers', 'skill-packs'];
@@ -52,6 +57,10 @@ export function useLibraryRoute({ selectedPrompt, setSelectedPrompt, setLibraryM
   const [activeSubcategory, setActiveSubcategory] = useState<string | null>(
     () => new URLSearchParams(window.location.search).get('subcategory'),
   );
+  // Skills only: `?view=libraries`.
+  const [skillView, setSkillView] = useState<SkillView>(
+    () => parseSkillView(new URLSearchParams(window.location.search).get('view')),
+  );
   const [promptPathParam, setPromptPathParam] = useState<string | null>(
     () => new URLSearchParams(window.location.search).get('prompt'),
   );
@@ -66,6 +75,7 @@ export function useLibraryRoute({ selectedPrompt, setSelectedPrompt, setLibraryM
       if (library === 'public' || (library === 'my' && !READ_ONLY)) setLibraryMode(library);
       setActiveCategory(urlParams.get('category'));
       setActiveSubcategory(urlParams.get('subcategory'));
+      setSkillView(parseSkillView(urlParams.get('view')));
       setPromptPathParam(prompt);
 
       if (!prompt) {
@@ -95,6 +105,9 @@ export function useLibraryRoute({ selectedPrompt, setSelectedPrompt, setLibraryM
       url.searchParams.delete('subcategory');
     }
 
+    if (activeTab === 'skills' && skillView === 'libraries') url.searchParams.set('view', skillView);
+    else url.searchParams.delete('view');
+
     if (selectedPrompt && !selectedPrompt.isUserOwned) {
       url.searchParams.set('prompt', slugifyPromptPath(selectedPrompt.id));
     } else {
@@ -102,7 +115,7 @@ export function useLibraryRoute({ selectedPrompt, setSelectedPrompt, setLibraryM
     }
 
     window.history.replaceState({}, '', url.toString());
-  }, [activeTab, activeCategory, activeSubcategory, selectedPrompt]);
+  }, [activeTab, activeCategory, activeSubcategory, skillView, selectedPrompt]);
 
   return {
     activeTab,
@@ -111,6 +124,8 @@ export function useLibraryRoute({ selectedPrompt, setSelectedPrompt, setLibraryM
     setActiveCategory,
     activeSubcategory,
     setActiveSubcategory,
+    skillView,
+    setSkillView,
     promptPathParam,
     setPromptPathParam,
   };

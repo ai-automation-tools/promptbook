@@ -58,7 +58,8 @@ export function PromptCardGrid({ prompts, actions, columns = 'default' }: Prompt
           key={prompt.id}
           prompt={prompt}
           index={i}
-          libraryMode={actions.libraryMode}
+          // The card's own library, not the view's: Favorites mixes both
+          libraryMode={prompt.isUserOwned ? 'my' : 'public'}
           copyingToMyPromptsId={actions.copyingToMyPromptsId}
           favorites={actions.favorites}
           copied={actions.copied}

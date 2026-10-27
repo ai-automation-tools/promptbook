@@ -16,6 +16,7 @@ upstream:
   path: SKILL.md
   ref: 8c307f367c91bd974002f10f2be2965d642c13df
   checked: 2026-10-26
+  license: MIT
 ---
 
 # Humanizer: remove AI writing patterns

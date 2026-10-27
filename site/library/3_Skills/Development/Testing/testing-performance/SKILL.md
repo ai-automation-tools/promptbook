@@ -16,6 +16,7 @@ upstream:
   declared: "https://skillsmp.com/skills/neversight-learn-skills-dev-data-skills-md-wojons-skills-testing-performance-skill-md"
   ref: 5fe7152c66604a967e53ce3aa4882d3fce00072f
   checked: 2026-09-16
+  license: MIT
 ---
 
 # Performance Testing

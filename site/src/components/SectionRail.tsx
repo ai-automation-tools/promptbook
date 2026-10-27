@@ -4,7 +4,7 @@
  */
 
 import { Settings } from 'lucide-react';
-import { SECTIONS } from '../lib/sections';
+import { NAV_SECTIONS, navTab } from '../lib/sections';
 import type { LibraryTab } from '../hooks/useLibraryRoute';
 
 interface SectionRailProps {
@@ -22,7 +22,7 @@ interface SectionRailProps {
  * tiles, Settings at the foot. The current section's cell takes the categories
  * panel's colour and runs through the rail's edge into it, so the two read as
  * one tab; clicking that cell again hides or shows the panel. Phones get the
- * sections from the top bar's menu sheet instead.
+ * sections as a strip under the top bar instead.
  */
 export default function SectionRail({ activeTab, onSelectSection, onHome, onOpenSettings, joined }: SectionRailProps) {
   return (
@@ -31,9 +31,9 @@ export default function SectionRail({ activeTab, onSelectSection, onHome, onOpen
         <img src="/favicon.svg" alt="" width={36} height={36} />
       </button>
 
-      {SECTIONS.map(section => {
+      {NAV_SECTIONS.map(section => {
         const Icon = section.icon;
-        const current = section.id === activeTab;
+        const current = section.id === navTab(activeTab);
         return (
           <button
             key={section.id}

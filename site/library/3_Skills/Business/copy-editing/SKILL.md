@@ -11,6 +11,7 @@ upstream:
   checked: 2026-10-23
   was: ambiguous
   candidates: [aaaaqwq/claude-code-skills, aitytech/agentkits-marketing]
+  license: MIT
 ---
 
 # Copy Editing

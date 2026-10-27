@@ -12,6 +12,7 @@ upstream:
   checked: 2026-10-23
   was: unknown
   candidates: [aiskillstore/marketplace, ComeOnOliver/skillshub, godmakereth/vibe-coding-tw, bg-szy/TOP-SKILLS, DeanMojo/polysmith-mvp]
+  license: MIT
 ---
 
 # Polymarket Development Suite

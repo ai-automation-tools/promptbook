@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Menu, PanelLeft, Plus, Search, Settings, X } from 'lucide-react';
-import { SECTIONS } from '../lib/sections';
+import { NAV_SECTIONS, navTab } from '../lib/sections';
 import type { LibraryTab } from '../hooks/useLibraryRoute';
 import type { Theme } from '../hooks/useTheme';
 import { READ_ONLY } from '../lib/mode';
@@ -29,8 +29,8 @@ interface TopBarProps {
  * The house-style top bar: categories toggle (phones), then search (⌘K), Resources,
  * New item and the Light | Dark switch. From md the sections, brand and
  * Settings live in SectionRail; on phones the brand and Settings stay here and
- * the sections are in the menu sheet. Below 1536px that menu button opens a
- * sheet under the bar with the Resources links, whose dropdown only fits from 1536px.
+ * the sections are a swipeable strip under the bar. Below 1536px the menu button
+ * opens a sheet with the Resources links, whose dropdown only fits from 1536px.
  */
 export default function TopBar({
   sidebarOpen,
@@ -44,6 +44,12 @@ export default function TopBar({
   setTheme,
 }: TopBarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const stripRef = useRef<HTMLElement>(null);
+
+  // Keep the current section's chip in view when it changes (deep link, palette, rail).
+  useEffect(() => {
+    stripRef.current?.querySelector('[aria-current]')?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  }, [activeTab]);
 
   const pick = (tab: LibraryTab) => {
     onSelectSection(tab);
@@ -101,24 +107,27 @@ export default function TopBar({
         </div>
       </header>
 
-      <nav id="mobile-nav" className={menuOpen ? 'mobile-nav open' : 'mobile-nav'} aria-label="Sections and resources">
-        <div className="mobile-nav-sections">
-        {SECTIONS.map(section => {
+      {/* Phones only: the sections stay one tap away, where the rail would be on wider screens. */}
+      <nav ref={stripRef} className="section-strip" aria-label="Sections">
+        {NAV_SECTIONS.map(section => {
           const Icon = section.icon;
+          const current = section.id === navTab(activeTab);
           return (
             <button
               key={section.id}
               type="button"
-              aria-current={section.id === activeTab ? 'true' : undefined}
+              aria-current={current ? 'page' : undefined}
               onClick={() => pick(section.id)}
               style={{ ['--c' as string]: section.accent }}
             >
-              <Icon className="h-4 w-4 text-[var(--c)]" aria-hidden="true" />
-              {section.label}
+              <Icon className="h-3.5 w-3.5 text-[var(--c)]" aria-hidden="true" />
+              {section.short}
             </button>
           );
         })}
-        </div>
+      </nav>
+
+      <nav id="mobile-nav" className={menuOpen ? 'mobile-nav open' : 'mobile-nav'} aria-label="Resources">
         {RESOURCE_GROUPS.map(group => (
           <div key={group.id} style={{ ['--c' as string]: group.accent }}>
             <p className="mobile-nav-group eyebrow">{group.label}</p>

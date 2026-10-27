@@ -119,6 +119,14 @@ export const SECTIONS: readonly SectionMeta[] = [
   },
 ];
 
+/** The rail and phone strip: Skill Packs is reached from the Skills switch, not its own tile. */
+export const NAV_SECTIONS = SECTIONS.filter(s => s.id !== 'skill-packs');
+
+/** The nav tile a tab lights up: Skill Packs lives under Skills. */
+export function navTab(tab: LibraryTab): LibraryTab {
+  return tab === 'skill-packs' ? 'skills' : tab;
+}
+
 /** Legacy tab spellings still accepted from old links. */
 const LEGACY_TABS: Record<string, LibraryTab> = {
   guides: 'agent-guides',

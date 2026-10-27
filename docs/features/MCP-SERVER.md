@@ -72,10 +72,26 @@ MCP prompts appear in clients as slash commands, and clients list all of them. R
 ~1,900 prompts and system prompts would bury the menu, so the server registers:
 
 - `library_prompt` with arguments `id` and `input`: any prompt, system prompt or agent by id;
-- every `featured` prompt and system prompt, by a slug of its file name;
+- every `featured` prompt and system prompt, and every one that declares `inputs:`, by a slug of
+  its file name;
 - every My Library prompt, as `my-<id>`.
 
-Each takes an optional `input`, appended after the prompt text as one user message. The
+Each takes an optional `input`, appended after the prompt text as one user message. A prompt
+that declares `inputs:` in its frontmatter (since 2026-10-27) also gets one required argument
+per declared `[placeholder]`, so the client asks for each value:
+
+```yaml
+inputs:
+  - name: topic                 # the text between the brackets, [topic]
+    description: The subject    # shown to the user; optional
+  - target audience             # a bare name works too; the argument is target_audience
+```
+
+Nothing is guessed: brackets that are not declared (`[N]`, `[dict]`, links) stay as written,
+and filling is one literal text swap, never a template. A name that is not in the body as
+`[name]`, is malformed, or would collide with `input` is dropped, and `npm run test:mcp` fails
+on such a declaration in the library (`lib/prompt-inputs.ts`). `library_prompt` keeps only `id`
+and `input`, since its arguments are fixed before the id is known. The
 factory runs per connection, so the My Library list is current as of connecting.
 
 ## How it stays current
