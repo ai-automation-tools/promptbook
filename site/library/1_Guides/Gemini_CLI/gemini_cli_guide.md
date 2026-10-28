@@ -4,6 +4,7 @@ tags: ["featured", "gemini", "flags", "cli", "reference", "google", "options"]
 category: "Agent_Guides"
 subcategory: "Gemini_CLI"
 repo: google-gemini/gemini-cli
+checked: 2026-10-27
 ---
 
 <!-- Last Updated: 2026-04-18 - Synced with upstream v0.38.2 -->
@@ -65,8 +66,8 @@ gemini --resume <session_id>
 
 ```bash
 # Launch with specific model
-gemini -m gemini-3-pro
-gemini -m gemini-3-flash
+gemini -m pro
+gemini -m flash
 
 # Launch with debug/verbose logging
 gemini -d
@@ -77,7 +78,7 @@ gemini -s
 gemini --sandbox
 
 # Launch with YOLO mode (auto-approve all tool calls)
-gemini --yolo
+gemini --approval-mode yolo   # --yolo / -y is deprecated
 
 # Launch with JSON output format
 gemini -p "query" --output-format json
@@ -93,8 +94,9 @@ gemini --include-directories ../lib,../shared
 
 ```bash
 # Set approval mode
-gemini --approval-mode suggest    # Suggest actions, wait for approval
-gemini --approval-mode auto       # Auto-approve safe actions
+gemini --approval-mode default    # Prompt before each tool call
+gemini --approval-mode auto_edit  # Auto-approve file edits only
+gemini --approval-mode plan       # Read-only planning
 gemini --approval-mode yolo       # Auto-approve all actions
 ```
 

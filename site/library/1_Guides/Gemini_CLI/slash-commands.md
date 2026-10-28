@@ -4,9 +4,10 @@ tags: ["gemini-cli", "slash-commands", "cli", "reference", "google"]
 category: "Agent_Guides"
 subcategory: "Gemini_CLI"
 repo: google-gemini/gemini-cli
+checked: 2026-10-27
 ---
 
-<!-- Last Updated: 2026-03-14 - Synced with upstream documentation -->
+<!-- Last Updated: 2026-10-27 - Synced with upstream documentation -->
 
 # Gemini CLI Slash Commands Reference
 
@@ -74,7 +75,7 @@ Commands use forward slash `/`, at symbol `@`, or exclamation mark `!` prefixes.
 | `/memory refresh` | Reload memory from all GEMINI.md files |
 | `/memory add <text>` | Add text to AI's memory |
 | `/init` | Generate GEMINI.md context file for project |
-| `/compact` | Replace entire context with summary |
+| `/compress` | Replace entire context with summary |
 | `/directory add <paths>` | Add directories to workspace |
 | `/directory show` | Display all workspace directories |
 
@@ -145,7 +146,7 @@ Commands use forward slash `/`, at symbol `@`, or exclamation mark `!` prefixes.
 | Command | Description |
 |---------|-------------|
 | `/permissions trust [folder]` | Manage folder trust settings |
-| `/policy list` | List all active policies grouped by mode |
+| `/policies list` | List all active policies grouped by mode |
 | `/plan` | Enter Plan Mode (read-only) and view current plan |
 | `/plan copy` | Copy approved plan to clipboard |
 | `/sandbox` | Toggle sandbox mode (experimental) |
@@ -180,8 +181,8 @@ Commands use forward slash `/`, at symbol `@`, or exclamation mark `!` prefixes.
 | `/tools nodesc` | Hide tool descriptions |
 | `/upgrade` | Open Gemini Code Assist upgrade page (Google login only) |
 | `/privacy` | Display Privacy Notice and consent options |
-| `/setup-github-actions` | Set up GitHub Actions for issue triage and PR review |
-| `/shell` | Toggle background shells view |
+| `/setup-github` | Set up GitHub Actions for issue triage and PR review |
+| `/shells` (or `/bashes`) | Toggle background shells view |
 
 ## Custom Commands
 
