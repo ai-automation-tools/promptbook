@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-10-27T22:05:44.350Z",
-  "promptCount": 2162,
+  "buildTime": "2026-10-29T22:02:07.172Z",
+  "promptCount": 2164,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -37361,6 +37361,25 @@
       "isUserOwned": false
     },
     {
+      "id": "6_MCP_Servers/Cloud_Platforms/terraform.md",
+      "title": "🔌 Terraform",
+      "section": "6_MCP_Servers",
+      "category": "Cloud_Platforms",
+      "subcategory": "terraform",
+      "tags": [
+        "mcp-server",
+        "cloud-platforms",
+        "terraform",
+        "infrastructure-as-code",
+        "devops",
+        "official"
+      ],
+      "checked": "2026-10-29",
+      "contentPreview": "\n# Terraform MCP server\n\nHashiCorp's server for the Terraform Registry (providers, modules, policies) and HCP Terraform / Terraform Enterprise workspaces.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude ",
+      "lastModified": "2026-10-29T22:01:51.255Z",
+      "isUserOwned": false
+    },
+    {
       "id": "6_MCP_Servers/Developer_Tools/codebase-memory.md",
       "title": "🔌 Codebase Memory",
       "section": "6_MCP_Servers",
@@ -37416,6 +37435,25 @@
       "checked": "2026-10-21",
       "contentPreview": "\n# GitHub MCP server\n\nIssues, pull requests, code search, Actions and repository contents, from GitHub's own server.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp add github -e GITHUB_PERSONAL_ACCE",
       "lastModified": "2026-10-21T19:07:45.564Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Developer_Tools/grafana.md",
+      "title": "🔌 Grafana",
+      "section": "6_MCP_Servers",
+      "category": "Developer_Tools",
+      "subcategory": "grafana",
+      "tags": [
+        "mcp-server",
+        "developer-tools",
+        "grafana",
+        "observability",
+        "monitoring",
+        "official"
+      ],
+      "checked": "2026-10-29",
+      "contentPreview": "\n# Grafana MCP server\n\nGrafana's server for dashboards, datasource queries (Prometheus, Loki and more), alerting and incidents on your Grafana instance.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mc",
+      "lastModified": "2026-10-29T22:01:51.352Z",
       "isUserOwned": false
     },
     {
