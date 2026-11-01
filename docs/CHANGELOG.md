@@ -9,6 +9,11 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 Two MCP server cards, both vendor-official, install lines read from each README on 2026-10-29. **Grafana** (`6_MCP_Servers/Developer_Tools/grafana.md`): `grafana/mcp-grafana`, Apache-2.0. **Terraform** (`6_MCP_Servers/Cloud_Platforms/terraform.md`): `hashicorp/terraform-mcp-server`, MPL-2.0. Sentry's server was skipped (licence reads "Other", not clearly permissive). No `accept` rows in the discovery ledger; no system prompts or agent definitions added this run.
 
 _Touched: `site/library/6_MCP_Servers/` (2 cards, README count 25), `site/api/prompt-index.json`._
+## 2026-10-31 — Library data-flow diagram re-pinned
+
+Re-read the cited code after the Express 5 and `checked:` changes and moved the line ranges in `library-data-flow.json` for the `library`, `build`, `index`, `public_api` and `my_api` nodes; no label or card changed, and `--check` is OK at the new pin.
+
+_Touched: `docs/diagrams/library-data-flow.*`, `homepage/diagram/library-data-flow.*`._
 
 ---
 
