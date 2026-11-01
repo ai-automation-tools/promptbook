@@ -9,6 +9,11 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 Node 26 reached LTS on 2026-10-28 and is now Vercel's default (generally available 2026-10-29), so the Hosting and Node rows say 26, with 24 and 22 still offered; the Node 22 roadmap item now names 26 as an option. The MCP SDK row notes 2.4.0 and the 2026-07-28 spec revision. Queued one roadmap item for the four dependency majors the package is behind on: `dotenv` 18, `archiver` 8, `motion` 14 and `lucide-react` 1.x, where lucide removed the `Github` brand icon that four components import. No code changed.
 
 _Touched: `docs/UPSTREAMS.md`, `docs/ROADMAP.md`._
+## 2026-10-31 — Library data-flow diagram re-pinned
+
+Re-read the cited code after the Express 5 and `checked:` changes and moved the line ranges in `library-data-flow.json` for the `library`, `build`, `index`, `public_api` and `my_api` nodes; no label or card changed, and `--check` is OK at the new pin.
+
+_Touched: `docs/diagrams/library-data-flow.*`, `homepage/diagram/library-data-flow.*`._
 
 ---
 
