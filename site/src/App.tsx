@@ -1185,6 +1185,10 @@ export default function App() {
               setRecentlyViewed([]);
               showToast('success', 'Favourites and recent prompts cleared');
             }}
+            onImported={message => {
+              refreshPrompts();
+              showToast('success', message);
+            }}
             onClose={() => setIsSettingsOpen(false)}
           />
         </Suspense>

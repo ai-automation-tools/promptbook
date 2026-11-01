@@ -24,7 +24,7 @@ Markers: `- [ ]` open, `- [-]` claimed by a run in progress, `- [x]` done, `- [!
 marks one only Mike can do.
 
 > [!NOTE]
-> **Where we are, 2026-10-27.** The app is local-first (clone and run; My Library is a folder
+> **Where we are, 2026-10-31.** The app is local-first (clone and run; My Library is a folder
 > of markdown files) with a read-only demo at `promptbook-demo.ai-automation-tools.dev`, and a
 > local MCP server lets an agent search the library and pull items into its work. The library
 > holds 2,162 indexed items, every one naming its source repo. Skill libraries are one card each
@@ -34,7 +34,7 @@ marks one only Mike can do.
 >
 > Phases 1 and 2 are done, and so are Phase 3's framework majors (Express 5, Vite 8 and
 > TypeScript 7, 2026-10-27). The open work an agent can take is the after-release features
-> (starter collections, O01, O04); what is left in Phase 3 is Mike's. Every release gate is done (F04 and
+> (starter collections, waiting on the Skill Packs decision, and O04; O01 shipped 2026-10-31); what is left in Phase 3 is Mike's. Every release gate is done (F04 and
 > F10 closed 2026-10-27). Mike's calls: the Node 24 and Actions v7 moves, the Awesome ChatGPT
 > and Skill Packs decisions, and the public MCP endpoint and npm package.
 
@@ -97,7 +97,7 @@ Nothing below blocks go-live.
 
 - [ ] Decide what Skill Packs are for, now that three small hand-picked packs are left (`developer-essentials-pack` 2 skills, `writing-documentation-pack` 2, `prediction-markets-pack` 1): grow them, fold them into the starter collections below, or retire the Packs view 🔒 Needs Mike
 - [ ] Role-based starter collections for prompts and agents (a "frontend engineer" or "founder" set), installable into My Library in one step the way a Skill Pack is. Done when at least three collections exist, each installs and uninstalls cleanly in a test, and the read-only demo serves them without the install button. Wait for the Skill Packs decision above, which may make the two one feature
-- [ ] **O01** Export My Library as a zip, and import one, from Settings. Done when a mixed library (Unicode names, tags, extra frontmatter, long bodies) round-trips identically, an import never overwrites without showing the conflicts first, archive traversal and oversized entries are refused, and a cancelled import changes nothing. Its prerequisites F05–F07 are done
+- [x] **O01** Export My Library as a zip, and import one, from Settings. Done when a mixed library (Unicode names, tags, extra frontmatter, long bodies) round-trips identically, an import never overwrites without showing the conflicts first, archive traversal and oversized entries are refused, and a cancelled import changes nothing. Its prerequisites F05–F07 are done — done 2026-10-31: Settings → My Library has Export .zip and Import .zip (`src/components/MyLibraryTransfer.tsx`), over `GET /api/my-library/export` and `POST /api/my-library/import`. Export is the folder's `<id>.md` files byte for byte; import previews first (writes nothing: new, unchanged, conflicts, skipped with reasons), writes files exactly as zipped, and replaces a differing file only with the token of the preview that listed it (a file changed since then makes it a 409). `lib/zip.ts` reads the ZIP and refuses the whole archive on a traversal name, an entry over 564 KB or one that inflates past it, ZIP64 or encryption. `test:my-library` round-trips Unicode titles and tags, a skill's extra frontmatter, a 450 KB body and a hand-written CRLF file byte for byte, and checks the conflict, cancel and hostile-archive cases; `test:browser` exports, previews and imports through the real dialog; `test:read-only` 403s both
 - [x] **O03** Library prompts with `[placeholder]` fields expose them as MCP prompt arguments, so a client asks for each value instead of one free-text `input`. Driven by an explicit, optional `inputs:` list in frontmatter, not by guessing at every bracketed phrase: declared inputs are required, unknown placeholders and literals are left alone, no template code runs, and the free-text `input` keeps working for existing clients — done 2026-10-27: `lib/prompt-inputs.ts` validates the list and fills in one literal pass; the index carries `inputs` for prompts that declare it, and the MCP server registers each such prompt by name with a required argument per input (My Library prompts too). Two Awesome ChatGPT prompts declare `[topic]` to start. `test:mcp` covers parsing, filling, required arguments and a My Library prompt, and fails on an invalid declaration in the library. `library_prompt` keeps `id` + `input` only
 - [ ] **O04** Export selected prompts as an evaluation project (versioned prompt files plus synthetic examples) that an evaluator the user configures can run. Paths are relative and safe, and the export makes no network call and needs no provider key. Depends on O01
 

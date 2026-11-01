@@ -1,12 +1,15 @@
 /**
  * Settings: appearance (mode + theme), the local data this browser
- * keeps, and the keyboard shortcuts. Mounted only while open.
+ * keeps, My Library export/import (not under READ_ONLY), and the keyboard
+ * shortcuts. Mounted only while open.
  */
 
 import { Check, Moon, Sun, Trash2 } from 'lucide-react';
 import { cn } from '../lib/cn';
 import { PALETTES, type Palette, type Theme } from '../hooks/useTheme';
+import { READ_ONLY } from '../lib/mode';
 import { Button, Kbd, MOD_KEY, Modal, ModalHeader } from './ui/primitives';
+import MyLibraryTransfer from './MyLibraryTransfer';
 
 interface SettingsModalProps {
   theme: Theme;
@@ -16,6 +19,8 @@ interface SettingsModalProps {
   favoriteCount: number;
   recentCount: number;
   onClearLocalData: () => void;
+  /** After an import wrote files: refresh the listing and say so. */
+  onImported: (message: string) => void;
   onClose: () => void;
 }
 
@@ -43,6 +48,7 @@ export default function SettingsModal({
   favoriteCount,
   recentCount,
   onClearLocalData,
+  onImported,
   onClose,
 }: SettingsModalProps) {
   const localCount = favoriteCount + recentCount;
@@ -61,7 +67,7 @@ export default function SettingsModal({
 
   return (
     <Modal onClose={onClose} labelledBy="settings-title">
-      <ModalHeader id="settings-title" title="Settings" description="Remembered in this browser only." onClose={onClose} />
+      <ModalHeader id="settings-title" title="Settings" description="Appearance and local data are remembered in this browser only." onClose={onClose} />
 
       <div className="max-h-[70vh] overflow-y-auto">
         <Section title="Appearance" hint="Dark is the default. A theme washes the whole page in its colour, in either mode.">
@@ -146,6 +152,12 @@ export default function SettingsModal({
             </Button>
           </div>
         </Section>
+
+        {!READ_ONLY && (
+          <Section title="My Library" hint="A .zip of its markdown files, exactly as they are on disk. An import shows what it would change before it writes anything.">
+            <MyLibraryTransfer onImported={onImported} />
+          </Section>
+        )}
 
         <Section title="Keyboard">
           <dl className="space-y-2">

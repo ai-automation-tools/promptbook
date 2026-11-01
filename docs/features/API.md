@@ -8,7 +8,7 @@ http://localhost:3010/api
 
 Hosted demo (read-only): `https://promptbook-demo.ai-automation-tools.dev/api`
 
-The handlers live in `site/api/index.ts` (prompts, previews, skill downloads) and
+The handlers live in `site/api/index.ts` (prompts, previews, skill downloads, My Library export and import) and
 `site/api/skill-packs.ts` (skill packs). Locally `server.ts` mounts both on one Express app;
 on Vercel `site/vercel.json` routes `/api/skill-packs/*` to the second function and every
 other `/api/*` path to the first.
@@ -38,8 +38,9 @@ route that writes to My Library returns:
 ```
 
 The write routes are `POST /api/prompts`, `PUT /api/prompts/:id`, `DELETE /api/prompts/:id`,
-`POST /api/prompts/:path/copy-to-my-prompts`, `POST /api/prompts/:id/pull-upstream`, `POST /api/skill-packs/:packId/add-to-library`
-and `DELETE /api/skill-packs/:packId/remove-from-library`. All reads keep working.
+`POST /api/prompts/:path/copy-to-my-prompts`, `POST /api/prompts/:id/pull-upstream`, `POST /api/my-library/import`,
+`POST /api/skill-packs/:packId/add-to-library` and `DELETE /api/skill-packs/:packId/remove-from-library`.
+`GET /api/my-library/export` is refused the same way, since it hands out My Library. All other reads keep working.
 
 ## Two kinds of id
 
@@ -385,6 +386,57 @@ when `upstream.localEdits` is true. The public file is only read. **Write route:
 
 ---
 
+### GET /api/my-library/export
+
+Download every My Library file as one ZIP, `my-library-<yyyy-mm-dd>.zip`: each `<id>.md` at the
+top level, byte for byte as it is on disk, so frontmatter the store does not manage (a skill's
+`name`, `license`, `upstream:`…) comes along. **`403` in read-only mode.**
+
+---
+
+### POST /api/my-library/import
+
+Import a ZIP into My Library. The body is the ZIP itself (`Content-Type: application/zip`,
+50 MB at most). **Write route: `403` in read-only mode.**
+
+**Query:**
+- none: a preview. Nothing is written.
+- `apply=true`: write the new files. Files that would replace a different one already here are
+  skipped (yours are kept)...
+- `apply=true&overwrite=<token>`: ...unless `overwrite` is the `token` a preview returned. If any
+  of those files changed since that preview, the token no longer matches and nothing is written.
+
+A file imports when its entry is `<id>.md` at the top of the ZIP (`id` matching
+`^[a-z0-9-]+$`), it is UTF-8, its frontmatter parses, and its fields pass the same checks as
+`POST /api/prompts`. It is written exactly as it is in the ZIP.
+
+**Response (200 OK):**
+```json
+{
+  "added": [{ "id": "release-notes-writer-1a2b3c", "title": "Release notes writer" }],
+  "unchanged": [{ "id": "…", "title": "…" }],
+  "conflicts": [{ "id": "code-review-checklist-db5ecc", "title": "Code review checklist", "currentTitle": "Code review checklist (edited)" }],
+  "skipped": [{ "name": "notes/readme.txt", "reason": "not a My Library file (expected <id>.md at the top of the zip)" }],
+  "token": "9f2c4e1a0b7d3c58"
+}
+```
+With `apply=true` it also carries `written` (how many files) and `message`.
+
+**Errors:**
+- `400 Bad Request`: not a ZIP, or the whole archive is refused: an entry name that leaves the
+  folder (`..`, an absolute or drive path, a backslash), an entry over 564 KB (or one that
+  inflates past it, whatever size it claims), more than 5,000 entries, ZIP64, encryption, an
+  unknown compression method, or a failed checksum. A refused archive writes nothing.
+- `403 Forbidden`: read-only mode, or a cross-site `Origin`
+- `409 Conflict`: `overwrite` does not match the current plan; preview again
+
+```bash
+curl -o my-library.zip http://localhost:3010/api/my-library/export
+curl -X POST --data-binary @my-library.zip -H "Content-Type: application/zip" http://localhost:3010/api/my-library/import
+```
+
+---
+
 ### GET /api/skills/download/:skillPath
 
 Download one skill directory under `library/3_Skills/` as a ZIP.
@@ -656,6 +708,9 @@ const full = await fetch(`/api/prompts/${encodeURIComponent(promptId)}`);
 ---
 
 ## Changelog
+
+### v2.1.0 (October 2026)
+- **New Endpoints:** `GET /api/my-library/export` and `POST /api/my-library/import` (preview, then apply; conflicts replaced only with the preview's token)
 
 ### v2.0.0 (October 2026)
 - **Removed:** all `/api/auth/*` endpoints, cookie sessions and rate limiting
