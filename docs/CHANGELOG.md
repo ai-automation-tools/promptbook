@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-31 — Library data-flow diagram re-pinned
+
+Re-read the cited code after the Express 5 and `checked:` changes and moved the line ranges in `library-data-flow.json` for the `library`, `build`, `index`, `public_api` and `my_api` nodes; no label or card changed, and `--check` is OK at the new pin.
+
+_Touched: `docs/diagrams/library-data-flow.*`, `homepage/diagram/library-data-flow.*`._
+
+---
+
 ## 2026-10-27 — Library refresh — guides
 
 Six guides checked against vendor docs this run and stamped `checked: 2026-10-27`. **claude-code-tips:** `claude login` is `claude auth login`; the `.claude.json` `instructions` key and `.claudeignore` are not documented, so project instructions now point to `CLAUDE.md` and file exclusion to `permissions.deny` (code.claude.com/docs/en/memory, /cli-reference). **anthropic_cli_guide:** model IDs updated to `claude-sonnet-5-5`, `claude-opus-5-5`, `claude-fable-5-1`, `claude-haiku-5-5` (platform.claude.com/docs/en/models/overview). **codex_cli_guide:** `exec --output-format json` is `exec --json`, `exec --resume` is `exec resume [--last]`, `login --api-key` is `login --with-api-key` (learn.chatgpt.com/docs/developer-commands). **gemini_cli_guide:** `--approval-mode` values are `default`, `auto_edit`, `plan`, `yolo`; `--yolo` is deprecated; model flags use the `pro`/`flash` aliases (docs/cli/cli-reference.md in google-gemini/gemini-cli). **gemini slash-commands:** `/compact` is `/compress`, `/policy` is `/policies`, `/shell` is `/shells`, `/setup-github-actions` is `/setup-github` (docs/reference/commands.md). **mistral_cli_guide:** the unofficial `pip install mistral-cli` (not on PyPI) is replaced by the official Mistral Vibe CLI (mistralai/mistral-vibe README).
