@@ -8,7 +8,7 @@
     "output": "library-data-flow.html",
     "repository": {
       "url": "https://github.com/ai-automation-tools/promptbook.git",
-      "revision": "dd093ae33544de420cec18a86eb085c75d814ff9"
+      "revision": "42ad413f4dfd36d1f6ee2b8e19f01bbc2aaf6f85"
     }
   },
   "stages": [
@@ -64,13 +64,13 @@
         },
         {
           "path": "site/lib/library.ts",
-          "line": 194,
-          "end_line": 216
+          "line": 207,
+          "end_line": 229
         },
         {
           "path": "site/scripts/build-prompt-index.js",
-          "line": 28,
-          "end_line": 57
+          "line": 35,
+          "end_line": 64
         }
       ]
     },
@@ -109,13 +109,13 @@
         },
         {
           "path": "site/scripts/build-prompt-index.js",
-          "line": 59,
-          "end_line": 119
+          "line": 66,
+          "end_line": 128
         },
         {
           "path": "site/scripts/build-prompt-index.js",
-          "line": 156,
-          "end_line": 175
+          "line": 165,
+          "end_line": 184
         }
       ]
     },
@@ -129,13 +129,13 @@
       "sources": [
         {
           "path": "site/scripts/build-prompt-index.js",
-          "line": 168,
-          "end_line": 175
+          "line": 177,
+          "end_line": 184
         },
         {
           "path": "site/api/index.ts",
-          "line": 151,
-          "end_line": 187
+          "line": 152,
+          "end_line": 188
         }
       ]
     },
@@ -174,18 +174,18 @@
       "sources": [
         {
           "path": "site/api/index.ts",
-          "line": 123,
-          "end_line": 149
+          "line": 124,
+          "end_line": 150
         },
         {
           "path": "site/api/index.ts",
-          "line": 194,
-          "end_line": 229
+          "line": 195,
+          "end_line": 230
         },
         {
           "path": "site/api/index.ts",
-          "line": 297,
-          "end_line": 368
+          "line": 301,
+          "end_line": 372
         }
       ]
     },
@@ -200,17 +200,17 @@
         {
           "path": "site/api/index.ts",
           "line": 37,
-          "end_line": 103
+          "end_line": 104
         },
         {
           "path": "site/api/index.ts",
-          "line": 370,
-          "end_line": 458
+          "line": 374,
+          "end_line": 462
         },
         {
           "path": "site/api/index.ts",
-          "line": 460,
-          "end_line": 503
+          "line": 464,
+          "end_line": 508
         }
       ]
     },
