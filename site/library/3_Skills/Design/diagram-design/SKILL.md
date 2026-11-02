@@ -8,9 +8,9 @@ upstream:
   match: exact
   repo: cathrynlavery/diagram-design
   path: skills/diagram-design/SKILL.md
-  ref: b8f36171da6e1bce05c3eb984969e5d4e7cb3a20
-  checked: 2026-10-26
   license: MIT
+  ref: 0cf73c3fcc56667ad91a9a04c439ac6ccfabc9d1
+  checked: 2026-11-02
 tags: ["skill","design","diagrams","architecture","svg"]
 ---
 
@@ -119,7 +119,7 @@ The pattern owns semantic primitives and its tighter budget; the type owns layou
 | Cross-tabulated data; fill encodes value per cell | **Heatmap** | [type-heatmap.md](references/type-heatmap.md) |
 | Continuous trends over time, change between exactly two states (slopegraph), one distribution per series (ridgeline), or rank movement across several snapshots (bump) | **Line chart** | [type-line.md](references/type-line.md) |
 | Tasks and phases on a timeline | **Gantt** | [type-gantt.md](references/type-gantt.md) |
-| Correlation or distribution of two variables; bubble (three variables) and beeswarm (one variable, dot per item) variants | **Scatter plot** | [type-scatter.md](references/type-scatter.md) |
+| Correlation or distribution of two variables; bubble (three variables), beeswarm (one variable, dot per item), and box plot (five-number summary per group) variants | **Scatter plot** | [type-scatter.md](references/type-scatter.md) |
 | End-to-end data stack on a container cluster | **High-Level** | [type-high-level.md](references/type-high-level.md) |
 | Multi-actor sequential process with data handoffs | **Process** | [type-process.md](references/type-process.md) |
 | Multi-tier data storage with quality levels and access policies | **Medallion** | [type-medallion.md](references/type-medallion.md) |
