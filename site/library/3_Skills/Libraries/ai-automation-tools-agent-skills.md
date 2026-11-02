@@ -12,7 +12,7 @@ A skill library: browse and install its skills from [the repo on GitHub](https:/
 
 ---
 
-*The repo's README, copied 2026-10-27:*
+*The repo's README, copied 2026-11-02:*
 
 <a id="readme-top"></a>
 
@@ -54,7 +54,7 @@ A collection of reusable skills for Claude Code and compatible AI agents. Each s
 | Folder | What's inside |
 |:---|:---|
 | [**🧩 Core**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/core/README.md) | Reusable skills that work across repositories and install into your agent's user-level skills directory. |
-| [**🧭 Domain**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/domain/README.md) | Field-specific skills (engineering, security, business, media, API) mirrored from the org's agent workspaces. Portable, installed on request. |
+| [**🧭 Domain**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/domain/README.md) | Field-specific skills (engineering, security, business, media, API, science, religion) mirrored from the org's agent workspaces. Portable, installed on request. |
 | [**🗂️ Projects**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/projects/README.md) | Additional skills for specific repositories, installed into the project they belong to. |
 | [**🖥️ Showcase site**](https://github.com/ai-automation-tools/agent-skills/blob/main/site/README.md) | A static page that presents every Core skill as a card, with screenshots and install commands. Published at [agent-skills.ai-automation-tools.dev](https://agent-skills.ai-automation-tools.dev). |
 
@@ -87,6 +87,8 @@ when you ask: `install-skills.ps1 -Domain`. Edit them in their workspace repo; t
 | [**📈 Business**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/domain/business/) | Field tactics for business decisions: running customer discovery interviews, planning go-to-market, and setting prices. From `business-agent`. |
 | [**🔐 Security**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/domain/security/) | Communicating and steering security work: turning verified findings into a report a client acts on, disclosing a vulnerability responsibly, and measuring a security program with metrics, SLAs and a risk register. From `security-agent`. |
 | [**🎬 Media**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/domain/media/) | Getting a media asset ready to publish and learning from it afterward: captions, alt text, accessibility checks, rights clearance, and reading post-publish analytics. From `media-agent`. |
+| [**🔬 Science**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/domain/science/) | Doing and judging research: appraising a paper's design, bias and statistics, managing research data so it stays findable and reusable, and making figures that show the data honestly. From `science-agent`. |
+| [**📜 Religion**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/domain/religion/) | Studying and writing about religion: analyzing myths and motifs across cultures, stating religious dates and calendars correctly, and writing fairly about faiths for a general audience. From `religion-agent`. |
 
 ## 🗂️ Project skills
 

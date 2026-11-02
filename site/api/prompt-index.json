@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "buildTime": "2026-10-27T22:05:44.350Z",
+  "buildTime": "2026-11-02T18:00:53.060Z",
   "promptCount": 2162,
   "prompts": [
     {
@@ -2874,7 +2874,7 @@
         "security"
       ],
       "contentPreview": "# ai-automation-tools/agent-skills\n\nPortable Agent Skills for Claude Code and compatible agents — each a self-contained SKILL.md an agent loads only when it is needed.\n\nA skill library: browse and ins",
-      "lastModified": "2026-10-27T16:04:01.955Z",
+      "lastModified": "2026-11-02T18:00:09.655Z",
       "isUserOwned": false
     },
     {
@@ -2986,7 +2986,7 @@
         "business"
       ],
       "contentPreview": "# coreyhaines31/marketingskills\n\nMarketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.\n\nA skill library: browse and install its skills from [the rep",
-      "lastModified": "2026-10-27T16:04:12.369Z",
+      "lastModified": "2026-11-02T18:00:24.535Z",
       "isUserOwned": false
     },
     {
@@ -3004,7 +3004,7 @@
         "finance"
       ],
       "contentPreview": "# davila7/claude-code-templates\n\nCLI tool for configuring and monitoring Claude Code\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/davila7/claude-code-te",
-      "lastModified": "2026-10-27T16:04:13.752Z",
+      "lastModified": "2026-11-02T18:00:25.734Z",
       "isUserOwned": false
     },
     {
@@ -3019,7 +3019,7 @@
         "development"
       ],
       "contentPreview": "# DietrichGebert/ponytail\n\nMakes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.\n\nA skill library: browse and install its skills from [the repo ",
-      "lastModified": "2026-10-27T16:04:15.122Z",
+      "lastModified": "2026-11-02T18:00:26.955Z",
       "isUserOwned": false
     },
     {
@@ -3034,7 +3034,7 @@
         "development"
       ],
       "contentPreview": "# github/awesome-copilot\n\nCommunity-contributed instructions, agents, skills, and configurations to help you make the most of GitHub Copilot.\n\nA skill library: browse and install its skills from [the ",
-      "lastModified": "2026-10-27T16:04:16.756Z",
+      "lastModified": "2026-11-02T18:00:28.289Z",
       "isUserOwned": false
     },
     {
@@ -3211,7 +3211,7 @@
         "business"
       ],
       "contentPreview": "# phuryn/pm-skills\n\nPM Skills Marketplace: 100+ agentic skills, commands, and plugins — from discovery to strategy, execution, launch, and growth.\n\nA skill library: browse and install its skills from ",
-      "lastModified": "2026-10-27T16:04:34.654Z",
+      "lastModified": "2026-11-02T18:00:41.759Z",
       "isUserOwned": false
     },
     {
@@ -3311,7 +3311,7 @@
         "security"
       ],
       "contentPreview": "# zebbern/claude-code-guide\n\nClaude Code Guide - Setup, Commands, workflows, agents, skills & tips-n-tricks from beginner to power user!\n\nA skill library: browse and install its skills from [the repo ",
-      "lastModified": "2026-10-27T16:06:58.580Z",
+      "lastModified": "2026-11-02T18:00:49.385Z",
       "isUserOwned": false
     },
     {

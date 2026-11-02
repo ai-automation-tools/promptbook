@@ -12,7 +12,7 @@ A skill library: browse and install its skills from [the repo on GitHub](https:/
 
 ---
 
-*The repo's README, copied 2026-10-27:*
+*The repo's README, copied 2026-11-02:*
 
 <p align="center">
   <picture>
@@ -76,6 +76,12 @@ A skill library: browse and install its skills from [the repo on GitHub](https:/
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/retriever-logo-dark.svg">
     <img src="https://raw.githubusercontent.com/DietrichGebert/ponytail/main/assets/retriever-logo-light.svg" height="128" alt="Retriever">
+  </picture>
+</a>
+<a href="https://photoreunion.app/?ref=ponytail-gh">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/photoreunion-logo-dark.svg">
+    <img src="https://raw.githubusercontent.com/DietrichGebert/ponytail/main/assets/photoreunion-logo-light.svg" height="128" alt="PhotoReunion">
   </picture>
 </a>
 
