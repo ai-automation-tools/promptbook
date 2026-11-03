@@ -3,7 +3,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import matter from '../lib/frontmatter.js';
-import archiver from 'archiver';
+import { ZipArchive } from 'archiver';
 import { myLibrary, READ_ONLY } from '../lib/my-library.js';
 import { carriedFrontmatter, LIBRARY_PATH } from '../lib/library.js';
 import { filesUnder, resolveInside } from '../lib/safe-path.js';
@@ -287,7 +287,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       res.setHeader('Content-Disposition', `attachment; filename="${packId}.zip"`);
       
       // Create ZIP archive
-      const archive = archiver('zip', {
+      const archive = new ZipArchive({
         zlib: { level: 6 } // zlib default; level 9 cost 40% more CPU for 0.15% smaller ZIPs
       });
       

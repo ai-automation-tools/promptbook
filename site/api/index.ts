@@ -8,7 +8,7 @@ import crypto from "crypto";
 import matter from "../lib/frontmatter.js";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
-import archiver from "archiver";
+import { ZipArchive } from "archiver";
 import { applyImport, forkExtra, IMPORT_LIMITS, ImportChangedError, InvalidPromptError, libraryFiles, myLibrary, previewImport, PromptConflictError, pullUpstream, READ_ONLY, upstreamStatus, type UserPrompt } from "../lib/my-library.js";
 import { readZip, ZipError } from "../lib/zip.js";
 import { filesUnder, resolveInside } from "../lib/safe-path.js";
@@ -513,7 +513,7 @@ app.get("/api/my-library/export", requireWritable, async (_req, res) => {
   try {
     res.setHeader('Content-Type', 'application/zip');
     res.setHeader('Content-Disposition', `attachment; filename="my-library-${new Date().toISOString().slice(0, 10)}.zip"`);
-    const archive = archiver('zip', { zlib: { level: 6 } });
+    const archive = new ZipArchive({ zlib: { level: 6 } });
     archive.on('error', (err) => {
       console.error('Archive error:', err);
       if (!res.headersSent) res.status(500).json({ error: 'Failed to create archive' });
@@ -576,7 +576,7 @@ app.get("/api/skills/download/*skillPath", async (req, res) => {
     res.setHeader('Content-Type', 'application/zip');
     res.setHeader('Content-Disposition', `attachment; filename="${zipFilename}"`);
 
-    const archive = archiver('zip', {
+    const archive = new ZipArchive({
       // zlib default: measured 40% faster than 9 on the largest skill for 0.15% more bytes
       zlib: { level: 6 }
     });
