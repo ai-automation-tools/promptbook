@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "buildTime": "2026-10-29T22:02:07.172Z",
+  "buildTime": "2026-11-03T17:03:38.221Z",
   "promptCount": 2164,
   "prompts": [
     {
@@ -37376,7 +37376,7 @@
       ],
       "checked": "2026-10-29",
       "contentPreview": "\n# Terraform MCP server\n\nHashiCorp's server for the Terraform Registry (providers, modules, policies) and HCP Terraform / Terraform Enterprise workspaces.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude ",
-      "lastModified": "2026-10-29T22:01:51.255Z",
+      "lastModified": "2026-11-03T17:00:17.347Z",
       "isUserOwned": false
     },
     {
@@ -37453,7 +37453,7 @@
       ],
       "checked": "2026-10-29",
       "contentPreview": "\n# Grafana MCP server\n\nGrafana's server for dashboards, datasource queries (Prometheus, Loki and more), alerting and incidents on your Grafana instance.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mc",
-      "lastModified": "2026-10-29T22:01:51.352Z",
+      "lastModified": "2026-11-03T17:00:17.347Z",
       "isUserOwned": false
     },
     {
