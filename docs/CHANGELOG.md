@@ -9,11 +9,36 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 Node 26 reached LTS on 2026-10-28 and is now Vercel's default (generally available 2026-10-29), so the Hosting and Node rows say 26, with 24 and 22 still offered; the Node 22 roadmap item now names 26 as an option. The MCP SDK row notes 2.4.0 and the 2026-07-28 spec revision. Queued one roadmap item for the four dependency majors the package is behind on: `dotenv` 18, `archiver` 8, `motion` 14 and `lucide-react` 1.x, where lucide removed the `Github` brand icon that four components import. No code changed.
 
 _Touched: `docs/UPSTREAMS.md`, `docs/ROADMAP.md`._
+
+## 2026-10-29 — Library refresh — catalog
+
+Two MCP server cards, both vendor-official, install lines read from each README on 2026-10-29. **Grafana** (`6_MCP_Servers/Developer_Tools/grafana.md`): `grafana/mcp-grafana`, Apache-2.0. **Terraform** (`6_MCP_Servers/Cloud_Platforms/terraform.md`): `hashicorp/terraform-mcp-server`, MPL-2.0. Sentry's server was skipped (licence reads "Other", not clearly permissive). No `accept` rows in the discovery ledger; no system prompts or agent definitions added this run.
+
+_Touched: `site/library/6_MCP_Servers/` (2 cards, README count 25), `site/api/prompt-index.json`._
+
+## 2026-11-02 — Two prompts and a subagents guide
+
+**Prompts**, both from f/prompts.chat at d2a57a8 (`prompts.csv`, rows by contributor "f"; CC0): *Dockerfile and CI taste* and *TypeScript library taste*, new under `4_Prompts/Awesome_ChatGPT/General/` (`match: similar`, reshaped to the house format). **Guide:** *Claude Code Subagents Guide* in `1_Guides/Claude_Code/`, repo `anthropics/claude-code`: built-in subagents, file locations and priority, every frontmatter field, how to invoke one, foreground vs background, and the nesting and concurrency limits, all from code.claude.com/docs/en/sub-agents read this run.
+
+_Touched: `site/library/4_Prompts/Awesome_ChatGPT/General/dockerfile-and-ci-taste.md`, `site/library/4_Prompts/Awesome_ChatGPT/General/typescript-library-taste.md`, `site/library/1_Guides/Claude_Code/subagents-guide.md`, `site/api/prompt-index.json`._
+
+---
+
 ## 2026-10-31 — Library data-flow diagram re-pinned
 
 Re-read the cited code after the Express 5 and `checked:` changes and moved the line ranges in `library-data-flow.json` for the `library`, `build`, `index`, `public_api` and `my_api` nodes; no label or card changed, and `--check` is OK at the new pin.
 
 _Touched: `docs/diagrams/library-data-flow.*`, `homepage/diagram/library-data-flow.*`._
+
+## 2026-10-31 — My Library export and import (O01)
+
+**Settings → My Library.** Two new controls, hidden on the read-only demo. *Export .zip* downloads `my-library-<date>.zip`: every `<id>.md` file in the folder, byte for byte, so frontmatter the store does not manage (a skill's `name`, `license`, `upstream:`) comes along. *Import .zip* previews first and writes nothing: how many files are new, already here, different from yours (listed by id and title, with your title beside it), and skipped (with the reason: not `<id>.md` at the top of the ZIP, not UTF-8, unparseable frontmatter, or a field the store would refuse). Then *Import N new* keeps every file of yours, *Import and replace K* also replaces the listed ones, and *Cancel* leaves the folder as it was.
+
+**Server.** `GET /api/my-library/export` and `POST /api/my-library/import` (body: the ZIP). Without `apply=true` the import is only a plan; with it, new files are written exactly as zipped, and a differing file is replaced only when `overwrite` carries the token of the preview that listed it, so if a file changed after the preview the import is refused with a 409 and nothing is written. Both routes are 403 under `READ_ONLY`, and the import is a write, so the cross-site Origin check covers it. `lib/zip.ts` is a small ZIP reader (stored and deflate) rather than a new dependency: it refuses the whole archive on a name that could leave the folder (`..`, absolute, drive, backslash), an entry over 564 KB or one that inflates past that whatever size it claims, more than 5,000 entries, ZIP64, encryption or a bad checksum.
+
+**Checks.** `test:my-library` round-trips a mixed library (Unicode title, tags and category, a skill with nested extra frontmatter, a 450 KB body, a hand-written file with CRLF line ends) through HTTP byte for byte, and covers the cancel, keep-mine, made-up-token and changed-since-preview cases, skipped entries, eight hostile archives, and a cross-site import. The traversal, size and token guards were each broken in turn to confirm the test fails without them. `test:browser` exports, deletes, previews and imports through the real Settings dialog; `test:read-only` 403s both routes; `test:routes` pins eleven routes.
+
+_Touched: `site/lib/zip.ts` (new), `site/lib/my-library.ts`, `site/api/index.ts`, `site/src/components/MyLibraryTransfer.tsx` (new), `site/src/components/SettingsModal.tsx`, `site/src/App.tsx`, `site/scripts/my-library.test.mjs`, `site/scripts/read-only.test.mjs`, `site/scripts/api-routes.test.mjs`, `site/scripts/browser-smoke.test.mjs`, `AGENTS.md`, `README.md`, `docs/ARCHITECTURE.md`, `docs/features/API.md`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`, `docs/ROADMAP.md`._
 
 ---
 

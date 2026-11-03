@@ -49,6 +49,7 @@
 - Copy any public prompt into My Library with one click
 - Tags, sections and categories live in each file's frontmatter
 - Point `MY_LIBRARY_DIR` at a synced or git folder and your library is backed up
+- Export it as a ZIP from Settings, and import one: you see what would change before anything is written
 
 📦 **Skill Packs**
 - Bundles of Agent Skills, one per skills folder plus hand-picked themes, added to or removed from My Library in one step

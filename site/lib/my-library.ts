@@ -74,10 +74,13 @@ const asString = (value: unknown): string =>
 function read(id: string): UserPrompt | null {
   const file = fileFor(id);
   if (!file || !fs.existsSync(file)) return null;
+  return parse(id, fs.readFileSync(file, 'utf-8'), () => fs.statSync(file).mtime);
+}
 
-  const raw = fs.readFileSync(file, 'utf-8');
+/** A file's text as a prompt; `mtime` stands in for a missing `updated`. */
+function parse(id: string, raw: string, mtime: () => Date): UserPrompt {
   const { data, content } = matter(raw);
-  const updated = asString(data.updated) || fs.statSync(file).mtime.toISOString();
+  const updated = asString(data.updated) || mtime().toISOString();
   return {
     id,
     title: asString(data.title) || id,
@@ -94,7 +97,7 @@ function read(id: string): UserPrompt | null {
   };
 }
 
-const versionOf = (raw: string) => createHash('sha256').update(raw).digest('hex').slice(0, 16);
+const versionOf = (raw: string | Buffer) => createHash('sha256').update(raw).digest('hex').slice(0, 16);
 
 /**
  * Writes the file and returns its new version. A replacement goes to a temp file
@@ -116,20 +119,24 @@ function write(prompt: UserPrompt, flag: 'w' | 'wx' = 'w'): string {
     updated: prompt.updated_at,
   };
   const raw = matter.stringify(prompt.content, frontmatter);
-  const file = fileFor(prompt.id)!;
-  if (flag === 'wx') {
-    fs.writeFileSync(file, raw, { encoding: 'utf-8', flag }); // a new id: nothing to lose, and wx keeps it exclusive
-  } else {
-    const tmp = path.join(MY_LIBRARY_DIR, `.${prompt.id}.${randomBytes(4).toString('hex')}.tmp`);
-    try {
-      fs.writeFileSync(tmp, raw, 'utf-8');
-      fs.renameSync(tmp, file); // replaces the target on Windows too
-    } catch (err) {
-      fs.rmSync(tmp, { force: true });
-      throw err;
-    }
-  }
+  writeFile(prompt.id, raw, flag);
   return versionOf(raw);
+}
+
+function writeFile(id: string, raw: string | Buffer, flag: 'w' | 'wx') {
+  const file = fileFor(id)!;
+  if (flag === 'wx') {
+    fs.writeFileSync(file, raw, { flag }); // a new id: nothing to lose, and wx keeps it exclusive
+    return;
+  }
+  const tmp = path.join(MY_LIBRARY_DIR, `.${id}.${randomBytes(4).toString('hex')}.tmp`);
+  try {
+    fs.writeFileSync(tmp, raw);
+    fs.renameSync(tmp, file); // replaces the target on Windows too
+  } catch (err) {
+    fs.rmSync(tmp, { force: true });
+    throw err;
+  }
 }
 
 /** A write the store refuses. The message names the field; callers send it back as a 400. */
@@ -323,4 +330,89 @@ export function pullUpstream(id: string): UserPrompt | null {
   const item = prompt && sourceOf(prompt);
   if (!prompt || !item) return null;
   return myLibrary.update(id, { content: item.content, extra: forkExtra(item) });
+}
+
+/*
+ * Export and import: a ZIP of the folder's `<id>.md` files, byte for byte, so a
+ * library round-trips exactly (frontmatter the store does not manage included).
+ * An import is planned first and writes nothing; applying it writes the new files
+ * and replaces a changed one only when the caller hands back the token of the
+ * plan that listed it, so nothing is overwritten that was not shown first.
+ */
+
+/** Every prompt file in the folder as it is on disk. */
+export function libraryFiles(): { name: string; data: Buffer }[] {
+  if (!fs.existsSync(MY_LIBRARY_DIR)) return [];
+  return fs.readdirSync(MY_LIBRARY_DIR)
+    .filter(name => name.endsWith('.md') && fileFor(name.slice(0, -3)) && fs.statSync(path.join(MY_LIBRARY_DIR, name)).isFile())
+    .sort()
+    .map(name => ({ name, data: fs.readFileSync(path.join(MY_LIBRARY_DIR, name)) }));
+}
+
+/** Room for a full 500 KB body plus its frontmatter. */
+export const IMPORT_LIMITS = { entries: 5000, entryBytes: LIMITS.contentBytes + 64 * 1024 };
+
+export interface ImportPlan {
+  added: { id: string; title: string }[];
+  unchanged: { id: string; title: string }[];
+  /** Files that exist here with different contents; replaced only with `token`. */
+  conflicts: { id: string; title: string; currentTitle: string }[];
+  skipped: { name: string; reason: string }[];
+  /** Names the conflicts and the versions they would replace. */
+  token: string;
+}
+
+/** An apply whose token no longer matches: a file changed since the preview. */
+export class ImportChangedError extends Error {}
+
+function planImport(entries: { name: string; data: Buffer }[]) {
+  const plan: ImportPlan = { added: [], unchanged: [], conflicts: [], skipped: [], token: '' };
+  const files = new Map<string, Buffer>();
+  const utf8 = new TextDecoder('utf-8', { fatal: true });
+  const tokenHash = createHash('sha256');
+
+  for (const { name, data } of entries) {
+    const id = /^([a-z0-9-]+)\.md$/.exec(name)?.[1];
+    const skip = (reason: string) => { plan.skipped.push({ name, reason }); };
+    if (!id) { skip('not a My Library file (expected <id>.md at the top of the zip)'); continue; }
+    if (files.has(id)) { skip('appears twice in the zip'); continue; }
+
+    let prompt: UserPrompt;
+    try {
+      prompt = parse(id, utf8.decode(data), () => new Date());
+      checkFields(prompt, true);
+    } catch (err) {
+      skip(err instanceof InvalidPromptError ? err.message : err instanceof TypeError ? 'not UTF-8 text' : 'its frontmatter does not parse');
+      continue;
+    }
+
+    files.set(id, data);
+    const file = fileFor(id)!;
+    const current = fs.existsSync(file) ? fs.readFileSync(file) : null;
+    if (!current) plan.added.push({ id, title: prompt.title });
+    else if (current.equals(data)) plan.unchanged.push({ id, title: prompt.title });
+    else {
+      plan.conflicts.push({ id, title: prompt.title, currentTitle: read(id)?.title ?? id });
+      tokenHash.update(`${id}:${versionOf(current)}:${versionOf(data)};`);
+    }
+  }
+  plan.token = tokenHash.digest('hex').slice(0, 16);
+  return { plan, files };
+}
+
+export const previewImport = (entries: { name: string; data: Buffer }[]): ImportPlan => planImport(entries).plan;
+
+/**
+ * Writes the plan's new files, and its conflicts too when `overwrite` is the
+ * token a preview returned. Without it, conflicts keep the file that is here.
+ */
+export function applyImport(entries: { name: string; data: Buffer }[], overwrite?: string) {
+  const { plan, files } = planImport(entries);
+  if (overwrite !== undefined && overwrite !== plan.token) {
+    throw new ImportChangedError('My Library changed since the preview. Preview the import again.');
+  }
+  fs.mkdirSync(MY_LIBRARY_DIR, { recursive: true });
+  for (const { id } of plan.added) writeFile(id, files.get(id)!, 'wx');
+  if (overwrite !== undefined) for (const { id } of plan.conflicts) writeFile(id, files.get(id)!, 'w');
+  return { plan, written: plan.added.length + (overwrite !== undefined ? plan.conflicts.length : 0) };
 }

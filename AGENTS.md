@@ -60,13 +60,13 @@ No `.env` is needed; `.env.example` lists the optional settings (`MY_LIBRARY_DIR
 
 Other scripts: `npm run build` (build:index → tsc → vite build), `npm run build:index`
 (regenerates `api/prompt-index.json` from `library/`), `npm run lint` (`tsc --noEmit`),
-`npm run test:routes` (asserts the shared Express app still exposes all nine API routes and no auth router),
-`npm run test:my-library` (round-trips the My Library file store in a temp folder),
+`npm run test:routes` (asserts the shared Express app still exposes all eleven API routes and no auth router),
+`npm run test:my-library` (round-trips the My Library file store in a temp folder, and a ZIP export and import, hostile archives included),
 `npm run test:read-only` (under `READ_ONLY`, My Library is neither listed nor served),
 `npm run test:prompt-content` (a failed full-prompt load throws instead of returning the preview),
 `npm run test:markdown-file` (a downloaded `.md` reads back through the store unchanged),
 `npm run test:preview` (a card blurb drops badge rows and links cut off at 200 characters),
-`npm run test:browser` (after a build: the built app in Chrome, including the dialog focus trap),
+`npm run test:browser` (after a build: the built app in Chrome, including the dialog focus trap and a Settings export/import),
 `npm run test:safe-path` (`../` escapes and links out of `library/` are refused, for detail and ZIPs),
 `npm run bench` (latency, size and event-loop stall of the heavy endpoints; compare with
 `docs/development/PERFORMANCE.md`, not run in CI).
@@ -89,7 +89,7 @@ Paths below are relative to `site/`.
 ```
 site/
   src/                 React app
-    App.tsx            ~1,050 lines — the app shell: state, data fetching, handlers, layout
+    App.tsx            ~1,200 lines — the app shell: state, data fetching, handlers, layout
     hooks/             usePromptFilters (search, tags, sort, pagination)
                        usePromptPreviews (batched card blurbs — the listing has no body text)
                        usePromptContent (copy state + fetchFullPrompt, which throws rather than
@@ -110,7 +110,8 @@ site/
                        one's cell bleeds into the categories panel), TopBar (⌘K search, Resources menu,
                        New item, ThemeSwitch; brand, Settings and the section strip on phones),
                        Sidebar (section-tinted: library switch, category tree with hue dots),
-                       Breadcrumbs, SettingsModal (mode + theme, local data, shortcuts),
+                       Breadcrumbs, SettingsModal (mode + theme, local data, My Library export/import via
+                       MyLibraryTransfer, shortcuts),
                        CommandPalette (⌘K: prompts / sections / actions / themes),
                        LibraryHero (title, blurb, CountUp stats, in-section search),
                        PromptListToolbar, PromptGrid (also exports PromptCardGrid,
@@ -138,6 +139,9 @@ site/
                        [a-z0-9-] so an id can never name a path outside the folder.
   lib/frontmatter.js   gray-matter with its `---js` eval engine off. Every front-matter parse in
                        site/ imports this, never gray-matter (skill-frontmatter.test.mjs checks)
+  lib/zip.ts           readZip(): the My Library import's ZIP reader (stored + deflate). Refuses
+                       traversal names, ZIP64, encryption and entries over the cap, however
+                       small they claim to be
   lib/safe-path.ts     resolveInside(): keeps library paths inside library/, by real path;
                        filesUnder(): folder walks that skip symlinks and junctions
   lib/prompt-inputs.ts A prompt's declared `inputs:` ([placeholder] fields): validated, then

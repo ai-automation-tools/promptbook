@@ -117,4 +117,28 @@ column, so never delete a row: change its status instead.
 | [Jakeschincariol/instagram-agent-skill](https://github.com/Jakeschincariol/instagram-agent-skill) | skills | 3,299 | mit | 2026-09-13 | 2026-10-27 | pending | new |
 | [Jakeschincariol/youtube-agent-skill](https://github.com/Jakeschincariol/youtube-agent-skill) | skills | 3,290 | mit | 2026-09-16 | 2026-10-27 | pending | new |
 | [yaojingang/yao-open-prompts](https://github.com/yaojingang/yao-open-prompts) | prompts | 2,953 | Other | 2026-10-08 | 2026-10-27 | pending | new |
+| [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | skills | 101,291 | apache-2.0 | 2026-11-03 | 2026-11-03 | pending | new |
+| [career-ops-hq/career-ops](https://github.com/career-ops-hq/career-ops) | skills | 79,777 | mit | 2026-11-03 | 2026-11-03 | pending | new |
+| [google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model) | skills | 11,178 | apache-2.0 | 2026-11-03 | 2026-11-03 | pending | new |
+| [Ryze-AI-Adgent/open-seo-mcp-skills](https://github.com/Ryze-AI-Adgent/open-seo-mcp-skills) | skills | 8,749 | mit | 2026-10-27 | 2026-11-03 | pending | new |
+| [heydamir/unslop](https://github.com/heydamir/unslop) | skills | 7,247 | cc-by-4.0 | 2026-11-01 | 2026-11-03 | pending | new |
+| [appcypher/awesome-mcp-servers](https://github.com/appcypher/awesome-mcp-servers) | mcp | 5,820 | none | 2026-05-06 | 2026-11-03 | pending | popular; no licence, ask before vendoring |
+| [Jakeschincariol/day-trader-skill](https://github.com/Jakeschincariol/day-trader-skill) | skills | 4,810 | mit | 2026-10-20 | 2026-11-03 | pending | new |
+| [Jakeschincariol/linkedin-agent-skill](https://github.com/Jakeschincariol/linkedin-agent-skill) | skills | 3,134 | mit | 2026-09-17 | 2026-11-03 | pending | new |
+| [elementalsouls/Claude-OSINT](https://github.com/elementalsouls/Claude-OSINT) | skills | 2,961 | mit | 2026-10-20 | 2026-11-03 | pending | new |
+| [aiwithremy/claude-skills-llm-council](https://github.com/aiwithremy/claude-skills-llm-council) | skills | 2,900 | none | 2026-04-26 | 2026-11-03 | pending | new; no licence, ask before vendoring |
+| [Leonxlnx/agentic-ai-prompt-research](https://github.com/Leonxlnx/agentic-ai-prompt-research) | prompts | 2,564 | none | 2026-03-31 | 2026-11-03 | pending | new; no licence, ask before vendoring |
+| [LearnPrompt/awesome-seedance](https://github.com/LearnPrompt/awesome-seedance) | prompts | 2,408 | mit | 2026-11-03 | 2026-11-03 | pending | new |
+| [Jakeschincariol/founder-skill](https://github.com/Jakeschincariol/founder-skill) | skills | 2,398 | mit | 2026-10-07 | 2026-11-03 | pending | new |
+| [mrpaidsocial/arcads-claude-code-mrpaidsocial](https://github.com/mrpaidsocial/arcads-claude-code-mrpaidsocial) | prompts | 1,647 | mit | 2026-10-19 | 2026-11-03 | pending | new |
+| [Motionsites-AI/claude-skill](https://github.com/Motionsites-AI/claude-skill) | skills | 1,581 | Other | 2026-10-26 | 2026-11-03 | pending | new |
+| [huangserva/skill-prompt-generator](https://github.com/huangserva/skill-prompt-generator) | skills | 1,519 | none | 2026-05-10 | 2026-11-03 | pending | new; no licence, ask before vendoring |
+| [mohitagw15856/pm-claude-skills](https://github.com/mohitagw15856/pm-claude-skills) | skills | 1,510 | mit | 2026-11-03 | 2026-11-03 | pending | new |
+| [Gabberflast/academic-pptx-skill](https://github.com/Gabberflast/academic-pptx-skill) | skills | 1,436 | mit | 2026-07-14 | 2026-11-03 | pending | new |
+| [browserwing/browserwing](https://github.com/browserwing/browserwing) | skills | 1,424 | mit | 2026-08-08 | 2026-11-03 | pending | new |
+| [YuzeHao2023/Awesome-MCP-Servers](https://github.com/YuzeHao2023/Awesome-MCP-Servers) | mcp | 1,084 | apache-2.0 | 2026-08-07 | 2026-11-03 | pending | new |
+| [sangrokjung/claude-forge](https://github.com/sangrokjung/claude-forge) | agents | 872 | mit | 2026-09-03 | 2026-11-03 | pending | new |
+| [kesslernity/awesome-microsoft-copilot-prompts](https://github.com/kesslernity/awesome-microsoft-copilot-prompts) | prompts | 571 | cc-by-sa-4.0 | 2026-11-03 | 2026-11-03 | pending | new |
+| [shanraisshan/claude-code-hooks](https://github.com/shanraisshan/claude-code-hooks) | agents | 563 | mit | 2026-06-04 | 2026-11-03 | pending | new |
+| [0aicoder0/Ultimate-ChatGPT-Image-and-Nano-Banana-Pro-Collection](https://github.com/0aicoder0/Ultimate-ChatGPT-Image-and-Nano-Banana-Pro-Collection) | prompts | 501 | none | 2026-04-27 | 2026-11-03 | pending | new; no licence, ask before vendoring |
 <!-- discover-repos: new rows go above this line -->

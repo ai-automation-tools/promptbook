@@ -95,8 +95,27 @@ try {
   assert.equal(await page.evaluate(() => document.activeElement?.getAttribute("aria-label")), "Settings", "focus returns to the trigger");
   assert.ok(!(await page.evaluate(() => document.getElementById("root").hasAttribute("inert"))), "inert is lifted on close");
 
+  // Settings → My Library (O01): export, lose the file, preview the import (writes
+  // nothing), import, and the file is back byte for byte.
+  const { myLibrary } = await import("../lib/my-library.ts");
+  const mine = myLibrary.create({ title: "Smoke export", section: "4_Prompts", category: "Dev", subcategory: null, tags: [], content: "smoke body\n" });
+  const mineFile = path.join(process.env.MY_LIBRARY_DIR, `${mine.id}.md`);
+  const mineBytes = fs.readFileSync(mineFile);
+  await page.getByRole("button", { name: "Settings" }).first().click();
+  const download = page.waitForEvent("download");
+  await page.getByRole("link", { name: "Export .zip" }).click();
+  const zipPath = await (await download).path();
+  fs.unlinkSync(mineFile);
+  await page.locator("input[type=file]").setInputFiles(zipPath);
+  await page.getByText(/1 new · 0 already here · 0 differ/).waitFor();
+  assert.ok(!fs.existsSync(mineFile), "the import preview writes nothing");
+  await page.getByRole("button", { name: "Import 1 new" }).click();
+  await page.getByText("Imported 1 file into My Library").waitFor();
+  assert.ok(fs.readFileSync(mineFile).equals(mineBytes), "the exported file imports back byte for byte");
+  await page.keyboard.press("Escape");
+
   assert.deepEqual(problems, [], "no page errors, console errors or failed requests");
-  console.log("browser-smoke: listing, detail, hero counter, Settings focus and the vercel.json CSP all pass on the built app");
+  console.log("browser-smoke: listing, detail, hero counter, Settings focus, My Library export and import, and the vercel.json CSP all pass on the built app");
 } finally {
   await browser.close();
   server.close();
