@@ -4,6 +4,12 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-10-30 — Upstream check
+
+Node 26 reached LTS on 2026-10-28 and is now Vercel's default (generally available 2026-10-29), so the Hosting and Node rows say 26, with 24 and 22 still offered; the Node 22 roadmap item now names 26 as an option. The MCP SDK row notes 2.4.0 and the 2026-07-28 spec revision. Queued one roadmap item for the four dependency majors the package is behind on: `dotenv` 18, `archiver` 8, `motion` 14 and `lucide-react` 1.x, where lucide removed the `Github` brand icon that four components import. No code changed.
+
+_Touched: `docs/UPSTREAMS.md`, `docs/ROADMAP.md`._
+
 ## 2026-10-29 — Library refresh — catalog
 
 Two MCP server cards, both vendor-official, install lines read from each README on 2026-10-29. **Grafana** (`6_MCP_Servers/Developer_Tools/grafana.md`): `grafana/mcp-grafana`, Apache-2.0. **Terraform** (`6_MCP_Servers/Cloud_Platforms/terraform.md`): `hashicorp/terraform-mcp-server`, MPL-2.0. Sentry's server was skipped (licence reads "Other", not clearly permissive). No `accept` rows in the discovery ledger; no system prompts or agent definitions added this run.
