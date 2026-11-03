@@ -36,3 +36,9 @@ commits = [
   "e8a18f8b971317b8caa1bd61e546c37ac009836d",
 ]
 paths = ['''^docs/(API|DATABASE)\.md$''']
+
+[[allowlists]]
+description = "docs/features/API.md as first written for the My Library import (2026-10-31): an example preview token, since replaced by a placeholder"
+condition = "AND"
+commits = ["dd5813b749e99ab5bad755e987de095946d24d95"]
+paths = ['''^docs/features/API\.md$''']

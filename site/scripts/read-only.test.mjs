@@ -45,6 +45,11 @@ try {
   const detail = await get(`/api/prompts/${secret.id}`);
   assert.ok(!detail.ok, `My Library detail is not served (got ${detail.status})`);
   assert.doesNotMatch(await detail.text(), /PRIVATE-BODY/);
+  const exported = await get("/api/my-library/export");
+  assert.equal(exported.status, 403, "My Library export refused");
+  assert.doesNotMatch(await exported.text(), /PRIVATE-BODY/);
+  const imported = await fetch(`${base}/api/my-library/import?apply=true`, { method: "POST", headers: { "Content-Type": "application/zip" }, body: "PK" });
+  assert.equal(imported.status, 403, "My Library import refused");
   const packs = await get("/api/skill-packs?library=my");
   assert.deepEqual(await packs.json(), [], "installed packs are not disclosed");
 
@@ -85,4 +90,4 @@ try {
   fs.rmSync(dir, { recursive: true, force: true });
 }
 
-console.log("read-only: My Library list, detail and pack membership hidden; public list, detail, download and packs served");
+console.log("read-only: My Library list, detail, export and pack membership hidden, import refused; public list, detail, download and packs served");
