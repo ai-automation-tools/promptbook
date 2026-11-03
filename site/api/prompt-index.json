@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-03T17:03:38.221Z",
-  "promptCount": 2164,
+  "buildTime": "2026-11-03T17:12:58.071Z",
+  "promptCount": 2167,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -648,6 +648,24 @@
       "checked": "2026-10-13",
       "contentPreview": "\n<!-- Last Updated: 2026-10-13 - Checked against code.claude.com/docs/en/commands -->\n\n# Claude Code Slash Commands Reference\n\nBuilt-in commands available in Claude Code CLI interactive mode.\n\n**Sourc",
       "lastModified": "2026-10-26T15:17:35.377Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/Claude_Code/subagents-guide.md",
+      "title": "🧩 Claude Code Subagents Guide",
+      "section": "1_Guides",
+      "category": "Claude_Code",
+      "subcategory": "subagents-guide",
+      "tags": [
+        "claude-code",
+        "subagents",
+        "agents",
+        "delegation",
+        "configuration"
+      ],
+      "checked": "2026-11-02",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-02 - Checked against code.claude.com/docs/en/sub-agents -->\n\n# Claude Code Subagents Guide\n\nA subagent is a specialized assistant that runs in its own context window with i",
+      "lastModified": "2026-11-03T17:12:56.504Z",
       "isUserOwned": false
     },
     {
@@ -10415,6 +10433,23 @@
       "checked": "2026-10-26",
       "contentPreview": "\n# Django Unit Test Generator for Viewsets\n\nI want you to act as a Django Unit Test Generator. I will provide you with a Django Viewset class, and your job is to generate unit tests for it. Ensure the",
       "lastModified": "2026-10-26T15:17:01.979Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Awesome_ChatGPT/General/dockerfile-and-ci-taste.md",
+      "title": "🤖 Dockerfile and CI taste",
+      "section": "4_Prompts",
+      "category": "Awesome_ChatGPT",
+      "subcategory": "General",
+      "tags": [
+        "awesome-chatgpt",
+        "docker",
+        "ci",
+        "taste"
+      ],
+      "checked": "2026-11-02",
+      "contentPreview": "\n# Dockerfile and CI taste\n\n# Dockerfile and CI taste\n- Use multi-stage builds and ship only the runtime artifacts in the final stage. Confidence: 0.95\n- Pin base images to a specific version tag, and",
+      "lastModified": "2026-11-03T17:12:56.505Z",
       "isUserOwned": false
     },
     {
@@ -24474,6 +24509,23 @@
       "isUserOwned": false
     },
     {
+      "id": "4_Prompts/Awesome_ChatGPT/General/typescript-library-taste.md",
+      "title": "🤖 TypeScript Library taste",
+      "section": "4_Prompts",
+      "category": "Awesome_ChatGPT",
+      "subcategory": "General",
+      "tags": [
+        "awesome-chatgpt",
+        "typescript",
+        "library",
+        "taste"
+      ],
+      "checked": "2026-11-02",
+      "contentPreview": "\n# TypeScript Library taste\n\n# TypeScript library taste\n- Use pnpm as the package manager. Confidence: 0.95\n- Enable strict mode and noUncheckedIndexedAccess in tsconfig. Confidence: 0.95\n- Build with",
+      "lastModified": "2026-11-03T17:12:56.505Z",
+      "isUserOwned": false
+    },
+    {
       "id": "4_Prompts/Awesome_ChatGPT/General/typescript-unit-testing-with-vitest.md",
       "title": "🤖 TypeScript Unit Testing with Vitest",
       "section": "4_Prompts",
@@ -37376,7 +37428,7 @@
       ],
       "checked": "2026-10-29",
       "contentPreview": "\n# Terraform MCP server\n\nHashiCorp's server for the Terraform Registry (providers, modules, policies) and HCP Terraform / Terraform Enterprise workspaces.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude ",
-      "lastModified": "2026-11-03T17:00:17.347Z",
+      "lastModified": "2026-11-03T17:00:43.447Z",
       "isUserOwned": false
     },
     {
@@ -37453,7 +37505,7 @@
       ],
       "checked": "2026-10-29",
       "contentPreview": "\n# Grafana MCP server\n\nGrafana's server for dashboards, datasource queries (Prometheus, Loki and more), alerting and incidents on your Grafana instance.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mc",
-      "lastModified": "2026-11-03T17:00:17.347Z",
+      "lastModified": "2026-11-03T17:00:43.447Z",
       "isUserOwned": false
     },
     {
