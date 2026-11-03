@@ -5,7 +5,7 @@ category: "Awesome_ChatGPT"
 subcategory: "General"
 upstream:
   match: similar
-  repo: f/awesome-chatgpt-prompts
+  repo: f/prompts.chat
   checked: 2026-10-26
 ---
 

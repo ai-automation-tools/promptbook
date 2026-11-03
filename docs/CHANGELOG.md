@@ -4,6 +4,15 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-03 — Library refresh — prompts and agents
+
+- **Prompts:** GitHub now returns `f/prompts.chat` for `f/awesome-chatgpt-prompts` (renamed; MIT code, CC0 prompt content). `upstream.repo` updated in all 1,351 files under `4_Prompts/Awesome_ChatGPT/`; bodies untouched. The other five source repos (`danielmiessler/Fabric`, `microsoft/prompts-for-edu`, `mustvlad/ChatGPT-System-Prompts`, `rockbenben/ChatGPT-Shortcut`, `f/prompts.chat`) are live, not archived, MIT/CC0.
+- **Agents:** none changed. All 77 entries in `api/upstream-status.json` (checked 2026-10-23) are `current`; no open `upstream/resync` PR.
+
+_Touched: `site/library/4_Prompts/Awesome_ChatGPT/**` (1,351 files), `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-10-30 — Upstream check
 
 Node 26 reached LTS on 2026-10-28 and is now Vercel's default (generally available 2026-10-29), so the Hosting and Node rows say 26, with 24 and 22 still offered; the Node 22 roadmap item now names 26 as an option. The MCP SDK row notes 2.4.0 and the 2026-07-28 spec revision. Queued one roadmap item for the four dependency majors the package is behind on: `dotenv` 18, `archiver` 8, `motion` 14 and `lucide-react` 1.x, where lucide removed the `Github` brand icon that four components import. No code changed.

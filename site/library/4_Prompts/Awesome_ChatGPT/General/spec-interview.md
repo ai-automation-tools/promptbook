@@ -5,7 +5,7 @@ category: "Awesome_ChatGPT"
 subcategory: "General"
 upstream:
   match: similar
-  repo: f/awesome-chatgpt-prompts
+  repo: f/prompts.chat
   path: prompts.csv
   ref: cd7ac608ac794b9249ea62ce630475e5d344470d
   checked: 2026-10-26
