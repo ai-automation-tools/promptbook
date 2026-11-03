@@ -15,6 +15,15 @@ _Touched: `docs/UPSTREAMS.md`, `docs/ROADMAP.md`._
 Two MCP server cards, both vendor-official, install lines read from each README on 2026-10-29. **Grafana** (`6_MCP_Servers/Developer_Tools/grafana.md`): `grafana/mcp-grafana`, Apache-2.0. **Terraform** (`6_MCP_Servers/Cloud_Platforms/terraform.md`): `hashicorp/terraform-mcp-server`, MPL-2.0. Sentry's server was skipped (licence reads "Other", not clearly permissive). No `accept` rows in the discovery ledger; no system prompts or agent definitions added this run.
 
 _Touched: `site/library/6_MCP_Servers/` (2 cards, README count 25), `site/api/prompt-index.json`._
+
+## 2026-11-02 — Two prompts and a subagents guide
+
+**Prompts**, both from f/prompts.chat at d2a57a8 (`prompts.csv`, rows by contributor "f"; CC0): *Dockerfile and CI taste* and *TypeScript library taste*, new under `4_Prompts/Awesome_ChatGPT/General/` (`match: similar`, reshaped to the house format). **Guide:** *Claude Code Subagents Guide* in `1_Guides/Claude_Code/`, repo `anthropics/claude-code`: built-in subagents, file locations and priority, every frontmatter field, how to invoke one, foreground vs background, and the nesting and concurrency limits, all from code.claude.com/docs/en/sub-agents read this run.
+
+_Touched: `site/library/4_Prompts/Awesome_ChatGPT/General/dockerfile-and-ci-taste.md`, `site/library/4_Prompts/Awesome_ChatGPT/General/typescript-library-taste.md`, `site/library/1_Guides/Claude_Code/subagents-guide.md`, `site/api/prompt-index.json`._
+
+---
+
 ## 2026-10-31 — Library data-flow diagram re-pinned
 
 Re-read the cited code after the Express 5 and `checked:` changes and moved the line ranges in `library-data-flow.json` for the `library`, `build`, `index`, `public_api` and `my_api` nodes; no label or card changed, and `--check` is OK at the new pin.
