@@ -249,8 +249,7 @@ curl -s http://localhost:3010/api/prompts | jq '[.[] | select(.isUserOwned == tr
 
 ## ✨ Future Enhancements
 
-- Export My Library as JSON/ZIP
-- Import prompts from file
+- ~~Export My Library as JSON/ZIP~~ and ~~import prompts from file~~: ZIP export and import shipped 2026-10-31 (Settings → My Library)
 - Share My Library with others (read-only link)
 - Organize My Library with custom folders
 - Sync My Library across devices

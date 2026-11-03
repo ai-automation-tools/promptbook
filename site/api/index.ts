@@ -9,7 +9,8 @@ import matter from "../lib/frontmatter.js";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 import archiver from "archiver";
-import { forkExtra, InvalidPromptError, myLibrary, PromptConflictError, pullUpstream, READ_ONLY, upstreamStatus, type UserPrompt } from "../lib/my-library.js";
+import { applyImport, forkExtra, IMPORT_LIMITS, ImportChangedError, InvalidPromptError, libraryFiles, myLibrary, previewImport, PromptConflictError, pullUpstream, READ_ONLY, upstreamStatus, type UserPrompt } from "../lib/my-library.js";
+import { readZip, ZipError } from "../lib/zip.js";
 import { filesUnder, resolveInside } from "../lib/safe-path.js";
 import { LIBRARY_PATH, SKILLS_SECTION, carriedFrontmatter, checkedOf, extractFirstHeading, readLibraryItem, sourceOf, sourceUrlOf, type IndexEntry, type LibraryIndex } from "../lib/library.js";
 import type { IncomingMessage, ServerResponse } from "http";
@@ -504,6 +505,45 @@ app.post("/api/prompts/*path/copy-to-my-prompts", requireWritable, async (req, r
   } catch (error) {
     console.error("Error copying prompt to My Library:", error);
     return res.status(500).json({ error: (error instanceof Error && error.message) || "Failed to copy prompt to My Library" });
+  }
+});
+
+// My Library as a ZIP of its files, byte for byte (the Settings dialog's Export)
+app.get("/api/my-library/export", requireWritable, async (_req, res) => {
+  try {
+    res.setHeader('Content-Type', 'application/zip');
+    res.setHeader('Content-Disposition', `attachment; filename="my-library-${new Date().toISOString().slice(0, 10)}.zip"`);
+    const archive = archiver('zip', { zlib: { level: 6 } });
+    archive.on('error', (err) => {
+      console.error('Archive error:', err);
+      if (!res.headersSent) res.status(500).json({ error: 'Failed to create archive' });
+    });
+    archive.pipe(res);
+    for (const { name, data } of libraryFiles()) archive.append(data, { name });
+    await archive.finalize();
+  } catch (error) {
+    console.error("Error exporting My Library:", error);
+    if (!res.headersSent) res.status(500).json({ error: "Failed to export My Library" });
+  }
+});
+
+// Import a ZIP into My Library. Without `apply` it only reports what would happen
+// (new, unchanged, conflicts, skipped) and writes nothing. With `apply=true` it
+// writes the new files; conflicts are replaced only when `overwrite` is the token
+// that preview returned, so a file is never replaced without being shown first.
+app.post("/api/my-library/import", requireWritable, express.raw({ type: () => true, limit: '50mb' }), (req, res) => {
+  try {
+    if (!Buffer.isBuffer(req.body) || !req.body.length) return res.status(400).json({ error: 'Send the ZIP file as the request body' });
+    const entries = readZip(req.body, { maxEntries: IMPORT_LIMITS.entries, maxEntryBytes: IMPORT_LIMITS.entryBytes });
+    if (req.query.apply !== 'true') return res.json(previewImport(entries));
+    const overwrite = typeof req.query.overwrite === 'string' ? req.query.overwrite : undefined;
+    const { plan, written } = applyImport(entries, overwrite);
+    res.json({ ...plan, written, message: `Imported ${written} ${written === 1 ? 'file' : 'files'} into My Library` });
+  } catch (error) {
+    if (error instanceof ZipError) return res.status(400).json({ error: error.message });
+    if (error instanceof ImportChangedError) return res.status(409).json({ error: error.message });
+    console.error("Error importing into My Library:", error);
+    res.status(500).json({ error: "Failed to import" });
   }
 });
 

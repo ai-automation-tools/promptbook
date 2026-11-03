@@ -35,6 +35,8 @@ const expected = [
   "POST /api/prompts/*path/copy-to-my-prompts",
   "POST /api/prompts/:id/pull-upstream",
   "GET /api/skills/download/*skillPath",
+  "GET /api/my-library/export",
+  "POST /api/my-library/import",
 ];
 
 const missing = expected.filter((r) => !registered.has(r));

@@ -9,6 +9,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import http from "node:http";
+import zlib from "node:zlib";
 
 const dir = fs.mkdtempSync(path.join(os.tmpdir(), "my-library-test-"));
 process.env.MY_LIBRARY_DIR = dir;
@@ -215,6 +216,117 @@ try {
   assert.equal(ok.status, 200, "current version accepted");
   myLibrary.delete(good.id);
 
+  // Export and import: a mixed library round-trips byte for byte, a preview writes
+  // nothing, conflicts are replaced only with the preview's token, and bad archives
+  // (traversal, oversized or lying entries, not a ZIP) are refused whole.
+  const { readZip } = await import("../lib/zip.ts");
+  const zipOf = (entries) => { // a minimal ZIP writer, so the test can build hostile archives
+    const locals = [], centrals = [];
+    let offset = 0;
+    for (const { name, data, deflate = true, claim } of entries) {
+      const body = deflate ? zlib.deflateRawSync(data) : data;
+      const size = claim ?? data.length, crc = zlib.crc32(data), n = Buffer.from(name);
+      const head = (sig, len) => { const b = Buffer.alloc(len); b.writeUInt32LE(sig, 0); return b; };
+      const l = head(0x04034b50, 30);
+      l.writeUInt16LE(deflate ? 8 : 0, 8); l.writeUInt32LE(crc, 14); l.writeUInt32LE(body.length, 18); l.writeUInt32LE(size, 22); l.writeUInt16LE(n.length, 26);
+      const c = head(0x02014b50, 46);
+      c.writeUInt16LE(deflate ? 8 : 0, 10); c.writeUInt32LE(crc, 16); c.writeUInt32LE(body.length, 20); c.writeUInt32LE(size, 24); c.writeUInt16LE(n.length, 28); c.writeUInt32LE(offset, 42);
+      locals.push(l, n, body); centrals.push(c, n);
+      offset += 30 + n.length + body.length;
+    }
+    const cd = Buffer.concat(centrals), end = Buffer.alloc(22);
+    end.writeUInt32LE(0x06054b50, 0); end.writeUInt16LE(entries.length, 8); end.writeUInt16LE(entries.length, 10); end.writeUInt32LE(cd.length, 12); end.writeUInt32LE(offset, 16);
+    return Buffer.concat([...locals, cd, end]);
+  };
+  const snapshot = () => Object.fromEntries(fs.readdirSync(dir).filter(n => n.endsWith(".md")).map(n => [n, fs.readFileSync(path.join(dir, n))]));
+  const importZip = (zip, query = "") => fetch(`${base}/api/my-library/import${query}`, { method: "POST", headers: { "Content-Type": "application/zip" }, body: zip });
+
+  const valid = { section: "4_Prompts", category: "Dev", subcategory: null, tags: [], content: "b" };
+  for (const p of myLibrary.list()) myLibrary.delete(p.id);
+  myLibrary.create({ ...valid, title: "Résumé: 日本語 ✓ — \"quoted\" #1", category: "Café", tags: ["naïve", "😀", "skill-pack:x"], content: "Ünïcode body 🚀\n" });
+  myLibrary.create({ ...valid, title: "my-skill", section: "3_Skills", tags: [], content: "Do it.\n", extra: { name: "my-skill", description: "Use when: testing", license: "MIT", upstream: { repo: "o/r", checked: "2026-10-31" } } });
+  myLibrary.create({ ...valid, title: "Long", content: "long line of text ".repeat(25000) + "\n" }); // ~450 KB
+  fs.writeFileSync(path.join(dir, "hand-written.md"), "---\nzeta: 1\ntitle: By hand\ncategory: Dev\nsection: 4_Prompts\n---\r\nCRLF body\r\n");
+  const original = snapshot();
+  assert.equal(Object.keys(original).length, 4);
+
+  const exported = await fetch(`${base}/api/my-library/export`);
+  assert.equal(exported.status, 200);
+  assert.match(exported.headers.get("content-disposition"), /my-library-\d{4}-\d{2}-\d{2}\.zip/);
+  const zip = Buffer.from(await exported.arrayBuffer());
+  const inZip = readZip(zip, { maxEntries: 10, maxEntryBytes: 600 * 1024 });
+  assert.deepEqual(inZip.map(e => e.name).sort(), Object.keys(original).sort(), "every file exported");
+  for (const e of inZip) assert.ok(e.data.equals(original[e.name]), `${e.name} exported byte for byte`);
+
+  const same = await (await importZip(zip)).json();
+  assert.equal(same.unchanged.length, 4, "re-importing the same library changes nothing");
+  assert.deepEqual([same.added.length, same.conflicts.length, same.skipped.length], [0, 0, 0]);
+
+  for (const n of Object.keys(original)) fs.unlinkSync(path.join(dir, n));
+  const preview = await (await importZip(zip)).json();
+  assert.equal(preview.added.length, 4, "an emptied library would get all four back");
+  assert.deepEqual(snapshot(), {}, "a preview (a cancelled import) writes nothing");
+  const applied = await (await importZip(zip, "?apply=true")).json();
+  assert.equal(applied.written, 4);
+  const restored = snapshot();
+  assert.deepEqual(Object.keys(restored).sort(), Object.keys(original).sort());
+  for (const n of Object.keys(original)) assert.ok(restored[n].equals(original[n]), `${n} round-trips byte for byte`);
+  assert.equal(myLibrary.list().find(p => p.title === "my-skill").extra.upstream.repo, "o/r", "extra frontmatter survives");
+
+  // Conflicts: kept by default, replaced only with the token of the preview that showed them
+  const handFile = path.join(dir, "hand-written.md");
+  fs.writeFileSync(handFile, "---\ntitle: Edited here\ncategory: Dev\nsection: 4_Prompts\n---\nmine\n");
+  const conflictPlan = await (await importZip(zip)).json();
+  assert.deepEqual(conflictPlan.conflicts, [{ id: "hand-written", title: "By hand", currentTitle: "Edited here" }]);
+  assert.equal(conflictPlan.unchanged.length, 3);
+  const kept = await (await importZip(zip, "?apply=true")).json();
+  assert.equal(kept.written, 0, "no token: the conflict is skipped");
+  assert.match(fs.readFileSync(handFile, "utf-8"), /mine/, "local file kept");
+  assert.equal((await importZip(zip, "?apply=true&overwrite=0000000000000000")).status, 409, "a made-up token is refused");
+  fs.writeFileSync(handFile, "---\ntitle: Edited again\ncategory: Dev\nsection: 4_Prompts\n---\nmine 2\n");
+  assert.equal((await importZip(zip, `?apply=true&overwrite=${conflictPlan.token}`)).status, 409, "the file changed after the preview: refused");
+  assert.match(fs.readFileSync(handFile, "utf-8"), /mine 2/);
+  const fresh2 = await (await importZip(zip)).json();
+  const replaced = await (await importZip(zip, `?apply=true&overwrite=${fresh2.token}`)).json();
+  assert.equal(replaced.written, 1);
+  assert.ok(fs.readFileSync(handFile).equals(original["hand-written.md"]), "replaced with the zip's file");
+
+  // Entries that are not prompt files are skipped and named; the rest still import
+  const mixed = zipOf([
+    { name: "notes/readme.txt", data: Buffer.from("x") },
+    { name: "Bad Name.md", data: Buffer.from("---\ntitle: t\n---\nb") },
+    { name: "bad-section.md", data: Buffer.from("---\ntitle: t\nsection: Nope\n---\nb") },
+    { name: "not-utf8.md", data: Buffer.from([0xff, 0xfe, 0x00]) },
+    { name: "good-one.md", data: Buffer.from("---\ntitle: Good\ncategory: Dev\n---\nbody\n"), deflate: false },
+  ]);
+  const mixedPlan = await (await importZip(mixed)).json();
+  assert.deepEqual(mixedPlan.added.map(a => a.id), ["good-one"]);
+  assert.deepEqual(mixedPlan.skipped.map(s => s.name), ["notes/readme.txt", "Bad Name.md", "bad-section.md", "not-utf8.md"]);
+  assert.match(mixedPlan.skipped[2].reason, /section must be one of/);
+  assert.match(mixedPlan.skipped[3].reason, /UTF-8/);
+
+  // Hostile archives are refused whole: nothing from them is written anywhere
+  const before = snapshot();
+  const hostile = {
+    "traversal": zipOf([{ name: "ok.md", data: Buffer.from("---\ntitle: t\n---\nb") }, { name: "../evil.md", data: Buffer.from("---\ntitle: t\n---\nb") }]),
+    "nested traversal": zipOf([{ name: "a/../../evil.md", data: Buffer.from("b") }]),
+    "absolute path": zipOf([{ name: "/evil.md", data: Buffer.from("b") }]),
+    "drive path": zipOf([{ name: "C:evil.md", data: Buffer.from("b") }]),
+    "backslash": zipOf([{ name: "..\\evil.md", data: Buffer.from("b") }]),
+    "oversized entry": zipOf([{ name: "big.md", data: Buffer.alloc(700 * 1024, 97) }]),
+    "entry lying about its size": zipOf([{ name: "bomb.md", data: Buffer.alloc(5 * 1024 * 1024, 97), claim: 10 }]),
+    "not a zip": Buffer.from("just text, no archive"),
+  };
+  for (const [what, body] of Object.entries(hostile)) {
+    const res = await importZip(body, "?apply=true");
+    assert.equal(res.status, 400, `${what} refused`);
+    assert.ok((await res.json()).error, `${what} says why`);
+  }
+  assert.deepEqual(Object.keys(snapshot()).sort(), Object.keys(before).sort(), "no hostile archive wrote a file");
+  assert.ok(!fs.existsSync(path.join(dir, "..", "evil.md")), "nothing written outside the folder");
+  assert.equal(await raw("POST", "/api/my-library/import?apply=true", { Origin: "https://evil.example", "Content-Type": "application/zip" }, zip), 403, "cross-site import refused");
+  for (const p of myLibrary.list()) myLibrary.delete(p.id);
+
   // Pack writes go through the same Origin check as prompt writes
   const [pack] = await getAllPacks();
   const confirm = JSON.stringify({ confirm: true });
@@ -248,4 +360,4 @@ try {
   fs.rmSync(dir, { recursive: true, force: true });
 }
 
-console.log("my-library: file store round-trips, updates in place, rejects path ids, bad fields and stale versions, writes atomically, rolls back failed pack installs, refuses cross-site writes (packs too) and foreign Hosts");
+console.log("my-library: file store round-trips, updates in place, rejects path ids, bad fields and stale versions, writes atomically, rolls back failed pack installs, exports and re-imports byte for byte (conflicts only with the preview token, hostile ZIPs refused), refuses cross-site writes (packs too) and foreign Hosts");

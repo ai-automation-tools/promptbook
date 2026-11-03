@@ -21,6 +21,16 @@ Re-read the cited code after the Express 5 and `checked:` changes and moved the 
 
 _Touched: `docs/diagrams/library-data-flow.*`, `homepage/diagram/library-data-flow.*`._
 
+## 2026-10-31 — My Library export and import (O01)
+
+**Settings → My Library.** Two new controls, hidden on the read-only demo. *Export .zip* downloads `my-library-<date>.zip`: every `<id>.md` file in the folder, byte for byte, so frontmatter the store does not manage (a skill's `name`, `license`, `upstream:`) comes along. *Import .zip* previews first and writes nothing: how many files are new, already here, different from yours (listed by id and title, with your title beside it), and skipped (with the reason: not `<id>.md` at the top of the ZIP, not UTF-8, unparseable frontmatter, or a field the store would refuse). Then *Import N new* keeps every file of yours, *Import and replace K* also replaces the listed ones, and *Cancel* leaves the folder as it was.
+
+**Server.** `GET /api/my-library/export` and `POST /api/my-library/import` (body: the ZIP). Without `apply=true` the import is only a plan; with it, new files are written exactly as zipped, and a differing file is replaced only when `overwrite` carries the token of the preview that listed it, so if a file changed after the preview the import is refused with a 409 and nothing is written. Both routes are 403 under `READ_ONLY`, and the import is a write, so the cross-site Origin check covers it. `lib/zip.ts` is a small ZIP reader (stored and deflate) rather than a new dependency: it refuses the whole archive on a name that could leave the folder (`..`, absolute, drive, backslash), an entry over 564 KB or one that inflates past that whatever size it claims, more than 5,000 entries, ZIP64, encryption or a bad checksum.
+
+**Checks.** `test:my-library` round-trips a mixed library (Unicode title, tags and category, a skill with nested extra frontmatter, a 450 KB body, a hand-written file with CRLF line ends) through HTTP byte for byte, and covers the cancel, keep-mine, made-up-token and changed-since-preview cases, skipped entries, eight hostile archives, and a cross-site import. The traversal, size and token guards were each broken in turn to confirm the test fails without them. `test:browser` exports, deletes, previews and imports through the real Settings dialog; `test:read-only` 403s both routes; `test:routes` pins eleven routes.
+
+_Touched: `site/lib/zip.ts` (new), `site/lib/my-library.ts`, `site/api/index.ts`, `site/src/components/MyLibraryTransfer.tsx` (new), `site/src/components/SettingsModal.tsx`, `site/src/App.tsx`, `site/scripts/my-library.test.mjs`, `site/scripts/read-only.test.mjs`, `site/scripts/api-routes.test.mjs`, `site/scripts/browser-smoke.test.mjs`, `AGENTS.md`, `README.md`, `docs/ARCHITECTURE.md`, `docs/features/API.md`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`, `docs/ROADMAP.md`._
+
 ---
 
 ## 2026-10-27 — Library refresh — guides
