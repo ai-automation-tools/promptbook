@@ -46,7 +46,7 @@ The write routes are `POST /api/prompts`, `PUT /api/prompts/:id`, `DELETE /api/p
 
 | Library | Id looks like | Where it lives |
 |:---|:---|:---|
-| Public | `4_Prompts/Awesome_ChatGPT/General/emoji-translator.md` (path under `site/library/`, forward slashes) | `site/library/` |
+| Public | `4_Prompts/Fabric/Summarize/summarize.md` (path under `site/library/`, forward slashes) | `site/library/` |
 | My Library | `market-research-plan-3fa9c1` (bare file name, no `.md`, no `/`) | `MY_LIBRARY_DIR`, default `site/my-library/` |
 
 `GET /api/prompts/:id` uses the slash to tell them apart. My Library ids match
@@ -122,7 +122,7 @@ since the lightweight listing ships none.
 
 **Request:**
 ```json
-{ "ids": ["1_Guides/API_Providers/anthropic_api_guide.md", "4_Prompts/Awesome_ChatGPT/General/x.md"] }
+{ "ids": ["1_Guides/API_Providers/anthropic_api_guide.md", "4_Prompts/Fabric/Summarize/summarize.md"] }
 ```
 
 **Response (200 OK):** a map of id → first 200 characters of the body.
@@ -346,7 +346,7 @@ The copy also gets `forked_from` (the public id) and `forked_hash` (a hash of th
 as copied), which `upstream` and `pull-upstream` compare against. **Write route: `403` in read-only mode.**
 
 **URL Parameters:**
-- `path`: public prompt path, e.g. `4_Prompts/Awesome_ChatGPT/General/emoji-translator.md`
+- `path`: public prompt path, e.g. `4_Prompts/Fabric/Summarize/summarize.md`
 
 **Request:** no body.
 

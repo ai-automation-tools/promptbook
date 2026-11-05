@@ -17,8 +17,6 @@ by its author until attributed.
 Prompts under site/library/4_Prompts/ come from public collections, one
 top-level folder each:
 
-- Awesome_ChatGPT/ derives from f/awesome-chatgpt-prompts, now
-  f/prompts.chat (prompt data CC0 1.0).
 - Fabric/ derives from danielmiessler/Fabric, data/patterns/*/system.md
   (MIT License, Copyright (c) 2012-2024 Scott Chacon and others).
 - ChatGPT_Shortcut/ derives from rockbenben/ChatGPT-Shortcut,

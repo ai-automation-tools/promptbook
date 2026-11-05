@@ -4,6 +4,19 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-05 — Node 24, actions v7, Awesome ChatGPT removed
+
+Four roadmap items Mike approved.
+
+- **Node 24.** CI and `upstream-drift.yml` run on `node-version: "24"`, `@types/node` is `^24.19.2`, and `site/package.json` pins `engines.node` to `24.x`, which Vercel reads over the project setting. The Vercel project was already on `24.x`. Node 22 reaches end of life on 2027-04-30. Every CI step passes locally on Node 24.22.1.
+- **Actions v7.** `ci.yml` (both jobs) and `upstream-drift.yml` use `actions/checkout@v7` and `actions/setup-node@v7`, the major `homepage.yml` already used. v4 ran on Node 20.
+- **Stale branch.** `roadmap/auto-2026-08-31` (PR #332, closed unmerged) is deleted on origin. Its one commit renamed the attribution tier `behind` to `similar`, which PR #330 had already merged.
+- **Awesome ChatGPT removed.** Mike: "we don't need it". `site/library/4_Prompts/Awesome_ChatGPT/` (1,353 prompts from `f/prompts.chat`, formerly `f/awesome-chatgpt-prompts`) is deleted, not archived, and `api/prompt-index.json` is rebuilt: 2,167 items to 814. NOTICE drops its CC0 attribution; `AGENTS.md`, `docs/CONTRIBUTING.md`, `docs/features/API.md`, `docs/features/MCP-SERVER.md`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`, `docs/templates/`, the MCP server's instructions and one `test:mcp` refusal case now use Fabric examples. The two prompts that declared `inputs:` were both in the removed folder, so `ChatGPT_Shortcut/Pedagogy/quiz-assistant.md` now declares its `[TOPIC]` (frontmatter only; the body is untouched) and `test:mcp` keeps a real declared-input prompt to check. Old ids degrade quietly: a starred removed prompt drops out of Favorites (`useFavoritePrompts` skips an id that no longer resolves), a `?prompt=` link to one opens the library with no item selected, and My Library copies are independent files, so nothing breaks.
+
+_Touched: `.github/workflows/ci.yml`, `.github/workflows/upstream-drift.yml`, `site/package.json`, `site/package-lock.json`, `site/library/4_Prompts/` (README, `Awesome_ChatGPT/` deleted), `site/api/prompt-index.json`, `site/library/4_Prompts/ChatGPT_Shortcut/Pedagogy/quiz-assistant.md`, `site/mcp/server.ts`, `site/scripts/mcp-server.test.mjs`, `site/scripts/my-library.test.mjs`, `NOTICE`, `AGENTS.md`, `docs/CONTRIBUTING.md`, `docs/features/`, `docs/templates/`, `docs/UPSTREAMS.md`, `docs/README.md`, `docs/ROADMAP.md`._
+
+---
+
 ## 2026-11-03 — Library refresh — prompts and agents
 
 - **Prompts:** GitHub now returns `f/prompts.chat` for `f/awesome-chatgpt-prompts` (renamed; MIT code, CC0 prompt content). `upstream.repo` updated in all 1,351 files under `4_Prompts/Awesome_ChatGPT/`; bodies untouched. The other five source repos (`danielmiessler/Fabric`, `microsoft/prompts-for-edu`, `mustvlad/ChatGPT-System-Prompts`, `rockbenben/ChatGPT-Shortcut`, `f/prompts.chat`) are live, not archived, MIT/CC0.

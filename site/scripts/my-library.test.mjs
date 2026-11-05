@@ -53,10 +53,10 @@ try {
   myLibrary.delete(skill.id);
 
   // The source link round-trips, survives an update that doesn't send it, and clears with ""
-  const linked = myLibrary.create({ title: "Linked", section: "4_Prompts", category: "Dev", subcategory: null, tags: [], content: "Body", sourceUrl: "https://github.com/f/awesome-chatgpt-prompts" });
-  assert.match(fs.readFileSync(path.join(dir, `${linked.id}.md`), "utf-8"), /\nsource_url: '?https:\/\/github\.com\/f\/awesome-chatgpt-prompts'?\n/);
+  const linked = myLibrary.create({ title: "Linked", section: "4_Prompts", category: "Dev", subcategory: null, tags: [], content: "Body", sourceUrl: "https://github.com/danielmiessler/Fabric" });
+  assert.match(fs.readFileSync(path.join(dir, `${linked.id}.md`), "utf-8"), /\nsource_url: '?https:\/\/github\.com\/danielmiessler\/Fabric'?\n/);
   myLibrary.update(linked.id, { tags: ["t"] });
-  assert.equal(myLibrary.get(linked.id).sourceUrl, "https://github.com/f/awesome-chatgpt-prompts");
+  assert.equal(myLibrary.get(linked.id).sourceUrl, "https://github.com/danielmiessler/Fabric");
   assert.equal(myLibrary.get(linked.id).extra.source_url, undefined, "managed, not extra");
   myLibrary.update(linked.id, { sourceUrl: "" });
   assert.equal(myLibrary.get(linked.id).sourceUrl, null);

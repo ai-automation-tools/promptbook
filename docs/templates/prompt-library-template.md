@@ -6,7 +6,7 @@ subcategory: "[Subcategory_Name]"
 # A prompt copied from a public collection names it, so the card shows the repo link at the top:
 # upstream:
 #   match: similar            # exact | similar (our copy is reformatted into this template)
-#   repo: [owner/repo]        # e.g. f/awesome-chatgpt-prompts
+#   repo: [owner/repo]        # e.g. danielmiessler/Fabric
 #   checked: [YYYY-MM-DD]
 ---
 

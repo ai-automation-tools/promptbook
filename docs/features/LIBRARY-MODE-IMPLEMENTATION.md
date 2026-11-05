@@ -112,8 +112,8 @@ Current behavior: Copies to `My_Prompts/<category>/<subcategory>/`
 
 **Recommendation**: 
 ```
-Source: 4_Prompts/Awesome_ChatGPT/General/emoji-translator.md
-Target: My_Prompts/Prompt_Library/Awesome_ChatGPT/General/emoji-translator.md
+Source: 4_Prompts/Fabric/Summarize/summarize.md
+Target: My_Prompts/Prompt_Library/Fabric/Summarize/summarize.md
          ^^^^^^^^^ (new top-level section for all user-owned)
 ```
 
