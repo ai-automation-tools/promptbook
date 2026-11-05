@@ -4,6 +4,19 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-05 — Node 24, actions v7, and two loose ends
+
+Four roadmap items Mike approved.
+
+- **Node 24.** CI and `upstream-drift.yml` run on `node-version: "24"`, `@types/node` is `^24.19.2`, and `site/package.json` pins `engines.node` to `24.x`, which Vercel reads over the project setting. The Vercel project was already on `24.x`. Node 22 reaches end of life on 2027-04-30. Every CI step passes locally on Node 24.22.1.
+- **Actions v7.** `ci.yml` (both jobs) and `upstream-drift.yml` use `actions/checkout@v7` and `actions/setup-node@v7`, the major `homepage.yml` already used. v4 ran on Node 20.
+- **Stale branch.** `roadmap/auto-2026-08-31` (PR #332, closed unmerged) is deleted on origin. Its one commit renamed the attribution tier `behind` to `similar`, which PR #330 had already merged.
+- **Awesome ChatGPT frozen.** `4_Prompts/Awesome_ChatGPT/` stays a dated capture of `f/prompts.chat` (captured 2026-03-13, split 2026-08-27) with no resync job. `4_Prompts/README.md` records the decision; the drift check already skipped `4_Prompts`.
+
+_Touched: `.github/workflows/ci.yml`, `.github/workflows/upstream-drift.yml`, `site/package.json`, `site/package-lock.json`, `site/library/4_Prompts/README.md`, `docs/UPSTREAMS.md`, `docs/README.md`, `docs/ROADMAP.md`._
+
+---
+
 ## 2026-11-03 — Library refresh — prompts and agents
 
 - **Prompts:** GitHub now returns `f/prompts.chat` for `f/awesome-chatgpt-prompts` (renamed; MIT code, CC0 prompt content). `upstream.repo` updated in all 1,351 files under `4_Prompts/Awesome_ChatGPT/`; bodies untouched. The other five source repos (`danielmiessler/Fabric`, `microsoft/prompts-for-edu`, `mustvlad/ChatGPT-System-Prompts`, `rockbenben/ChatGPT-Shortcut`, `f/prompts.chat`) are live, not archived, MIT/CC0.

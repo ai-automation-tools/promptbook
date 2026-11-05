@@ -6,7 +6,7 @@ top; `scripts/upstream.test.mjs` fails CI on a prompt without one.
 
 ```
 4_Prompts/
-├── Awesome_ChatGPT/General/       # f/awesome-chatgpt-prompts, 1,349 prompts
+├── Awesome_ChatGPT/General/       # f/prompts.chat (was f/awesome-chatgpt-prompts), 1,353 prompts, frozen
 ├── Fabric/<Topic>/                # danielmiessler/Fabric patterns, 265 prompts (match: exact)
 ├── ChatGPT_Shortcut/<Tag>/        # rockbenben/ChatGPT-Shortcut, 119 prompts
 ├── ChatGPT_System_Prompts/<Group>/  # mustvlad/ChatGPT-System-Prompts, 38 prompts
@@ -19,6 +19,23 @@ is the pattern's `system.md` byte for byte, so the weekly drift resync keeps it 
 others were reshaped from JSON or Markdown sections and are `match: similar`. ChatGPT-Shortcut
 cards that it copied from Awesome ChatGPT, and any prompt whose title is already here, were
 left out.
+
+## Awesome ChatGPT is a frozen capture
+
+`Awesome_ChatGPT/` is a dated snapshot of one upstream corpus, not a mirror, and nothing
+resyncs it (Mike's decision, 2026-11-05).
+
+- **Upstream:** [`f/prompts.chat`](https://github.com/f/prompts.chat), renamed from
+  `f/awesome-chatgpt-prompts`. CC0 prompt content, MIT code.
+- **Captured:** the corpus came in as two bulk files on 2026-03-13 and was split into 1,349
+  files on 2026-08-27 (commit `4d692924`). Four prompts copied individually later (2026-10-26
+  and 2026-11-02) sit beside them, each with its own `checked:` date.
+- **What frozen means:** no scheduled resync, and the drift check
+  (`scripts/check-upstream-drift.mjs`, which walks only `2_Agents`, `3_Skills` and
+  `5_System_Prompts`) does not read it. Bodies are never edited to match upstream. The
+  Prompts & Agents Refresh still checks that the repo exists and follows a rename in
+  `upstream.repo`; that is attribution, not content. Resyncing would need a drift check that
+  reads upstream's single `prompts.csv`; that is a new decision for Mike, not a fix.
 
 The hand-written categories that used to live here (AI_ML, Business, Content, Engineering,
 Finance, Media, …) named no repo and were moved, paths intact, to
