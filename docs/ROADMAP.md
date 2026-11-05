@@ -14,14 +14,14 @@
 
 The Prompt-Library roadmap routine works this file top to bottom every Saturday night, once
 the weekly upstream-drift issue has no `behind` entries: it takes the first open item that
-isn't `🔒 Needs Mike`, builds it, ticks it, and adds the matching line to the
+isn't `🔒 Needs owner`, builds it, ticks it, and adds the matching line to the
 [changelog](CHANGELOG.md). **Every item above `## After public release` is a release gate**
 for the next release; the repo itself has been public since 2026-10-12. Ticking an item adds
 its line to the changelog and updates any doc it made stale, in the same commit.
 
 Markers: `- [ ]` open, `- [-]` claimed by a run in progress, `- [x]` done, `- [!]` blocked
-(the reason follows on the line). `small` marks an item a check verifies; `🔒 Needs Mike`
-marks one only Mike can do.
+(the reason follows on the line). `small` marks an item a check verifies; `🔒 Needs owner`
+marks one only the owner can do.
 
 > [!NOTE]
 > **Where we are, 2026-10-31.** The app is local-first (clone and run; My Library is a folder
@@ -87,16 +87,16 @@ Nothing below blocks go-live.
 
 ### 🧾 Content provenance
 
-- [ ] Decide whether a skill's `description:` is our curation or upstream content. Resync keeps the whole local frontmatter, so bodies match upstream while some descriptions are a year old, and the drift check strips frontmatter so it cannot see the gap. Done when resync and the drift report both handle `description` per the decision 🔒 Needs Mike
+- [ ] Decide whether a skill's `description:` is our curation or upstream content. Resync keeps the whole local frontmatter, so bodies match upstream while some descriptions are a year old, and the drift check strips frontmatter so it cannot see the gap. Done when resync and the drift report both handle `description` per the decision 🔒 Needs owner
 - [x] **O02** Freshness on the listing cards. The item page's Source panel already shows the repo, the copied-at commit, the last check date and the drift verdict (2026-10-26); the cards in the grid show none of it. The index carries `upstream.checked` (`server.checked` for MCP cards) and a card shows a stale badge when the last check is over 90 days old, with no "verified" claim the data cannot back. The index stays reproducible, no private path reaches a public payload, and the CI freshness gate knows the new field — done 2026-10-27: the index and the live walk carry `checked` (`checkedOf()` in `lib/library.ts`: `upstream.checked`, `server.checked` or a guide's `checked:`), on 2,071 of 2,162 items. A card shows "checked <date>" in place of the file's mtime, and a `stale` chip past 90 days (`src/lib/freshness.ts`); undated items (most guides, the library cards) show neither. `test:read-only` checks the index and the walk agree and pins the 90-day edge. The walk also stopped listing three lowercase `readme.md` files the index skips
-- [ ] `lastModified` from `git log` instead of file mtime, so an item without a check date shows when it last changed rather than when the checkout wrote it. Needs a Vercel preview to prove the shallow clone has the history 🔒 Needs Mike
+- [ ] `lastModified` from `git log` instead of file mtime, so an item without a check date shows when it last changed rather than when the checkout wrote it. Needs a Vercel preview to prove the shallow clone has the history 🔒 Needs owner
 - [x] Stamp `upstream:` provenance on `4_Prompts` and `5_System_Prompts` files that came from a public repo, with `attribute-upstream.mjs` learning single-file prompts. Done when the Monday health table's "no provenance" column drops for both sections — done 2026-10-26, differently: system prompts were stamped on 2026-10-23 (`attribute-system-prompts.mjs`), the 1,349 Awesome ChatGPT prompts carry `upstream: f/awesome-chatgpt-prompts` (one corpus, so no per-file matcher was needed), and the 669 prompts with no public source were archived rather than attributed. CI (`upstream.test.mjs`) now fails on an unstamped prompt or guide, which is a stronger gate than the health column
 - [x] Raise skill attribution above its current share: 60 skills are `ambiguous` and 163 `unknown`. Matching support files as well as `SKILL.md` against the mirror is the likely lever — done 2026-10-27, differently: the unattributed skills all came from multi-skill repos, which became library cards (each names its repo), and the copies were archived. The 32 single skills left are 25 `exact`, 5 `similar` and 2 `fork`, none `ambiguous` or `unknown`
 - [x] **F17** The provenance self-check tells original, attributed and unresolved records apart and checks each has the metadata its kind needs, and a sampled Skill Pack ZIP is verified to carry its `LICENSE`/`NOTICE` files. Today the frontmatter tests prove syntax and vocabulary, not that content may be redistributed — done 2026-10-27: `scripts/upstream.test.mjs` checks originals (guides, library cards: no upstream block), attributed records (`repo`, `checked`, a fork's `note`, a vendor's `url`) and fails on unresolved ones, and every skill needs a redistributable `license:` and a LICENSE beside it (`scripts/vendor-skill-licenses.mjs`; 26 were added). `test:read-only` opens a skill ZIP and every pack ZIP and checks each skill's LICENSE is in it. Four skills had no redistributable licence and were archived with one unindexed `SKILL.MD`, to `archive/unlicensed-2026-10-27/`. The repo's own `NOTICE` is not added to ZIPs
 
 ### ✨ Features
 
-- [ ] Decide what Skill Packs are for, now that three small hand-picked packs are left (`developer-essentials-pack` 2 skills, `writing-documentation-pack` 2, `prediction-markets-pack` 1): grow them, fold them into the starter collections below, or retire the Packs view 🔒 Needs Mike
+- [ ] Decide what Skill Packs are for, now that three small hand-picked packs are left (`developer-essentials-pack` 2 skills, `writing-documentation-pack` 2, `prediction-markets-pack` 1): grow them, fold them into the starter collections below, or retire the Packs view 🔒 Needs owner
 - [ ] Role-based starter collections for prompts and agents (a "frontend engineer" or "founder" set), installable into My Library in one step the way a Skill Pack is. Done when at least three collections exist, each installs and uninstalls cleanly in a test, and the read-only demo serves them without the install button. Wait for the Skill Packs decision above, which may make the two one feature
 - [x] **O01** Export My Library as a zip, and import one, from Settings. Done when a mixed library (Unicode names, tags, extra frontmatter, long bodies) round-trips identically, an import never overwrites without showing the conflicts first, archive traversal and oversized entries are refused, and a cancelled import changes nothing. Its prerequisites F05–F07 are done — done 2026-10-31: Settings → My Library has Export .zip and Import .zip (`src/components/MyLibraryTransfer.tsx`), over `GET /api/my-library/export` and `POST /api/my-library/import`. Export is the folder's `<id>.md` files byte for byte; import previews first (writes nothing: new, unchanged, conflicts, skipped with reasons), writes files exactly as zipped, and replaces a differing file only with the token of the preview that listed it (a file changed since then makes it a 409). `lib/zip.ts` reads the ZIP and refuses the whole archive on a traversal name, an entry over 564 KB or one that inflates past it, ZIP64 or encryption. `test:my-library` round-trips Unicode titles and tags, a skill's extra frontmatter, a 450 KB body and a hand-written CRLF file byte for byte, and checks the conflict, cancel and hostile-archive cases; `test:browser` exports, previews and imports through the real dialog; `test:read-only` 403s both
 - [x] **O03** Library prompts with `[placeholder]` fields expose them as MCP prompt arguments, so a client asks for each value instead of one free-text `input`. Driven by an explicit, optional `inputs:` list in frontmatter, not by guessing at every bracketed phrase: declared inputs are required, unknown placeholders and literals are left alone, no template code runs, and the free-text `input` keeps working for existing clients — done 2026-10-27: `lib/prompt-inputs.ts` validates the list and fills in one literal pass; the index carries `inputs` for prompts that declare it, and the MCP server registers each such prompt by name with a required argument per input (My Library prompts too). Two Awesome ChatGPT prompts declare `[topic]` to start. `test:mcp` covers parsing, filling, required arguments and a My Library prompt, and fails on an invalid declaration in the library. `library_prompt` keeps `id` + `input` only
@@ -104,10 +104,10 @@ Nothing below blocks go-live.
 
 ### 📣 Publish and promote
 
-- [ ] Remote read-only endpoint on the demo: Streamable HTTP at `/api/mcp` on Vercel, read tools and MCP prompts only, no write tools registered, a per-IP rate limit, and the CSP and headers the rest of the API has. Proved by a deployed smoke test with a real MCP client 🔒 Needs Mike (it opens a new public endpoint)
-- [ ] Publish the stdio server as an npm package so `npx promptbook-mcp` works without a clone, with the library bundled or fetched from the demo 🔒 Needs Mike (npm account and package name)
-- [ ] List the server in the official MCP registry (`modelcontextprotocol/registry`) once it is on npm 🔒 Needs Mike
-- [ ] Launch post for the MCP server once it installs without a clone (the npm item above), linked from the org landing page card 🔒 Needs Mike
+- [ ] Remote read-only endpoint on the demo: Streamable HTTP at `/api/mcp` on Vercel, read tools and MCP prompts only, no write tools registered, a per-IP rate limit, and the CSP and headers the rest of the API has. Proved by a deployed smoke test with a real MCP client 🔒 Needs owner (it opens a new public endpoint)
+- [ ] Publish the stdio server as an npm package so `npx promptbook-mcp` works without a clone, with the library bundled or fetched from the demo 🔒 Needs owner (npm account and package name)
+- [ ] List the server in the official MCP registry (`modelcontextprotocol/registry`) once it is on npm 🔒 Needs owner
+- [ ] Launch post for the MCP server once it installs without a clone (the npm item above), linked from the org landing page card 🔒 Needs owner
 
 ---
 

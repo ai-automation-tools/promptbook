@@ -46,13 +46,13 @@ public). When this page and a roadmap disagree, this page wins.
    heading says *"Nothing below blocks go-live."*
 6. **Tags.** Right after the marker, `` `small` `` (in backticks) marks an item a CI check or named command
    verifies (docs, config, assets), so a routine can batch up to four of them. At the end of
-   the line, `🔒 Needs Mike` marks work only the owner can do; routines skip it and the sweep
+   the line, `🔒 Needs owner` marks work only the owner can do; routines skip it and the sweep
    reports it.
 7. **Items are checkable by someone else.** `- [ ] Stripe checkout live in test mode, one plan,
    receipt email sends`, not `- [ ] Payments`. The text says what "done" looks like and, where
    one exists, the test or command that proves it.
 8. **Order is priority.** Phases top to bottom, items top to bottom within a phase. Routines
-   take the first open item that isn't `🔒 Needs Mike`, gates first.
+   take the first open item that isn't `🔒 Needs owner`, gates first.
 9. **Check, don't delete.** Done items stay as `- [x]` with their note. A phase that is
    entirely done may be collapsed to its heading plus one line pointing at the changelog,
    once it's more than a screen long. An item that became obsolete is removed in a commit
@@ -84,8 +84,8 @@ go-live⟩` is a go-live gate.** Ticking an item adds its line to the [changelog
 and updates any doc it made stale, in the same commit.
 
 Markers: `- [ ]` open, `- [-]` claimed by a run in progress, `- [x]` done, `- [!]` blocked
-(the reason follows on the line). `small` marks an item a check verifies; `🔒 Needs Mike`
-marks one only Mike can do.
+(the reason follows on the line). `small` marks an item a check verifies; `🔒 Needs owner`
+marks one only the owner can do.
 
 > [!NOTE]
 > **Where we are, ⟨YYYY-MM-DD⟩.** ⟨Two or three sentences: what's done, what's next, what's
@@ -99,14 +99,14 @@ marks one only Mike can do.
 
 - [ ] ⟨Feature, with what proves it: "(unit test for …; smoke test on both profiles)"⟩
 - [ ] `small` ⟨Config or doc change a check verifies⟩
-- [ ] ⟨A decision only Mike can make⟩ 🔒 Needs Mike
+- [ ] ⟨A decision only the owner can make⟩ 🔒 Needs owner
 
 ## 🚦 ⟨Public release | Go-live⟩
 
 - [ ] CI green on push and PR: lint, typecheck, tests
 - [ ] README usage verified against the real code from a clean clone
 - [ ] `SECURITY.md`, and a full-history secret scan that comes back clean
-- [ ] Licence chosen and `LICENSE` added 🔒 Needs Mike
+- [ ] Licence chosen and `LICENSE` added 🔒 Needs owner
 - [ ] ⟨Live at its URL / installed where it runs⟩
 
 ## ⟨After public release | After go-live⟩
