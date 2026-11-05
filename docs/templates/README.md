@@ -19,7 +19,7 @@ This template is for traditional prompt engineering - creating reusable prompts 
 - Support for "featured" tag
 
 **Example Subcategories:** one folder per source collection, then the collection's own grouping
-- 4_Prompts/Awesome_ChatGPT/General
+- 4_Prompts/Fabric/Summarize
 - 4_Prompts/<Another_Collection>/<Its_Category>
 
 (The hand-written categories, `Business/`, `Engineering/` and the rest, were archived on 2026-10-26: a

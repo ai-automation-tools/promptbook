@@ -4,6 +4,9 @@ description: "Studying hard? Assess your understanding with specific, detailed q
 tags: ["chatgpt-shortcut","pedagogy","quiz","assistant"]
 category: "ChatGPT_Shortcut"
 subcategory: "Pedagogy"
+inputs:
+  - name: TOPIC
+    description: The subject you are studying, e.g. "organic chemistry"
 upstream:
   match: similar
   repo: rockbenben/ChatGPT-Shortcut

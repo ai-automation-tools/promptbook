@@ -142,7 +142,7 @@ try {
   await ok(client, 'get_skill_file', { skill: skill.dir, path: skill.file });
   await refused(client, 'get_skill_file', { skill: skill.dir, path: '../../../../../.env' });
   await refused(client, 'get_skill_file', { skill: skill.dir, path: '../../../../api/index.ts' });
-  await refused(client, 'get_skill', { id: '4_Prompts/Awesome_ChatGPT' });
+  await refused(client, 'get_skill', { id: '4_Prompts/Fabric' });
   await refused(client, 'get_skill', { id: '3_Skills/../../api' });
 
   assert.match(await ok(client, 'list_skill_packs'), /developer-essentials-pack/);

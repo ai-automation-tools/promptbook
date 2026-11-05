@@ -279,7 +279,7 @@ is copied in as a `SKILL.md` folder. The 224 copies this replaced are in
   six sections: `sourceOf()` in `lib/library.ts` reads `upstream.repo`, `server.repo`, or a
   guide's bare `repo:` (the tool the guide documents, since a guide is written here, not
   copied). Prompts copied from a collection carry an `upstream:` block too
-  (`match: similar`, `repo: f/awesome-chatgpt-prompts`). `scripts/upstream.test.mjs` fails CI
+  (for example `match: exact`, `repo: danielmiessler/Fabric`). `scripts/upstream.test.mjs` fails CI
   on a prompt or guide without one. The 670 hand-written prompts and 28 guides that had no
   repo were moved, paths intact, to `archive/unlinked-2026-10-26/` at the repo root (outside
   the deploy root, so nothing serves or indexes them); restore one by moving it back and
