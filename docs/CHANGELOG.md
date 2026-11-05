@@ -1348,7 +1348,7 @@ _Touched: `homepage/*`, `.github/workflows/homepage.yml`, `.github/workflows/ci.
   a full-history secret scan), and the Later groups, the maintenance cadence and the
   earlier-work summary under `## After public release`. Wrapped items are one line each, the
   strike-through on done items is gone, and the items that need Mike (the Neon rotation, the
-  real `DATABASE_URL`, the two "decide" items) carry `🔒 Needs Mike`. The `\r\n` in the
+  real `DATABASE_URL`, the two "decide" items) carry `🔒 Needs owner`. The `\r\n` in the
   line-endings item, which had been written as a literal line break, is restored.
 
 _Touched: `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
