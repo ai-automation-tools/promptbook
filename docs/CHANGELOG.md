@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-06 — Docs sweep
+
+Section headers on `docs/README.md` and `docs/skill-packs/README.md`, a footer on the root README, and `README.md` indexes for `docs/setup/`, `docs/features/` and `docs/development/`. The Skill Packs guide now links its Quick Start, and its two broken pack anchors point at "Existing Packs". The two dead `audits/` links below (removed 2026-10) are plain text now, and the 2026-11-02 entry moved into date order.
+
+_Touched: `README.md`, `docs/README.md`, `docs/skill-packs/README.md`, `docs/setup/README.md`, `docs/features/README.md`, `docs/development/README.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-05 — Node 24, actions v7, Awesome ChatGPT removed
 
 Four roadmap items Mike approved.
@@ -26,6 +34,14 @@ _Touched: `site/library/4_Prompts/Awesome_ChatGPT/**` (1,351 files), `site/api/p
 
 ---
 
+## 2026-11-02 — Two prompts and a subagents guide
+
+**Prompts**, both from f/prompts.chat at d2a57a8 (`prompts.csv`, rows by contributor "f"; CC0): *Dockerfile and CI taste* and *TypeScript library taste*, new under `4_Prompts/Awesome_ChatGPT/General/` (`match: similar`, reshaped to the house format). **Guide:** *Claude Code Subagents Guide* in `1_Guides/Claude_Code/`, repo `anthropics/claude-code`: built-in subagents, file locations and priority, every frontmatter field, how to invoke one, foreground vs background, and the nesting and concurrency limits, all from code.claude.com/docs/en/sub-agents read this run.
+
+_Touched: `site/library/4_Prompts/Awesome_ChatGPT/General/dockerfile-and-ci-taste.md`, `site/library/4_Prompts/Awesome_ChatGPT/General/typescript-library-taste.md`, `site/library/1_Guides/Claude_Code/subagents-guide.md`, `site/api/prompt-index.json`._
+
+---
+
 ## 2026-10-30 — Upstream check
 
 Node 26 reached LTS on 2026-10-28 and is now Vercel's default (generally available 2026-10-29), so the Hosting and Node rows say 26, with 24 and 22 still offered; the Node 22 roadmap item now names 26 as an option. The MCP SDK row notes 2.4.0 and the 2026-07-28 spec revision. Queued one roadmap item for the four dependency majors the package is behind on: `dotenv` 18, `archiver` 8, `motion` 14 and `lucide-react` 1.x, where lucide removed the `Github` brand icon that four components import. No code changed.
@@ -37,14 +53,6 @@ _Touched: `docs/UPSTREAMS.md`, `docs/ROADMAP.md`._
 Two MCP server cards, both vendor-official, install lines read from each README on 2026-10-29. **Grafana** (`6_MCP_Servers/Developer_Tools/grafana.md`): `grafana/mcp-grafana`, Apache-2.0. **Terraform** (`6_MCP_Servers/Cloud_Platforms/terraform.md`): `hashicorp/terraform-mcp-server`, MPL-2.0. Sentry's server was skipped (licence reads "Other", not clearly permissive). No `accept` rows in the discovery ledger; no system prompts or agent definitions added this run.
 
 _Touched: `site/library/6_MCP_Servers/` (2 cards, README count 25), `site/api/prompt-index.json`._
-
-## 2026-11-02 — Two prompts and a subagents guide
-
-**Prompts**, both from f/prompts.chat at d2a57a8 (`prompts.csv`, rows by contributor "f"; CC0): *Dockerfile and CI taste* and *TypeScript library taste*, new under `4_Prompts/Awesome_ChatGPT/General/` (`match: similar`, reshaped to the house format). **Guide:** *Claude Code Subagents Guide* in `1_Guides/Claude_Code/`, repo `anthropics/claude-code`: built-in subagents, file locations and priority, every frontmatter field, how to invoke one, foreground vs background, and the nesting and concurrency limits, all from code.claude.com/docs/en/sub-agents read this run.
-
-_Touched: `site/library/4_Prompts/Awesome_ChatGPT/General/dockerfile-and-ci-taste.md`, `site/library/4_Prompts/Awesome_ChatGPT/General/typescript-library-taste.md`, `site/library/1_Guides/Claude_Code/subagents-guide.md`, `site/api/prompt-index.json`._
-
----
 
 ## 2026-10-31 — Library data-flow diagram re-pinned
 
@@ -2568,7 +2576,7 @@ SKILL.md since — not `behind`.
 
 The two branches resynced overlapping sets the same day, so the entry below covers ten skills
 where this one covers nine. Both landed; the union is what shipped, and the post-merge report
-is [audits/upstream-drift-2026-08-27.md](audits/upstream-drift-2026-08-27.md): `behind` **0**,
+is `audits/upstream-drift-2026-08-27.md` (since removed): `behind` **0**,
 `current` 41, `drifted` 52, plus 6 forks the checker now skips.
 
 **The six dead upstreams are now marked as forks we own.** All six were re-verified against
@@ -2708,7 +2716,7 @@ under `site/library/3_Skills/` (+82 files, −9), `site/api/prompt-index.json`,
 ## 2026-08-26 — Repository audit, security fixes, and upstream provenance
 
 A full audit of the repo after several months idle, then the first remediation pass.
-Findings and method: [audits/REPO-AUDIT-2026-08-26.md](audits/REPO-AUDIT-2026-08-26.md).
+Findings and method: `audits/REPO-AUDIT-2026-08-26.md` (since removed).
 
 The headline is that the app was healthy — `tsc` clean, index deterministic, `main`
 deployable — but two security bugs were live in production and the content pipeline did not

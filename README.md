@@ -326,4 +326,9 @@ Content under `site/library/` is a mix of original work and vendored third-party
 
 ---
 
-**Built with ❤️ by Michael Schecht**
+<p align="center">
+  Built with ❤️ by Michael Schecht ·
+  <a href="docs/README.md">Docs</a> ·
+  <a href="LICENSE">License</a> ·
+  <a href="#readme-top">Back to top</a>
+</p>

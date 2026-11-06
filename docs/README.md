@@ -1,4 +1,17 @@
-# Documentation
+<a id="docs-top"></a>
+
+<h1 align="center">📚 Documentation</h1>
+
+<p align="center">
+  <em>Setup, architecture, features and planning docs for Promptbook.</em>
+</p>
+
+<p align="center">
+  <a href="ROADMAP.md"><img src="https://img.shields.io/badge/plan-ROADMAP-8B5CF6?style=for-the-badge" alt="Roadmap"></a>
+  <a href="../README.md"><img src="https://img.shields.io/badge/↩-repository_root-6B7280?style=for-the-badge" alt="Back to the repository root"></a>
+</p>
+
+---
 
 Documentation for **Promptbook**, a prompt library you clone and run locally. The
 Public Library is also browsable read-only at
@@ -17,7 +30,7 @@ Public Library is also browsable read-only at
 ### Creating Content
 - **[Contributing Guide](CONTRIBUTING.md)** — how to add content of any type
 - **[Templates](templates/)** — starter templates for all six content types
-- **[Skill Packs](skill-packs/)** — create and manage skill pack collections
+- **[Skill Packs](skill-packs/README.md)** — create and manage skill pack collections
 
 ### Features
 - **[API Reference](features/API.md)** — REST endpoints
@@ -29,6 +42,12 @@ Public Library is also browsable read-only at
 ### Development
 - **[Debug Guide](development/DEBUG_UI.md)** — troubleshooting
 - **[Performance](development/PERFORMANCE.md)** — `npm run bench`, the baseline and the budgets
+
+### Section indexes
+- **[setup/](setup/README.md)** — local setup and the hosted demo
+- **[features/](features/README.md)** — API, library modes, featured prompts, MCP server design
+- **[development/](development/README.md)** — debugging and performance
+- **[skill-packs/](skill-packs/README.md)** — the Skill Packs guide and quick start
 
 ### Project policies (repo root)
 - **[LICENSE](../LICENSE)** — Apache 2.0 for the application code
@@ -237,3 +256,10 @@ utility-first), run `npm run lint` and `npm run build`, and open a PR describing
 ---
 
 **Last updated:** 2026-10-21
+
+<p align="center">
+  <a href="../README.md">← Repository home</a> ·
+  <a href="ROADMAP.md">Roadmap</a> ·
+  <a href="CHANGELOG.md">Changelog</a> ·
+  <a href="#docs-top">Back to top</a>
+</p>
