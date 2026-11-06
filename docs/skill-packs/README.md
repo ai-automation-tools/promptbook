@@ -1,6 +1,16 @@
-# Skill Packs Documentation
+<h1 align="center">📦 Skill Packs Documentation</h1>
 
-Complete guide to the Skill Packs feature - curated collections of related skills for specific domains and workflows.
+<p align="center">
+  <em>Curated collections of related skills for specific domains and workflows.</em>
+</p>
+
+<p align="center">
+  <a href="../README.md"><img src="https://img.shields.io/badge/↩-docs-6B7280?style=for-the-badge" alt="Back to the docs"></a>
+</p>
+
+---
+
+Complete guide to the Skill Packs feature. To build your first pack fast, start with the [Quick Start](QUICK-START.md).
 
 ---
 
@@ -10,8 +20,8 @@ Skill Packs are pre-configured bundles of related skills designed for specific u
 
 **Current Packs:**
 - 💻 [Developer Essentials Pack](#developer-essentials-pack) (10 skills)
-- 💰 [Finance & Portfolio Management Pack](#finance--portfolio-management-pack) (13 skills)
-- 📋 [Project Management & Productivity Pack](#project-management--productivity-pack) (10 skills)
+- 💰 [Finance & Portfolio Management Pack](#existing-packs) (13 skills)
+- 📋 [Project Management & Productivity Pack](#existing-packs) (10 skills)
 
 ---
 
