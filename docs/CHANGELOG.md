@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-07 — Roadmap sweep
+
+The roadmap's "Where we are" note and `now-` badge now match the repo: 814 indexed items after the Awesome ChatGPT removal (2,162 before), Phase 3 as the current phase with the dependency-majors item as its last gate, and Mike's open calls listed. That item carries a progress note: `archiver` 8 landed in PR #477, three majors remain. No item ticked, added or removed.
+
+_Touched: `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-06 — Docs sweep
 
 Section headers on `docs/README.md` and `docs/skill-packs/README.md`, a footer on the root README, and `README.md` indexes for `docs/setup/`, `docs/features/` and `docs/development/`. The Skill Packs guide now links its Quick Start, and its two broken pack anchors point at "Existing Packs". The two dead `audits/` links below (removed 2026-10) are plain text now, and the 2026-11-02 entry moved into date order.
