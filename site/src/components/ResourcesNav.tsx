@@ -11,7 +11,6 @@ import {
   Wrench,
   Bot,
   ChevronDown,
-  Github,
   ExternalLink,
   FileText,
   Library,
@@ -21,6 +20,7 @@ import {
 } from 'lucide-react';
 import { AnimatePresence, m } from 'motion/react';
 import { cn } from '../lib/cn';
+import { Github } from './ui/GithubIcon';
 import resources from '../../library/resources.json';
 
 interface ResourceLink {

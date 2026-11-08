@@ -4,8 +4,8 @@
  * A stdio MCP server owns stdout: every byte on it must be a JSON-RPC message.
  * Library code (and its dependencies) log with console.log in places, so those
  * calls are pointed at stderr here, where clients show them as server logs.
- * Then site/.env is loaded quietly; dotenv 17 otherwise announces itself on
- * stdout, which alone would break the handshake.
+ * Then site/.env is loaded quietly. dotenv 18 announces itself on stderr, but
+ * dotenv 17 did so on stdout, which alone broke the handshake; quiet stays on.
  */
 import path from 'path';
 import { fileURLToPath } from 'url';

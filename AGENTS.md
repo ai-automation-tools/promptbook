@@ -122,7 +122,7 @@ site/
                        items tagged `skill-library`, kept out of the Skills grid and category tree), EmptyState, Toast, ResourcesNav,
                        ThemeSwitch, PromptEditorModal, ErrorBoundary (wraps App in main.tsx:
                        a render or chunk failure shows "Something failed to load", not a black page)
-    components/ui/     primitives (Button, IconButton, Chip, Tag, Kbd, Modal*, Notice), CountUp
+    components/ui/     primitives (Button, IconButton, Chip, Tag, Kbd, Modal*, Notice), CountUp, GithubIcon (lucide 1.x has no brand icons)
     index.css          House-style tokens (dark on :root, light on html.light), per-section accent
                        (--c), base + component classes (.btn, .input, .chip, .spot, .popover,
                        .topbar, .nav, .theme-sw, .site-footer …) in Tailwind layers
@@ -153,7 +153,7 @@ site/
                        registered when READ_ONLY), featured + My Library prompts as MCP
                        prompts. docs/mcp-server.md, docs/features/MCP-SERVER.md. Must never log to stdout:
   mcp/setup.ts         imported first; sends console.log/info/debug to stderr and loads .env
-                       quietly (dotenv 17 prints to stdout otherwise)
+                       quietly (dotenv 17 printed to stdout; 18 prints to stderr)
                        Adding a library section means adding it to SECTIONS in lib/library.ts
                        too; test:mcp fails until the two lists match.
   library/             Public content, numbered sections (see below)
