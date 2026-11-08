@@ -13,7 +13,6 @@ import {
   ExternalLink,
   FolderOpen,
   FolderPlus,
-  Github,
   Globe,
   Hash,
   Layers,
@@ -27,6 +26,7 @@ import {
   Tag,
   Trash2,
 } from 'lucide-react';
+import { Github } from './ui/GithubIcon';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
