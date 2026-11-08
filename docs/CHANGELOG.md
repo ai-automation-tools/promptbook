@@ -4,6 +4,18 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-07 — dotenv 18, motion 14 and lucide-react 1
+
+**Dependencies.** `dotenv` 17 → 18.0.9, `motion` 12 → 14.10.1, `lucide-react` 0.577 → 1.70.0. With `archiver` 8 (PR #477) this closes Phase 3's dependency-majors item, and Phase 3 with it.
+
+**GitHub icon.** lucide-react 1.0 removed its brand icons, `Github` among them. `src/components/ui/GithubIcon.ts` rebuilds it with `createLucideIcon` from the icon node 0.577.0 shipped (ISC), so the Source panel, the item page, the Resources menu and the demo's source bar keep the same mark.
+
+**MCP stdout.** dotenv 18 prints its injecting message to stderr, not stdout; `mcp/setup.ts` keeps `quiet: true` anyway, and a handshake still writes nothing but JSON-RPC.
+
+_Touched: `site/package.json`, `site/package-lock.json`, `site/src/components/ui/GithubIcon.ts`, `site/src/components/{PromptDetail,ResourcesNav,SourceBar,SourcePanel}.tsx`, `site/mcp/setup.ts`, `AGENTS.md`, `docs/features/MCP-SERVER.md`, `docs/UPSTREAMS.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-06 — Docs sweep
 
 Section headers on `docs/README.md` and `docs/skill-packs/README.md`, a footer on the root README, and `README.md` indexes for `docs/setup/`, `docs/features/` and `docs/development/`. The Skill Packs guide now links its Quick Start, and its two broken pack anchors point at "Existing Packs". The two dead `audits/` links below (removed 2026-10) are plain text now, and the 2026-11-02 entry moved into date order.
