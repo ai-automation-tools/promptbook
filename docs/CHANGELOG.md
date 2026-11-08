@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-07 — Library data-flow diagram re-pinned
+
+Re-read `site/api/index.ts`, `site/api/skill-packs.ts`, `site/lib/my-library.ts`, `site/mcp/server.ts`, `site/package.json`, `site/src/App.tsx` and the upstream-drift workflow against `docs/diagrams/library-data-flow.json`. Line ranges follow the moved code, and the My Library API node and Two libraries card now cover the ZIP export and import. Rebuilt with `--pin-head`, which also refreshes the `homepage/diagram/` copies.
+
+_Touched: `docs/diagrams/library-data-flow.*`, `homepage/diagram/library-data-flow.*`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-06 — Docs sweep
 
 Section headers on `docs/README.md` and `docs/skill-packs/README.md`, a footer on the root README, and `README.md` indexes for `docs/setup/`, `docs/features/` and `docs/development/`. The Skill Packs guide now links its Quick Start, and its two broken pack anchors point at "Existing Packs". The two dead `audits/` links below (removed 2026-10) are plain text now, and the 2026-11-02 entry moved into date order.

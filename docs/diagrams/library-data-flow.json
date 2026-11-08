@@ -8,7 +8,7 @@
     "output": "library-data-flow.html",
     "repository": {
       "url": "https://github.com/ai-automation-tools/promptbook.git",
-      "revision": "42ad413f4dfd36d1f6ee2b8e19f01bbc2aaf6f85"
+      "revision": "f23dfbdc2947fba524470178308387b3babb04f3"
     }
   },
   "stages": [
@@ -104,8 +104,8 @@
       "sources": [
         {
           "path": "site/package.json",
-          "line": 6,
-          "end_line": 14
+          "line": 9,
+          "end_line": 17
         },
         {
           "path": "site/scripts/build-prompt-index.js",
@@ -134,8 +134,8 @@
         },
         {
           "path": "site/api/index.ts",
-          "line": 152,
-          "end_line": 188
+          "line": 153,
+          "end_line": 189
         }
       ]
     },
@@ -155,12 +155,12 @@
         {
           "path": "site/lib/my-library.ts",
           "line": 74,
-          "end_line": 133
+          "end_line": 140
         },
         {
           "path": "site/lib/my-library.ts",
-          "line": 201,
-          "end_line": 267
+          "line": 208,
+          "end_line": 274
         }
       ]
     },
@@ -174,18 +174,18 @@
       "sources": [
         {
           "path": "site/api/index.ts",
-          "line": 124,
-          "end_line": 150
+          "line": 125,
+          "end_line": 151
         },
         {
           "path": "site/api/index.ts",
-          "line": 195,
-          "end_line": 230
+          "line": 196,
+          "end_line": 231
         },
         {
           "path": "site/api/index.ts",
-          "line": 301,
-          "end_line": 372
+          "line": 302,
+          "end_line": 373
         }
       ]
     },
@@ -199,18 +199,18 @@
       "sources": [
         {
           "path": "site/api/index.ts",
-          "line": 37,
-          "end_line": 104
+          "line": 38,
+          "end_line": 105
         },
         {
           "path": "site/api/index.ts",
-          "line": 374,
-          "end_line": 462
+          "line": 375,
+          "end_line": 463
         },
         {
           "path": "site/api/index.ts",
-          "line": 464,
-          "end_line": 508
+          "line": 465,
+          "end_line": 548
         }
       ]
     },
@@ -299,8 +299,8 @@
       "sources": [
         {
           "path": "site/package.json",
-          "line": 21,
-          "end_line": 21
+          "line": 24,
+          "end_line": 24
         }
       ]
     }
@@ -344,7 +344,7 @@
     {
       "from": "app",
       "to": "my_api",
-      "label": "Create / edit / copy"
+      "label": "Create / edit / copy / import"
     },
     {
       "from": "my_api",
@@ -395,6 +395,7 @@
         "The Public Library is markdown in site/library/, versioned in Git and shipped with each deploy. Nothing in the app writes to it: POST, PUT and DELETE on /api/prompts all go to My Library.",
         "My Library is a local folder, site/my-library/ unless MY_LIBRARY_DIR moves it, with one markdown file per prompt and its title, section, category and tags in frontmatter. There are no accounts: the server listens on 127.0.0.1, and on the Vercel demo READ_ONLY refuses every write.",
         "Add to My Library reads the public file, strips its frontmatter, refuses a duplicate title in the same section and category, and writes a copy as a new file whose name is its id. The copy records which public file it came from, so the app can offer the newer public version later.",
+        "My Library exports as a ZIP of its files, byte for byte, and imports one back. An import is planned first and writes nothing; new files are written on apply, and a changed file is replaced only with the token the preview returned. Export and import are refused where writes are, such as the Vercel demo.",
         "The MCP server (npm run mcp) reads the same index and folders the app does, so an agent can search, read and, unless READ_ONLY is set, save to My Library without the web server running."
       ]
     },
