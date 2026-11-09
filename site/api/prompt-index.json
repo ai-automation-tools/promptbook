@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "buildTime": "2026-11-05T15:53:55.688Z",
+  "buildTime": "2026-11-09T19:24:01.204Z",
   "promptCount": 814,
   "prompts": [
     {
@@ -2458,9 +2458,9 @@
         "business",
         "marketing"
       ],
-      "checked": "2026-10-23",
+      "checked": "2026-11-09",
       "contentPreview": "\n# Xquik X (Twitter) data API\n\n> Xquik is an independent third-party service. Not affiliated with X Corp. \"Twitter\" and \"X\" are trademarks of X Corp.\n\nXquik is the world's fastest and cheapest X Twitt",
-      "lastModified": "2026-10-27T17:30:56.079Z",
+      "lastModified": "2026-11-09T19:23:04.193Z",
       "isUserOwned": false
     },
     {
@@ -2543,9 +2543,9 @@
         "content",
         "obsidian"
       ],
-      "checked": "2026-10-23",
+      "checked": "2026-11-09",
       "contentPreview": "\n# Obsidian Flavored Markdown Skill\n\nThis skill enables Claude Code to create and edit valid Obsidian Flavored Markdown, including all Obsidian-specific syntax extensions.\n\n## Overview\n\nObsidian uses ",
-      "lastModified": "2026-10-27T17:30:58.109Z",
+      "lastModified": "2026-11-09T19:23:05.126Z",
       "isUserOwned": false
     },
     {
@@ -2644,9 +2644,9 @@
         "architecture",
         "svg"
       ],
-      "checked": "2026-10-26",
+      "checked": "2026-11-09",
       "contentPreview": "\n# Diagram Design\n\nCreate diagrams as self-contained HTML files with inline SVG and an editorial design system.\n\nForty-five visual types. Semantic patterns describe behavior; type references describe ",
-      "lastModified": "2026-10-27T17:31:03.158Z",
+      "lastModified": "2026-11-09T19:23:06.365Z",
       "isUserOwned": false
     },
     {
@@ -2730,9 +2730,9 @@
         "agents",
         "workflow"
       ],
-      "checked": "2026-10-26",
+      "checked": "2026-11-09",
       "contentPreview": "\n# Planning with Files\n\nWork like Manus: Use persistent markdown files as your \"working memory on disk.\"\n\n## FIRST: Restore Project State\n\n**Before continuing**, resolve the plan this task owns:\n\n1. U",
-      "lastModified": "2026-10-27T17:31:06.876Z",
+      "lastModified": "2026-11-09T19:23:07.338Z",
       "isUserOwned": false
     },
     {
@@ -2856,9 +2856,9 @@
         "finance",
         "betting-and-gambling"
       ],
-      "checked": "2026-10-23",
-      "contentPreview": "\n# Polymarket Development Suite\n\n🔗 **Source Link:** [PolyMarket Dev Suite - MCP Market](https://mcpmarket.com/tools/skills/polymarket-development-suite)\n\nComplete assistance with Polymarket developme",
-      "lastModified": "2026-10-27T17:31:12.533Z",
+      "checked": "2026-11-09",
+      "contentPreview": "\n# Polymarket Comprehensive Skill\n\nComplete assistance with Polymarket development - covering the full platform (API, trading, market data) and the real-time data streaming client (WebSocket subscript",
+      "lastModified": "2026-11-09T19:23:08.615Z",
       "isUserOwned": false
     },
     {
@@ -3358,9 +3358,9 @@
         "security",
         "broken-authentication"
       ],
-      "checked": "2026-09-08",
+      "checked": "2026-11-09",
       "contentPreview": "\n> **⚠️ AUTHORIZED USE ONLY**\n> This skill is for educational purposes or authorized security assessments only.\n> You must have explicit, written permission from the system owner before using this too",
-      "lastModified": "2026-10-27T17:31:13.373Z",
+      "lastModified": "2026-11-09T19:23:11.117Z",
       "isUserOwned": false
     },
     {

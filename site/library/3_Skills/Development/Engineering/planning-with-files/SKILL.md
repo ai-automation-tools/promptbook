@@ -34,9 +34,9 @@ upstream:
   match: exact
   repo: OthmanAdi/planning-with-files
   path: skills/planning-with-files/SKILL.md
-  ref: dcdfb278de53fdb69b2067ea173dbb1de45345a3
-  checked: 2026-10-26
   license: MIT
+  ref: 2362ca385ad74f061aa0e7b73f56543a4b7e6df2
+  checked: 2026-11-09
 tags: ["skill","development","planning","agents","workflow"]
 ---
 
@@ -257,9 +257,13 @@ Helper scripts for automation:
 
 ### List saved plans
 
+For agent-readable paths and state, add `--json` (PowerShell: `-Json`) to the listing command. This optional read-only mode includes root files, selection uncertainty and bounded paging. See [the inventory schema and worker handoff](plan-inventory.md). It never runs during ordinary activation.
+
 To find a task before resuming it, run `sh "<skill-dir>/scripts/set-active-plan.sh" --list` or, in Windows PowerShell, `& "<skill-dir>/scripts/set-active-plan.ps1" -List`. Replace `<skill-dir>` with this installed skill directory and keep your current directory at the project root.
 
 This read-only command lists named plans and phase progress under the current directory's `.planning/`. `[active]` marks the shared default pointer; it does not bind a session. Concurrent tasks still require each host's `PLAN_ID` or separate worktrees.
+
+When hooks report that multiple plans are available, or every phase of a named plan is complete, run the listing command and tell the user which plans look finished. Archive only the plans the user approves: `--archive <id>` (PowerShell: `-Archive <id>`) previews the move to `.planning/.archive/`, `--yes` (`-Yes`) applies it, and `--restore <id>` (`-Restore <id>`) moves it back. Never archive on age or completion alone.
 
 ### Parallel task workflow
 

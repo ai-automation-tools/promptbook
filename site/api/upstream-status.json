@@ -1,5 +1,5 @@
 {
-  "checked": "2026-10-23",
+  "checked": "2026-11-09",
   "items": {
     "2_Agents/AI_ML/AI_Engineering_SMEs/ai-engineer.md": {
       "verdict": "current",
@@ -232,17 +232,17 @@
       "branch": "main",
       "extra": 0
     },
+    "2_Agents/Development/Backend/csharp-expert.md": {
+      "verdict": "current",
+      "repo": "davila7/claude-code-templates",
+      "path": "cli-tool/components/agents/programming-languages/CSharpExpert.md",
+      "branch": "main",
+      "extra": 0
+    },
     "2_Agents/Development/Backend/csharp-mcp-expert.md": {
       "verdict": "current",
       "repo": "github/awesome-copilot",
       "path": "agents/csharp-mcp-expert.agent.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "2_Agents/Development/Backend/CSharpExpert.md": {
-      "verdict": "current",
-      "repo": "davila7/claude-code-templates",
-      "path": "cli-tool/components/agents/programming-languages/CSharpExpert.md",
       "branch": "main",
       "extra": 0
     },
@@ -540,73 +540,10 @@
       "branch": "main",
       "extra": 0
     },
-    "3_Skills/AI_ML/Agent_Development/agent-development/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/claude-plugins-official",
-      "path": "plugins/plugin-dev/skills/agent-development/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/AI_ML/Agent_Development/agent-md-refactor/SKILL.md": {
-      "verdict": "current",
-      "repo": "softaworks/agent-toolkit",
-      "path": "dist/plugins/agent-md-refactor/skills/agent-md-refactor/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/AI_ML/Agent_Development/discernment-nudge/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/skills",
-      "path": "skills/discernment-nudge/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/AI_ML/Agent_Development/skill-creator/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/skills",
-      "path": "skills/skill-creator/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
     "3_Skills/AI_ML/find-skills/SKILL.md": {
       "verdict": "current",
       "repo": "vercel-labs/skills",
       "path": "skills/find-skills/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/AI_ML/huggingface-llm-trainer/SKILL.md": {
-      "verdict": "current",
-      "repo": "huggingface/skills",
-      "path": "skills/huggingface-llm-trainer/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/AI_ML/MCP/mcp-builder/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/skills",
-      "path": "skills/mcp-builder/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/AI_ML/MCP/mcp-integration/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/claude-plugins-official",
-      "path": "plugins/plugin-dev/skills/mcp-integration/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/AI_ML/MCP/playwright/SKILL.md": {
-      "verdict": "current",
-      "repo": "openai/skills",
-      "path": "skills/.curated/playwright/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/AI_ML/Product_Engineer/ai-product/SKILL.md": {
-      "verdict": "current",
-      "repo": "xfstudio/skills",
-      "path": "ai-product/SKILL.md",
       "branch": "main",
       "extra": 0
     },
@@ -617,80 +554,10 @@
       "branch": "main",
       "extra": 0
     },
-    "3_Skills/Business/analytics-tracking/SKILL.md": {
-      "verdict": "current",
-      "repo": "silvainfm/claude-skills",
-      "path": "analytics-tracking/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Business/anthropic-brand-guidelines/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/skills",
-      "path": "skills/brand-guidelines/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Business/app-builder/SKILL.md": {
-      "verdict": "current",
-      "repo": "xfstudio/skills",
-      "path": "app-builder/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Business/brand-guidelines/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/skills",
-      "path": "skills/brand-guidelines/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
     "3_Skills/Business/copy-editing/SKILL.md": {
       "verdict": "current",
       "repo": "aaaaqwq/agi-super-skills",
       "path": "skills/copy-editing/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Business/copywriting/SKILL.md": {
-      "verdict": "current",
-      "repo": "aitytech/agentkits-marketing",
-      "path": "skills/copywriting/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Business/Marketing/content-creator/SKILL.md": {
-      "verdict": "current",
-      "repo": "ovachiever/droid-tings",
-      "path": "skills/content-creator/SKILL.md",
-      "branch": "master",
-      "extra": 0
-    },
-    "3_Skills/Business/Marketing/content-research-writer/SKILL.md": {
-      "verdict": "current",
-      "repo": "composiohq/awesome-claude-skills",
-      "path": "content-research-writer/SKILL.md",
-      "branch": "master",
-      "extra": 0
-    },
-    "3_Skills/Business/Marketing/launch-strategy/SKILL.md": {
-      "verdict": "current",
-      "repo": "aitytech/agentkits-marketing",
-      "path": "skills/launch-strategy/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Business/Marketing/marketing-demand-acquisition/SKILL.md": {
-      "verdict": "current",
-      "repo": "ovachiever/droid-tings",
-      "path": "skills/marketing-demand-acquisition/SKILL.md",
-      "branch": "master",
-      "extra": 0
-    },
-    "3_Skills/Business/Marketing/seo-fundamentals/SKILL.md": {
-      "verdict": "current",
-      "repo": "vudovn/antigravity-kit",
-      "path": ".agents/skills/seo-fundamentals/SKILL.md",
       "branch": "main",
       "extra": 0
     },
@@ -701,157 +568,17 @@
       "branch": "master",
       "extra": 0
     },
-    "3_Skills/Business/product-strategist/SKILL.md": {
-      "verdict": "current",
-      "repo": "microck/ordinary-claude-skills",
-      "path": "skills_all/product-strategist/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Business/Strategy/business-plan-builder/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/core/business/business-plan-builder/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Business/Strategy/customer-discovery/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/domain/business/customer-discovery/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Business/Strategy/go-to-market/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/domain/business/go-to-market/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Business/Strategy/pricing-strategy/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/domain/business/pricing-strategy/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Content/brainstorming/SKILL.md": {
-      "verdict": "behind",
-      "repo": "obra/superpowers",
-      "path": "skills/brainstorming/SKILL.md",
-      "branch": "main",
-      "extra": 0.22
-    },
-    "3_Skills/Content/concise-planning/SKILL.md": {
-      "verdict": "current",
-      "repo": "xfstudio/skills",
-      "path": "concise-planning/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Content/Cooking/recipe-validator/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/core/cooking/recipe-validator/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Content/doc-coauthoring/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/skills",
-      "path": "skills/doc-coauthoring/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Content/documentation-templates/SKILL.md": {
-      "verdict": "current",
-      "repo": "congdon1207/agents.md",
-      "path": ".agent/skills/documentation-templates/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Content/Documentation/repo-docs-builder/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/core/documentation/repo-docs-builder/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Content/docx/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/skills",
-      "path": "skills/docx/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Content/executing-plans/SKILL.md": {
-      "verdict": "drifted",
-      "repo": "obra/superpowers",
-      "path": "skills/executing-plans/SKILL.md",
-      "branch": "main",
-      "extra": 0.12
-    },
-    "3_Skills/Content/file-organizer/SKILL.md": {
-      "verdict": "current",
-      "repo": "xfstudio/skills",
-      "path": "file-organizer/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Content/General/document-writer/SKILL.md": {
-      "verdict": "drifted",
-      "repo": "Dicklesworthstone/pi_agent_rust",
-      "path": "tests/ext_conformance/artifacts/npm/vaayne-agent-kit/skills/document-writer/SKILL.md",
-      "branch": "main",
-      "extra": 0.01
-    },
     "3_Skills/Content/General/humanizer/SKILL.md": {
-      "verdict": "drifted",
-      "repo": "alexdcd/mafia-claude-skills",
-      "path": "skills/humanizer/SKILL.md",
-      "branch": "main",
-      "extra": 0.21
-    },
-    "3_Skills/Content/Image_Generation/news-images/SKILL.md": {
       "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/core/image-gen/news-images/SKILL.md",
+      "repo": "blader/humanizer",
+      "path": "SKILL.md",
       "branch": "main",
       "extra": 0
     },
-    "3_Skills/Content/invoice-organizer/SKILL.md": {
+    "3_Skills/Content/General/i-have-adhd/SKILL.md": {
       "verdict": "current",
-      "repo": "composiohq/awesome-claude-skills",
-      "path": "invoice-organizer/SKILL.md",
-      "branch": "master",
-      "extra": 0
-    },
-    "3_Skills/Content/json-canvas/SKILL.md": {
-      "verdict": "current",
-      "repo": "zpankz/mcp-skillset",
-      "path": "json-canvas/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Content/Media/captions-and-accessibility/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/domain/media/captions-and-accessibility/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Content/Media/media-rights-and-licensing/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/domain/media/media-rights-and-licensing/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Content/Media/post-publish-analytics/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/domain/media/post-publish-analytics/SKILL.md",
+      "repo": "ayghri/i-have-adhd",
+      "path": "skills/i-have-adhd/SKILL.md",
       "branch": "main",
       "extra": 0
     },
@@ -862,129 +589,17 @@
       "branch": "main",
       "extra": 0
     },
-    "3_Skills/Content/obsidian/obsidian-bases/SKILL.md": {
-      "verdict": "current",
-      "repo": "zpankz/mcp-skillset",
-      "path": "obsidian-bases/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
     "3_Skills/Content/obsidian/obsidian-markdown/SKILL.md": {
-      "verdict": "drifted",
+      "verdict": "current",
       "repo": "julianobarbosa/claude-code-skills",
       "path": "skills/obsidian-markdown/SKILL.md",
       "branch": "main",
       "extra": 0
     },
-    "3_Skills/Content/pdf/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/skills",
-      "path": "skills/pdf/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Content/plan-writing/SKILL.md": {
-      "verdict": "current",
-      "repo": "xfstudio/skills",
-      "path": "plan-writing/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Content/pptx/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/skills",
-      "path": "skills/pptx/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Content/skill-creator/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/skills",
-      "path": "skills/skill-creator/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Content/skill-developer/SKILL.md": {
-      "verdict": "current",
-      "repo": "microck/ordinary-claude-skills",
-      "path": "skills_all/skill-developer/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Content/think-tank/SKILL.md": {
-      "verdict": "current",
-      "repo": "davila7/claude-code-templates",
-      "path": "cli-tool/components/skills/productivity/think-tank/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Content/xlsx/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/skills",
-      "path": "skills/xlsx/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Data/histolab/SKILL.md": {
-      "verdict": "current",
-      "repo": "microck/ordinary-claude-skills",
-      "path": "skills_all/claude-scientific-skills/scientific-skills/histolab/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Data/huggingface-gradio/SKILL.md": {
-      "verdict": "current",
-      "repo": "huggingface/skills",
-      "path": "skills/huggingface-gradio/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Data/matlab/SKILL.md": {
-      "verdict": "current",
-      "repo": "k-dense-ai/scientific-agent-skills",
-      "path": "skills/matlab/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Data/networkx/SKILL.md": {
-      "verdict": "current",
-      "repo": "K-Dense-AI/scientific-agent-skills",
-      "path": "skills/networkx/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Data/polars/SKILL.md": {
-      "verdict": "current",
-      "repo": "silvainfm/claude-skills",
-      "path": "polars/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Data/pymc/SKILL.md": {
-      "verdict": "current",
-      "repo": "K-Dense-AI/scientific-agent-skills",
-      "path": "skills/pymc/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Data/scanpy/SKILL.md": {
-      "verdict": "current",
-      "repo": "ovachiever/droid-tings",
-      "path": "skills/scanpy/SKILL.md",
-      "branch": "master",
-      "extra": 0
-    },
     "3_Skills/Data/scholar-evaluation/SKILL.md": {
-      "verdict": "behind",
+      "verdict": "current",
       "repo": "K-Dense-AI/claude-scientific-skills",
       "path": "skills/scholar-evaluation/SKILL.md",
-      "branch": "main",
-      "extra": 0.99
-    },
-    "3_Skills/Data/scientific-brainstorming/SKILL.md": {
-      "verdict": "current",
-      "repo": "microck/ordinary-claude-skills",
-      "path": "skills_all/claude-scientific-skills/scientific-skills/scientific-brainstorming/SKILL.md",
       "branch": "main",
       "extra": 0
     },
@@ -995,74 +610,11 @@
       "branch": "main",
       "extra": 0
     },
-    "3_Skills/Data/scientific-schematics/SKILL.md": {
-      "verdict": "current",
-      "repo": "unerue/skills",
-      "path": "skills/scientific-schematics/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
     "3_Skills/Data/scientific-visualization/SKILL.md": {
       "verdict": "current",
       "repo": "hughyau/academicforge",
       "path": "skills/scientific-visualization/SKILL.md",
       "branch": "site-first",
-      "extra": 0
-    },
-    "3_Skills/Data/scientific-writing/SKILL.md": {
-      "verdict": "current",
-      "repo": "openlair/dr-claw",
-      "path": "skills/scientific-writing/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Data/scikit-learn/SKILL.md": {
-      "verdict": "current",
-      "repo": "K-Dense-AI/scientific-agent-skills",
-      "path": "skills/scikit-learn/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Data/seaborn/SKILL.md": {
-      "verdict": "current",
-      "repo": "K-Dense-AI/scientific-agent-skills",
-      "path": "skills/seaborn/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Data/shap/SKILL.md": {
-      "verdict": "current",
-      "repo": "K-Dense-AI/scientific-agent-skills",
-      "path": "skills/shap/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Data/statistical-analysis/SKILL.md": {
-      "verdict": "current",
-      "repo": "ovachiever/droid-tings",
-      "path": "skills/statistical-analysis/SKILL.md",
-      "branch": "master",
-      "extra": 0
-    },
-    "3_Skills/Data/statsmodels/SKILL.md": {
-      "verdict": "current",
-      "repo": "K-Dense-AI/scientific-agent-skills",
-      "path": "skills/statsmodels/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Data/timesfm-forecasting/SKILL.md": {
-      "verdict": "current",
-      "repo": "k-dense-ai/scientific-agent-skills",
-      "path": "skills/timesfm-forecasting/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Design/accessibility-compliance/SKILL.md": {
-      "verdict": "current",
-      "repo": "wshobson/agents",
-      "path": "plugins/ui-design/skills/accessibility-compliance/SKILL.md",
-      "branch": "main",
       "extra": 0
     },
     "3_Skills/Design/archify/SKILL.md": {
@@ -1072,10 +624,17 @@
       "branch": "main",
       "extra": 0
     },
-    "3_Skills/Design/interaction-design/SKILL.md": {
+    "3_Skills/Design/design-taste-frontend/SKILL.md": {
+      "verdict": "behind",
+      "repo": "Leonxlnx/taste-skill",
+      "path": "skills/taste-skill/SKILL.md",
+      "branch": "main",
+      "extra": 0.99
+    },
+    "3_Skills/Design/diagram-design/SKILL.md": {
       "verdict": "current",
-      "repo": "wshobson/agents",
-      "path": "plugins/ui-design/skills/interaction-design/SKILL.md",
+      "repo": "cathrynlavery/diagram-design",
+      "path": "skills/diagram-design/SKILL.md",
       "branch": "main",
       "extra": 0
     },
@@ -1086,129 +645,10 @@
       "branch": "main",
       "extra": 0
     },
-    "3_Skills/Development/algorithmic-art/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/skills",
-      "path": "skills/algorithmic-art/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Analytics/google-analytics/SKILL.md": {
-      "verdict": "current",
-      "repo": "davila7/claude-code-templates",
-      "path": "cli-tool/components/skills/analytics/google-analytics/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/API/api-client-resilience/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/domain/api/api-client-resilience/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/API/api-documentation-generator/SKILL.md": {
-      "verdict": "current",
-      "repo": "xfstudio/skills",
-      "path": "api-documentation-generator/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/API/api-integration-specialist/SKILL.md": {
-      "verdict": "current",
-      "repo": "davila7/claude-code-templates",
-      "path": "cli-tool/components/skills/development/api-integration-specialist/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/API/api-integration-testing/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/domain/api/api-integration-testing/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
     "3_Skills/Development/API/api-patterns/SKILL.md": {
       "verdict": "current",
       "repo": "dokhacgiakhoa/antigravity-ide",
       "path": ".agent/skills/api-patterns/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/API/api-response-normalization/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/domain/api/api-response-normalization/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/API/claude-api/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/skills",
-      "path": "skills/claude-api/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/API/public-api-evaluation/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/domain/api/public-api-evaluation/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/API/rate-limit-and-quota-management/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/domain/api/rate-limit-and-quota-management/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Architecture/architecture/SKILL.md": {
-      "verdict": "current",
-      "repo": "vudovn/antigravity-kit",
-      "path": ".agents/skills/architecture/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Architecture/mermaid-diagram-specialist/SKILL.md": {
-      "verdict": "current",
-      "repo": "davila7/claude-code-templates",
-      "path": "cli-tool/components/skills/development/mermaid-diagram-specialist/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Automation/agent-workspace-builder/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/core/automation/agent-workspace-builder/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Automation/automated-dev-pipeline/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/core/automation/automated-dev-pipeline/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Automation/html-email-templates/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/core/automation/html-email-templates/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Automation/task-router/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/core/automation/task-router/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/autoresearch/SKILL.md": {
-      "verdict": "current",
-      "repo": "github/awesome-copilot",
-      "path": "skills/autoresearch/SKILL.md",
       "branch": "main",
       "extra": 0
     },
@@ -1219,129 +659,17 @@
       "branch": "main",
       "extra": 0
     },
-    "3_Skills/Development/code-tour/SKILL.md": {
+    "3_Skills/Development/Engineering/planning-with-files/SKILL.md": {
       "verdict": "current",
-      "repo": "github/awesome-copilot",
-      "path": "skills/code-tour/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Database/neon-instagres/SKILL.md": {
-      "verdict": "current",
-      "repo": "davila7/claude-code-templates",
-      "path": "cli-tool/components/skills/database/neon-instagres/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Database/supabase-postgres-best-practices/SKILL.md": {
-      "verdict": "current",
-      "repo": "openai/plugins",
-      "path": "plugins/supabase/skills/supabase-postgres-best-practices/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Engineering/debugging-methodology/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/domain/engineering/debugging-methodology/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Engineering/performance-optimization/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/domain/engineering/performance-optimization/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Engineering/ponytail-audit/SKILL.md": {
-      "verdict": "current",
-      "repo": "DietrichGebert/ponytail",
-      "path": "skills/ponytail-audit/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Engineering/ponytail-debt/SKILL.md": {
-      "verdict": "current",
-      "repo": "DietrichGebert/ponytail",
-      "path": "skills/ponytail-debt/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Engineering/ponytail-gain/SKILL.md": {
-      "verdict": "current",
-      "repo": "DietrichGebert/ponytail",
-      "path": "skills/ponytail-gain/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Engineering/ponytail-help/SKILL.md": {
-      "verdict": "current",
-      "repo": "DietrichGebert/ponytail",
-      "path": "skills/ponytail-help/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Engineering/ponytail-review/SKILL.md": {
-      "verdict": "current",
-      "repo": "DietrichGebert/ponytail",
-      "path": "skills/ponytail-review/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Engineering/ponytail/SKILL.md": {
-      "verdict": "current",
-      "repo": "DietrichGebert/ponytail",
-      "path": "skills/ponytail/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Engineering/testing-strategy/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/domain/engineering/testing-strategy/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Git/commit-smart/SKILL.md": {
-      "verdict": "current",
-      "repo": "davila7/claude-code-templates",
-      "path": "cli-tool/components/skills/git/commit-smart/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Git/gh-address-comments/SKILL.md": {
-      "verdict": "current",
-      "repo": "openai/skills",
-      "path": "skills/.curated/gh-address-comments/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Git/git-commit-helper/SKILL.md": {
-      "verdict": "current",
-      "repo": "microck/ordinary-claude-skills",
-      "path": "skills_all/git-commit-helper/SKILL.md",
-      "branch": "main",
+      "repo": "OthmanAdi/planning-with-files",
+      "path": "skills/planning-with-files/SKILL.md",
+      "branch": "master",
       "extra": 0
     },
     "3_Skills/Development/Git/git-pushing/SKILL.md": {
       "verdict": "current",
       "repo": "mhattingpete/claude-skills-marketplace",
       "path": "engineering-workflow-plugin/skills/git-pushing/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Git/github-actions-creator/SKILL.md": {
-      "verdict": "current",
-      "repo": "davila7/claude-code-templates",
-      "path": "cli-tool/components/skills/development/github-actions-creator/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Git/github-workflow-automation/SKILL.md": {
-      "verdict": "current",
-      "repo": "xfstudio/skills",
-      "path": "github-workflow-automation/SKILL.md",
       "branch": "main",
       "extra": 0
     },
@@ -1359,136 +687,10 @@
       "branch": "master",
       "extra": 0
     },
-    "3_Skills/Development/NextJS/nextjs-supabase-auth/SKILL.md": {
-      "verdict": "current",
-      "repo": "xfstudio/skills",
-      "path": "nextjs-supabase-auth/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/NodeJS/nodejs-best-practices/SKILL.md": {
-      "verdict": "current",
-      "repo": "congdon1207/agents.md",
-      "path": ".agent/skills/nodejs-best-practices/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Python/python-design-patterns/SKILL.md": {
-      "verdict": "current",
-      "repo": "wshobson/agents",
-      "path": "plugins/python-development/skills/python-design-patterns/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/SME_Skills/senior-architect/SKILL.md": {
-      "verdict": "current",
-      "repo": "maslennikov-ig/claude-code-orchestrator-kit",
-      "path": ".claude/skills/senior-architect/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/SME_Skills/senior-backend/SKILL.md": {
-      "verdict": "current",
-      "repo": "ovachiever/droid-tings",
-      "path": "skills/senior-backend/SKILL.md",
-      "branch": "master",
-      "extra": 0
-    },
-    "3_Skills/Development/SME_Skills/senior-computer-vision/SKILL.md": {
-      "verdict": "current",
-      "repo": "ovachiever/droid-tings",
-      "path": "skills/senior-computer-vision/SKILL.md",
-      "branch": "master",
-      "extra": 0
-    },
-    "3_Skills/Development/SME_Skills/senior-data-engineer/SKILL.md": {
-      "verdict": "current",
-      "repo": "ovachiever/droid-tings",
-      "path": "skills/senior-data-engineer/SKILL.md",
-      "branch": "master",
-      "extra": 0
-    },
-    "3_Skills/Development/SME_Skills/senior-data-scientist/SKILL.md": {
-      "verdict": "current",
-      "repo": "ovachiever/droid-tings",
-      "path": "skills/senior-data-scientist/SKILL.md",
-      "branch": "master",
-      "extra": 0
-    },
-    "3_Skills/Development/SME_Skills/senior-devops/SKILL.md": {
-      "verdict": "current",
-      "repo": "maslennikov-ig/claude-code-orchestrator-kit",
-      "path": ".claude/skills/senior-devops/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/SME_Skills/senior-frontend/SKILL.md": {
-      "verdict": "current",
-      "repo": "ovachiever/droid-tings",
-      "path": "skills/senior-frontend/SKILL.md",
-      "branch": "master",
-      "extra": 0
-    },
-    "3_Skills/Development/SME_Skills/senior-fullstack/SKILL.md": {
-      "verdict": "current",
-      "repo": "ovachiever/droid-tings",
-      "path": "skills/senior-fullstack/SKILL.md",
-      "branch": "master",
-      "extra": 0
-    },
-    "3_Skills/Development/SME_Skills/senior-ml-engineer/SKILL.md": {
-      "verdict": "current",
-      "repo": "ovachiever/droid-tings",
-      "path": "skills/senior-ml-engineer/SKILL.md",
-      "branch": "master",
-      "extra": 0
-    },
-    "3_Skills/Development/SME_Skills/senior-prompt-engineer/SKILL.md": {
-      "verdict": "current",
-      "repo": "maslennikov-ig/claude-code-orchestrator-kit",
-      "path": ".claude/skills/senior-prompt-engineer/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/SME_Skills/senior-qa/SKILL.md": {
-      "verdict": "current",
-      "repo": "ovachiever/droid-tings",
-      "path": "skills/senior-qa/SKILL.md",
-      "branch": "master",
-      "extra": 0
-    },
-    "3_Skills/Development/SME_Skills/senior-secops/SKILL.md": {
-      "verdict": "current",
-      "repo": "ovachiever/droid-tings",
-      "path": "skills/senior-secops/SKILL.md",
-      "branch": "master",
-      "extra": 0
-    },
-    "3_Skills/Development/SME_Skills/senior-security/SKILL.md": {
-      "verdict": "current",
-      "repo": "ovachiever/droid-tings",
-      "path": "skills/senior-security/SKILL.md",
-      "branch": "master",
-      "extra": 0
-    },
     "3_Skills/Development/Testing/testing-performance/SKILL.md": {
       "verdict": "current",
       "repo": "wojons/skills",
       "path": "skills/testing-performance/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/theme-factory/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/skills",
-      "path": "skills/theme-factory/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Web_Development/canvas-design/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/skills",
-      "path": "skills/canvas-design/SKILL.md",
       "branch": "main",
       "extra": 0
     },
@@ -1499,13 +701,6 @@
       "branch": "main",
       "extra": 0
     },
-    "3_Skills/Development/Web_Development/project-hub-scaffold/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/core/web/project-hub-scaffold/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
     "3_Skills/Development/Web_Development/rspack-tracing/SKILL.md": {
       "verdict": "current",
       "repo": "rstackjs/agent-skills",
@@ -1513,549 +708,10 @@
       "branch": "main",
       "extra": 0
     },
-    "3_Skills/Development/Web_Development/web-artifacts-builder/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/skills",
-      "path": "skills/web-artifacts-builder/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Web_Development/web-house-style/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/core/web/web-house-style/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Development/Web_Development/webapp-testing/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/skills",
-      "path": "skills/webapp-testing/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Enterprise/Brand/applying-brand-guidelines/SKILL.md": {
-      "verdict": "current",
-      "repo": "microck/ordinary-claude-skills",
-      "path": "skills_all/applying-brand-guidelines/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Enterprise/Communications/data-privacy-compliance/SKILL.md": {
-      "verdict": "current",
-      "repo": "davila7/claude-code-templates",
-      "path": "cli-tool/components/skills/enterprise-communication/data-privacy-compliance/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Enterprise/Communications/feedback-mastery/SKILL.md": {
-      "verdict": "current",
-      "repo": "softaworks/agent-toolkit",
-      "path": "dist/plugins/feedback-mastery/skills/feedback-mastery/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Enterprise/Communications/internal-comms/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/skills",
-      "path": "skills/internal-comms/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Enterprise/Communications/slack-bot-builder/SKILL.md": {
-      "verdict": "current",
-      "repo": "xfstudio/skills",
-      "path": "slack-bot-builder/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Enterprise/Communications/slack-gif-creator/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/skills",
-      "path": "skills/slack-gif-creator/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Enterprise/Communications/telegram-bot-builder/SKILL.md": {
-      "verdict": "current",
-      "repo": "xfstudio/skills",
-      "path": "telegram-bot-builder/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Enterprise/Communications/telegram-mini-app/SKILL.md": {
-      "verdict": "current",
-      "repo": "xfstudio/skills",
-      "path": "telegram-mini-app/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Enterprise/Communications/twilio-communications/SKILL.md": {
-      "verdict": "current",
-      "repo": "xfstudio/skills",
-      "path": "twilio-communications/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Enterprise/Communications/writing-clearly-and-concisely/SKILL.md": {
-      "verdict": "current",
-      "repo": "softaworks/agent-toolkit",
-      "path": "dist/plugins/writing-clearly-and-concisely/skills/writing-clearly-and-concisely/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Enterprise/popular-support-analysis/SKILL.md": {
-      "verdict": "current",
-      "repo": "baojie/shiji-kb",
-      "path": "kg/ontology/ontology-v1/skus/procedural/skill_038/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Enterprise/popular-support-building-strategy/SKILL.md": {
-      "verdict": "current",
-      "repo": "baojie/shiji-kb",
-      "path": "kg/ontology/ontology-v1/skus/procedural/skill_123/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Betting_&_Gambling/footballbin-predictions/SKILL.md": {
-      "verdict": "current",
-      "repo": "davila7/claude-code-templates",
-      "path": "cli-tool/components/skills/sports/footballbin-predictions/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Betting_&_Gambling/market-mechanics-betting/SKILL.md": {
-      "verdict": "drifted",
-      "repo": "lyndonkl/claude",
-      "path": "skills/market-mechanics-betting/SKILL.md",
-      "branch": "main",
-      "extra": 0.09
-    },
     "3_Skills/Finance/Betting_&_Gambling/polymarket/SKILL.md": {
-      "verdict": "drifted",
+      "verdict": "current",
       "repo": "2025Emma/vibe-coding-cn",
       "path": "i18n/zh/skills/polymarket/SKILL.md",
-      "branch": "main",
-      "extra": 0.01
-    },
-    "3_Skills/Finance/Investing/creating-financial-models/SKILL.md": {
-      "verdict": "current",
-      "repo": "microck/ordinary-claude-skills",
-      "path": "skills_all/creating-financial-models/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Investing/trading-operations/skills/counterparty-risk/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/trading-operations/skills/counterparty-risk/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Investing/trading-operations/skills/exchange-connectivity/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/trading-operations/skills/exchange-connectivity/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Investing/trading-operations/skills/margin-operations/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/trading-operations/skills/margin-operations/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Investing/trading-operations/skills/operational-risk/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/trading-operations/skills/operational-risk/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Investing/trading-operations/skills/order-lifecycle/SKILL.md": {
-      "verdict": "current",
-      "repo": "JadeGate/jadegate",
-      "path": "skills/order-lifecycle/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Investing/trading-operations/skills/post-trade-compliance/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/trading-operations/skills/post-trade-compliance/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Investing/trading-operations/skills/pre-trade-compliance/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/trading-operations/skills/pre-trade-compliance/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Investing/trading-operations/skills/settlement-clearing/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/trading-operations/skills/settlement-clearing/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Investing/trading-operations/skills/trade-execution/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/trading-operations/skills/trade-execution/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/analyzing-financial-statements/SKILL.md": {
-      "verdict": "current",
-      "repo": "microck/ordinary-claude-skills",
-      "path": "skills_all/analyzing-financial-statements/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/alternatives/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/alternatives/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/asset-allocation/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/asset-allocation/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/bet-sizing/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/bet-sizing/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/commodities/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/commodities/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/currencies-and-fx/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/currencies-and-fx/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/debt-management/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/debt-management/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/digital-assets/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/digital-assets/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/diversification/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/diversification/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/emergency-fund/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/emergency-fund/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/equities/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/equities/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/finance-psychology/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/finance-psychology/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/fixed-income-corporate/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/fixed-income-corporate/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/fixed-income-municipal/SKILL.md": {
-      "verdict": "current",
-      "repo": "JadeGate/jadegate",
-      "path": "skills/fixed-income-municipal/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/fixed-income-sovereign/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/fixed-income-sovereign/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/fixed-income-structured/SKILL.md": {
-      "verdict": "current",
-      "repo": "JadeGate/jadegate",
-      "path": "skills/fixed-income-structured/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/forward-risk/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/forward-risk/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/fund-vehicles/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/fund-vehicles/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/historical-risk/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/historical-risk/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/investment-policy/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/investment-policy/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/lending/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/lending/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/liquidity-management/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/liquidity-management/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/performance-attribution/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/performance-attribution/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/performance-metrics/SKILL.md": {
-      "verdict": "current",
-      "repo": "JadeGate/jadegate",
-      "path": "skills/performance-metrics/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/performance-reporting/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/performance-reporting/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/qualitative-valuation/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/qualitative-valuation/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/quantitative-valuation/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/quantitative-valuation/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/real-assets/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/real-assets/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/rebalancing/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/rebalancing/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/savings-goals/SKILL.md": {
-      "verdict": "current",
-      "repo": "JadeGate/jadegate",
-      "path": "skills/savings-goals/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/tax-efficiency/SKILL.md": {
-      "verdict": "current",
-      "repo": "JadeGate/jadegate",
-      "path": "skills/tax-efficiency/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/tax-loss-harvesting/SKILL.md": {
-      "verdict": "drifted",
-      "repo": "JoelLewis/finance_skills",
-      "path": "plugins/wealth-management/skills/tax-loss-harvesting/SKILL.md",
-      "branch": "main",
-      "extra": 0.24
-    },
-    "3_Skills/Finance/Portfolio_Management/wealth-management/skills/volatility-modeling/SKILL.md": {
-      "verdict": "current",
-      "repo": "joellewis/finance_skills",
-      "path": "plugins/wealth-management/skills/volatility-modeling/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Platform_Integrations/academy-guide/SKILL.md": {
-      "verdict": "current",
-      "repo": "anthropics/skills",
-      "path": "skills/academy-guide/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Platform_Integrations/Agent_Chat/agent-chat-conv-types/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/projects/agent-chat/agent-chat-conv-types/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Platform_Integrations/Agent_Chat/agent-chat-delivery/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/projects/agent-chat/agent-chat-delivery/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Platform_Integrations/Agent_Chat/agent-chat-run-triage/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/projects/agent-chat/agent-chat-run-triage/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Platform_Integrations/Cronsole/cronsole-claude-routines/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/projects/cronsole/cronsole-claude-routines/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Platform_Integrations/Cronsole/cronsole-windows-jobs/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/projects/cronsole/cronsole-windows-jobs/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Platform_Integrations/Edge_Radar/edge-radar-strategy-evidence/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/projects/edge-radar/edge-radar-strategy-evidence/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Platform_Integrations/Edge_Radar/edge-radar-strategy-profiles/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/projects/edge-radar/edge-radar-strategy-profiles/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Platform_Integrations/Edge_Spectrum/edge-spectrum-dataset/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/projects/edge-spectrum/edge-spectrum-dataset/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Platform_Integrations/Edge_Spectrum/edge-spectrum-endpoint/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/projects/edge-spectrum/edge-spectrum-endpoint/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Platform_Integrations/Edge_Spectrum/edge-spectrum-hub-tool/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/projects/edge-spectrum/edge-spectrum-hub-tool/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Platform_Integrations/Project_Hub/project-hub-client/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/projects/project-hub/project-hub-client/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Platform_Integrations/Project_Hub/project-hub-demo/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/projects/project-hub/project-hub-demo/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Platform_Integrations/Project_Hub/project-hub-scan/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/projects/project-hub/project-hub-scan/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Security/active-directory-attacks/SKILL.md": {
-      "verdict": "current",
-      "repo": "zebbern/claude-code-guide",
-      "path": "skills/active-directory-attacks/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Security/api-security-best-practices/SKILL.md": {
-      "verdict": "current",
-      "repo": "xfstudio/skills",
-      "path": "api-security-best-practices/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Security/aws-penetration-testing/SKILL.md": {
-      "verdict": "current",
-      "repo": "zebbern/claude-code-guide",
-      "path": "skills/aws-penetration-testing/SKILL.md",
       "branch": "main",
       "extra": 0
     },
@@ -2063,76 +719,6 @@
       "verdict": "current",
       "repo": "sickn33/antigravity-awesome-skills",
       "path": "plugins/agentic-awesome-skills-claude/skills/broken-authentication/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Security/linux-privilege-escalation/SKILL.md": {
-      "verdict": "current",
-      "repo": "zebbern/claude-code-guide",
-      "path": "skills/linux-privilege-escalation/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Security/pentest-checklist/SKILL.md": {
-      "verdict": "current",
-      "repo": "zebbern/claude-code-guide",
-      "path": "skills/pentest-checklist/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Security/Practice/security-metrics-and-posture/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/domain/security/security-metrics-and-posture/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Security/Practice/security-report-writing/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/domain/security/security-report-writing/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Security/Practice/vulnerability-disclosure/SKILL.md": {
-      "verdict": "current",
-      "repo": "ai-automation-tools/agent-skills",
-      "path": "skills/domain/security/vulnerability-disclosure/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Security/security-best-practices/SKILL.md": {
-      "verdict": "current",
-      "repo": "openai/skills",
-      "path": "skills/.curated/security-best-practices/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Security/security-threat-model/SKILL.md": {
-      "verdict": "current",
-      "repo": "openai/skills",
-      "path": "skills/.curated/security-threat-model/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Security/sql-injection-testing/SKILL.md": {
-      "verdict": "current",
-      "repo": "zebbern/claude-code-guide",
-      "path": "skills/sql-injection-testing/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Security/vulnerability-scanner/SKILL.md": {
-      "verdict": "current",
-      "repo": "vudovn/antigravity-kit",
-      "path": ".agents/skills/vulnerability-scanner/SKILL.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "3_Skills/Security/windows-privilege-escalation/SKILL.md": {
-      "verdict": "current",
-      "repo": "zebbern/claude-code-guide",
-      "path": "skills/windows-privilege-escalation/SKILL.md",
       "branch": "main",
       "extra": 0
     },

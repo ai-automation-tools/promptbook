@@ -8,9 +8,9 @@ upstream:
   match: exact
   repo: cathrynlavery/diagram-design
   path: skills/diagram-design/SKILL.md
-  ref: b8f36171da6e1bce05c3eb984969e5d4e7cb3a20
-  checked: 2026-10-26
   license: MIT
+  ref: 6a7f19fcc132b39b126bea90167679b46b14bcc4
+  checked: 2026-11-09
 tags: ["skill","design","diagrams","architecture","svg"]
 ---
 
@@ -119,7 +119,7 @@ The pattern owns semantic primitives and its tighter budget; the type owns layou
 | Cross-tabulated data; fill encodes value per cell | **Heatmap** | [type-heatmap.md](references/type-heatmap.md) |
 | Continuous trends over time, change between exactly two states (slopegraph), one distribution per series (ridgeline), or rank movement across several snapshots (bump) | **Line chart** | [type-line.md](references/type-line.md) |
 | Tasks and phases on a timeline | **Gantt** | [type-gantt.md](references/type-gantt.md) |
-| Correlation or distribution of two variables; bubble (three variables) and beeswarm (one variable, dot per item) variants | **Scatter plot** | [type-scatter.md](references/type-scatter.md) |
+| Correlation or distribution of two variables; bubble (three variables), beeswarm (one variable, dot per item), and box plot (five-number summary per group) variants | **Scatter plot** | [type-scatter.md](references/type-scatter.md) |
 | End-to-end data stack on a container cluster | **High-Level** | [type-high-level.md](references/type-high-level.md) |
 | Multi-actor sequential process with data handoffs | **Process** | [type-process.md](references/type-process.md) |
 | Multi-tier data storage with quality levels and access policies | **Medallion** | [type-medallion.md](references/type-medallion.md) |
@@ -133,7 +133,7 @@ The pattern owns semantic primitives and its tighter budget; the type owns layou
 | What a person does across stages of an experience, and how it feels | **User journey** | [type-journey.md](references/type-journey.md) |
 | What the customer does vs what the service hides, across stages, with a line of visibility | **Service blueprint** | [type-service-blueprint.md](references/type-service-blueprint.md) |
 | Where software runs — zones, hosts, artifacts, replicas, ports | **Deployment** | [type-deployment.md](references/type-deployment.md) |
-| What depends on what, with fan-in and cycles a tree cannot express | **Dependency graph** | [type-dependency.md](references/type-dependency.md) |
+| What depends on what, with fan-in and cycles a tree cannot express; arc diagram (nodes on a line, height is skip-span) variant | **Dependency graph** | [type-dependency.md](references/type-dependency.md) |
 | Classes with operations, inheritance, composition (other UML routes elsewhere) | **UML class** | [type-uml-class.md](references/type-uml-class.md) |
 | Narrative backbone sliced into releases, with the cut line | **Story map** | [type-story-map.md](references/type-story-map.md) |
 | Physical tables: SQL types, constraints, indexes, column-level FKs | **Database schema** | [type-db-schema.md](references/type-db-schema.md) |
