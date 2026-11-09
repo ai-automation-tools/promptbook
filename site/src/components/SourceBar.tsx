@@ -1,4 +1,4 @@
-import { Github } from 'lucide-react';
+import { Github } from './ui/GithubIcon';
 
 /** The org-wide source bar: required at the very top of every site on ai-automation-tools.dev. */
 export default function SourceBar() {

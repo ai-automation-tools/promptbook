@@ -47,7 +47,7 @@ tracked here until then.)
 | Tailwind CSS v4, @tailwindcss/vite | `^4.1.14`, `^4.3.3` | github.com/tailwindlabs/tailwindcss/releases | 2026-10-30 |
 | TypeScript | `~7.0.2` (moved from 5.9 on 2026-10-27) | devblogs.microsoft.com/typescript | 2026-10-27 |
 | helmet | `^8.3.0` (response headers) | github.com/helmetjs/helmet/releases | 2026-10-30 |
-| fuse.js, react-markdown, remark-gfm, gray-matter, archiver, motion, lucide-react, dotenv | see `package.json`. Behind a major (queued in the ROADMAP): archiver 8 (Node 18+, ESM), dotenv 18 (injecting message to stderr, `.env.vault` and preloading removed), motion 14, lucide-react 1.x (brand icons such as `Github` removed) | each package's GitHub releases | 2026-10-30 |
+| fuse.js, react-markdown, remark-gfm, gray-matter, archiver, motion, lucide-react, dotenv | see `package.json`. On the current majors since 2026-11-07: archiver 8, dotenv 18 (injecting message to stderr), motion 14, lucide-react 1.x (brand icons removed; `Github` is redrawn from 0.577's icon node in `src/components/ui/GithubIcon.ts`) | each package's GitHub releases | 2026-11-07 |
 
 Flag breaking majors, EOL runtimes, and security advisories only. Routine bumps are
 Dependabot's job.
