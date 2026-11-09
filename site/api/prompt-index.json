@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-05T15:53:55.688Z",
-  "promptCount": 814,
+  "buildTime": "2026-11-09T22:03:11.565Z",
+  "promptCount": 816,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -613,6 +613,25 @@
       "checked": "2026-10-13",
       "contentPreview": "\n<!-- Last Updated: 2026-10-13 - Checked against code.claude.com/docs/en/cli-reference -->\n\n# Claude Code CLI Flags Reference\n\nOfficial command-line flags available in Claude Code CLI.\n\n**Source**: [c",
       "lastModified": "2026-10-26T15:17:35.376Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/Claude_Code/github-actions-guide.md",
+      "title": "🤖 Claude Code GitHub Actions Guide",
+      "section": "1_Guides",
+      "category": "Claude_Code",
+      "subcategory": "github-actions-guide",
+      "tags": [
+        "claude-code",
+        "github-actions",
+        "ci",
+        "automation",
+        "code-review",
+        "claude-code-action"
+      ],
+      "checked": "2026-11-09",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-09 - Checked against code.claude.com/docs/en/github-actions -->\n\n# Claude Code GitHub Actions Guide\n\n`anthropics/claude-code-action` runs Claude Code inside a GitHub workfl",
+      "lastModified": "2026-11-09T22:02:59.003Z",
       "isUserOwned": false
     },
     {
@@ -11253,6 +11272,26 @@
       "checked": "2026-10-26",
       "contentPreview": "\n# Instructional Coach: Explainer\n\nThis prompt asks the language model to help a teacher create simple and clear explanations, examples, and analogies for a specific topic. The model should inquire ab",
       "lastModified": "2026-10-26T16:34:29.746Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Microsoft_Prompts_For_Edu/Educators/individualized-student-assistance.md",
+      "title": "🎓 Achievement Architect: Building Strategies for Student Challenges",
+      "section": "4_Prompts",
+      "category": "Microsoft_Prompts_For_Edu",
+      "subcategory": "Educators",
+      "tags": [
+        "education",
+        "prompts-for-edu",
+        "educators",
+        "student-support",
+        "coaching",
+        "achievement",
+        "architect"
+      ],
+      "checked": "2026-11-09",
+      "contentPreview": "\n# Achievement Architect: Building Strategies for Student Challenges\n\nThis prompt guides the language model to assist educators in identifying and understanding the challenges faced by individual stud",
+      "lastModified": "2026-11-09T22:02:05.134Z",
       "isUserOwned": false
     },
     {
