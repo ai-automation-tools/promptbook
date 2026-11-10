@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { AlertCircle, Code2, Eye, Save, X } from 'lucide-react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -33,11 +33,16 @@ interface PromptEditorModalProps {
   onSave: (prompt: PromptDraft) => Promise<void>;
   editingPrompt?: PromptDraft | null;
   defaultSection?: string;
+  /** The loaded items, so Category and Subcategory can suggest the names already in use. */
+  existing?: { section: string; category: string; subcategory: string | null }[];
 }
+
+/** Sorted, de-duplicated names, empty ones dropped. */
+const uniq = (names: (string | null)[]) => [...new Set(names.filter((n): n is string => !!n))].sort((a, b) => a.localeCompare(b));
 
 const LABEL = 'mb-1.5 block text-[13px] font-medium text-[var(--fg-2)]';
 
-export default function PromptEditorModal({ isOpen, onClose, onSave, editingPrompt, defaultSection = '4_Prompts' }: PromptEditorModalProps) {
+export default function PromptEditorModal({ isOpen, onClose, onSave, editingPrompt, defaultSection = '4_Prompts', existing = [] }: PromptEditorModalProps) {
   const [title, setTitle] = useState('');
   const [section, setSection] = useState(defaultSection);
   const [category, setCategory] = useState('');
@@ -49,6 +54,13 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
   const [mode, setMode] = useState<'write' | 'preview'>('write');
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
+
+  // Category suggests this section's categories; Subcategory, that category's subcategories.
+  const categoryOptions = useMemo(() => uniq(existing.filter(p => p.section === section).map(p => p.category)), [existing, section]);
+  const subcategoryOptions = useMemo(
+    () => uniq(existing.filter(p => p.section === section && p.category === category.trim()).map(p => p.subcategory)),
+    [existing, section, category],
+  );
 
   // Populate form when editing
   useEffect(() => {
@@ -166,13 +178,19 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
               <label htmlFor="prompt-category" className={LABEL}>
                 Category <span className="text-[var(--danger)]">*</span>
               </label>
-              <input id="prompt-category" type="text" value={category} onChange={e => setCategory(e.target.value)} className="input" placeholder="e.g. Development, Writing" disabled={!!editingPrompt} required />
+              <input id="prompt-category" type="text" value={category} onChange={e => setCategory(e.target.value)} className="input" placeholder="Pick one or type a new one" list="prompt-category-options" autoComplete="off" disabled={!!editingPrompt} required />
+              <datalist id="prompt-category-options">
+                {categoryOptions.map(c => <option key={c} value={c} />)}
+              </datalist>
             </div>
             <div>
               <label htmlFor="prompt-subcategory" className={LABEL}>
                 Subcategory
               </label>
-              <input id="prompt-subcategory" type="text" value={subcategory} onChange={e => setSubcategory(e.target.value)} className="input" placeholder="Optional" disabled={!!editingPrompt} />
+              <input id="prompt-subcategory" type="text" value={subcategory} onChange={e => setSubcategory(e.target.value)} className="input" placeholder="Optional" list="prompt-subcategory-options" autoComplete="off" disabled={!!editingPrompt} />
+              <datalist id="prompt-subcategory-options">
+                {subcategoryOptions.map(c => <option key={c} value={c} />)}
+              </datalist>
             </div>
           </div>
 

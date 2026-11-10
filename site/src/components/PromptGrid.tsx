@@ -21,7 +21,8 @@ export interface PromptCardActions {
   copied: string | null;
   onPromptClick: (prompt: Prompt) => void;
   onCopyToMyPrompts: (prompt: Prompt) => void;
-  onToggleFavorite: (promptId: string, e?: React.MouseEvent) => void;
+  /** My Library only: left out, cards show no star. */
+  onToggleFavorite?: (promptId: string, e?: React.MouseEvent) => void;
   onEditPrompt: (prompt: Prompt) => void;
   onDeletePrompt: (promptId: string) => void;
   onDownloadMarkdown: (prompt: Prompt) => void;
@@ -58,7 +59,7 @@ export function PromptCardGrid({ prompts, actions, columns = 'default' }: Prompt
           key={prompt.id}
           prompt={prompt}
           index={i}
-          // The card's own library, not the view's: Favorites mixes both
+          // The card's own library, not the view's
           libraryMode={prompt.isUserOwned ? 'my' : 'public'}
           copyingToMyPromptsId={actions.copyingToMyPromptsId}
           favorites={actions.favorites}
