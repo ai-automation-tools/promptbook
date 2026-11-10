@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "receiptId": "c3b3b821-1e40-47da-9704-96c7cd633086",
+  "receiptId": "a9216d3f-c27d-4f52-af37-4cf01c9e4ef2",
   "status": "current",
   "command": "deliver",
   "type": "dataflow",
-  "input": "docs/diagrams/library-data-flow.json",
-  "output": "docs/diagrams/library-data-flow.html",
+  "input": "D:\\AI_Agents\\Projects\\Mikes_AI_Lab\\Repos\\AI-Automation-Tools\\Other_Apps\\pb-wt\\docs\\diagrams\\library-data-flow.json",
+  "output": "D:\\AI_Agents\\Projects\\Mikes_AI_Lab\\Repos\\AI-Automation-Tools\\Other_Apps\\pb-wt\\docs\\diagrams\\library-data-flow.html",
   "specification": {
-    "sha256": "e054912656ff3847071d38b2882f0b5a6bbc08cc6a3a9d49486aae159cc687f3",
+    "sha256": "0f386941f6084ebe2aae04c128dd6515414382228c3f47e6a374f4319b36f88a",
     "bytes": 11319
   },
   "artifact": {
-    "sha256": "f48722f422e2030f94a7b52d7e3283a4460e946dc975cce07407892241beaa22",
+    "sha256": "171d09f7dcbd0004618a9ba43e6621cd8d7e75ddd3883b0ca4960d639db42719",
     "bytes": 835278
   }
 }
