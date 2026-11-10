@@ -217,7 +217,7 @@ const PromptCard = memo(function PromptCard({
           {prompt.checked && 'checked '}
           {new Date(prompt.checked ?? prompt.lastModified).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric', ...(prompt.checked && { timeZone: 'UTC' }) })}
         </span>
-        {/* Favorites are one set in the browser, so every card has the star, read-only demo included */}
+        {/* Favorites are My Library's only: Public Library cards get no star */}
         {onToggleFavorite && (
           <IconButton
             label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}

@@ -23,8 +23,8 @@ copy route were moved onto it in the same change.
 ## Stdout belongs to the protocol
 
 A stdio server's stdout carries JSON-RPC and nothing else. Two things here would have broken
-that: library code that logs with `console.log`, and dotenv 17, which announces itself on
-stdout. `mcp/setup.ts` is imported first, before anything that can log, and points
+that: library code that logs with `console.log`, and dotenv 17, which announced itself on
+stdout (dotenv 18, in use since 2026-11-07, prints to stderr instead). `mcp/setup.ts` is imported first, before anything that can log, and points
 `console.log`, `console.info` and `console.debug` at stderr, then loads `.env` with
 `quiet: true`. The server never imports `api/index.ts` (the Express app logs on load). The test's
 handshake fails if anything slips onto stdout.

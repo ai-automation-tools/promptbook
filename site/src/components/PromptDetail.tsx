@@ -13,7 +13,6 @@ import {
   ExternalLink,
   FolderOpen,
   FolderPlus,
-  Github,
   Globe,
   Hash,
   Layers,
@@ -27,6 +26,7 @@ import {
   Tag,
   Trash2,
 } from 'lucide-react';
+import { Github } from './ui/GithubIcon';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
@@ -57,7 +57,8 @@ interface PromptDetailProps {
   onSubcategoryClick: (category: string, subcategory: string | 'ALL') => void;
   onShowAllPrompts: () => void;
   isFavorite: boolean;
-  onToggleFavorite: (promptId: string) => void;
+  /** My Library only: left out, there is no star. */
+  onToggleFavorite?: (promptId: string) => void;
 }
 
 function wordCount(text: string): number {
@@ -142,17 +143,19 @@ export default function PromptDetail({
           <Button size="sm" onClick={() => onDownloadMarkdown(prompt)} icon={<Download className="h-3.5 w-3.5" />}>
             Download
           </Button>
+          {onToggleFavorite && (
+            <IconButton
+              label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+              framed
+              aria-pressed={isFavorite}
+              onClick={() => onToggleFavorite(prompt.id)}
+              className={cn('h-[30px] w-[30px]', isFavorite && 'text-[var(--warn)]')}
+            >
+              <Star className={cn('h-3.5 w-3.5', isFavorite && 'fill-current')} />
+            </IconButton>
+          )}
           <IconButton
-            label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
-            framed
-            aria-pressed={isFavorite}
-            onClick={() => onToggleFavorite(prompt.id)}
-            className={cn('h-[30px] w-[30px]', isFavorite && 'text-[var(--warn)]')}
-          >
-            <Star className={cn('h-3.5 w-3.5', isFavorite && 'fill-current')} />
-          </IconButton>
-          <IconButton
-            label={copiedShareLink ? 'Link copied' : 'Copy direct link'}
+            label={copiedShareLink ? 'Link copied' : prompt.isUserOwned ? 'Copy link (opens on this computer)' : 'Copy direct link'}
             framed
             onClick={() => onCopyShareLink(prompt)}
             className={cn('h-[30px] w-[30px]', copiedShareLink && 'text-[var(--ok)]')}

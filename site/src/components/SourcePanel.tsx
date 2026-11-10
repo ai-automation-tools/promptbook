@@ -3,7 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { ExternalLink, GitCompare, Github, Globe } from 'lucide-react';
+import { ExternalLink, GitCompare, Globe } from 'lucide-react';
+import { Github } from './ui/GithubIcon';
 import { cn } from '../lib/cn';
 
 /** Mirrors `ItemSource` in lib/library.ts (the API's `source` on a library item). */

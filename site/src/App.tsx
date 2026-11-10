@@ -20,7 +20,6 @@ import PromptListToolbar from './components/PromptListToolbar';
 import { SkillKindSwitch, SkillLibrariesView, isLibraryItem, type SkillKind } from './components/SkillLibraries';
 import { Button } from './components/ui/primitives';
 import { usePromptFilters } from './hooks/usePromptFilters';
-import { useFavoritePrompts } from './hooks/useFavoritePrompts';
 import { fetchFullPrompt, usePromptContent } from './hooks/usePromptContent';
 import { toMarkdownFile } from './lib/markdown-file';
 import { useLibraryRoute, slugifyPromptPath, type LibraryTab } from './hooks/useLibraryRoute';
@@ -94,7 +93,8 @@ export default function App() {
   // Navigation & Organization
   const [favorites, setFavorites] = useState<string[]>(() => {
     const saved = localStorage.getItem('prompt-favorites');
-    return saved ? JSON.parse(saved) : [];
+    // Favorites are My Library's only: drop old Public Library stars, whose ids are library paths.
+    return saved ? (JSON.parse(saved) as string[]).filter(id => !id.includes('/')) : [];
   });
   const [recentlyViewed, setRecentlyViewed] = useState<string[]>(() => {
     const saved = localStorage.getItem('prompt-recently-viewed');
@@ -272,7 +272,7 @@ export default function App() {
 
   const featuredPrompts = useMemo(() => {
     const featured = sectionPrompts
-      .filter(p => p.tags.includes('featured') || favorites.includes(p.id))
+      .filter(p => p.tags.includes('featured'))
       .slice(0, 4);
     
     if (featured.length === 0) {
@@ -282,12 +282,15 @@ export default function App() {
     }
     
     return featured;
-  }, [sectionPrompts, favorites]);
+  }, [sectionPrompts]);
 
-  // One set of favorites, the same in both libraries
-  const favoritePrompts = useFavoritePrompts(favorites, prompts);
+  // Favorites live in My Library only; the Public Library has none.
+  const favoritePrompts = useMemo(
+    () => (libraryMode === 'my' ? prompts.filter(p => favorites.includes(p.id)) : []),
+    [libraryMode, prompts, favorites],
+  );
 
-  /** The sidebar's Favorites view: starred items in the current section, from either library. */
+  /** The sidebar's Favorites view: starred My Library items in the current section. */
   // On Skills it follows the view: starred skills under Skills, starred library cards under Libraries.
   const sectionFavorites = useMemo(
     () => favoritePrompts
@@ -339,7 +342,7 @@ export default function App() {
       showToast('error', 'Could not load this prompt. Try again.');
       return;
     }
-    setPromptPathParam(prompt.isUserOwned ? null : slugifyPromptPath(prompt.id));
+    setPromptPathParam(slugifyPromptPath(prompt.id));
     setCopiedShareLink(false);
 
     setSelectedPrompt(fullPrompt);
@@ -383,6 +386,11 @@ export default function App() {
     window.history.pushState({}, '', url.toString());
   }, []);
 
+  // Favorites are My Library's only, so switching to the Public Library leaves that view.
+  useEffect(() => {
+    if (libraryMode !== 'my' && showFavorites) handleShowAllPrompts();
+  }, [libraryMode, showFavorites, handleShowAllPrompts]);
+
   const handleBack = useCallback(() => {
     if (selectedPrompt) {
       setSelectedPrompt(null);
@@ -407,13 +415,9 @@ export default function App() {
   }, [selectedPrompt, selectedSubcategory, activeCategory, handleShowAllPrompts, handleSubcategoryClick]);
 
   const handleCopyShareLink = useCallback(async (prompt: Prompt) => {
-    if (prompt.isUserOwned) {
-      showToast('info', 'Direct links are only available for public library items');
-      return;
-    }
-
-    const shareUrl = new URL(PUBLIC_SHARE_ORIGIN);
-    shareUrl.searchParams.set('library', 'public');
+    // A My Library item lives only on this machine, so its link points at this server, not the demo.
+    const shareUrl = new URL(prompt.isUserOwned ? window.location.origin : PUBLIC_SHARE_ORIGIN);
+    shareUrl.searchParams.set('library', prompt.isUserOwned ? 'my' : 'public');
     shareUrl.searchParams.set('prompt', slugifyPromptPath(prompt.id));
     shareUrl.searchParams.set('section', getTabForFolder(prompt.section));
     shareUrl.searchParams.set('category', prompt.category);
@@ -429,7 +433,7 @@ export default function App() {
     }
     setCopiedShareLink(true);
     setTimeout(() => setCopiedShareLink(false), 2000);
-    showToast('success', 'Direct link copied');
+    showToast('success', prompt.isUserOwned ? 'Link copied. It opens in your own Promptbook' : 'Direct link copied');
   }, [showToast]);
 
   const handleCopySubsectionLink = useCallback(async (category: string, subcategory: string | 'ALL') => {
@@ -461,16 +465,15 @@ export default function App() {
     const normalizedPromptPath = decodeURIComponent(promptPathParam)
       .replace(/^library\//, '')
       .replace(/^\/+|\/+$/g, '');
-    const matchingPrompt = prompts.find(prompt => {
-      if (prompt.isUserOwned) return false;
-      return slugifyPromptPath(prompt.id) === normalizedPromptPath;
-    });
+    // Public ids are library paths, My Library ids bare slugs, so one never matches the other.
+    const matchingPrompt = prompts.find(prompt => slugifyPromptPath(prompt.id) === normalizedPromptPath);
 
     if (matchingPrompt) {
       const nextTab = getTabForFolder(matchingPrompt.section);
 
       if (activeTab !== nextTab) setActiveTab(nextTab);
-      if (libraryMode !== 'public') setLibraryMode('public');
+      const mode = matchingPrompt.isUserOwned ? 'my' : 'public';
+      if (libraryMode !== mode) setLibraryMode(mode);
       if (activeCategory !== matchingPrompt.category) setActiveCategory(matchingPrompt.category);
       if (activeSubcategory !== matchingPrompt.subcategory) setActiveSubcategory(matchingPrompt.subcategory);
 
@@ -732,7 +735,7 @@ export default function App() {
     copied,
     onPromptClick: handlePromptClick,
     onCopyToMyPrompts: handleCopyToMyPrompts,
-    onToggleFavorite: toggleFavorite,
+    onToggleFavorite: libraryMode === 'my' ? toggleFavorite : undefined,
     onEditPrompt: handleEditPrompt,
     onDeletePrompt: handleDeletePrompt,
     onDownloadMarkdown: handleDownloadMarkdown,
@@ -750,12 +753,6 @@ export default function App() {
     handleDownloadMarkdown,
     copyPrompt,
   ]);
-
-  /** A favorite can live in the other library: opening it switches there first. */
-  const favoriteCardActions: PromptCardActions = useMemo(
-    () => ({ ...promptCardActions, onPromptClick: openPromptFromPalette }),
-    [promptCardActions, openPromptFromPalette],
-  );
 
   /** Breadcrumb trail for the top bar: library › section › category › subcategory › prompt. */
   const crumbs = useMemo<Crumb[]>(() => {
@@ -913,7 +910,7 @@ export default function App() {
                       <h2 id="featured-heading" className="text-[15px] font-semibold tracking-tight text-[var(--fg)]">
                         Featured
                       </h2>
-                      <span className="eyebrow ml-1 hidden sm:inline">Picked and favourites</span>
+                      <span className="eyebrow ml-1 hidden sm:inline">Picked</span>
                     </div>
                     <PromptCardGrid prompts={featuredPrompts} actions={promptCardActions} columns="featured" />
                   </m.section>
@@ -926,7 +923,7 @@ export default function App() {
                       libraryMode={libraryMode}
                       onToast={showToast}
                       favorites={favorites}
-                      onToggleFavorite={toggleFavorite}
+                      onToggleFavorite={libraryMode === 'my' ? toggleFavorite : undefined}
                     />
                   </Suspense>
                 )}
@@ -990,12 +987,12 @@ export default function App() {
                       libraryMode={libraryMode}
                       onToast={showToast}
                       favorites={favorites}
-                      onToggleFavorite={toggleFavorite}
+                      onToggleFavorite={libraryMode === 'my' ? toggleFavorite : undefined}
                       onlyFavorites
                     />
                   </Suspense>
                 ) : sectionFavorites.length > 0 ? (
-                  <PromptCardGrid prompts={sectionFavorites} actions={favoriteCardActions} />
+                  <PromptCardGrid prompts={sectionFavorites} actions={promptCardActions} />
                 ) : (
                   <p className="py-16 text-center text-[14px] text-[var(--fg-3)]">
                     No favorites in this section yet. Star a prompt to pin it here.
@@ -1084,7 +1081,7 @@ export default function App() {
                   onSubcategoryClick={handleSubcategoryClick}
                   onShowAllPrompts={handleShowAllPrompts}
                   isFavorite={favorites.includes(selectedPrompt.id)}
-                  onToggleFavorite={toggleFavorite}
+                  onToggleFavorite={selectedPrompt.isUserOwned ? toggleFavorite : undefined}
                 />
               </Suspense>
 
@@ -1150,6 +1147,7 @@ export default function App() {
             onSave={handleSavePrompt}
             editingPrompt={editingPrompt}
             defaultSection={activeSection}
+            existing={prompts}
           />
         </Suspense>
       )}

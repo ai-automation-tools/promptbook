@@ -66,7 +66,7 @@ Other scripts: `npm run build` (build:index → tsc → vite build), `npm run bu
 `npm run test:prompt-content` (a failed full-prompt load throws instead of returning the preview),
 `npm run test:markdown-file` (a downloaded `.md` reads back through the store unchanged),
 `npm run test:preview` (a card blurb drops badge rows and links cut off at 200 characters),
-`npm run test:browser` (after a build: the built app in Chrome, including the dialog focus trap and a Settings export/import),
+`npm run test:browser` (after a build: the built app in Chrome, including the dialog focus trap, a Settings export/import, a My Library `?prompt=` link and New item's category suggestions),
 `npm run test:safe-path` (`../` escapes and links out of `library/` are refused, for detail and ZIPs),
 `npm run bench` (latency, size and event-loop stall of the heavy endpoints; compare with
 `docs/development/PERFORMANCE.md`, not run in CI).
@@ -95,9 +95,10 @@ site/
                        usePromptContent (copy state + fetchFullPrompt, which throws rather than
                        return the listing's preview; callers show an error and stop)
                        useLibraryRoute (section/category/subcategory/?prompt= URL state, plus
-                       Skills' ?view=libraries)
-                       useFavoritePrompts (one set of stars in both libraries; the other library's are fetched by id;
-                       Skill Packs star as `pack:<id>` in the same list, packFavoriteId in SkillPacksView)
+                       Skills' ?view=libraries; a My Library item's ?prompt= is its id, with ?library=my)
+                       Favorites are My Library's only (`prompt-favorites` in localStorage, filtered in App);
+                       Public Library cards, items and packs have no star. Skill Packs star as `pack:<id>`
+                       in the same list (packFavoriteId in SkillPacksView)
     hooks/useTheme     Light | Dark (`html.light`, key `my-prompt-library.theme`) and the theme
                        (`html[data-palette]`, key `my-prompt-library.palette`, 12 themes in PALETTES;
                        both keys keep the pre-rename name so saved preferences survive);
@@ -122,7 +123,7 @@ site/
                        items tagged `skill-library`, kept out of the Skills grid and category tree), EmptyState, Toast, ResourcesNav,
                        ThemeSwitch, PromptEditorModal, ErrorBoundary (wraps App in main.tsx:
                        a render or chunk failure shows "Something failed to load", not a black page)
-    components/ui/     primitives (Button, IconButton, Chip, Tag, Kbd, Modal*, Notice), CountUp
+    components/ui/     primitives (Button, IconButton, Chip, Tag, Kbd, Modal*, Notice), CountUp, GithubIcon (lucide 1.x has no brand icons)
     index.css          House-style tokens (dark on :root, light on html.light), per-section accent
                        (--c), base + component classes (.btn, .input, .chip, .spot, .popover,
                        .topbar, .nav, .theme-sw, .site-footer …) in Tailwind layers
@@ -153,7 +154,7 @@ site/
                        registered when READ_ONLY), featured + My Library prompts as MCP
                        prompts. docs/mcp-server.md, docs/features/MCP-SERVER.md. Must never log to stdout:
   mcp/setup.ts         imported first; sends console.log/info/debug to stderr and loads .env
-                       quietly (dotenv 17 prints to stdout otherwise)
+                       quietly (dotenv 17 printed to stdout; 18 prints to stderr)
                        Adding a library section means adding it to SECTIONS in lib/library.ts
                        too; test:mcp fails until the two lists match.
   library/             Public content, numbered sections (see below)
