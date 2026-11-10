@@ -1,5 +1,5 @@
 {
-  "revision": "7210eb3933d23da6d7726272967455c3371a66fb",
+  "revision": "43cbea9b7963e3647d0c6c704a2555e5ed6a82ed",
   "files": {
     ".github/workflows/upstream-drift.yml": "c90f3aa78ee54a2f456947dc08f1bfc9023bbf81",
     "scripts/resync-upstream.mjs": "792b79c123d074ac00ea3929056f0d9c8cb61164",
@@ -8,7 +8,7 @@
     "site/lib/library.ts": "be695af8a327f133a4432c4450671560e8fef2b4",
     "site/lib/my-library.ts": "d80fe2eba3b8ce081387a7afb4e2bb25529d32a4",
     "site/mcp/server.ts": "549fd0b1f5db37b22a1caf225497b6b9cb664a89",
-    "site/package.json": "cb07a0f33c8f0bb07050f8509af32bf0c62ddad2",
+    "site/package.json": "01209e5d313e31904f8f614cf84a8c21cbd260f5",
     "site/scripts/build-prompt-index.js": "e456a274ded889024df6a7bc8534b4757877255e",
     "site/src/App.tsx": "76062a588d671e7925c2e3eaed940b74fdc0c683",
     "site/src/hooks/usePromptContent.ts": "246c4b642e7611cdfa05861710b91edd6888323d",

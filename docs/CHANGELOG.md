@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-10 — Diagram refresh
+
+The library data-flow diagram is re-pinned to the current commit after `site/package.json` changed (dependency version bumps only). The cited script lines and every label still hold, so only the pin and generated files moved.
+
+_Touched: `docs/diagrams/`, `homepage/diagram/`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-09 — Roadmap sweep
 
 The roadmap's "Where we are" note matches the repo again: 816 indexed items after the Awesome ChatGPT removal and the 2026-11-09 additions (2,162 before), Phases 1–3 and every release gate done, the demo build stamp added to the open after-release work, and Mike's open calls listed in full (the skill `description:` decision, `lastModified` from git, and the MCP endpoint, npm package, registry listing and launch post). No item ticked, added or removed.
