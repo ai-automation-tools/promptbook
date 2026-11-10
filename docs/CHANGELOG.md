@@ -36,6 +36,14 @@ _Touched: `site/library/4_Prompts/Microsoft_Prompts_For_Edu/Educators/individual
 
 ---
 
+## 2026-11-07 — Library data-flow diagram re-pinned
+
+Re-read `site/api/index.ts`, `site/api/skill-packs.ts`, `site/lib/my-library.ts`, `site/mcp/server.ts`, `site/package.json`, `site/src/App.tsx` and the upstream-drift workflow against `docs/diagrams/library-data-flow.json`. Line ranges follow the moved code, and the My Library API node and Two libraries card now cover the ZIP export and import. Rebuilt with `--pin-head`, which also refreshes the `homepage/diagram/` copies.
+
+_Touched: `docs/diagrams/library-data-flow.*`, `homepage/diagram/library-data-flow.*`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-07 — dotenv 18, motion 14 and lucide-react 1
 
 **Dependencies.** `dotenv` 17 → 18.0.9, `motion` 12 → 14.10.1, `lucide-react` 0.577 → 1.70.0. With `archiver` 8 (PR #477) this closes Phase 3's dependency-majors item, and Phase 3 with it.
