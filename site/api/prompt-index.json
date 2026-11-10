@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-09T19:24:01.204Z",
-  "promptCount": 814,
+  "buildTime": "2026-11-09T22:03:11.565Z",
+  "promptCount": 816,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -613,6 +613,25 @@
       "checked": "2026-10-13",
       "contentPreview": "\n<!-- Last Updated: 2026-10-13 - Checked against code.claude.com/docs/en/cli-reference -->\n\n# Claude Code CLI Flags Reference\n\nOfficial command-line flags available in Claude Code CLI.\n\n**Source**: [c",
       "lastModified": "2026-10-26T15:17:35.376Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/Claude_Code/github-actions-guide.md",
+      "title": "🤖 Claude Code GitHub Actions Guide",
+      "section": "1_Guides",
+      "category": "Claude_Code",
+      "subcategory": "github-actions-guide",
+      "tags": [
+        "claude-code",
+        "github-actions",
+        "ci",
+        "automation",
+        "code-review",
+        "claude-code-action"
+      ],
+      "checked": "2026-11-09",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-09 - Checked against code.claude.com/docs/en/github-actions -->\n\n# Claude Code GitHub Actions Guide\n\n`anthropics/claude-code-action` runs Claude Code inside a GitHub workfl",
+      "lastModified": "2026-11-09T22:02:59.003Z",
       "isUserOwned": false
     },
     {
@@ -2458,9 +2477,9 @@
         "business",
         "marketing"
       ],
-      "checked": "2026-11-09",
+      "checked": "2026-10-23",
       "contentPreview": "\n# Xquik X (Twitter) data API\n\n> Xquik is an independent third-party service. Not affiliated with X Corp. \"Twitter\" and \"X\" are trademarks of X Corp.\n\nXquik is the world's fastest and cheapest X Twitt",
-      "lastModified": "2026-11-09T19:23:04.193Z",
+      "lastModified": "2026-10-27T17:30:56.079Z",
       "isUserOwned": false
     },
     {
@@ -2543,9 +2562,9 @@
         "content",
         "obsidian"
       ],
-      "checked": "2026-11-09",
+      "checked": "2026-10-23",
       "contentPreview": "\n# Obsidian Flavored Markdown Skill\n\nThis skill enables Claude Code to create and edit valid Obsidian Flavored Markdown, including all Obsidian-specific syntax extensions.\n\n## Overview\n\nObsidian uses ",
-      "lastModified": "2026-11-09T19:23:05.126Z",
+      "lastModified": "2026-10-27T17:30:58.109Z",
       "isUserOwned": false
     },
     {
@@ -2644,9 +2663,9 @@
         "architecture",
         "svg"
       ],
-      "checked": "2026-11-09",
+      "checked": "2026-10-26",
       "contentPreview": "\n# Diagram Design\n\nCreate diagrams as self-contained HTML files with inline SVG and an editorial design system.\n\nForty-five visual types. Semantic patterns describe behavior; type references describe ",
-      "lastModified": "2026-11-09T19:23:06.365Z",
+      "lastModified": "2026-10-27T17:31:03.158Z",
       "isUserOwned": false
     },
     {
@@ -2730,9 +2749,9 @@
         "agents",
         "workflow"
       ],
-      "checked": "2026-11-09",
+      "checked": "2026-10-26",
       "contentPreview": "\n# Planning with Files\n\nWork like Manus: Use persistent markdown files as your \"working memory on disk.\"\n\n## FIRST: Restore Project State\n\n**Before continuing**, resolve the plan this task owns:\n\n1. U",
-      "lastModified": "2026-11-09T19:23:07.338Z",
+      "lastModified": "2026-10-27T17:31:06.876Z",
       "isUserOwned": false
     },
     {
@@ -2856,9 +2875,9 @@
         "finance",
         "betting-and-gambling"
       ],
-      "checked": "2026-11-09",
-      "contentPreview": "\n# Polymarket Comprehensive Skill\n\nComplete assistance with Polymarket development - covering the full platform (API, trading, market data) and the real-time data streaming client (WebSocket subscript",
-      "lastModified": "2026-11-09T19:23:08.615Z",
+      "checked": "2026-10-23",
+      "contentPreview": "\n# Polymarket Development Suite\n\n🔗 **Source Link:** [PolyMarket Dev Suite - MCP Market](https://mcpmarket.com/tools/skills/polymarket-development-suite)\n\nComplete assistance with Polymarket developme",
+      "lastModified": "2026-10-27T17:31:12.533Z",
       "isUserOwned": false
     },
     {
@@ -3358,9 +3377,9 @@
         "security",
         "broken-authentication"
       ],
-      "checked": "2026-11-09",
+      "checked": "2026-09-08",
       "contentPreview": "\n> **⚠️ AUTHORIZED USE ONLY**\n> This skill is for educational purposes or authorized security assessments only.\n> You must have explicit, written permission from the system owner before using this too",
-      "lastModified": "2026-11-09T19:23:11.117Z",
+      "lastModified": "2026-10-27T17:31:13.373Z",
       "isUserOwned": false
     },
     {
@@ -11253,6 +11272,26 @@
       "checked": "2026-10-26",
       "contentPreview": "\n# Instructional Coach: Explainer\n\nThis prompt asks the language model to help a teacher create simple and clear explanations, examples, and analogies for a specific topic. The model should inquire ab",
       "lastModified": "2026-10-26T16:34:29.746Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Microsoft_Prompts_For_Edu/Educators/individualized-student-assistance.md",
+      "title": "🎓 Achievement Architect: Building Strategies for Student Challenges",
+      "section": "4_Prompts",
+      "category": "Microsoft_Prompts_For_Edu",
+      "subcategory": "Educators",
+      "tags": [
+        "education",
+        "prompts-for-edu",
+        "educators",
+        "student-support",
+        "coaching",
+        "achievement",
+        "architect"
+      ],
+      "checked": "2026-11-09",
+      "contentPreview": "\n# Achievement Architect: Building Strategies for Student Challenges\n\nThis prompt guides the language model to assist educators in identifying and understanding the challenges faced by individual stud",
+      "lastModified": "2026-11-09T22:02:05.134Z",
       "isUserOwned": false
     },
     {
