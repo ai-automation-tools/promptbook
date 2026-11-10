@@ -534,7 +534,7 @@ app.get("/api/my-library/export", requireWritable, async (_req, res) => {
 app.post("/api/my-library/import", requireWritable, express.raw({ type: () => true, limit: '50mb' }), (req, res) => {
   try {
     if (!Buffer.isBuffer(req.body) || !req.body.length) return res.status(400).json({ error: 'Send the ZIP file as the request body' });
-    const entries = readZip(req.body, { maxEntries: IMPORT_LIMITS.entries, maxEntryBytes: IMPORT_LIMITS.entryBytes });
+    const entries = readZip(req.body, { maxEntries: IMPORT_LIMITS.entries, maxEntryBytes: IMPORT_LIMITS.entryBytes, maxTotalBytes: IMPORT_LIMITS.totalBytes });
     if (req.query.apply !== 'true') return res.json(previewImport(entries));
     const overwrite = typeof req.query.overwrite === 'string' ? req.query.overwrite : undefined;
     const { plan, written } = applyImport(entries, overwrite);

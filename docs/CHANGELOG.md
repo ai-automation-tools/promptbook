@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-10 — Security sweep: a ZIP import has a total size cap
+
+A My Library import now stops once its entries unpack to more than 100 MB in total. Each entry was already capped at about 564 KB, but 5,000 small, highly compressed entries could still unpack to gigabytes in memory on a writable local copy. `readZip` also refuses anything that isn't a Buffer. A new hostile-archive case in `test:my-library` covers the cap.
+
+_Touched: `site/lib/zip.ts`, `site/lib/my-library.ts`, `site/api/index.ts`, `site/scripts/my-library.test.mjs`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-09 — Roadmap sweep
 
 The roadmap's "Where we are" note matches the repo again: 816 indexed items after the Awesome ChatGPT removal and the 2026-11-09 additions (2,162 before), Phases 1–3 and every release gate done, the demo build stamp added to the open after-release work, and Mike's open calls listed in full (the skill `description:` decision, `lastModified` from git, and the MCP endpoint, npm package, registry listing and launch post). No item ticked, added or removed.

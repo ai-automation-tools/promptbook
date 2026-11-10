@@ -350,7 +350,7 @@ export function libraryFiles(): { name: string; data: Buffer }[] {
 }
 
 /** Room for a full 500 KB body plus its frontmatter. */
-export const IMPORT_LIMITS = { entries: 5000, entryBytes: LIMITS.contentBytes + 64 * 1024 };
+export const IMPORT_LIMITS = { entries: 5000, entryBytes: LIMITS.contentBytes + 64 * 1024, totalBytes: 100 * 1024 * 1024 };
 
 export interface ImportPlan {
   added: { id: string; title: string }[];
