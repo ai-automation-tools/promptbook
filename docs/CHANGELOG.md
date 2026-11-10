@@ -4,6 +4,16 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-09 — One prompt, one guide
+
+**Prompt.** `4_Prompts/Microsoft_Prompts_For_Edu/Educators/individualized-student-assistance.md` (Achievement Architect), the one prompt in `microsoft/prompts-for-edu` the library lacked, from commit `508567d`. Only one: all 265 Fabric patterns are already here, and the other pending collections in `docs/DISCOVERY.md` wait for a decision.
+
+**Guide.** `1_Guides/Claude_Code/github-actions-guide.md`: setup, the `@claude` and automation modes, review and scheduled-report workflows, inputs, cost and troubleshooting, from code.claude.com/docs/en/github-actions and the `claude-code-action` usage reference. Repo `anthropics/claude-code`.
+
+_Touched: `site/library/4_Prompts/Microsoft_Prompts_For_Edu/Educators/individualized-student-assistance.md`, `site/library/1_Guides/Claude_Code/github-actions-guide.md`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-07 — dotenv 18, motion 14 and lucide-react 1
 
 **Dependencies.** `dotenv` 17 → 18.0.9, `motion` 12 → 14.10.1, `lucide-react` 0.577 → 1.70.0. With `archiver` 8 (PR #477) this closes Phase 3's dependency-majors item, and Phase 3 with it.
