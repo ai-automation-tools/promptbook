@@ -238,7 +238,8 @@ export default function Sidebar({
           )}
 
           <div className="min-h-0 flex-1 space-y-0.5 overflow-y-auto px-3 pb-3">
-            {/* Favorites, in every view: starred skills, library cards or packs, whichever this view lists */}
+            {/* Favorites, My Library only: starred skills, library cards or packs, whichever this view lists */}
+            {libraryMode === 'my' && (<>
             <button
               type="button"
               onClick={onShowFavorites}
@@ -260,6 +261,7 @@ export default function Sidebar({
               <span className="mono text-[10.5px] tabular-nums text-[var(--fg-5)]">{favoriteCount}</span>
             </button>
             <hr className="mx-2 mb-1.5 border-t border-[var(--line)]" aria-hidden="true" />
+            </>)}
             {showLibraries ? (
               <>
                 {libraries.map(lib => (

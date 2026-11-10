@@ -55,7 +55,8 @@ interface SkillPacksViewProps {
   libraryMode: 'public' | 'my';
   onToast: (type: ToastType, message: string) => void;
   favorites: string[];
-  onToggleFavorite: (favoriteId: string, e?: ReactMouseEvent) => void;
+  /** My Library only: left out, packs show no star. */
+  onToggleFavorite?: (favoriteId: string, e?: ReactMouseEvent) => void;
   /** The sidebar's Favorites view: only the starred packs. */
   onlyFavorites?: boolean;
 }
@@ -189,7 +190,7 @@ export default function SkillPacksView({ libraryMode, onToast, favorites, onTogg
   };
 
   const isFavorite = (packId: string) => favorites.includes(packFavoriteId(packId));
-  const favoriteButton = (packId: string, framed = false) => (
+  const favoriteButton = (packId: string, framed = false) => onToggleFavorite && (
     <IconButton
       label={isFavorite(packId) ? 'Remove from favorites' : 'Add to favorites'}
       framed={framed}

@@ -108,7 +108,7 @@ export function useLibraryRoute({ selectedPrompt, setSelectedPrompt, setLibraryM
     if (activeTab === 'skills' && skillView === 'libraries') url.searchParams.set('view', skillView);
     else url.searchParams.delete('view');
 
-    if (selectedPrompt && !selectedPrompt.isUserOwned) {
+    if (selectedPrompt) {
       url.searchParams.set('prompt', slugifyPromptPath(selectedPrompt.id));
     } else {
       url.searchParams.delete('prompt');
