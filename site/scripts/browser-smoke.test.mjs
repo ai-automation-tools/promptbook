@@ -63,7 +63,11 @@ try {
   page.on("pageerror", (err) => problems.push(`page error: ${err.message}`));
   page.on("console", (msg) => { if (msg.type() === "error") problems.push(`console: ${msg.text()}`); });
   page.on("response", (r) => { if (r.status() >= 400) problems.push(`HTTP ${r.status()} ${r.url()}`); });
-  page.on("requestfailed", (r) => problems.push(`failed: ${r.url()} ${r.failure()?.errorText}`));
+  // ERR_ABORTED is the browser cancelling a request when the test navigates away (card
+  // previews still in flight), not a failure; real errors still arrive as 4xx/5xx above.
+  page.on("requestfailed", (r) => {
+    if (r.failure()?.errorText !== "net::ERR_ABORTED") problems.push(`failed: ${r.url()} ${r.failure()?.errorText}`);
+  });
 
   // Listing: cards render from the lightweight list, blurbs from /previews.
   await page.goto(`${base}/`);
