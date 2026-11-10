@@ -4,6 +4,18 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-09 — Category suggestions, My Library links, favorites in My Library only
+
+**Category suggestions.** New item's Category and Subcategory fields suggest the names the current library already uses in the chosen section (Subcategory: under the typed category), through a native `<datalist>`. A new name can still be typed.
+
+**My Library links.** The detail page's link button now works for My Library items: it copies `?library=my&prompt=<id>` on this server, and opening that URL selects the item. A My Library id is a bare slug and a public id a library path, so the two never collide. The link only opens where the file lives; it is for you, not for sharing.
+
+**Favorites in My Library only.** Mike: favorites should only be in My Library. The star and the sidebar's Favorites row show only in My Library (items and Skill Packs); the Public Library and the read-only demo have neither, and Save to My Library is the way to keep a public item. Old public stars are dropped from `prompt-favorites` on load. `useFavoritePrompts`, which fetched the other library's stars by id, is gone, and Featured no longer mixes in favorites.
+
+_Touched: `site/src/App.tsx`, `site/src/hooks/useLibraryRoute.ts`, `site/src/hooks/useFavoritePrompts.ts` (removed), `site/src/components/{PromptEditorModal,PromptDetail,PromptCard,PromptGrid,SkillPacksView,Sidebar}.tsx`, `site/scripts/browser-smoke.test.mjs`, `AGENTS.md`, `docs/ARCHITECTURE.md`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-07 — dotenv 18, motion 14 and lucide-react 1
 
 **Dependencies.** `dotenv` 17 → 18.0.9, `motion` 12 → 14.10.1, `lucide-react` 0.577 → 1.70.0. With `archiver` 8 (PR #477) this closes Phase 3's dependency-majors item, and Phase 3 with it.

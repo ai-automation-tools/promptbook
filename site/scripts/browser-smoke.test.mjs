@@ -78,6 +78,7 @@ try {
   await card.click();
   await page.getByRole("button", { name: /Copy prompt/ }).waitFor();
   assert.match(page.url(), /[?&]prompt=/, `opening "${title}" puts it in the URL`);
+  assert.equal(await page.getByRole("button", { name: "Add to favorites" }).count(), 0, "Public Library items have no star");
 
   // Settings dialog (F08): focus moves in, Tab can't leave, Escape gives it back.
   const inDialog = () => page.evaluate(() => !!document.querySelector("[role=dialog]")?.contains(document.activeElement));
@@ -114,8 +115,17 @@ try {
   assert.ok(fs.readFileSync(mineFile).equals(mineBytes), "the exported file imports back byte for byte");
   await page.keyboard.press("Escape");
 
+  // My Library: a ?prompt= link opens the item, which has the star; New item suggests its category.
+  await page.goto(`${base}/?library=my&prompt=${mine.id}`);
+  await page.getByRole("heading", { name: "Smoke export" }).waitFor();
+  await page.getByRole("button", { name: "Add to favorites" }).waitFor();
+  await page.getByRole("button", { name: "New item" }).first().click();
+  await page.getByRole("dialog").waitFor();
+  assert.equal(await page.locator('#prompt-category-options option[value="Dev"]').count(), 1, "Category suggests My Library's categories");
+  await page.keyboard.press("Escape");
+
   assert.deepEqual(problems, [], "no page errors, console errors or failed requests");
-  console.log("browser-smoke: listing, detail, hero counter, Settings focus, My Library export and import, and the vercel.json CSP all pass on the built app");
+  console.log("browser-smoke: listing, detail, hero counter, Settings focus, My Library export and import, My Library links, favorites and category suggestions, and the vercel.json CSP all pass on the built app");
 } finally {
   await browser.close();
   server.close();
