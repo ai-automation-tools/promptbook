@@ -69,7 +69,9 @@ if (libraryMode === 'my' || prompt.isUserOwned) {
 **Behavior**:
 - **Public Library**: Edit/Delete hidden for all prompts (unless user somehow has user-owned prompts showing)
 - **My Library**: Edit/Delete visible for all prompts (since filter already ensures only user-owned)
-- **Favorite button**: Always visible in both modes, read-only demo included: on every card, on the item's detail page, and on Skill Packs (stored as `pack:<id>`; the Packs sidebar's Favorites lists them). Favorites are one set (`prompt-favorites` in localStorage): the Favorites view lists the current section's stars from both libraries, and opening one from the other library switches to it
+- **Favorite button**: My Library only: on its cards, its item pages and its Skill Packs (stored as `pack:<id>`; the Packs sidebar's Favorites lists them). The Public Library, and so the read-only demo, has no star and no Favorites row; save an item to My Library to star it. Stars live in `prompt-favorites` in localStorage
+- **Copy link**: A Public Library item's link points at the demo. A My Library item's link points at this server (`?library=my&prompt=<id>`), so it opens on the machine that holds the file
+- **New item**: Category and Subcategory suggest the names the current library already uses in that section (a native `<datalist>`); typing a new name still works
 - **Copy button**: Always visible in both modes
 
 ---
@@ -250,7 +252,7 @@ curl -s http://localhost:3010/api/prompts | jq '[.[] | select(.isUserOwned == tr
 ## ✨ Future Enhancements
 
 - ~~Export My Library as JSON/ZIP~~ and ~~import prompts from file~~: ZIP export and import shipped 2026-10-31 (Settings → My Library)
-- Share My Library with others (read-only link)
+- Share My Library with others (read-only link). A My Library item's link opens it on your own machine only (2026-11-09)
 - Organize My Library with custom folders
 - Sync My Library across devices
 - Admin mode to edit Public Library
