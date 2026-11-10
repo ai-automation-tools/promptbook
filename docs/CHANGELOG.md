@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-09 — Roadmap sweep
+
+The roadmap's "Where we are" note matches the repo again: 816 indexed items after the Awesome ChatGPT removal and the 2026-11-09 additions (2,162 before), Phases 1–3 and every release gate done, the demo build stamp added to the open after-release work, and Mike's open calls listed in full (the skill `description:` decision, `lastModified` from git, and the MCP endpoint, npm package, registry listing and launch post). No item ticked, added or removed.
+
+_Touched: `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-09 — Category suggestions, My Library links, favorites in My Library only
 
 **Category suggestions.** New item's Category and Subcategory fields suggest the names the current library already uses in the chosen section (Subcategory: under the typed category), through a native `<datalist>`. A new name can still be typed.
