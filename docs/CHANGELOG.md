@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-09 — Roadmap sweep
+
+The roadmap's "Where we are" note matches the repo again: 816 indexed items after the Awesome ChatGPT removal and the 2026-11-09 additions (2,162 before), Phases 1–3 and every release gate done, the demo build stamp added to the open after-release work, and Mike's open calls listed in full (the skill `description:` decision, `lastModified` from git, and the MCP endpoint, npm package, registry listing and launch post). No item ticked, added or removed.
+
+_Touched: `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-09 — Category suggestions, My Library links, favorites in My Library only
 
 **Category suggestions.** New item's Category and Subcategory fields suggest the names the current library already uses in the chosen section (Subcategory: under the typed category), through a native `<datalist>`. A new name can still be typed.
@@ -25,6 +33,14 @@ _Touched: `site/src/App.tsx`, `site/src/hooks/useLibraryRoute.ts`, `site/src/hoo
 **Guide.** `1_Guides/Claude_Code/github-actions-guide.md`: setup, the `@claude` and automation modes, review and scheduled-report workflows, inputs, cost and troubleshooting, from code.claude.com/docs/en/github-actions and the `claude-code-action` usage reference. Repo `anthropics/claude-code`.
 
 _Touched: `site/library/4_Prompts/Microsoft_Prompts_For_Edu/Educators/individualized-student-assistance.md`, `site/library/1_Guides/Claude_Code/github-actions-guide.md`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
+## 2026-11-07 — Library data-flow diagram re-pinned
+
+Re-read `site/api/index.ts`, `site/api/skill-packs.ts`, `site/lib/my-library.ts`, `site/mcp/server.ts`, `site/package.json`, `site/src/App.tsx` and the upstream-drift workflow against `docs/diagrams/library-data-flow.json`. Line ranges follow the moved code, and the My Library API node and Two libraries card now cover the ZIP export and import. Rebuilt with `--pin-head`, which also refreshes the `homepage/diagram/` copies.
+
+_Touched: `docs/diagrams/library-data-flow.*`, `homepage/diagram/library-data-flow.*`, `docs/CHANGELOG.md`._
 
 ---
 

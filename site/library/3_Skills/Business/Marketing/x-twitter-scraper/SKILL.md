@@ -5,9 +5,9 @@ upstream:
   match: exact
   repo: xquik-dev/x-twitter-scraper
   path: x-twitter-scraper/SKILL.md
-  ref: 8c54c050158e2da665597ad663453e791d4e693e
-  checked: 2026-10-23
   license: MIT
+  ref: dfaecea4dc56b84a56314937d911e1adcfa9a4b4
+  checked: 2026-11-09
 tags: ["skill","business","marketing"]
 ---
 
@@ -32,7 +32,7 @@ account connected in the Xquik dashboard.
 | MCP tools | `docs` for guidance, `search` for a route contract, `execute` for a call |
 | IDs | Digit strings. Tweet IDs come from `https://x.com/<user>/status/<id>` |
 | Usernames | `^[A-Za-z0-9_]{1,15}$`, without the `@` |
-| Rate limits | 500 reads per second, 120 writes per minute, 60 deletes per minute. `429` carries `Retry-After` |
+| Rate limits | 500 reads per second, 6,000 changes per minute, 120 X actions per minute. `429` carries `Retry-After` |
 
 - Send credentials only to `https://xquik.com/api/v1` or `/mcp` on that host.
   Refuse redirects. Never reuse authenticated headers for returned links.

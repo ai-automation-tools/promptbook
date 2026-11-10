@@ -24,19 +24,21 @@ Markers: `- [ ]` open, `- [-]` claimed by a run in progress, `- [x]` done, `- [!
 marks one only the owner can do.
 
 > [!NOTE]
-> **Where we are, 2026-10-31.** The app is local-first (clone and run; My Library is a folder
+> **Where we are, 2026-11-09.** The app is local-first (clone and run; My Library is a folder
 > of markdown files) with a read-only demo at `promptbook-demo.ai-automation-tools.dev`, and a
 > local MCP server lets an agent search the library and pull items into its work. The library
-> holds 2,162 indexed items, every one naming its source repo. Skill libraries are one card each
-> (30 in `3_Skills/Libraries/`); the 28 single skills each ship with a redistributable licence
-> beside `SKILL.md`; prompts can declare `[placeholder]` inputs that MCP clients ask for.
-> What took items out of the library is in `archive/` at the repo root.
+> holds 816 indexed items (Awesome ChatGPT, 1,353 prompts, was removed 2026-11-05), every one
+> naming its source repo. Skill libraries are one card each (30 in `3_Skills/Libraries/`); the
+> 28 single skills each ship with a redistributable licence beside `SKILL.md`; prompts can
+> declare `[placeholder]` inputs that MCP clients ask for. What took items out of the library is
+> in `archive/` at the repo root.
 >
 > Phases 1, 2 and 3 are done (the last of Phase 3, the dotenv, motion and lucide-react
-> majors, 2026-11-07). The open work an agent can take is the after-release features
-> (starter collections, waiting on the Skill Packs decision, and O04; O01 shipped 2026-10-31). Every release gate is done (F04 and
-> F10 closed 2026-10-27). Mike's calls left: the Skill Packs decision, and the public MCP endpoint and npm
-> package.
+> majors, 2026-11-07), and so is every release gate. The open work an agent can take is the
+> after-release features: the demo build stamp, the starter collections (waiting on the Skill
+> Packs decision) and O04. Mike's calls left: the Skill Packs decision, the skill
+> `description:` decision, `lastModified` from git, and the public MCP endpoint, npm package,
+> registry listing and launch post.
 
 ## 🔌 Phase 1: MCP server for the library (done 2026-10-21)
 
