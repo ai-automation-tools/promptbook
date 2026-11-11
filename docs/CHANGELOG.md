@@ -9,6 +9,11 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 The library data-flow diagram is re-pinned to the current commit after `site/package.json` changed (dependency version bumps only). The cited script lines and every label still hold, so only the pin and generated files moved.
 
 _Touched: `docs/diagrams/`, `homepage/diagram/`, `docs/CHANGELOG.md`._
+## 2026-11-10 — Security sweep: a ZIP import has a total size cap
+
+A My Library import now stops once its entries unpack to more than 100 MB in total. Each entry was already capped at about 564 KB, but 5,000 small, highly compressed entries could still unpack to gigabytes in memory on a writable local copy. `readZip` also refuses anything that isn't a Buffer. A new hostile-archive case in `test:my-library` covers the cap.
+
+_Touched: `site/lib/zip.ts`, `site/lib/my-library.ts`, `site/api/index.ts`, `site/scripts/my-library.test.mjs`, `docs/CHANGELOG.md`._
 
 ---
 
