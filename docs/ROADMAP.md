@@ -12,9 +12,9 @@
 
 ---
 
-The Prompt-Library roadmap routine works this file top to bottom every Saturday night, once
-the weekly upstream-drift issue has no `behind` entries: it takes the first open item that
-isn't `🔒 Needs owner`, builds it, ticks it, and adds the matching line to the
+The Promptbook roadmap routine works this file top to bottom, one item per run, as
+`roadmap/auto-` PRs, once the upstream-drift issue has no `behind` entries: it takes the first
+open item that isn't `🔒 Needs owner`, builds it, ticks it, and adds the matching line to the
 [changelog](CHANGELOG.md). **Every item above `## After public release` is a release gate**
 for the next release; the repo itself has been public since 2026-10-12. Ticking an item adds
 its line to the changelog and updates any doc it made stale, in the same commit.
@@ -24,7 +24,7 @@ Markers: `- [ ]` open, `- [-]` claimed by a run in progress, `- [x]` done, `- [!
 marks one only the owner can do.
 
 > [!NOTE]
-> **Where we are, 2026-11-09.** The app is local-first (clone and run; My Library is a folder
+> **Where we are, 2026-11-11.** The app is local-first (clone and run; My Library is a folder
 > of markdown files) with a read-only demo at `promptbook-demo.ai-automation-tools.dev`, and a
 > local MCP server lets an agent search the library and pull items into its work. The library
 > holds 816 indexed items (Awesome ChatGPT, 1,353 prompts, was removed 2026-11-05), every one
@@ -34,11 +34,12 @@ marks one only the owner can do.
 > in `archive/` at the repo root.
 >
 > Phases 1, 2 and 3 are done (the last of Phase 3, the dotenv, motion and lucide-react
-> majors, 2026-11-07), and so is every release gate. The open work an agent can take is the
-> after-release features: the demo build stamp, the starter collections (waiting on the Skill
-> Packs decision) and O04. Mike's calls left: the Skill Packs decision, the skill
-> `description:` decision, `lastModified` from git, and the public MCP endpoint, npm package,
-> registry listing and launch post.
+> majors, 2026-11-07), and so is every release gate. The open work an agent can take is two
+> doc fixes, the demo build stamp, a Cronsole catalog with its two follow-on commands, and O04;
+> the starter collections are blocked on the Skill Packs decision. Mike's calls left: the
+> contact that replaces the personal email in the README, the Vercel rate limit, the Skill
+> Packs decision, the skill `description:` decision, `lastModified` from git, and the public
+> MCP endpoint, npm package, registry listing and launch post.
 
 ## 🔌 Phase 1: MCP server for the library (done 2026-10-21)
 
@@ -87,6 +88,13 @@ O01–O04 are under **After public release**.
 
 Nothing below blocks go-live.
 
+### 🧹 Upkeep
+
+- [ ] Replace the personal email address in `README.md` (line 325, flagged by the Security sweep 2026-11-10) with a contact fit for a public repo; which contact replaces it 🔒 Needs owner
+- [ ] Vercel Firewall rate-limit rule on `/api/*` for promptbook-demo (a per-instance limiter does nothing on serverless), and confirm whether `library/3_Skills` is bundled into the function, which decides whether CodeQL #34 is reachable 🔒 Needs owner
+- [ ] `small` Library counts in `features/LIBRARY-MODE-IMPLEMENTATION.md` ("903") and `features/MCP-SERVER.md` ("~600") match `prompt-index.json` (816 items) or drop the number, and `surfaces.json` covers the "items" total, not just "prompts"
+- [ ] `small` Rename the leftover "Prompt-Library" job names in `UPSTREAMS.md` ("Prompt-Library Upstream Check") and `DISCOVERY.md` ("Prompt-Library Discovery") to the Promptbook job names (Promptbook Upstream Check, Promptbook Discovery)
+
 ### 🧾 Content provenance
 
 - [ ] Decide whether a skill's `description:` is our curation or upstream content. Resync keeps the whole local frontmatter, so bodies match upstream while some descriptions are a year old, and the drift check strips frontmatter so it cannot see the gap. Done when resync and the drift report both handle `description` per the decision 🔒 Needs owner
@@ -100,7 +108,10 @@ Nothing below blocks go-live.
 
 - [ ] Decide what Skill Packs are for, now that three small hand-picked packs are left (`developer-essentials-pack` 2 skills, `writing-documentation-pack` 2, `prediction-markets-pack` 1): grow them, fold them into the starter collections below, or retire the Packs view 🔒 Needs owner
 - [ ] **Stamp the demo build** *(Homepage refresh, 2026-11-09)* — **What:** add a `<meta name="build" content="<sha>">` tag to the demo's page, set to the commit SHA at deploy time, as Incubate's boilerplate does. `Get-SurfaceDrift.py` finds no build stamp on https://promptbook-demo.ai-automation-tools.dev/, so a stale deploy can't be told from a current one. **Done when:** `Get-SurfaceDrift.py` shows the promptbook demo `current` after a deploy.
-- [ ] Role-based starter collections for prompts and agents (a "frontend engineer" or "founder" set), installable into My Library in one step the way a Skill Pack is. Done when at least three collections exist, each installs and uninstalls cleanly in a test, and the read-only demo serves them without the install button. Wait for the Skill Packs decision above, which may make the two one feature
+- [ ] Publish a Cronsole catalog from `homepage/`: a builder modelled on edge-spectrum's `build-registry.mjs` (Registry v1, ids `promptbook-<job>`, one pack "promptbook", `--check`), templates `promptbook-backup-my-library` (`GET /api/my-library/export` to a dated ZIP) and `promptbook-pull-library` (`git pull --ff-only`), served at `/registry/` with `ACAO *`, `--check` in CI, `registry-drift.yml` copied from edge-spectrum, and a Schedule it section on the homepage that reads `registry/index.json` live. Done when the gallery lists the pack and the homepage cards link `#/t/<id>`
+- [ ] `npm run my-library:refresh` (`site/`): calls `pullUpstream` for every My Library copy with a public source that is not edited, skips edited ones and lists them, exits non-zero on error, never runs under `READ_ONLY`. Test in `test:my-library`. Then add a `promptbook-refresh-copies` template to the catalog
+- [ ] `npm run my-library:import -- <dir>`: imports a local folder of `SKILL.md` / prompt `.md` files through `previewImport`/`applyImport`, writes new and unchanged items, never overwrites a conflict (lists it instead), same limits as the ZIP import. Test with a conflict and a hostile path. Then add a `promptbook-sync-folder` template
+- [!] Role-based starter collections for prompts and agents (a "frontend engineer" or "founder" set), installable into My Library in one step the way a Skill Pack is. Done when at least three collections exist, each installs and uninstalls cleanly in a test, and the read-only demo serves them without the install button — blocked: waits on the Skill Packs decision above, which may make the two one feature
 - [x] **O01** Export My Library as a zip, and import one, from Settings. Done when a mixed library (Unicode names, tags, extra frontmatter, long bodies) round-trips identically, an import never overwrites without showing the conflicts first, archive traversal and oversized entries are refused, and a cancelled import changes nothing. Its prerequisites F05–F07 are done — done 2026-10-31: Settings → My Library has Export .zip and Import .zip (`src/components/MyLibraryTransfer.tsx`), over `GET /api/my-library/export` and `POST /api/my-library/import`. Export is the folder's `<id>.md` files byte for byte; import previews first (writes nothing: new, unchanged, conflicts, skipped with reasons), writes files exactly as zipped, and replaces a differing file only with the token of the preview that listed it (a file changed since then makes it a 409). `lib/zip.ts` reads the ZIP and refuses the whole archive on a traversal name, an entry over 564 KB or one that inflates past it, ZIP64 or encryption. `test:my-library` round-trips Unicode titles and tags, a skill's extra frontmatter, a 450 KB body and a hand-written CRLF file byte for byte, and checks the conflict, cancel and hostile-archive cases; `test:browser` exports, previews and imports through the real dialog; `test:read-only` 403s both
 - [x] **O03** Library prompts with `[placeholder]` fields expose them as MCP prompt arguments, so a client asks for each value instead of one free-text `input`. Driven by an explicit, optional `inputs:` list in frontmatter, not by guessing at every bracketed phrase: declared inputs are required, unknown placeholders and literals are left alone, no template code runs, and the free-text `input` keeps working for existing clients — done 2026-10-27: `lib/prompt-inputs.ts` validates the list and fills in one literal pass; the index carries `inputs` for prompts that declare it, and the MCP server registers each such prompt by name with a required argument per input (My Library prompts too). Two Awesome ChatGPT prompts declare `[topic]` to start. `test:mcp` covers parsing, filling, required arguments and a My Library prompt, and fails on an invalid declaration in the library. `library_prompt` keeps `id` + `input` only
 - [ ] **O04** Export selected prompts as an evaluation project (versioned prompt files plus synthetic examples) that an evaluator the user configures can run. Paths are relative and safe, and the export makes no network call and needs no provider key. Depends on O01
