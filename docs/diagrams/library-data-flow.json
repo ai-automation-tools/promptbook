@@ -8,7 +8,7 @@
     "output": "library-data-flow.html",
     "repository": {
       "url": "https://github.com/ai-automation-tools/promptbook.git",
-      "revision": "7210eb3933d23da6d7726272967455c3371a66fb"
+      "revision": "43cbea9b7963e3647d0c6c704a2555e5ed6a82ed"
     }
   },
   "stages": [
