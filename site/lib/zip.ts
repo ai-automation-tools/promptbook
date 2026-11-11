@@ -8,7 +8,8 @@ import zlib from 'node:zlib';
  * Everything it does not understand is refused rather than guessed at: ZIP64,
  * encryption, other compression methods, a name that climbs out of the folder.
  * An entry is inflated with a hard output cap, so a small entry that claims a
- * small size cannot expand into gigabytes.
+ * small size cannot expand into gigabytes, and the entries together stop at
+ * `maxTotalBytes`, so thousands of small entries cannot either.
  */
 
 export class ZipError extends Error {}
@@ -31,7 +32,8 @@ export const isUnsafeName = (name: string) =>
   name.includes('\\') || name.includes('\0') || name.startsWith('/') || /^[a-zA-Z]:/.test(name)
   || name.split('/').some(part => part === '..');
 
-export function readZip(buf: Buffer, { maxEntries, maxEntryBytes }: { maxEntries: number; maxEntryBytes: number }): ZipEntry[] {
+export function readZip(buf: Buffer, { maxEntries, maxEntryBytes, maxTotalBytes = Infinity }: { maxEntries: number; maxEntryBytes: number; maxTotalBytes?: number }): ZipEntry[] {
+  if (!Buffer.isBuffer(buf)) fail('Not a ZIP file');
   // The end record sits in the last 22 bytes plus an optional comment of up to 64 KB.
   let eocd = -1;
   for (let i = buf.length - 22; i >= Math.max(0, buf.length - 22 - 0xffff); i--) {
@@ -45,7 +47,7 @@ export function readZip(buf: Buffer, { maxEntries, maxEntryBytes }: { maxEntries
   if (count > maxEntries) fail(`More than ${maxEntries} entries`);
 
   const entries: ZipEntry[] = [];
-  let p = cdOffset;
+  let p = cdOffset, total = 0;
   for (let n = 0; n < count; n++) {
     if (p + 46 > buf.length || buf.readUInt32LE(p) !== CENTRAL) fail('Damaged ZIP: bad central directory');
     const flags = buf.readUInt16LE(p + 8);
@@ -80,6 +82,8 @@ export function readZip(buf: Buffer, { maxEntries, maxEntryBytes }: { maxEntries
     } else fail(`"${name}" uses an unsupported compression method`);
 
     if (data.length !== size || zlib.crc32(data) !== crc) fail(`Damaged ZIP: "${name}" fails its checksum`);
+    total += data.length;
+    if (total > maxTotalBytes) fail(`The archive unpacks to over ${Math.round(maxTotalBytes / 1024 / 1024)} MB`);
     entries.push({ name, data });
   }
   return entries;
