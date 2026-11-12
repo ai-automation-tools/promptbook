@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-10T05:29:50.559Z",
-  "promptCount": 816,
+  "buildTime": "2026-11-12T22:02:44.659Z",
+  "promptCount": 819,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -14104,6 +14104,44 @@
       "isUserOwned": false
     },
     {
+      "id": "6_MCP_Servers/Apps_and_Services/atlassian.md",
+      "title": "🔌 Atlassian",
+      "section": "6_MCP_Servers",
+      "category": "Apps_and_Services",
+      "subcategory": "atlassian",
+      "tags": [
+        "mcp-server",
+        "apps-and-services",
+        "jira",
+        "confluence",
+        "project-management",
+        "official"
+      ],
+      "checked": "2026-11-12",
+      "contentPreview": "\n# Atlassian MCP server\n\nSearch, read and update Jira, Confluence, Jira Service Management, Bitbucket, Compass and Loom from an agent, through Atlassian's hosted server.\n\n## Install\n\n**Claude Code**\n\n",
+      "lastModified": "2026-11-12T22:01:55.894Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Apps_and_Services/hugging-face.md",
+      "title": "🔌 Hugging Face",
+      "section": "6_MCP_Servers",
+      "category": "Apps_and_Services",
+      "subcategory": "hugging-face",
+      "tags": [
+        "mcp-server",
+        "apps-and-services",
+        "hugging-face",
+        "machine-learning",
+        "datasets",
+        "official"
+      ],
+      "checked": "2026-11-12",
+      "contentPreview": "\n# Hugging Face MCP server\n\nConnect an agent to the Hugging Face Hub: search models, datasets and papers, and call Gradio Spaces as tools.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp add hf-mcp-s",
+      "lastModified": "2026-11-12T22:02:01.225Z",
+      "isUserOwned": false
+    },
+    {
       "id": "6_MCP_Servers/Apps_and_Services/n8n-mcp.md",
       "title": "🔌 n8n workflow builder",
       "section": "6_MCP_Servers",
@@ -14251,6 +14289,25 @@
       "checked": "2026-10-21",
       "contentPreview": "\n# Cloudflare MCP server\n\nCloudflare's hosted servers: the full API, plus focused ones for docs, Browser Rendering, Workers observability and more.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp add",
       "lastModified": "2026-10-21T19:07:45.566Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Cloud_Platforms/heroku.md",
+      "title": "🔌 Heroku",
+      "section": "6_MCP_Servers",
+      "category": "Cloud_Platforms",
+      "subcategory": "heroku",
+      "tags": [
+        "mcp-server",
+        "cloud-platforms",
+        "heroku",
+        "deployment",
+        "paas",
+        "official"
+      ],
+      "checked": "2026-11-12",
+      "contentPreview": "\n# Heroku MCP server\n\nList, create, deploy and scale Heroku apps, manage add-ons and read logs by asking in natural language.\n\n## Install\n\nNeeds the Heroku CLI 10.8.1 or later, signed in. The README r",
+      "lastModified": "2026-11-12T22:02:07.052Z",
       "isUserOwned": false
     },
     {
