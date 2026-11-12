@@ -316,6 +316,8 @@ try {
     "oversized entry": zipOf([{ name: "big.md", data: Buffer.alloc(700 * 1024, 97) }]),
     "entry lying about its size": zipOf([{ name: "bomb.md", data: Buffer.alloc(5 * 1024 * 1024, 97), claim: 10 }]),
     "not a zip": Buffer.from("just text, no archive"),
+    // 200 entries of 560 KB each deflate to ~0.1 MB in all and unpack to ~110 MB
+    "too much in total": zipOf(Array.from({ length: 200 }, (_, i) => ({ name: `bomb-${i}.md`, data: Buffer.alloc(560 * 1024, 97) }))),
   };
   for (const [what, body] of Object.entries(hostile)) {
     const res = await importZip(body, "?apply=true");
