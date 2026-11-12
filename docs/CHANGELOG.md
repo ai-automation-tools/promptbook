@@ -4,6 +4,18 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-12 — Library refresh — catalog
+
+Three official MCP server cards, each read from the server's own README this run. No `accept` rows in the discovery ledger and no new vendor-published system prompts or agent definitions that fit. Sentry's server was skipped: its repo licence is not a recognised SPDX one.
+
+- `6_MCP_Servers/Apps_and_Services/atlassian.md`: [atlassian/atlassian-mcp-server](https://github.com/atlassian/atlassian-mcp-server), Apache-2.0
+- `6_MCP_Servers/Apps_and_Services/hugging-face.md`: [huggingface/hf-mcp-server](https://github.com/huggingface/hf-mcp-server), MIT
+- `6_MCP_Servers/Cloud_Platforms/heroku.md`: [heroku/heroku-mcp-server](https://github.com/heroku/heroku-mcp-server), Apache-2.0
+
+_Touched: `site/library/6_MCP_Servers/`, its README count (25 → 28), `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-11 — Roadmap recheck
 
 The roadmap was rechecked against the org's 2026-11 requirements. The intro names the Promptbook roadmap routine instead of the old Prompt-Library name and a weekday. New items: replace the personal email in the README (🔒 which contact), a Vercel Firewall rate limit on `/api/*` (🔒), two doc fixes (stale library counts, leftover Prompt-Library job names), a Cronsole catalog from `homepage/`, and the `my-library:refresh` and `my-library:import` commands it needs for two more templates. The starter collections are marked blocked on the Skill Packs decision so a run can't take them. Nothing ticked or removed.
