@@ -21,6 +21,7 @@ import { SkillKindSwitch, SkillLibrariesView, isLibraryItem, type SkillKind } fr
 import { Button } from './components/ui/primitives';
 import { usePromptFilters } from './hooks/usePromptFilters';
 import { fetchFullPrompt, usePromptContent } from './hooks/usePromptContent';
+import { useFavorites } from './hooks/useFavorites';
 import { toMarkdownFile } from './lib/markdown-file';
 import { useLibraryRoute, slugifyPromptPath, type LibraryTab } from './hooks/useLibraryRoute';
 import { usePalette, useTheme } from './hooks/useTheme';
@@ -91,11 +92,6 @@ export default function App() {
   });
   
   // Navigation & Organization
-  const [favorites, setFavorites] = useState<string[]>(() => {
-    const saved = localStorage.getItem('prompt-favorites');
-    // Favorites are My Library's only: drop old Public Library stars, whose ids are library paths.
-    return saved ? (JSON.parse(saved) as string[]).filter(id => !id.includes('/')) : [];
-  });
   const [recentlyViewed, setRecentlyViewed] = useState<string[]>(() => {
     const saved = localStorage.getItem('prompt-recently-viewed');
     return saved ? JSON.parse(saved) : [];
@@ -120,11 +116,11 @@ export default function App() {
   // need, since a listing prompt carries only a blurb. See usePromptContent.
   const { copied, copyContent, copyPrompt } = usePromptContent(showToast);
 
-  // Persist favorites and recently viewed to localStorage
-  useEffect(() => {
-    localStorage.setItem('prompt-favorites', JSON.stringify(favorites));
-  }, [favorites]);
+  // Favorites are My Library's only, and live on the server (useFavorites).
+  const showFavoriteError = useCallback((message: string) => showToast('error', message), [showToast]);
+  const { favorites, toggleFavorite, reloadFavorites } = useFavorites(showFavoriteError);
 
+  // Recently viewed stays in this browser
   useEffect(() => {
     localStorage.setItem('prompt-recently-viewed', JSON.stringify(recentlyViewed));
   }, [recentlyViewed]);
@@ -534,19 +530,6 @@ export default function App() {
       showToast('success', prompt.section === '3_Skills' ? 'Skill downloaded as markdown!' : 'Prompt downloaded!');
     }
   }, [showToast]);
-
-  const toggleFavorite = useCallback((promptId: string, e?: React.MouseEvent) => {
-    if (e) {
-      e.stopPropagation();
-    }
-    setFavorites(prev => {
-      if (prev.includes(promptId)) {
-        return prev.filter(id => id !== promptId);
-      } else {
-        return [...prev, promptId];
-      }
-    });
-  }, []);
 
   const refreshPrompts = useCallback(async () => {
     const url = `/api/prompts?library=${libraryMode}&lightweight=true`;
@@ -1176,15 +1159,14 @@ export default function App() {
             setTheme={setTheme}
             palette={palette}
             setPalette={setPalette}
-            favoriteCount={favorites.length}
             recentCount={recentlyViewed.length}
             onClearLocalData={() => {
-              setFavorites([]);
               setRecentlyViewed([]);
-              showToast('success', 'Favourites and recent prompts cleared');
+              showToast('success', 'Recently viewed cleared');
             }}
             onImported={message => {
               refreshPrompts();
+              void reloadFavorites();
               showToast('success', message);
             }}
             onClose={() => setIsSettingsOpen(false)}
