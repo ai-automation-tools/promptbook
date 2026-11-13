@@ -9,7 +9,7 @@ import matter from "../lib/frontmatter.js";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 import { ZipArchive } from "archiver";
-import { applyImport, forkExtra, IMPORT_LIMITS, ImportChangedError, InvalidPromptError, libraryFiles, myLibrary, previewImport, PromptConflictError, pullUpstream, READ_ONLY, upstreamStatus, type UserPrompt } from "../lib/my-library.js";
+import { applyImport, FAVORITE_ID, favorites, forkExtra, IMPORT_LIMITS, ImportChangedError, InvalidPromptError, libraryFiles, myLibrary, previewImport, PromptConflictError, pullUpstream, READ_ONLY, upstreamStatus, type UserPrompt } from "../lib/my-library.js";
 import { readZip, ZipError } from "../lib/zip.js";
 import { filesUnder, resolveInside } from "../lib/safe-path.js";
 import { LIBRARY_PATH, SKILLS_SECTION, carriedFrontmatter, checkedOf, extractFirstHeading, readLibraryItem, sourceOf, sourceUrlOf, type IndexEntry, type LibraryIndex } from "../lib/library.js";
@@ -539,13 +539,45 @@ app.post("/api/my-library/import", requireWritable, express.raw({ type: () => tr
     const entries = readZip(req.body, { maxEntries: IMPORT_LIMITS.entries, maxEntryBytes: IMPORT_LIMITS.entryBytes, maxTotalBytes: IMPORT_LIMITS.totalBytes });
     if (req.query.apply !== 'true') return res.json(previewImport(entries));
     const overwrite = typeof req.query.overwrite === 'string' ? req.query.overwrite : undefined;
-    const { plan, written } = applyImport(entries, overwrite);
-    res.json({ ...plan, written, message: `Imported ${written} ${written === 1 ? 'file' : 'files'} into My Library` });
+    const { plan, written, starred } = applyImport(entries, overwrite);
+    const stars = starred ? ` and ${starred} ${starred === 1 ? 'favorite' : 'favorites'}` : '';
+    res.json({ ...plan, written, starred, message: `Imported ${written} ${written === 1 ? 'file' : 'files'}${stars} into My Library` });
   } catch (error) {
     if (error instanceof ZipError) return res.status(400).json({ error: error.message });
     if (error instanceof ImportChangedError) return res.status(409).json({ error: error.message });
     console.error("Error importing into My Library:", error);
     res.status(500).json({ error: "Failed to import" });
+  }
+});
+
+// Favorites: the starred My Library items and Skill Packs, kept in My Library's
+// favorites.json so every browser and device sees the same ones. Adds and removes
+// are one id at a time on the server, so two tabs starring at once both stick.
+const favoritesError = (res: express.Response, error: unknown) => {
+  if (error instanceof InvalidPromptError) return res.status(400).json({ error: error.message });
+  console.error("Error saving favorites:", error);
+  res.status(500).json({ error: (error instanceof Error && error.message) || "Failed to save favorites" });
+};
+
+app.get("/api/my-library/favorites", requireWritable, (_req, res) => {
+  res.json({ favorites: favorites.list() });
+});
+
+// Body: { ids: [...] }. One id for a star, a whole list for a browser's old localStorage ones.
+app.post("/api/my-library/favorites", requireWritable, (req, res) => {
+  try {
+    res.json({ favorites: favorites.add(req.body?.ids) });
+  } catch (error) {
+    favoritesError(res, error);
+  }
+});
+
+app.delete("/api/my-library/favorites/:id", requireWritable, (req, res) => {
+  try {
+    if (!FAVORITE_ID.test(req.params.id)) return res.status(400).json({ error: 'Not a favorite id' });
+    res.json({ favorites: favorites.remove(req.params.id) });
+  } catch (error) {
+    favoritesError(res, error);
   }
 });
 

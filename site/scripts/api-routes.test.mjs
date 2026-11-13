@@ -37,6 +37,9 @@ const expected = [
   "GET /api/skills/download/*skillPath",
   "GET /api/my-library/export",
   "POST /api/my-library/import",
+  "GET /api/my-library/favorites",
+  "POST /api/my-library/favorites",
+  "DELETE /api/my-library/favorites/:id",
 ];
 
 const missing = expected.filter((r) => !registered.has(r));

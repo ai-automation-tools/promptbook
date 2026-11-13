@@ -14,6 +14,8 @@ interface ImportPlan {
   unchanged: { id: string; title: string }[];
   conflicts: { id: string; title: string; currentTitle: string }[];
   skipped: { name: string; reason: string }[];
+  /** Stars in the zip's favorites.json not starred here yet; an import only ever adds them. */
+  favorites: number;
   token: string;
 }
 
@@ -97,6 +99,7 @@ export default function MyLibraryTransfer({ onImported }: { onImported: (message
           <p className="mono text-[12px] text-[var(--fg-3)]">
             {file?.name}: {plan.added.length} new · {plan.unchanged.length} already here · {plan.conflicts.length} differ
             from yours · {plan.skipped.length} skipped
+            {plan.favorites > 0 && <> · {plan.favorites} new {plan.favorites === 1 ? 'favorite' : 'favorites'}</>}
           </p>
 
           {plan.conflicts.length > 0 && (
@@ -135,8 +138,8 @@ export default function MyLibraryTransfer({ onImported }: { onImported: (message
                 Import and replace {plan.conflicts.length}
               </Button>
             )}
-            <Button size="sm" variant="primary" disabled={busy || plan.added.length === 0} onClick={() => apply(false)}>
-              {plan.added.length ? `Import ${plan.added.length} new` : 'Nothing new'}
+            <Button size="sm" variant="primary" disabled={busy || (plan.added.length === 0 && plan.favorites === 0)} onClick={() => apply(false)}>
+              {plan.added.length ? `Import ${plan.added.length} new` : plan.favorites ? `Add ${plan.favorites} ${plan.favorites === 1 ? 'favorite' : 'favorites'}` : 'Nothing new'}
             </Button>
           </div>
         </div>

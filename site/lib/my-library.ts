@@ -129,7 +129,12 @@ function writeFile(id: string, raw: string | Buffer, flag: 'w' | 'wx') {
     fs.writeFileSync(file, raw, { flag }); // a new id: nothing to lose, and wx keeps it exclusive
     return;
   }
-  const tmp = path.join(MY_LIBRARY_DIR, `.${id}.${randomBytes(4).toString('hex')}.tmp`);
+  replaceFile(file, raw);
+}
+
+/** Temp file in the same folder, renamed over the target: a crash mid-write leaves the old file whole. */
+function replaceFile(file: string, raw: string | Buffer) {
+  const tmp = path.join(MY_LIBRARY_DIR, `.${path.basename(file)}.${randomBytes(4).toString('hex')}.tmp`);
   try {
     fs.writeFileSync(tmp, raw);
     fs.renameSync(tmp, file); // replaces the target on Windows too
@@ -269,7 +274,87 @@ export const myLibrary = {
     const file = fileFor(id);
     if (!file || !fs.existsSync(file)) return false;
     fs.unlinkSync(file);
+    try {
+      favorites.remove(id);
+    } catch {
+      console.warn(`[MY-LIBRARY] Could not unstar ${id}: ${FAVORITES_FILE} is unreadable`);
+    }
     return true;
+  },
+};
+
+/*
+ * Favorites: the starred My Library items and Skill Packs (`pack:<id>`), one
+ * JSON list in `favorites.json` beside the prompt files. They used to live in
+ * each browser's localStorage, which is kept per address, so 127.0.0.1,
+ * localhost and a Tailscale name each had their own list. On the server, every
+ * browser and device that reaches My Library sees the same stars, and they go
+ * wherever the folder goes. Not a `.md`, so `list()` never reads it as a prompt.
+ */
+export const FAVORITES_FILE = 'favorites.json';
+/** My Library ids and pack ids share the id alphabet, so a favorite can't name a path either. */
+export const FAVORITE_ID = /^(pack:)?[a-z0-9-]{1,200}$/;
+const FAVORITES_MAX = 5000;
+const favoritesFile = () => path.join(MY_LIBRARY_DIR, FAVORITES_FILE);
+
+/** A favorites list as parsed from JSON: valid ids once each, in order; null if it isn't a list. */
+function favoritesOf(value: unknown): string[] | null {
+  if (!Array.isArray(value)) return null;
+  return [...new Set(value.filter((id): id is string => typeof id === 'string' && FAVORITE_ID.test(id)))];
+}
+
+/**
+ * The saved list. A missing file is no stars. A file broken by hand reads as no
+ * stars too, but a write refuses it rather than overwrite what is in it.
+ */
+function readFavorites(forWrite: boolean): string[] {
+  let raw: string;
+  try {
+    raw = fs.readFileSync(favoritesFile(), 'utf-8');
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException).code === 'ENOENT') return [];
+    throw err;
+  }
+  let ids: string[] | null = null;
+  try { ids = favoritesOf(JSON.parse(raw)); } catch { /* not JSON */ }
+  if (ids) return ids;
+  if (forWrite) throw new Error(`${FAVORITES_FILE} in My Library is not a JSON list of ids. Fix or delete it.`);
+  console.warn(`[MY-LIBRARY] ${FAVORITES_FILE} is not a JSON list of ids; showing no favorites`);
+  return [];
+}
+
+function writeFavorites(ids: string[]) {
+  fs.mkdirSync(MY_LIBRARY_DIR, { recursive: true });
+  replaceFile(favoritesFile(), JSON.stringify(ids, null, 2) + '\n');
+}
+
+export const favorites = {
+  list: (): string[] => readFavorites(false),
+
+  /**
+   * Stars the ids not starred yet and returns the list. A My Library id needs its
+   * file: an old browser list can name prompts deleted since, and those are skipped.
+   */
+  add(ids: unknown): string[] {
+    if (!Array.isArray(ids) || ids.some(id => typeof id !== 'string' || !FAVORITE_ID.test(id))) {
+      throw new InvalidPromptError('ids must be a list of My Library ids or pack:<id>');
+    }
+    const current = readFavorites(true);
+    const fresh = favoritesOf(ids)!.filter(id =>
+      !current.includes(id) && (id.startsWith('pack:') || fs.existsSync(fileFor(id)!)));
+    if (!fresh.length) return current;
+    if (current.length + fresh.length > FAVORITES_MAX) throw new InvalidPromptError(`more than ${FAVORITES_MAX} favorites`);
+    const next = [...current, ...fresh];
+    writeFavorites(next);
+    return next;
+  },
+
+  remove(id: string): string[] {
+    const current = readFavorites(true);
+    if (!current.includes(id)) return current;
+    const next = current.filter(x => x !== id);
+    writeFavorites(next);
+    return next;
   },
 };
 
@@ -340,11 +425,12 @@ export function pullUpstream(id: string): UserPrompt | null {
  * plan that listed it, so nothing is overwritten that was not shown first.
  */
 
-/** Every prompt file in the folder as it is on disk. */
+/** Every prompt file in the folder as it is on disk, and favorites.json when there is one. */
 export function libraryFiles(): { name: string; data: Buffer }[] {
   if (!fs.existsSync(MY_LIBRARY_DIR)) return [];
+  const isFile = (name: string) => fs.statSync(path.join(MY_LIBRARY_DIR, name)).isFile();
   return fs.readdirSync(MY_LIBRARY_DIR)
-    .filter(name => name.endsWith('.md') && fileFor(name.slice(0, -3)) && fs.statSync(path.join(MY_LIBRARY_DIR, name)).isFile())
+    .filter(name => (name === FAVORITES_FILE || (name.endsWith('.md') && fileFor(name.slice(0, -3)))) && isFile(name))
     .sort()
     .map(name => ({ name, data: fs.readFileSync(path.join(MY_LIBRARY_DIR, name)) }));
 }
@@ -358,6 +444,11 @@ export interface ImportPlan {
   /** Files that exist here with different contents; replaced only with `token`. */
   conflicts: { id: string; title: string; currentTitle: string }[];
   skipped: { name: string; reason: string }[];
+  /**
+   * Stars from the zip's favorites.json that are not starred here yet. Applying
+   * adds them (never removes one), for items that exist once the files are written.
+   */
+  favorites: number;
   /** Names the conflicts and the versions they would replace. */
   token: string;
 }
@@ -366,14 +457,20 @@ export interface ImportPlan {
 export class ImportChangedError extends Error {}
 
 function planImport(entries: { name: string; data: Buffer }[]) {
-  const plan: ImportPlan = { added: [], unchanged: [], conflicts: [], skipped: [], token: '' };
+  const plan: ImportPlan = { added: [], unchanged: [], conflicts: [], skipped: [], favorites: 0, token: '' };
   const files = new Map<string, Buffer>();
   const utf8 = new TextDecoder('utf-8', { fatal: true });
   const tokenHash = createHash('sha256');
+  let stars: string[] | null = null;
 
   for (const { name, data } of entries) {
     const id = /^([a-z0-9-]+)\.md$/.exec(name)?.[1];
     const skip = (reason: string) => { plan.skipped.push({ name, reason }); };
+    if (name === FAVORITES_FILE) {
+      try { stars = favoritesOf(JSON.parse(utf8.decode(data))); } catch { stars = null; }
+      if (!stars) skip('not a JSON list of favorite ids');
+      continue;
+    }
     if (!id) { skip('not a My Library file (expected <id>.md at the top of the zip)'); continue; }
     if (files.has(id)) { skip('appears twice in the zip'); continue; }
 
@@ -397,7 +494,12 @@ function planImport(entries: { name: string; data: Buffer }[]) {
     }
   }
   plan.token = tokenHash.digest('hex').slice(0, 16);
-  return { plan, files };
+  // Counted against the files as they will be: here already, or arriving in this zip.
+  const starred = new Set(readFavorites(false));
+  const newStars = (stars ?? []).filter(id => !starred.has(id)
+    && (id.startsWith('pack:') || files.has(id) || fs.existsSync(fileFor(id)!)));
+  plan.favorites = newStars.length;
+  return { plan, files, newStars };
 }
 
 export const previewImport = (entries: { name: string; data: Buffer }[]): ImportPlan => planImport(entries).plan;
@@ -407,12 +509,15 @@ export const previewImport = (entries: { name: string; data: Buffer }[]): Import
  * token a preview returned. Without it, conflicts keep the file that is here.
  */
 export function applyImport(entries: { name: string; data: Buffer }[], overwrite?: string) {
-  const { plan, files } = planImport(entries);
+  const { plan, files, newStars } = planImport(entries);
   if (overwrite !== undefined && overwrite !== plan.token) {
     throw new ImportChangedError('My Library changed since the preview. Preview the import again.');
   }
   fs.mkdirSync(MY_LIBRARY_DIR, { recursive: true });
   for (const { id } of plan.added) writeFile(id, files.get(id)!, 'wx');
   if (overwrite !== undefined) for (const { id } of plan.conflicts) writeFile(id, files.get(id)!, 'w');
-  return { plan, written: plan.added.length + (overwrite !== undefined ? plan.conflicts.length : 0) };
+  // After the files, so a star on an item this zip brings finds its file.
+  const before = newStars.length ? readFavorites(true).length : 0;
+  const starred = newStars.length ? favorites.add(newStars).length - before : 0;
+  return { plan, written: plan.added.length + (overwrite !== undefined ? plan.conflicts.length : 0), starred };
 }

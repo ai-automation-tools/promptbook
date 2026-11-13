@@ -16,7 +16,6 @@ interface SettingsModalProps {
   setTheme: (theme: Theme) => void;
   palette: Palette;
   setPalette: (palette: Palette) => void;
-  favoriteCount: number;
   recentCount: number;
   onClearLocalData: () => void;
   /** After an import wrote files: refresh the listing and say so. */
@@ -45,14 +44,11 @@ export default function SettingsModal({
   setTheme,
   palette,
   setPalette,
-  favoriteCount,
   recentCount,
   onClearLocalData,
   onImported,
   onClose,
 }: SettingsModalProps) {
-  const localCount = favoriteCount + recentCount;
-
   // Radio-group keys: the arrows move the choice (and focus) and wrap; Tab skips
   // the group's other options, since only the checked one is in the tab order.
   const onPaletteKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -135,16 +131,16 @@ export default function SettingsModal({
           </div>
         </Section>
 
-        <Section title="Local data" hint="Favourites and recently viewed prompts are stored in this browser, not in My Library.">
+        <Section title="Local data" hint="Recently viewed prompts are stored in this browser. Favourites are saved in My Library, so every browser that opens it sees them.">
           <div className="flex flex-wrap items-center gap-3">
             <p className="mono text-[12px] text-[var(--fg-4)]">
-              {favoriteCount} {favoriteCount === 1 ? 'favourite' : 'favourites'} · {recentCount} recent
+              {recentCount} recently viewed
             </p>
             <Button
               size="sm"
               variant="danger"
               className="ml-auto"
-              disabled={localCount === 0}
+              disabled={recentCount === 0}
               onClick={onClearLocalData}
               icon={<Trash2 className="h-3.5 w-3.5" />}
             >

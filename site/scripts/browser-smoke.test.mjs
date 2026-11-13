@@ -122,14 +122,30 @@ try {
   // My Library: a ?prompt= link opens the item, which has the star; New item suggests its category.
   await page.goto(`${base}/?library=my&prompt=${mine.id}`);
   await page.getByRole("heading", { name: "Smoke export" }).waitFor();
-  await page.getByRole("button", { name: "Add to favorites" }).waitFor();
+  // A star is saved in My Library's favorites.json, not in the browser, so another
+  // address or device sees it; a browser's old localStorage list moves up once.
+  const favFile = path.join(process.env.MY_LIBRARY_DIR, "favorites.json");
+  const starWritten = page.waitForResponse(r => r.url().endsWith("/api/my-library/favorites") && r.request().method() === "POST");
+  await page.getByRole("button", { name: "Add to favorites" }).click();
+  await starWritten;
+  await page.getByRole("button", { name: "Remove from favorites" }).waitFor();
+  assert.deepEqual(JSON.parse(fs.readFileSync(favFile, "utf-8")), [mine.id], "the star is saved on the server");
+  const older = myLibrary.create({ title: "Starred elsewhere", section: "4_Prompts", category: "Dev", subcategory: null, tags: [], content: "x\n" });
+  await page.evaluate(ids => localStorage.setItem("prompt-favorites", JSON.stringify(ids)), [older.id, "4_Prompts/old/public.md"]);
+  const migrated = page.waitForResponse(r => r.url().endsWith("/api/my-library/favorites") && r.request().method() === "POST");
+  await page.reload();
+  await migrated;
+  assert.deepEqual(JSON.parse(fs.readFileSync(favFile, "utf-8")), [mine.id, older.id], "the old browser list is merged in, Public Library ids left out");
+  assert.equal(await page.evaluate(() => localStorage.getItem("prompt-favorites")), null, "and dropped from the browser");
+  await page.getByRole("button", { name: "Open Starred elsewhere" }).getByRole("button", { name: "Remove from favorites" }).waitFor();
+
   await page.getByRole("button", { name: "New item" }).first().click();
   await page.getByRole("dialog").waitFor();
   assert.equal(await page.locator('#prompt-category-options option[value="Dev"]').count(), 1, "Category suggests My Library's categories");
   await page.keyboard.press("Escape");
 
   assert.deepEqual(problems, [], "no page errors, console errors or failed requests");
-  console.log("browser-smoke: listing, detail, hero counter, Settings focus, My Library export and import, My Library links, favorites and category suggestions, and the vercel.json CSP all pass on the built app");
+  console.log("browser-smoke: listing, detail, hero counter, Settings focus, My Library export and import, My Library links, server-side favorites (and the move from localStorage), category suggestions and the vercel.json CSP all pass on the built app");
 } finally {
   await browser.close();
   server.close();
