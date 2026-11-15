@@ -69,7 +69,7 @@ if (libraryMode === 'my' || prompt.isUserOwned) {
 **Behavior**:
 - **Public Library**: Edit/Delete hidden for all prompts (unless user somehow has user-owned prompts showing)
 - **My Library**: Edit/Delete visible for all prompts (since filter already ensures only user-owned)
-- **Favorite button**: My Library only: on its cards, its item pages and its Skill Packs (stored as `pack:<id>`; the Packs sidebar's Favorites lists them). The Public Library, and so the read-only demo, has no star and no Favorites row; save an item to My Library to star it. Stars live in `prompt-favorites` in localStorage
+- **Favorite button**: My Library only: on its cards, its item pages and its Skill Packs (stored as `pack:<id>`; the Packs sidebar's Favorites lists them). The Public Library, and so the read-only demo, has no star and no Favorites row; save an item to My Library to star it. Stars live on the server in `favorites.json` in the My Library folder (`GET`/`POST /api/my-library/favorites`, `DELETE /api/my-library/favorites/:id`), so `127.0.0.1`, `localhost`, a Tailscale name and any other browser or device all see the same ones. A browser's old `prompt-favorites` localStorage list is sent up once and removed
 - **Copy link**: A Public Library item's link points at the demo. A My Library item's link points at this server (`?library=my&prompt=<id>`), so it opens on the machine that holds the file
 - **New item**: Category and Subcategory suggest the names the current library already uses in that section (a native `<datalist>`); typing a new name still works
 - **Copy button**: Always visible in both modes

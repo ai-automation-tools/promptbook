@@ -60,13 +60,13 @@ No `.env` is needed; `.env.example` lists the optional settings (`MY_LIBRARY_DIR
 
 Other scripts: `npm run build` (build:index → tsc → vite build), `npm run build:index`
 (regenerates `api/prompt-index.json` from `library/`), `npm run lint` (`tsc --noEmit`),
-`npm run test:routes` (asserts the shared Express app still exposes all eleven API routes and no auth router),
+`npm run test:routes` (asserts the shared Express app still exposes all fourteen API routes and no auth router),
 `npm run test:my-library` (round-trips the My Library file store in a temp folder, and a ZIP export and import, hostile archives included),
 `npm run test:read-only` (under `READ_ONLY`, My Library is neither listed nor served),
 `npm run test:prompt-content` (a failed full-prompt load throws instead of returning the preview),
 `npm run test:markdown-file` (a downloaded `.md` reads back through the store unchanged),
 `npm run test:preview` (a card blurb drops badge rows and links cut off at 200 characters),
-`npm run test:browser` (after a build: the built app in Chrome, including the dialog focus trap, a Settings export/import, a My Library `?prompt=` link and New item's category suggestions),
+`npm run test:browser` (after a build: the built app in Chrome, including the dialog focus trap, a Settings export/import, a My Library `?prompt=` link, a star saved to the server (and the move of an old localStorage list) and New item's category suggestions),
 `npm run test:safe-path` (`../` escapes and links out of `library/` are refused, for detail and ZIPs),
 `npm run bench` (latency, size and event-loop stall of the heavy endpoints; compare with
 `docs/development/PERFORMANCE.md`, not run in CI).
@@ -96,7 +96,9 @@ site/
                        return the listing's preview; callers show an error and stop)
                        useLibraryRoute (section/category/subcategory/?prompt= URL state, plus
                        Skills' ?view=libraries; a My Library item's ?prompt= is its id, with ?library=my)
-                       Favorites are My Library's only (`prompt-favorites` in localStorage, filtered in App);
+                       useFavorites: My Library's favorites, kept by the server in `favorites.json` in the
+                       My Library folder (not localStorage, which is per address), so every browser and device
+                       sees the same stars; a browser's old `prompt-favorites` list moves up once on load.
                        Public Library cards, items and packs have no star. Skill Packs star as `pack:<id>`
                        in the same list (packFavoriteId in SkillPacksView)
     hooks/useTheme     Light | Dark (`html.light`, key `my-prompt-library.theme`) and the theme
@@ -137,7 +139,8 @@ site/
   api/skill-packs.ts   Skill packs handler (bundles library/3_Skills/**). A pack counts as in My
                        Library while any My Library prompt carries its `skill-pack:<id>` tag.
   lib/my-library.ts    My Library file store + READ_ONLY. Ids are file names, restricted to
-                       [a-z0-9-] so an id can never name a path outside the folder.
+                       [a-z0-9-] so an id can never name a path outside the folder. Also `favorites`
+                       (favorites.json beside the files; export carries it, import only adds stars).
   lib/frontmatter.js   gray-matter with its `---js` eval engine off. Every front-matter parse in
                        site/ imports this, never gray-matter (skill-frontmatter.test.mjs checks)
   lib/zip.ts           readZip(): the My Library import's ZIP reader (stored + deflate). Refuses

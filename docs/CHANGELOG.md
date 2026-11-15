@@ -13,6 +13,17 @@ Three official MCP server cards, each read from the server's own README this run
 - `6_MCP_Servers/Cloud_Platforms/heroku.md`: [heroku/heroku-mcp-server](https://github.com/heroku/heroku-mcp-server), Apache-2.0
 
 _Touched: `site/library/6_MCP_Servers/`, its README count (25 → 28), `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+## 2026-11-13 — Favorites are kept in My Library, not the browser
+
+Mike opened Promptbook at its Tailscale address and his favorites were gone. They weren't lost: they were in Edge's localStorage for `http://127.0.0.1:3010`, and a browser keeps localStorage separately for every address, so `localhost`, the Tailscale name and every other browser or phone each started with an empty list.
+
+**Server.** Favorites (My Library items and `pack:<id>` Skill Packs) now live in `favorites.json` in the My Library folder, which is gitignored like the rest of it. `GET /api/my-library/favorites` lists them, `POST` with `{ ids }` stars (skipping ids already starred and My Library ids whose file is gone), `DELETE /api/my-library/favorites/:id` unstars. All three are 403 under `READ_ONLY`, and the writes pass the cross-site Origin check. Writes are temp-file-and-rename, and a `favorites.json` broken by hand reads as empty but is never overwritten. Deleting an item unstars it. Export now includes `favorites.json`; an import previews its new stars (`favorites` in the plan) and applying only adds them.
+
+**App.** `useFavorites` replaces the localStorage state in `App.tsx`: a star shows at once and is taken back with a toast if the server refuses it, and the list reloads when the tab becomes visible, so a star made on another device shows up. A browser that still holds the old `prompt-favorites` list sends it up once on load and removes it. Settings' Local data section now covers only recently viewed, and its Clear no longer wipes favorites. The import preview names new stars and can apply a stars-only ZIP.
+
+**Tests.** `test:routes` pins 14 routes. `test:my-library` covers the file, id checks, the Origin check, unstar-on-delete, the broken-file guard and the export/import round trip; `test:read-only` 403s all three routes; `test:browser` stars through the UI and checks the localStorage move.
+
+_Touched: `site/lib/my-library.ts`, `site/api/index.ts`, `site/src/hooks/useFavorites.ts`, `site/src/App.tsx`, `site/src/components/SettingsModal.tsx`, `site/src/components/MyLibraryTransfer.tsx`, `site/scripts/{api-routes,my-library,read-only,browser-smoke}.test.mjs`, `AGENTS.md`, `docs/features/API.md`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`, `docs/development/DEBUG_UI.md`, `docs/CHANGELOG.md`._
 
 ---
 

@@ -49,9 +49,9 @@ You should see JSON data like:
 
 In the browser console, type:
 ```javascript
-// Check if prompts are loaded
-window.localStorage.getItem('prompt-favorites')
+// Recently viewed is per browser; favorites are on the server
 window.localStorage.getItem('prompt-recently-viewed')
+await (await fetch('/api/my-library/favorites')).json()
 ```
 
 ### 5. Force Reload

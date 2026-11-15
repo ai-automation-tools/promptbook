@@ -50,6 +50,10 @@ try {
   assert.doesNotMatch(await exported.text(), /PRIVATE-BODY/);
   const imported = await fetch(`${base}/api/my-library/import?apply=true`, { method: "POST", headers: { "Content-Type": "application/zip" }, body: "PK" });
   assert.equal(imported.status, 403, "My Library import refused");
+  assert.equal((await get("/api/my-library/favorites")).status, 403, "favorites not listed");
+  const starred = await fetch(`${base}/api/my-library/favorites`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ids: [secret.id] }) });
+  assert.equal(starred.status, 403, "starring refused");
+  assert.equal((await fetch(`${base}/api/my-library/favorites/${secret.id}`, { method: "DELETE" })).status, 403, "unstarring refused");
   const packs = await get("/api/skill-packs?library=my");
   assert.deepEqual(await packs.json(), [], "installed packs are not disclosed");
 
@@ -90,4 +94,4 @@ try {
   fs.rmSync(dir, { recursive: true, force: true });
 }
 
-console.log("read-only: My Library list, detail, export and pack membership hidden, import refused; public list, detail, download and packs served");
+console.log("read-only: My Library list, detail, export, favorites and pack membership hidden, import and stars refused; public list, detail, download and packs served");

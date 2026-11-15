@@ -39,8 +39,9 @@ route that writes to My Library returns:
 
 The write routes are `POST /api/prompts`, `PUT /api/prompts/:id`, `DELETE /api/prompts/:id`,
 `POST /api/prompts/:path/copy-to-my-prompts`, `POST /api/prompts/:id/pull-upstream`, `POST /api/my-library/import`,
+`POST /api/my-library/favorites`, `DELETE /api/my-library/favorites/:id`,
 `POST /api/skill-packs/:packId/add-to-library` and `DELETE /api/skill-packs/:packId/remove-from-library`.
-`GET /api/my-library/export` is refused the same way, since it hands out My Library. All other reads keep working.
+`GET /api/my-library/export` and `GET /api/my-library/favorites` are refused the same way, since they hand out My Library. All other reads keep working.
 
 ## Two kinds of id
 
@@ -390,7 +391,8 @@ when `upstream.localEdits` is true. The public file is only read. **Write route:
 
 Download every My Library file as one ZIP, `my-library-<yyyy-mm-dd>.zip`: each `<id>.md` at the
 top level, byte for byte as it is on disk, so frontmatter the store does not manage (a skill's
-`name`, `license`, `upstream:`…) comes along. **`403` in read-only mode.**
+`name`, `license`, `upstream:`…) comes along, plus `favorites.json` when anything is starred.
+**`403` in read-only mode.**
 
 ---
 
@@ -408,7 +410,9 @@ Import a ZIP into My Library. The body is the ZIP itself (`Content-Type: applica
 
 A file imports when its entry is `<id>.md` at the top of the ZIP (`id` matching
 `^[a-z0-9-]+$`), it is UTF-8, its frontmatter parses, and its fields pass the same checks as
-`POST /api/prompts`. It is written exactly as it is in the ZIP.
+`POST /api/prompts`. It is written exactly as it is in the ZIP. A top-level `favorites.json`
+(a JSON list of ids) is not a file to import: applying adds its stars that are not starred here
+yet, for items that exist once the files are written, and never removes one.
 
 **Response (200 OK):**
 ```json
@@ -417,10 +421,12 @@ A file imports when its entry is `<id>.md` at the top of the ZIP (`id` matching
   "unchanged": [{ "id": "…", "title": "…" }],
   "conflicts": [{ "id": "code-review-checklist-db5ecc", "title": "Code review checklist", "currentTitle": "Code review checklist (edited)" }],
   "skipped": [{ "name": "notes/readme.txt", "reason": "not a My Library file (expected <id>.md at the top of the zip)" }],
+  "favorites": 2,
   "token": "<preview token>"
 }
 ```
-With `apply=true` it also carries `written` (how many files) and `message`.
+`favorites` counts the new stars. With `apply=true` it also carries `written` (how many files),
+`starred` (how many stars were added) and `message`.
 
 **Errors:**
 - `400 Bad Request`: not a ZIP, or the whole archive is refused: an entry name that leaves the
@@ -434,6 +440,35 @@ With `apply=true` it also carries `written` (how many files) and `message`.
 curl -o my-library.zip http://localhost:3010/api/my-library/export
 curl -X POST --data-binary @my-library.zip -H "Content-Type: application/zip" http://localhost:3010/api/my-library/import
 ```
+
+---
+
+### GET /api/my-library/favorites
+
+The starred My Library items and Skill Packs, in the order they were starred. They are kept in
+`favorites.json` in the My Library folder, so every browser and device that reaches this server
+sees the same list. **`403` in read-only mode.**
+
+```json
+{ "favorites": ["code-review-checklist-db5ecc", "pack:developer-essentials-pack"] }
+```
+
+A missing file is an empty list. A file that is not a JSON list reads as empty, and the two
+write routes below refuse to replace it (`500`) until it is fixed or deleted.
+
+### POST /api/my-library/favorites
+
+Star ids. Body: `{ "ids": ["<my-library-id>" | "pack:<pack-id>", ...] }`, one for a star or a
+whole list (the app sends a browser's old localStorage list once). Ids already starred, and My
+Library ids with no file, are skipped. Returns `{ "favorites": [...] }`, the whole list.
+**Write route: `403` in read-only mode.**
+
+- `400 Bad Request`: `ids` is not a list, or an id does not match `^(pack:)?[a-z0-9-]{1,200}$`
+
+### DELETE /api/my-library/favorites/:id
+
+Unstar one id (URL-encode `pack:` ids). Returns the whole list. Deleting a My Library item
+unstars it too. **Write route: `403` in read-only mode.**
 
 ---
 
@@ -708,6 +743,9 @@ const full = await fetch(`/api/prompts/${encodeURIComponent(promptId)}`);
 ---
 
 ## Changelog
+
+### v2.2.0 (November 2026)
+- **New Endpoints:** `GET` and `POST /api/my-library/favorites`, `DELETE /api/my-library/favorites/:id` (favorites move from each browser's localStorage to `favorites.json` in My Library); export and import carry the file
 
 ### v2.1.0 (October 2026)
 - **New Endpoints:** `GET /api/my-library/export` and `POST /api/my-library/import` (preview, then apply; conflicts replaced only with the preview's token)

@@ -329,6 +329,52 @@ try {
   assert.equal(await raw("POST", "/api/my-library/import?apply=true", { Origin: "https://evil.example", "Content-Type": "application/zip" }, zip), 403, "cross-site import refused");
   for (const p of myLibrary.list()) myLibrary.delete(p.id);
 
+  // Favorites: one list in favorites.json, shared by every browser that reaches the server
+  const favFile = path.join(dir, "favorites.json");
+  const favApi = `${base}/api/my-library/favorites`;
+  const star = (ids, headers = {}) => fetch(favApi, { method: "POST", headers: { ...json, ...headers }, body: JSON.stringify({ ids }) });
+  const s1 = myLibrary.create({ ...valid, title: "Starred one" });
+  const s2 = myLibrary.create({ ...valid, title: "Starred two" });
+  assert.deepEqual((await (await fetch(favApi)).json()).favorites, [], "no file, no stars");
+  // An old browser list: a deleted prompt is skipped, a pack id kept, repeats once
+  assert.deepEqual((await (await star([s1.id, "gone-123abc", "pack:dev-pack", s1.id])).json()).favorites, [s1.id, "pack:dev-pack"]);
+  assert.deepEqual((await (await star([s2.id])).json()).favorites, [s1.id, "pack:dev-pack", s2.id], "a second star adds to the list");
+  assert.deepEqual(JSON.parse(fs.readFileSync(favFile, "utf-8")), [s1.id, "pack:dev-pack", s2.id], "saved in favorites.json");
+  assert.ok(!myLibrary.list().some(p => p.id === "favorites"), "favorites.json is not a prompt");
+  for (const bad of [["../x"], ["4_Prompts/a.md"], "s1", [1]]) assert.equal((await star(bad)).status, 400, `${JSON.stringify(bad)} refused`);
+  assert.equal(await raw("POST", "/api/my-library/favorites", { Origin: "https://evil.example", ...json }, JSON.stringify({ ids: [s2.id] })), 403, "cross-site star refused");
+  const unstar = await fetch(`${favApi}/${encodeURIComponent("pack:dev-pack")}`, { method: "DELETE" });
+  assert.deepEqual((await unstar.json()).favorites, [s1.id, s2.id], "unstar");
+  assert.equal((await fetch(`${favApi}/..%2Fx`, { method: "DELETE" })).status, 400, "path id refused on unstar");
+  myLibrary.delete(s2.id);
+  assert.deepEqual(JSON.parse(fs.readFileSync(favFile, "utf-8")), [s1.id], "deleting a prompt unstars it");
+
+  // Export carries favorites.json; an import adds its stars and never removes one
+  const favZip = Buffer.from(await (await fetch(`${base}/api/my-library/export`)).arrayBuffer());
+  assert.deepEqual(readZip(favZip, { maxEntries: 10, maxEntryBytes: 600 * 1024 }).map(e => e.name).sort(), ["favorites.json", `${s1.id}.md`].sort());
+  fs.unlinkSync(favFile);
+  fs.unlinkSync(path.join(dir, `${s1.id}.md`));
+  const favPlan = await (await importZip(favZip)).json();
+  assert.equal(favPlan.favorites, 1, "the preview counts the star on the prompt it brings back");
+  assert.deepEqual(favPlan.skipped, [], "favorites.json is not skipped");
+  assert.ok(!fs.existsSync(favFile), "a preview writes no stars");
+  const favApplied = await (await importZip(favZip, "?apply=true")).json();
+  assert.equal(favApplied.starred, 1);
+  assert.match(favApplied.message, /1 file and 1 favorite/);
+  assert.deepEqual(JSON.parse(fs.readFileSync(favFile, "utf-8")), [s1.id], "star restored with its prompt");
+  assert.equal((await (await importZip(favZip)).json()).favorites, 0, "nothing new the second time");
+  const badFav = await (await importZip(zipOf([{ name: "favorites.json", data: Buffer.from("{}") }]))).json();
+  assert.match(badFav.skipped[0].reason, /JSON list/, "a broken favorites.json is skipped and named");
+
+  // A favorites.json broken by hand reads as no stars, and is never overwritten
+  fs.writeFileSync(favFile, "not json");
+  assert.deepEqual((await (await fetch(favApi)).json()).favorites, []);
+  assert.equal((await star([s1.id])).status, 500, "a write refuses to replace a broken file");
+  assert.equal(fs.readFileSync(favFile, "utf-8"), "not json");
+  myLibrary.delete(s1.id); // a broken favorites file doesn't stop a delete
+  assert.equal(myLibrary.get(s1.id), null);
+  fs.unlinkSync(favFile);
+
   // Pack writes go through the same Origin check as prompt writes
   const [pack] = await getAllPacks();
   const confirm = JSON.stringify({ confirm: true });
@@ -362,4 +408,4 @@ try {
   fs.rmSync(dir, { recursive: true, force: true });
 }
 
-console.log("my-library: file store round-trips, updates in place, rejects path ids, bad fields and stale versions, writes atomically, rolls back failed pack installs, exports and re-imports byte for byte (conflicts only with the preview token, hostile ZIPs refused), refuses cross-site writes (packs too) and foreign Hosts");
+console.log("my-library: file store round-trips, updates in place, rejects path ids, bad fields and stale versions, writes atomically, rolls back failed pack installs, exports and re-imports byte for byte (conflicts only with the preview token, hostile ZIPs refused), keeps favorites in favorites.json (exported and merged on import), refuses cross-site writes (packs too) and foreign Hosts");
