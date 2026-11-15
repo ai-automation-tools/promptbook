@@ -90,6 +90,7 @@ Nothing below blocks go-live.
 
 ### 🧹 Upkeep
 
+- [ ] `small` Move Vite to 8.3.7 or later (security). **Why:** `site/package-lock.json` pins 8.3.6, which GHSA-p4f5-76q4-ffq7 (published 2026-11-10, remote code execution through the `__vite-browser-external` virtual module in the dev server) covers; it is fixed in 8.3.7, and 8.3.8 is the npm `latest` (github.com/vitejs/vite/security/advisories/GHSA-p4f5-76q4-ffq7). **Where:** `vite` in both `dependencies` and `devDependencies` of `site/package.json` (raise the floor to `^8.3.7`) and the lockfile. **Done when:** `npm ls vite` shows 8.3.7+, and `npm run lint`, `npm run build` and `npm run test:browser` pass
 - [ ] Replace the personal email address in `README.md` (line 325, flagged by the Security sweep 2026-11-10) with a contact fit for a public repo; which contact replaces it 🔒 Needs owner
 - [ ] Vercel Firewall rate-limit rule on `/api/*` for promptbook-demo (a per-instance limiter does nothing on serverless), and confirm whether `library/3_Skills` is bundled into the function, which decides whether CodeQL #34 is reachable 🔒 Needs owner
 - [ ] `small` Library counts in `features/LIBRARY-MODE-IMPLEMENTATION.md` ("903") and `features/MCP-SERVER.md` ("~600") match `prompt-index.json` (816 items) or drop the number, and `surfaces.json` covers the "items" total, not just "prompts"
