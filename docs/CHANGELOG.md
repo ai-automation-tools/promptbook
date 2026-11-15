@@ -13,6 +13,10 @@ Three official MCP server cards, each read from the server's own README this run
 - `6_MCP_Servers/Cloud_Platforms/heroku.md`: [heroku/heroku-mcp-server](https://github.com/heroku/heroku-mcp-server), Apache-2.0
 
 _Touched: `site/library/6_MCP_Servers/`, its README count (25 → 28), `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+## 2026-11-14 — Library data-flow diagram re-pinned
+
+Re-read `my-library.ts`, `api/index.ts` and `App.tsx` after server-side favorites: fixed the cited line ranges, and the Two libraries card now says favorites live in `favorites.json` and travel with export and import. Rebuilt with `--pin-head`.
+
 ## 2026-11-13 — Favorites are kept in My Library, not the browser
 
 Mike opened Promptbook at its Tailscale address and his favorites were gone. They weren't lost: they were in Edge's localStorage for `http://127.0.0.1:3010`, and a browser keeps localStorage separately for every address, so `localhost`, the Tailscale name and every other browser or phone each started with an empty list.
