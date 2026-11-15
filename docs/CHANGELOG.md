@@ -4,6 +4,18 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-14 — Resync design-taste-frontend from upstream
+
+The only skill on the 2026-11-09 drift report's `behind` list (98% of upstream's lines missing) was `Design/design-taste-frontend`: `Leonxlnx/taste-skill` rewrote it from tasteskill v2 to 2.5.1 in the two weeks after it was vendored. The other four `behind` rows are system prompts, which the resync does not take.
+
+**Skill.** `SKILL.md` has upstream's 2.5.1 body at `f6b7657`, with the local frontmatter kept (only `upstream.ref` and `checked` moved). `references/` is upstream's again: 22 files, 19 of them new (`layout-v4`, `sections`, `photos`, `gate`, `effects-*`, `copy-*` and others), 8 that upstream dropped removed (`app-screens`, `colour`, `critique`, `imagery`, `layout`, `research`, `tells`, `type`), and `copy`, `motion` and `scenes` updated. The skill-folder `README.md` is gone, since upstream deleted it. It is still a frontend design skill, so it stays in `Design/`.
+
+**Left out, as on the first vendoring.** The skill's `assets/` (1,594 files), `library/` and `scripts/`, 36 MB together. That is also why `resync-upstream.mjs` could not take it: the script fetches every file in the folder at once and failed on 1,631 of them, so this resync ran the same SKILL.md + `references/` copy by hand. The local `description:` still describes v2 (247 curated sites, app screens); whether descriptions follow upstream is the open skill `description:` decision on the roadmap.
+
+_Touched: `site/library/3_Skills/Design/design-taste-frontend/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-13 — Favorites are kept in My Library, not the browser
 
 Mike opened Promptbook at its Tailscale address and his favorites were gone. They weren't lost: they were in Edge's localStorage for `http://127.0.0.1:3010`, and a browser keeps localStorage separately for every address, so `localhost`, the Tailscale name and every other browser or phone each started with an empty list.

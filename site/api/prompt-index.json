@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "buildTime": "2026-11-10T05:29:50.559Z",
+  "buildTime": "2026-11-15T07:02:56.861Z",
   "promptCount": 816,
   "prompts": [
     {
@@ -2645,9 +2645,9 @@
         "taste",
         "ui"
       ],
-      "checked": "2026-10-26",
-      "contentPreview": "\n# tasteskill v2\n\nA page built by a model usually looks like the average of every page the model has seen: a centred\nheadline over three lines, a little label above it, a row of icon cards, a soft gra",
-      "lastModified": "2026-10-27T17:31:02.525Z",
+      "checked": "2026-11-14",
+      "contentPreview": "\n# tasteskill 2.5\n\nBuild the website a good company would ship: it says plainly what is sold, shows the real thing on\nevery screen, and looks made for this client, not from a template and not like an ",
+      "lastModified": "2026-11-15T07:02:46.712Z",
       "isUserOwned": false
     },
     {
