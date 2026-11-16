@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "buildTime": "2026-11-10T05:29:50.559Z",
+  "buildTime": "2026-11-16T19:07:25.830Z",
   "promptCount": 816,
   "prompts": [
     {
@@ -2477,9 +2477,9 @@
         "business",
         "marketing"
       ],
-      "checked": "2026-11-09",
+      "checked": "2026-11-16",
       "contentPreview": "\n# Xquik X (Twitter) data API\n\n> Xquik is an independent third-party service. Not affiliated with X Corp. \"Twitter\" and \"X\" are trademarks of X Corp.\n\nXquik is the world's fastest and cheapest X Twitt",
-      "lastModified": "2026-11-10T05:27:11.164Z",
+      "lastModified": "2026-11-16T19:06:49.327Z",
       "isUserOwned": false
     },
     {
@@ -2663,9 +2663,9 @@
         "architecture",
         "svg"
       ],
-      "checked": "2026-11-09",
-      "contentPreview": "\n# Diagram Design\n\nCreate diagrams as self-contained HTML files with inline SVG and an editorial design system.\n\nForty-five visual types. Semantic patterns describe behavior; type references describe ",
-      "lastModified": "2026-11-10T05:27:11.169Z",
+      "checked": "2026-11-16",
+      "contentPreview": "\n# Diagram Design\n\nCreate diagrams as self-contained HTML files with inline SVG and an editorial design system.\n\nFifty visual types. Semantic patterns describe behavior; type references describe layou",
+      "lastModified": "2026-11-16T19:06:50.824Z",
       "isUserOwned": false
     },
     {
@@ -2749,9 +2749,9 @@
         "agents",
         "workflow"
       ],
-      "checked": "2026-11-09",
+      "checked": "2026-11-16",
       "contentPreview": "\n# Planning with Files\n\nWork like Manus: Use persistent markdown files as your \"working memory on disk.\"\n\n## FIRST: Restore Project State\n\n**Before continuing**, resolve the plan this task owns:\n\n1. U",
-      "lastModified": "2026-11-10T05:27:11.324Z",
+      "lastModified": "2026-11-16T19:06:52.503Z",
       "isUserOwned": false
     },
     {
