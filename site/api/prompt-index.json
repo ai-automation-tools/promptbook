@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "buildTime": "2026-11-10T05:29:50.559Z",
+  "buildTime": "2026-11-16T18:01:01.772Z",
   "promptCount": 816,
   "prompts": [
     {
@@ -2911,7 +2911,7 @@
         "security"
       ],
       "contentPreview": "# ai-automation-tools/agent-skills\n\nPortable Agent Skills for Claude Code and compatible agents — each a self-contained SKILL.md an agent loads only when it is needed.\n\nA skill library: browse and ins",
-      "lastModified": "2026-10-27T16:04:01.955Z",
+      "lastModified": "2026-11-16T18:00:16.625Z",
       "isUserOwned": false
     },
     {
@@ -2941,7 +2941,7 @@
         "ai-ml"
       ],
       "contentPreview": "# anthropics/claude-plugins-official\n\nOfficial, Anthropic-managed directory of high quality Claude Code Plugins.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://githu",
-      "lastModified": "2026-10-27T16:04:05.000Z",
+      "lastModified": "2026-11-16T18:00:19.070Z",
       "isUserOwned": false
     },
     {
@@ -2961,7 +2961,7 @@
         "platform-integrations"
       ],
       "contentPreview": "# anthropics/skills\n\nPublic repository for Agent Skills\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/anthropics/skills). Promptbook keeps one card for i",
-      "lastModified": "2026-10-27T16:04:06.540Z",
+      "lastModified": "2026-11-16T18:00:20.946Z",
       "isUserOwned": false
     },
     {
@@ -3023,7 +3023,7 @@
         "business"
       ],
       "contentPreview": "# coreyhaines31/marketingskills\n\nMarketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.\n\nA skill library: browse and install its skills from [the rep",
-      "lastModified": "2026-10-27T16:04:12.369Z",
+      "lastModified": "2026-11-16T18:00:27.980Z",
       "isUserOwned": false
     },
     {
@@ -3040,8 +3040,8 @@
         "enterprise",
         "finance"
       ],
-      "contentPreview": "# davila7/claude-code-templates\n\nCLI tool for configuring and monitoring Claude Code\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/davila7/claude-code-te",
-      "lastModified": "2026-10-27T16:04:13.752Z",
+      "contentPreview": "# davila7/claude-code-templates\n\nOpen-source registry and CLI for Claude Code components: agents, commands, skills, hooks, MCPs, settings and mods\n\nA skill library: browse and install its skills from ",
+      "lastModified": "2026-11-16T18:00:29.198Z",
       "isUserOwned": false
     },
     {
@@ -3071,7 +3071,7 @@
         "development"
       ],
       "contentPreview": "# github/awesome-copilot\n\nCommunity-contributed instructions, agents, skills, and configurations to help you make the most of GitHub Copilot.\n\nA skill library: browse and install its skills from [the ",
-      "lastModified": "2026-10-27T16:04:16.756Z",
+      "lastModified": "2026-11-16T18:00:31.997Z",
       "isUserOwned": false
     },
     {
@@ -3248,7 +3248,7 @@
         "business"
       ],
       "contentPreview": "# phuryn/pm-skills\n\nPM Skills Marketplace: 100+ agentic skills, commands, and plugins — from discovery to strategy, execution, launch, and growth.\n\nA skill library: browse and install its skills from ",
-      "lastModified": "2026-10-27T16:04:34.654Z",
+      "lastModified": "2026-11-16T18:00:49.117Z",
       "isUserOwned": false
     },
     {
@@ -3312,8 +3312,8 @@
         "design",
         "development"
       ],
-      "contentPreview": "# wshobson/agents\n\nMulti-harness agentic plugin marketplace for Claude Code, Codex, Cursor, OpenCode, GitHub Copilot, Google Antigravity, and Pi\n\nA skill library: browse and install its skills from [t",
-      "lastModified": "2026-10-27T16:06:55.296Z",
+      "contentPreview": "# wshobson/agents\n\nPlugins, agents, skills, and commands for Claude Code, Codex CLI, Cursor, OpenCode, Antigravity CLI, GitHub Copilot, and Pi, written once in Markdown and adapted to each tool by gen",
+      "lastModified": "2026-11-16T18:00:55.180Z",
       "isUserOwned": false
     },
     {
