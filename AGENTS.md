@@ -66,7 +66,7 @@ Other scripts: `npm run build` (build:index → tsc → vite build), `npm run bu
 `npm run test:prompt-content` (a failed full-prompt load throws instead of returning the preview),
 `npm run test:markdown-file` (a downloaded `.md` reads back through the store unchanged),
 `npm run test:preview` (a card blurb drops badge rows and links cut off at 200 characters),
-`npm run test:browser` (after a build: the built app in Chrome, including the dialog focus trap, a Settings export/import, a My Library `?prompt=` link, a star saved to the server (and the move of an old localStorage list) and New item's category suggestions),
+`npm run test:browser` (after a build: the built app in Chrome, including the dialog focus trap, a Settings export/import, a My Library `?prompt=` link, a star saved to the server (and the move of an old localStorage list), New item's category suggestions and the embed contract inside a frame),
 `npm run test:safe-path` (`../` escapes and links out of `library/` are refused, for detail and ZIPs),
 `npm run test:frame-ancestors` (`FRAME_ANCESTORS` origins get CSP `frame-ancestors` and no X-Frame-Options; a bad entry never reaches the header),
 `npm run bench` (latency, size and event-loop stall of the heavy endpoints; compare with
@@ -106,7 +106,8 @@ site/
                        (`html[data-palette]`, key `my-prompt-library.palette`, 12 themes in PALETTES;
                        both keys keep the pre-rename name so saved preferences survive);
                        index.html applies both before first paint
-    lib/               mode (READ_ONLY), cn (clsx + tailwind-merge), markdown-file (the Download .md), sections (the seven sections: tab id, folder,
+    lib/               mode (READ_ONLY), embed (the suite embed contract: framed with ?embed=1, hide brand,
+                       source bar and Light | Dark; post ready/route to the parent, take its theme), cn (clsx + tailwind-merge), markdown-file (the Download .md), sections (the seven sections: tab id, folder,
                        label, rail label, icon, accent token, blurb — every tab switch reads from here;
                        categoryHue() gives each category a stable hue, applied with the .hue class)
     components/        SectionRail (md up: logo, six section tiles (NAV_SECTIONS: Skill Packs is reached from the Skills

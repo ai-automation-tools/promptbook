@@ -144,8 +144,40 @@ try {
   assert.equal(await page.locator('#prompt-category-options option[value="Dev"]').count(), 1, "Category suggests My Library's categories");
   await page.keyboard.press("Escape");
 
+  // Suite embed contract: standalone, ?embed=1 changes nothing.
+  await page.goto(`${base}/?embed=1`);
+  await page.locator(".theme-sw").waitFor();
+
+  // Framed as ?embed=1 (the suite shell, a Project Hub tab): the brand and the Light | Dark
+  // switch are gone, `ready` and `route` reach the parent and the parent's theme applies.
+  // vercel.json forbids framing, so the frame's document comes without those two headers.
+  const shell = await browser.newPage();
+  shell.on("pageerror", (err) => problems.push(`shell page error: ${err.message}`));
+  await shell.route(`${base}/**`, async (route) => {
+    if (route.request().resourceType() !== "document") return route.continue();
+    const res = await route.fetch();
+    const headers = { ...res.headers() };
+    delete headers["x-frame-options"];
+    delete headers["content-security-policy"];
+    await route.fulfill({ response: res, headers });
+  });
+  await shell.route("http://shell.test/", (route) => route.fulfill({
+    contentType: "text/html",
+    body: `<script>window.msgs = []; addEventListener("message", (e) => msgs.push(e.data));</script><iframe src="${base}/?embed=1" width="1200" height="800"></iframe>`,
+  }));
+  await shell.goto("http://shell.test/");
+  await shell.waitForFunction(() => msgs.some((m) => m.type === "route"));
+  const msgs = await shell.evaluate(() => msgs);
+  assert.deepEqual(msgs[0], { suite: 1, contract: 1, type: "ready", app: "promptbook" }, "ready comes first");
+  assert.match(msgs.find((m) => m.type === "route").path, /^\/\?.*embed=1/, "the route keeps embed=1");
+  const framed = shell.frame({ url: /embed=1/ });
+  await framed.locator(".rail").waitFor();
+  assert.equal(await framed.locator(".theme-sw, .rail-logo, .src-bar").count(), 0, "the shell's chrome is hidden");
+  await shell.evaluate(() => document.querySelector("iframe").contentWindow.postMessage({ suite: 1, type: "theme", value: "light" }, "*"));
+  await framed.waitForFunction(() => document.documentElement.classList.contains("light"));
+
   assert.deepEqual(problems, [], "no page errors, console errors or failed requests");
-  console.log("browser-smoke: listing, detail, hero counter, Settings focus, My Library export and import, My Library links, server-side favorites (and the move from localStorage), category suggestions and the vercel.json CSP all pass on the built app");
+  console.log("browser-smoke: listing, detail, hero counter, Settings focus, My Library export and import, My Library links, server-side favorites (and the move from localStorage), category suggestions, the suite embed contract and the vercel.json CSP all pass on the built app");
 } finally {
   await browser.close();
   server.close();
