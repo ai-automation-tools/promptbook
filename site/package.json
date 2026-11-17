@@ -25,6 +25,7 @@
     "test:mcp": "tsx scripts/mcp-server.test.mjs",
     "test:browser": "tsx scripts/browser-smoke.test.mjs",
     "test:safe-path": "tsx lib/safe-path.test.mjs",
+    "test:frame-ancestors": "tsx scripts/frame-ancestors.test.mjs",
     "bench": "tsx scripts/bench-endpoints.mjs"
   },
   "dependencies": {

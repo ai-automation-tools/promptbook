@@ -100,6 +100,7 @@ Copy `site/.env.example` to `site/.env` to change a default:
 | `HOST` | `127.0.0.1` | Address to listen on. There are no accounts, so read [this](docs/setup/SETUP.md#exposing-it-beyond-localhost) before opening it up. |
 | `READ_ONLY` | `false` | `true` serves the Public Library only (My Library is neither listed nor served) and refuses every write. |
 | `ALLOWED_HOSTS` | (none) | Extra hostnames the server answers to, comma-separated, for a proxy such as `tailscale serve`. Any other name gets `403`, which blocks DNS rebinding. See [this](docs/setup/SETUP.md#over-tailscale). |
+| `FRAME_ANCESTORS` | (none) | Origins allowed to frame the app, comma-separated, such as a local Project Hub at `http://localhost:4273`. Unset, framing is refused. |
 
 ### Checks
 
