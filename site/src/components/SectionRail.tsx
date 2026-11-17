@@ -6,6 +6,7 @@
 import { Settings } from 'lucide-react';
 import { NAV_SECTIONS, navTab } from '../lib/sections';
 import type { LibraryTab } from '../hooks/useLibraryRoute';
+import { EMBED } from '../lib/embed';
 
 interface SectionRailProps {
   activeTab: LibraryTab;
@@ -27,9 +28,11 @@ interface SectionRailProps {
 export default function SectionRail({ activeTab, onSelectSection, onHome, onOpenSettings, joined }: SectionRailProps) {
   return (
     <nav className="rail" data-joined={joined || undefined} aria-label="Sections">
-      <button type="button" className="rail-logo" onClick={onHome} aria-label="Promptbook home">
-        <img src="/favicon.svg" alt="" width={36} height={36} />
-      </button>
+      {!EMBED && (
+        <button type="button" className="rail-logo" onClick={onHome} aria-label="Promptbook home">
+          <img src="/favicon.svg" alt="" width={36} height={36} />
+        </button>
+      )}
 
       {NAV_SECTIONS.map(section => {
         const Icon = section.icon;
