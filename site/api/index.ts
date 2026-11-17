@@ -43,10 +43,14 @@ export const FRAME_ANCESTORS = (process.env.FRAME_ANCESTORS ?? '').split(',').fl
     return [];
   }
 });
-app.use(helmet({ contentSecurityPolicy: false, strictTransportSecurity: false, frameguard: FRAME_ANCESTORS.length ? false : { action: 'sameorigin' } }));
+app.use(helmet({ contentSecurityPolicy: false, strictTransportSecurity: false }));
 if (FRAME_ANCESTORS.length) {
   const policy = `frame-ancestors 'self' ${FRAME_ANCESTORS.join(' ')}`;
-  app.use((_req, res, next) => { res.setHeader('Content-Security-Policy', policy); next(); });
+  app.use((_req, res, next) => {
+    res.removeHeader('X-Frame-Options');
+    res.setHeader('Content-Security-Policy', policy);
+    next();
+  });
 }
 
 // Prompt bodies are user content and some library prompts run long, but nothing
