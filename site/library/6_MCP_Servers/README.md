@@ -13,10 +13,10 @@ themselves are installed from their sources, never vendored here.
 | `Reference/` | Filesystem, Fetch, Memory, Sequential Thinking, Git, Time (`modelcontextprotocol/servers`) |
 | `Browser_Automation/` | Playwright, Chrome DevTools |
 | `Developer_Tools/` | GitHub, Context7, MarkItDown, REA, Codebase Memory, Grafana, and this library's own server |
-| `Cloud_Platforms/` | Supabase, Cloudflare, AWS, MongoDB, Neon, Terraform |
-| `Apps_and_Services/` | Notion, n8n workflow builder, Resend, Stripe |
+| `Cloud_Platforms/` | Supabase, Cloudflare, AWS, MongoDB, Neon, Terraform, Heroku |
+| `Apps_and_Services/` | Notion, n8n workflow builder, Resend, Stripe, Atlassian, Hugging Face |
 
-25 cards, started 2026-10-21.
+28 cards, started 2026-10-21.
 
 ## How it stays current
 
