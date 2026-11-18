@@ -6,7 +6,7 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ## 2026-11-18 — Discovery queue triaged
 
-All 74 pending rows in `docs/DISCOVERY.md` decided with Mike: 17 `accept` (9 skill-library cards, 4 single skills, 2 MCP cards, and two prompt sources: Piebald-AI's Claude Code system prompts and Microsoft 365 Copilot prompts), 17 `link` (awesome lists, tools, and collections whose licence rules out copying), 40 `reject` (apps and platforms, Chinese-language-first repos, anti-bot and credential tooling, an archived list, low-signal packs). The content job's prompt quota had gone unmet for want of an accepted prompts row; the catalog runs now have a queue again. The Discovery job, paused since 2026-11-03 until this was done, is re-enabled; its next run adds the `link` rows to the Resources menu.
+All 74 pending rows in `docs/DISCOVERY.md` decided with Mike: 16 `accept` (9 skill-library cards, 4 single skills, 2 MCP cards, and the Microsoft 365 Copilot prompts), 18 `link` (awesome lists, tools, collections whose licence rules out copying, and Piebald-AI's Claude Code system prompts, which are extracted from the package while `5_System_Prompts` takes only what vendors publish), 40 `reject` (apps and platforms, Chinese-language-first repos, anti-bot and credential tooling, an archived list, low-signal packs). The content job's prompt quota had gone unmet for want of an accepted prompts row; the catalog runs now have a queue again. The Discovery job, paused since 2026-11-03 until this was done, is re-enabled; its next run adds the `link` rows to the Resources menu.
 
 _Touched: `docs/DISCOVERY.md`, `docs/CHANGELOG.md`._
 
