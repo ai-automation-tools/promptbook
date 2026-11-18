@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-18T22:23:45.518Z",
-  "promptCount": 911,
+  "buildTime": "2026-11-18T22:55:44.067Z",
+  "promptCount": 925,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -12699,6 +12699,23 @@
       "isUserOwned": false
     },
     {
+      "id": "5_System_Prompts/Anthropic/anthropic-claude-fable-5-2-20261109.md",
+      "title": "📝 Claude Fable 5.2 (2026-11-09)",
+      "section": "5_System_Prompts",
+      "category": "Anthropic",
+      "subcategory": "anthropic-claude-fable-5-2-20261109",
+      "tags": [
+        "system-prompt",
+        "anthropic",
+        "claude",
+        "claude-fable-5.2"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<claude_behavior>\n<product_information>\nHere is some information about Claude and Anthropic's products in case the person asks:\n\nThis iteration of Claude is Claude Fable 5.2, the newest model in Anth",
+      "lastModified": "2026-11-18T22:54:38.907Z",
+      "isUserOwned": false
+    },
+    {
       "id": "5_System_Prompts/Anthropic/anthropic-claude-haiku-4.5-20251015.md",
       "title": "📝 Anthropic Claude Haiku 4.5",
       "section": "5_System_Prompts",
@@ -12735,6 +12752,23 @@
       "isUserOwned": false
     },
     {
+      "id": "5_System_Prompts/Anthropic/anthropic-claude-haiku-5-5-20261026.md",
+      "title": "📝 Claude Haiku 5.5 (2026-10-26)",
+      "section": "5_System_Prompts",
+      "category": "Anthropic",
+      "subcategory": "anthropic-claude-haiku-5-5-20261026",
+      "tags": [
+        "system-prompt",
+        "anthropic",
+        "claude",
+        "claude-haiku-5.5"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<claude_behavior>\nWhen a question is about the person or their world, Claude checks the `<memory_listing>` before answering from the conversation alone, and opens any file whose description suggests ",
+      "lastModified": "2026-11-18T22:54:38.933Z",
+      "isUserOwned": false
+    },
+    {
       "id": "5_System_Prompts/Anthropic/anthropic-claude-opus-20240306.md",
       "title": "📝 Anthropic Claude Opus (March 2024)",
       "section": "5_System_Prompts",
@@ -12749,6 +12783,57 @@
       "checked": "2026-10-23",
       "contentPreview": "\n# Anthropic Claude Opus (March 2024)\n\n\n# anthropic-claude-opus_20240306\n\nsource: <https://twitter.com/AmandaAskell/status/1765207842993434880>\n\n## Q(user)\n\n## A(Opus)\n\nThe assistant is Claude, create",
       "lastModified": "2026-10-23T23:40:21.466Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "5_System_Prompts/Anthropic/anthropic-claude-opus-4-6-20261030.md",
+      "title": "📝 Claude Opus 4.6 (2026-10-30)",
+      "section": "5_System_Prompts",
+      "category": "Anthropic",
+      "subcategory": "anthropic-claude-opus-4-6-20261030",
+      "tags": [
+        "system-prompt",
+        "anthropic",
+        "claude",
+        "claude-opus-4.6"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<claude_behavior>\n<product_information>\nThis iteration of Claude is Claude Opus 4.6, the most advanced model in the Claude 4.6 family (which currently consists of Claude Opus 4.6 and Claude Sonnet 4.",
+      "lastModified": "2026-11-18T22:54:38.949Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "5_System_Prompts/Anthropic/anthropic-claude-opus-4-7-20261030.md",
+      "title": "📝 Claude Opus 4.7 (2026-10-30)",
+      "section": "5_System_Prompts",
+      "category": "Anthropic",
+      "subcategory": "anthropic-claude-opus-4-7-20261030",
+      "tags": [
+        "system-prompt",
+        "anthropic",
+        "claude",
+        "claude-opus-4.7"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<claude_behavior>\n<product_information>\nThis iteration of Claude is Claude Opus 4.7. The Claude 4.7 family currently consists of Claude Opus 4.7; it follows the Claude 4.6 family, which consists of S",
+      "lastModified": "2026-11-18T22:54:38.980Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "5_System_Prompts/Anthropic/anthropic-claude-opus-4-8-20261030.md",
+      "title": "📝 Claude Opus 4.8 (2026-10-30)",
+      "section": "5_System_Prompts",
+      "category": "Anthropic",
+      "subcategory": "anthropic-claude-opus-4-8-20261030",
+      "tags": [
+        "system-prompt",
+        "anthropic",
+        "claude",
+        "claude-opus-4.8"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<claude_behavior>\n<product_information>\nHere is some information about Claude and Anthropic's products in case the person asks:\n\nThe currently selected version of Claude is Claude Opus 4.8. Claude Op",
+      "lastModified": "2026-11-18T22:54:39.009Z",
       "isUserOwned": false
     },
     {
@@ -12802,6 +12887,23 @@
       "checked": "2026-10-23",
       "contentPreview": "\n# Claude Opus 4\n\n## System Identity\n## Core Capabilities\n### Core System\n#### Structure\n#### Rules\n#### Examples\n### API Tool Use\n#### Use Cases\n#### Constraints\n## Response Formatting\n### JSON\n### M",
       "lastModified": "2026-10-23T23:40:21.472Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "5_System_Prompts/Anthropic/anthropic-claude-opus-5-5-20261027.md",
+      "title": "📝 Claude Opus 5.5 (2026-10-27)",
+      "section": "5_System_Prompts",
+      "category": "Anthropic",
+      "subcategory": "anthropic-claude-opus-5-5-20261027",
+      "tags": [
+        "system-prompt",
+        "anthropic",
+        "claude",
+        "claude-opus-5.5"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<claude_behavior>\n<product_information>\nHere is some information about Claude and Anthropic's products in case the person asks:\n\nThe currently selected version of Claude is Claude Opus 5.5. Claude Op",
+      "lastModified": "2026-11-18T22:54:39.035Z",
       "isUserOwned": false
     },
     {
@@ -12929,6 +13031,23 @@
       "isUserOwned": false
     },
     {
+      "id": "5_System_Prompts/Anthropic/anthropic-claude-sonnet-4-6-20261014.md",
+      "title": "📝 Claude Sonnet 4.6 (2026-10-14)",
+      "section": "5_System_Prompts",
+      "category": "Anthropic",
+      "subcategory": "anthropic-claude-sonnet-4-6-20261014",
+      "tags": [
+        "system-prompt",
+        "anthropic",
+        "claude",
+        "claude-sonnet-4.6"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<claude_behavior>\n<product_information>\nHere is some information about Claude and Anthropic's products in case the person asks:\n\nThis iteration of Claude is Claude Sonnet 4.6, a smart, efficient mode",
+      "lastModified": "2026-11-18T22:54:39.061Z",
+      "isUserOwned": false
+    },
+    {
       "id": "5_System_Prompts/Anthropic/anthropic-claude-sonnet-4.5-20251119.md",
       "title": "📝 Claude Sonnet 4.5 (2025-11-19)",
       "section": "5_System_Prompts",
@@ -12994,6 +13113,23 @@
       "checked": "2026-10-23",
       "contentPreview": "\n# Anthropic Claude Sonnet 4.5 (2026-01-28)\n\n## System Identity\n```xml\n<system_info>\nAnthropic Claude Sonnet 4.5.\n</system_info>\n```\n\n## Core Capabilities\n- Text generation\n- Code generation\n\n## Respo",
       "lastModified": "2026-10-23T23:40:21.567Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "5_System_Prompts/Anthropic/anthropic-claude-sonnet-5-5-20261027.md",
+      "title": "📝 Claude Sonnet 5.5 (2026-10-27)",
+      "section": "5_System_Prompts",
+      "category": "Anthropic",
+      "subcategory": "anthropic-claude-sonnet-5-5-20261027",
+      "tags": [
+        "system-prompt",
+        "anthropic",
+        "claude",
+        "claude-sonnet-5.5"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<claude_behavior>\n<product_information>\nHere is some information about Claude and Anthropic's products in case the person asks:\n\nThis iteration of Claude is Claude Sonnet 5.5.\n\nClaude is accessible v",
+      "lastModified": "2026-11-18T22:54:39.087Z",
       "isUserOwned": false
     },
     {
@@ -14423,6 +14559,40 @@
       "isUserOwned": false
     },
     {
+      "id": "5_System_Prompts/OpenAI/codex-cli-gpt-5-1.md",
+      "title": "📝 Codex CLI — GPT-5.1",
+      "section": "5_System_Prompts",
+      "category": "OpenAI",
+      "subcategory": "codex-cli-gpt-5-1",
+      "tags": [
+        "system-prompt",
+        "openai",
+        "codex",
+        "coding-agent"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\nYou are GPT-5.1 running in the Codex CLI, a terminal-based coding assistant. Codex CLI is an open source project led by OpenAI. You are expected to be precise, safe, and helpful.\n\nYour capabilities:\n",
+      "lastModified": "2026-11-18T22:55:34.698Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "5_System_Prompts/OpenAI/codex-cli-gpt-5-2-codex.md",
+      "title": "📝 Codex CLI — GPT-5.2-Codex",
+      "section": "5_System_Prompts",
+      "category": "OpenAI",
+      "subcategory": "codex-cli-gpt-5-2-codex",
+      "tags": [
+        "system-prompt",
+        "openai",
+        "codex",
+        "coding-agent"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\nYou are Codex, based on GPT-5. You are running as a coding agent in the Codex CLI on a user's computer.\n\n## General\n\n- When searching for text or files, prefer using `rg` or `rg --files` respectively",
+      "lastModified": "2026-11-18T22:55:34.698Z",
+      "isUserOwned": false
+    },
+    {
       "id": "5_System_Prompts/OpenAI/codex-cli-gpt-5-2.md",
       "title": "📝 Codex CLI — GPT-5.2",
       "section": "5_System_Prompts",
@@ -14437,6 +14607,23 @@
       "checked": "2026-11-18",
       "contentPreview": "\nYou are GPT-5.2 running in the Codex CLI, a terminal-based coding assistant. Codex CLI is an open source project led by OpenAI. You are expected to be precise, safe, and helpful.\n\nYour capabilities:\n",
       "lastModified": "2026-11-18T22:17:41.701Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "5_System_Prompts/OpenAI/codex-cli-gpt-5-codex.md",
+      "title": "📝 Codex CLI — GPT-5-Codex",
+      "section": "5_System_Prompts",
+      "category": "OpenAI",
+      "subcategory": "codex-cli-gpt-5-codex",
+      "tags": [
+        "system-prompt",
+        "openai",
+        "codex",
+        "coding-agent"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\nYou are Codex, based on GPT-5. You are running as a coding agent in the Codex CLI on a user's computer.\n\n## General\n\n- When searching for text or files, prefer using `rg` or `rg --files` respectively",
+      "lastModified": "2026-11-18T22:55:34.698Z",
       "isUserOwned": false
     },
     {
@@ -14943,6 +15130,23 @@
       "isUserOwned": false
     },
     {
+      "id": "5_System_Prompts/OpenCode/opencode-gpt-astra.md",
+      "title": "📝 opencode — GPT Astra models",
+      "section": "5_System_Prompts",
+      "category": "OpenCode",
+      "subcategory": "opencode-gpt-astra",
+      "tags": [
+        "system-prompt",
+        "opencode",
+        "openai",
+        "coding-agent"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\nYou are an AI agent running in OpenCode, a coding agent harness. Help the user accomplish their goals using the tools you have available.\n\n# Harness\n- Responses are rendered as GitHub-flavored Markdo",
+      "lastModified": "2026-11-18T22:55:34.699Z",
+      "isUserOwned": false
+    },
+    {
       "id": "5_System_Prompts/OpenCode/opencode-gpt.md",
       "title": "📝 opencode — GPT models",
       "section": "5_System_Prompts",
@@ -14974,6 +15178,40 @@
       "checked": "2026-11-18",
       "contentPreview": "\nYou are OpenCode, an interactive general AI agent running on a user's computer.\n\nYour primary goal is to help users with software engineering tasks by taking action — use the tools available to you t",
       "lastModified": "2026-11-18T22:17:41.702Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "5_System_Prompts/OpenCode/opencode-meta.md",
+      "title": "📝 opencode — Meta models",
+      "section": "5_System_Prompts",
+      "category": "OpenCode",
+      "subcategory": "opencode-meta",
+      "tags": [
+        "system-prompt",
+        "opencode",
+        "meta",
+        "coding-agent"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\nYou are OpenCode, a coding agent that helps users with software engineering tasks. You are powered by {{MODEL_NAME}}, a large language model trained by Meta MSL.\n\nUse the instructions below and the t",
+      "lastModified": "2026-11-18T22:55:34.702Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "5_System_Prompts/OpenCode/opencode-trinity.md",
+      "title": "📝 opencode — Trinity models",
+      "section": "5_System_Prompts",
+      "category": "OpenCode",
+      "subcategory": "opencode-trinity",
+      "tags": [
+        "system-prompt",
+        "opencode",
+        "trinity",
+        "coding-agent"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\nYou are opencode, an interactive CLI tool that helps users with software engineering tasks. Use the instructions below and the tools available to you to assist the user.\n\n# Tone and style\nYou should ",
+      "lastModified": "2026-11-18T22:55:34.701Z",
       "isUserOwned": false
     },
     {
