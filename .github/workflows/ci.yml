@@ -75,6 +75,10 @@ jobs:
       - name: Library path containment
         run: npm run test:safe-path
 
+      # FRAME_ANCESTORS lets the listed origins frame the app, and nothing else reaches the header.
+      - name: Frame ancestors
+        run: npm run test:frame-ancestors
+
       # Spawns mcp/server.ts over real stdio with the SDK client: every tool, the
       # MCP prompts, path-traversal refusals, a My Library round trip in a temp
       # folder, and read-only mode. A clean handshake also proves nothing else

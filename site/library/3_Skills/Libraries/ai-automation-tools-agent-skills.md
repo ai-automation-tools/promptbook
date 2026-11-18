@@ -12,7 +12,7 @@ A skill library: browse and install its skills from [the repo on GitHub](https:/
 
 ---
 
-*The repo's README, copied 2026-11-02:*
+*The repo's README, copied 2026-11-16:*
 
 <a id="readme-top"></a>
 
@@ -75,7 +75,7 @@ A collection of reusable skills for Claude Code and compatible AI agents. Each s
 
 ## 🧭 Domain skills
 
-Field-specific skills from the org's five agent workspaces, copied here unchanged by a weekly
+Field-specific skills from the org's seven agent workspaces, copied here unchanged by a weekly
 harvest. They're kept apart from Core so Core stays a short list, and they install only
 when you ask: `install-skills.ps1 -Domain`. Edit them in their workspace repo; the
 [harvest ledger](https://github.com/ai-automation-tools/agent-skills/blob/main/docs/HARVEST.md) says which one.
@@ -96,12 +96,22 @@ Each folder lists the project's existing skills and any additional skills provid
 
 | Project folder | Additional skills in this repo |
 |:---|:---|
-| [**💬 agent-chat**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/projects/agent-chat/README.md) | `agent-chat-conv-types`, `agent-chat-delivery` and `agent-chat-run-triage`. |
+| [**💬 roundtable**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/projects/roundtable/README.md) | `agent-chat-conv-types`, `agent-chat-delivery` and `agent-chat-run-triage`. |
 | [**⏱️ cronsole**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/projects/cronsole/README.md) | `cronsole-windows-jobs` and `cronsole-claude-routines`. |
 | [**📡 edge-radar**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/projects/edge-radar/README.md) | `edge-radar-strategy-profiles` and `edge-radar-strategy-evidence`. |
-| [**📉 edge-spectrum**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/projects/edge-spectrum/README.md) | `edge-spectrum-hub-tool`, `edge-spectrum-dataset` and `edge-spectrum-endpoint`. |
+| [**📉 edge-spectrum**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/projects/edge-spectrum/README.md) | `edge-spectrum-hub-tool`, `edge-spectrum-dataset`, `edge-spectrum-endpoint` and `edge-spectrum-registry`. |
 | [**🌐 project-hub**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/projects/project-hub/README.md) | `project-hub-scan`, `project-hub-client` and `project-hub-demo`. (`project-hub-scaffold` is listed under Core.) |
 
 <a id="-using-a-skill"></a>
 
 See the [Using Skills guide](https://github.com/ai-automation-tools/agent-skills/blob/main/docs/USING-SKILLS.md) for installation and authoring instructions, or browse [Resources](https://github.com/ai-automation-tools/agent-skills/blob/main/resources/README.md) for examples and supporting material. What's planned next is in the [roadmap](https://github.com/ai-automation-tools/agent-skills/blob/main/docs/ROADMAP.md), and what has already changed is in the [changelog](https://github.com/ai-automation-tools/agent-skills/blob/main/docs/CHANGELOG.md).
+
+## 📄 License
+
+[Apache-2.0](https://github.com/ai-automation-tools/agent-skills/blob/main/LICENSE). Where a skill draws on an outside source, the skill credits it.
+
+---
+
+<p align="center">
+  <a href="https://github.com/ai-automation-tools/agent-skills/blob/main/docs/USING-SKILLS.md">Using Skills</a> · <a href="https://github.com/ai-automation-tools/agent-skills/blob/main/docs/README.md">Docs</a> · <a href="https://github.com/ai-automation-tools/agent-skills/blob/main/LICENSE">License</a>
+</p>

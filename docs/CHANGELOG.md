@@ -4,15 +4,22 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
-## 2026-11-12 — Library refresh — catalog
+## 2026-11-17 — Embed mode for the suite shell
 
-Three official MCP server cards, each read from the server's own README this run. No `accept` rows in the discovery ledger and no new vendor-published system prompts or agent definitions that fit. Sentry's server was skipped: its repo licence is not a recognised SPDX one.
+Opened as `?embed=1` inside a frame (a Project Hub tab now, the suite shell later), Promptbook follows embed contract v1 (`src/lib/embed.ts`). It hides the chrome the shell replaces: the brand in the top bar and the rail, the source bar and the Light | Dark switch. It posts `{suite: 1, contract: 1, type: 'ready', app: 'promptbook'}` once loaded and `{type: 'route', path}` whenever the URL changes, and it applies `{suite: 1, type: 'theme', value}` from its parent. Standalone, `?embed=1` does nothing. The app talks only to `window.parent`: who may be the parent is already decided by `FRAME_ANCESTORS`, so messages go out with `'*'` and only the parent's are read. `test:browser` frames the built app and checks all of it.
 
-- `6_MCP_Servers/Apps_and_Services/atlassian.md`: [atlassian/atlassian-mcp-server](https://github.com/atlassian/atlassian-mcp-server), Apache-2.0
-- `6_MCP_Servers/Apps_and_Services/hugging-face.md`: [huggingface/hf-mcp-server](https://github.com/huggingface/hf-mcp-server), MIT
-- `6_MCP_Servers/Cloud_Platforms/heroku.md`: [heroku/heroku-mcp-server](https://github.com/heroku/heroku-mcp-server), Apache-2.0
+_Touched: `site/src/lib/embed.ts` (new), `site/src/App.tsx`, `site/src/hooks/useLibraryRoute.ts`, `site/src/components/{TopBar,SectionRail}.tsx`, `site/scripts/browser-smoke.test.mjs`, `AGENTS.md`, `docs/setup/SETUP.md`, `docs/CHANGELOG.md`._
 
-_Touched: `site/library/6_MCP_Servers/`, its README count (25 → 28), `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+---
+
+## 2026-11-17 — Framing allowed from listed origins
+
+Mike tried Promptbook inside a Project Hub tab, as a first step toward one window for Cronsole, Project Hub and Promptbook. helmet's default `X-Frame-Options: SAMEORIGIN` refused the frame; nobody had chosen that, it was just helmet's default. `FRAME_ANCESTORS` (comma-separated origins) now lets the listed pages frame the app: the server then drops X-Frame-Options, which has no allowlist, and sends CSP `frame-ancestors 'self' <origins>`. Each entry is reduced to its origin and a non-http(s) entry is dropped, so nothing else reaches the header. Unset, nothing changes. The hosted demo is unaffected: its pages get `X-Frame-Options: DENY` from `vercel.json`.
+
+_Touched: `site/api/index.ts`, `site/scripts/frame-ancestors.test.mjs` (new, `npm run test:frame-ancestors`, in CI), `site/package.json`, `site/.env.example`, `.github/workflows/ci.yml`, `AGENTS.md`, `README.md`, `docs/setup/SETUP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-14 — Library data-flow diagram re-pinned
 
 Re-read `my-library.ts`, `api/index.ts` and `App.tsx` after server-side favorites: fixed the cited line ranges, and the Two libraries card now says favorites live in `favorites.json` and travel with export and import. Rebuilt with `--pin-head`.
@@ -28,6 +35,18 @@ Mike opened Promptbook at its Tailscale address and his favorites were gone. The
 **Tests.** `test:routes` pins 14 routes. `test:my-library` covers the file, id checks, the Origin check, unstar-on-delete, the broken-file guard and the export/import round trip; `test:read-only` 403s all three routes; `test:browser` stars through the UI and checks the localStorage move.
 
 _Touched: `site/lib/my-library.ts`, `site/api/index.ts`, `site/src/hooks/useFavorites.ts`, `site/src/App.tsx`, `site/src/components/SettingsModal.tsx`, `site/src/components/MyLibraryTransfer.tsx`, `site/scripts/{api-routes,my-library,read-only,browser-smoke}.test.mjs`, `AGENTS.md`, `docs/features/API.md`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`, `docs/development/DEBUG_UI.md`, `docs/CHANGELOG.md`._
+
+---
+
+## 2026-11-12 — Library refresh — catalog
+
+Three official MCP server cards, each read from the server's own README this run. No `accept` rows in the discovery ledger and no new vendor-published system prompts or agent definitions that fit. Sentry's server was skipped: its repo licence is not a recognised SPDX one.
+
+- `6_MCP_Servers/Apps_and_Services/atlassian.md`: [atlassian/atlassian-mcp-server](https://github.com/atlassian/atlassian-mcp-server), Apache-2.0
+- `6_MCP_Servers/Apps_and_Services/hugging-face.md`: [huggingface/hf-mcp-server](https://github.com/huggingface/hf-mcp-server), MIT
+- `6_MCP_Servers/Cloud_Platforms/heroku.md`: [heroku/heroku-mcp-server](https://github.com/heroku/heroku-mcp-server), Apache-2.0
+
+_Touched: `site/library/6_MCP_Servers/`, its README count (25 → 28), `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 

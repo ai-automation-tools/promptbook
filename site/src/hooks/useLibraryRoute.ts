@@ -6,6 +6,7 @@
 import { useState, useEffect } from 'react';
 import { type Prompt } from '../components/PromptCard';
 import { READ_ONLY } from '../lib/mode';
+import { tellShell } from '../lib/embed';
 
 /** What the Skills section lists: single skills, or the repos (libraries) that ship several. */
 export type SkillView = 'skills' | 'libraries';
@@ -115,6 +116,7 @@ export function useLibraryRoute({ selectedPrompt, setSelectedPrompt, setLibraryM
     }
 
     window.history.replaceState({}, '', url.toString());
+    tellShell({ type: 'route', path: url.pathname + url.search });
   }, [activeTab, activeCategory, activeSubcategory, skillView, selectedPrompt]);
 
   return {

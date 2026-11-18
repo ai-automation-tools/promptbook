@@ -6,6 +6,7 @@
 import { useState, useEffect, useMemo, useCallback, lazy, Suspense, type ComponentType } from 'react';
 import { ArrowLeft, Check, LayoutGrid, Link2, Plus, Sparkles } from 'lucide-react';
 import SourceBar from './components/SourceBar';
+import { EMBED, onShellTheme, tellShell } from './lib/embed';
 import { LazyMotion, domAnimation, m, AnimatePresence } from 'motion/react';
 import { ToastContainer, type ToastProps } from './components/Toast';
 import { type Prompt } from './components/PromptCard';
@@ -70,6 +71,11 @@ export default function App() {
   const [showAllPrompts, setShowAllPrompts] = useState(true);
   const [showFavorites, setShowFavorites] = useState(false);
   const [theme, setTheme] = useTheme();
+  // Inside the suite shell (?embed=1 in a frame): announce ourselves and take its theme.
+  useEffect(() => {
+    tellShell({ type: 'ready', app: 'promptbook' });
+    return onShellTheme(setTheme);
+  }, [setTheme]);
   const [palette, setPalette] = usePalette();
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({});
@@ -765,7 +771,7 @@ export default function App() {
     <div className="app-shell flex flex-col overflow-hidden">
     <a href="#main" className="skip">Skip to content</a>
     {/* The org's "View source" bar is for the hosted demo; the local app doesn't need it. */}
-    {READ_ONLY && <SourceBar />}
+    {READ_ONLY && !EMBED && <SourceBar />}
     <div className="relative flex min-h-0 flex-1 overflow-hidden">
       <SectionRail
         activeTab={activeTab}

@@ -29,7 +29,29 @@ export const app = express();
 // preloads and the themes pull from Google Fonts, and in production the static
 // assets never pass through Express anyway. HSTS is left to Vercel, which sets
 // it on the edge for custom domains.
+//
+// Framing: refused (X-Frame-Options: SAMEORIGIN) unless FRAME_ANCESTORS names
+// the pages allowed to embed the app, such as a local Project Hub. X-Frame-Options
+// has no allowlist, so then it is dropped for CSP `frame-ancestors`. Each entry
+// is reduced to its origin, and one that isn't an http(s) origin is ignored, so
+// nothing else reaches the header.
+export const FRAME_ANCESTORS = (process.env.FRAME_ANCESTORS ?? '').split(',').flatMap(o => {
+  try {
+    const u = new URL(o.trim());
+    return /^https?:$/.test(u.protocol) ? [u.origin] : [];
+  } catch {
+    return [];
+  }
+});
 app.use(helmet({ contentSecurityPolicy: false, strictTransportSecurity: false }));
+if (FRAME_ANCESTORS.length) {
+  const policy = `frame-ancestors 'self' ${FRAME_ANCESTORS.join(' ')}`;
+  app.use((_req, res, next) => {
+    res.removeHeader('X-Frame-Options');
+    res.setHeader('Content-Security-Policy', policy);
+    next();
+  });
+}
 
 // Prompt bodies are user content and some library prompts run long, but nothing
 // legitimate approaches a megabyte.

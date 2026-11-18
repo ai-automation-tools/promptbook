@@ -56,6 +56,7 @@ uncomment what you want:
 | `HOST` | `127.0.0.1` | Address the server listens on. See [Exposing it beyond localhost](#exposing-it-beyond-localhost). |
 | `READ_ONLY` | `false` | `true` serves the Public Library only and refuses every write with `403`. Vercel turns this on automatically. |
 | `ALLOWED_HOSTS` | (none) | Extra hostnames the server answers to (pages and API, in `npm run dev` and `npm start`), comma-separated; a leading dot (`.ts.net`) allows subdomains. `localhost`, `*.localhost` and IP addresses always work. Needed behind a proxy that forwards its own Host header, such as `tailscale serve`; see [Over Tailscale](#over-tailscale). |
+| `FRAME_ANCESTORS` | (none) | Origins allowed to show the app in a frame (a local Project Hub, say), comma-separated, such as `http://localhost:4273`. They get CSP `frame-ancestors`; unset, framing is refused with `X-Frame-Options: SAMEORIGIN`. Framed as `/?embed=1`, the app drops its brand, source bar and Light / Dark switch and follows the parent's theme (the suite embed contract, `src/lib/embed.ts`). Local server only: the hosted demo's pages take their headers from `vercel.json`. |
 
 ---
 
