@@ -4,6 +4,17 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Library: backfill, 8 new system prompts
+
+Prompts that open-source agents publish in their own repos, copied verbatim (`match: exact`):
+
+- `OpenAI/codex-cli-gpt-5-2.md`, `OpenAI/codex-cli-gpt-5-1-codex-max.md`: openai/codex (Apache-2.0).
+- `OpenCode/opencode-gpt.md`, `OpenCode/opencode-kimi.md`: anomalyco/opencode (MIT).
+- `Goose/goose-system.md`, `Goose/goose-subagent.md`: aaif-goose/goose (Apache-2.0).
+- `Mistral/mistral-vibe-cli.md`: mistralai/mistral-vibe (Apache-2.0).
+- `HuggingFace/smolagents-code-agent.md`: huggingface/smolagents (Apache-2.0).
+
+_Touched: `site/library/5_System_Prompts/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 ## 2026-11-18 — Library: backfill, 16 new prompts
 
 Four new collections under `4_Prompts/`, four prompts each, copied from the repo at the commit stamped in each file: `Microsoft_Copilot_Prompts/` (pnp/copilot-prompts, MIT: Prompt Architect, Code Review Feedback, Clean AI Writing, Decision Log Generator), `Claude_Cookbooks/` (anthropics/claude-cookbooks, MIT: the research lead, research subagent and citations agent prompts, and the review-pr command), `OpenAI_Cookbook/` (openai/openai-cookbook, MIT: portfolio manager, fundamental analyst, quant analyst and memo editor agents) and `Claude_Plugins_Official/` (anthropics/claude-plugins-official, Apache-2.0: the code-review, feature-dev, commit-push-pr and revise-claude-md commands). Licences are in `NOTICE`.
