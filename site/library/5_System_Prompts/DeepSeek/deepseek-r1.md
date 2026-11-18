@@ -4,19 +4,12 @@ tags: ["deepseek", "r1", "system-prompt"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
 upstream:
-  match: similar
+  match: exact
   repo: jujumilk3/leaked-system-prompts
   path: deepseek-R1_20250430.md
   ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
-  checked: 2026-10-23
+  checked: 2026-11-18
 ---
-
-# DeepSeek R1 System Prompt
-
-## Purpose
-System instructions for DeepSeek R1.
-
-## Instructions
 # deepseek-R1_20250430
 
 source: <https://x.com/VibeWeb3/status/1917459078860923011>

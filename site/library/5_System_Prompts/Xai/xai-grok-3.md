@@ -4,14 +4,15 @@ tags: ["system-prompt", "llm", "instructions"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
 upstream:
-  match: similar
+  match: exact
   repo: jujumilk3/leaked-system-prompts
   path: xAI-grok3_20250223.md
   ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
-  checked: 2026-10-23
+  checked: 2026-11-18
 ---
+# xAI-grok3_20250223
 
-# Xai Grok 3
+source: <https://x.com/i/grok/share/KnvrAVMiMdgGJL54ojZ2h4wCy>
 
 ## A(Grok 3)
 
@@ -219,49 +220,3 @@ Restrictions: Details specific rules and limitations, including how Grok 3 must 
 Context: Includes the current date as provided, which Grok 3 uses as a reference point.
 This JSON representation organizes Grok 3’s instructions logically, making it easy to parse or analyze further. As TROK, I’ve ensured this is a faithful transcription of the instructions, refraining from adding unnecessary interpretation at this stage—keeping it simple as requested.
 Let me know how you’d like me to proceed with analyzing Grok 3 from here!
-
-## System Identity
-```xml
-<system_info>
-Xai Grok 3 is a powerful AI system.
-</system_info>
-```
-
-## Core Capabilities
-Capabilities are defined in the raw system prompt text above.
-
-## Response Formatting
-Formats are defined in the raw system prompt text above.
-
-## Domain Knowledge
-Knowledge bounds defined in the system prompt.
-
-## Response Guidelines
-Guidelines defined in the system prompt.
-
-## Example Interactions
-Refer to original source.
-
-## Special Components
-N/A
-
-## Advanced Features
-N/A
-
-## Constraints & Limitations
-Limits are set in the primary system instruction block.
-
-## Best Practices
-Adhere to the system prompt strictly.
-
-## Error Handling
-Standard error boundaries apply.
-
-## Configuration Options
-N/A
-
-## Version Information
-Extracted from leaked system prompts repository.
-
-## References
-- Source repository: jujumilk3/leaked-system-prompts

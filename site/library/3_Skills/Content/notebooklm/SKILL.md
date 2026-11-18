@@ -10,7 +10,7 @@ upstream:
   was: ambiguous
   candidates: [guanyang/open-agent-hub]
   license: MIT
-tags: ["skill","content","notebooklm"]
+tags: ["skill","content","notebooklm", "featured"]
 ---
 
 # NotebookLM Research Assistant Skill

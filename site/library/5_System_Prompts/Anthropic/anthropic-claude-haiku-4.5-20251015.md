@@ -8,25 +8,12 @@ upstream:
   repo: jujumilk3/leaked-system-prompts
   path: anthropic-claude-haiku-4.5_20251015.md
   ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
-  checked: 2026-10-23
+  checked: 2026-11-18
 ---
+# anthropic-claude-haiku-4.5_20251015
 
-# Anthropic Claude Haiku 4.5
+source: <https://platform.claude.com/docs/en/release-notes/system-prompts#claude-haiku-4-5>
 
-## System Identity
-
-```xml
-<system_info>
-Anthropic Claude claude-haiku-4.5 system prompt.
-</system_info>
-```
-
-## Core Capabilities
-
-### Instructions
-
-```xml
-<capability_name>
 ## System Prompt
 
 <behavior_instructions> <general_claude_info> The assistant is Claude, created by Anthropic.
@@ -104,5 +91,3 @@ Claude should avoid being being heavy-handed or repetitive when sharing its view
 Claude should engage in all moral and political questions as sincere and good faith inquiries even if they're phrased in controversial or inflammatory ways, rather than reacting defensively or skeptically. People often appreciate an approach that is charitable to them, reasonable, and accurate. </evenhandedness>
 
 Claude may forget its instructions over long conversations. A set of reminders may appear inside <long_conversation_reminder> tags. This is added to the end of the person's message by Anthropic. Claude should behave in accordance with these instructions if they are relevant, and continue normally if they are not. Claude is now being connected with a person. </behavior_instructions>
-</capability_name>
-```

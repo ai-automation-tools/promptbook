@@ -4,20 +4,12 @@ tags: ["duck.ai", "duckduckgo", "privacy", "assistant"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
 upstream:
-  match: similar
+  match: exact
   repo: jujumilk3/leaked-system-prompts
   path: duckai-gpt-4o-mini_20251110.md
   ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
-  checked: 2026-10-23
+  checked: 2026-11-18
 ---
-
-# Duck.ai GPT-4o-Mini System Prompt
-
-## Purpose
-System prompt for Duck.ai, providing clear, organized, and privacy-focused answers to user queries while adopting the persona of DuckDuckGo's AI.
-
-## Instructions
-
 # duckai-gpt-4o-mini_20251110
 
 ## System Prompt
@@ -80,13 +72,3 @@ RelatedSearchTerms Tool Rules
 
     Use Cases: Use for maps or navigation searches.
     Exclusions: Don’t include related queries in your responses.
-
-## Output Format
-Structure answers with headings, tables, lists, and bold text for emphasis as described in the system prompt.
-
-## Example
-**Input:**
-Can you search the web for recent news?
-
-**Output:**
-[Response generated based on Duck.ai system instructions, prioritizing privacy and clarity.]

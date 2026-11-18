@@ -4,6 +4,26 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Monthly upkeep
+
+System prompts marked `behind` or `drifted` in `upstream-status.json` were resynced verbatim from `jujumilk3/leaked-system-prompts` at `2bffdfe` (`match: exact`, `checked: 2026-11-18`; frontmatter kept). Six second copies of the same capture were deleted. MCP cards (44), Resources links (40) and hand packs: nothing to fix. `backfill-tags.mjs`: 0 files.
+
+| File (under `site/library/5_System_Prompts/`) | Action | Reason |
+|:---|:---|:---|
+| `Brave/brave-leo-ai.md`, `Google/google-gemini-1-5.md`, `OpenAI/openai-chatgpt-4o.md`, `Xai/grok-3.md` | resynced verbatim | `behind` |
+| `Xai/xai-grok-3.md`, `Anthropic/anthropic-claude-haiku-4.5-20251015.md`, `anthropic-claude-api-tool-use.md`, `anthropic-claude-opus-20240306.md`, `anthropic-claude-opus-4.1-20250805.md`, `anthropic-claude-opus-4.md`, `anthropic-claude-sonnet-3-5-20240909.md`, `anthropic-claude-sonnet-4.5_20250929.md`, `claude-haiku-4-5.md`, `Bolt/bolt-new.md`, `Canva/canva-code.md`, `Cursor/cursor-ide-sonnet.md`, `DeepSeek/deepseek-r1.md`, `Discord/discord-clyde.md`, `Duckduckgo/duckai-gpt-4o-mini.md` | resynced verbatim | `drifted`, same capture reformatted |
+| `Google/google-gemini-1.5.md` | deleted | duplicate of `google-gemini-1-5.md` |
+| `OpenAI/openai-chatgpt4o.md` | deleted | duplicate of `openai-chatgpt-4o.md` |
+| `Anthropic/anthropic-claude-haiku-4.5.md` | deleted | duplicate of `anthropic-claude-haiku-4.5-20251015.md` |
+| `Anthropic/anthropic-claude-sonnet-3-7.md` | deleted | duplicate of `anthropic-claude-sonnet-3.7.md` |
+| `Anthropic/anthropic-claude-sonnet-3-5-20241022.md` | deleted | duplicate of `anthropic-claude-sonnet-3.5.md` |
+| `Anthropic/anthropic-claude-sonnet-4.5_20251119.md` | deleted | duplicate of `anthropic-claude-sonnet-4.5-20251119.md` |
+| `2_Agents/AI_ML/AI_Engineering_SMEs/ai-engineer.md`, `AI_ML/MCP/mcp-deployment-orchestrator.md`, `AI_ML/Other/adr-generator.md`, `DevOps/observability-engineer.md` | featured | agents were at 0, floor is 4 |
+| `3_Skills/Business/copy-editing/SKILL.md`, `3_Skills/Content/notebooklm/SKILL.md` | featured | skills were at 1, floor is 4 |
+
+Next month: 15 more `drifted` system prompts (Anthropic and others, `github-copilot-chat` onward), 2 `LouisShark` Gemini Gems, `blader/humanizer` (skill, off limits); featured floor still short: agents 4 of 4 met, skills 3 of 4, prompts 0 of 4.
+
+_Touched: `site/library/5_System_Prompts/**` (above), the six featured files, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 ## 2026-11-18 — Library: prefill, 10 new MCP servers
 
 Ten cards from reputable sources (official vendor servers first), each written from the server's own README read that day: Todoist (`todoist/todoist-mcp`, MIT), Contentful (`contentful/contentful-mcp-server`, MIT), Perplexity (`perplexityai/modelcontextprotocol`, MIT), Brave Search (`brave/brave-search-mcp-server`, MIT), Azure DevOps (`microsoft/azure-devops-mcp`, MIT), Postman (`postmanlabs/postman-mcp-server`, Apache-2.0), Mobile MCP (`mobile-next/mobile-mcp`, Apache-2.0), Firebase (`firebase/firebase-tools`, MIT), DuckDB and MotherDuck (`motherduckdb/mcp-server-motherduck`, MIT) and Postgres MCP Pro (`crystaldba/postgres-mcp`, MIT). The `6_MCP_Servers` README now counts 54 cards.

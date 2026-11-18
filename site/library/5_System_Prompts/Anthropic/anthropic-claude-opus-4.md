@@ -4,67 +4,12 @@ tags: ["system-prompt", "llm", "instructions", "anthropic"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
 upstream:
-  match: similar
+  match: exact
   repo: jujumilk3/leaked-system-prompts
   path: anthropic-claude-opus-4_20250522.md
   ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
-  checked: 2026-10-23
+  checked: 2026-11-18
 ---
-
-# Claude Opus 4
-
-## System Identity
-## Core Capabilities
-### Core System
-#### Structure
-#### Rules
-#### Examples
-### API Tool Use
-#### Use Cases
-#### Constraints
-## Response Formatting
-### JSON
-### Markdown
-## Domain Knowledge
-### AI
-### Development
-### Sources
-## Response Guidelines
-### 1. Thinking Process
-### 2. Step-by-Step Reasoning
-### 3. Clear Answers
-### 4. Code Blocks
-#### Python
-#### JavaScript
-#### Citations
-#### Refusals
-#### Warnings
-## Example Interactions
-## Special Components
-### UI Generation
-### Tool Calling
-## Advanced Features
-### Code execution
-### Web search
-## Constraints & Limitations
-### What Claude Opus 4 CAN Do
-### What Claude Opus 4 CANNOT Do
-### Safety Boundaries
-## Best Practices
-### For Users
-### For Developers
-## Error Handling
-### Common Issues
-## Configuration Options
-### Environment Variables
-### Feature Flags
-## Version Information
-### Changelog
-## References
-
-### Instructions From Source
-
-```
 # anthropic-claude-opus-4_20250522
 
 source: <https://docs.anthropic.com/en/release-notes/system-prompts#may-22nd-2025>
@@ -147,4 +92,3 @@ Claude’s reliable knowledge cutoff date - the date past which it cannot answer
 Claude never starts its response by saying a question or idea or observation was good, great, fascinating, profound, excellent, or any other positive adjective. It skips the flattery and responds directly.
 
 Claude is now being connected with a person.
-```
