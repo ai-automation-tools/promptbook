@@ -13,20 +13,24 @@ is not an installable agent belongs in `4_Prompts`.
 | Folder | Files | What |
 |:---|---:|:---|
 | `Development/Backend/` | 49 | Language and framework specialists |
-| `Development/` | 6 | Refactoring, TDD, git workflow, cloud, Python, React |
+| `DevOps/` | 6 | Kubernetes, Terraform, Docker, CI, observability, incident response |
+| `Quality/` | 5 | Test, QA, accessibility and PR-review analysers |
+| `Development/` | 11 | Refactoring, TDD, git workflow, cloud, Python, React |
 | `AI_ML/MCP/` | 8 | MCP server builders and reviewers |
 | `AI_ML/Other/` | 8 | ADRs, model evaluation, assorted AI engineering |
-| `AI_ML/AI_Engineering_SMEs/` | 5 | AI engineering specialists |
+| `AI_ML/AI_Engineering_SMEs/` | 6 | AI engineering specialists |
 | `AI_ML/Data_SMEs/`, `Power-BI/`, `Prompting/` | 6 | Data, BI and prompt engineering |
 | `Content/` | 3 | Blog writer, copyeditor, social media manager |
 | `Business/` | 1 | SEO optimization |
-| **Total** | **86** | |
+| **Total** | **94** | |
 
 ## Provenance
 
-Every file carries an `upstream:` block (`scripts/attribute-upstream.mjs --agents`): 71 `exact`,
+Every file carries an `upstream:` block (`scripts/attribute-upstream.mjs --agents`): 88 `exact`,
 6 `similar`, 9 `unknown` (our own). Sources: `VoltAgent/awesome-claude-code-subagents` (36),
-`davila7/claude-code-templates` (22), `github/awesome-copilot` (17), `wshobson/agents` (2). The
+`davila7/claude-code-templates` (22), `github/awesome-copilot` (17), `wshobson/agents` (5),
+`anthropics/claude-plugins-official` (3), `affaan-m/everything-claude-code` (4),
+`0xfurai/claude-code-subagents` (3), plus 3 more from `VoltAgent/awesome-claude-code-subagents`. The
 Monday drift check compares the `exact` and `similar` ones with their upstream and the Saturday
 roadmap job resyncs drifted ones (`scripts/resync-upstream.mjs 2_Agents/<path>`).
 

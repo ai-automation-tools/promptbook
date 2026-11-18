@@ -12,7 +12,7 @@ A skill library: browse and install its skills from [the repo on GitHub](https:/
 
 ---
 
-*The repo's README, copied 2026-11-16:*
+*The repo's README, copied 2026-11-18:*
 
 <a id="readme-top"></a>
 
@@ -75,14 +75,14 @@ A collection of reusable skills for Claude Code and compatible AI agents. Each s
 
 ## 🧭 Domain skills
 
-Field-specific skills from the org's seven agent workspaces, copied here unchanged by a weekly
+Field-specific skills from the org's agent workspaces (six since `fullstack-agent` was archived on 2026-11-16), copied here unchanged by a weekly
 harvest. They're kept apart from Core so Core stays a short list, and they install only
 when you ask: `install-skills.ps1 -Domain`. Edit them in their workspace repo; the
 [harvest ledger](https://github.com/ai-automation-tools/agent-skills/blob/main/docs/HARVEST.md) says which one.
 
 | Domain folder | What's inside |
 |:---|:---|
-| [**🛠️ Engineering**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/domain/engineering/) | How to build software well: debugging, performance work, and test strategy. From `fullstack-agent`. |
+| [**🛠️ Engineering**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/domain/engineering/) | How to build software well: debugging, performance work, test strategy, and full-stack feature delivery. From `fullstack-agent` (archived 2026-11-16; maintained here since). |
 | [**🌐 API**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/domain/api/) | Working with third-party APIs: judging one before you integrate, writing clients that survive failures, staying inside rate limits and quotas, normalizing responses into one traceable shape, and testing integrations without hitting live services. From `api-agent`. |
 | [**📈 Business**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/domain/business/) | Field tactics for business decisions: running customer discovery interviews, planning go-to-market, and setting prices. From `business-agent`. |
 | [**🔐 Security**](https://github.com/ai-automation-tools/agent-skills/blob/main/skills/domain/security/) | Communicating and steering security work: turning verified findings into a report a client acts on, disclosing a vulnerability responsibly, and measuring a security program with metrics, SLAs and a risk register. From `security-agent`. |

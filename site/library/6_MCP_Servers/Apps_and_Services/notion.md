@@ -7,7 +7,7 @@ server:
   license: "MIT"
   maintainer: "Notion (official)"
   transport: "stdio"
-  checked: 2026-10-21
+  checked: 2026-11-18
 ---
 
 # Notion MCP server
@@ -49,7 +49,7 @@ claude mcp add notion -e NOTION_TOKEN=ntn_xxxx -- npx -y @notionhq/notion-mcp-se
 
 ## Notes
 
-The integration only sees pages you share with it. Notion also runs a hosted remote server; issues with that one go to Notion support.
+The integration only sees pages you share with it. Notion recommends its hosted Remote Notion MCP (OAuth) and gives active support only to that; this local server is the manual-token option.
 
 ## Details
 
@@ -62,4 +62,4 @@ The integration only sees pages you share with it. Notion also runs a hosted rem
 | **Auth** | A Notion integration token (`NOTION_TOKEN`) |
 | **Needs** | Node.js, and a Notion integration shared with the pages it may use |
 
-_Install lines read from the server's README on 2026-10-21. The Monthly Upkeep re-checks every card._
+_Install lines read from the server's README on 2026-11-18. The Monthly Upkeep re-checks every card._

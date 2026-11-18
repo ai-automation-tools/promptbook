@@ -3,11 +3,11 @@ title: "Gemini CLI Flags Reference"
 tags: ["gemini-cli", "flags", "cli", "reference", "google", "options"]
 category: "Agent_Guides"
 subcategory: "Gemini_CLI"
-checked: 2026-10-13
+checked: 2026-11-18
 repo: google-gemini/gemini-cli
 ---
 
-<!-- Last Updated: 2026-10-13 - Checked against github.com/google-gemini/gemini-cli docs/cli/cli-reference.md -->
+<!-- Last Updated: 2026-11-18 - Checked against github.com/google-gemini/gemini-cli docs/cli/cli-reference.md -->
 
 # Gemini CLI Flags Reference
 
@@ -50,6 +50,8 @@ gemini update
 | `--allowed-tools` | | **Deprecated**; use the Policy Engine |
 | `--output-format` | `-o` | `text` (default), `json` or `stream-json` |
 | `--screen-reader` | | Enable screen reader mode |
+| `--experimental-acp` | | Start in ACP mode (experimental) |
+| `--experimental-zed-integration` | | Run in Zed editor integration mode (experimental) |
 | `--debug` | `-d` | Verbose debug logging |
 | `--version` / `--help` | `-v` / `-h` | Print version / help |
 

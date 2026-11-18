@@ -7,7 +7,7 @@ server:
   license: "MIT"
   maintainer: "Stripe (official)"
   transport: "HTTP (remote)"
-  checked: 2026-10-21
+  checked: 2026-11-18
 ---
 
 # Stripe MCP server
@@ -42,7 +42,7 @@ claude mcp add --transport http stripe https://mcp.stripe.com
 
 ## Notes
 
-Connect a test-mode account first. Anything it does in live mode moves real money.
+The old `@stripe/mcp` and agent-toolkit npm packages are deprecated; use the hosted server. Connect a test-mode account first. Anything it does in live mode moves real money.
 
 ## Details
 
@@ -55,4 +55,4 @@ Connect a test-mode account first. Anything it does in live mode moves real mone
 | **Auth** | OAuth sign-in to your Stripe account |
 | **Needs** | A Stripe account |
 
-_Install lines read from the server's README on 2026-10-21. The Monthly Upkeep re-checks every card._
+_Install lines read from the server's README on 2026-11-18. The Monthly Upkeep re-checks every card._

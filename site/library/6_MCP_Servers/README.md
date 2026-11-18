@@ -10,13 +10,15 @@ themselves are installed from their sources, never vendored here.
 
 | Folder | Servers |
 |:---|:---|
-| `Reference/` | Filesystem, Fetch, Memory, Sequential Thinking, Git, Time (`modelcontextprotocol/servers`) |
+| `Reference/` | Filesystem, Fetch, Memory, Sequential Thinking, Git, Time (`modelcontextprotocol/servers`), Microsoft Learn |
 | `Browser_Automation/` | Playwright, Chrome DevTools |
-| `Developer_Tools/` | GitHub, Context7, MarkItDown, REA, Codebase Memory, Grafana, and this library's own server |
-| `Cloud_Platforms/` | Supabase, Cloudflare, AWS, MongoDB, Neon, Terraform, Heroku |
-| `Apps_and_Services/` | Notion, n8n workflow builder, Resend, Stripe, Atlassian, Hugging Face |
+| `Developer_Tools/` | GitHub, Context7, MarkItDown, REA, Codebase Memory, Grafana, Serena, Context Mode, Framelink for Figma, Docker MCP Gateway, and this library's own server |
+| `Cloud_Platforms/` | Supabase, Cloudflare, AWS, MongoDB, Neon, Terraform, Heroku, Azure, Kubernetes |
+| `Databases/` | MCP Toolbox for Databases, ClickHouse, Qdrant, Redis |
+| `Web_and_Search/` | Exa, Tavily, Firecrawl, Apify |
+| `Apps_and_Services/` | Notion, n8n workflow builder, Resend, Stripe, Atlassian, Hugging Face, Blender |
 
-28 cards, started 2026-10-21.
+44 cards, started 2026-10-21.
 
 ## How it stays current
 

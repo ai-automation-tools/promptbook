@@ -137,6 +137,8 @@ System prompts show how platforms configure AI behavior:
 - **Windsurf:** `Windsurf/`
 - **Copilot:** `Copilot/`
 - **Augment:** `Augment_Code/`
+- **opencode:** `OpenCode/`
+- **goose:** `Goose/`
 
 **Other Platforms:**
 - **DeepSeek:** `DeepSeek/`
@@ -144,6 +146,7 @@ System prompts show how platforms configure AI behavior:
 - **Meta/Llama:** `Meta/`
 - **Gemini Gems:** `Gemini_Gems/`
 - **xAI:** `Xai/`
+- **Hugging Face (smolagents):** `HuggingFace/`
 
 ### By Use Case
 
@@ -219,6 +222,8 @@ For consistency, platforms are named:
 - Windsurf (Cascade)
 - GitHub Copilot
 - Augment Code
+- opencode
+- goose
 
 ### Specialized Tools
 - Perplexity (search)
