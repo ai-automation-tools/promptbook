@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-18T23:04:25.579Z",
-  "promptCount": 943,
+  "buildTime": "2026-11-18T23:05:47.093Z",
+  "promptCount": 958,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -57,6 +57,26 @@
       "isUserOwned": false
     },
     {
+      "id": "1_Guides/API_Providers/claude-agent-sdk-typescript-guide.md",
+      "title": "🟦 Claude Agent SDK for TypeScript Guide",
+      "section": "1_Guides",
+      "category": "API_Providers",
+      "subcategory": "claude-agent-sdk-typescript-guide",
+      "tags": [
+        "claude",
+        "agent-sdk",
+        "typescript",
+        "nodejs",
+        "mcp",
+        "hooks",
+        "anthropic"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against code.claude.com/docs/en/agent-sdk/typescript and agent-sdk/quickstart -->\n\n# Claude Agent SDK for TypeScript Guide\n\nThe TypeScript SDK runs Claude Code",
+      "lastModified": "2026-11-18T23:05:43.808Z",
+      "isUserOwned": false
+    },
+    {
       "id": "1_Guides/API_Providers/cohere-api-guide-v2.md",
       "title": "💻 Cohere Command R API Guide",
       "section": "1_Guides",
@@ -102,6 +122,25 @@
       "isUserOwned": false
     },
     {
+      "id": "1_Guides/API_Providers/crewai-guide.md",
+      "title": "🚣 CrewAI Guide: Agents, Tasks, Crews and Flows",
+      "section": "1_Guides",
+      "category": "API_Providers",
+      "subcategory": "crewai-guide",
+      "tags": [
+        "crewai",
+        "agents",
+        "multi-agent",
+        "flows",
+        "python",
+        "orchestration"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against docs.crewai.com and the crewAIInc/crewAI README -->\n\n# CrewAI Guide: Agents, Tasks, Crews and Flows\n\nCrewAI's README describes two building blocks: Cre",
+      "lastModified": "2026-11-18T23:05:43.808Z",
+      "isUserOwned": false
+    },
+    {
       "id": "1_Guides/API_Providers/deepseek_cli_guide.md",
       "title": "DeepSeek CLI Guide",
       "section": "1_Guides",
@@ -117,6 +156,25 @@
       ],
       "contentPreview": "## CLI Sync Notes (March 2026)\n\nFocuses on **CLI-relevant** updates alongside API basics.\n\n### What changed upstream\n- DeepSeek CLI ecosystem reported recent updates around conversational workflows, s",
       "lastModified": "2026-10-26T15:19:23.479Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/API_Providers/dspy-guide.md",
+      "title": "🎯 DSPy Guide: Signatures, Modules and Optimizers",
+      "section": "1_Guides",
+      "category": "API_Providers",
+      "subcategory": "dspy-guide",
+      "tags": [
+        "dspy",
+        "prompt-optimization",
+        "signatures",
+        "gepa",
+        "python",
+        "llm-programming"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against dspy.ai getting-started docs (docs/ in stanfordnlp/dspy) -->\n\n# DSPy Guide: Signatures, Modules and Optimizers\n\nDSPy is a framework for \"programming, r",
+      "lastModified": "2026-11-18T23:05:43.808Z",
       "isUserOwned": false
     },
     {
@@ -206,6 +264,25 @@
       "isUserOwned": false
     },
     {
+      "id": "1_Guides/API_Providers/langchain-guide.md",
+      "title": "🦜 LangChain Guide: Agents with create_agent in Python",
+      "section": "1_Guides",
+      "category": "API_Providers",
+      "subcategory": "langchain-guide",
+      "tags": [
+        "langchain",
+        "agents",
+        "python",
+        "create-agent",
+        "tools",
+        "middleware"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against docs.langchain.com/oss/python/langchain -->\n\n# LangChain Guide: Agents with create_agent in Python\n\nLangChain describes itself as a framework for build",
+      "lastModified": "2026-11-18T23:05:43.810Z",
+      "isUserOwned": false
+    },
+    {
       "id": "1_Guides/API_Providers/langgraph-guide.md",
       "title": "🕸️ LangGraph Guide: Stateful Agent Graphs in Python",
       "section": "1_Guides",
@@ -241,6 +318,44 @@
       "checked": "2026-11-18",
       "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against docs.litellm.ai -->\n\n# LiteLLM Guide: One completion() for Every Provider, Plus a Proxy\n\nLiteLLM translates OpenAI-style Chat Completion calls to 100+ ",
       "lastModified": "2026-11-18T20:57:45.428Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/API_Providers/mcp-python-sdk-guide.md",
+      "title": "🐍 MCP Python SDK Guide: Build a Server and Client",
+      "section": "1_Guides",
+      "category": "API_Providers",
+      "subcategory": "mcp-python-sdk-guide",
+      "tags": [
+        "mcp",
+        "python",
+        "sdk",
+        "mcp-server",
+        "mcp-client",
+        "model-context-protocol"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against py.sdk.modelcontextprotocol.io -->\n\n# MCP Python SDK Guide: Build a Server and Client\n\nThe official Python SDK for the Model Context Protocol (package ",
+      "lastModified": "2026-11-18T23:05:43.810Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/API_Providers/mcp-typescript-sdk-guide.md",
+      "title": "🟦 MCP TypeScript SDK Guide: Build a Server and Client",
+      "section": "1_Guides",
+      "category": "API_Providers",
+      "subcategory": "mcp-typescript-sdk-guide",
+      "tags": [
+        "mcp",
+        "typescript",
+        "sdk",
+        "mcp-server",
+        "mcp-client",
+        "model-context-protocol"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against github.com/modelcontextprotocol/typescript-sdk -->\n\n# MCP TypeScript SDK Guide: Build a Server and Client\n\nThe repo's `main` branch is **v2** of the SD",
+      "lastModified": "2026-11-18T23:05:43.810Z",
       "isUserOwned": false
     },
     {
@@ -348,6 +463,25 @@
       "isUserOwned": false
     },
     {
+      "id": "1_Guides/API_Providers/pydantic-ai-guide.md",
+      "title": "🧬 Pydantic AI Guide: Typed Agents, Tools and Dependencies",
+      "section": "1_Guides",
+      "category": "API_Providers",
+      "subcategory": "pydantic-ai-guide",
+      "tags": [
+        "pydantic-ai",
+        "agents",
+        "python",
+        "structured-output",
+        "tools",
+        "dependency-injection"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against pydantic.dev/docs/ai -->\n\n# Pydantic AI Guide: Typed Agents, Tools and Dependencies\n\nPydantic AI is a Python agent framework from the Pydantic team. An",
+      "lastModified": "2026-11-18T23:05:43.810Z",
+      "isUserOwned": false
+    },
+    {
       "id": "1_Guides/API_Providers/qwen_cli_guide.md",
       "title": "Qwen CLI Guide",
       "section": "1_Guides",
@@ -363,6 +497,25 @@
       ],
       "contentPreview": "## CLI Sync Notes (March 2026)\n\nTracks **Qwen Code CLI** updates explicitly.\n\n### Notable March 2026 CLI updates\n- Recent Qwen Code releases include auth command additions, hooks/event improvements, a",
       "lastModified": "2026-10-26T15:17:35.372Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/API_Providers/smolagents-guide.md",
+      "title": "🤗 smolagents Guide: Code Agents and Tools",
+      "section": "1_Guides",
+      "category": "API_Providers",
+      "subcategory": "smolagents-guide",
+      "tags": [
+        "smolagents",
+        "huggingface",
+        "agents",
+        "code-agent",
+        "tools",
+        "python"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against huggingface.co/docs/smolagents -->\n\n# smolagents Guide: Code Agents and Tools\n\n`smolagents` is Hugging Face's small agent library. Its `CodeAgent` writ",
+      "lastModified": "2026-11-18T23:05:43.810Z",
       "isUserOwned": false
     },
     {
@@ -487,6 +640,25 @@
       ],
       "contentPreview": "\n# Bito CLI Guide\n\n## Overview\nBito CLI brings AI assistance to the terminal.\n\n## Agent Configuration\n### Basic Settings\n- **Agent Name:** Bito\n- **Model:** GPT-4\n- **Temperature:** 0.7\n- **Context Wi",
       "lastModified": "2026-10-26T15:19:23.499Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/CLI_Tools/copilot-cli-guide.md",
+      "title": "🤖 GitHub Copilot CLI Agent Guide",
+      "section": "1_Guides",
+      "category": "CLI_Tools",
+      "subcategory": "copilot-cli-guide",
+      "tags": [
+        "github",
+        "copilot",
+        "copilot-cli",
+        "agent",
+        "terminal",
+        "mcp"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against github.com/github/copilot-cli README -->\n\n# GitHub Copilot CLI Agent Guide\n\n`github/copilot-cli` is the terminal coding agent (command `copilot`), buil",
+      "lastModified": "2026-11-18T23:05:43.812Z",
       "isUserOwned": false
     },
     {
@@ -758,6 +930,24 @@
       "isUserOwned": false
     },
     {
+      "id": "1_Guides/CLI_Tools/vllm-guide.md",
+      "title": "⚡ vLLM OpenAI-Compatible Server Guide",
+      "section": "1_Guides",
+      "category": "CLI_Tools",
+      "subcategory": "vllm-guide",
+      "tags": [
+        "vllm",
+        "inference",
+        "openai-compatible",
+        "self-hosted",
+        "llm-serving"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against docs.vllm.ai (getting_started/quickstart, serving/online_serving, cli/serve) -->\n\n# vLLM OpenAI-Compatible Server Guide\n\nHow to serve a model with `vll",
+      "lastModified": "2026-11-18T23:05:43.812Z",
+      "isUserOwned": false
+    },
+    {
       "id": "1_Guides/CLI_Tools/ytdlp-cli-guide.md",
       "title": "📚 Yt-Dlp CLI Guide",
       "section": "1_Guides",
@@ -897,6 +1087,60 @@
       "checked": "2026-11-18",
       "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against code.claude.com/docs/en/memory -->\n\n# Claude Code Memory and CLAUDE.md Guide\n\nEach Claude Code session starts with a fresh context window. Two things c",
       "lastModified": "2026-11-18T20:57:20.457Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/Claude_Code/plugins-guide.md",
+      "title": "🔌 Claude Code Plugins and Marketplaces Guide",
+      "section": "1_Guides",
+      "category": "Claude_Code",
+      "subcategory": "plugins-guide",
+      "tags": [
+        "claude-code",
+        "plugins",
+        "marketplace",
+        "distribution",
+        "skills"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against code.claude.com/docs/en/plugins, plugins/create, plugins/install, plugin-marketplaces -->\n\n# Claude Code Plugins and Marketplaces Guide\n\nA plugin is a ",
+      "lastModified": "2026-11-18T23:05:43.812Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/Claude_Code/settings-permissions-guide.md",
+      "title": "🔐 Claude Code Settings and Permissions Guide",
+      "section": "1_Guides",
+      "category": "Claude_Code",
+      "subcategory": "settings-permissions-guide",
+      "tags": [
+        "claude-code",
+        "settings",
+        "permissions",
+        "security",
+        "configuration"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against code.claude.com/docs/en/settings and code.claude.com/docs/en/permissions -->\n\n# Claude Code Settings and Permissions Guide\n\nSettings are JSON keys that",
+      "lastModified": "2026-11-18T23:05:43.812Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/Claude_Code/skills-guide.md",
+      "title": "🧠 Claude Code Skills Guide",
+      "section": "1_Guides",
+      "category": "Claude_Code",
+      "subcategory": "skills-guide",
+      "tags": [
+        "claude-code",
+        "skills",
+        "skill-md",
+        "frontmatter",
+        "authoring"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against code.claude.com/docs/en/skills -->\n\n# Claude Code Skills Guide\n\nA skill is a folder with a `SKILL.md` file. Claude Code keeps each skill's description ",
+      "lastModified": "2026-11-18T23:05:43.812Z",
       "isUserOwned": false
     },
     {
@@ -1067,6 +1311,24 @@
       "isUserOwned": false
     },
     {
+      "id": "1_Guides/Gemini_CLI/gemini-md-context-guide.md",
+      "title": "🧠 Gemini CLI GEMINI.md Context Guide",
+      "section": "1_Guides",
+      "category": "Gemini_CLI",
+      "subcategory": "gemini-md-context-guide",
+      "tags": [
+        "gemini-cli",
+        "gemini-md",
+        "context",
+        "memory",
+        "instructions"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against github.com/google-gemini/gemini-cli docs/cli/gemini-md.md and docs/tools/memory.md -->\n\n# Gemini CLI GEMINI.md Context Guide\n\nContext files (default na",
+      "lastModified": "2026-11-18T23:05:43.812Z",
+      "isUserOwned": false
+    },
+    {
       "id": "1_Guides/Gemini_CLI/gemini_cli_guide.md",
       "title": "💻 Gemini CLI Guide",
       "section": "1_Guides",
@@ -1084,6 +1346,24 @@
       "checked": "2026-10-27",
       "contentPreview": "\n<!-- Last Updated: 2026-04-18 - Synced with upstream v0.38.2 -->\n\n# Gemini CLI Agent Guide\n\nComprehensive reference for building and managing agents with Gemini CLI.\n\n**Key Features:**\n- 🎯 Free tier",
       "lastModified": "2026-10-27T22:05:07.893Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/Gemini_CLI/mcp-servers-guide.md",
+      "title": "🔌 Gemini CLI MCP Servers Guide",
+      "section": "1_Guides",
+      "category": "Gemini_CLI",
+      "subcategory": "mcp-servers-guide",
+      "tags": [
+        "gemini-cli",
+        "mcp",
+        "tools",
+        "settings",
+        "oauth"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against github.com/google-gemini/gemini-cli docs/tools/mcp-server.md -->\n\n# Gemini CLI MCP Servers Guide\n\nAn MCP server exposes tools and resources (databases,",
+      "lastModified": "2026-11-18T23:05:43.812Z",
       "isUserOwned": false
     },
     {
