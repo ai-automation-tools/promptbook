@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-18T16:30:24.543Z",
-  "promptCount": 816,
+  "buildTime": "2026-11-18T16:31:39.994Z",
+  "promptCount": 819,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -2479,7 +2479,7 @@
       ],
       "checked": "2026-11-16",
       "contentPreview": "\n# Xquik X (Twitter) data API\n\n> Xquik is an independent third-party service. Not affiliated with X Corp. \"Twitter\" and \"X\" are trademarks of X Corp.\n\nXquik is the world's fastest and cheapest X Twitt",
-      "lastModified": "2026-11-18T16:29:48.112Z",
+      "lastModified": "2026-11-18T16:31:36.802Z",
       "isUserOwned": false
     },
     {
@@ -2665,7 +2665,7 @@
       ],
       "checked": "2026-11-16",
       "contentPreview": "\n# Diagram Design\n\nCreate diagrams as self-contained HTML files with inline SVG and an editorial design system.\n\nFifty visual types. Semantic patterns describe behavior; type references describe layou",
-      "lastModified": "2026-11-18T16:29:48.118Z",
+      "lastModified": "2026-11-18T16:31:36.805Z",
       "isUserOwned": false
     },
     {
@@ -2751,7 +2751,7 @@
       ],
       "checked": "2026-11-16",
       "contentPreview": "\n# Planning with Files\n\nWork like Manus: Use persistent markdown files as your \"working memory on disk.\"\n\n## FIRST: Restore Project State\n\n**Before continuing**, resolve the plan this task owns:\n\n1. U",
-      "lastModified": "2026-11-18T16:29:48.148Z",
+      "lastModified": "2026-11-18T16:31:36.841Z",
       "isUserOwned": false
     },
     {
@@ -2911,7 +2911,7 @@
         "security"
       ],
       "contentPreview": "# ai-automation-tools/agent-skills\n\nPortable Agent Skills for Claude Code and compatible agents — each a self-contained SKILL.md an agent loads only when it is needed.\n\nA skill library: browse and ins",
-      "lastModified": "2026-11-16T18:00:16.625Z",
+      "lastModified": "2026-11-18T16:27:00.299Z",
       "isUserOwned": false
     },
     {
@@ -2941,7 +2941,7 @@
         "ai-ml"
       ],
       "contentPreview": "# anthropics/claude-plugins-official\n\nOfficial, Anthropic-managed directory of high quality Claude Code Plugins.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://githu",
-      "lastModified": "2026-11-16T18:00:19.070Z",
+      "lastModified": "2026-11-18T16:27:00.300Z",
       "isUserOwned": false
     },
     {
@@ -2961,7 +2961,7 @@
         "platform-integrations"
       ],
       "contentPreview": "# anthropics/skills\n\nPublic repository for Agent Skills\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/anthropics/skills). Promptbook keeps one card for i",
-      "lastModified": "2026-11-16T18:00:20.946Z",
+      "lastModified": "2026-11-18T16:27:00.302Z",
       "isUserOwned": false
     },
     {
@@ -3023,7 +3023,7 @@
         "business"
       ],
       "contentPreview": "# coreyhaines31/marketingskills\n\nMarketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.\n\nA skill library: browse and install its skills from [the rep",
-      "lastModified": "2026-11-16T18:00:27.980Z",
+      "lastModified": "2026-11-18T16:27:00.302Z",
       "isUserOwned": false
     },
     {
@@ -3041,7 +3041,7 @@
         "finance"
       ],
       "contentPreview": "# davila7/claude-code-templates\n\nOpen-source registry and CLI for Claude Code components: agents, commands, skills, hooks, MCPs, settings and mods\n\nA skill library: browse and install its skills from ",
-      "lastModified": "2026-11-16T18:00:29.198Z",
+      "lastModified": "2026-11-18T16:27:00.305Z",
       "isUserOwned": false
     },
     {
@@ -3071,7 +3071,7 @@
         "development"
       ],
       "contentPreview": "# github/awesome-copilot\n\nCommunity-contributed instructions, agents, skills, and configurations to help you make the most of GitHub Copilot.\n\nA skill library: browse and install its skills from [the ",
-      "lastModified": "2026-11-16T18:00:31.997Z",
+      "lastModified": "2026-11-18T16:27:00.305Z",
       "isUserOwned": false
     },
     {
@@ -3248,7 +3248,7 @@
         "business"
       ],
       "contentPreview": "# phuryn/pm-skills\n\nPM Skills Marketplace: 100+ agentic skills, commands, and plugins — from discovery to strategy, execution, launch, and growth.\n\nA skill library: browse and install its skills from ",
-      "lastModified": "2026-11-16T18:00:49.117Z",
+      "lastModified": "2026-11-18T16:27:00.307Z",
       "isUserOwned": false
     },
     {
@@ -3313,7 +3313,7 @@
         "development"
       ],
       "contentPreview": "# wshobson/agents\n\nPlugins, agents, skills, and commands for Claude Code, Codex CLI, Cursor, OpenCode, Antigravity CLI, GitHub Copilot, and Pi, written once in Markdown and adapted to each tool by gen",
-      "lastModified": "2026-11-16T18:00:55.180Z",
+      "lastModified": "2026-11-18T16:27:00.309Z",
       "isUserOwned": false
     },
     {
@@ -14104,6 +14104,44 @@
       "isUserOwned": false
     },
     {
+      "id": "6_MCP_Servers/Apps_and_Services/atlassian.md",
+      "title": "🔌 Atlassian",
+      "section": "6_MCP_Servers",
+      "category": "Apps_and_Services",
+      "subcategory": "atlassian",
+      "tags": [
+        "mcp-server",
+        "apps-and-services",
+        "jira",
+        "confluence",
+        "project-management",
+        "official"
+      ],
+      "checked": "2026-11-12",
+      "contentPreview": "\n# Atlassian MCP server\n\nSearch, read and update Jira, Confluence, Jira Service Management, Bitbucket, Compass and Loom from an agent, through Atlassian's hosted server.\n\n## Install\n\n**Claude Code**\n\n",
+      "lastModified": "2026-11-18T16:31:37.404Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Apps_and_Services/hugging-face.md",
+      "title": "🔌 Hugging Face",
+      "section": "6_MCP_Servers",
+      "category": "Apps_and_Services",
+      "subcategory": "hugging-face",
+      "tags": [
+        "mcp-server",
+        "apps-and-services",
+        "hugging-face",
+        "machine-learning",
+        "datasets",
+        "official"
+      ],
+      "checked": "2026-11-12",
+      "contentPreview": "\n# Hugging Face MCP server\n\nConnect an agent to the Hugging Face Hub: search models, datasets and papers, and call Gradio Spaces as tools.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp add hf-mcp-s",
+      "lastModified": "2026-11-18T16:31:37.405Z",
+      "isUserOwned": false
+    },
+    {
       "id": "6_MCP_Servers/Apps_and_Services/n8n-mcp.md",
       "title": "🔌 n8n workflow builder",
       "section": "6_MCP_Servers",
@@ -14251,6 +14289,25 @@
       "checked": "2026-10-21",
       "contentPreview": "\n# Cloudflare MCP server\n\nCloudflare's hosted servers: the full API, plus focused ones for docs, Browser Rendering, Workers observability and more.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp add",
       "lastModified": "2026-10-21T19:07:45.566Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Cloud_Platforms/heroku.md",
+      "title": "🔌 Heroku",
+      "section": "6_MCP_Servers",
+      "category": "Cloud_Platforms",
+      "subcategory": "heroku",
+      "tags": [
+        "mcp-server",
+        "cloud-platforms",
+        "heroku",
+        "deployment",
+        "paas",
+        "official"
+      ],
+      "checked": "2026-11-12",
+      "contentPreview": "\n# Heroku MCP server\n\nList, create, deploy and scale Heroku apps, manage add-ons and read logs by asking in natural language.\n\n## Install\n\nNeeds the Heroku CLI 10.8.1 or later, signed in. The README r",
+      "lastModified": "2026-11-18T16:31:37.405Z",
       "isUserOwned": false
     },
     {
