@@ -32,6 +32,6 @@ roadmap job resyncs drifted ones (`scripts/resync-upstream.mjs 2_Agents/<path>`)
 
 ## Adding one
 
-The Catalog Refresh job adds up to 4 a run from permissively licensed collections. By hand:
+The catalog run of the Promptbook Content job (every third Thursday) adds up to 4 a run from permissively licensed collections. By hand:
 copy the file, keep its frontmatter, run `node scripts/attribute-upstream.mjs --agents --write`
 and `node scripts/backfill-tags.mjs --write` from the repo root, then rebuild the index.

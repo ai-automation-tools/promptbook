@@ -3,13 +3,13 @@
 GitHub repos that `scripts/discover-repos.mjs` found and that the library might vendor or link:
 skills, prompt collections, agent definitions and MCP servers that are **new** (created in the
 last year with 500+ stars) or **popular** (5000+ stars) and that nothing here already tracks.
-The weekly **Prompt-Library Discovery** job (`jobs\promptbook-discovery` in the Routines
+The weekly **Promptbook Discovery** job (`jobs\promptbook-discovery` in the Routines
 fleet, Tuesdays) appends rows and opens a `discovery/auto-*` PR; a person changes **Status**.
 
 | Status | Meaning | Who acts |
 |:---|:---|:---|
 | `pending` | Found, not decided | Mike |
-| `accept` | Vendor its content with provenance (or, for `mcp`, write a card) | the Catalog Refresh job |
+| `accept` | Vendor its content with provenance (or, for `mcp`, write a card) | the Promptbook Content job's Thursday catalog run |
 | `link` | Worth a Resources-menu link, nothing to vendor | `discover-repos.mjs --write` |
 | `reject` | Not for this library (stays here so it is not found again) | nobody |
 | `done` | Content vendored, or an MCP card written; the catalog job sets this | nobody |

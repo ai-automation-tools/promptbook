@@ -94,7 +94,7 @@ Nothing below blocks go-live.
 - [ ] Replace the personal email address in `README.md` (line 325, flagged by the Security sweep 2026-11-10) with a contact fit for a public repo; which contact replaces it 🔒 Needs owner
 - [ ] Vercel Firewall rate-limit rule on `/api/*` for promptbook-demo (a per-instance limiter does nothing on serverless), and confirm whether `library/3_Skills` is bundled into the function, which decides whether CodeQL #34 is reachable 🔒 Needs owner
 - [ ] `small` Library counts in `features/LIBRARY-MODE-IMPLEMENTATION.md` ("903") and `features/MCP-SERVER.md` ("~600") match `prompt-index.json` (816 items) or drop the number, and `surfaces.json` covers the "items" total, not just "prompts"
-- [ ] `small` Rename the leftover "Prompt-Library" job names in `UPSTREAMS.md` ("Prompt-Library Upstream Check") and `DISCOVERY.md` ("Prompt-Library Discovery") to the Promptbook job names (Promptbook Upstream Check, Promptbook Discovery)
+- [x] `small` Rename the leftover "Prompt-Library" job names in `UPSTREAMS.md` ("Prompt-Library Upstream Check") and `DISCOVERY.md` ("Prompt-Library Discovery") to the Promptbook job names (Promptbook Upstream Check, Promptbook Discovery)
 
 ### 🧾 Content provenance
 
@@ -133,17 +133,15 @@ job owns which part of the library.
 
 | Job | Owns |
 |:---|:---|
-| Add Prompts (weekly) | New `4_Prompts` and `1_Guides` files |
-| Discovery (weekly, no model) | New GitHub repos into [`DISCOVERY.md`](DISCOVERY.md); `link` rows into the Resources menu |
-| Guides Refresh (biweekly) | Fixing `1_Guides` against official docs |
-| Catalog Refresh (biweekly) | `5_System_Prompts`, `2_Agents`, `6_MCP_Servers`, and the ledger's `accept` rows (a multi-skill repo becomes a library card; a single skill is vendored with its licence) |
-| Prompts & Agents Refresh (biweekly) | Resyncing drifted `2_Agents` definitions, and re-checking the collection repos `4_Prompts` is copied from |
+| Promptbook Content, Monday | 2 new `4_Prompts` files copied from a collection the ledger marks `accept`, and 1 new `1_Guides` file (`content/auto-*`) |
+| Promptbook Content, Thursday | Rotates weekly, so each runs every third Thursday. **Catalog:** up to 4 vendor-published `5_System_Prompts`, up to 4 `2_Agents`, `6_MCP_Servers` cards, and the ledger's `accept` rows (a multi-skill repo becomes a library card; a single skill is vendored with its licence) (`catalog/auto-*`). **Guides refresh:** fixing `1_Guides` against official docs (`refresh/auto-*`). **Prompts & agents refresh:** fixing `2_Agents` and re-checking the collections `4_Prompts` is copied from (`prompts-refresh/auto-*`) |
+| Discovery (weekly, Tuesday, no model) | New GitHub repos into [`DISCOVERY.md`](DISCOVERY.md); `link` rows into the Resources menu |
+| Library Cards Refresh (weekly, Monday, no model) | The skill library cards' descriptions and READMEs (`site/scripts/refresh-library-cards.mjs --write`), and dead hand-pack paths, as a `library-cards/auto-*` PR |
+| `upstream-drift.yml` (weekly, Monday, GitHub Actions) | The rolling drift issue with its per-section health table, `site/api/upstream-status.json`, and one `upstream/resync` PR that resyncs skills and agents whose local copy adds under 10% of its own lines. System prompts are reported, never resynced |
+| Weekly Roadmap (Saturday) | This file, and resyncing skills and agents the drift issue marks `behind` that the workflow left alone |
+| Monthly Upkeep (third Wednesday) | Updates and removals; system prompts the drift report marks `behind` or `drifted` (resynced verbatim to the dated capture they name, repointed, or a duplicate merged away) and `historical` labels; hand-written Skill Packs (dead paths: `build-skill-packs.mjs`); skill library card frontmatter; Resources links; MCP cards; `featured` and tags |
 | Upstream Check (biweekly) | The app's own dependencies and platforms in [`UPSTREAMS.md`](UPSTREAMS.md); bigger changes become items here |
-| Library Cards Refresh (weekly, no model) | The skill library cards' descriptions and READMEs (`site/scripts/refresh-library-cards.mjs --write`), and dead hand-pack paths, as a `library-cards/auto-*` PR |
-| Weekly Roadmap | This file, and resyncing skills and agents the drift issue marks `behind` |
-| Monthly Upkeep | Updates and removals, hand-written Skill Packs (dead paths: `build-skill-packs.mjs`), skill library cards (`3_Skills/Libraries/`, READMEs refreshed with `site/scripts/refresh-library-cards.mjs --write`), Resources links, MCP cards, `featured` and tags |
-| `upstream-drift.yml` (weekly, GitHub Actions) | The rolling drift issue with its per-section health table |
-
+| Org PR Sweep (daily) | Reviews and merges every PR above. It approves the CI run GitHub holds on the bot-opened `upstream/resync` PR, and holds anything it can't review for Mike |
 ---
 
 <p align="center">

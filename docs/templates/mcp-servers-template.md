@@ -56,7 +56,7 @@ claude mcp add [name] -- npx -y [package]
 _Install lines read from the server's README on [YYYY-MM-DD]. The Monthly Upkeep re-checks every card._
 
 <!--
-Rules (the Catalog Refresh job and anyone adding by hand):
+Rules (the Promptbook Content job's catalog run and anyone adding by hand):
 - One file per server: site/library/6_MCP_Servers/<Folder>/<server>.md, lowercase-hyphenated.
   Folders: Reference, Browser_Automation, Developer_Tools, Cloud_Platforms, Apps_and_Services.
 - Every install line comes from the server's own README or docs, read that day. Never invent
