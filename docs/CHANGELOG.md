@@ -4,6 +4,15 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Library: backfill, 18 new skill libraries
+
+One-time backfill of `3_Skills/Libraries/`: 18 cards, one per repo, bodies from each README. A card describes and links; no skill text is copied.
+
+- `mattpocock/skills` (MIT), `vercel-labs/agent-skills` (no licence file), `anthropics/knowledge-work-plugins` (Apache-2.0), `google-labs-code/stitch-skills` (Apache-2.0), `pbakaus/impeccable` (Apache-2.0), `emilkowalski/skills` (MIT)
+- `obsidianmd/obsidian-skills` (MIT), `microsoft/skills` (MIT), `cloudflare/skills` (Apache-2.0), `supabase/agent-skills` (MIT), `expo/skills` (MIT), `dotnet/skills` (MIT)
+- `trailofbits/skills` (CC-BY-SA-4.0), `remotion-dev/skills` (no licence file), `AgriciDaniel/claude-seo` (MIT), `alirezarezvani/claude-skills` (MIT), `getsentry/skills` (Apache-2.0), `WordPress/agent-skills` (NOASSERTION)
+
+_Touched: `site/library/3_Skills/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 ## 2026-11-18 — Library: backfill, 17 new agents
 
 One-time backfill of `2_Agents/`, 17 unchanged copies, each with its `upstream:` block (sha read 2026-11-18): `anthropics/claude-plugins-official` (Apache-2.0): `pr-test-analyzer`, `type-design-analyzer`, `code-architect`; `wshobson/agents` (MIT): `kubernetes-architect`, `terraform-specialist`, `observability-engineer`, `legacy-modernizer`; `affaan-m/everything-claude-code` (MIT): `build-error-resolver`, `e2e-runner`, `refactor-cleaner`, `planner`; `0xfurai/claude-code-subagents` (MIT): `docker-expert`, `github-actions-expert`, `langchain-expert`; `VoltAgent/awesome-claude-code-subagents` (MIT): `incident-responder`, `accessibility-tester`, `qa-expert`. New folders `DevOps/` and `Quality/`.
