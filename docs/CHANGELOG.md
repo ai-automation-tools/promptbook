@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — repowise prompts rejected
+
+`repowise-dev/claude-code-prompts` was marked `accept` in the 2026-11-18 triage. The prompts finder's backfill found its `complete-prompts/` mirror Claude Code's internal prompts section by section, so it copied nothing and asked. It is now `reject` in `DISCOVERY.md`, which the finders honour, and the question in `OPEN-QUESTIONS.md` is answered.
+
+_Touched: `docs/DISCOVERY.md`, `docs/OPEN-QUESTIONS.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — Library: new guides
 
 Four guides for tools people are adopting now, each written from the project's own README and docs read that day: Pi coding agent (`earendil-works/pi`, MIT), GitHub Spec Kit (`github/spec-kit`, MIT), Kilo Code (`Kilo-Org/kilocode`, MIT) and Google ADK (`google/adk-python`, Apache-2.0).
