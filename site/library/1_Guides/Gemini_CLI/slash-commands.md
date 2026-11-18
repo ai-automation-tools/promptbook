@@ -4,10 +4,10 @@ tags: ["gemini-cli", "slash-commands", "cli", "reference", "google"]
 category: "Agent_Guides"
 subcategory: "Gemini_CLI"
 repo: google-gemini/gemini-cli
-checked: 2026-10-27
+checked: 2026-11-18
 ---
 
-<!-- Last Updated: 2026-10-27 - Synced with upstream documentation -->
+<!-- Last Updated: 2026-11-18 - Synced with docs/reference/commands.md and packages/cli/src/ui/commands (fork, color, effort and sandbox are not Gemini CLI commands) -->
 
 # Gemini CLI Slash Commands Reference
 
@@ -38,7 +38,6 @@ Commands use forward slash `/`, at symbol `@`, or exclamation mark `!` prefixes.
 | `/chat delete <tag>` | Delete saved checkpoint |
 | `/chat share [filename]` | Export to Markdown or JSON |
 | `/chat debug` | Export most recent API request as JSON |
-| `/fork [name]` | Fork current conversation at this point |
 
 **Note:** All conversations auto-saved. Manual checkpoints are for tagged saves only.
 
@@ -52,7 +51,6 @@ Commands use forward slash `/`, at symbol `@`, or exclamation mark `!` prefixes.
 |---------|-------------|
 | `/settings` | Open settings editor |
 | `/auth` | Manage authentication method |
-| `/color [color\|default]` | Set prompt bar color (red/blue/green/yellow/purple/orange/pink/cyan) |
 | `/theme` | Change visual theme |
 | `/terminal-setup` | Configure terminal keybindings (VS Code, Cursor, Windsurf) |
 | `/editor` | Select supported editor |
@@ -64,7 +62,6 @@ Commands use forward slash `/`, at symbol `@`, or exclamation mark `!` prefixes.
 |---------|-------------|
 | `/model manage` | Open model configuration dialog |
 | `/model set <name> [--persist]` | Set model to use |
-| `/effort [low\|medium\|high\|max\|auto]` | Set model effort level (experimental) |
 
 ## Memory & Context
 
@@ -149,7 +146,6 @@ Commands use forward slash `/`, at symbol `@`, or exclamation mark `!` prefixes.
 | `/policies list` | List all active policies grouped by mode |
 | `/plan` | Enter Plan Mode (read-only) and view current plan |
 | `/plan copy` | Copy approved plan to clipboard |
-| `/sandbox` | Toggle sandbox mode (experimental) |
 
 ## History & Checkpointing
 
