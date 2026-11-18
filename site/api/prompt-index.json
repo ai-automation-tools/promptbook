@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "buildTime": "2026-11-18T22:20:36.876Z",
+  "buildTime": "2026-11-18T22:21:59.981Z",
   "promptCount": 907,
   "prompts": [
     {
@@ -15408,9 +15408,9 @@
         "automation",
         "workflows"
       ],
-      "checked": "2026-10-21",
+      "checked": "2026-11-18",
       "contentPreview": "\n# n8n workflow builder MCP server\n\nNode documentation, validation and templates for n8n, so an agent can design and deploy working workflows.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp add n8n-",
-      "lastModified": "2026-10-21T19:07:45.567Z",
+      "lastModified": "2026-11-18T22:21:56.137Z",
       "isUserOwned": false
     },
     {
@@ -15427,9 +15427,9 @@
         "productivity",
         "official"
       ],
-      "checked": "2026-10-21",
+      "checked": "2026-11-18",
       "contentPreview": "\n# Notion MCP server\n\nSearch, read and edit Notion pages and databases through the Notion API.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp add notion -e NOTION_TOKEN=ntn_xxxx -- npx -y @notionhq/",
-      "lastModified": "2026-10-21T19:07:45.567Z",
+      "lastModified": "2026-11-18T22:21:56.137Z",
       "isUserOwned": false
     },
     {
@@ -15445,9 +15445,9 @@
         "transactional",
         "official"
       ],
-      "checked": "2026-10-21",
+      "checked": "2026-11-18",
       "contentPreview": "\n# Resend MCP server\n\nSend email and manage Resend domains, audiences and broadcasts from an agent.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp add --transport http resend https://mcp.resend.com/",
-      "lastModified": "2026-10-21T19:07:45.568Z",
+      "lastModified": "2026-11-18T22:21:56.137Z",
       "isUserOwned": false
     },
     {
@@ -15463,9 +15463,9 @@
         "billing",
         "official"
       ],
-      "checked": "2026-10-21",
+      "checked": "2026-11-18",
       "contentPreview": "\n# Stripe MCP server\n\nStripe's hosted server: customers, products, prices, payment links, invoices and the Stripe docs.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp add --transport http stripe htt",
-      "lastModified": "2026-10-21T19:07:45.568Z",
+      "lastModified": "2026-11-18T22:21:56.146Z",
       "isUserOwned": false
     },
     {
@@ -15482,9 +15482,9 @@
         "performance",
         "official"
       ],
-      "checked": "2026-10-21",
+      "checked": "2026-11-18",
       "contentPreview": "\n# Chrome DevTools MCP server\n\nGive a coding agent Chrome DevTools: inspect, debug and performance-trace a live page.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp add chrome-devtools -- npx -y chr",
-      "lastModified": "2026-10-21T19:07:45.564Z",
+      "lastModified": "2026-11-18T22:21:56.146Z",
       "isUserOwned": false
     },
     {
