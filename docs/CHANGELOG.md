@@ -13,6 +13,11 @@ One-time prefill, round 2: 18 agent definitions from well-maintained collections
 - `VoltAgent/awesome-claude-code-subagents` (MIT): `sre-engineer`, `platform-engineer`, `chaos-engineer` (`DevOps/`), `postgres-pro` (`AI_ML/Data_SMEs/`), `product-manager`, `ux-researcher` (new `Product/` folder).
 
 _Touched: `site/library/2_Agents/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+## 2026-11-18 — Library: new system prompts (prefill, round 2)
+
+Fourteen vendor-published prompts. Eight Anthropic captures from its system-prompt release notes (`match: vendor`, newest dated entry each): Claude Fable 5.2 (2026-11-09), Opus 5.5, Sonnet 5.5, Haiku 5.5, Opus 4.8, Opus 4.7, Opus 4.6 and Sonnet 4.6. Three Codex CLI prompts from `openai/codex` (Apache-2.0): GPT-5.1, GPT-5-Codex, GPT-5.2-Codex. Three opencode prompts from `anomalyco/opencode` (MIT): GPT Astra, Trinity, Meta. Each Anthropic page splits one prompt into two code blocks; they are joined with the seam removed, text otherwise unchanged.
+
+_Touched: `site/library/5_System_Prompts/{Anthropic,OpenAI,OpenCode}/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
