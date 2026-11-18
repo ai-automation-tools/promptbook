@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-18T16:36:20.502Z",
-  "promptCount": 819,
+  "buildTime": "2026-11-18T16:54:10.187Z",
+  "promptCount": 820,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -685,6 +685,24 @@
       "checked": "2026-11-02",
       "contentPreview": "\n<!-- Last Updated: 2026-11-02 - Checked against code.claude.com/docs/en/sub-agents -->\n\n# Claude Code Subagents Guide\n\nA subagent is a specialized assistant that runs in its own context window with i",
       "lastModified": "2026-11-03T17:12:56.504Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/Codex/agents-md-guide.md",
+      "title": "📋 Codex AGENTS.md Guide",
+      "section": "1_Guides",
+      "category": "Codex",
+      "subcategory": "agents-md-guide",
+      "tags": [
+        "codex",
+        "agents-md",
+        "instructions",
+        "configuration",
+        "openai"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against developers.openai.com/codex/guides/agents-md -->\n\n# Codex AGENTS.md Guide\n\n`AGENTS.md` is how you give Codex standing instructions (build commands, con",
+      "lastModified": "2026-11-18T16:53:58.348Z",
       "isUserOwned": false
     },
     {

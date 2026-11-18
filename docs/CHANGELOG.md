@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — A Codex AGENTS.md guide, no new prompts
+
+Added `1_Guides/Codex/agents-md-guide.md` (repo `openai/codex`): which `AGENTS.md` and `AGENTS.override.md` files Codex loads and in what order, `project_doc_fallback_filenames`, the `project_doc_max_bytes` cap, and how to check what loaded. Sourced from the official Codex AGENTS.md guide, read this run. No prompts: every collection in `4_Prompts/` is exhausted and no `docs/DISCOVERY.md` row is set to `accept`.
+
+_Touched: `site/library/1_Guides/Codex/agents-md-guide.md` (new), `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — The weekly upstream PR runs CI and gets swept
 
 The Monday upstream-drift Action opens its `upstream/resync` PR as the github-actions bot, and GitHub holds that PR's `pull_request` CI run at "action_required" until someone approves it. Until then the required `check` and `secrets` never report and the PR stays blocked (#488, #503). A first attempt, starting `ci.yml` by `workflow_dispatch` from the Action (#507), ran green but GitHub doesn't count a dispatched run's checks toward the PR, so it is taken out again. Instead the org PR sweep, which runs as the owner, now approves held runs on any fleet PR before reviewing it (`Invoke-PrSweep.ps1` in the Routines repo). It also covers `upstream/resync` and sweeps Promptbook every day rather than Wednesday and Sunday, and the Promptbook scheduled tasks start late when the PC was off at their time.
