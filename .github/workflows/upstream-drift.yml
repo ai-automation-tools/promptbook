@@ -10,18 +10,21 @@ name: Upstream drift
 # 3. site/api/upstream-status.json is refreshed (the site's Source panel reads
 #    it), the prompt index is rebuilt, and all of it lands as ONE pull request.
 #
-# Never merged automatically. A resync puts a third party's new text into
-# skills and agents people install, so a person reads the diff first.
+# Never merged by this workflow. A resync puts a third party's new text into
+# skills and agents people install, so the org PR sweep reads the diff first
+# (and holds anything it can't review for a person).
 #
 # Repo setting needed once: Settings → Actions → General → "Allow GitHub
-# Actions to create and approve pull requests". PRs opened with GITHUB_TOKEN do
-# not trigger ci.yml; push an empty commit to the branch (or re-run CI) before merging.
+# Actions to create and approve pull requests". A push or PR made with
+# GITHUB_TOKEN does not trigger ci.yml, but a workflow_dispatch does, so the
+# last step starts CI on the branch: its check runs land on the PR's head commit.
 on:
   schedule:
     - cron: "0 9 * * 1" # Mondays 09:00 UTC
   workflow_dispatch:
 
 permissions:
+  actions: write # start ci.yml on the resync branch
   contents: write
   issues: write
   pull-requests: write
@@ -126,6 +129,7 @@ jobs:
           else
             gh pr create --base main --head "$BRANCH" --title "Resync from upstream" --body-file pr.md
           fi
+          gh workflow run ci.yml --ref "$BRANCH"
 
       # While this workflow is red it keeps one open issue (label workflow-failure) up to date;
       # the first green run closes it. A cancelled run does neither.
