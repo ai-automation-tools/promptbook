@@ -12,13 +12,13 @@ themselves are installed from their sources, never vendored here.
 |:---|:---|
 | `Reference/` | Filesystem, Fetch, Memory, Sequential Thinking, Git, Time (`modelcontextprotocol/servers`), Microsoft Learn |
 | `Browser_Automation/` | Playwright, Chrome DevTools |
-| `Developer_Tools/` | GitHub, Context7, MarkItDown, REA, Codebase Memory, Grafana, Serena, Context Mode, Framelink for Figma, Docker MCP Gateway, and this library's own server |
-| `Cloud_Platforms/` | Supabase, Cloudflare, AWS, MongoDB, Neon, Terraform, Heroku, Azure, Kubernetes |
-| `Databases/` | MCP Toolbox for Databases, ClickHouse, Qdrant, Redis |
-| `Web_and_Search/` | Exa, Tavily, Firecrawl, Apify |
-| `Apps_and_Services/` | Notion, n8n workflow builder, Resend, Stripe, Atlassian, Hugging Face, Blender |
+| `Developer_Tools/` | GitHub, Context7, MarkItDown, REA, Codebase Memory, Grafana, Serena, Context Mode, Framelink for Figma, Docker MCP Gateway, Azure DevOps, Postman, Mobile MCP, and this library's own server |
+| `Cloud_Platforms/` | Supabase, Cloudflare, AWS, MongoDB, Neon, Terraform, Heroku, Azure, Kubernetes, Firebase |
+| `Databases/` | MCP Toolbox for Databases, ClickHouse, Qdrant, Redis, DuckDB and MotherDuck, Postgres MCP Pro |
+| `Web_and_Search/` | Exa, Tavily, Firecrawl, Apify, Perplexity, Brave Search |
+| `Apps_and_Services/` | Notion, n8n workflow builder, Resend, Stripe, Atlassian, Hugging Face, Blender, Todoist, Contentful |
 
-44 cards, started 2026-10-21.
+54 cards, started 2026-10-21.
 
 ## How it stays current
 

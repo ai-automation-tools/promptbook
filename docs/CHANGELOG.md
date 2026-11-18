@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Library: prefill, 10 new MCP servers
+
+Ten cards from reputable sources (official vendor servers first), each written from the server's own README read that day: Todoist (`todoist/todoist-mcp`, MIT), Contentful (`contentful/contentful-mcp-server`, MIT), Perplexity (`perplexityai/modelcontextprotocol`, MIT), Brave Search (`brave/brave-search-mcp-server`, MIT), Azure DevOps (`microsoft/azure-devops-mcp`, MIT), Postman (`postmanlabs/postman-mcp-server`, Apache-2.0), Mobile MCP (`mobile-next/mobile-mcp`, Apache-2.0), Firebase (`firebase/firebase-tools`, MIT), DuckDB and MotherDuck (`motherduckdb/mcp-server-motherduck`, MIT) and Postgres MCP Pro (`crystaldba/postgres-mcp`, MIT). The `6_MCP_Servers` README now counts 54 cards.
+
+_Touched: `site/library/6_MCP_Servers/**` (ten new cards, README), `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — repowise prompts rejected
 
 `repowise-dev/claude-code-prompts` was marked `accept` in the 2026-11-18 triage. The prompts finder's backfill found its `complete-prompts/` mirror Claude Code's internal prompts section by section, so it copied nothing and asked. It is now `reject` in `DISCOVERY.md`, which the finders honour, and the question in `OPEN-QUESTIONS.md` is answered.
