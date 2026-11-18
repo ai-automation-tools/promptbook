@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Library: backfill, 17 new agents
+
+One-time backfill of `2_Agents/`, 17 unchanged copies, each with its `upstream:` block (sha read 2026-11-18): `anthropics/claude-plugins-official` (Apache-2.0): `pr-test-analyzer`, `type-design-analyzer`, `code-architect`; `wshobson/agents` (MIT): `kubernetes-architect`, `terraform-specialist`, `observability-engineer`, `legacy-modernizer`; `affaan-m/everything-claude-code` (MIT): `build-error-resolver`, `e2e-runner`, `refactor-cleaner`, `planner`; `0xfurai/claude-code-subagents` (MIT): `docker-expert`, `github-actions-expert`, `langchain-expert`; `VoltAgent/awesome-claude-code-subagents` (MIT): `incident-responder`, `accessibility-tester`, `qa-expert`. New folders `DevOps/` and `Quality/`.
+
+_Touched: `site/library/2_Agents/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — One local page for every automation
 
 `docs/AUTOMATIONS.local.md` lists every scheduled job, workflow and sweep that touches Promptbook: schedule, next and last run, model, PR branch, the Thursday rotation, open automation PRs, and whether `site/library` on `main` has moved lately. It's gitignored (local paths and schedules) and rewritten every Sunday at 07:00 by a new Routines job, `promptbook-automations-doc`, which links back to the Routines docs. The page's hand-written parts live in that job's `template.md`.
