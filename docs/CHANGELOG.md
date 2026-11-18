@@ -4,6 +4,15 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Library refresh — skills and MCP
+
+- Skill library cards, rewritten from each repo's GitHub description and README by `refresh-library-cards.mjs`: `addyosmani-agent-skills`, `ai-automation-tools-agent-skills`, `coreyhaines31-marketingskills`, `huggingface-skills`, `wshobson-agents` (all `3_Skills/Libraries/`).
+- Single skills: none behind or drifted in `upstream-status.json`; hand-pack paths all live.
+- MCP cards re-read against each server's README, `server.checked` set to 2026-11-18: `n8n-mcp` (czlonkowski/n8n-mcp: tools list, overwrite-on-edit caveat), `notion` (makenotion/notion-mcp-server: Notion now recommends and supports only its remote server), `stripe` (stripe/ai: old npm packages deprecated), `chrome-devtools` (ChromeDevTools/chrome-devtools-mcp: usage statistics opt-out), `resend` (resend/resend-mcp: unchanged). `check-mcp-servers.mjs`: 28 cards, none need a look.
+- `api/prompt-index.json` rebuilt.
+
+---
+
 ## 2026-11-18 — Library refresh — guides
 
 Eight guides checked against their sources and corrected; each carries `checked: 2026-11-18`.
