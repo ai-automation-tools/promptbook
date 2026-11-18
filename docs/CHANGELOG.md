@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — A Codex AGENTS.md guide, no new prompts
+
+Added `1_Guides/Codex/agents-md-guide.md` (repo `openai/codex`): which `AGENTS.md` and `AGENTS.override.md` files Codex loads and in what order, `project_doc_fallback_filenames`, the `project_doc_max_bytes` cap, and how to check what loaded. Sourced from the official Codex AGENTS.md guide, read this run. No prompts: every collection in `4_Prompts/` is exhausted and no `docs/DISCOVERY.md` row is set to `accept`.
+
+_Touched: `site/library/1_Guides/Codex/agents-md-guide.md` (new), `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — tasteskill becomes a library card
 
 Upstream rewrote `design-taste-frontend` from tasteskill v2 to v2.5, and the weekly roadmap run opened #500 to resync it. v2.5 runs on its `assets/` and `scripts/` folders (about 36 MB, 1,600+ files) in nearly every step, and we never copied those, so the resynced `SKILL.md` would have shipped in ZIPs as instructions for tools that aren't there. Under the skill-library rule it is now one card, `3_Skills/Libraries/leonxlnx-taste-skill.md`, that links the repo and carries its README; you install the skill from GitHub. The v2 copy moved to `archive/skill-libraries-2026-11-18/`, its entry left `upstream-status.json`, and #500 was closed.
