@@ -8,15 +8,8 @@ upstream:
   repo: jujumilk3/leaked-system-prompts
   path: bolt.new_20241009.md
   ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
-  checked: 2026-10-23
+  checked: 2026-11-18
 ---
-
-# ⚡ Bolt.new
-
-## Purpose
-System prompt for Bolt.new AI coding assistant.
-
-## Instructions
 # bolt.new_20241009
 
 source: <https://github.com/stackblitz/bolt.new/blob/main/app/lib/.server/llm/prompts.ts>
@@ -294,8 +287,3 @@ Here are some examples of correct usage of artifacts:
     </assistant_response>
   </example>
 </examples>
-## Output Format
-Markdown and code.
-
-## Example
-Provide a code example based on user request.

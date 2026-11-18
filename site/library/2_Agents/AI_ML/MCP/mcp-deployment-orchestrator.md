@@ -1,6 +1,6 @@
 ---
 title: "🤖 MCP Deployment Orchestrator"
-tags: ["agent", "mcp", "deployment", "kubernetes", "devops"]
+tags: ["agent", "mcp", "deployment", "kubernetes", "devops", "featured"]
 category: "Agents"
 subcategory: "MCP"
 name: mcp-deployment-orchestrator

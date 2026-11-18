@@ -1,6 +1,6 @@
 ---
 title: "🤖 AI Engineer"
-tags: ["agent", "ai-engineering", "ml-systems", "production-deployment"]
+tags: ["agent", "ai-engineering", "ml-systems", "production-deployment", "featured"]
 category: "Agents"
 subcategory: "AI_Engineering_SMEs"
 name: ai-engineer

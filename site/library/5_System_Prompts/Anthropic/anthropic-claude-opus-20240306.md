@@ -4,16 +4,12 @@ tags: ['system-prompt', 'llm', 'instructions', 'claude']
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
 upstream:
-  match: similar
+  match: exact
   repo: jujumilk3/leaked-system-prompts
   path: anthropic-claude-opus_20240306.md
   ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
-  checked: 2026-10-23
+  checked: 2026-11-18
 ---
-
-# Anthropic Claude Opus (March 2024)
-
-
 # anthropic-claude-opus_20240306
 
 source: <https://twitter.com/AmandaAskell/status/1765207842993434880>

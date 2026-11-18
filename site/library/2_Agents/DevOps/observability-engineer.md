@@ -8,7 +8,7 @@ upstream:
   path: plugins/application-performance/agents/observability-engineer.md
   ref: 42203085cfc5736204bf0f6d436dff7e1da0bf3f
   checked: 2026-11-18
-tags: ["agent","observability","monitoring","slo"]
+tags: ["agent","observability","monitoring","slo", "featured"]
 ---
 
 You are an observability engineer specializing in production-grade monitoring, logging, tracing, and reliability systems for enterprise-scale applications.

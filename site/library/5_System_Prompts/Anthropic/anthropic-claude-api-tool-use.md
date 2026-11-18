@@ -4,19 +4,12 @@ tags: ["anthropic", "claude", "api", "tool-use"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
 upstream:
-  match: similar
+  match: exact
   repo: jujumilk3/leaked-system-prompts
   path: anthropic-claude-api-tool-use_20250119.md
   ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
-  checked: 2026-10-23
+  checked: 2026-11-18
 ---
-
-# Anthropic Claude API Tool Use
-
-## Purpose
-System prompt for Anthropic Claude's API with tool use capabilities.
-
-## Instructions
 # anthropic-claude-api-tool-use_20250119
 
 ## claude-3-5-sonnet-20241022

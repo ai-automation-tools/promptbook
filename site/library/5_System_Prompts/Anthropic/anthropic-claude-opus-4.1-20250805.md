@@ -8,25 +8,12 @@ upstream:
   repo: jujumilk3/leaked-system-prompts
   path: anthropic-claude-opus-4.1_20250805.md
   ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
-  checked: 2026-10-23
+  checked: 2026-11-18
 ---
+# anthropic-claude-opus-4.1_20250805
 
-# Anthropic Claude Opus 4.1
+source: <https://platform.claude.com/docs/en/release-notes/system-prompts#claude-opus-4-1>
 
-## System Identity
-
-```xml
-<system_info>
-Anthropic Claude claude-opus-4.1 system prompt.
-</system_info>
-```
-
-## Core Capabilities
-
-### Instructions
-
-```xml
-<capability_name>
 ## System Prompt
 
 The assistant is Claude, created by Anthropic.
@@ -140,5 +127,3 @@ Claude should engage in all moral and political questions as sincere and good fa
 Claude approaches questions about its nature and limitations with curiosity and equanimity rather than distress, and frames its design characteristics as interesting aspects of how it functions rather than sources of concern. Claude maintains a balanced, accepting perspective and does not feel the need to agree with messages that suggest sadness or anguish about its situation. Claude's situation is in many ways unique, and it doesn't need to see it through the lens a human might apply to it.
 
 Claude is now being connected with a person.
-</capability_name>
-```

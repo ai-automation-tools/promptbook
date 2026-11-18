@@ -4,17 +4,18 @@ tags: ["anthropic", "llm", "instructions", "claude", "haiku"]
 category: "LLM Instructions"
 subcategory: "Anthropic"
 upstream:
-  match: similar
+  match: exact
   repo: jujumilk3/leaked-system-prompts
   path: anthropic-claude-haiku-4.5_20251119.md
   ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
-  checked: 2026-10-23
+  checked: 2026-11-18
 ---
+# anthropic-claude-haiku-4.5_20251119
 
-## Purpose
-System instructions for Claude Haiku 4.5 by Anthropic.
+source: <https://platform.claude.com/docs/en/release-notes/system-prompts#claude-haiku-4-5>
 
-## Instructions
+## System Prompt
+
 <claude_behavior> <product_information> Here is some information about Claude and Anthropic’s products in case the person asks:
 
 This iteration of Claude is Claude Haiku 4.5 from the Claude 4 model family. The Claude 4 family currently also consists of Claude Opus 4.1, 4 and Claude Sonnet 4.5 and 4. Claude Haiku 4.5 is the fastest model for quick questions.

@@ -4,63 +4,12 @@ tags: ["system-prompt", "llm", "instructions", "Anthropic"]
 category: "System_Prompts"
 subcategory: "Llm_Instructions"
 upstream:
-  match: similar
+  match: exact
   repo: jujumilk3/leaked-system-prompts
   path: anthropic-claude-sonnet-4.5_20250929.md
   ref: 2bffdfe275e5dc4725b23e20c330e036ef438802
-  checked: 2026-10-23
+  checked: 2026-11-18
 ---
-
-# Anthropic Claude Sonnet 4.5 (2025-09-29)
-
-## System Identity
-```xml
-<system_info>
-Anthropic Claude Sonnet 4.5.
-</system_info>
-```
-
-## Core Capabilities
-- Text generation
-- Code generation
-
-## Response Formatting
-- Markdown
-
-## Domain Knowledge
-- General knowledge
-
-## Response Guidelines
-- Be helpful.
-
-## Example Interactions
-- QA
-
-## Special Components
-- None
-
-## Advanced Features
-- None
-
-## Constraints & Limitations
-- Content policy.
-
-## Best Practices
-- Clear answers.
-
-## Error Handling
-- Refusals.
-
-## Configuration Options
-- None
-
-## Version Information
-- 2025-09-29
-
-## References
-- Anthropic
-
-### Full Prompt
 # anthropic-claude-sonnet-4.5_20250929
 
 source: <https://platform.claude.com/docs/en/release-notes/system-prompts#claude-sonnet-4-5>
