@@ -4,6 +4,16 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — One finder per section, one keeper for the rest
+
+How the library grows changed (Mike): instead of one content job that added 2 prompts and a guide a week and vendored only the repos someone had marked `accept`, each section now has its own finder in the Routines fleet. Every finder searches news, social and AI forums for what's trending in its section and adds it straight to a PR the Org PR Sweep merges, with no per-item decision: Prompts on Monday, Skills Tuesday, Guides Wednesday, Agents Thursday and MCP Servers Friday, 3–5 items each, and System Prompts on the first Sunday of the month (vendor-published only). The provenance rules don't move: every item names its GitHub repo, and copied text needs a permissive licence. A one-time larger backfill run per section fills the library first.
+
+Existing content has one owner now, the Saturday **Library Keeper**, which rotates guides, then prompts and agents, then skills and MCP cards, and fixes only what's already there. It took over the old Thursday refreshes and the Library Cards Refresh. The Discovery job is retired and `docs/DISCOVERY.md` is closed; the finders still skip any repo it marks `reject`. `upstream-drift.yml` and the Monthly Upkeep are unchanged.
+
+_Touched: `AGENTS.md`, `docs/CHANGELOG.md`, `docs/DISCOVERY.md`, `docs/README.md`, `docs/ROADMAP.md`, `docs/templates/mcp-servers-template.md`, `scripts/discover-repos.mjs` (comment only), `site/library/2_Agents/README.md`, `site/library/6_MCP_Servers/README.md`._
+
+---
+
 ## 2026-11-18 — One local page for every automation
 
 `docs/AUTOMATIONS.local.md` lists every scheduled job, workflow and sweep that touches Promptbook: schedule, next and last run, model, PR branch, the Thursday rotation, open automation PRs, and whether `site/library` on `main` has moved lately. It's gitignored (local paths and schedules) and rewritten every Sunday at 07:00 by a new Routines job, `promptbook-automations-doc`, which links back to the Routines docs. The page's hand-written parts live in that job's `template.md`.
