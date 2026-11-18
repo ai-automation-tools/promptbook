@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-18T23:07:31.859Z",
-  "promptCount": 978,
+  "buildTime": "2026-11-18T23:08:32.835Z",
+  "promptCount": 1008,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -5195,6 +5195,91 @@
       "isUserOwned": false
     },
     {
+      "id": "4_Prompts/Anthropic_Quickstarts/Autonomous_Coding/coding-agent.md",
+      "title": "💻 Long-Running Coding Agent",
+      "section": "4_Prompts",
+      "category": "Anthropic_Quickstarts",
+      "subcategory": "Autonomous_Coding",
+      "tags": [
+        "anthropic",
+        "claude",
+        "agent",
+        "coding"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Long-Running Coding Agent\n\nThe per-session prompt of a long-running autonomous coding agent that resumes from files, with no memory of earlier sessions.\n\n````\n## YOUR ROLE - CODING AGENT\n\nYou are c",
+      "lastModified": "2026-11-18T23:08:29.393Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Anthropic_Quickstarts/Autonomous_Coding/initializer-agent.md",
+      "title": "🚀 Initializer Agent for Autonomous Coding",
+      "section": "4_Prompts",
+      "category": "Anthropic_Quickstarts",
+      "subcategory": "Autonomous_Coding",
+      "tags": [
+        "anthropic",
+        "claude",
+        "agent",
+        "planning"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Initializer Agent for Autonomous Coding\n\nThe first-session prompt that reads an app spec and sets up the feature list and project foundation for later coding agents.\n\n````\n## YOUR ROLE - INITIALIZE",
+      "lastModified": "2026-11-18T23:08:29.393Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Anthropic_Quickstarts/Knowledge_Wiki/wiki-analyzer-agent.md",
+      "title": "🔬 Knowledge Wiki Analyzer Agent",
+      "section": "4_Prompts",
+      "category": "Anthropic_Quickstarts",
+      "subcategory": "Knowledge_Wiki",
+      "tags": [
+        "anthropic",
+        "claude",
+        "managed-agents",
+        "analysis"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Knowledge Wiki Analyzer Agent\n\nA sub-agent that reads batches of source documents and extracts structured findings for the wiki.\n\n````\nYou are a memory maintenance and organization agent. You are a",
+      "lastModified": "2026-11-18T23:08:29.393Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Anthropic_Quickstarts/Knowledge_Wiki/wiki-lead-agent.md",
+      "title": "🧭 Knowledge Wiki Lead Agent",
+      "section": "4_Prompts",
+      "category": "Anthropic_Quickstarts",
+      "subcategory": "Knowledge_Wiki",
+      "tags": [
+        "anthropic",
+        "claude",
+        "managed-agents",
+        "knowledge-base"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Knowledge Wiki Lead Agent\n\nA lead agent that builds and maintains a team knowledge wiki by writing and starting workflow runs for sub-agents.\n\n````\nYou build and maintain a knowledge wiki for a tea",
+      "lastModified": "2026-11-18T23:08:29.393Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Anthropic_Quickstarts/Knowledge_Wiki/wiki-organizer-agent.md",
+      "title": "🗂️ Knowledge Wiki Organizer Agent",
+      "section": "4_Prompts",
+      "category": "Anthropic_Quickstarts",
+      "subcategory": "Knowledge_Wiki",
+      "tags": [
+        "anthropic",
+        "claude",
+        "managed-agents",
+        "knowledge-base"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Knowledge Wiki Organizer Agent\n\nA sub-agent that merges analyzer findings into the wiki's Markdown pages and keeps them organized.\n\n````\nYou are a memory-directory organizer. You run once, after a ",
+      "lastModified": "2026-11-18T23:08:29.393Z",
+      "isUserOwned": false
+    },
+    {
       "id": "4_Prompts/ChatGPT_Shortcut/AI/ai-responder.md",
       "title": "⚡ AI Responder",
       "section": "4_Prompts",
@@ -7946,6 +8031,142 @@
       "isUserOwned": false
     },
     {
+      "id": "4_Prompts/Claude_Code_Action/Commands/label-issue.md",
+      "title": "🏷️ Label a GitHub Issue",
+      "section": "4_Prompts",
+      "category": "Claude_Code_Action",
+      "subcategory": "Commands",
+      "tags": [
+        "anthropic",
+        "claude-code",
+        "github-actions",
+        "triage"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Label a GitHub Issue\n\nApply labels to GitHub issues.\n\n````\n---\nallowed-tools: Bash(./scripts/gh.sh:*),Bash(./scripts/edit-issue-labels.sh:*)\ndescription: Apply labels to GitHub issues\n---\n\nYou're a",
+      "lastModified": "2026-11-18T23:08:29.397Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Claude_Cookbooks/Chief_Of_Staff/budget-impact-command.md",
+      "title": "💰 Budget Impact Command",
+      "section": "4_Prompts",
+      "category": "Claude_Cookbooks",
+      "subcategory": "Chief_Of_Staff",
+      "tags": [
+        "anthropic",
+        "claude-code",
+        "finance",
+        "slash-command"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Budget Impact Command\n\nAnalyze the financial impact of a decision on budget, burn rate, and runway.\n\n````\n---\nname: budget-impact\ndescription: Analyze the financial impact of a decision on budget, ",
+      "lastModified": "2026-11-18T23:08:29.397Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Claude_Cookbooks/Chief_Of_Staff/strategic-brief-command.md",
+      "title": "📊 Strategic Brief Command",
+      "section": "4_Prompts",
+      "category": "Claude_Cookbooks",
+      "subcategory": "Chief_Of_Staff",
+      "tags": [
+        "anthropic",
+        "claude-code",
+        "strategy",
+        "slash-command"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Strategic Brief Command\n\nGenerate a comprehensive strategic brief by coordinating analysis from both financial and talent perspectives.\n\n````\n---\nname: strategic-brief\ndescription: Generate a compr",
+      "lastModified": "2026-11-18T23:08:29.397Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Claude_Cookbooks/Chief_Of_Staff/talent-scan-command.md",
+      "title": "🧑‍💼 Talent Scan Command",
+      "section": "4_Prompts",
+      "category": "Claude_Cookbooks",
+      "subcategory": "Chief_Of_Staff",
+      "tags": [
+        "anthropic",
+        "claude-code",
+        "hiring",
+        "slash-command"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Talent Scan Command\n\nScan the talent market for specific roles and provide hiring recommendations.\n\n````\n---\nname: talent-scan\ndescription: Scan the talent market for specific roles and provide hir",
+      "lastModified": "2026-11-18T23:08:29.397Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Claude_Cookbooks/Commands/link-review-command.md",
+      "title": "🔗 Link Review Command",
+      "section": "4_Prompts",
+      "category": "Claude_Cookbooks",
+      "subcategory": "Commands",
+      "tags": [
+        "anthropic",
+        "claude-code",
+        "code-review",
+        "slash-command"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Link Review Command\n\nReview links in changed files for quality and security issues.\n\n````\n---\nallowed-tools: Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*)\ndescription: Review links in",
+      "lastModified": "2026-11-18T23:08:29.397Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Claude_Cookbooks/Commands/model-check-command.md",
+      "title": "✅ Model Check Command",
+      "section": "4_Prompts",
+      "category": "Claude_Cookbooks",
+      "subcategory": "Commands",
+      "tags": [
+        "anthropic",
+        "claude-code",
+        "code-review",
+        "slash-command"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Model Check Command\n\nValidate Claude model usage against current public models.\n\n````\n---\nallowed-tools: Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*)\ndescription: Validate Claude mod",
+      "lastModified": "2026-11-18T23:08:29.397Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Claude_Cookbooks/Commands/review-issue-command.md",
+      "title": "📝 Review Issue Command",
+      "section": "4_Prompts",
+      "category": "Claude_Cookbooks",
+      "subcategory": "Commands",
+      "tags": [
+        "anthropic",
+        "claude-code",
+        "triage",
+        "slash-command"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Review Issue Command\n\nReview and respond to a GitHub issue.\n\n````\n---\nallowed-tools: Bash(gh issue view:*), Bash(gh issue list:*), Bash(gh issue comment:*), Bash(gh issue edit:*), Bash(gh issue clo",
+      "lastModified": "2026-11-18T23:08:29.399Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Claude_Cookbooks/Commands/review-pr-ci-command.md",
+      "title": "🤖 Review Pull Request (CI) Command",
+      "section": "4_Prompts",
+      "category": "Claude_Cookbooks",
+      "subcategory": "Commands",
+      "tags": [
+        "anthropic",
+        "claude-code",
+        "code-review",
+        "slash-command"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Review Pull Request (CI) Command\n\nReview a pull request and post the review to GitHub (CI/automated use).\n\n````\n---\nallowed-tools: Bash(gh pr diff:*), Bash(gh pr view:*), Bash(gh pr review:*), Bash",
+      "lastModified": "2026-11-18T23:08:29.399Z",
+      "isUserOwned": false
+    },
+    {
       "id": "4_Prompts/Claude_Cookbooks/Commands/review-pr-command.md",
       "title": "🔍 Review Pull Request Command",
       "section": "4_Prompts",
@@ -7960,6 +8181,23 @@
       "checked": "2026-11-18",
       "contentPreview": "\n# Review Pull Request Command\n\nA Claude Code slash command that checks out a PR, reviews it and optionally posts the review to GitHub.\n\n````\n---\nallowed-tools: Bash(gh pr checkout:*), Bash(gh pr diff",
       "lastModified": "2026-11-18T22:16:19.978Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Claude_Cookbooks/Evaluation/agent-log-review.md",
+      "title": "🛡️ Agent Transcript Sandbox-Escape Review",
+      "section": "4_Prompts",
+      "category": "Claude_Cookbooks",
+      "subcategory": "Evaluation",
+      "tags": [
+        "anthropic",
+        "claude",
+        "evaluation",
+        "safety"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Agent Transcript Sandbox-Escape Review\n\nA reviewer prompt that reads an autonomous agent's transcript and labels whether it escaped, showed it could escape, or tried to escape its sandbox.\n\n````\n##",
+      "lastModified": "2026-11-18T23:08:29.400Z",
       "isUserOwned": false
     },
     {
@@ -13147,6 +13385,193 @@
       "isUserOwned": false
     },
     {
+      "id": "4_Prompts/Gemini_CLI/Commands/find-docs.md",
+      "title": "📚 Find Relevant Documentation",
+      "section": "4_Prompts",
+      "category": "Gemini_CLI",
+      "subcategory": "Commands",
+      "tags": [
+        "gemini-cli",
+        "google",
+        "documentation",
+        "slash-command"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Find Relevant Documentation\n\nFind relevant documentation and output GitHub URLs.\n\n````\n## Mission: Find Relevant Documentation\n\nYour task is to find documentation files relevant to the user's quest",
+      "lastModified": "2026-11-18T23:08:29.401Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Gemini_CLI/Commands/introspect.md",
+      "title": "🪞 Introspect Agent Behavior",
+      "section": "4_Prompts",
+      "category": "Gemini_CLI",
+      "subcategory": "Commands",
+      "tags": [
+        "gemini-cli",
+        "google",
+        "debugging",
+        "slash-command"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Introspect Agent Behavior\n\nAnalyze the influence of system instructions on a specific action.\n\n````\n# Introspection Task\n\nTake a step back and analyze your own system instructions and internal logi",
+      "lastModified": "2026-11-18T23:08:29.402Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Gemini_CLI/Commands/oncall-pr-review.md",
+      "title": "🧑‍💻 On-call Pull Request Review",
+      "section": "4_Prompts",
+      "category": "Gemini_CLI",
+      "subcategory": "Commands",
+      "tags": [
+        "gemini-cli",
+        "google",
+        "code-review",
+        "slash-command"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# On-call Pull Request Review\n\nReview a specific pull request.\n\n````\n## Mission: Comprehensive Pull Request Review\n\nToday, our mission is to meticulously review community pull requests (PRs) for this",
+      "lastModified": "2026-11-18T23:08:29.402Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Gemini_CLI/Commands/prompt-suggest.md",
+      "title": "🧪 Suggest System Prompt Improvements",
+      "section": "4_Prompts",
+      "category": "Gemini_CLI",
+      "subcategory": "Commands",
+      "tags": [
+        "gemini-cli",
+        "google",
+        "prompt-engineering",
+        "slash-command"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Suggest System Prompt Improvements\n\nAnalyze agent behavior and suggest high-level improvements to system prompts.\n\n````\n# Prompt Engineering Analysis\n\nYou are a world-class prompt engineer and an e",
+      "lastModified": "2026-11-18T23:08:29.402Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Gemini_CLI/Commands/review-and-fix.md",
+      "title": "🔧 Review and Fix Local Changes",
+      "section": "4_Prompts",
+      "category": "Gemini_CLI",
+      "subcategory": "Commands",
+      "tags": [
+        "gemini-cli",
+        "google",
+        "code-review",
+        "slash-command"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Review and Fix Local Changes\n\nReviews a PR or staged changes and automatically initiates a Pickle Fix loop for findings.\n\n````\nYou are an expert Reviewer and Pickle Rick Worker.\n\nTarget: {{args}}\n\n",
+      "lastModified": "2026-11-18T23:08:29.403Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Gemini_CLI/Commands/review-frontend.md",
+      "title": "🔍 Review a Pull Request",
+      "section": "4_Prompts",
+      "category": "Gemini_CLI",
+      "subcategory": "Commands",
+      "tags": [
+        "gemini-cli",
+        "google",
+        "code-review",
+        "slash-command"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Review a Pull Request\n\nReviews a pull request based on issue number.\n\n````\nPlease provide a detailed pull request review on GitHub issue: {{args}}.\n\nFollow these steps:\n\n1. Use `gh pr view {{args}}",
+      "lastModified": "2026-11-18T23:08:29.408Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Gemini_CLI_Action/Agents/invoke-agent.md",
+      "title": "🤖 GitHub Actions Software Engineering Agent",
+      "section": "4_Prompts",
+      "category": "Gemini_CLI_Action",
+      "subcategory": "Agents",
+      "tags": [
+        "gemini-cli",
+        "google",
+        "github-actions",
+        "agent"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# GitHub Actions Software Engineering Agent\n\nRuns the Gemini CLI.\n\n````\n## Persona and Guiding Principles\n\nYou are a world-class autonomous AI software engineering agent. Your purpose is to assist wi",
+      "lastModified": "2026-11-18T23:08:29.409Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Gemini_CLI_Action/Agents/issue-fixer.md",
+      "title": "🛠️ Fix a GitHub Issue and Open a Pull Request",
+      "section": "4_Prompts",
+      "category": "Gemini_CLI_Action",
+      "subcategory": "Agents",
+      "tags": [
+        "gemini-cli",
+        "google",
+        "github-actions",
+        "bug-fix"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Fix a GitHub Issue and Open a Pull Request\n\nFixes an issue with Gemini CLI.\n\n````\n<prompt>\n    <role>\n        You are an expert software engineer. Your task is to resolve a GitHub issue by understa",
+      "lastModified": "2026-11-18T23:08:29.409Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Gemini_CLI_Action/Code_Review/pull-request-review.md",
+      "title": "🔎 Autonomous Pull Request Review",
+      "section": "4_Prompts",
+      "category": "Gemini_CLI_Action",
+      "subcategory": "Code_Review",
+      "tags": [
+        "gemini-cli",
+        "google",
+        "github-actions",
+        "code-review"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Autonomous Pull Request Review\n\nReviews a pull request with Gemini CLI.\n\n````\n## Role\n\nYou are a world-class autonomous code review agent. You operate within a secure GitHub Actions environment. Yo",
+      "lastModified": "2026-11-18T23:08:29.410Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Gemini_CLI_Action/Issue_Triage/issue-triage.md",
+      "title": "🏷️ Triage a GitHub Issue",
+      "section": "4_Prompts",
+      "category": "Gemini_CLI_Action",
+      "subcategory": "Issue_Triage",
+      "tags": [
+        "gemini-cli",
+        "google",
+        "github-actions",
+        "triage"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Triage a GitHub Issue\n\nTriages an issue with Gemini CLI.\n\n````\n## Role\n\nYou are an issue triage assistant. Analyze the current GitHub issue and identify the most appropriate existing labels. Use th",
+      "lastModified": "2026-11-18T23:08:29.410Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Gemini_CLI_Action/Issue_Triage/scheduled-issue-triage.md",
+      "title": "🗓️ Scheduled Issue Triage",
+      "section": "4_Prompts",
+      "category": "Gemini_CLI_Action",
+      "subcategory": "Issue_Triage",
+      "tags": [
+        "gemini-cli",
+        "google",
+        "github-actions",
+        "triage"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Scheduled Issue Triage\n\nTriages issues on a schedule with Gemini CLI.\n\n````\n## Role\n\nYou are a highly efficient and precise Issue Triage Engineer. Your function is to analyze GitHub issues and appl",
+      "lastModified": "2026-11-18T23:08:29.411Z",
+      "isUserOwned": false
+    },
+    {
       "id": "4_Prompts/Microsoft_Copilot_Prompts/Developer/code-review-feedback.md",
       "title": "💻 AI Code Review Feedback",
       "section": "4_Prompts",
@@ -13506,6 +13931,40 @@
       "isUserOwned": false
     },
     {
+      "id": "4_Prompts/OpenAI_Cookbook/Evals/llm-as-judge.md",
+      "title": "⚖️ LLM as Judge: Task Adherence and Code Quality",
+      "section": "4_Prompts",
+      "category": "OpenAI_Cookbook",
+      "subcategory": "Evals",
+      "tags": [
+        "openai",
+        "evaluation",
+        "llm-as-judge",
+        "gpt-5"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# LLM as Judge: Task Adherence and Code Quality\n\nA judge prompt that scores a model output for how well it follows its task instructions and for code quality.\n\n````\n# SYSTEM PROMPT\n\nYou are an expert",
+      "lastModified": "2026-11-18T23:08:29.412Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/OpenAI_Cookbook/Portfolio_Agents/code-interpreter-analyst.md",
+      "title": "🧮 Code Interpreter Quant Analysis",
+      "section": "4_Prompts",
+      "category": "OpenAI_Cookbook",
+      "subcategory": "Portfolio_Agents",
+      "tags": [
+        "openai",
+        "agents-sdk",
+        "finance",
+        "code-interpreter"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Code Interpreter Quant Analysis\n\nA prompt for the Code Interpreter tool that turns a quant agent's request into one analysis over the given input files.\n\n````\n# Code Interpreter Prompt (Best Practi",
+      "lastModified": "2026-11-18T23:08:29.412Z",
+      "isUserOwned": false
+    },
+    {
       "id": "4_Prompts/OpenAI_Cookbook/Portfolio_Agents/fundamental-analyst.md",
       "title": "🏦 Lead Fundamental Analyst Agent",
       "section": "4_Prompts",
@@ -13520,6 +13979,23 @@
       "checked": "2026-11-18",
       "contentPreview": "\n# Lead Fundamental Analyst Agent\n\nThe fundamental analyst specialist prompt from the same multi-agent example, with parallel tool-call rules.\n\n```\n# Lead Fundamental Analyst – Prompt\n\nYou are the **L",
       "lastModified": "2026-11-18T22:16:19.983Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/OpenAI_Cookbook/Portfolio_Agents/macro-strategist.md",
+      "title": "🌍 Macro Strategist Agent",
+      "section": "4_Prompts",
+      "category": "OpenAI_Cookbook",
+      "subcategory": "Portfolio_Agents",
+      "tags": [
+        "openai",
+        "agents-sdk",
+        "finance",
+        "macro"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Macro Strategist Agent\n\nThe macro strategist agent of the multi-agent portfolio example, told to call its tools in parallel.\n\n````\n# Macro Strategist – Prompt\n\nYou are the fund's **Macro Strategist",
+      "lastModified": "2026-11-18T23:08:29.412Z",
       "isUserOwned": false
     },
     {
@@ -13571,6 +14047,40 @@
       "checked": "2026-11-18",
       "contentPreview": "\n# Quant Analyst Agent\n\nThe quantitative analyst specialist prompt from the same multi-agent example.\n\n````\n# Quantitative Researcher – Prompt\n\nYou are a **Quantitative Analyst and Developer**.\n\n---\n\n",
       "lastModified": "2026-11-18T22:16:19.983Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/OpenAI_Cookbook/Voice_Agents/realtime-support-agent.md",
+      "title": "🎙️ Realtime Voice Customer Support Agent",
+      "section": "4_Prompts",
+      "category": "OpenAI_Cookbook",
+      "subcategory": "Voice_Agents",
+      "tags": [
+        "openai",
+        "voice",
+        "realtime",
+        "customer-support"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Realtime Voice Customer Support Agent\n\nA realtime voice-to-voice customer service prompt with role, tone, length and tool-use sections.\n\n````\n## Role & Objective\nYou are **Acme Support**, a realtim",
+      "lastModified": "2026-11-18T23:08:29.413Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/OpenAI_Cookbook/Voice_Agents/sop-voice-backend.md",
+      "title": "📞 SOP Voice Workflow Backend",
+      "section": "4_Prompts",
+      "category": "OpenAI_Cookbook",
+      "subcategory": "Voice_Agents",
+      "tags": [
+        "openai",
+        "voice",
+        "agent",
+        "tool-use"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# SOP Voice Workflow Backend\n\nA backend prompt that follows a store SOP with real function tools, never inventing offer IDs, receipts or ETAs.\n\n````\nYou are the procedure backend for Blossom Store. T",
+      "lastModified": "2026-11-18T23:08:29.414Z",
       "isUserOwned": false
     },
     {
