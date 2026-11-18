@@ -4,6 +4,11 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Library: backfill, 16 new prompts
+
+Four new collections under `4_Prompts/`, four prompts each, copied from the repo at the commit stamped in each file: `Microsoft_Copilot_Prompts/` (pnp/copilot-prompts, MIT: Prompt Architect, Code Review Feedback, Clean AI Writing, Decision Log Generator), `Claude_Cookbooks/` (anthropics/claude-cookbooks, MIT: the research lead, research subagent and citations agent prompts, and the review-pr command), `OpenAI_Cookbook/` (openai/openai-cookbook, MIT: portfolio manager, fundamental analyst, quant analyst and memo editor agents) and `Claude_Plugins_Official/` (anthropics/claude-plugins-official, Apache-2.0: the code-review, feature-dev, commit-push-pr and revise-claude-md commands). Licences are in `NOTICE`.
+
+_Touched: `site/library/4_Prompts/`, `NOTICE`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 ## 2026-11-18 — Library: backfill, 18 new skill libraries
 
 One-time backfill of `3_Skills/Libraries/`: 18 cards, one per repo, bodies from each README. A card describes and links; no skill text is copied.
