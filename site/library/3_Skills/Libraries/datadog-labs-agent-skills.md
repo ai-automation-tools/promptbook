@@ -1,0 +1,514 @@
+---
+title: "datadog-labs/agent-skills"
+description: "Public repository for Datadog Agent Skills"
+repo: datadog-labs/agent-skills
+tags: ["skill","skill-library","datadog","observability","monitoring"]
+---
+# datadog-labs/agent-skills
+
+Public repository for Datadog Agent Skills
+
+A skill library: browse and install its skills from [the repo on GitHub](https://github.com/datadog-labs/agent-skills). Promptbook keeps one card for it rather than a copy of each skill.
+
+---
+
+*The repo's README, copied 2026-11-18:*
+
+# Datadog Skills for AI Agents
+
+Datadog skills for Claude Code, Codex CLI, Gemini CLI, Cursor, Windsurf, OpenCode, and other AI agents.
+
+## Skills
+
+The main skills are listed here. The [Install](#install) section lists every skill.
+
+| Skill | Description |
+|-------|-------------|
+| **dd-pup** | Primary CLI - commands, auth, PATH setup |
+| **dd-monitors** | Create, manage, mute monitors |
+| **dd-logs** | Search logs |
+| **dd-apm** | Traces, services, performance, Single-Step Instrumentation |
+| **dd-docs** | Search Datadog documentation |
+| **agent-observability** | Agent Observability: experiments, eval RCA, evaluator generation, session classification |
+| **dd-browser-sdk** | Browser SDK: RUM, Logs, Session Replay, profiling, product analytics, error tracking, version migration |
+| **dd-audit** | Audit Trail investigations: who changed what, key compromise, cost spike root cause, compliance evidence (SOC 2/PCI), AI activity auditing |
+| **dd-software-delivery** | CI/CD workflow skills — unblock PR pipelines, triage flaky tests (MCP + pup) |
+| **dd-apps** | Build Datadog Apps — scaffold, run locally, upload, publish, CI/CD, DDSQL data access |
+| **dd-product-recommender** | Recommend the right Datadog products for a codebase and/or goal (recommendation only) |
+| **dd-profiler-setup** | Set up Datadog Continuous Profiler for a service — Java, Python, Go, Ruby, Node.js, .NET, PHP |
+| **dd-instrument-error-tracking** | Turn on Datadog Error Tracking for browser apps running the RUM Browser SDK — event processing switch, framework error hooks (React, Next.js, Vue, Angular, SvelteKit) |
+| **dd-instrument-llmo** | Instrument Python & Node.js/Next.js AI backends with Datadog LLM Observability — SDK init, agent/workflow spans, RUM↔LLMO session linking |
+| **dd-instrument-product-analytics** | Turn on Datadog Product Analytics for browser apps running the RUM Browser SDK — application switch, `setUser` identity, click collection |
+| **dd-instrument-rum** | Instrument browser apps with Datadog Browser RUM — React, Next.js, Angular, Vue, Nuxt, Svelte, vanilla |
+| **dd-instrument-test-optimization** | Set up Datadog Test Optimization in CI pipelines — auto-instrumentation for GitHub Actions, GitLab, CircleCI; manual tracers; container forwarding; JUnit XML |
+
+## Install
+
+### Setup Pup
+
+```bash
+# Homebrew (macOS/Linux) — recommended
+brew tap datadog-labs/pack
+brew install datadog-labs/pack/pup
+
+# Or npm
+npm install -g @datadog/pup
+
+# Or build from source
+git clone https://github.com/DataDog/pup.git && cd pup
+cargo build --release
+cp target/release/pup ~/.local/bin
+```
+
+Pre-built binaries are also available from the [latest release](https://github.com/DataDog/pup/releases/latest).
+
+```bash
+# Authenticate
+pup auth login
+```
+
+### Add Skill(s) 
+
+For JUST `dd-pup`:
+
+```bash
+npx skills add datadog-labs/agent-skills \
+  --skill dd-pup \
+  --full-depth -y
+```
+
+For ALL skills:
+
+```bash
+npx skills add datadog-labs/agent-skills \
+  --skill dd-pup \
+  --skill dd-monitors \
+  --skill dd-logs \
+  --skill dd-apm \
+  --skill dd-docs \
+  --skill dd-browser-sdk \
+  --skill dd-profiler-setup \
+  --skill dd-audit \
+  --skill service-remapping \
+  --skill enable-dsm \
+  --skill agent-install \
+  --skill enable-ssi \
+  --skill verify-ssi \
+  --skill troubleshoot-ssi \
+  --skill onboarding-summary \
+  --skill upgrade-browser-sdk-v7 \
+  --skill setup-browser-sdk-sourcemaps \
+  --skill dd-audit-security-investigation \
+  --skill dd-audit-key-compromise \
+  --skill dd-audit-cost-spike-investigation \
+  --skill dd-audit-compliance-report \
+  --skill dd-audit-ai-activity \
+  --skill agent-observability-experiment-analyzer \
+  --skill agent-observability-experiment-bootstrap \
+  --skill agent-observability-trace-rca \
+  --skill agent-observability-eval-bootstrap \
+  --skill agent-observability-eval-pipeline \
+  --skill agent-observability-session-classify \
+  --skill agent-observability-auto-experiment \
+  --skill agent-observability-build-eval-from-annotations \
+  --skill agent-observability-replay-trace \
+  --skill agent-observability-online-experiment \
+  --skill k9-ownership-byod-setup \
+  --skill dd-account-setup \
+  --skill dd-agent-install-docker \
+  --skill dd-agent-install-kubernetes \
+  --skill dd-agent-install-linux \
+  --skill dd-agent-install-macos \
+  --skill dd-agent-install-windows \
+  --skill dd-android-sdk \
+  --skill dd-android-sdk-v3-upgrade \
+  --skill dd-anthropic-usage-and-costs-onboarding \
+  --skill datadog-app \
+  --skill dd-aws-ccm \
+  --skill dd-aws-integration \
+  --skill dd-aws-log-forwarding \
+  --skill dd-aws-storage-management \
+  --skill dd-azure-ccm \
+  --skill dd-azure-integration \
+  --skill dd-azure-log-forwarding \
+  --skill upgrade-browser-sdk-v5 \
+  --skill upgrade-browser-sdk-v6 \
+  --skill dd-confluent-cloud-integration \
+  --skill dd-dbm-rds-postgres \
+  --skill dd-gcp-ccm \
+  --skill dd-gcp-integration \
+  --skill dd-gcp-log-forwarding \
+  --skill dd-instrument-error-tracking \
+  --skill dd-github-copilot-onboarding \
+  --skill dd-github-costs-onboarding \
+  --skill dd-github-onboarding \
+  --skill dd-instrument-llmo \
+  --skill dd-instrument-product-analytics \
+  --skill dd-instrument-rum \
+  --skill dd-instrument-test-optimization \
+  --skill dd-nebius-integration \
+  --skill dd-oci-ccm \
+  --skill dd-oci-integration \
+  --skill dd-openai-onboarding \
+  --skill dd-orchestrator \
+  --skill dd-pagerduty-onboarding \
+  --skill dd-product-recommender \
+  --skill dd-slack-integration \
+  --skill triage-flaky-test \
+  --skill unblock-pr \
+  --full-depth -y
+```
+
+### Install as a plugin
+
+The repository ships a plugin manifest (`.claude-plugin/plugin.json`) that bundles all skills, and is its own marketplace (`.claude-plugin/marketplace.json`). GitHub Copilot (CLI and app) and Claude Code can install all skills in one step:
+
+```bash
+# GitHub Copilot CLI
+copilot plugin marketplace add datadog-labs/agent-skills
+copilot plugin install agent-skills@datadog-labs
+
+# Claude Code
+claude plugin marketplace add datadog-labs/agent-skills
+claude plugin install agent-skills@datadog-labs
+```
+
+Other marketplaces can also list the plugin by referencing the `datadog-labs/agent-skills` repository.
+
+When you add a skill directory, also add its path to the `skills` array in `.claude-plugin/plugin.json` and a `--skill` flag, using that skill's `name`, to the install-all command above. The SSI sub-skills under `dd-apm/k8s-ssi/` and `dd-apm/linux-ssi/` are not registered in the plugin manifest because their names clash. `dd-apm` loads them by path. The install-all command lists each of those shared names once.
+
+### Agent Observability (LLMO)
+
+The `agent-observability` directory contains ten skills for working with Agent Observability data:
+
+| Skill | Purpose |
+|-------|---------|
+| `agent-observability-experiment-analyzer` | Analyze and compare offline LLM experiments |
+| `agent-observability-experiment-bootstrap` | Bootstrap reproducible experiments through the Python or Node SDK |
+| `agent-observability-trace-rca` | Root-cause production failures using eval judge signal or runtime errors |
+| `agent-observability-eval-bootstrap` | Generate evaluator code from traces, optionally seeded by RCA output. Also emits a dataset from traces in `--emit-dataset` mode. |
+| `agent-observability-eval-pipeline` | Six-phase pipeline: classify → RCA → bootstrap evaluators → dataset → experiment → analyze. Stop early with `--stop-after`, or resume with `--start-at`. |
+| `agent-observability-session-classify` | Classify whether user intent was satisfied in a session (trace + RUM signals) |
+| `agent-observability-auto-experiment` | Local hill-climb: baseline-eval a prompt/file against LLM-Obs data, make one focused change, re-score with the same harness, keep it only if it beats the best, repeat |
+| `agent-observability-build-eval-from-annotations` | Build an evaluator from an annotation queue's human labels: find where the labelled property lives in the trace, draft an LLM judge, score it against the existing labels, hill-climb its errors, publish the winner as a disabled evaluator |
+| `agent-observability-replay-trace` | Iterate on one trace: re-run it against local code, diff old vs new output, loop until satisfied (CLI, no server; edit → replay → diff) |
+| `agent-observability-online-experiment` | Set up live-traffic Agent Observability experiments with feature flags, score, token, and cost metrics, allocations, and an optional start. |
+
+**Eval pipeline flow:**
+
+```
+agent-observability-session-classify    agent-observability-trace-rca → agent-observability-eval-bootstrap
+ (classify sessions)          (diagnose why)      (build evals)
+```
+
+Run `agent-observability-trace-rca` to understand why an app is failing by analyzing eval judge verdicts or
+runtime errors across production traces. Then run `agent-observability-eval-bootstrap` to generate evaluator
+code that captures those failure patterns. Pass the RCA output directly to `agent-observability-eval-bootstrap`
+to seed it with the discovered failure taxonomy.
+
+Use `agent-observability-eval-pipeline` to run the whole flow, from traces to experiment results, with a checkpoint between phases.
+
+Use `agent-observability-session-classify` independently to evaluate whether individual assistant sessions
+satisfied user intent, combining Agent Observability trace data with RUM behavioral signals.
+
+Use `agent-observability-build-eval-from-annotations` when an annotation queue already holds human labels: it fits an
+LLM judge to those labels, scores it against them, iterates on its errors, and publishes the winner as a
+disabled evaluator draft. `agent-observability-eval-bootstrap` is the no-labels counterpart — it proposes
+evaluators from trace inspection alone, with nothing to measure them against.
+
+Use `agent-observability-experiment-bootstrap` to bootstrap a reproducible experiment through the
+Python `ddtrace.llmobs` SDK or the Node `dd-trace` SDK. Python remains the default adapter;
+generated artifacts can use inline records, local files, or named Datadog datasets.
+
+The bootstrap skill keeps adapter-specific contracts in its `references/` directory and loads only the selected
+Python or Node SDK reference. Python provider and evaluator-style references live under `references/python/` and are
+loaded separately when needed.
+
+#### Install
+
+```bash
+# Claude Code — copy any or all skills
+cp -r agent-observability/agent-observability-experiment-analyzer ~/.claude/skills
+cp -r agent-observability/agent-observability-experiment-bootstrap ~/.claude/skills
+cp -r agent-observability/agent-observability-trace-rca ~/.claude/skills
+cp -r agent-observability/agent-observability-eval-bootstrap ~/.claude/skills
+cp -r agent-observability/agent-observability-eval-pipeline ~/.claude/skills
+cp -r agent-observability/agent-observability-session-classify ~/.claude/skills
+cp -r agent-observability/agent-observability-online-experiment ~/.claude/skills
+cp -r agent-observability/agent-observability-auto-experiment ~/.claude/skills
+cp -r agent-observability/agent-observability-build-eval-from-annotations ~/.claude/skills
+cp -r agent-observability/agent-observability-replay-trace ~/.claude/skills
+```
+
+#### MCP Requirements
+
+To use these skills, add the following MCP toolsets to your agent:
+
+```bash
+claude mcp add --scope user --transport http "datadog-llmo-mcp" 'https://mcp.datadoghq.com/v1/mcp?toolsets=llmobs,experiments,feature-flags,core'
+```
+
+#### Usage
+
+```
+# Analyze experiments
+/agent-observability-experiment-analyzer <experiment_id>                         # single experiment
+/agent-observability-experiment-analyzer <baseline_id> <candidate_id>            # compare two experiments
+/agent-observability-experiment-analyzer <id(s)> <question>                      # ask a specific question
+/agent-observability-experiment-analyzer <id(s)> [question] --output notebook    # export to Datadog notebook
+
+# Root-cause why an app is failing
+What's wrong with <ml_app> based on its evals over the last 24h
+Analyze eval failures for <eval_name> over the last week
+Look at the errors on <ml_app> over the last 24h
+
+# Generate evaluator code from production traces
+/agent-observability-eval-bootstrap <ml_app>                                                    # cold start
+/agent-observability-eval-bootstrap <ml_app> [paste agent-observability-trace-rca output here] # seeded from RCA
+/agent-observability-eval-bootstrap <ml_app> --data-only                                        # emit JSON spec instead of Python SDK code
+
+# Bootstrap an experiment (Python SDK remains the default)
+/agent-observability-experiment-bootstrap                                                  # 3-record inline Python sample
+/agent-observability-experiment-bootstrap --dataset ./data/qa.json --format ipynb          # local JSON dataset, Python notebook
+/agent-observability-experiment-bootstrap --dataset-name qa_v3 --project-name customer-qa  # existing Datadog dataset
+/agent-observability-experiment-bootstrap --evaluator-style remote                         # server-side RemoteEvaluator stubs
+/agent-observability-experiment-bootstrap --adapter node --format mjs --task-source app:answer # Node SDK artifact
+
+# Create a live-traffic Agent Observability experiment
+/agent-observability-online-experiment
+
+# Classify a session
+/agent-observability-session-classify <session_id>
+
+# Guided end-to-end pipeline (6 narrated phases — classify → RCA → eval bootstrap → dataset → experiment → analyze)
+/agent-observability-eval-pipeline <ml_app>
+/agent-observability-eval-pipeline <ml_app> --timeframe now-30d --trace-limit 25 --format ipynb
+```
+
+### Software Delivery (dd-software-delivery)
+
+The `dd-software-delivery` directory contains workflow skills for CI/CD visibility and test reliability:
+
+| Skill | Purpose |
+|-------|---------|
+| `unblock-pr` | Investigate a failing PR CI pipeline — classify each failure as flaky, infra, or regression; fetch code coverage and PR quality/security insights; propose targeted actions |
+| `triage-flaky-test` | Deep-dive on a specific flaky test — get history, blast radius, root cause category, and recommend a code fix or quarantine |
+
+**Workflow:**
+
+```
+unblock-pr → (if flaky failure) → triage-flaky-test → quarantine or fix
+```
+
+#### Backend
+
+Both skills auto-detect the available backend at runtime:
+- **MCP mode** (preferred): uses the Datadog software-delivery MCP tools (`search_datadog_ci_pipeline_events`, `get_datadog_flaky_tests`, `retry_datadog_ci_job`, etc.). Enables PR quality/security insights and native GitHub Actions retry.
+- **pup mode** (fallback): uses the `pup` CLI. PR quality/security data is not available; GitHub Actions retry falls back to `gh run rerun`.
+
+Pass `--backend pup` to force pup mode regardless of MCP availability.
+
+#### MCP Requirements
+
+Connect the Datadog MCP server with the `software-delivery` toolset:
+
+```bash
+claude mcp add --scope user --transport http "datadog-mcp" \
+  'https://mcp.datadoghq.com/v1/mcp?toolsets=core,software-delivery'
+```
+
+#### Prerequisites
+
+Requires `pup` CLI for pup mode (and as a fallback). See [Setup Pup](#setup-pup).
+
+#### Install
+
+```bash
+# Claude Code — copy any or all skills
+cp -r dd-software-delivery/unblock-pr ~/.claude/skills
+cp -r dd-software-delivery/triage-flaky-test ~/.claude/skills
+```
+
+Or via `npx`:
+
+```bash
+npx skills add datadog-labs/agent-skills \
+  --skill unblock-pr \
+  --skill triage-flaky-test \
+  -y
+```
+
+#### Usage
+
+```
+# Investigate a failing PR
+unblock-pr                                     # auto-detects branch and repo from git
+unblock-pr my-feature-branch                   # explicit branch
+unblock-pr my-feature-branch github.com/org/repo
+
+# Triage a specific flaky test
+triage-flaky-test TestMyFunc
+triage-flaky-test com.example.MyTest github.com/org/repo
+```
+
+### Audit Trail (dd-audit)
+
+The `dd-audit` directory contains five skills for investigating Datadog Audit Trail data:
+
+| Skill | Purpose |
+|-------|---------|
+| `security-investigation` | Who changed what, user activity, login geo, deletions, permission changes |
+| `key-compromise` | Investigate a potentially compromised API key — timeline, geo/IP, endpoints called |
+| `cost-spike-investigation` | Correlate usage spike (Usage Metering) with config changes (Audit Trail) to find root cause |
+| `compliance-report` | Generate SOC 2 / PCI DSS evidence from audit data |
+| `ai-activity-audit` | Audit what the Bits AI / MCP assistant did in your org |
+
+#### Prerequisites
+
+These skills use the Datadog Audit REST API directly (no `pup audit` command exists yet). You need an API key + App key with `audit_logs_read` scope:
+
+```bash
+export DD_API_KEY=<your-api-key>
+export DD_APP_KEY=<your-app-key>
+export DD_SITE=datadoghq.com   # or us3/us5/eu/ap1/ap2
+```
+
+#### Install
+
+```bash
+# Claude Code — copy any or all skills
+cp -r dd-audit/security-investigation ~/.claude/skills
+cp -r dd-audit/key-compromise ~/.claude/skills
+cp -r dd-audit/cost-spike-investigation ~/.claude/skills
+cp -r dd-audit/compliance-report ~/.claude/skills
+cp -r dd-audit/ai-activity-audit ~/.claude/skills
+```
+
+#### Usage
+
+```
+# Security investigation
+Who deleted monitors in the last 24 hours?
+What did user@example.com do this week?
+Show login activity from unexpected locations
+
+# Key compromise
+Was API key <key_id> used from unexpected locations?
+Investigate this API key: <key_id>
+
+# Cost spike
+Why did our Agent Observability usage spike on May 1?
+What caused the cost increase this week?
+
+# Compliance
+Generate SOC 2 evidence for CC6.2 and CC6.3 for Q1 2026
+Create a PCI DSS Requirement 10 report for the last 90 days
+
+# AI activity
+What did the Bits AI assistant do in my org this week?
+Show me a governance report for AI tool calls in April
+```
+
+### Datadog Apps (dd-apps)
+
+The `dd-apps` directory contains a skill for building [Datadog Apps](https://docs.datadoghq.com/developers/apps/) — locally-developed web apps built with TypeScript and React that integrate with Datadog surfaces.
+
+| Skill | Purpose |
+|-------|---------|
+| `datadog-app` | Scaffold, run locally, build, upload, publish, set up CI/CD, trigger Workflow Automation, query data with DDSQL or Action Catalog, and migrate apps from other tools (Backstage) |
+
+#### Prerequisites
+
+A Datadog account with an API key and application key that have Actions API Access enabled. See [App Builder Access and Authentication](https://docs.datadoghq.com/actions/app_builder/access_and_auth/).
+
+```bash
+export DD_API_KEY="<YOUR_API_KEY>"
+export DD_APP_KEY="<YOUR_APPLICATION_KEY>"
+```
+
+Node.js 20.19+ or 22.12+ is required. Use Volta, nvm, or fnm to manage versions.
+
+#### Install
+
+```bash
+# Claude Code
+cp -r dd-apps/datadog-app ~/.claude/skills
+```
+
+Or via npx:
+
+```bash
+npx skills add datadog-labs/agent-skills \
+  --skill datadog-app -y
+```
+
+The skill is a single file. It fetches current guidance from Datadog at run time, so
+it does not need reinstalling when the guidance changes.
+
+#### Usage
+
+```
+# Scaffold a new app
+Scaffold a new Datadog App called my-app
+
+# Run locally
+Run my Datadog App locally
+
+# Upload and publish
+Upload my app to Datadog
+How do I publish my app?
+
+# Troubleshoot
+I'm getting a 401 error when uploading
+My backend function isn't working
+
+# Query data
+Query my app datastore with DDSQL
+Trigger a Workflow Automation workflow from a backend function
+```
+
+## Quick Reference
+
+| Task | Command |
+|------|---------|
+| Search error logs | `pup logs search --query "status:error" --from 1h` |
+| List monitors | `pup monitors list` |
+| Schedule monitor downtime | `pup downtime create --file downtime.json` |
+| Find slow traces | `pup traces search --query "service:api @duration:>500000000" --from 1h` |
+| Query metrics | `pup metrics query --query "avg:system.cpu.user{*}"` |
+| List services for an env (required) | `pup apm services list --env <env> --from 1h --to now` |
+| Check auth | `pup auth status` |
+| Refresh token | `pup auth refresh` |
+
+More commands for `pup` are found in the [official pup docs](https://github.com/DataDog/pup/blob/main/docs/COMMANDS.md).
+
+## Auth
+
+```bash
+# Check auth first (includes token time remaining)
+pup auth status
+
+# If commands fail with 401/403, try refresh first
+pup auth refresh
+
+# If refresh fails or no session exists, do full OAuth login
+pup auth login
+
+# Non-default site/org
+pup auth login --site datadoghq.eu --org <org>
+```
+
+If the browser opens the wrong profile/window, use the one-time URL printed by `pup auth login` and open it manually in the correct session.
+
+## More Skills
+
+The full list of skills is in the `skills` array of `.claude-plugin/plugin.json`.
+
+```bash
+# List all available
+npx skills add datadog-labs/agent-skills --list --full-depth
+```
+
+## License
+
+MIT
