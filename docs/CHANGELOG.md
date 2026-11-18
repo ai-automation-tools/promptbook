@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — The weekly upstream PR runs CI and gets swept
+
+The Monday upstream-drift Action opens its `upstream/resync` PR with `GITHUB_TOKEN`, and GitHub doesn't start `ci.yml` for a push made with that token, so the PR never had the required `check` and `secrets` and sat until someone pushed to it by hand (#488, #503). Its last step now runs `gh workflow run ci.yml --ref upstream/resync`: a `workflow_dispatch` is the one event that token may trigger, and its check runs land on the PR's head commit. The org PR sweep now covers `upstream/resync` and sweeps Promptbook every day rather than Wednesday and Sunday, and the Promptbook scheduled tasks start late when the PC was off at their time.
+
+_Touched: `.github/workflows/upstream-drift.yml`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — tasteskill becomes a library card
 
 Upstream rewrote `design-taste-frontend` from tasteskill v2 to v2.5, and the weekly roadmap run opened #500 to resync it. v2.5 runs on its `assets/` and `scripts/` folders (about 36 MB, 1,600+ files) in nearly every step, and we never copied those, so the resynced `SKILL.md` would have shipped in ZIPs as instructions for tools that aren't there. Under the skill-library rule it is now one card, `3_Skills/Libraries/leonxlnx-taste-skill.md`, that links the repo and carries its README; you install the skill from GitHub. The v2 copy moved to `archive/skill-libraries-2026-11-18/`, its entry left `upstream-status.json`, and #500 was closed.
