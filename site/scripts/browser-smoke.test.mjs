@@ -142,7 +142,15 @@ try {
   await page.getByRole("button", { name: "New item" }).first().click();
   await page.getByRole("dialog").waitFor();
   assert.equal(await page.locator('#prompt-category-options option[value="Dev"]').count(), 1, "Category suggests My Library's categories");
-  await page.keyboard.press("Escape");
+  // "Add to favorites" on New item stars the item as it is created.
+  await page.locator("#prompt-title").fill("Starred at birth");
+  await page.locator("#prompt-category").fill("Dev");
+  await page.locator("#prompt-content").fill("x");
+  await page.getByLabel("Add to favorites").check();
+  const bornStarred = page.waitForResponse(r => r.url().endsWith("/api/my-library/favorites") && r.request().method() === "POST");
+  await page.getByRole("button", { name: "Create item" }).click();
+  await bornStarred;
+  assert.ok(JSON.parse(fs.readFileSync(favFile, "utf-8")).some(id => id.startsWith("starred-at-birth-")), "the new item is starred on create");
 
   // Suite embed contract: standalone, ?embed=1 changes nothing.
   await page.goto(`${base}/?embed=1`);

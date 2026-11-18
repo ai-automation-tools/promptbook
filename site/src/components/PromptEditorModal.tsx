@@ -4,7 +4,7 @@
  */
 
 import { useEffect, useMemo, useState } from 'react';
-import { AlertCircle, Code2, Eye, Save, X } from 'lucide-react';
+import { AlertCircle, Code2, Eye, Save, Star, X } from 'lucide-react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
@@ -30,7 +30,8 @@ export interface PromptDraft {
 interface PromptEditorModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSave: (prompt: PromptDraft) => Promise<void>;
+  /** `favorite`: star the new item once it is created (New item only). */
+  onSave: (prompt: PromptDraft, options?: { favorite: boolean }) => Promise<void>;
   editingPrompt?: PromptDraft | null;
   defaultSection?: string;
   /** The loaded items, so Category and Subcategory can suggest the names already in use. */
@@ -51,6 +52,7 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
   const [tagInput, setTagInput] = useState('');
   const [sourceUrl, setSourceUrl] = useState('');
   const [content, setContent] = useState('');
+  const [favorite, setFavorite] = useState(false);
   const [mode, setMode] = useState<'write' | 'preview'>('write');
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
@@ -82,6 +84,7 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
       setSourceUrl('');
       setContent('');
     }
+    setFavorite(false);
     setMode('write');
     setError('');
   }, [editingPrompt, defaultSection, isOpen]);
@@ -120,7 +123,7 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
         tags,
         sourceUrl: sourceUrl.trim() || null,
         content: content.trim(),
-      });
+      }, { favorite: !editingPrompt && favorite });
       onClose();
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Failed to save prompt');
@@ -229,6 +232,14 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
               />
             </div>
           </div>
+
+          {!editingPrompt && (
+            <label className="flex w-fit cursor-pointer items-center gap-2 text-[13px] text-[var(--fg-2)]">
+              <input type="checkbox" checked={favorite} onChange={e => setFavorite(e.target.checked)} className="h-4 w-4 accent-[var(--warn)]" />
+              <Star className={cn('h-3.5 w-3.5', favorite ? 'fill-[var(--warn)] text-[var(--warn)]' : 'text-[var(--fg-4)]')} aria-hidden />
+              Add to favorites
+            </label>
+          )}
 
           <div>
             <div className="mb-1.5 flex items-center justify-between">

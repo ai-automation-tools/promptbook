@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Star an item as you create it
+
+New item has an "Add to favorites" checkbox under the tags. Ticked, the item is starred as soon as the server creates it (the same `POST /api/my-library/favorites` the star button sends), so there's no reopening it to star it. Editing an existing item doesn't show the box; its star is on the item page. `test:browser` creates an item with the box ticked and checks `favorites.json`.
+
+_Touched: `site/src/components/PromptEditorModal.tsx`, `site/src/App.tsx`, `site/scripts/browser-smoke.test.mjs`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — Two more prompt sources
 
 Every collection already in `4_Prompts/` is used up, and after the triage the only prompt source marked `accept` was the Microsoft 365 Copilot set, so the Monday job's 2-prompt quota would have run dry again. Two MIT collections added to `docs/DISCOVERY.md` as `accept`: `pnp/copilot-prompts` (the Microsoft 365 community's prompt samples) and `repowise-dev/claude-code-prompts` (coding-agent prompt templates its authors wrote from scratch, per its DISCLAIMER.md; not extracted text).

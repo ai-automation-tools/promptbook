@@ -583,7 +583,7 @@ export default function App() {
     }
   }, [refreshPrompts, showToast]);
 
-  const handleSavePrompt = useCallback(async (prompt: PromptDraft) => {
+  const handleSavePrompt = useCallback(async (prompt: PromptDraft, options?: { favorite: boolean }) => {
     const method = prompt.id ? 'PUT' : 'POST';
     const url = prompt.id ? `/api/prompts/${encodeURIComponent(prompt.id)}` : '/api/prompts';
 
@@ -608,6 +608,8 @@ export default function App() {
         throw new Error(error.error || 'Failed to save prompt');
       }
 
+      const saved: { id: string } = await response.json();
+      if (options?.favorite) toggleFavorite(saved.id); // a new id is never starred yet, so this adds it
       refreshPrompts();
       if (prompt.id && selectedPrompt?.id === prompt.id) {
         // The detail view holds its own copy; refetch so it shows the edit.
@@ -619,7 +621,7 @@ export default function App() {
       showToast('error', (error instanceof Error && error.message) || 'Failed to save prompt');
       throw error;
     }
-  }, [refreshPrompts, selectedPrompt, showToast, editingPrompt]);
+  }, [refreshPrompts, selectedPrompt, showToast, editingPrompt, toggleFavorite]);
 
   const handlePullUpstream = useCallback(async (prompt: Prompt) => {
     if (prompt.upstream?.localEdits && !confirm('Replace your edited copy with the current Public Library version? Your edits will be lost.')) {
