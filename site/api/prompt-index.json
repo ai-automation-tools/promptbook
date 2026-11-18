@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "buildTime": "2026-11-18T16:31:39.994Z",
+  "buildTime": "2026-11-18T16:36:20.502Z",
   "promptCount": 819,
   "prompts": [
     {
@@ -2633,24 +2633,6 @@
       "isUserOwned": false
     },
     {
-      "id": "3_Skills/Design/design-taste-frontend/SKILL.md",
-      "title": "design-taste-frontend",
-      "section": "3_Skills",
-      "category": "Design",
-      "subcategory": "design-taste-frontend",
-      "tags": [
-        "skill",
-        "design",
-        "frontend",
-        "taste",
-        "ui"
-      ],
-      "checked": "2026-10-26",
-      "contentPreview": "\n# tasteskill v2\n\nA page built by a model usually looks like the average of every page the model has seen: a centred\nheadline over three lines, a little label above it, a row of icon cards, a soft gra",
-      "lastModified": "2026-10-27T17:31:02.525Z",
-      "isUserOwned": false
-    },
-    {
       "id": "3_Skills/Design/diagram-design/SKILL.md",
       "title": "diagram-design",
       "section": "3_Skills",
@@ -3133,6 +3115,25 @@
       ],
       "contentPreview": "# K-Dense-AI/scientific-agent-skills\n\nTurn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 250,000+ scientists worldwide. 177 ready-to-use validated skills plus 100",
       "lastModified": "2026-10-27T16:04:23.517Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/leonxlnx-taste-skill.md",
+      "title": "Leonxlnx/taste-skill",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "leonxlnx-taste-skill",
+      "tags": [
+        "skill",
+        "skill-library",
+        "design",
+        "frontend",
+        "landing-page",
+        "ui-design",
+        "web-design"
+      ],
+      "contentPreview": "# Leonxlnx/taste-skill\n\nAgent skills that give coding agents taste: art direction, reference images and a browser check instead of generic AI pages\n\nA skill library: browse and install its skills from",
+      "lastModified": "2026-11-18T16:35:40.316Z",
       "isUserOwned": false
     },
     {

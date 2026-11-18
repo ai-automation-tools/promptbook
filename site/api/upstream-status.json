@@ -624,13 +624,6 @@
       "branch": "main",
       "extra": 0
     },
-    "3_Skills/Design/design-taste-frontend/SKILL.md": {
-      "verdict": "behind",
-      "repo": "Leonxlnx/taste-skill",
-      "path": "skills/taste-skill/SKILL.md",
-      "branch": "main",
-      "extra": 0.99
-    },
     "3_Skills/Design/diagram-design/SKILL.md": {
       "verdict": "current",
       "repo": "cathrynlavery/diagram-design",

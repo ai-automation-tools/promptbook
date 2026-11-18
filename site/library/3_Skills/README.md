@@ -2,11 +2,11 @@
 
 Agent skills, in two forms (since 2026-10-27):
 
-- **Library cards** in `Libraries/`, one per repo that publishes many skills (30). Each card
+- **Library cards** in `Libraries/`, one per repo that publishes many skills (31). Each card
   links its repo and carries the repo's README; you install the skills from GitHub.
   `site/scripts/refresh-library-cards.mjs --write` keeps them current.
 - **Single skills**, a folder per skill under a category, holding `SKILL.md` and its support
-  files (28). Each `SKILL.md` has an `upstream:` block naming the repo, path and SPDX
+  files (27). Each `SKILL.md` has an `upstream:` block naming the repo, path and SPDX
   `license:` it was copied under, and the licence text sits beside it as `LICENSE`
   (`scripts/vendor-skill-licenses.mjs`). `scripts/upstream.test.mjs` fails CI otherwise.
 
@@ -16,7 +16,7 @@ Agent skills, in two forms (since 2026-10-27):
 |:--|--:|
 | Development | 11 |
 | Content | 4 |
-| Design | 4 |
+| Design | 3 |
 | Data | 3 |
 | AI_ML | 2 |
 | Business | 2 |

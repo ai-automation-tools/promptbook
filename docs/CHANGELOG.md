@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — tasteskill becomes a library card
+
+Upstream rewrote `design-taste-frontend` from tasteskill v2 to v2.5, and the weekly roadmap run opened #500 to resync it. v2.5 runs on its `assets/` and `scripts/` folders (about 36 MB, 1,600+ files) in nearly every step, and we never copied those, so the resynced `SKILL.md` would have shipped in ZIPs as instructions for tools that aren't there. Under the skill-library rule it is now one card, `3_Skills/Libraries/leonxlnx-taste-skill.md`, that links the repo and carries its README; you install the skill from GitHub. The v2 copy moved to `archive/skill-libraries-2026-11-18/`, its entry left `upstream-status.json`, and #500 was closed.
+
+_Touched: `site/library/3_Skills/Libraries/leonxlnx-taste-skill.md` (new), `site/library/3_Skills/Design/design-taste-frontend/` (to `archive/`), `site/library/3_Skills/README.md`, `site/api/upstream-status.json`, `site/api/prompt-index.json`, `archive/README.md`, `docs/DISCOVERY.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-17 — Embed mode for the suite shell
 
 Opened as `?embed=1` inside a frame (a Project Hub tab now, the suite shell later), Promptbook follows embed contract v1 (`src/lib/embed.ts`). It hides the chrome the shell replaces: the brand in the top bar and the rail, the source bar and the Light | Dark switch. It posts `{suite: 1, contract: 1, type: 'ready', app: 'promptbook'}` once loaded and `{type: 'route', path}` whenever the URL changes, and it applies `{suite: 1, type: 'theme', value}` from its parent. Standalone, `?embed=1` does nothing. The app talks only to `window.parent`: who may be the parent is already decided by `FRAME_ANCESTORS`, so messages go out with `'*'` and only the parent's are read. `test:browser` frames the built app and checks all of it.
