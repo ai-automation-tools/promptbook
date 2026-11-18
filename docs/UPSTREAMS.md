@@ -2,7 +2,7 @@
 
 Every external service, API, and platform the prompt library app depends on, what the code
 assumes about each, and where to check whether that assumption still holds. The biweekly
-**Prompt-Library Upstream Check** routine (`upstream/auto-*` PRs) works from this file. Keep it
+**Promptbook Upstream Check** routine (`upstream/auto-*` PRs) works from this file. Keep it
 current by hand too: a new API call is a new row.
 
 App code paths are under `site/`, the Vercel Root Directory.

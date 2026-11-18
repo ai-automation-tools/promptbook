@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Roadmap's job table brought up to date
+
+The "Kept current by" table in `docs/ROADMAP.md` still listed the four content jobs that became Promptbook Content on 2026-11-09, called them biweekly (they rotate, every third Thursday), and missed today's changes: Monthly Upkeep now owns system-prompt drift, the PR sweep runs daily and approves the held CI run on the `upstream/resync` PR. Rewritten from the jobs' current configs. The leftover job names elsewhere went too (ROADMAP's `small` rename item, now ticked): "Prompt-Library Discovery" and "Prompt-Library Upstream Check" are the Promptbook ones, and "Catalog Refresh" is the Promptbook Content job's catalog run.
+
+_Touched: `docs/ROADMAP.md`, `docs/DISCOVERY.md`, `docs/UPSTREAMS.md`, `docs/templates/mcp-servers-template.md`, `site/library/2_Agents/README.md`, `site/library/6_MCP_Servers/README.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — Star an item as you create it
 
 New item has an "Add to favorites" checkbox under the tags. Ticked, the item is starred as soon as the server creates it (the same `POST /api/my-library/favorites` the star button sends), so there's no reopening it to star it. Editing an existing item doesn't show the box; its star is on the item page. `test:browser` creates an item with the box ticked and checks `favorites.json`.
