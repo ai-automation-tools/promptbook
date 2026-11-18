@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Library: new guides
+
+Four guides for tools people are adopting now, each written from the project's own README and docs read that day: Pi coding agent (`earendil-works/pi`, MIT), GitHub Spec Kit (`github/spec-kit`, MIT), Kilo Code (`Kilo-Org/kilocode`, MIT) and Google ADK (`google/adk-python`, Apache-2.0).
+
+_Touched: `site/library/1_Guides/CLI_Tools/pi-guide.md`, `site/library/1_Guides/CLI_Tools/spec-kit-guide.md`, `site/library/1_Guides/IDE_Extensions/kilo-code-guide.md`, `site/library/1_Guides/API_Providers/google-adk-guide.md`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — One finder per section, one keeper for the rest
 
 How the library grows changed (Mike): instead of one content job that added 2 prompts and a guide a week and vendored only the repos someone had marked `accept`, each section now has its own finder in the Routines fleet. Every finder searches news, social and AI forums for what's trending in its section and adds it straight to a PR the Org PR Sweep merges, with no per-item decision: Prompts on Monday, Skills Tuesday, Guides Wednesday, Agents Thursday and MCP Servers Friday, 3–5 items each, and System Prompts on the first Sunday of the month (vendor-published only). The provenance rules don't move: every item names its GitHub repo, and copied text needs a permissive licence. A one-time larger backfill run per section fills the library first.

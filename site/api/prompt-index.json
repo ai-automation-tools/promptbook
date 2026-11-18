@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-18T16:54:10.187Z",
-  "promptCount": 820,
+  "buildTime": "2026-11-18T22:03:07.263Z",
+  "promptCount": 824,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -115,6 +115,24 @@
       ],
       "contentPreview": "## CLI Sync Notes (March 2026)\n\nMaintained as a **Gemini tooling overview**.\n\n### Current status\n- Local content is strong for Gemini API/SDK capabilities.\n- CLI-specific details should be validated a",
       "lastModified": "2026-10-26T15:19:23.480Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/API_Providers/google-adk-guide.md",
+      "title": "🧩 Google Agent Development Kit (ADK) Guide",
+      "section": "1_Guides",
+      "category": "API_Providers",
+      "subcategory": "google-adk-guide",
+      "tags": [
+        "agent-guides",
+        "google",
+        "adk",
+        "python",
+        "agent-framework"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against the repo README at aa0f434a8b09 -->\n\n# Google Agent Development Kit (ADK) Guide\n\n## Overview\nADK is an open-source, code-first Python framework for bui",
+      "lastModified": "2026-11-18T22:02:59.600Z",
       "isUserOwned": false
     },
     {
@@ -528,6 +546,42 @@
       ],
       "contentPreview": "\n# OpenHands CLI Guide\n\n## Overview\nOpenHands is an autonomous AI software engineer.\n\n## Agent Configuration\n### Basic Settings\n- **Agent Name:** OpenHands\n- **Model:** claude-sonnet-5\n\n### Tools & Pe",
       "lastModified": "2026-10-26T15:19:23.502Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/CLI_Tools/pi-guide.md",
+      "title": "🥧 Pi Coding Agent Guide",
+      "section": "1_Guides",
+      "category": "CLI_Tools",
+      "subcategory": "pi-guide",
+      "tags": [
+        "agent-guides",
+        "pi",
+        "cli",
+        "extensions",
+        "terminal"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against the repo README and packages/coding-agent/docs/cli.md and usage.md at 942842439e1f -->\n\n# Pi Coding Agent Guide\n\n## Overview\nPi is a minimal, extensibl",
+      "lastModified": "2026-11-18T22:02:38.701Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/CLI_Tools/spec-kit-guide.md",
+      "title": "🌱 GitHub Spec Kit Guide",
+      "section": "1_Guides",
+      "category": "CLI_Tools",
+      "subcategory": "spec-kit-guide",
+      "tags": [
+        "agent-guides",
+        "spec-kit",
+        "github",
+        "spec-driven-development",
+        "workflow"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against the repo README at 617e9a0a59df -->\n\n# GitHub Spec Kit Guide\n\n## Overview\nSpec Kit is an open source toolkit that gives AI coding agents structured pro",
+      "lastModified": "2026-11-18T22:02:46.329Z",
       "isUserOwned": false
     },
     {
@@ -1101,6 +1155,24 @@
       ],
       "contentPreview": "\n# IntelliJ IDEA Setup Guide\n\n## Overview\nA comprehensive guide to setting up IntelliJ IDEA for Java developers using AI.\n\n## Agent Configuration\nN/A\n\n## System Prompt\nN/A\n\n## Workflow\n1. Install plug",
       "lastModified": "2026-10-26T15:19:23.512Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/IDE_Extensions/kilo-code-guide.md",
+      "title": "⚖️ Kilo Code Guide",
+      "section": "1_Guides",
+      "category": "IDE_Extensions",
+      "subcategory": "kilo-code-guide",
+      "tags": [
+        "agent-guides",
+        "kilo-code",
+        "vscode",
+        "jetbrains",
+        "cli"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against the repo README at 956f3146050c -->\n\n# Kilo Code Guide\n\n## Overview\nKilo Code is an open source (MIT) coding agent that runs in VS Code, JetBrains and ",
+      "lastModified": "2026-11-18T22:02:52.101Z",
       "isUserOwned": false
     },
     {
