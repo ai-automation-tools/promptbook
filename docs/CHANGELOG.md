@@ -4,6 +4,13 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Library: prefill, 20 new skills (round 2)
+
+Skill library cards (README copied, no skill text) for official vendor and most-starred repos not yet carded. Licence is the repo's; cards only link and describe.
+
+- `google-gemini/gemini-skills` (Apache-2.0), `browserbase/skills` (none declared), `langchain-ai/langchain-skills` (MIT), `hashicorp/agent-skills` (MPL-2.0), `elastic/agent-skills` (Apache-2.0), `elevenlabs/skills` (MIT), `Shopify/Shopify-AI-Toolkit` (MIT), `grafana/skills` (Apache-2.0), `datadog-labs/agent-skills` (MIT), `databricks/databricks-agent-skills` (NOASSERTION), `firebase/agent-skills` (Apache-2.0), `mongodb/agent-skills` (Apache-2.0), `clerk/skills` (none declared), `netlify/context-and-tools` (MIT), `prisma/skills` (MIT), `render-oss/skills` (MIT), `pulumi/agent-skills` (Apache-2.0), `redis/agent-skills` (MIT), `sanity-io/agent-toolkit` (MIT), `nextlevelbuilder/ui-ux-pro-max-skill` (MIT).
+
+_Touched: `site/library/3_Skills/Libraries/`, `site/library/3_Skills/README.md`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 ## 2026-11-18 — Library: new guides (prefill, round 2)
 
 Fifteen guides for widely used AI coding and agent tools, each checked against the official docs read that day. Every repo is public, not archived and pushed within the week.

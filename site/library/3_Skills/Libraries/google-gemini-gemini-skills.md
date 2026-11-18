@@ -1,0 +1,130 @@
+---
+title: "google-gemini/gemini-skills"
+description: "Skills for the Gemini API, SDK and model/agent interactions"
+repo: google-gemini/gemini-skills
+tags: ["skill","skill-library","google","gemini","ai-platform"]
+---
+# google-gemini/gemini-skills
+
+Skills for the Gemini API, SDK and model/agent interactions
+
+A skill library: browse and install its skills from [the repo on GitHub](https://github.com/google-gemini/gemini-skills). Promptbook keeps one card for it rather than a copy of each skill.
+
+---
+
+*The repo's README, copied 2026-11-18:*
+
+# Gemini API skills
+
+A library of skills for the Gemini API, SDK and model interactions.
+
+## About
+
+LLMs have fixed knowledge, being trained at a specific point in time. Software
+dev is fast paced and changes often, where new libraries are launched every day
+and best practices evolve quickly.
+
+This leaves a knowledge gap that language models can't solve on their own. For
+example, models don't know about themselves when they're trained, and they
+aren't necessarily aware of subtle changes in best practices (like [thought
+circulation](https://aistudio.google.com/docs/thought-signatures.md)) or SDK
+changes.
+
+[Skills](https://agentskills.io/) are a lightweight technique for adding
+relevant context to your agents. This repo contains skills related to building
+apps powered by the Gemini API.
+
+### Performance
+
+Our evaluations found that adding this skill improved an agent's ability to
+generate correct API code following best practices to 87% with Gemini 3 Flash
+and 96% with Gemini 3.1 Pro. For more details, see our blog post:
+[Closing the knowledge gap with agent skills](https://developers.googleblog.com/closing-the-knowledge-gap-with-agent-skills/).
+
+## Skills in this repo
+
+> [!IMPORTANT]
+> The `vertex-ai-api-dev` skill has moved to
+> [skills/cloud/gemini-api](https://github.com/google/skills/tree/main/skills/cloud/gemini-api).
+
+| Skill | Description |
+| :--- | :--- |
+| [`gemini-api-dev`](https://github.com/google-gemini/gemini-skills/blob/main/skills/gemini-api-dev) | Skill for building apps with the [Gemini API](https://aistudio.google.com/docs/interactions-overview) (Interactions API and Decisions API). Covers text generation, multi-turn chat, streaming, function calling, structured output, calibrated decisions (`gemini-decision-1`), image generation, speech generation (TTS), Voice Design, Voice Replication, managed agents, Deep Research, deprecated model guardrails, and both Python and TypeScript SDKs. |
+| [`gemini-api-cli`](https://github.com/google-gemini/gemini-skills/blob/main/skills/gemini-api-cli) | Skill for calling the Gemini API from the shell with [`gemini-api`](https://github.com/google-gemini/gemini-api-cli). Covers text and media generation (`image`, `tts`, `music`, `video`), file and YouTube analysis, transcription, Deep Research, Antigravity sandboxes, and `--jq` / `--body` scripting. |
+| [`gemini-live-api-dev`](https://github.com/google-gemini/gemini-skills/blob/main/skills/gemini-live-api-dev) | Skill for building real-time, bidirectional streaming apps with the Gemini Live API. Covers WebSocket-based audio/video/text streaming, voice activity detection, native audio features, function calling, and session management. |
+| [`gemini-omni-flash-api`](https://github.com/google-gemini/gemini-skills/blob/main/skills/gemini-omni-flash-api) | Specialized generative AI video skill focused on Gemini Omni 1.2 Flash (`gemini-omni-1.2-flash`), video editing, image and video referenced generation, first and last frame transitions, and video extensions (3s–15s per turn, up to 40s total) using the Interactions API. |
+
+## Installation
+
+You can install these skills across your preferred AI coding assistants and package managers:
+
+### Using [Vercel skills CLI](https://skills.sh)
+
+```sh
+# Interactively browse and install skills.
+npx skills add google-gemini/gemini-skills --list
+
+# Install a specific skill (e.g., gemini-api-dev).
+npx skills add google-gemini/gemini-skills --skill gemini-api-dev
+```
+
+### Using [Context7 skills CLI](https://context7.com)
+
+```sh
+# Interactively browse and install skills.
+npx ctx7 skills install /google-gemini/gemini-skills
+
+# Install a specific skill (e.g., gemini-api-dev).
+npx ctx7 skills install /google-gemini/gemini-skills gemini-api-dev
+```
+
+### Antigravity
+
+The Gemini skills come bundled with Antigravity, find them under
+⚙️ → Customizations → Build with Google Plugins.
+
+Or install through the AGY CLI:
+
+```sh
+# Install it directly
+agy plugin install https://github.com/google-gemini/gemini-skills
+```
+
+### Claude Code
+
+```sh
+# Register the marketplace
+/plugin marketplace add google-gemini/gemini-skills
+
+# Install the plugin
+/plugin install gemini-skills@gemini-skills
+```
+
+### Cursor
+
+Install directly from the Cursor plugin directory or via the editor command:
+
+```text
+/add-plugin google-gemini/gemini-skills
+```
+
+### OpenAI Codex
+
+```sh
+# Add the marketplace source
+codex plugin marketplace add https://github.com/google-gemini/gemini-skills
+
+# Install the plugin
+codex plugin add gemini-skills@gemini-skills
+```
+
+## More info
+
+You can find additional information about setting up your coding assistant with
+Gemini API MCP and Skills in [the docs](https://aistudio.google.com/docs/coding-agents.md).
+
+## Disclaimer
+
+This is not an officially supported Google product. This project is not
+eligible for the [Google Open Source Software Vulnerability Rewards
+Program](https://bughunters.google.com/open-source-security).
