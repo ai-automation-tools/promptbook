@@ -4,6 +4,11 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Library: prefill, 10 new MCP servers
+
+Ten cards from reputable sources (official vendor servers first), each written from the server's own README read that day: Todoist (`todoist/todoist-mcp`, MIT), Contentful (`contentful/contentful-mcp-server`, MIT), Perplexity (`perplexityai/modelcontextprotocol`, MIT), Brave Search (`brave/brave-search-mcp-server`, MIT), Azure DevOps (`microsoft/azure-devops-mcp`, MIT), Postman (`postmanlabs/postman-mcp-server`, Apache-2.0), Mobile MCP (`mobile-next/mobile-mcp`, Apache-2.0), Firebase (`firebase/firebase-tools`, MIT), DuckDB and MotherDuck (`motherduckdb/mcp-server-motherduck`, MIT) and Postgres MCP Pro (`crystaldba/postgres-mcp`, MIT). The `6_MCP_Servers` README now counts 54 cards.
+
+_Touched: `site/library/6_MCP_Servers/**` (ten new cards, README), `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 ## 2026-11-18 — Library: new prompts (prefill, round 2)
 
 30 prompts from vendor repos, copied with provenance (`match: similar`, each at the commit read that day). Four new collections: `google-gemini/gemini-cli` (6 slash commands, Apache-2.0), `google-github-actions/run-gemini-cli` (5 GitHub Actions prompts, Apache-2.0), `anthropics/claude-quickstarts` (5 agent prompts, MIT) and `anthropics/claude-code-action` (1 command, MIT). Existing collections grew: `anthropics/claude-cookbooks` +8 (MIT; review commands, the chief-of-staff commands, a sandbox-escape transcript reviewer) and `openai/openai-cookbook` +5 (MIT; an LLM judge, two voice agents, two portfolio agent prompts). `NOTICE` and `4_Prompts/README.md` carry the new collections.

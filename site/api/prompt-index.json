@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-18T23:08:32.835Z",
-  "promptCount": 1008,
+  "buildTime": "2026-11-18T23:09:32.763Z",
+  "promptCount": 1018,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -17105,6 +17105,24 @@
       "isUserOwned": false
     },
     {
+      "id": "6_MCP_Servers/Apps_and_Services/contentful.md",
+      "title": "🔌 Contentful",
+      "section": "6_MCP_Servers",
+      "category": "Apps_and_Services",
+      "subcategory": "contentful",
+      "tags": [
+        "mcp-server",
+        "apps-and-services",
+        "cms",
+        "content",
+        "official"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Contentful MCP server\n\nContentful's server: create, edit, organise and publish entries, assets and content types in a space.\n\n## Install\n\n**Any MCP client** (`mcpServers` config)\n\n```json\n{\n  \"mcpS",
+      "lastModified": "2026-11-18T23:09:29.438Z",
+      "isUserOwned": false
+    },
+    {
       "id": "6_MCP_Servers/Apps_and_Services/hugging-face.md",
       "title": "🔌 Hugging Face",
       "section": "6_MCP_Servers",
@@ -17194,6 +17212,24 @@
       "checked": "2026-11-18",
       "contentPreview": "\n# Stripe MCP server\n\nStripe's hosted server: customers, products, prices, payment links, invoices and the Stripe docs.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp add --transport http stripe htt",
       "lastModified": "2026-11-18T22:21:56.146Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Apps_and_Services/todoist.md",
+      "title": "🔌 Todoist",
+      "section": "6_MCP_Servers",
+      "category": "Apps_and_Services",
+      "subcategory": "todoist",
+      "tags": [
+        "mcp-server",
+        "apps-and-services",
+        "tasks",
+        "productivity",
+        "official"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Todoist MCP server\n\nTodoist's hosted server: find, add and update tasks and projects in your Todoist account.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp add --transport http todoist https://a",
+      "lastModified": "2026-11-18T23:09:29.438Z",
       "isUserOwned": false
     },
     {
@@ -17289,6 +17325,24 @@
       "checked": "2026-10-21",
       "contentPreview": "\n# Cloudflare MCP server\n\nCloudflare's hosted servers: the full API, plus focused ones for docs, Browser Rendering, Workers observability and more.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp add",
       "lastModified": "2026-10-21T19:07:45.566Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Cloud_Platforms/firebase.md",
+      "title": "🔌 Firebase",
+      "section": "6_MCP_Servers",
+      "category": "Cloud_Platforms",
+      "subcategory": "firebase",
+      "tags": [
+        "mcp-server",
+        "cloud-platforms",
+        "firebase",
+        "google",
+        "official"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Firebase MCP server\n\nFirebase's official server, built into the Firebase CLI: projects, Auth users, Firestore, security rules, Crashlytics and more.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp",
+      "lastModified": "2026-11-18T23:09:29.438Z",
       "isUserOwned": false
     },
     {
@@ -17441,6 +17495,42 @@
       "isUserOwned": false
     },
     {
+      "id": "6_MCP_Servers/Databases/motherduck.md",
+      "title": "🔌 DuckDB and MotherDuck",
+      "section": "6_MCP_Servers",
+      "category": "Databases",
+      "subcategory": "motherduck",
+      "tags": [
+        "mcp-server",
+        "databases",
+        "duckdb",
+        "analytics",
+        "official"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# DuckDB and MotherDuck MCP server\n\nMotherDuck's local server: run SQL on DuckDB files, in-memory databases, S3 and MotherDuck, and browse their catalogs.\n\n## Install\n\n**Claude Code** (a local file, ",
+      "lastModified": "2026-11-18T23:09:29.438Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Databases/postgres-mcp-pro.md",
+      "title": "🔌 Postgres MCP Pro",
+      "section": "6_MCP_Servers",
+      "category": "Databases",
+      "subcategory": "postgres-mcp-pro",
+      "tags": [
+        "mcp-server",
+        "databases",
+        "postgres",
+        "performance",
+        "community"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Postgres MCP Pro server\n\nPostgres with index tuning, EXPLAIN plans, health checks and access-controlled SQL execution.\n\n## Install\n\n**Any MCP client** (`mcpServers` config, using `uvx`; Docker and ",
+      "lastModified": "2026-11-18T23:09:29.440Z",
+      "isUserOwned": false
+    },
+    {
       "id": "6_MCP_Servers/Databases/qdrant.md",
       "title": "🔌 Qdrant",
       "section": "6_MCP_Servers",
@@ -17474,6 +17564,24 @@
       "checked": "2026-11-18",
       "contentPreview": "\n# Redis MCP server\n\nManage and search data in Redis from an agent: strings, hashes, lists, sets, sorted sets, streams and more.\n\n## Install\n\n**Any MCP client** (`mcpServers` config)\n\n```json\n{\n  \"mcp",
       "lastModified": "2026-11-18T22:19:06.340Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Developer_Tools/azure-devops.md",
+      "title": "🔌 Azure DevOps",
+      "section": "6_MCP_Servers",
+      "category": "Developer_Tools",
+      "subcategory": "azure-devops",
+      "tags": [
+        "mcp-server",
+        "developer-tools",
+        "azure-devops",
+        "work-items",
+        "official"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Azure DevOps MCP server\n\nMicrosoft's server for Azure DevOps: projects, repos, work items, builds, pipelines, test plans and wikis.\n\n## Install\n\n**Any MCP client** (hosted server; replace `{organiz",
+      "lastModified": "2026-11-18T23:09:29.440Z",
       "isUserOwned": false
     },
     {
@@ -17624,6 +17732,42 @@
       "checked": "2026-10-21",
       "contentPreview": "\n# MarkItDown MCP server\n\nConvert PDFs, Office files, images, audio and web pages to Markdown a model can read.\n\n## Install\n\n**Claude Code**\n\n```bash\npip install markitdown-mcp && claude mcp add marki",
       "lastModified": "2026-10-21T19:07:45.565Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Developer_Tools/mobile-mcp.md",
+      "title": "🔌 Mobile MCP",
+      "section": "6_MCP_Servers",
+      "category": "Developer_Tools",
+      "subcategory": "mobile-mcp",
+      "tags": [
+        "mcp-server",
+        "developer-tools",
+        "mobile",
+        "testing",
+        "automation"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Mobile MCP server\n\nDrive iOS and Android simulators, emulators and real devices from an agent, through accessibility snapshots or screenshots.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp add m",
+      "lastModified": "2026-11-18T23:09:29.440Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Developer_Tools/postman.md",
+      "title": "🔌 Postman",
+      "section": "6_MCP_Servers",
+      "category": "Developer_Tools",
+      "subcategory": "postman",
+      "tags": [
+        "mcp-server",
+        "developer-tools",
+        "api",
+        "testing",
+        "official"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Postman MCP server\n\nPostman's official server: workspaces, collections, specifications and environments, plus API client-code generation.\n\n## Install\n\n**Any MCP client** (hosted server; add this UR",
+      "lastModified": "2026-11-18T23:09:29.440Z",
       "isUserOwned": false
     },
     {
@@ -17821,6 +17965,24 @@
       "isUserOwned": false
     },
     {
+      "id": "6_MCP_Servers/Web_and_Search/brave-search.md",
+      "title": "🔌 Brave Search",
+      "section": "6_MCP_Servers",
+      "category": "Web_and_Search",
+      "subcategory": "brave-search",
+      "tags": [
+        "mcp-server",
+        "web-and-search",
+        "search",
+        "news",
+        "official"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Brave Search MCP server\n\nBrave's official server: web, news, image, video, local and place search, plus LLM-ready page context and summaries.\n\n## Install\n\n**Any MCP client** (`mcpServers` config)\n\n",
+      "lastModified": "2026-11-18T23:09:29.442Z",
+      "isUserOwned": false
+    },
+    {
       "id": "6_MCP_Servers/Web_and_Search/exa.md",
       "title": "🔌 Exa",
       "section": "6_MCP_Servers",
@@ -17854,6 +18016,24 @@
       "checked": "2026-11-18",
       "contentPreview": "\n# Firecrawl MCP server\n\nSearch the web, scrape any URL into clean Markdown, crawl or map a site, and run multi-source research jobs from an agent.\n\n## Install\n\n**Claude Code** (hosted server; scrape,",
       "lastModified": "2026-11-18T22:19:06.345Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Web_and_Search/perplexity.md",
+      "title": "🔌 Perplexity",
+      "section": "6_MCP_Servers",
+      "category": "Web_and_Search",
+      "subcategory": "perplexity",
+      "tags": [
+        "mcp-server",
+        "web-and-search",
+        "search",
+        "research",
+        "official"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Perplexity MCP server\n\nPerplexity's official server: real-time web search, reasoning and research through the Perplexity API.\n\n## Install\n\n**Claude Code** (hosted server)\n\n```bash\nclaude mcp add --",
+      "lastModified": "2026-11-18T23:09:29.442Z",
       "isUserOwned": false
     },
     {
