@@ -4,6 +4,19 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Library: new guides (prefill, round 2)
+
+Fifteen guides for widely used AI coding and agent tools, each checked against the official docs read that day. Every repo is public, not archived and pushed within the week.
+
+- Claude Code (`anthropics/claude-code`, no licence file): `skills-guide`, `plugins-guide`, `settings-permissions-guide`.
+- Gemini CLI (`google-gemini/gemini-cli`, Apache-2.0): `gemini-md-context-guide`, `mcp-servers-guide`.
+- API_Providers: `claude-agent-sdk-typescript-guide` (`anthropics/claude-agent-sdk-typescript`, no licence file), `crewai-guide` (`crewAIInc/crewAI`, MIT), `pydantic-ai-guide` (`pydantic/pydantic-ai`, MIT), `smolagents-guide` (`huggingface/smolagents`, Apache-2.0), `dspy-guide` (`stanfordnlp/dspy`, MIT), `langchain-guide` (`langchain-ai/langchain`, MIT), `mcp-python-sdk-guide` (`modelcontextprotocol/python-sdk`, MIT), `mcp-typescript-sdk-guide` (`modelcontextprotocol/typescript-sdk`, licence per repo).
+- CLI_Tools: `copilot-cli-guide` (`github/copilot-cli`), `vllm-guide` (`vllm-project/vllm`, Apache-2.0).
+
+_Touched: `site/library/1_Guides/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — repowise prompts rejected
 
 `repowise-dev/claude-code-prompts` was marked `accept` in the 2026-11-18 triage. The prompts finder's backfill found its `complete-prompts/` mirror Claude Code's internal prompts section by section, so it copied nothing and asked. It is now `reject` in `DISCOVERY.md`, which the finders honour, and the question in `OPEN-QUESTIONS.md` is answered.
