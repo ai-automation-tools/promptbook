@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "buildTime": "2026-11-18T16:28:23.252Z",
+  "buildTime": "2026-11-18T16:31:39.994Z",
   "promptCount": 819,
   "prompts": [
     {
@@ -2477,9 +2477,9 @@
         "business",
         "marketing"
       ],
-      "checked": "2026-11-09",
+      "checked": "2026-11-16",
       "contentPreview": "\n# Xquik X (Twitter) data API\n\n> Xquik is an independent third-party service. Not affiliated with X Corp. \"Twitter\" and \"X\" are trademarks of X Corp.\n\nXquik is the world's fastest and cheapest X Twitt",
-      "lastModified": "2026-11-10T05:27:11.164Z",
+      "lastModified": "2026-11-18T16:31:36.802Z",
       "isUserOwned": false
     },
     {
@@ -2663,9 +2663,9 @@
         "architecture",
         "svg"
       ],
-      "checked": "2026-11-09",
-      "contentPreview": "\n# Diagram Design\n\nCreate diagrams as self-contained HTML files with inline SVG and an editorial design system.\n\nForty-five visual types. Semantic patterns describe behavior; type references describe ",
-      "lastModified": "2026-11-10T05:27:11.169Z",
+      "checked": "2026-11-16",
+      "contentPreview": "\n# Diagram Design\n\nCreate diagrams as self-contained HTML files with inline SVG and an editorial design system.\n\nFifty visual types. Semantic patterns describe behavior; type references describe layou",
+      "lastModified": "2026-11-18T16:31:36.805Z",
       "isUserOwned": false
     },
     {
@@ -2749,9 +2749,9 @@
         "agents",
         "workflow"
       ],
-      "checked": "2026-11-09",
+      "checked": "2026-11-16",
       "contentPreview": "\n# Planning with Files\n\nWork like Manus: Use persistent markdown files as your \"working memory on disk.\"\n\n## FIRST: Restore Project State\n\n**Before continuing**, resolve the plan this task owns:\n\n1. U",
-      "lastModified": "2026-11-10T05:27:11.324Z",
+      "lastModified": "2026-11-18T16:31:36.841Z",
       "isUserOwned": false
     },
     {
@@ -14119,7 +14119,7 @@
       ],
       "checked": "2026-11-12",
       "contentPreview": "\n# Atlassian MCP server\n\nSearch, read and update Jira, Confluence, Jira Service Management, Bitbucket, Compass and Loom from an agent, through Atlassian's hosted server.\n\n## Install\n\n**Claude Code**\n\n",
-      "lastModified": "2026-11-18T16:26:59.637Z",
+      "lastModified": "2026-11-18T16:31:37.404Z",
       "isUserOwned": false
     },
     {
@@ -14138,7 +14138,7 @@
       ],
       "checked": "2026-11-12",
       "contentPreview": "\n# Hugging Face MCP server\n\nConnect an agent to the Hugging Face Hub: search models, datasets and papers, and call Gradio Spaces as tools.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp add hf-mcp-s",
-      "lastModified": "2026-11-18T16:26:59.638Z",
+      "lastModified": "2026-11-18T16:31:37.405Z",
       "isUserOwned": false
     },
     {
@@ -14307,7 +14307,7 @@
       ],
       "checked": "2026-11-12",
       "contentPreview": "\n# Heroku MCP server\n\nList, create, deploy and scale Heroku apps, manage add-ons and read logs by asking in natural language.\n\n## Install\n\nNeeds the Heroku CLI 10.8.1 or later, signed in. The README r",
-      "lastModified": "2026-11-18T16:26:59.642Z",
+      "lastModified": "2026-11-18T16:31:37.405Z",
       "isUserOwned": false
     },
     {

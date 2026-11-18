@@ -1,5 +1,5 @@
 {
-  "checked": "2026-11-09",
+  "checked": "2026-11-16",
   "items": {
     "2_Agents/AI_ML/AI_Engineering_SMEs/ai-engineer.md": {
       "verdict": "current",
@@ -569,11 +569,11 @@
       "extra": 0
     },
     "3_Skills/Content/General/humanizer/SKILL.md": {
-      "verdict": "current",
+      "verdict": "drifted",
       "repo": "blader/humanizer",
       "path": "SKILL.md",
       "branch": "main",
-      "extra": 0
+      "extra": 0.11
     },
     "3_Skills/Content/General/i-have-adhd/SKILL.md": {
       "verdict": "current",
