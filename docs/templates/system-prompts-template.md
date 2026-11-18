@@ -5,7 +5,7 @@ category: "LLM Instructions"
 subcategory: "[Vendor]"  # the folder under 5_System_Prompts/, e.g. Anthropic, OpenAI, Cursor
 upstream:
   match: exact            # exact | similar (our copy trims or reformats a little)
-  repo: [owner/repo]      # the GitHub collection or vendor repo it was copied from
+  repo: [owner/repo]      # the vendor's own repo (an open-source agent's prompt file); never a leak collection
   path: [path/in/repo.md]
   ref: [full commit sha]  # the commit you read
   checked: [YYYY-MM-DD]
@@ -20,7 +20,11 @@ upstream:
 <!-- 5_System_Prompts is an archive of real system prompts, copied verbatim from a source you
      can link. Never write or reconstruct one: since 2026-10-23 a file without a GitHub repo
      (or a vendor page) fails CI (scripts/upstream.test.mjs), and 63 invented prompts were
-     removed for that reason. One capture per file; a newer version is a new file. -->
+     removed for that reason. One capture per file; a newer version is a new file.
+     Vendor-published only (Mike, 2026-11-18): the vendor's own page or own repo. Never a
+     leaked, extracted or jailbroken prompt, or a collection of them (jujumilk3/leaked-system-prompts,
+     0xeb/TheBigPromptLibrary and the like): their 136 files were re-sourced or archived to
+     archive/leaked-sources-2026-11-18/, and upstream.test.mjs fails an item that names one. -->
 
 [The system prompt, exactly as the source has it. Keep its own formatting, XML tags and
 placeholders such as {} or {{date}}; don't add headings or commentary inside it.]

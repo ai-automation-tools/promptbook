@@ -1,6 +1,6 @@
 ---
 title: "📝 Claude Haiku 5.5 (2026-10-26)"
-tags: ["system-prompt", "anthropic", "claude", "claude-haiku-5.5"]
+tags: ["featured", "system-prompt", "anthropic", "claude", "claude-haiku-5.5"]
 category: "LLM Instructions"
 subcategory: "Anthropic"
 upstream:

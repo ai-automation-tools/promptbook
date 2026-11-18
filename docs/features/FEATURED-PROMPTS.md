@@ -82,20 +82,22 @@ This document tracks which prompts are marked as "featured" and displayed in the
 
 ### System Prompts (4 prompts)
 
-15. **🧠 Claude Sonnet 4.5**
+_Changed 2026-11-18: Claude Cowork, GPT5 and Antigravity came from leak collections and were archived; Claude Sonnet 4.5's featured copy was a duplicate of a re-sourced file. These four, all from Anthropic's own release notes, replaced them._
+
+15. **Claude Fable 5.2** (2026-11-09)
     - Category: `Anthropic`
     - Status: ✅ Featured
 
-16. **🧠 Claude Cowork**
+16. **Claude Opus 5.5** (2026-10-27)
     - Category: `Anthropic`
     - Status: ✅ Featured
 
-17. **🤖 GPT5**
-    - Category: `OpenAI`
+17. **Claude Sonnet 5.5** (2026-10-27)
+    - Category: `Anthropic`
     - Status: ✅ Featured
 
-18. **🚀 Antigravity**
-    - Category: `Google`
+18. **Claude Haiku 5.5** (2026-10-26)
+    - Category: `Anthropic`
     - Status: ✅ Featured
 
 ### Skills (1 prompt)
