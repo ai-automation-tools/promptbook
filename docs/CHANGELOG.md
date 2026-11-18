@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Library: new prompts (prefill, round 2)
+
+30 prompts from vendor repos, copied with provenance (`match: similar`, each at the commit read that day). Four new collections: `google-gemini/gemini-cli` (6 slash commands, Apache-2.0), `google-github-actions/run-gemini-cli` (5 GitHub Actions prompts, Apache-2.0), `anthropics/claude-quickstarts` (5 agent prompts, MIT) and `anthropics/claude-code-action` (1 command, MIT). Existing collections grew: `anthropics/claude-cookbooks` +8 (MIT; review commands, the chief-of-staff commands, a sandbox-escape transcript reviewer) and `openai/openai-cookbook` +5 (MIT; an LLM judge, two voice agents, two portfolio agent prompts). `NOTICE` and `4_Prompts/README.md` carry the new collections.
+
+_Touched: `site/library/4_Prompts/`, `NOTICE`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — repowise prompts rejected
 
 `repowise-dev/claude-code-prompts` was marked `accept` in the 2026-11-18 triage. The prompts finder's backfill found its `complete-prompts/` mirror Claude Code's internal prompts section by section, so it copied nothing and asked. It is now `reject` in `DISCOVERY.md`, which the finders honour, and the question in `OPEN-QUESTIONS.md` is answered.

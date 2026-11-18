@@ -28,11 +28,19 @@ top-level folder each:
 - Microsoft_Copilot_Prompts/ derives from pnp/copilot-prompts,
   samples/prompts/*/README.md (MIT License, Copyright (c) 2024 Microsoft 365 &
   Power Platform Community).
-- Claude_Cookbooks/ derives from anthropics/claude-cookbooks, patterns/agents/prompts
-  and .claude/commands (MIT License, Copyright (c) 2023 Anthropic).
+- Claude_Cookbooks/ derives from anthropics/claude-cookbooks, patterns/agents/prompts,
+  .claude/commands and claude_agent_sdk/chief_of_staff_agent/.claude/commands (MIT License, Copyright (c) 2023 Anthropic).
 - OpenAI_Cookbook/ derives from openai/openai-cookbook,
-  examples/agents_sdk/multi-agent-portfolio-collaboration/prompts (MIT License,
-  Copyright (c) 2025 OpenAI).
+  examples/agents_sdk/multi-agent-portfolio-collaboration/prompts, examples/audio and
+  examples/gpt-5 prompt files (MIT License, Copyright (c) 2025 OpenAI).
+- Gemini_CLI/ derives from google-gemini/gemini-cli, .gemini/commands (Apache License,
+  Version 2.0; https://www.apache.org/licenses/LICENSE-2.0).
+- Gemini_CLI_Action/ derives from google-github-actions/run-gemini-cli, .github/commands
+  (Apache License, Version 2.0).
+- Anthropic_Quickstarts/ derives from anthropics/claude-quickstarts, autonomous-coding/prompts
+  and managed-agents/knowledge-wiki/prompts (MIT License, Copyright (c) 2023 Anthropic).
+- Claude_Code_Action/ derives from anthropics/claude-code-action, .claude/commands
+  (MIT License, Copyright (c) 2025 Anthropic, PBC).
 - Claude_Plugins_Official/ derives from anthropics/claude-plugins-official,
   plugins/*/commands (Apache License, Version 2.0; each plugin ships its own LICENSE;
   https://www.apache.org/licenses/LICENSE-2.0).
