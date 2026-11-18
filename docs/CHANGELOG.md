@@ -6,7 +6,7 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ## 2026-11-18 — The weekly upstream PR runs CI and gets swept
 
-The Monday upstream-drift Action opens its `upstream/resync` PR with `GITHUB_TOKEN`, and GitHub doesn't start `ci.yml` for a push made with that token, so the PR never had the required `check` and `secrets` and sat until someone pushed to it by hand (#488, #503). Its last step now runs `gh workflow run ci.yml --ref upstream/resync`: a `workflow_dispatch` is the one event that token may trigger, and its check runs land on the PR's head commit. The org PR sweep now covers `upstream/resync` and sweeps Promptbook every day rather than Wednesday and Sunday, and the Promptbook scheduled tasks start late when the PC was off at their time.
+The Monday upstream-drift Action opens its `upstream/resync` PR as the github-actions bot, and GitHub holds that PR's `pull_request` CI run at "action_required" until someone approves it. Until then the required `check` and `secrets` never report and the PR stays blocked (#488, #503). A first attempt, starting `ci.yml` by `workflow_dispatch` from the Action (#507), ran green but GitHub doesn't count a dispatched run's checks toward the PR, so it is taken out again. Instead the org PR sweep, which runs as the owner, now approves held runs on any fleet PR before reviewing it (`Invoke-PrSweep.ps1` in the Routines repo). It also covers `upstream/resync` and sweeps Promptbook every day rather than Wednesday and Sunday, and the Promptbook scheduled tasks start late when the PC was off at their time.
 
 _Touched: `.github/workflows/upstream-drift.yml`, `docs/CHANGELOG.md`._
 
