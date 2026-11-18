@@ -1,16 +1,13 @@
 #!/usr/bin/env node
 /**
  * Find new and popular GitHub repos of the kinds this library vendors (skills,
- * prompts, agent definitions, MCP servers) and queue them in `docs/DISCOVERY.md`
- * for a human to accept or reject. Nothing is vendored here: that is the Catalog
- * Refresh job's work once a row says `accept`, and only after it has read the
- * licence. Rows that say `link` get a Resources-menu entry
- * (`site/library/resources.json`) from this script, so the top-right menu grows
- * without anyone editing React.
- *
- * Why a ledger and not an auto-import: a public library that copies a repo is
- * republishing it. Licence, quality and fit are a person's call; finding the
- * candidates and remembering what was already decided is the script's.
+ * prompts, agent definitions, MCP servers) that the library doesn't track yet.
+ * Since 2026-11-18 its report mode is one source for the promptbook-find-* jobs
+ * (one per section, which judge licence, quality and fit and add items
+ * themselves); the weekly Discovery job that ran --write is retired, and the
+ * ledger it filled, `docs/DISCOVERY.md`, is closed apart from its `reject` rows.
+ * --write still appends pending rows and turns `link` rows into Resources-menu
+ * entries (`site/library/resources.json`) when run by hand.
  *
  * Usage (from the repo root, needs the gh CLI signed in):
  *   node scripts/discover-repos.mjs                 # report
