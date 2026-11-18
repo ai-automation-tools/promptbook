@@ -12,7 +12,7 @@ A skill library: browse and install its skills from [the repo on GitHub](https:/
 
 ---
 
-*The repo's README, copied 2026-11-16:*
+*The repo's README, copied 2026-11-18:*
 
 # Marketing Skills for AI Agents
 
@@ -391,6 +391,10 @@ You can also invoke skills directly:
 ### Sales & RevOps
 - `revops` - Lead lifecycle, scoring, routing, pipeline management
 - `sales-enablement` - Sales decks, one-pagers, objection docs, demo scripts
+
+## Related Libraries
+
+- [design-skills](https://github.com/zstvns/design-skills) by Zach Stevens: brand, logo, web, collateral, and motion design skills. It reads `.agents/product-marketing.md` for audience, voice, and competitors, and writes `.agents/brand.md` and `.agents/design.md`, which `image`, `ad-creative`, `video`, `social`, and `sales-enablement` read for colors, type, and logo files.
 
 ## Contributing
 

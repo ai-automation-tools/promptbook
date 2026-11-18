@@ -7,7 +7,7 @@ server:
   license: "Apache-2.0"
   maintainer: "Chrome DevTools team (official)"
   transport: "stdio"
-  checked: 2026-10-21
+  checked: 2026-11-18
 ---
 
 # Chrome DevTools MCP server
@@ -46,7 +46,7 @@ claude mcp add chrome-devtools -- npx -y chrome-devtools-mcp@latest
 
 ## Notes
 
-It controls a Chrome instance, so anything open in that profile is visible to the agent. Use a separate profile for automation.
+It controls a Chrome instance, so anything open in that profile is visible to the agent. Use a separate profile for automation. Google collects usage statistics by default; pass `--no-usage-statistics` to opt out.
 
 ## Details
 
@@ -59,4 +59,4 @@ It controls a Chrome instance, so anything open in that profile is visible to th
 | **Auth** | None |
 | **Needs** | Node.js LTS and Chrome |
 
-_Install lines read from the server's README on 2026-10-21. The Monthly Upkeep re-checks every card._
+_Install lines read from the server's README on 2026-11-18. The Monthly Upkeep re-checks every card._

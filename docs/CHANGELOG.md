@@ -4,6 +4,15 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Library refresh — skills and MCP
+
+- Skill library cards, rewritten from each repo's GitHub description and README by `refresh-library-cards.mjs`: `addyosmani-agent-skills`, `ai-automation-tools-agent-skills`, `coreyhaines31-marketingskills`, `huggingface-skills`, `wshobson-agents` (all `3_Skills/Libraries/`).
+- Single skills: none behind or drifted in `upstream-status.json`; hand-pack paths all live.
+- MCP cards re-read against each server's README, `server.checked` set to 2026-11-18: `n8n-mcp` (czlonkowski/n8n-mcp: tools list, overwrite-on-edit caveat), `notion` (makenotion/notion-mcp-server: Notion now recommends and supports only its remote server), `stripe` (stripe/ai: old npm packages deprecated), `chrome-devtools` (ChromeDevTools/chrome-devtools-mcp: usage statistics opt-out), `resend` (resend/resend-mcp: unchanged). `check-mcp-servers.mjs`: 28 cards, none need a look.
+- `api/prompt-index.json` rebuilt.
+
+---
+
 ## 2026-11-18 — One finder per section, one keeper for the rest
 
 How the library grows changed (Mike): instead of one content job that added 2 prompts and a guide a week and vendored only the repos someone had marked `accept`, each section now has its own finder in the Routines fleet. Every finder searches news, social and AI forums for what's trending in its section and adds it straight to a PR the Org PR Sweep merges, with no per-item decision: Prompts on Monday, Skills Tuesday, Guides Wednesday, Agents Thursday and MCP Servers Friday, 3–5 items each, and System Prompts on the first Sunday of the month (vendor-published only). The provenance rules don't move: every item names its GitHub repo, and copied text needs a permissive licence. A one-time larger backfill run per section fills the library first.

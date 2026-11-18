@@ -7,7 +7,7 @@ server:
   license: "MIT"
   maintainer: "Resend (official)"
   transport: "HTTP (remote), stdio"
-  checked: 2026-10-21
+  checked: 2026-11-18
 ---
 
 # Resend MCP server
@@ -55,4 +55,4 @@ Locally: `claude mcp add resend -e RESEND_API_KEY=re_xxx -- npx -y resend-mcp`. 
 | **Auth** | OAuth on the remote server, or a Resend API key |
 | **Needs** | A Resend account |
 
-_Install lines read from the server's README on 2026-10-21. The Monthly Upkeep re-checks every card._
+_Install lines read from the server's README on 2026-11-18. The Monthly Upkeep re-checks every card._
