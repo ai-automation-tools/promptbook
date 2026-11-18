@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Star an item as you create it
+
+New item has an "Add to favorites" checkbox under the tags. Ticked, the item is starred as soon as the server creates it (the same `POST /api/my-library/favorites` the star button sends), so there's no reopening it to star it. Editing an existing item doesn't show the box; its star is on the item page. `test:browser` creates an item with the box ticked and checks `favorites.json`.
+
+_Touched: `site/src/components/PromptEditorModal.tsx`, `site/src/App.tsx`, `site/scripts/browser-smoke.test.mjs`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — Discovery queue triaged
 
 All 74 pending rows in `docs/DISCOVERY.md` decided with Mike: 17 `accept` (9 skill-library cards, 4 single skills, 2 MCP cards, and two prompt sources: Piebald-AI's Claude Code system prompts and Microsoft 365 Copilot prompts), 17 `link` (awesome lists, tools, and collections whose licence rules out copying), 40 `reject` (apps and platforms, Chinese-language-first repos, anti-bot and credential tooling, an archived list, low-signal packs). The content job's prompt quota had gone unmet for want of an accepted prompts row; the catalog runs now have a queue again. The Discovery job, paused since 2026-11-03 until this was done, is re-enabled; its next run adds the `link` rows to the Resources menu.
