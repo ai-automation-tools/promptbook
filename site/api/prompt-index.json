@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-18T16:54:10.187Z",
-  "promptCount": 820,
+  "buildTime": "2026-11-18T21:04:10.089Z",
+  "promptCount": 836,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -14142,6 +14142,24 @@
       "isUserOwned": false
     },
     {
+      "id": "6_MCP_Servers/Apps_and_Services/blender.md",
+      "title": "🔌 Blender",
+      "section": "6_MCP_Servers",
+      "category": "Apps_and_Services",
+      "subcategory": "blender",
+      "tags": [
+        "mcp-server",
+        "apps-and-services",
+        "3d",
+        "blender",
+        "community"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Blender MCP server\n\nPrompt-driven 3D modelling in a live Blender session: scene control, Python execution and asset or AI model generation. A third-party integration, not made by Blender. Formerly ",
+      "lastModified": "2026-11-18T21:03:00.152Z",
+      "isUserOwned": false
+    },
+    {
       "id": "6_MCP_Servers/Apps_and_Services/hugging-face.md",
       "title": "🔌 Hugging Face",
       "section": "6_MCP_Servers",
@@ -14292,6 +14310,24 @@
       "isUserOwned": false
     },
     {
+      "id": "6_MCP_Servers/Cloud_Platforms/azure.md",
+      "title": "🔌 Azure",
+      "section": "6_MCP_Servers",
+      "category": "Cloud_Platforms",
+      "subcategory": "azure",
+      "tags": [
+        "mcp-server",
+        "cloud-platforms",
+        "azure",
+        "microsoft",
+        "official"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Azure MCP server\n\nConnects an agent to Azure services (storage, databases, monitoring, resources and more) through one Microsoft server.\n\n## Install\n\n**Claude Code** (the Azure plugin bundles the s",
+      "lastModified": "2026-11-18T21:02:45.175Z",
+      "isUserOwned": false
+    },
+    {
       "id": "6_MCP_Servers/Cloud_Platforms/cloudflare.md",
       "title": "🔌 Cloudflare",
       "section": "6_MCP_Servers",
@@ -14327,6 +14363,24 @@
       "checked": "2026-11-12",
       "contentPreview": "\n# Heroku MCP server\n\nList, create, deploy and scale Heroku apps, manage add-ons and read logs by asking in natural language.\n\n## Install\n\nNeeds the Heroku CLI 10.8.1 or later, signed in. The README r",
       "lastModified": "2026-11-18T16:31:37.405Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Cloud_Platforms/kubernetes.md",
+      "title": "🔌 Kubernetes",
+      "section": "6_MCP_Servers",
+      "category": "Cloud_Platforms",
+      "subcategory": "kubernetes",
+      "tags": [
+        "mcp-server",
+        "cloud-platforms",
+        "kubernetes",
+        "helm",
+        "community"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Kubernetes MCP server\n\nConnect an agent to a Kubernetes cluster: kubectl operations, Helm, node management and a pod troubleshooting prompt.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp add kub",
+      "lastModified": "2026-11-18T21:03:20.392Z",
       "isUserOwned": false
     },
     {
@@ -14406,6 +14460,78 @@
       "isUserOwned": false
     },
     {
+      "id": "6_MCP_Servers/Databases/clickhouse.md",
+      "title": "🔌 ClickHouse",
+      "section": "6_MCP_Servers",
+      "category": "Databases",
+      "subcategory": "clickhouse",
+      "tags": [
+        "mcp-server",
+        "databases",
+        "analytics",
+        "sql",
+        "official"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# ClickHouse MCP server\n\nRun SQL against a ClickHouse cluster from an agent, read-only by default, with schema inspection and query analysis.\n\n## Install\n\n**Any MCP client** (`mcpServers` config)\n\n``",
+      "lastModified": "2026-11-18T21:02:30.110Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Databases/mcp-toolbox.md",
+      "title": "🔌 MCP Toolbox for Databases",
+      "section": "6_MCP_Servers",
+      "category": "Databases",
+      "subcategory": "mcp-toolbox",
+      "tags": [
+        "mcp-server",
+        "databases",
+        "sql",
+        "google-cloud",
+        "official"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# MCP Toolbox for Databases\n\nOne server that connects an agent to PostgreSQL, MySQL, BigQuery, Spanner, MongoDB, Redis and many more databases, with prebuilt or custom tools.\n\n## Install\n\n**Any MCP c",
+      "lastModified": "2026-11-18T21:02:24.606Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Databases/qdrant.md",
+      "title": "🔌 Qdrant",
+      "section": "6_MCP_Servers",
+      "category": "Databases",
+      "subcategory": "qdrant",
+      "tags": [
+        "mcp-server",
+        "databases",
+        "vector-search",
+        "memory",
+        "official"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Qdrant MCP server\n\nA semantic memory layer for an agent: store and retrieve information in the Qdrant vector search engine.\n\n## Install\n\n**Claude Code** (a code-search setup from the README)\n\n```ba",
+      "lastModified": "2026-11-18T21:02:35.503Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Databases/redis.md",
+      "title": "🔌 Redis",
+      "section": "6_MCP_Servers",
+      "category": "Databases",
+      "subcategory": "redis",
+      "tags": [
+        "mcp-server",
+        "databases",
+        "cache",
+        "key-value",
+        "official"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Redis MCP server\n\nManage and search data in Redis from an agent: strings, hashes, lists, sets, sorted sets, streams and more.\n\n## Install\n\n**Any MCP client** (`mcpServers` config)\n\n```json\n{\n  \"mcp",
+      "lastModified": "2026-11-18T21:02:39.857Z",
+      "isUserOwned": false
+    },
+    {
       "id": "6_MCP_Servers/Developer_Tools/codebase-memory.md",
       "title": "🔌 Codebase Memory",
       "section": "6_MCP_Servers",
@@ -14425,6 +14551,24 @@
       "isUserOwned": false
     },
     {
+      "id": "6_MCP_Servers/Developer_Tools/context-mode.md",
+      "title": "🔌 Context Mode",
+      "section": "6_MCP_Servers",
+      "category": "Developer_Tools",
+      "subcategory": "context-mode",
+      "tags": [
+        "mcp-server",
+        "developer-tools",
+        "context-window",
+        "sandbox",
+        "community"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Context Mode MCP server\n\nRuns a coding agent's commands and fetches in a local sandbox and indexes the output, so only the part it asks for enters the context window.\n\n## Install\n\n**Claude Code** (",
+      "lastModified": "2026-11-18T21:01:28.793Z",
+      "isUserOwned": false
+    },
+    {
       "id": "6_MCP_Servers/Developer_Tools/context7.md",
       "title": "🔌 Context7",
       "section": "6_MCP_Servers",
@@ -14441,6 +14585,42 @@
       "checked": "2026-10-21",
       "contentPreview": "\n# Context7 MCP server\n\nCurrent, version-specific library documentation pulled into the prompt, so the model stops guessing at APIs.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp add --transport ht",
       "lastModified": "2026-10-21T19:07:45.565Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Developer_Tools/docker-mcp-gateway.md",
+      "title": "🔌 Docker MCP Gateway",
+      "section": "6_MCP_Servers",
+      "category": "Developer_Tools",
+      "subcategory": "docker-mcp-gateway",
+      "tags": [
+        "mcp-server",
+        "developer-tools",
+        "docker",
+        "gateway",
+        "official"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Docker MCP Gateway\n\nOne gateway that runs MCP servers as isolated Docker containers and gives every client the same tools, secrets and OAuth.\n\n## Install\n\nNeeds Docker Desktop 4.59+ with the MCP To",
+      "lastModified": "2026-11-18T21:01:19.238Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Developer_Tools/framelink-figma.md",
+      "title": "🔌 Framelink MCP for Figma",
+      "section": "6_MCP_Servers",
+      "category": "Developer_Tools",
+      "subcategory": "framelink-figma",
+      "tags": [
+        "mcp-server",
+        "developer-tools",
+        "figma",
+        "design-to-code",
+        "community"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Framelink MCP for Figma\n\nGives a coding agent a trimmed view of your Figma files, so it implements a design from layout and style data instead of a screenshot.\n\n## Install\n\n**Any MCP client** (`mcp",
+      "lastModified": "2026-11-18T21:01:14.326Z",
       "isUserOwned": false
     },
     {
@@ -14539,6 +14719,24 @@
       "isUserOwned": false
     },
     {
+      "id": "6_MCP_Servers/Developer_Tools/serena.md",
+      "title": "🔌 Serena",
+      "section": "6_MCP_Servers",
+      "category": "Developer_Tools",
+      "subcategory": "serena",
+      "tags": [
+        "mcp-server",
+        "developer-tools",
+        "code-search",
+        "refactoring",
+        "community"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Serena MCP server\n\nIDE-style semantic code search, navigation and refactoring for a coding agent, at the symbol level through language servers.\n\n## Install\n\nInstall Serena with uv (the README says ",
+      "lastModified": "2026-11-18T21:01:28.917Z",
+      "isUserOwned": false
+    },
+    {
       "id": "6_MCP_Servers/Reference/fetch.md",
       "title": "🔌 Fetch",
       "section": "6_MCP_Servers",
@@ -14608,6 +14806,24 @@
       "isUserOwned": false
     },
     {
+      "id": "6_MCP_Servers/Reference/microsoft-learn.md",
+      "title": "🔌 Microsoft Learn",
+      "section": "6_MCP_Servers",
+      "category": "Reference",
+      "subcategory": "microsoft-learn",
+      "tags": [
+        "mcp-server",
+        "reference",
+        "documentation",
+        "microsoft",
+        "official"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Microsoft Learn MCP server\n\nSearch and fetch Microsoft's official documentation and code samples, so an agent stops inventing Azure and .NET APIs.\n\n## Install\n\n**Claude Code** (plugin from the offi",
+      "lastModified": "2026-11-18T21:02:54.575Z",
+      "isUserOwned": false
+    },
+    {
       "id": "6_MCP_Servers/Reference/sequential-thinking.md",
       "title": "🔌 Sequential Thinking",
       "section": "6_MCP_Servers",
@@ -14639,6 +14855,78 @@
       "checked": "2026-10-21",
       "contentPreview": "\n# Time MCP server\n\nThe current time in any IANA time zone, and conversion between zones.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp add time -- uvx mcp-server-time\n```\n\n**Any MCP client** (`mcp",
       "lastModified": "2026-10-21T19:07:45.563Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Web_and_Search/apify.md",
+      "title": "🔌 Apify",
+      "section": "6_MCP_Servers",
+      "category": "Web_and_Search",
+      "subcategory": "apify",
+      "tags": [
+        "mcp-server",
+        "web-and-search",
+        "scraping",
+        "automation",
+        "official"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Apify MCP server\n\nLets an agent find and run Apify Actors from the Apify Store, scraping and automation tools, and read their runs and datasets.\n\n## Install\n\n**Claude Code** (hosted server; sign in",
+      "lastModified": "2026-11-18T21:01:50.219Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Web_and_Search/exa.md",
+      "title": "🔌 Exa",
+      "section": "6_MCP_Servers",
+      "category": "Web_and_Search",
+      "subcategory": "exa",
+      "tags": [
+        "mcp-server",
+        "web-and-search",
+        "search",
+        "research",
+        "official"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Exa MCP server\n\nWeb search and page fetching for an agent, returning clean ready-to-use content, with optional multi-step research runs.\n\n## Install\n\n**Claude Code** (plugin from the official marke",
+      "lastModified": "2026-11-18T21:01:34.337Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Web_and_Search/firecrawl.md",
+      "title": "🔌 Firecrawl",
+      "section": "6_MCP_Servers",
+      "category": "Web_and_Search",
+      "subcategory": "firecrawl",
+      "tags": [
+        "mcp-server",
+        "web-and-search",
+        "scraping",
+        "crawling",
+        "official"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Firecrawl MCP server\n\nSearch the web, scrape any URL into clean Markdown, crawl or map a site, and run multi-source research jobs from an agent.\n\n## Install\n\n**Claude Code** (hosted server; scrape,",
+      "lastModified": "2026-11-18T21:01:45.177Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Web_and_Search/tavily.md",
+      "title": "🔌 Tavily",
+      "section": "6_MCP_Servers",
+      "category": "Web_and_Search",
+      "subcategory": "tavily",
+      "tags": [
+        "mcp-server",
+        "web-and-search",
+        "search",
+        "crawling",
+        "official"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Tavily MCP server\n\nReal-time web search, page extraction, site mapping and crawling for an agent, through Tavily's API.\n\n## Install\n\n**Claude Code** (remote server, OAuth: run `/mcp` afterwards to ",
+      "lastModified": "2026-11-18T21:01:39.059Z",
       "isUserOwned": false
     }
   ]

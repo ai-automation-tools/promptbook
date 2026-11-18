@@ -4,6 +4,21 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Library: backfill, 16 new MCP servers
+
+One-time backfill of `6_MCP_Servers/` (28 to 44 cards), spread across the folders; two new folders, `Databases/` and `Web_and_Search/`. Each card's install lines were read from the server's README on the day; none of the servers is vendored.
+
+- `Developer_Tools/`: Serena (`oraios/serena`, GPL-3.0-or-later, SolidLSP MIT), Context Mode (`mksglu/context-mode`, Elastic License 2.0), Framelink MCP for Figma (`GLips/Figma-Context-MCP`, MIT), Docker MCP Gateway (`docker/mcp-gateway`, MIT).
+- `Cloud_Platforms/`: Azure (`microsoft/mcp`, MIT), Kubernetes (`Flux159/mcp-server-kubernetes`, MIT).
+- `Databases/`: MCP Toolbox for Databases (`googleapis/mcp-toolbox`, Apache-2.0), ClickHouse (`ClickHouse/mcp-clickhouse`, Apache-2.0), Qdrant (`qdrant/mcp-server-qdrant`, Apache-2.0), Redis (`redis/mcp-redis`, MIT).
+- `Web_and_Search/`: Exa (`exa-labs/exa-mcp-server`, MIT), Tavily (`tavily-ai/tavily-mcp`, MIT), Firecrawl (`firecrawl/firecrawl-mcp-server`, MIT), Apify (`apify/apify-mcp-server`, MIT).
+- `Reference/`: Microsoft Learn (`MicrosoftDocs/mcp`, CC-BY-4.0).
+- `Apps_and_Services/`: Blender (`ahujasid/mcp-for-blender`, MIT).
+
+_Touched: `site/library/6_MCP_Servers/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — One local page for every automation
 
 `docs/AUTOMATIONS.local.md` lists every scheduled job, workflow and sweep that touches Promptbook: schedule, next and last run, model, PR branch, the Thursday rotation, open automation PRs, and whether `site/library` on `main` has moved lately. It's gitignored (local paths and schedules) and rewritten every Sunday at 07:00 by a new Routines job, `promptbook-automations-doc`, which links back to the Routines docs. The page's hand-written parts live in that job's `template.md`.
