@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Discovery queue triaged
+
+All 74 pending rows in `docs/DISCOVERY.md` decided with Mike: 17 `accept` (9 skill-library cards, 4 single skills, 2 MCP cards, and two prompt sources: Piebald-AI's Claude Code system prompts and Microsoft 365 Copilot prompts), 17 `link` (awesome lists, tools, and collections whose licence rules out copying), 40 `reject` (apps and platforms, Chinese-language-first repos, anti-bot and credential tooling, an archived list, low-signal packs). The content job's prompt quota had gone unmet for want of an accepted prompts row; the catalog runs now have a queue again. The Discovery job, paused since 2026-11-03 until this was done, is re-enabled; its next run adds the `link` rows to the Resources menu.
+
+_Touched: `docs/DISCOVERY.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — A Codex AGENTS.md guide, no new prompts
 
 Added `1_Guides/Codex/agents-md-guide.md` (repo `openai/codex`): which `AGENTS.md` and `AGENTS.override.md` files Codex loads and in what order, `project_doc_fallback_filenames`, the `project_doc_max_bytes` cap, and how to check what loaded. Sourced from the official Codex AGENTS.md guide, read this run. No prompts: every collection in `4_Prompts/` is exhausted and no `docs/DISCOVERY.md` row is set to `accept`.
