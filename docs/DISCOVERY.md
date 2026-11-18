@@ -32,6 +32,8 @@ column, so never delete a row: change its status instead.
 
 | Repo | Kind | Stars | Licence | Pushed | Found | Status | Note |
 |:---|:---|---:|:---|:---|:---|:---|:---|
+| [pnp/copilot-prompts](https://github.com/pnp/copilot-prompts) | prompts | 910 | mit | 2026-11-16 | 2026-11-18 | accept | added by hand: Microsoft 365 community's Copilot prompt samples (samples/prompts/), feeds the Monday 2-prompt quota, Mike 2026-11-18 |
+| [repowise-dev/claude-code-prompts](https://github.com/repowise-dev/claude-code-prompts) | prompts | 1,232 | mit | 2026-05-11 | 2026-11-18 | accept | added by hand: independently authored coding-agent prompt templates (DISCLAIMER.md: written from scratch, not extracted), complete-prompts/ and patterns/, Mike 2026-11-18 |
 | [danielmiessler/Fabric](https://github.com/danielmiessler/Fabric) | prompts | 44,440 | mit | 2026-10-26 | 2026-10-26 | done | 265 patterns → 4_Prompts/Fabric/<topic>/ (system.md verbatim, match: exact), Mike 2026-10-26 |
 | [rockbenben/ChatGPT-Shortcut](https://github.com/rockbenben/ChatGPT-Shortcut) | prompts | 8,872 | mit | 2026-10-09 | 2026-10-26 | done | 119 English cards → 4_Prompts/ChatGPT_Shortcut/<tag>/; the 160 it took from Awesome ChatGPT left out, Mike 2026-10-26 |
 | [mustvlad/ChatGPT-System-Prompts](https://github.com/mustvlad/ChatGPT-System-Prompts) | prompts | 1,228 | mit | 2024-12-11 | 2026-10-26 | done | 38 prompts → 4_Prompts/ChatGPT_System_Prompts/<group>/; 8 whose titles were already here left out, Mike 2026-10-26 |
@@ -97,7 +99,7 @@ column, so never delete a row: change its status instead.
 | [NevaMind-AI/memU](https://github.com/NevaMind-AI/memU) | skills | 14,567 | Other | 2026-10-27 | 2026-10-27 | reject | popular; reject: a platform, Mike 2026-11-18 |
 | [Vincentwei1021/video-shotcraft](https://github.com/Vincentwei1021/video-shotcraft) | skills | 14,059 | apache-2.0 | 2026-10-17 | 2026-10-27 | accept | new; accept: one skill-library card in 3_Skills/Libraries/, Mike 2026-11-18 |
 | [YouMind-OpenLab/awesome-nano-banana-pro-prompts](https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts) | prompts | 13,696 | Other | 2026-10-27 | 2026-10-27 | link | new; link: licence doesn't allow copying, Mike 2026-11-18 |
-| [Piebald-AI/claude-code-system-prompts](https://github.com/Piebald-AI/claude-code-system-prompts) | prompts | 13,014 | mit | 2026-10-26 | 2026-10-27 | accept | new; accept: Claude Code's prompts → 5_System_Prompts/, verbatim, Mike 2026-11-18 |
+| [Piebald-AI/claude-code-system-prompts](https://github.com/Piebald-AI/claude-code-system-prompts) | prompts | 13,014 | mit | 2026-10-26 | 2026-10-27 | link | new; link: extracted from Claude Code's package, and 5_System_Prompts takes only vendor-published prompts, Mike 2026-11-18 |
 | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills) | skills | 12,085 | mit | 2026-10-26 | 2026-10-27 | accept | popular; accept: one skill-library card in 3_Skills/Libraries/, Mike 2026-11-18 |
 | [BehiSecc/awesome-claude-skills](https://github.com/BehiSecc/awesome-claude-skills) | skills | 10,314 | none | 2026-09-21 | 2026-10-27 | link | popular; no licence, ask before vendoring; link: awesome list, no licence, Mike 2026-11-18 |
 | [YouMind-OpenLab/awesome-gpt-image-2](https://github.com/YouMind-OpenLab/awesome-gpt-image-2) | prompts | 10,183 | Other | 2026-10-27 | 2026-10-27 | link | new; link: licence doesn't allow copying, Mike 2026-11-18 |

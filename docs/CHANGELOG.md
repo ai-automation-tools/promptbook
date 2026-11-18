@@ -12,9 +12,17 @@ _Touched: `site/src/components/PromptEditorModal.tsx`, `site/src/App.tsx`, `site
 
 ---
 
+## 2026-11-18 — Two more prompt sources
+
+Every collection already in `4_Prompts/` is used up, and after the triage the only prompt source marked `accept` was the Microsoft 365 Copilot set, so the Monday job's 2-prompt quota would have run dry again. Two MIT collections added to `docs/DISCOVERY.md` as `accept`: `pnp/copilot-prompts` (the Microsoft 365 community's prompt samples) and `repowise-dev/claude-code-prompts` (coding-agent prompt templates its authors wrote from scratch, per its DISCLAIMER.md; not extracted text).
+
+_Touched: `docs/DISCOVERY.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — Discovery queue triaged
 
-All 74 pending rows in `docs/DISCOVERY.md` decided with Mike: 17 `accept` (9 skill-library cards, 4 single skills, 2 MCP cards, and two prompt sources: Piebald-AI's Claude Code system prompts and Microsoft 365 Copilot prompts), 17 `link` (awesome lists, tools, and collections whose licence rules out copying), 40 `reject` (apps and platforms, Chinese-language-first repos, anti-bot and credential tooling, an archived list, low-signal packs). The content job's prompt quota had gone unmet for want of an accepted prompts row; the catalog runs now have a queue again. The Discovery job, paused since 2026-11-03 until this was done, is re-enabled; its next run adds the `link` rows to the Resources menu.
+All 74 pending rows in `docs/DISCOVERY.md` decided with Mike: 16 `accept` (9 skill-library cards, 4 single skills, 2 MCP cards, and the Microsoft 365 Copilot prompts), 18 `link` (awesome lists, tools, collections whose licence rules out copying, and Piebald-AI's Claude Code system prompts, which are extracted from the package while `5_System_Prompts` takes only what vendors publish), 40 `reject` (apps and platforms, Chinese-language-first repos, anti-bot and credential tooling, an archived list, low-signal packs). The content job's prompt quota had gone unmet for want of an accepted prompts row; the catalog runs now have a queue again. The Discovery job, paused since 2026-11-03 until this was done, is re-enabled; its next run adds the `link` rows to the Resources menu.
 
 _Touched: `docs/DISCOVERY.md`, `docs/CHANGELOG.md`._
 
