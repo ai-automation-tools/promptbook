@@ -12,25 +12,24 @@ is not an installable agent belongs in `4_Prompts`.
 
 | Folder | Files | What |
 |:---|---:|:---|
-| `Development/Backend/` | 49 | Language and framework specialists |
-| `DevOps/` | 6 | Kubernetes, Terraform, Docker, CI, observability, incident response |
-| `Quality/` | 5 | Test, QA, accessibility and PR-review analysers |
-| `Development/` | 11 | Refactoring, TDD, git workflow, cloud, Python, React |
+| `Development/Backend/` | 50 | Language and framework specialists, backend architecture |
+| `Development/` | 8 | Refactoring, code exploration and architecture, git workflow, planning |
+| `DevOps/` | 9 | Kubernetes, Terraform, Docker, CI, observability, incident response, SRE, platform, chaos |
+| `Quality/` | 12 | Test, QA, accessibility, security, debugging, performance and code-review analysers |
+| `Product/` | 2 | Product management and UX research |
 | `AI_ML/MCP/` | 8 | MCP server builders and reviewers |
-| `AI_ML/Other/` | 8 | ADRs, model evaluation, assorted AI engineering |
+| `AI_ML/Other/` | 10 | ADRs, model evaluation, agent and plugin authoring, assorted AI engineering |
 | `AI_ML/AI_Engineering_SMEs/` | 6 | AI engineering specialists |
-| `AI_ML/Data_SMEs/`, `Power-BI/`, `Prompting/` | 6 | Data, BI and prompt engineering |
-| `Content/` | 3 | Blog writer, copyeditor, social media manager |
-| `Business/` | 1 | SEO optimization |
-| **Total** | **94** | |
+| `AI_ML/Data_SMEs/`, `Power-BI/`, `Prompting/` | 7 | Data, PostgreSQL, BI and prompt engineering |
+| **Total** | **112** | |
 
 ## Provenance
 
-Every file carries an `upstream:` block (`scripts/attribute-upstream.mjs --agents`): 88 `exact`,
-6 `similar`, 9 `unknown` (our own). Sources: `VoltAgent/awesome-claude-code-subagents` (36),
-`davila7/claude-code-templates` (22), `github/awesome-copilot` (17), `wshobson/agents` (5),
-`anthropics/claude-plugins-official` (3), `affaan-m/everything-claude-code` (4),
-`0xfurai/claude-code-subagents` (3), plus 3 more from `VoltAgent/awesome-claude-code-subagents`. The
+Every file carries an `upstream:` block (`scripts/attribute-upstream.mjs --agents`); nearly all are
+`exact` copies, a few `similar`, and a few `unknown` (our own). Sources:
+`VoltAgent/awesome-claude-code-subagents` (45), `wshobson/agents` (12),
+`anthropics/claude-plugins-official` (9), `davila7/claude-code-templates` (22),
+`github/awesome-copilot` (17), `affaan-m/everything-claude-code` (4), `0xfurai/claude-code-subagents` (3). The
 Monday drift check compares the `exact` and `similar` ones with their upstream and the Saturday
 roadmap job resyncs drifted ones (`scripts/resync-upstream.mjs 2_Agents/<path>`).
 

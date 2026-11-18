@@ -1,0 +1,223 @@
+---
+title: "grafana/skills"
+description: "A collection of agent skills, published on GitHub."
+repo: grafana/skills
+tags: ["skill","skill-library","grafana","observability","monitoring"]
+---
+# grafana/skills
+
+A collection of agent skills, published on GitHub.
+
+A skill library: browse and install its skills from [the repo on GitHub](https://github.com/grafana/skills). Promptbook keeps one card for it rather than a copy of each skill.
+
+---
+
+*The repo's README, copied 2026-11-18:*
+
+# Grafana Skills
+
+[![Validate Marketplace](https://github.com/grafana/skills/actions/workflows/validate.yml/badge.svg)](https://github.com/grafana/skills/actions/workflows/validate.yml)
+[![Lint Skills](https://github.com/grafana/skills/actions/workflows/lint-skills.yml/badge.svg)](https://github.com/grafana/skills/actions/workflows/lint-skills.yml)
+
+Public skills for working with Grafana, Prometheus, Loki, Tempo, Pyroscope, k6, and the broader LGTM observability
+stack. Compatible with Claude Code, Cursor, Codex, and any tool supporting the
+[Agent Skills](https://agentskills.io) open standard.
+
+## Installation
+
+### npx skills (recommended for most tools)
+
+Any tool following the [Agent Skills](https://agentskills.io) standard can install directly:
+
+```bash
+npx skills add grafana/skills
+```
+
+### Claude Code
+
+```bash
+# Add this marketplace
+claude plugin marketplace add grafana/skills
+
+# Install the plugin(s) you want
+claude plugin install grafana-plugins@grafana-skills
+claude plugin install grafana-core@grafana-skills
+claude plugin install grafana-cloud@grafana-skills
+claude plugin install grafana-lgtm@grafana-skills
+claude plugin install grafana-app-sdk@grafana-skills
+claude plugin install grafana-k6@grafana-skills
+claude plugin install grafana-datasources@grafana-skills
+```
+
+### Cursor
+
+Install via the `npx skills` command shown above:
+
+```bash
+npx skills add grafana/skills
+```
+
+This writes skills into `.cursor/skills/` in your project so Cursor's agent can load them.
+
+To install only the Frontend Observability session skill:
+
+```bash
+npx skills add grafana/skills --skill frontend-session-rca
+```
+
+> Cursor's built-in **Add Rule → Remote Rule (GitHub)** flow is not compatible with this repository. That importer only accepts Cursor Project Rules (`.mdc` files under `.cursor/rules/`), and the Grafana Skills repo follows the [Agent Skills](https://agentskills.io) standard instead (`SKILL.md` files under `skills/`).
+
+### Codex and other Agent Skills tools
+
+Skills are discovered automatically via the `.agents-plugin/marketplace.json` manifest. No manual setup needed — Codex loads matching skills based on your task context.
+
+To install manually into a repo's `.agents/skills/` directory:
+
+```bash
+npx skills add grafana/skills
+```
+
+---
+
+## Available Skills
+
+Skills are organized into plugin groups. All skill files live under `skills/<plugin-name>/`.
+
+### grafana-core
+
+Core Grafana concepts — dashboards, visualization, PromQL, alerting, and telemetry collection.
+
+| Skill | Description |
+|-------|-------------|
+| [grafana-oss](https://github.com/grafana/skills/blob/main/skills/grafana-core/grafana-oss) | Grafana OSS core — dashboards, data sources, provisioning, RBAC, and server configuration |
+| [dashboarding](https://github.com/grafana/skills/blob/main/skills/grafana-core/dashboarding) | Create and organise Grafana dashboards — panels, variables, transformations, and thresholds |
+| [promql](https://github.com/grafana/skills/blob/main/skills/grafana-core/promql) | Write, validate, and optimise PromQL queries for Prometheus and Grafana Cloud Metrics |
+| [alerting-irm](https://github.com/grafana/skills/blob/main/skills/grafana-core/alerting-irm) | Grafana Alerting, Incident Response Management, and SLOs — rules, contact points, and on-call |
+| [alloy](https://github.com/grafana/skills/blob/main/skills/grafana-core/alloy) | Grafana Alloy OpenTelemetry collector — config language, components, and telemetry pipelines |
+| [beyla](https://github.com/grafana/skills/blob/main/skills/grafana-core/beyla) | Grafana Beyla eBPF auto-instrumentation for zero-code application observability |
+| [opentelemetry](https://github.com/grafana/skills/blob/main/skills/grafana-core/opentelemetry) | OpenTelemetry with the Grafana stack — SDK instrumentation, OTLP, and collectors |
+
+### grafana-cloud
+
+Grafana Cloud — fleet management, cloud integrations, cost optimization, and AI agent connectivity.
+
+| Skill | Description |
+|-------|-------------|
+| [admin](https://github.com/grafana/skills/blob/main/skills/grafana-cloud/admin) | Grafana Cloud account management — organizations, stacks, RBAC, SSO, and service accounts |
+| [send-data](https://github.com/grafana/skills/blob/main/skills/grafana-cloud/send-data) | Send telemetry to Grafana Cloud — metrics, logs, traces, and profiles via Alloy or SDKs |
+| [fleet-management](https://github.com/grafana/skills/blob/main/skills/grafana-cloud/fleet-management) | Manage Grafana Alloy collector fleets with remote configuration and OpAMP |
+| [cloud-integrations](https://github.com/grafana/skills/blob/main/skills/grafana-cloud/cloud-integrations) | Connect AWS, Azure, and other cloud providers to Grafana Cloud |
+| [infrastructure](https://github.com/grafana/skills/blob/main/skills/grafana-cloud/infrastructure) | Infrastructure monitoring — Kubernetes, host/container metrics, and cloud integrations |
+| [app-observability](https://github.com/grafana/skills/blob/main/skills/grafana-cloud/app-observability) | Application Observability (APM), Frontend Observability (Faro), and AI Observability |
+| [frontend-session-rca](https://github.com/grafana/skills/blob/main/skills/grafana-cloud/frontend-session-rca) | Diagnose a Frontend Observability session from a `gcx` dump — health, ranked problems, cause, and fixes |
+| [database-observability](https://github.com/grafana/skills/blob/main/skills/grafana-cloud/database-observability) | Query-level performance insights for MySQL and PostgreSQL |
+| [adaptive-metrics](https://github.com/grafana/skills/blob/main/skills/grafana-cloud/adaptive-metrics) | Reduce metrics cost with Adaptive Metrics aggregation rules and cardinality management |
+| [cost-management](https://github.com/grafana/skills/blob/main/skills/grafana-cloud/cost-management) | Grafana Cloud cost monitoring, attribution, usage alerts, and optimization |
+| [dpm-finder](https://github.com/grafana/skills/blob/main/skills/grafana-cloud/dpm-finder) | Identify Prometheus metrics driving high Data Points per Minute (DPM) |
+| [loki-label-analyzer](https://github.com/grafana/skills/blob/main/skills/grafana-cloud/loki-label-analyzer) | Evaluate and improve Loki label strategy using cardinality, query patterns, and label hygiene |
+| [prometheus-label-strategy](https://github.com/grafana/skills/blob/main/skills/grafana-cloud/prometheus-label-strategy) | Audit and design Prometheus label schemas — cardinality, histograms, source-side prevention |
+| [prometheus-cardinality-troubleshooter](https://github.com/grafana/skills/blob/main/skills/grafana-cloud/prometheus-cardinality-troubleshooter) | Diagnose live Prometheus cardinality issues — slow queries, OOMs, high Active Series bills |
+| [oncall-irm](https://github.com/grafana/skills/blob/main/skills/grafana-cloud/oncall-irm) | Grafana OnCall and IRM — alert routing, escalation chains, and incident lifecycle |
+| [ml-ai](https://github.com/grafana/skills/blob/main/skills/grafana-cloud/ml-ai) | AI/ML features — Grafana Assistant, Dynamic Alerting, Sift, Knowledge Graph, and LLM Plugin |
+| [assistant-mcp](https://github.com/grafana/skills/blob/main/skills/grafana-cloud/assistant-mcp) | Connect AI coding agents (Claude Code, Cursor, Codex) to Grafana Cloud via MCP |
+| [private-connectivity](https://github.com/grafana/skills/blob/main/skills/grafana-cloud/private-connectivity) | Private network connectivity — AWS PrivateLink, Azure Private Link, GCP Private Service Connect |
+| [testing](https://github.com/grafana/skills/blob/main/skills/grafana-cloud/testing) | Synthetic Monitoring, k6 Cloud load testing, and Frontend Observability |
+| [synthetic-monitoring-checks](https://github.com/grafana/skills/blob/main/skills/grafana-cloud/synthetic-monitoring-checks) | Author Synthetic Monitoring checks — k6 scripted and browser check deep dive, check-type selection, API/Terraform |
+
+### grafana-lgtm
+
+Open-source LGTM observability stack — Loki, Tempo, Prometheus/Mimir, and Pyroscope.
+
+| Skill | Description |
+|-------|-------------|
+| [loki](https://github.com/grafana/skills/blob/main/skills/grafana-lgtm/loki) | Log aggregation with Grafana Loki — LogQL queries, pipelines, and architecture |
+| [tempo](https://github.com/grafana/skills/blob/main/skills/grafana-lgtm/tempo) | Distributed tracing with Grafana Tempo — TraceQL, service graphs, and correlations |
+| [prometheus](https://github.com/grafana/skills/blob/main/skills/grafana-lgtm/prometheus) | Metrics with Prometheus — PromQL, alerting, recording rules, and Mimir |
+| [mimir](https://github.com/grafana/skills/blob/main/skills/grafana-lgtm/mimir) | Scalable long-term metrics storage with Grafana Mimir — architecture and operations |
+| [pyroscope](https://github.com/grafana/skills/blob/main/skills/grafana-lgtm/pyroscope) | Continuous profiling with Grafana Pyroscope — flame graphs, diff views, and language support |
+| [profilecli-insights](https://github.com/grafana/skills/blob/main/skills/grafana-lgtm/profilecli-insights) | Query live Pyroscope profiles with profilecli and correlate hot functions with checked-out source code |
+| [performance-rca](https://github.com/grafana/skills/blob/main/skills/grafana-lgtm/performance-rca) | Root-cause CPU, memory, and contention problems with Pyroscope profiles via `gcx`, qualified against a baseline |
+
+### grafana-plugins
+
+Skills for building Grafana plugins — bundle optimisation, code splitting, React 19 migration, dependency audits, and the @grafana/scenes framework.
+
+| Skill | Description |
+|-------|-------------|
+| [plugin-bundle-size](https://github.com/grafana/skills/blob/main/skills/grafana-plugins/plugin-bundle-size) | Optimise Grafana app plugin bundle size using React.lazy, Suspense, and webpack code splitting |
+| [react-19-plugin-migration](https://github.com/grafana/skills/blob/main/skills/grafana-plugins/react-19-plugin-migration) | Migrate a Grafana plugin to React 19 compatibility ahead of Grafana 13 |
+| [grafana-scenes](https://github.com/grafana/skills/blob/main/skills/grafana-plugins/grafana-scenes) | Build Grafana plugin pages using the @grafana/scenes framework |
+| [check-npm](https://github.com/grafana/skills/blob/main/skills/grafana-plugins/check-npm) | Audit npm, yarn, or pnpm package manager configuration for supply-chain hardening |
+| [audit-and-reduce-dependencies](https://github.com/grafana/skills/blob/main/skills/grafana-plugins/audit-and-reduce-dependencies) | Reduce pnpm dependency footprint — unused deps, deduplication, transitive closure triage |
+
+### grafana-app-sdk
+
+Skills for building apps on the Grafana App Platform using grafana-app-sdk.
+
+| Skill | Description |
+|-------|-------------|
+| [app-sdk-concepts](https://github.com/grafana/skills/blob/main/skills/grafana-app-sdk/app-sdk-concepts) | Project init, deployment modes (standalone operator, grafana/apps, frontend-only), and workflow |
+| [cue-kind-definition](https://github.com/grafana/skills/blob/main/skills/grafana-app-sdk/cue-kind-definition) | Author CUE kind definitions — schemas, versioning, spec vs status, codegen config |
+| [reconciler-logic](https://github.com/grafana/skills/blob/main/skills/grafana-app-sdk/reconciler-logic) | Implement async reconciler and watcher business logic |
+| [admission-control](https://github.com/grafana/skills/blob/main/skills/grafana-app-sdk/admission-control) | Write validation and mutation admission handlers |
+
+### grafana-k6
+
+Skills for working with k6 open-source load testing.
+
+| Skill | Description |
+|-------|-------------|
+| [k6](https://github.com/grafana/skills/blob/main/skills/grafana-k6/k6) | Generate, validate, and review k6 test scripts — load/stress/spike/soak/breakpoint, functional, protocol, and browser — using runnable examples and a generate → validate → review workflow |
+| [k6-docs](https://github.com/grafana/skills/blob/main/skills/grafana-k6/k6-docs) | Write or review k6 documentation across TypeScript types, user docs, and release notes |
+| [k6-perf-test-website](https://github.com/grafana/skills/blob/main/skills/grafana-k6/k6-perf-test-website) | Performance-test a public website end-to-end with k6. Produces a hybrid protocol+browser test suite, SLO-backed thresholds, a load-generator monitor sidecar, and a Grafana-side investigation playbook |
+| [k6-manage](https://github.com/grafana/skills/blob/main/skills/grafana-k6/k6-manage) | Operate Grafana Cloud k6 (GCk6) via the `gcx` CLI or direct curl — manage tests, runs, scripts, schedules, and env vars; fetch logs, metrics, traces, screenshots, and Cloud Insights |
+| [k6-cloud-investigate-test](https://github.com/grafana/skills/blob/main/skills/grafana-k6/k6-cloud-investigate-test) | Investigate a specific Grafana Cloud k6 test or run — describe the script, list run history, pull metrics and logs, and identify pass/fail root cause |
+| [k6-trend-analysis](https://github.com/grafana/skills/blob/main/skills/grafana-k6/k6-trend-analysis) | Analyze Grafana Cloud k6 test-run trends over time — detect metric drift, compute threshold headroom, and recommend when to tighten thresholds |
+| [k6-test-maintenance](https://github.com/grafana/skills/blob/main/skills/grafana-k6/k6-test-maintenance) | Maintain and improve existing k6 scripts — threshold tightening, version migration, service-change fixes, refactoring, and best-practice audits |
+| [k6-browser-test](https://github.com/grafana/skills/blob/main/skills/grafana-k6/k6-browser-test) | Generate a k6/browser test from a plain-language user journey — explores the live site to resolve real selectors (getByRole/getByLabel/getByText), then writes a functional or load test with expect() assertions, screenshots, and Core Web Vitals thresholds |
+
+### grafana-datasources
+
+Skills for working with Grafana data source plugins.
+
+| Skill                                                                          | Description                                                                  |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
+| [datasources-provisioning](https://github.com/grafana/skills/blob/main/skills/grafana-datasources/datasources-provisioning) | Authoring and schema discovery of Grafana data source plugin's configuration |
+
+---
+
+## Contributing
+
+We welcome contributions! See [CONTRIBUTING.md](https://github.com/grafana/skills/blob/main/CONTRIBUTING.md) for how to add a new skill.
+
+Quick start:
+
+1. Copy `template/SKILL.md` to `skills/<plugin-name>/<skill-name>/SKILL.md`
+2. Fill in the frontmatter and content
+3. Run `./scripts/lint-skills.sh skills` to validate
+4. Open a PR
+
+## Repository Structure
+
+```
+grafana-skills/
+├── .claude-plugin/marketplace.json   # Claude Code marketplace manifest
+├── .cursor-plugin/marketplace.json   # Cursor marketplace manifest (identical)
+├── .agents-plugin/marketplace.json   # Codex marketplace manifest (identical)
+├── skill-registry.json               # Machine-readable skill manifest
+├── skills/                           # All skills, grouped by plugin
+│   ├── grafana-core/
+│   ├── grafana-cloud/
+│   ├── grafana-lgtm/
+│   ├── grafana-plugins/
+│   ├── grafana-app-sdk/
+│   ├── grafana-k6/
+│   └── grafana-datasources/
+├── template/SKILL.md                 # Starter template for new skills
+├── scripts/lint-skills.sh            # Local skill validation
+└── .github/workflows/                # CI validation
+```
+
+## License
+
+Apache License 2.0 - see [LICENSE](https://github.com/grafana/skills/blob/main/LICENSE).
