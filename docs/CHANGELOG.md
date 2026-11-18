@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Library: new guides
+
+Four guides for tools people are adopting now, each written from the project's own README and docs read that day: Pi coding agent (`earendil-works/pi`, MIT), GitHub Spec Kit (`github/spec-kit`, MIT), Kilo Code (`Kilo-Org/kilocode`, MIT) and Google ADK (`google/adk-python`, Apache-2.0).
+
+_Touched: `site/library/1_Guides/CLI_Tools/pi-guide.md`, `site/library/1_Guides/CLI_Tools/spec-kit-guide.md`, `site/library/1_Guides/IDE_Extensions/kilo-code-guide.md`, `site/library/1_Guides/API_Providers/google-adk-guide.md`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — Library refresh — skills and MCP
 
 - Skill library cards, rewritten from each repo's GitHub description and README by `refresh-library-cards.mjs`: `addyosmani-agent-skills`, `ai-automation-tools-agent-skills`, `coreyhaines31-marketingskills`, `huggingface-skills`, `wshobson-agents` (all `3_Skills/Libraries/`).
