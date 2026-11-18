@@ -4,6 +4,16 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Library: backfill, 18 new skill libraries
+
+One-time backfill of `3_Skills/Libraries/`: 18 cards, one per repo, bodies from each README. A card describes and links; no skill text is copied.
+
+- `mattpocock/skills` (MIT), `vercel-labs/agent-skills` (no licence file), `anthropics/knowledge-work-plugins` (Apache-2.0), `google-labs-code/stitch-skills` (Apache-2.0), `pbakaus/impeccable` (Apache-2.0), `emilkowalski/skills` (MIT)
+- `obsidianmd/obsidian-skills` (MIT), `microsoft/skills` (MIT), `cloudflare/skills` (Apache-2.0), `supabase/agent-skills` (MIT), `expo/skills` (MIT), `dotnet/skills` (MIT)
+- `trailofbits/skills` (CC-BY-SA-4.0), `remotion-dev/skills` (no licence file), `AgriciDaniel/claude-seo` (MIT), `alirezarezvani/claude-skills` (MIT), `getsentry/skills` (Apache-2.0), `WordPress/agent-skills` (NOASSERTION)
+
+_Touched: `site/library/3_Skills/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
 ## 2026-11-18 — One local page for every automation
 
 `docs/AUTOMATIONS.local.md` lists every scheduled job, workflow and sweep that touches Promptbook: schedule, next and last run, model, PR branch, the Thursday rotation, open automation PRs, and whether `site/library` on `main` has moved lately. It's gitignored (local paths and schedules) and rewritten every Sunday at 07:00 by a new Routines job, `promptbook-automations-doc`, which links back to the Routines docs. The page's hand-written parts live in that job's `template.md`.

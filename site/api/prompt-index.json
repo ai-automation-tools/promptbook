@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-18T16:54:10.187Z",
-  "promptCount": 820,
+  "buildTime": "2026-11-18T20:59:33.757Z",
+  "promptCount": 838,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -2896,6 +2896,23 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Libraries/agricidaniel-claude-seo.md",
+      "title": "AgriciDaniel/claude-seo",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "agricidaniel-claude-seo",
+      "tags": [
+        "skill",
+        "skill-library",
+        "seo",
+        "marketing",
+        "geo"
+      ],
+      "contentPreview": "# AgriciDaniel/claude-seo\n\nUniversal SEO skill for Claude Code. 26 sub-skills + 19 sub-agents covering technical SEO, E-E-A-T, schema, GEO/AEO, agent readiness (Lighthouse Agentic Browsing, WebMCP, ll",
+      "lastModified": "2026-11-18T20:57:46.320Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Libraries/ai-automation-tools-agent-skills.md",
       "title": "ai-automation-tools/agent-skills",
       "section": "3_Skills",
@@ -2930,6 +2947,23 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Libraries/alirezarezvani-claude-skills.md",
+      "title": "alirezarezvani/claude-skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "alirezarezvani-claude-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "engineering",
+        "business",
+        "productivity"
+      ],
+      "contentPreview": "# alirezarezvani/claude-skills\n\n410 Claude Code skills & agent skills & plugins (120+ Agents, custom commands, 410+ skills, customizable references, scripts)for Claude Code, Codex, Gemini CLI, Cursor,",
+      "lastModified": "2026-11-18T20:57:51.550Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Libraries/anthropics-claude-plugins-official.md",
       "title": "anthropics/claude-plugins-official",
       "section": "3_Skills",
@@ -2942,6 +2976,23 @@
       ],
       "contentPreview": "# anthropics/claude-plugins-official\n\nOfficial, Anthropic-managed directory of high quality Claude Code Plugins.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://githu",
       "lastModified": "2026-11-18T16:27:00.300Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/anthropics-knowledge-work-plugins.md",
+      "title": "anthropics/knowledge-work-plugins",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "anthropics-knowledge-work-plugins",
+      "tags": [
+        "skill",
+        "skill-library",
+        "anthropic",
+        "business",
+        "knowledge-work"
+      ],
+      "contentPreview": "# anthropics/knowledge-work-plugins\n\nOpen source repository of plugins primarily intended for knowledge workers to use in Claude Cowork\n\nA skill library: browse and install its skills from [the repo o",
+      "lastModified": "2026-11-18T20:57:55.168Z",
       "isUserOwned": false
     },
     {
@@ -2977,6 +3028,23 @@
       ],
       "contentPreview": "# baojie/shiji-kb\n\nA collection of agent skills, published on GitHub.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/baojie/shiji-kb). Promptbook keeps on",
       "lastModified": "2026-10-27T16:04:07.862Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/cloudflare-skills.md",
+      "title": "cloudflare/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "cloudflare-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "cloudflare",
+        "workers",
+        "platform"
+      ],
+      "contentPreview": "# cloudflare/skills\n\nSkills for teaching agents how to build on Cloudflare.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/cloudflare/skills). Promptbook ",
+      "lastModified": "2026-11-18T20:57:59.900Z",
       "isUserOwned": false
     },
     {
@@ -3060,6 +3128,74 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Libraries/dotnet-skills.md",
+      "title": "dotnet/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "dotnet-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "dotnet",
+        "csharp",
+        "microsoft"
+      ],
+      "contentPreview": "# dotnet/skills\n\nRepository for skills to assist AI coding agents with .NET and C#\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/dotnet/skills). Promptbo",
+      "lastModified": "2026-11-18T20:58:11.151Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/emilkowalski-skills.md",
+      "title": "emilkowalski/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "emilkowalski-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "design",
+        "animation",
+        "design-engineering"
+      ],
+      "contentPreview": "# emilkowalski/skills\n\nSkills for Designers and Engineers.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/emilkowalski/skills). Promptbook keeps one card ",
+      "lastModified": "2026-11-18T20:58:12.324Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/expo-skills.md",
+      "title": "expo/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "expo-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "expo",
+        "react-native",
+        "mobile"
+      ],
+      "contentPreview": "# expo/skills\n\nA collection of AI agent skills for working with Expo projects and Expo Application Services\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com",
+      "lastModified": "2026-11-18T20:58:13.729Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/getsentry-skills.md",
+      "title": "getsentry/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "getsentry-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "sentry",
+        "observability",
+        "engineering"
+      ],
+      "contentPreview": "# getsentry/skills\n\nAgent Skills used by the Sentry team for development.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/getsentry/skills). Promptbook kee",
+      "lastModified": "2026-11-18T20:58:17.158Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Libraries/github-awesome-copilot.md",
       "title": "github/awesome-copilot",
       "section": "3_Skills",
@@ -3072,6 +3208,23 @@
       ],
       "contentPreview": "# github/awesome-copilot\n\nCommunity-contributed instructions, agents, skills, and configurations to help you make the most of GitHub Copilot.\n\nA skill library: browse and install its skills from [the ",
       "lastModified": "2026-11-18T16:27:00.305Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/google-labs-code-stitch-skills.md",
+      "title": "google-labs-code/stitch-skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "google-labs-code-stitch-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "google",
+        "design",
+        "stitch"
+      ],
+      "contentPreview": "# google-labs-code/stitch-skills\n\nA library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as",
+      "lastModified": "2026-11-18T20:58:22.569Z",
       "isUserOwned": false
     },
     {
@@ -3170,6 +3323,22 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Libraries/mattpocock-skills.md",
+      "title": "mattpocock/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "mattpocock-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "engineering",
+        "workflow"
+      ],
+      "contentPreview": "# mattpocock/skills\n\nSkills for Real Engineers. Straight from my .agents directory.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/mattpocock/skills). Pro",
+      "lastModified": "2026-11-18T20:58:31.968Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Libraries/microck-ordinary-claude-skills.md",
       "title": "Microck/ordinary-claude-skills",
       "section": "3_Skills",
@@ -3190,6 +3359,23 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Libraries/microsoft-skills.md",
+      "title": "microsoft/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "microsoft-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "microsoft",
+        "azure",
+        "sdk"
+      ],
+      "contentPreview": "# microsoft/skills\n\nSkills, MCP servers, Custom Agents, Agents.md for SDKs to ground Coding Agents\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/microsof",
+      "lastModified": "2026-11-18T20:58:37.314Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Libraries/obra-superpowers.md",
       "title": "obra/superpowers",
       "section": "3_Skills",
@@ -3202,6 +3388,23 @@
       ],
       "contentPreview": "# obra/superpowers\n\nAn agentic skills framework & software development methodology that works.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/obra/superpo",
       "lastModified": "2026-10-27T16:04:28.491Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/obsidianmd-obsidian-skills.md",
+      "title": "obsidianmd/obsidian-skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "obsidianmd-obsidian-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "obsidian",
+        "markdown",
+        "notes"
+      ],
+      "contentPreview": "# obsidianmd/obsidian-skills\n\nAgent skills for Obsidian. Teach your agent to use Obsidian CLI and open formats including Markdown, Bases, JSON Canvas.\n\nA skill library: browse and install its skills f",
+      "lastModified": "2026-11-18T20:58:40.877Z",
       "isUserOwned": false
     },
     {
@@ -3256,6 +3459,23 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Libraries/pbakaus-impeccable.md",
+      "title": "pbakaus/impeccable",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "pbakaus-impeccable",
+      "tags": [
+        "skill",
+        "skill-library",
+        "design",
+        "anti-slop",
+        "frontend"
+      ],
+      "contentPreview": "# pbakaus/impeccable\n\nThe design vocabulary for your coding agent. Steer with polish and bolder, review with critique and audit, catch AI slop before it ships.\n\nA skill library: browse and install its",
+      "lastModified": "2026-11-18T20:58:47.363Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Libraries/phuryn-pm-skills.md",
       "title": "phuryn/pm-skills",
       "section": "3_Skills",
@@ -3268,6 +3488,23 @@
       ],
       "contentPreview": "# phuryn/pm-skills\n\nPM Skills Marketplace: 100+ agentic skills, commands, and plugins — from discovery to strategy, execution, launch, and growth.\n\nA skill library: browse and install its skills from ",
       "lastModified": "2026-11-18T16:27:00.307Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/remotion-dev-skills.md",
+      "title": "remotion-dev/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "remotion-dev-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "remotion",
+        "video",
+        "react"
+      ],
+      "contentPreview": "# remotion-dev/skills\n\nAgent Skills\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/remotion-dev/skills). Promptbook keeps one card for it rather than a co",
+      "lastModified": "2026-11-18T20:58:49.554Z",
       "isUserOwned": false
     },
     {
@@ -3303,6 +3540,57 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Libraries/supabase-agent-skills.md",
+      "title": "supabase/agent-skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "supabase-agent-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "supabase",
+        "postgres",
+        "database"
+      ],
+      "contentPreview": "# supabase/agent-skills\n\nAgent Skills to help developers using AI agents with Supabase\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/supabase/agent-skill",
+      "lastModified": "2026-11-18T20:58:53.560Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/trailofbits-skills.md",
+      "title": "trailofbits/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "trailofbits-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "security",
+        "audit",
+        "code-review"
+      ],
+      "contentPreview": "# trailofbits/skills\n\nTrail of Bits skills for security research, vulnerability detection, and audit workflows\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.",
+      "lastModified": "2026-11-18T20:58:55.042Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/vercel-labs-agent-skills.md",
+      "title": "vercel-labs/agent-skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "vercel-labs-agent-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "vercel",
+        "web",
+        "react"
+      ],
+      "contentPreview": "# vercel-labs/agent-skills\n\nVercel's official collection of agent skills\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/vercel-labs/agent-skills). Promptb",
+      "lastModified": "2026-11-18T20:58:56.252Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Libraries/vudovn-ag-kit.md",
       "title": "vudovn/ag-kit",
       "section": "3_Skills",
@@ -3317,6 +3605,23 @@
       ],
       "contentPreview": "# vudovn/ag-kit\n\nA collection of agent skills, published on GitHub.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/vudovn/ag-kit). Promptbook keeps one ca",
       "lastModified": "2026-10-27T16:04:38.842Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/wordpress-agent-skills.md",
+      "title": "WordPress/agent-skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "wordpress-agent-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "wordpress",
+        "php",
+        "cms"
+      ],
+      "contentPreview": "# WordPress/agent-skills\n\nExpert-level WordPress knowledge for AI coding assistants - blocks, themes, plugins, and best practices\n\nA skill library: browse and install its skills from [the repo on GitH",
+      "lastModified": "2026-11-18T20:58:58.505Z",
       "isUserOwned": false
     },
     {
