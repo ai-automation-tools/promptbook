@@ -12,7 +12,7 @@ A skill library: browse and install its skills from [the repo on GitHub](https:/
 
 ---
 
-*The repo's README, copied 2026-10-27:*
+*The repo's README, copied 2026-11-16:*
 
 > **Note:** This repository contains Anthropic's implementation of skills for Claude. For information about the Agent Skills standard, see [agentskills.io](http://agentskills.io).
 
@@ -33,7 +33,7 @@ This repository contains skills that demonstrate what's possible with Claude's s
 
 Each skill is self-contained in its own folder with a `SKILL.md` file containing the instructions and metadata that Claude uses. Browse through these skills to get inspiration for your own skills or to understand different patterns and approaches.
 
-Many skills in this repo are open source (Apache 2.0). We've also included the document creation & editing skills that power [Claude's document capabilities](https://www.anthropic.com/news/create-files) under the hood in the [`skills/docx`](https://github.com/anthropics/skills/blob/main/skills/docx), [`skills/pdf`](https://github.com/anthropics/skills/blob/main/skills/pdf), [`skills/pptx`](https://github.com/anthropics/skills/blob/main/skills/pptx), and [`skills/xlsx`](https://github.com/anthropics/skills/blob/main/skills/xlsx) subfolders. These are source-available, not open source, but we wanted to share these with developers as a reference for more complex skills that are actively used in a production AI application.
+Many skills in this repo are open source (Apache 2.0). We've also included the document creation & editing skills that power [Claude's document capabilities](https://www.anthropic.com/news/create-files) under the hood in the [`skills/docx`](https://github.com/anthropics/skills/blob/main/skills/docx), [`skills/pdf`](https://github.com/anthropics/skills/blob/main/skills/pdf), [`skills/pptx`](https://github.com/anthropics/skills/blob/main/skills/pptx), and [`skills/xlsx`](https://github.com/anthropics/skills/blob/main/skills/xlsx) subfolders. These are also open source (Apache 2.0), and we wanted to share them with developers as a reference for more complex skills that are actively used in a production AI application.
 
 ## Disclaimer
 
