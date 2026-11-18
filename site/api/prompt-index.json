@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-18T16:54:10.187Z",
-  "promptCount": 820,
+  "buildTime": "2026-11-18T20:58:41.542Z",
+  "promptCount": 832,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -34,6 +34,26 @@
       "checked": "2026-10-27",
       "contentPreview": "\n# Anthropic API Provider Guide\n\n## Overview\nA comprehensive guide for using the Anthropic API with various CLI tools and custom scripts.\n\n## Agent Configuration\nSet your `ANTHROPIC_API_KEY` as an env",
       "lastModified": "2026-10-27T22:02:55.466Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/API_Providers/claude-agent-sdk-python-guide.md",
+      "title": "🧩 Claude Agent SDK for Python Guide",
+      "section": "1_Guides",
+      "category": "API_Providers",
+      "subcategory": "claude-agent-sdk-python-guide",
+      "tags": [
+        "claude",
+        "agent-sdk",
+        "python",
+        "mcp",
+        "hooks",
+        "permissions",
+        "anthropic"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against the repo README and code.claude.com/docs/en/agent-sdk -->\n\n# Claude Agent SDK for Python Guide\n\nThe Claude Agent SDK (formerly the Claude Code SDK) giv",
+      "lastModified": "2026-11-18T20:57:26.615Z",
       "isUserOwned": false
     },
     {
@@ -168,6 +188,44 @@
       "isUserOwned": false
     },
     {
+      "id": "1_Guides/API_Providers/langgraph-guide.md",
+      "title": "🕸️ LangGraph Guide: Stateful Agent Graphs in Python",
+      "section": "1_Guides",
+      "category": "API_Providers",
+      "subcategory": "langgraph-guide",
+      "tags": [
+        "langgraph",
+        "langchain",
+        "agents",
+        "python",
+        "checkpointer",
+        "human-in-the-loop"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against docs.langchain.com/oss/python/langgraph -->\n\n# LangGraph Guide: Stateful Agent Graphs in Python\n\nLangGraph is described in its docs as a \"low-level orc",
+      "lastModified": "2026-11-18T20:57:15.910Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/API_Providers/litellm-guide.md",
+      "title": "🚇 LiteLLM Guide: One completion() for Every Provider, Plus a Proxy",
+      "section": "1_Guides",
+      "category": "API_Providers",
+      "subcategory": "litellm-guide",
+      "tags": [
+        "litellm",
+        "llm-gateway",
+        "proxy",
+        "python",
+        "openai-compatible",
+        "virtual-keys"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against docs.litellm.ai -->\n\n# LiteLLM Guide: One completion() for Every Provider, Plus a Proxy\n\nLiteLLM translates OpenAI-style Chat Completion calls to 100+ ",
+      "lastModified": "2026-11-18T20:57:45.428Z",
+      "isUserOwned": false
+    },
+    {
       "id": "1_Guides/API_Providers/mistral_cli_guide.md",
       "title": "Mistral AI CLI Guide",
       "section": "1_Guides",
@@ -197,6 +255,26 @@
       ],
       "contentPreview": "\n# Ollama Setup Guide\n\n## Overview\nOllama allows you to get up and running with large language models locally. This guide covers how to set it up as an API provider.\n\n## Agent Configuration\nWhen runni",
       "lastModified": "2026-10-26T15:17:35.368Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/API_Providers/openai-agents-sdk-guide.md",
+      "title": "🤖 OpenAI Agents SDK Guide (Python)",
+      "section": "1_Guides",
+      "category": "API_Providers",
+      "subcategory": "openai-agents-sdk-guide",
+      "tags": [
+        "openai",
+        "agents-sdk",
+        "python",
+        "handoffs",
+        "guardrails",
+        "tracing",
+        "sessions"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against openai.github.io/openai-agents-python -->\n\n# OpenAI Agents SDK Guide (Python)\n\nThe OpenAI Agents SDK is a small Python framework for agents: an LLM wit",
+      "lastModified": "2026-11-18T20:57:11.341Z",
       "isUserOwned": false
     },
     {
@@ -394,6 +472,26 @@
       "isUserOwned": false
     },
     {
+      "id": "1_Guides/CLI_Tools/crush-guide.md",
+      "title": "💘 Crush Guide: Terminal AI Coding Agent",
+      "section": "1_Guides",
+      "category": "CLI_Tools",
+      "subcategory": "crush-guide",
+      "tags": [
+        "crush",
+        "charm",
+        "cli",
+        "terminal",
+        "coding-agent",
+        "mcp",
+        "lsp"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against the Crush README -->\n\n# Crush Guide\n\nCrush is Charm's terminal coding agent: a TUI you start in a project folder, pointed at the\nmodel provider of your",
+      "lastModified": "2026-11-18T20:56:56.543Z",
+      "isUserOwned": false
+    },
+    {
       "id": "1_Guides/CLI_Tools/devika_guide.md",
       "title": "💻 Devika Guide",
       "section": "1_Guides",
@@ -437,6 +535,45 @@
       ],
       "contentPreview": "\n# Fabric CLI Guide\n\n## Overview\nFabric is an open-source framework for augmenting humans using AI. It provides a set of patterns (prompts) that can be applied to text streams in the terminal.\n\n## Age",
       "lastModified": "2026-10-26T15:17:35.390Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/CLI_Tools/goose-guide.md",
+      "title": "🪿 goose Guide",
+      "section": "1_Guides",
+      "category": "CLI_Tools",
+      "subcategory": "goose-guide",
+      "tags": [
+        "goose",
+        "agent",
+        "cli",
+        "mcp",
+        "extensions",
+        "recipes",
+        "aaif"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against goose-docs.ai and the repo README -->\n\n# goose Guide\n\ngoose is a local, open-source (Apache-2.0) general-purpose AI agent written in Rust. It runs as a",
+      "lastModified": "2026-11-18T20:57:59.736Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/CLI_Tools/llama-cpp-guide.md",
+      "title": "🦙 llama.cpp Guide: Run GGUF Models Locally",
+      "section": "1_Guides",
+      "category": "CLI_Tools",
+      "subcategory": "llama-cpp-guide",
+      "tags": [
+        "llama-cpp",
+        "gguf",
+        "local-llm",
+        "llama-server",
+        "inference",
+        "openai-compatible"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against the repo README, docs/build.md, tools/cli and tools/server READMEs -->\n\n# llama.cpp Guide: Run GGUF Models Locally\n\nllama.cpp runs LLM inference with m",
+      "lastModified": "2026-11-18T20:57:30.293Z",
       "isUserOwned": false
     },
     {
@@ -512,6 +649,26 @@
       ],
       "contentPreview": "\n# Open Interpreter Guide\n\n## Overview\nA comprehensive guide to using Open Interpreter, the open-source implementation of OpenAI's Code Interpreter in your terminal.\n\n## Agent Configuration\n\n### Basic",
       "lastModified": "2026-10-26T15:19:23.501Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/CLI_Tools/opencode-guide.md",
+      "title": "🟦 OpenCode Guide",
+      "section": "1_Guides",
+      "category": "CLI_Tools",
+      "subcategory": "opencode-guide",
+      "tags": [
+        "opencode",
+        "coding-agent",
+        "cli",
+        "tui",
+        "providers",
+        "agents-md",
+        "mcp"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against the opencode.ai docs (v2 pages) -->\n\n# OpenCode Guide\n\nOpenCode is an open-source (MIT) terminal coding agent that works with many model providers. Thi",
+      "lastModified": "2026-11-18T20:57:45.587Z",
       "isUserOwned": false
     },
     {
@@ -653,6 +810,42 @@
       "isUserOwned": false
     },
     {
+      "id": "1_Guides/Claude_Code/mcp-servers-guide.md",
+      "title": "🔌 Claude Code MCP Servers Guide",
+      "section": "1_Guides",
+      "category": "Claude_Code",
+      "subcategory": "mcp-servers-guide",
+      "tags": [
+        "claude-code",
+        "mcp",
+        "tools",
+        "integrations",
+        "settings"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against code.claude.com/docs/en/mcp -->\n\n# Claude Code MCP Servers Guide\n\nMCP servers give Claude Code tools and data it does not have built in (an issue track",
+      "lastModified": "2026-11-18T20:57:07.184Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/Claude_Code/memory-claude-md-guide.md",
+      "title": "🧠 Claude Code Memory and CLAUDE.md Guide",
+      "section": "1_Guides",
+      "category": "Claude_Code",
+      "subcategory": "memory-claude-md-guide",
+      "tags": [
+        "claude-code",
+        "memory",
+        "claude-md",
+        "rules",
+        "context"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against code.claude.com/docs/en/memory -->\n\n# Claude Code Memory and CLAUDE.md Guide\n\nEach Claude Code session starts with a fresh context window. Two things c",
+      "lastModified": "2026-11-18T20:57:20.457Z",
+      "isUserOwned": false
+    },
+    {
       "id": "1_Guides/Claude_Code/slash-commands.md",
       "title": "Claude Code Slash Commands Reference",
       "section": "1_Guides",
@@ -726,6 +919,26 @@
       "isUserOwned": false
     },
     {
+      "id": "1_Guides/Codex/config-toml-guide.md",
+      "title": "⚙️ Codex CLI config.toml Guide",
+      "section": "1_Guides",
+      "category": "Codex",
+      "subcategory": "config-toml-guide",
+      "tags": [
+        "codex",
+        "openai",
+        "config",
+        "toml",
+        "sandbox",
+        "mcp",
+        "profiles"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against the Codex config docs on learn.chatgpt.com -->\n\n# Codex CLI config.toml Guide\n\nHow do you set Codex's model, approvals, sandbox, providers and MCP serv",
+      "lastModified": "2026-11-18T20:57:30.827Z",
+      "isUserOwned": false
+    },
+    {
       "id": "1_Guides/Codex/flags-reference.md",
       "title": "Codex CLI Flags Reference",
       "section": "1_Guides",
@@ -760,6 +973,24 @@
       "checked": "2026-10-13",
       "contentPreview": "\n<!-- Last Updated: 2026-10-13 - Partially checked: see note below -->\n\n# Codex Slash Commands Reference\n\nBuilt-in slash commands available in Codex CLI interactive mode.\n\n**Source**: [developers.open",
       "lastModified": "2026-10-26T15:17:35.405Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/Gemini_CLI/extensions-guide.md",
+      "title": "🧩 Gemini CLI Extensions Guide",
+      "section": "1_Guides",
+      "category": "Gemini_CLI",
+      "subcategory": "extensions-guide",
+      "tags": [
+        "gemini-cli",
+        "extensions",
+        "mcp",
+        "gemini-md",
+        "context"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against docs/extensions and docs/cli/gemini-md.md in google-gemini/gemini-cli -->\n\n# Gemini CLI Extensions Guide\n\nAn extension packages prompts, MCP servers, c",
+      "lastModified": "2026-11-18T20:57:33.898Z",
       "isUserOwned": false
     },
     {

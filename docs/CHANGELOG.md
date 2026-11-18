@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Library: new guides (backfill)
+
+Twelve guides, each written from the official docs read that day and citing them in a Sources list: Claude Code MCP servers and CLAUDE.md memory (`anthropics/claude-code`, no SPDX licence), Gemini CLI extensions (`google-gemini/gemini-cli`, Apache-2.0), Codex config.toml (`openai/codex`, Apache-2.0), OpenCode (`anomalyco/opencode`, MIT), goose (`aaif-goose/goose`, Apache-2.0), Crush (`charmbracelet/crush`, FSL-1.1-MIT), llama.cpp (`ggml-org/llama.cpp`, MIT), OpenAI Agents SDK (`openai/openai-agents-python`, MIT), Claude Agent SDK for Python (`anthropics/claude-agent-sdk-python`, MIT), LangGraph (`langchain-ai/langgraph`, MIT), LiteLLM (`BerriAI/litellm`, MIT plus a separate commercial licence for some features).
+
+_Touched: `site/library/1_Guides/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — One local page for every automation
 
 `docs/AUTOMATIONS.local.md` lists every scheduled job, workflow and sweep that touches Promptbook: schedule, next and last run, model, PR branch, the Thursday rotation, open automation PRs, and whether `site/library` on `main` has moved lately. It's gitignored (local paths and schedules) and rewritten every Sunday at 07:00 by a new Routines job, `promptbook-automations-doc`, which links back to the Routines docs. The page's hand-written parts live in that job's `template.md`.
