@@ -36,6 +36,6 @@ roadmap job resyncs drifted ones (`scripts/resync-upstream.mjs 2_Agents/<path>`)
 
 ## Adding one
 
-The catalog run of the Promptbook Content job (every third Thursday) adds up to 4 a run from permissively licensed collections. By hand:
+The Thursday agents finder (`promptbook-find-agents`) adds 3–5 trending ones a run from permissively licensed repos. By hand:
 copy the file, keep its frontmatter, run `node scripts/attribute-upstream.mjs --agents --write`
 and `node scripts/backfill-tags.mjs --write` from the repo root, then rebuild the index.

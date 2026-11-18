@@ -9,6 +9,18 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 One-time backfill of `2_Agents/`, 17 unchanged copies, each with its `upstream:` block (sha read 2026-11-18): `anthropics/claude-plugins-official` (Apache-2.0): `pr-test-analyzer`, `type-design-analyzer`, `code-architect`; `wshobson/agents` (MIT): `kubernetes-architect`, `terraform-specialist`, `observability-engineer`, `legacy-modernizer`; `affaan-m/everything-claude-code` (MIT): `build-error-resolver`, `e2e-runner`, `refactor-cleaner`, `planner`; `0xfurai/claude-code-subagents` (MIT): `docker-expert`, `github-actions-expert`, `langchain-expert`; `VoltAgent/awesome-claude-code-subagents` (MIT): `incident-responder`, `accessibility-tester`, `qa-expert`. New folders `DevOps/` and `Quality/`.
 
 _Touched: `site/library/2_Agents/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+## 2026-11-18 — Library: new guides (backfill)
+
+Twelve guides, each written from the official docs read that day and citing them in a Sources list: Claude Code MCP servers and CLAUDE.md memory (`anthropics/claude-code`, no SPDX licence), Gemini CLI extensions (`google-gemini/gemini-cli`, Apache-2.0), Codex config.toml (`openai/codex`, Apache-2.0), OpenCode (`anomalyco/opencode`, MIT), goose (`aaif-goose/goose`, Apache-2.0), Crush (`charmbracelet/crush`, FSL-1.1-MIT), llama.cpp (`ggml-org/llama.cpp`, MIT), OpenAI Agents SDK (`openai/openai-agents-python`, MIT), Claude Agent SDK for Python (`anthropics/claude-agent-sdk-python`, MIT), LangGraph (`langchain-ai/langgraph`, MIT), LiteLLM (`BerriAI/litellm`, MIT plus a separate commercial licence for some features).
+
+_Touched: `site/library/1_Guides/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+## 2026-11-18 — One finder per section, one keeper for the rest
+
+How the library grows changed (Mike): instead of one content job that added 2 prompts and a guide a week and vendored only the repos someone had marked `accept`, each section now has its own finder in the Routines fleet. Every finder searches news, social and AI forums for what's trending in its section and adds it straight to a PR the Org PR Sweep merges, with no per-item decision: Prompts on Monday, Skills Tuesday, Guides Wednesday, Agents Thursday and MCP Servers Friday, 3–5 items each, and System Prompts on the first Sunday of the month (vendor-published only). The provenance rules don't move: every item names its GitHub repo, and copied text needs a permissive licence. A one-time larger backfill run per section fills the library first.
+
+Existing content has one owner now, the Saturday **Library Keeper**, which rotates guides, then prompts and agents, then skills and MCP cards, and fixes only what's already there. It took over the old Thursday refreshes and the Library Cards Refresh. The Discovery job is retired and `docs/DISCOVERY.md` is closed; the finders still skip any repo it marks `reject`. `upstream-drift.yml` and the Monthly Upkeep are unchanged.
+
+_Touched: `AGENTS.md`, `docs/CHANGELOG.md`, `docs/DISCOVERY.md`, `docs/README.md`, `docs/ROADMAP.md`, `docs/templates/mcp-servers-template.md`, `scripts/discover-repos.mjs` (comment only), `site/library/2_Agents/README.md`, `site/library/6_MCP_Servers/README.md`._
 
 ---
 
