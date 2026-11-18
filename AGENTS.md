@@ -192,8 +192,9 @@ site/
                        5_System_Prompts against the public collections' clones and history),
                        build-skill-packs.mjs (one generated pack per 3_Skills folder with 6+ skills,
                        plus dead-path repair of the hand packs; Monthly Upkeep), discover-repos.mjs (gh search for new/popular skills, prompt, agent and
-                       MCP repos → docs/DISCOVERY.md rows for a person to accept; `link` rows
-                       become Resources-menu links in site/library/resources.json),
+                       MCP repos the library doesn't track; its report is one source for the
+                       promptbook-find-* jobs. docs/DISCOVERY.md, the ledger its --write filled,
+                       closed 2026-11-18 apart from its `reject` rows),
                        vendor-skill-licenses.mjs (each skill's `license:` and LICENSE file, from gh),
                        check-resources.mjs (dead-link report for that menu), check-mcp-servers.mjs (flags MCP cards whose repo
                        is missing, renamed, archived, relicensed or quiet), backfill-tags.mjs

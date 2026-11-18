@@ -9,11 +9,15 @@ top; `scripts/upstream.test.mjs` fails CI on a prompt without one.
 ├── Fabric/<Topic>/                # danielmiessler/Fabric patterns, 265 prompts (match: exact)
 ├── ChatGPT_Shortcut/<Tag>/        # rockbenben/ChatGPT-Shortcut, 119 prompts
 ├── ChatGPT_System_Prompts/<Group>/  # mustvlad/ChatGPT-System-Prompts, 38 prompts
-└── Microsoft_Prompts_For_Edu/<Audience>/  # microsoft/prompts-for-edu, 15 prompts
+├── Microsoft_Prompts_For_Edu/<Audience>/  # microsoft/prompts-for-edu, 15 prompts
+├── Microsoft_Copilot_Prompts/<Topic>/     # pnp/copilot-prompts, 4 prompts
+├── Claude_Cookbooks/<Topic>/              # anthropics/claude-cookbooks, 4 prompts
+├── OpenAI_Cookbook/<Topic>/               # openai/openai-cookbook, 4 prompts
+└── Claude_Plugins_Official/<Topic>/       # anthropics/claude-plugins-official, 4 command prompts (Apache-2.0)
 ```
 
 One top-level folder per collection, then the collection's own grouping. Every collection is
-MIT; `NOTICE` at the repo root carries each licence. A Fabric file
+MIT (Claude_Plugins_Official is Apache-2.0); `NOTICE` at the repo root carries each licence. A Fabric file
 is the pattern's `system.md` byte for byte, so the weekly drift resync keeps it current; the
 others were reshaped from JSON or Markdown sections and are `match: similar`. ChatGPT-Shortcut
 cards that it copied from Awesome ChatGPT, and any prompt whose title is already here, were
