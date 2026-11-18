@@ -4,6 +4,18 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Library: new agents
+
+One-time prefill, round 2: 18 agent definitions from well-maintained collections and an official vendor repo, all `match: exact`, roles the section lacked. `2_Agents` goes from 94 to 112 files.
+
+- `anthropics/claude-plugins-official` (Apache-2.0): `code-explorer`, `code-simplifier`, `Quality/code-reviewer`, `comment-analyzer`, `agent-creator`, `plugin-validator`.
+- `wshobson/agents` (MIT): `security-auditor`, `debugger`, `performance-engineer`, `test-automator`, `error-detective` (all `Quality/`), `backend-architect`.
+- `VoltAgent/awesome-claude-code-subagents` (MIT): `sre-engineer`, `platform-engineer`, `chaos-engineer` (`DevOps/`), `postgres-pro` (`AI_ML/Data_SMEs/`), `product-manager`, `ux-researcher` (new `Product/` folder).
+
+_Touched: `site/library/2_Agents/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — repowise prompts rejected
 
 `repowise-dev/claude-code-prompts` was marked `accept` in the 2026-11-18 triage. The prompts finder's backfill found its `complete-prompts/` mirror Claude Code's internal prompts section by section, so it copied nothing and asked. It is now `reject` in `DISCOVERY.md`, which the finders honour, and the question in `OPEN-QUESTIONS.md` is answered.
