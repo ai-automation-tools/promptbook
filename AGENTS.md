@@ -207,6 +207,10 @@ site/
   homepage/            Static homepage (one index.html, no build) → GitHub Pages via
                        .github/workflows/homepage.yml; pinned by scripts/homepage.test.mjs
   docs/                Documentation (see docs/README.md)
+  docs/AUTOMATIONS.local.md  Gitignored, on Mike's PC only: every scheduled job, workflow and
+                       sweep that touches this repo, with next and last runs and open PRs.
+                       Rewritten Sundays by the Routines job promptbook-automations-doc;
+                       its hand-written parts are that job's template.md. Don't edit it here
   docs/diagrams/       Code-pinned Archify data-flow diagram. Edit only the .json, rebuild with
                        node scripts/build-diagram.mjs --pin-head (copies into homepage/diagram/)
   images/              README / branding assets
