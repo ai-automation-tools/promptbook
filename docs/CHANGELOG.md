@@ -4,6 +4,20 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Library: backfill, 8 new system prompts
+
+Prompts that open-source agents publish in their own repos, copied verbatim (`match: exact`):
+
+- `OpenAI/codex-cli-gpt-5-2.md`, `OpenAI/codex-cli-gpt-5-1-codex-max.md`: openai/codex (Apache-2.0).
+- `OpenCode/opencode-gpt.md`, `OpenCode/opencode-kimi.md`: anomalyco/opencode (MIT).
+- `Goose/goose-system.md`, `Goose/goose-subagent.md`: aaif-goose/goose (Apache-2.0).
+- `Mistral/mistral-vibe-cli.md`: mistralai/mistral-vibe (Apache-2.0).
+- `HuggingFace/smolagents-code-agent.md`: huggingface/smolagents (Apache-2.0).
+
+_Touched: `site/library/5_System_Prompts/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — One local page for every automation
 
 `docs/AUTOMATIONS.local.md` lists every scheduled job, workflow and sweep that touches Promptbook: schedule, next and last run, model, PR branch, the Thursday rotation, open automation PRs, and whether `site/library` on `main` has moved lately. It's gitignored (local paths and schedules) and rewritten every Sunday at 07:00 by a new Routines job, `promptbook-automations-doc`, which links back to the Routines docs. The page's hand-written parts live in that job's `template.md`.
