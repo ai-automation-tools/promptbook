@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — One local page for every automation
+
+`docs/AUTOMATIONS.local.md` lists every scheduled job, workflow and sweep that touches Promptbook: schedule, next and last run, model, PR branch, the Thursday rotation, open automation PRs, and whether `site/library` on `main` has moved lately. It's gitignored (local paths and schedules) and rewritten every Sunday at 07:00 by a new Routines job, `promptbook-automations-doc`, which links back to the Routines docs. The page's hand-written parts live in that job's `template.md`.
+
+_Touched: `.gitignore`, `AGENTS.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — Roadmap's job table brought up to date
 
 The "Kept current by" table in `docs/ROADMAP.md` still listed the four content jobs that became Promptbook Content on 2026-11-09, called them biweekly (they rotate, every third Thursday), and missed today's changes: Monthly Upkeep now owns system-prompt drift, the PR sweep runs daily and approves the held CI run on the `upstream/resync` PR. Rewritten from the jobs' current configs. The leftover job names elsewhere went too (ROADMAP's `small` rename item, now ticked): "Prompt-Library Discovery" and "Prompt-Library Upstream Check" are the Promptbook ones, and "Catalog Refresh" is the Promptbook Content job's catalog run.

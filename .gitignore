@@ -13,6 +13,10 @@ site/my-library/
 # Archify build receipts and screenshots (scripts/build-diagram.mjs)
 docs/diagrams/.build/
 
+# Every automation that touches this repo on one page, rewritten weekly on Mike's PC by
+# the Routines job promptbook-automations-doc. Local paths and schedules: never tracked.
+docs/AUTOMATIONS.local.md
+
 # Local-only working trees (kept on disk, not tracked)
 backup/
 import/
