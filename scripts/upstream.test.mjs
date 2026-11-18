@@ -186,6 +186,30 @@ assert.equal(readUpstream(stampUpstream(tagsLast, { ref: "newsha", checked: "202
   assert.deepEqual(unsourced, [], "every item must name a repo (upstream.repo, match: vendor + url, server.repo, or a guide's repo:)");
   console.log("  every skill, agent, system prompt, MCP card, prompt and guide names a repo");
 
+  // --- nothing leaked or extracted (Mike, 2026-11-18) ---
+  // These collections republish prompts taken from products without the vendor's consent.
+  // Their 136 system prompts were re-sourced from Anthropic's own pages or archived
+  // (archive/leaked-sources-2026-11-18/); a new item must not name one as its source.
+  const LEAK_SOURCES = new Set([
+    "jujumilk3/leaked-system-prompts",
+    "0xeb/thebigpromptlibrary",
+    "louisshark/chatgpt_system_prompt",
+    "piebald-ai/claude-code-system-prompts",
+    "repowise-dev/claude-code-prompts",
+    "x1xhlol/system-prompts-and-models-of-ai-tools",
+    "asgeirtj/system_prompts_leaks",
+    "elder-plinius/cl4r1t4s",
+  ]);
+  const leaked = [];
+  for (const f of walk(LIB, (n) => n.endsWith(".md"))) {
+    const fm = splitFrontmatter(fs.readFileSync(f, "utf8")).fm;
+    for (const m of fm.matchAll(/^\s*repo:\s*["']?([\w.-]+\/[\w.-]+)/gm)) {
+      if (LEAK_SOURCES.has(m[1].toLowerCase())) leaked.push(`${path.relative(LIB, f).split(path.sep).join("/")} (${m[1]})`);
+    }
+  }
+  assert.deepEqual(leaked, [], "no item may be sourced from a leaked/extracted prompt collection");
+  console.log("  no item names a leaked or extracted prompt collection as its source");
+
   // --- F17: each record's kind has the metadata that kind needs ---
   // Original: written here (guides, library cards) — a bare `repo:` and no upstream block,
   // which would claim it was copied. Attributed: copied, so the block says from where and

@@ -1,6 +1,6 @@
 ---
 title: "📝 Claude Opus 5.5 (2026-10-27)"
-tags: ["system-prompt", "anthropic", "claude", "claude-opus-5.5"]
+tags: ["featured", "system-prompt", "anthropic", "claude", "claude-opus-5.5"]
 category: "LLM Instructions"
 subcategory: "Anthropic"
 upstream:

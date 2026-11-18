@@ -13,7 +13,7 @@ Public Library. The old `prompts.mikesailab.com` and `prompts.ax-platform.com` h
 2026-10-14. The bare `promptbook.ai-automation-tools.dev` is the static homepage in `homepage/` (GitHub Pages).
 Two libraries: a **Public Library** (curated, file-backed under `library/`) and **My Library**
 (the user's own prompts, one markdown file each in a local folder, `lib/my-library.ts`). Also
-serves **Skill Packs** (zipped skill bundles) and a large **System Prompts** archive.
+serves **Skill Packs** (zipped skill bundles) and an archive of vendor-published **System Prompts**.
 
 **There are no accounts.** Login, Neon/Postgres and GitHub mode were removed 2026-10-21: whoever can
 reach the server owns My Library, so `server.ts` binds to `127.0.0.1`. Don't reintroduce auth or a
@@ -285,7 +285,9 @@ is copied in as a `SKILL.md` folder. The 224 copies this replaced are in
   since it ships in ZIPs: `node scripts/vendor-skill-licenses.mjs --write` writes both, and a
   skill whose repo has no such licence is not added (four were archived for that, 2026-10-27).
   `scripts/upstream.test.mjs` fails CI otherwise. No repo, no file. System prompts are copied
-  verbatim, never written.
+  verbatim, never written, and only from the vendor's own page or repo (Mike, 2026-11-18): the
+  136 that came from leak collections were re-sourced from Anthropic's pages or archived to
+  `archive/leaked-sources-2026-11-18/`, and the test fails an item sourced from one.
 - **Every card shows a GitHub repo link at the top** (Mike, 2026-10-26), the same panel in all
   six sections: `sourceOf()` in `lib/library.ts` reads `upstream.repo`, `server.repo`, or a
   guide's bare `repo:` (the tool the guide documents, since a guide is written here, not

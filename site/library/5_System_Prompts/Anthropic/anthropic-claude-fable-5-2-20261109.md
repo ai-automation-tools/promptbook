@@ -1,6 +1,6 @@
 ---
 title: "📝 Claude Fable 5.2 (2026-11-09)"
-tags: ["system-prompt", "anthropic", "claude", "claude-fable-5.2"]
+tags: ["featured", "system-prompt", "anthropic", "claude", "claude-fable-5.2"]
 category: "LLM Instructions"
 subcategory: "Anthropic"
 upstream:

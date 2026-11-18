@@ -25,6 +25,12 @@
  * vendor-published ones whose body cites docs.anthropic.com (Mike, 2026-10-23:
  * vendor pages count as a source); those get `upstream: { match: vendor, url }`.
  *
+ * Since 2026-11-18 (Mike) only a vendor's own repo is a valid `--clone`. The collections
+ * this was first run against (jujumilk3/leaked-system-prompts, 0xeb/TheBigPromptLibrary,
+ * LouisShark/chatgpt_system_prompt) republish leaked prompts; the 136 files they sourced
+ * were re-sourced from Anthropic's pages or archived (archive/leaked-sources-2026-11-18/),
+ * and scripts/upstream.test.mjs fails any item that names one of them.
+ *
  * Usage (repo root), with clones made by `git clone --depth 1`:
  *   node scripts/attribute-system-prompts.mjs --clone <dir>=<owner/repo> [--clone …] [--write] [--report out.md]
  */
