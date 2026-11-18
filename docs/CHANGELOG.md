@@ -24,6 +24,62 @@ System prompts marked `behind` or `drifted` in `upstream-status.json` were resyn
 Next month: 15 more `drifted` system prompts (Anthropic and others, `github-copilot-chat` onward), 2 `LouisShark` Gemini Gems, `blader/humanizer` (skill, off limits); featured floor still short: agents 4 of 4 met, skills 3 of 4, prompts 0 of 4.
 
 _Touched: `site/library/5_System_Prompts/**` (above), the six featured files, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+## 2026-11-18 — Library: prefill, 10 new MCP servers
+
+Ten cards from reputable sources (official vendor servers first), each written from the server's own README read that day: Todoist (`todoist/todoist-mcp`, MIT), Contentful (`contentful/contentful-mcp-server`, MIT), Perplexity (`perplexityai/modelcontextprotocol`, MIT), Brave Search (`brave/brave-search-mcp-server`, MIT), Azure DevOps (`microsoft/azure-devops-mcp`, MIT), Postman (`postmanlabs/postman-mcp-server`, Apache-2.0), Mobile MCP (`mobile-next/mobile-mcp`, Apache-2.0), Firebase (`firebase/firebase-tools`, MIT), DuckDB and MotherDuck (`motherduckdb/mcp-server-motherduck`, MIT) and Postgres MCP Pro (`crystaldba/postgres-mcp`, MIT). The `6_MCP_Servers` README now counts 54 cards.
+
+_Touched: `site/library/6_MCP_Servers/**` (ten new cards, README), `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
+## 2026-11-18 — Library: new prompts (prefill, round 2)
+
+30 prompts from vendor repos, copied with provenance (`match: similar`, each at the commit read that day). Four new collections: `google-gemini/gemini-cli` (6 slash commands, Apache-2.0), `google-github-actions/run-gemini-cli` (5 GitHub Actions prompts, Apache-2.0), `anthropics/claude-quickstarts` (5 agent prompts, MIT) and `anthropics/claude-code-action` (1 command, MIT). Existing collections grew: `anthropics/claude-cookbooks` +8 (MIT; review commands, the chief-of-staff commands, a sandbox-escape transcript reviewer) and `openai/openai-cookbook` +5 (MIT; an LLM judge, two voice agents, two portfolio agent prompts). `NOTICE` and `4_Prompts/README.md` carry the new collections.
+
+_Touched: `site/library/4_Prompts/`, `NOTICE`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
+## 2026-11-18 — Library: prefill, 20 new skills (round 2)
+
+Skill library cards (README copied, no skill text) for official vendor and most-starred repos not yet carded. Licence is the repo's; cards only link and describe.
+
+- `google-gemini/gemini-skills` (Apache-2.0), `browserbase/skills` (none declared), `langchain-ai/langchain-skills` (MIT), `hashicorp/agent-skills` (MPL-2.0), `elastic/agent-skills` (Apache-2.0), `elevenlabs/skills` (MIT), `Shopify/Shopify-AI-Toolkit` (MIT), `grafana/skills` (Apache-2.0), `datadog-labs/agent-skills` (MIT), `databricks/databricks-agent-skills` (NOASSERTION), `firebase/agent-skills` (Apache-2.0), `mongodb/agent-skills` (Apache-2.0), `clerk/skills` (none declared), `netlify/context-and-tools` (MIT), `prisma/skills` (MIT), `render-oss/skills` (MIT), `pulumi/agent-skills` (Apache-2.0), `redis/agent-skills` (MIT), `sanity-io/agent-toolkit` (MIT), `nextlevelbuilder/ui-ux-pro-max-skill` (MIT).
+
+_Touched: `site/library/3_Skills/Libraries/`, `site/library/3_Skills/README.md`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
+## 2026-11-18 — Library: new guides (prefill, round 2)
+
+Fifteen guides for widely used AI coding and agent tools, each checked against the official docs read that day. Every repo is public, not archived and pushed within the week.
+
+- Claude Code (`anthropics/claude-code`, no licence file): `skills-guide`, `plugins-guide`, `settings-permissions-guide`.
+- Gemini CLI (`google-gemini/gemini-cli`, Apache-2.0): `gemini-md-context-guide`, `mcp-servers-guide`.
+- API_Providers: `claude-agent-sdk-typescript-guide` (`anthropics/claude-agent-sdk-typescript`, no licence file), `crewai-guide` (`crewAIInc/crewAI`, MIT), `pydantic-ai-guide` (`pydantic/pydantic-ai`, MIT), `smolagents-guide` (`huggingface/smolagents`, Apache-2.0), `dspy-guide` (`stanfordnlp/dspy`, MIT), `langchain-guide` (`langchain-ai/langchain`, MIT), `mcp-python-sdk-guide` (`modelcontextprotocol/python-sdk`, MIT), `mcp-typescript-sdk-guide` (`modelcontextprotocol/typescript-sdk`, licence per repo).
+- CLI_Tools: `copilot-cli-guide` (`github/copilot-cli`), `vllm-guide` (`vllm-project/vllm`, Apache-2.0).
+
+_Touched: `site/library/1_Guides/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
+## 2026-11-18 — Library: new agents
+
+One-time prefill, round 2: 18 agent definitions from well-maintained collections and an official vendor repo, all `match: exact`, roles the section lacked. `2_Agents` goes from 94 to 112 files.
+
+- `anthropics/claude-plugins-official` (Apache-2.0): `code-explorer`, `code-simplifier`, `Quality/code-reviewer`, `comment-analyzer`, `agent-creator`, `plugin-validator`.
+- `wshobson/agents` (MIT): `security-auditor`, `debugger`, `performance-engineer`, `test-automator`, `error-detective` (all `Quality/`), `backend-architect`.
+- `VoltAgent/awesome-claude-code-subagents` (MIT): `sre-engineer`, `platform-engineer`, `chaos-engineer` (`DevOps/`), `postgres-pro` (`AI_ML/Data_SMEs/`), `product-manager`, `ux-researcher` (new `Product/` folder).
+
+_Touched: `site/library/2_Agents/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
+## 2026-11-18 — Library: new system prompts (prefill, round 2)
+
+Fourteen vendor-published prompts. Eight Anthropic captures from its system-prompt release notes (`match: vendor`, newest dated entry each): Claude Fable 5.2 (2026-11-09), Opus 5.5, Sonnet 5.5, Haiku 5.5, Opus 4.8, Opus 4.7, Opus 4.6 and Sonnet 4.6. Three Codex CLI prompts from `openai/codex` (Apache-2.0): GPT-5.1, GPT-5-Codex, GPT-5.2-Codex. Three opencode prompts from `anomalyco/opencode` (MIT): GPT Astra, Trinity, Meta. Each Anthropic page splits one prompt into two code blocks; they are joined with the seam removed, text otherwise unchanged.
+
+_Touched: `site/library/5_System_Prompts/{Anthropic,OpenAI,OpenCode}/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 

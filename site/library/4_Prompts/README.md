@@ -11,13 +11,17 @@ top; `scripts/upstream.test.mjs` fails CI on a prompt without one.
 ├── ChatGPT_System_Prompts/<Group>/  # mustvlad/ChatGPT-System-Prompts, 38 prompts
 ├── Microsoft_Prompts_For_Edu/<Audience>/  # microsoft/prompts-for-edu, 15 prompts
 ├── Microsoft_Copilot_Prompts/<Topic>/     # pnp/copilot-prompts, 4 prompts
-├── Claude_Cookbooks/<Topic>/              # anthropics/claude-cookbooks, 4 prompts
-├── OpenAI_Cookbook/<Topic>/               # openai/openai-cookbook, 4 prompts
-└── Claude_Plugins_Official/<Topic>/       # anthropics/claude-plugins-official, 4 command prompts (Apache-2.0)
+├── Claude_Cookbooks/<Topic>/              # anthropics/claude-cookbooks, 12 prompts
+├── OpenAI_Cookbook/<Topic>/               # openai/openai-cookbook, 9 prompts
+├── Claude_Plugins_Official/<Topic>/       # anthropics/claude-plugins-official, 4 command prompts (Apache-2.0)
+├── Gemini_CLI/<Topic>/                    # google-gemini/gemini-cli, 6 command prompts (Apache-2.0)
+├── Gemini_CLI_Action/<Topic>/             # google-github-actions/run-gemini-cli, 5 prompts (Apache-2.0)
+├── Anthropic_Quickstarts/<Topic>/         # anthropics/claude-quickstarts, 5 agent prompts
+└── Claude_Code_Action/<Topic>/            # anthropics/claude-code-action, 1 command prompt
 ```
 
 One top-level folder per collection, then the collection's own grouping. Every collection is
-MIT (Claude_Plugins_Official is Apache-2.0); `NOTICE` at the repo root carries each licence. A Fabric file
+MIT (Claude_Plugins_Official, Gemini_CLI and Gemini_CLI_Action are Apache-2.0); `NOTICE` at the repo root carries each licence. A Fabric file
 is the pattern's `system.md` byte for byte, so the weekly drift resync keeps it current; the
 others were reshaped from JSON or Markdown sections and are `match: similar`. ChatGPT-Shortcut
 cards that it copied from Awesome ChatGPT, and any prompt whose title is already here, were
