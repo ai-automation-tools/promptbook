@@ -12,7 +12,7 @@ A skill library: browse and install its skills from [the repo on GitHub](https:/
 
 ---
 
-*The repo's README, copied 2026-11-02:*
+*The repo's README, copied 2026-11-16:*
 
 # Marketing Skills for AI Agents
 
@@ -40,6 +40,8 @@ The library is free and MIT-licensed. [Verified Partners](https://github.com/cor
 > ◆ **[AIsa](https://aisa.one)** — *SEO, search & social data.* One AIsa key, pay as you go, instead of a subscription to every data platform. Agents get SEO, search, social, and market data from Similarweb, Semrush, Ahrefs, DataForSEO, Tavily, Reddit, X, and more through REST or MCP, and pay only for the calls they make. → [Integration guide](https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/aisa.md)
 
 > ◆ **[Omnia](https://www.useomnia.com)** — *AI search visibility (AEO).* Omnia tracks how AI engines answer your customers' questions every day: visibility, citations, Share of Voice and sentiment for your brand and competitors. Connect the Omnia MCP to Claude and these skills run on real AI answers data instead of guesses. Or let your Omnia Agent turn it into prioritized work that you review and approve. → [Integration guide](https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/omnia.md)
+
+> ◆ **[Livestorm](https://livestorm.co)** — *Webinars & virtual events.* Browser-based platform for webinars, virtual events, and online meetings, with registration pages, live engagement, recordings, and analytics. A REST API, webhooks, and an official MCP server let agents create events, manage registrants, and pull attendance data. → [Integration guide](https://github.com/coreyhaines31/marketingskills/blob/main/tools/integrations/livestorm.md)
 <!-- PARTNERS:END -->
 
 <!-- The Partners block above is generated from partners.json — run `node scripts/sync-partners.mjs` after editing it. -->
@@ -90,59 +92,59 @@ See each skill's **Related Skills** section for the full dependency map.
 <!-- SKILLS:START -->
 | Skill | Description |
 |-------|-------------|
-| [ab-testing](https://github.com/coreyhaines31/marketingskills/blob/main/skills/ab-testing/) | When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program.... |
-| [ad-creative](https://github.com/coreyhaines31/marketingskills/blob/main/skills/ad-creative/) | When the user wants to generate, iterate, or scale ad creative — headlines, descriptions, primary text, or full ad... |
-| [ads](https://github.com/coreyhaines31/marketingskills/blob/main/skills/ads/) | When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X,... |
-| [ai-seo](https://github.com/coreyhaines31/marketingskills/blob/main/skills/ai-seo/) | When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-generated answers.... |
-| [analytics](https://github.com/coreyhaines31/marketingskills/blob/main/skills/analytics/) | When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions... |
-| [aso](https://github.com/coreyhaines31/marketingskills/blob/main/skills/aso/) | When the user wants to audit or optimize an App Store or Google Play listing. Also use when the user mentions 'ASO... |
-| [attribution](https://github.com/coreyhaines31/marketingskills/blob/main/skills/attribution/) | When the user wants to figure out which marketing actually drives conversions and revenue, choose or interpret an... |
-| [churn-prevention](https://github.com/coreyhaines31/marketingskills/blob/main/skills/churn-prevention/) | When the user wants to reduce churn, build cancellation flows, set up save offers, recover failed payments, or... |
-| [co-marketing](https://github.com/coreyhaines31/marketingskills/blob/main/skills/co-marketing/) | When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership opportunities. Use... |
-| [cold-email](https://github.com/coreyhaines31/marketingskills/blob/main/skills/cold-email/) | Write and run B2B cold outbound that gets replies, from cold emails and follow-ups to sending setup, LinkedIn,... |
-| [community-marketing](https://github.com/coreyhaines31/marketingskills/blob/main/skills/community-marketing/) | Build and leverage online communities to drive product growth and brand loyalty. Use when the user wants to create a... |
-| [competitor-profiling](https://github.com/coreyhaines31/marketingskills/blob/main/skills/competitor-profiling/) | When the user wants to research, profile, or analyze competitors from their URLs. Also use when the user mentions... |
-| [competitors](https://github.com/coreyhaines31/marketingskills/blob/main/skills/competitors/) | When the user wants to create competitor comparison or alternative pages for SEO and buyer-facing use. Also use when... |
-| [content-strategy](https://github.com/coreyhaines31/marketingskills/blob/main/skills/content-strategy/) | When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also... |
-| [conversion-tracking](https://github.com/coreyhaines31/marketingskills/blob/main/skills/conversion-tracking/) | Set up, audit, verify, or fix website conversion tracking. Use when the conversion is a form submission, booked... |
-| [copy-editing](https://github.com/coreyhaines31/marketingskills/blob/main/skills/copy-editing/) | When the user wants to edit, review, or improve existing marketing copy, or refresh outdated content. Also use when the... |
-| [copywriting](https://github.com/coreyhaines31/marketingskills/blob/main/skills/copywriting/) | When the user wants to write, rewrite, or improve marketing copy for any page, including homepage, landing pages,... |
-| [cro](https://github.com/coreyhaines31/marketingskills/blob/main/skills/cro/) | When the user wants to optimize, improve, or increase conversions on any marketing page or form — including homepage,... |
-| [customer-research](https://github.com/coreyhaines31/marketingskills/blob/main/skills/customer-research/) | When the user wants to conduct, analyze, or synthesize customer research. Use when the user mentions "customer... |
-| [directory-submissions](https://github.com/coreyhaines31/marketingskills/blob/main/skills/directory-submissions/) | When the user wants to submit their product to startup, SaaS, AI, agent, MCP, no-code, or review directories for... |
-| [emails](https://github.com/coreyhaines31/marketingskills/blob/main/skills/emails/) | When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or lifecycle email... |
-| [events](https://github.com/coreyhaines31/marketingskills/blob/main/skills/events/) | When the user wants to plan, run, sponsor, speak at, or get pipeline from events — webinars, conferences, trade shows,... |
-| [free-tools](https://github.com/coreyhaines31/marketingskills/blob/main/skills/free-tools/) | When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation, SEO value, or... |
-| [image](https://github.com/coreyhaines31/marketingskills/blob/main/skills/image/) | When the user wants to create, generate, edit, or optimize images for marketing — blog heroes, social graphics, product... |
-| [influencer-marketing](https://github.com/coreyhaines31/marketingskills/blob/main/skills/influencer-marketing/) | When the user wants to run influencer, creator, or ambassador partnerships to promote their product — finding and... |
-| [launch](https://github.com/coreyhaines31/marketingskills/blob/main/skills/launch/) | When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user... |
-| [lead-magnets](https://github.com/coreyhaines31/marketingskills/blob/main/skills/lead-magnets/) | When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation. Also use when the... |
-| [link-building](https://github.com/coreyhaines31/marketingskills/blob/main/skills/link-building/) | When the user wants to earn backlinks or third-party mentions that lift rankings and AI citations. Also use when the... |
-| [marketing-council](https://github.com/coreyhaines31/marketingskills/blob/main/skills/marketing-council/) | When the user wants multiple expert perspectives on a marketing question — a simulated board of advisors staffed by... |
-| [marketing-ideas](https://github.com/coreyhaines31/marketingskills/blob/main/skills/marketing-ideas/) | When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product. Also use when the... |
-| [marketing-loops](https://github.com/coreyhaines31/marketingskills/blob/main/skills/marketing-loops/) | When the user wants to set up a recurring, self-running marketing workflow — a repeatable loop an AI agent runs on a... |
-| [marketing-plan](https://github.com/coreyhaines31/marketingskills/blob/main/skills/marketing-plan/) | When the user needs a comprehensive marketing plan for a client, a company they advise, or their own product. Also use... |
-| [marketing-psychology](https://github.com/coreyhaines31/marketingskills/blob/main/skills/marketing-psychology/) | When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when... |
-| [offers](https://github.com/coreyhaines31/marketingskills/blob/main/skills/offers/) | When the user wants to design, construct, or improve an offer — the thing they actually sell — including value framing,... |
-| [onboarding](https://github.com/coreyhaines31/marketingskills/blob/main/skills/onboarding/) | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value. Also... |
-| [paywalls](https://github.com/coreyhaines31/marketingskills/blob/main/skills/paywalls/) | When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or feature gates. Also use... |
-| [popups](https://github.com/coreyhaines31/marketingskills/blob/main/skills/popups/) | When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conversion purposes. Also... |
-| [pricing](https://github.com/coreyhaines31/marketingskills/blob/main/skills/pricing/) | When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions... |
-| [product-marketing](https://github.com/coreyhaines31/marketingskills/blob/main/skills/product-marketing/) | When the user wants to create or update their product marketing context document. Also use when the user mentions... |
-| [programmatic-seo](https://github.com/coreyhaines31/marketingskills/blob/main/skills/programmatic-seo/) | When the user wants to create SEO-driven pages at scale using templates and data. Also use when the user mentions... |
-| [prospecting](https://github.com/coreyhaines31/marketingskills/blob/main/skills/prospecting/) | When the user wants to find, qualify, and build a list of prospects to reach out to, across B2B SaaS, general B2B, or... |
-| [public-relations](https://github.com/coreyhaines31/marketingskills/blob/main/skills/public-relations/) | When the user wants help with public relations, earned media, press coverage, journalist outreach, or media strategy... |
-| [referrals](https://github.com/coreyhaines31/marketingskills/blob/main/skills/referrals/) | When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy.... |
-| [reverse-engineer-marketing](https://github.com/coreyhaines31/marketingskills/blob/main/skills/reverse-engineer-marketing/) | When the user wants to reverse engineer how another company grew and copy what worked. Also use when the user mentions... |
-| [revops](https://github.com/coreyhaines31/marketingskills/blob/main/skills/revops/) | When the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales handoff processes.... |
-| [sales-enablement](https://github.com/coreyhaines31/marketingskills/blob/main/skills/sales-enablement/) | When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or demo scripts. Also... |
-| [schema](https://github.com/coreyhaines31/marketingskills/blob/main/skills/schema/) | When the user wants to add, fix, or optimize schema markup and structured data on their site. Also use when the user... |
-| [seo-audit](https://github.com/coreyhaines31/marketingskills/blob/main/skills/seo-audit/) | When the user wants to audit, review, or diagnose SEO issues on their site. Also use when the user mentions "SEO... |
-| [signup](https://github.com/coreyhaines31/marketingskills/blob/main/skills/signup/) | When the user wants to optimize signup, registration, account creation, or trial activation flows. Also use when the... |
-| [site-architecture](https://github.com/coreyhaines31/marketingskills/blob/main/skills/site-architecture/) | When the user wants to plan, map, or restructure their website's page hierarchy, navigation, URL structure, or internal... |
-| [sms](https://github.com/coreyhaines31/marketingskills/blob/main/skills/sms/) | When the user wants to plan, build, or optimize SMS, MMS, or WhatsApp marketing — including welcome flows, abandoned... |
-| [social](https://github.com/coreyhaines31/marketingskills/blob/main/skills/social/) | When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram,... |
-| [video](https://github.com/coreyhaines31/marketingskills/blob/main/skills/video/) | When the user wants to create, generate, or produce video content using AI tools or programmatic frameworks. Also use... |
+| [ab-testing](https://github.com/coreyhaines31/marketingskills/blob/main/skills/ab-testing/) | When the user wants to plan, run, or read A/B tests, or asks a judgement call on one: is the result real, can we stop,... |
+| [ad-creative](https://github.com/coreyhaines31/marketingskills/blob/main/skills/ad-creative/) | When the user wants to write or judge ad creative, or asks which ad, hook, or angle to run or kill: headlines, primary... |
+| [ads](https://github.com/coreyhaines31/marketingskills/blob/main/skills/ads/) | When the user wants to plan, run, or fix paid ads on Google, Meta, and LinkedIn, or asks a judgement call on them: are... |
+| [ai-seo](https://github.com/coreyhaines31/marketingskills/blob/main/skills/ai-seo/) | When the user wants to get cited and recommended in AI answers (ChatGPT, Perplexity, AI Overviews), or asks why AI... |
+| [analytics](https://github.com/coreyhaines31/marketingskills/blob/main/skills/analytics/) | When the user wants to set up or audit analytics, or asks whether a metric or number is calculated right, what to... |
+| [aso](https://github.com/coreyhaines31/marketingskills/blob/main/skills/aso/) | When the user wants to audit or optimize an App Store or Google Play listing, or asks which title, keywords, or... |
+| [attribution](https://github.com/coreyhaines31/marketingskills/blob/main/skills/attribution/) | When the user wants to work out which marketing drives revenue, or asks whether a channel is really working, which... |
+| [churn-prevention](https://github.com/coreyhaines31/marketingskills/blob/main/skills/churn-prevention/) | When the user wants to reduce churn, or asks why customers cancel, whether to offer a discount or pause: cancellation... |
+| [co-marketing](https://github.com/coreyhaines31/marketingskills/blob/main/skills/co-marketing/) | When the user wants co-marketing partners or joint campaigns, or asks whether a partner fits, a size mismatch matters,... |
+| [cold-email](https://github.com/coreyhaines31/marketingskills/blob/main/skills/cold-email/) | When the user wants to write or run B2B cold outbound, or asks whether an opener, reason to reach out, or email works... |
+| [community-marketing](https://github.com/coreyhaines31/marketingskills/blob/main/skills/community-marketing/) | When the user wants to build or grow an online community, or asks whether a community is worth it, where to host it, or... |
+| [competitor-profiling](https://github.com/coreyhaines31/marketingskills/blob/main/skills/competitor-profiling/) | When the user wants to research competitors into dated profiles, or asks what a rival charges, claims, or is doing, or... |
+| [competitors](https://github.com/coreyhaines31/marketingskills/blob/main/skills/competitors/) | When the user wants to create or audit comparison and alternative pages ('X vs Y', 'X alternative', 'best X... |
+| [content-strategy](https://github.com/coreyhaines31/marketingskills/blob/main/skills/content-strategy/) | When the user wants to plan content, or asks which topic or piece to prioritize, what to write about, or why posts... |
+| [conversion-tracking](https://github.com/coreyhaines31/marketingskills/blob/main/skills/conversion-tracking/) | When the user wants to set up, audit, or fix conversion tracking to Google Ads, Meta, GA4, LinkedIn, and TikTok, or... |
+| [copy-editing](https://github.com/coreyhaines31/marketingskills/blob/main/skills/copy-editing/) | When the user wants to edit, tighten, proofread, or refresh existing copy, or asks whether to keep, cut, or change a... |
+| [copywriting](https://github.com/coreyhaines31/marketingskills/blob/main/skills/copywriting/) | When the user wants to write or rewrite page copy (homepage, landing, pricing, feature), or asks which headline,... |
+| [cro](https://github.com/coreyhaines31/marketingskills/blob/main/skills/cro/) | When the user wants more conversions from a page or form, or asks why a page isn't converting, what to change first, or... |
+| [customer-research](https://github.com/coreyhaines31/marketingskills/blob/main/skills/customer-research/) | When the user wants to run or synthesize customer research, or asks what customer quotes, reviews, or feedback really... |
+| [directory-submissions](https://github.com/coreyhaines31/marketingskills/blob/main/skills/directory-submissions/) | When the user wants to list a product in startup, SaaS, AI, MCP, and review directories, or asks which directories are... |
+| [emails](https://github.com/coreyhaines31/marketingskills/blob/main/skills/emails/) | When the user wants to create or improve automated email sequences, or asks what to send, when, or whether an email or... |
+| [events](https://github.com/coreyhaines31/marketingskills/blob/main/skills/events/) | When the user wants to plan, run, sponsor, or speak at events, or asks whether an event or booth is worth the money:... |
+| [free-tools](https://github.com/coreyhaines31/marketingskills/blob/main/skills/free-tools/) | When the user wants to plan or build a free tool as marketing, or asks whether a tool idea is worth building or which... |
+| [image](https://github.com/coreyhaines31/marketingskills/blob/main/skills/image/) | When the user wants to create, generate, edit, or optimize marketing images, or asks which approach to take (generate,... |
+| [influencer-marketing](https://github.com/coreyhaines31/marketingskills/blob/main/skills/influencer-marketing/) | When the user wants creator, influencer, or ambassador partnerships, or asks which creators fit, what to pay, which... |
+| [launch](https://github.com/coreyhaines31/marketingskills/blob/main/skills/launch/) | When the user wants to plan a product or feature launch, or asks whether it's ready, when to announce, or how to get... |
+| [lead-magnets](https://github.com/coreyhaines31/marketingskills/blob/main/skills/lead-magnets/) | When the user wants to plan or improve a lead magnet, or asks what to give away for emails or how much to ask in return... |
+| [link-building](https://github.com/coreyhaines31/marketingskills/blob/main/skills/link-building/) | When the user wants backlinks and mentions that lift rankings and AI citations, or asks how to get sites to link or... |
+| [marketing-council](https://github.com/coreyhaines31/marketingskills/blob/main/skills/marketing-council/) | When the user wants several expert takes on a marketing decision, or asks what a famous marketer would say about it: a... |
+| [marketing-ideas](https://github.com/coreyhaines31/marketingskills/blob/main/skills/marketing-ideas/) | When the user wants marketing ideas or growth tactics for a software product, or asks what to try to get attention or... |
+| [marketing-loops](https://github.com/coreyhaines31/marketingskills/blob/main/skills/marketing-loops/) | When the user wants a recurring marketing job an AI agent runs on a cadence or trigger, or asks what a weekly or daily... |
+| [marketing-plan](https://github.com/coreyhaines31/marketingskills/blob/main/skills/marketing-plan/) | When the user wants a full marketing or go-to-market plan for a client, an advised company, or their own product, or... |
+| [marketing-psychology](https://github.com/coreyhaines31/marketingskills/blob/main/skills/marketing-psychology/) | When the user wants to apply psychology to marketing, or asks why buyers behave or value things as they do, or whether... |
+| [offers](https://github.com/coreyhaines31/marketingskills/blob/main/skills/offers/) | When the user wants to design or improve the offer itself, or asks why it isn't selling or how to add urgency honestly:... |
+| [onboarding](https://github.com/coreyhaines31/marketingskills/blob/main/skills/onboarding/) | When the user wants better onboarding and activation, or asks why new users don't stick or what the first session... |
+| [paywalls](https://github.com/coreyhaines31/marketingskills/blob/main/skills/paywalls/) | When the user wants to create or improve in-app paywalls and upgrade moments, or asks when or how hard to ask free... |
+| [popups](https://github.com/coreyhaines31/marketingskills/blob/main/skills/popups/) | When the user wants to create or improve popups, modals, slide-ins, sticky bars, and banners, or asks whether one will... |
+| [pricing](https://github.com/coreyhaines31/marketingskills/blob/main/skills/pricing/) | When the user wants to set pricing and packaging, or asks what to charge, whether to raise prices, or how to move... |
+| [product-marketing](https://github.com/coreyhaines31/marketingskills/blob/main/skills/product-marketing/) | When the user wants to create or update the product marketing context doc (.agents/product-marketing.md), or asks what... |
+| [programmatic-seo](https://github.com/coreyhaines31/marketingskills/blob/main/skills/programmatic-seo/) | When the user wants SEO pages at scale from templates and data, or asks whether a page set will rank or look thin:... |
+| [prospecting](https://github.com/coreyhaines31/marketingskills/blob/main/skills/prospecting/) | When the user wants to find and qualify prospects for outbound, or asks who to target first, which signal to... |
+| [public-relations](https://github.com/coreyhaines31/marketingskills/blob/main/skills/public-relations/) | When the user wants press and media coverage, or asks what to say to a reporter, whether a story is newsworthy, or how... |
+| [referrals](https://github.com/coreyhaines31/marketingskills/blob/main/skills/referrals/) | When the user wants referral and affiliate programs or word of mouth, or asks what to reward, how much to pay, or which... |
+| [reverse-engineer-marketing](https://github.com/coreyhaines31/marketingskills/blob/main/skills/reverse-engineer-marketing/) | When the user wants to know how another company grew and what to copy, or asks what a competitor did and when: a dated... |
+| [revops](https://github.com/coreyhaines31/marketingskills/blob/main/skills/revops/) | When the user wants to design revenue operations, or asks when a lead is ready for sales or why sales and marketing... |
+| [sales-enablement](https://github.com/coreyhaines31/marketingskills/blob/main/skills/sales-enablement/) | When the user wants sales collateral, or asks what to give a champion or rep, or how to answer an objection or make the... |
+| [schema](https://github.com/coreyhaines31/marketingskills/blob/main/skills/schema/) | When the user wants to add, fix, or validate schema markup (JSON-LD), or asks which type fits a page or whether some... |
+| [seo-audit](https://github.com/coreyhaines31/marketingskills/blob/main/skills/seo-audit/) | When the user wants to audit or diagnose SEO, or asks why traffic dropped, a page won't rank, or whether a setup like... |
+| [signup](https://github.com/coreyhaines31/marketingskills/blob/main/skills/signup/) | When the user wants better signup, registration, and trial start flows, or asks which fields or steps to cut or whether... |
+| [site-architecture](https://github.com/coreyhaines31/marketingskills/blob/main/skills/site-architecture/) | When the user wants to plan or restructure a website, or asks which pages they need or where something belongs:... |
+| [sms](https://github.com/coreyhaines31/marketingskills/blob/main/skills/sms/) | When the user wants SMS, MMS, or WhatsApp marketing, or asks whether texting is worth it or a message is allowed:... |
+| [social](https://github.com/coreyhaines31/marketingskills/blob/main/skills/social/) | When the user wants organic social content for LinkedIn, X, Instagram, TikTok, or Facebook, or asks what to post, which... |
+| [video](https://github.com/coreyhaines31/marketingskills/blob/main/skills/video/) | When the user wants to create video with AI tools or code, or asks which approach to use (screen recording, AI avatar,... |
 <!-- SKILLS:END -->
 
 ## Installation

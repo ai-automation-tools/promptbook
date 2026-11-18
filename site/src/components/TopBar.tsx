@@ -9,6 +9,7 @@ import { NAV_SECTIONS, navTab } from '../lib/sections';
 import type { LibraryTab } from '../hooks/useLibraryRoute';
 import type { Theme } from '../hooks/useTheme';
 import { READ_ONLY } from '../lib/mode';
+import { EMBED } from '../lib/embed';
 import ResourcesNav, { RESOURCE_GROUPS } from './ResourcesNav';
 import ThemeSwitch from './ThemeSwitch';
 import { Button, IconButton, Kbd, MOD_KEY } from './ui/primitives';
@@ -64,9 +65,12 @@ export default function TopBar({
           <PanelLeft className="h-4 w-4" />
         </IconButton>
 
-        <button type="button" className="brand md:hidden" onClick={() => pick('prompt-library')} aria-label="Promptbook home">
-          <img src="/favicon.svg" alt="" width={24} height={24} />
-        </button>
+        {/* In the suite shell, the shell's bar carries the brand and the Light | Dark switch. */}
+        {!EMBED && (
+          <button type="button" className="brand md:hidden" onClick={() => pick('prompt-library')} aria-label="Promptbook home">
+            <img src="/favicon.svg" alt="" width={24} height={24} />
+          </button>
+        )}
 
         <div className="topbar-right">
           <button type="button" className="kbd-btn" onClick={onOpenPalette} aria-label="Search the library">
@@ -92,7 +96,7 @@ export default function TopBar({
             <Settings className="h-4 w-4" />
           </IconButton>
 
-          <ThemeSwitch theme={theme} setTheme={setTheme} />
+          {!EMBED && <ThemeSwitch theme={theme} setTheme={setTheme} />}
 
           <button
             type="button"

@@ -56,7 +56,7 @@ check the server's start time against `git log -1 -- site/package-lock.json site
 first, then restart (stop the `node … server.ts` process, `npm run dev`). Details:
 [Debug Guide, issue 6](docs/development/DEBUG_UI.md#issue-6-black-screen-when-opening-a-prompt).
 
-No `.env` is needed; `.env.example` lists the optional settings (`MY_LIBRARY_DIR`, `HOST`, `READ_ONLY`, `IMPORT_ROOTS`, `ALLOWED_HOSTS`).
+No `.env` is needed; `.env.example` lists the optional settings (`MY_LIBRARY_DIR`, `HOST`, `READ_ONLY`, `IMPORT_ROOTS`, `ALLOWED_HOSTS`, `FRAME_ANCESTORS`).
 
 Other scripts: `npm run build` (build:index → tsc → vite build), `npm run build:index`
 (regenerates `api/prompt-index.json` from `library/`), `npm run lint` (`tsc --noEmit`),
@@ -66,12 +66,13 @@ Other scripts: `npm run build` (build:index → tsc → vite build), `npm run bu
 `npm run test:prompt-content` (a failed full-prompt load throws instead of returning the preview),
 `npm run test:markdown-file` (a downloaded `.md` reads back through the store unchanged),
 `npm run test:preview` (a card blurb drops badge rows and links cut off at 200 characters),
-`npm run test:browser` (after a build: the built app in Chrome, including the dialog focus trap, a Settings export/import, a My Library `?prompt=` link, a star saved to the server (and the move of an old localStorage list) and New item's category suggestions),
+`npm run test:browser` (after a build: the built app in Chrome, including the dialog focus trap, a Settings export/import, a My Library `?prompt=` link, a star saved to the server (and the move of an old localStorage list), New item's category suggestions and the embed contract inside a frame),
 `npm run test:safe-path` (`../` escapes and links out of `library/` are refused, for detail and ZIPs),
+`npm run test:frame-ancestors` (`FRAME_ANCESTORS` origins get CSP `frame-ancestors` and no X-Frame-Options; a bad entry never reaches the header),
 `npm run bench` (latency, size and event-loop stall of the heavy endpoints; compare with
 `docs/development/PERFORMANCE.md`, not run in CI).
 
-CI (`.github/workflows/ci.yml`) runs `npm ci` → `lint` → `build` → `test:routes` → `test:my-library` → `test:read-only` → `test:prompt-content` → `test:markdown-file` → `test:preview` → `test:safe-path` → `test:mcp` → `test:browser` → the two repo-root
+CI (`.github/workflows/ci.yml`) runs `npm ci` → `lint` → `build` → `test:routes` → `test:my-library` → `test:read-only` → `test:prompt-content` → `test:markdown-file` → `test:preview` → `test:safe-path` → `test:frame-ancestors` → `test:mcp` → `test:browser` → the two repo-root
 provenance self-checks (`scripts/upstream.test.mjs`, `scripts/skill-frontmatter.test.mjs`) →
 a rebuild of the prompt index, failing if the rebuilt file is not byte-identical to the committed one.
 A second job, `secrets`, runs gitleaks 8.30.1 (checksum-pinned) over the whole history with
@@ -105,7 +106,8 @@ site/
                        (`html[data-palette]`, key `my-prompt-library.palette`, 12 themes in PALETTES;
                        both keys keep the pre-rename name so saved preferences survive);
                        index.html applies both before first paint
-    lib/               mode (READ_ONLY), cn (clsx + tailwind-merge), markdown-file (the Download .md), sections (the seven sections: tab id, folder,
+    lib/               mode (READ_ONLY), embed (the suite embed contract: framed with ?embed=1, hide brand,
+                       source bar and Light | Dark; post ready/route to the parent, take its theme), cn (clsx + tailwind-merge), markdown-file (the Download .md), sections (the seven sections: tab id, folder,
                        label, rail label, icon, accent token, blurb — every tab switch reads from here;
                        categoryHue() gives each category a stable hue, applied with the .hue class)
     components/        SectionRail (md up: logo, six section tiles (NAV_SECTIONS: Skill Packs is reached from the Skills
@@ -267,7 +269,7 @@ is copied in as a `SKILL.md` folder. The 224 copies this replaced are in
   check (api/skill-packs.ts); a new write route must too, or the demo becomes writable.
   Host and Origin are checked once, by the first middleware in `api/index.ts`, for every
   route on the app; don't add per-route copies.
-- `helmet` runs with CSP off on the API. The demo's pages get their CSP from `vercel.json`, which
+- `helmet` runs with CSP off on the API (the one exception: `FRAME_ANCESTORS` adds a `frame-ancestors`-only policy). The demo's pages get their CSP from `vercel.json`, which
   allows `index.html`'s inline theme script by hash: edit that script and the new hash goes in
   `vercel.json` too (`npm run test:browser` prints it).
 - Never commit `.env*` (gitignored) or anything under `site/my-library/`.
@@ -310,4 +312,5 @@ All optional; the app runs with none set.
 | `HOST` | Listen address. Default `127.0.0.1`; `0.0.0.0` opens it to the network (there are no accounts). |
 | `READ_ONLY` | `true` = Public Library only, writes 403. Implied on Vercel by `VERCEL`. |
 | `ALLOWED_HOSTS` | Extra Host names the server answers to (comma-separated, `.suffix` for subdomains). Others get 403. |
+| `FRAME_ANCESTORS` | Origins allowed to frame the app (comma-separated). Unset = X-Frame-Options SAMEORIGIN; set = CSP `frame-ancestors 'self' <origins>` instead. |
 | `NODE_ENV` | `production` serves `dist/` instead of Vite, same as `--production`. |

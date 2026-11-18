@@ -4,6 +4,22 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-17 — Embed mode for the suite shell
+
+Opened as `?embed=1` inside a frame (a Project Hub tab now, the suite shell later), Promptbook follows embed contract v1 (`src/lib/embed.ts`). It hides the chrome the shell replaces: the brand in the top bar and the rail, the source bar and the Light | Dark switch. It posts `{suite: 1, contract: 1, type: 'ready', app: 'promptbook'}` once loaded and `{type: 'route', path}` whenever the URL changes, and it applies `{suite: 1, type: 'theme', value}` from its parent. Standalone, `?embed=1` does nothing. The app talks only to `window.parent`: who may be the parent is already decided by `FRAME_ANCESTORS`, so messages go out with `'*'` and only the parent's are read. `test:browser` frames the built app and checks all of it.
+
+_Touched: `site/src/lib/embed.ts` (new), `site/src/App.tsx`, `site/src/hooks/useLibraryRoute.ts`, `site/src/components/{TopBar,SectionRail}.tsx`, `site/scripts/browser-smoke.test.mjs`, `AGENTS.md`, `docs/setup/SETUP.md`, `docs/CHANGELOG.md`._
+
+---
+
+## 2026-11-17 — Framing allowed from listed origins
+
+Mike tried Promptbook inside a Project Hub tab, as a first step toward one window for Cronsole, Project Hub and Promptbook. helmet's default `X-Frame-Options: SAMEORIGIN` refused the frame; nobody had chosen that, it was just helmet's default. `FRAME_ANCESTORS` (comma-separated origins) now lets the listed pages frame the app: the server then drops X-Frame-Options, which has no allowlist, and sends CSP `frame-ancestors 'self' <origins>`. Each entry is reduced to its origin and a non-http(s) entry is dropped, so nothing else reaches the header. Unset, nothing changes. The hosted demo is unaffected: its pages get `X-Frame-Options: DENY` from `vercel.json`.
+
+_Touched: `site/api/index.ts`, `site/scripts/frame-ancestors.test.mjs` (new, `npm run test:frame-ancestors`, in CI), `site/package.json`, `site/.env.example`, `.github/workflows/ci.yml`, `AGENTS.md`, `README.md`, `docs/setup/SETUP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-14 — Library data-flow diagram re-pinned
 
 Re-read `my-library.ts`, `api/index.ts` and `App.tsx` after server-side favorites: fixed the cited line ranges, and the Two libraries card now says favorites live in `favorites.json` and travel with export and import. Rebuilt with `--pin-head`.
