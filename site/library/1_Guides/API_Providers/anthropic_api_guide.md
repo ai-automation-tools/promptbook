@@ -3,22 +3,22 @@ title: "💻 Anthropic API Guide"
 tags: ["agent-guides", "anthropic", "api", "claude"]
 category: "Agent_Guides"
 subcategory: "API_Providers"
-checked: 2026-10-13
+checked: 2026-11-18
 repo: anthropics/anthropic-sdk-python
 ---
 
 # Anthropic API Guide
 
 ## Overview
-This guide covers how to integrate and build AI agents using the Anthropic API, specifically leveraging the current Claude 5 family (Fable 5.1, Opus 5.5, Sonnet 5.5 and Haiku 5.5). It focuses on utilizing advanced features like Tool Use (Function Calling), System Prompts, and Vision capabilities.
+This guide covers how to integrate and build AI agents using the Anthropic API, specifically leveraging the current Claude 5 family (Fable 5.2, Opus 5.5, Sonnet 5.5 and Haiku 5.5). It focuses on utilizing advanced features like Tool Use (Function Calling), System Prompts, and Vision capabilities.
 
 ## Agent Configuration
 
 ### Basic Settings
 - **Agent Name:** Claude via API
-- **Model:** `claude-fable-5-1` (demanding reasoning, long-horizon agents), `claude-opus-5-5` (agentic coding and knowledge work), `claude-sonnet-5-5` (speed/intelligence balance), `claude-haiku-5-5` (high-volume, low latency). Every ID is a pinned snapshot.
+- **Model:** `claude-fable-5-2` (demanding reasoning, long-horizon agents), `claude-opus-5-5` (agentic coding and knowledge work), `claude-sonnet-5-5` (speed/intelligence balance), `claude-haiku-5-5` (high-volume, low latency). Every ID is a pinned snapshot.
 - **Context window:** 1M tokens on all four; max output 128K tokens on the synchronous Messages API.
-- **Thinking and effort:** thinking is adaptive; steer it with the `effort` parameter (defaults: `high` on Fable 5.1 and Sonnet 5.5, `medium` on Opus 5.5 and Haiku 5.5). Check each model page for which sampling parameters it accepts before setting `temperature`.
+- **Thinking and effort:** thinking is adaptive; steer it with the `effort` parameter (defaults: `high` on Fable 5.2 and Sonnet 5.5, `medium` on Opus 5.5 and Haiku 5.5). Check each model page for which sampling parameters it accepts before setting `temperature`.
 - **Max Tokens:** set `max_tokens` explicitly on every request.
 
 ### Tools & Permissions
@@ -170,6 +170,7 @@ Ahoy there, matey! How be ye doin' on this fine day?
 ## Version History
 
 - **v1.0** (2024): Updated for Claude 3 family and the Messages API.
+- **2026-11-18**: Fable 5.1 replaced by Fable 5.2 (`claude-fable-5-2`) in the model list; limits and defaults rechecked against the models overview.
 - **2026-10-13**: Model IDs, context and output limits checked against the models overview; merged in the former `anthropic-api-guide.md` stub (setup steps: get a key, set `ANTHROPIC_API_KEY`).
 
 ## References

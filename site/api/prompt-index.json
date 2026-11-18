@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "buildTime": "2026-11-18T16:54:10.187Z",
+  "buildTime": "2026-11-18T21:37:06.273Z",
   "promptCount": 820,
   "prompts": [
     {
@@ -15,9 +15,9 @@
         "api",
         "claude"
       ],
-      "checked": "2026-10-13",
-      "contentPreview": "\n# Anthropic API Guide\n\n## Overview\nThis guide covers how to integrate and build AI agents using the Anthropic API, specifically leveraging the current Claude 5 family (Fable 5.1, Opus 5.5, Sonnet 5.5",
-      "lastModified": "2026-10-26T15:19:23.474Z",
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Anthropic API Guide\n\n## Overview\nThis guide covers how to integrate and build AI agents using the Anthropic API, specifically leveraging the current Claude 5 family (Fable 5.2, Opus 5.5, Sonnet 5.5",
+      "lastModified": "2026-11-18T21:36:37.354Z",
       "isUserOwned": false
     },
     {
@@ -31,9 +31,9 @@
         "anthropic",
         "claude"
       ],
-      "checked": "2026-10-27",
+      "checked": "2026-11-18",
       "contentPreview": "\n# Anthropic API Provider Guide\n\n## Overview\nA comprehensive guide for using the Anthropic API with various CLI tools and custom scripts.\n\n## Agent Configuration\nSet your `ANTHROPIC_API_KEY` as an env",
-      "lastModified": "2026-10-27T22:02:55.466Z",
+      "lastModified": "2026-11-18T21:36:37.355Z",
       "isUserOwned": false
     },
     {
@@ -610,9 +610,9 @@
         "reference",
         "options"
       ],
-      "checked": "2026-10-13",
-      "contentPreview": "\n<!-- Last Updated: 2026-10-13 - Checked against code.claude.com/docs/en/cli-reference -->\n\n# Claude Code CLI Flags Reference\n\nOfficial command-line flags available in Claude Code CLI.\n\n**Source**: [c",
-      "lastModified": "2026-10-26T15:17:35.376Z",
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against code.claude.com/docs/en/cli-reference -->\n\n# Claude Code CLI Flags Reference\n\nOfficial command-line flags available in Claude Code CLI.\n\n**Source**: [c",
+      "lastModified": "2026-11-18T21:34:35.852Z",
       "isUserOwned": false
     },
     {
@@ -664,9 +664,9 @@
         "cli",
         "reference"
       ],
-      "checked": "2026-10-13",
-      "contentPreview": "\n<!-- Last Updated: 2026-10-13 - Checked against code.claude.com/docs/en/commands -->\n\n# Claude Code Slash Commands Reference\n\nBuilt-in commands available in Claude Code CLI interactive mode.\n\n**Sourc",
-      "lastModified": "2026-10-26T15:17:35.377Z",
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against code.claude.com/docs/en/commands -->\n\n# Claude Code Slash Commands Reference\n\nBuilt-in commands available in Claude Code CLI interactive mode.\n\n**Sourc",
+      "lastModified": "2026-11-18T21:34:47.845Z",
       "isUserOwned": false
     },
     {
@@ -739,9 +739,9 @@
         "openai",
         "options"
       ],
-      "checked": "2026-10-13",
-      "contentPreview": "\n<!-- Last Updated: 2026-10-13 - Checked against the Codex CLI command reference (learn.chatgpt.com/docs/developer-commands) and github.com/openai/codex -->\n\n# Codex CLI Flags Reference\n\nOfficial comm",
-      "lastModified": "2026-10-26T15:17:35.404Z",
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against the Codex CLI command reference (learn.chatgpt.com/docs/developer-commands) and github.com/openai/codex -->\n\n# Codex CLI Flags Reference\n\nOfficial comm",
+      "lastModified": "2026-11-18T21:36:26.348Z",
       "isUserOwned": false
     },
     {
@@ -757,9 +757,9 @@
         "reference",
         "openai"
       ],
-      "checked": "2026-10-13",
-      "contentPreview": "\n<!-- Last Updated: 2026-10-13 - Partially checked: see note below -->\n\n# Codex Slash Commands Reference\n\nBuilt-in slash commands available in Codex CLI interactive mode.\n\n**Source**: [developers.open",
-      "lastModified": "2026-10-26T15:17:35.405Z",
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Command list taken from codex-rs/tui/src/slash_command.rs in openai/codex -->\n\n# Codex Slash Commands Reference\n\nBuilt-in slash commands available in Codex CLI interac",
+      "lastModified": "2026-11-18T21:36:26.349Z",
       "isUserOwned": false
     },
     {
@@ -776,9 +776,9 @@
         "google",
         "options"
       ],
-      "checked": "2026-10-13",
-      "contentPreview": "\n<!-- Last Updated: 2026-10-13 - Checked against github.com/google-gemini/gemini-cli docs/cli/cli-reference.md -->\n\n# Gemini CLI Flags Reference\n\nCommand-line options and features for Gemini CLI (Goog",
-      "lastModified": "2026-10-26T15:17:35.411Z",
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Checked against github.com/google-gemini/gemini-cli docs/cli/cli-reference.md -->\n\n# Gemini CLI Flags Reference\n\nCommand-line options and features for Gemini CLI (Goog",
+      "lastModified": "2026-11-18T21:35:31.704Z",
       "isUserOwned": false
     },
     {
@@ -814,9 +814,9 @@
         "reference",
         "google"
       ],
-      "checked": "2026-10-27",
-      "contentPreview": "\n<!-- Last Updated: 2026-10-27 - Synced with upstream documentation -->\n\n# Gemini CLI Slash Commands Reference\n\nComplete reference for built-in commands in Gemini CLI.\n\n**Source**: [geminicli.com/docs",
-      "lastModified": "2026-10-27T22:04:42.223Z",
+      "checked": "2026-11-18",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-18 - Synced with docs/reference/commands.md and packages/cli/src/ui/commands (fork, color, effort and sandbox are not Gemini CLI commands) -->\n\n# Gemini CLI Slash Commands ",
+      "lastModified": "2026-11-18T21:35:31.703Z",
       "isUserOwned": false
     },
     {

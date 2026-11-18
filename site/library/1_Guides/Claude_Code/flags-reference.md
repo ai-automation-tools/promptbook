@@ -3,11 +3,11 @@ title: "Claude Code CLI Flags Reference"
 tags: ["claude-code", "flags", "cli", "reference", "options"]
 category: "Agent_Guides"
 subcategory: "Claude_Code"
-checked: 2026-10-13
+checked: 2026-11-18
 repo: anthropics/claude-code
 ---
 
-<!-- Last Updated: 2026-10-13 - Checked against code.claude.com/docs/en/cli-reference -->
+<!-- Last Updated: 2026-11-18 - Checked against code.claude.com/docs/en/cli-reference -->
 
 # Claude Code CLI Flags Reference
 
@@ -39,6 +39,17 @@ Official command-line flags available in Claude Code CLI.
 | `claude setup-token` | Generate a long-lived OAuth token for CI and scripts | `claude setup-token` |
 | `claude mcp` | Configure MCP servers | See MCP documentation |
 | `claude remote-control` | Start Remote Control server | `claude remote-control --name "My Project"` |
+| `claude respawn <id>` | Restart a background session with its conversation intact (`--all` for every running one) | `claude respawn 7c5dcf5d` |
+| `claude rm <id>` | Remove a background session from the list | `claude rm 7c5dcf5d` |
+| `claude daemon status` | Print the background-session supervisor's state (also `logs`, `run`, `stop --any`) | `claude daemon status` |
+| `claude plugin` | Manage plugins (alias `claude plugins`) | `claude plugin install code-review@claude-plugins-official` |
+| `claude mcp login <name>` | Run an MCP server's OAuth flow from the shell (`--no-browser` over SSH) | `claude mcp login my-server` |
+| `claude import [source]` | Run `/import` to bring in configuration from other coding agents | `claude import` |
+| `claude purge [path]` | Delete all local Claude Code state for a project (`--dry-run`, `--yes`, `--all`) | `claude purge --dry-run` |
+| `claude ultrareview [target]` | Run ultrareview non-interactively; findings go to stdout (`--json`, `--timeout <min>`, `--post`) | `claude ultrareview 123` |
+| `claude auto-mode defaults` | Print the built-in auto mode classifier rules as JSON (`reset` restores the defaults) | `claude auto-mode defaults` |
+| `claude gateway` | Start the self-hosted Claude apps gateway (administrators; needs `--config gateway.yaml`) | `claude gateway --config gateway.yaml` |
+| `claude self-hosted-runner` | Register this machine as a runner for a self-hosted environment | `claude self-hosted-runner setup` |
 
 ## CLI Flags
 
@@ -102,6 +113,9 @@ Official command-line flags available in Claude Code CLI.
 | `--agent` | Specify agent for session | `claude --agent my-custom-agent` |
 | `--agents` | Define custom subagents via JSON | `claude --agents '{"reviewer":{...}}'` |
 | `--teammate-mode` | Set teammate display mode (`in-process` (default), `auto`, `tmux`, `iterm2`) | `claude --teammate-mode in-process` |
+| `--advisor <model>` | Enable the advisor tool, which consults a second model, for this session | `claude --advisor opus` |
+| `--append-subagent-system-prompt` | Append text to every subagent's system prompt (print mode only; the `-file` form takes text from a file, and the two can't be combined) | `claude -p --append-subagent-system-prompt "Be brief" "query"` |
+| `--forward-subagent-text` | Emit subagent text and thinking in the output stream, tagged with `parent_tool_use_id` | `claude -p --output-format stream-json --verbose --forward-subagent-text "query"` |
 
 ### Browser & Chrome
 
@@ -124,6 +138,8 @@ Official command-line flags available in Claude Code CLI.
 | Flag | Description | Example |
 |------|-------------|---------|
 | `--cloud` | Create a cloud session (`--remote` is a deprecated alias) | `claude --cloud "Fix the login bug"` |
+| `--environment <id>` | Create a cloud session on a self-hosted environment (IDs start `ccpool_`); `--ref <branch>` bases its checkout on a ref | `claude -p "Run the smoke test" --environment ccpool_abc123 --ref main` |
+| `--desktop` | Open the Claude Desktop app on the current directory and exit | `claude --desktop --continue` |
 | `--remote-control`, `--rc` | Start with Remote Control enabled | `claude --remote-control "My Project"` |
 | `--teleport` | Resume web session in local terminal | `claude --teleport` |
 
@@ -151,6 +167,20 @@ Official command-line flags available in Claude Code CLI.
 | `--maintenance` | Run Setup hooks with the `maintenance` matcher (print mode only) | `claude -p --maintenance "query"` |
 | `--permission-prompt-tool` | Specify MCP tool for permission prompts | `claude -p --permission-prompt-tool mcp_auth_tool "query"` |
 | `--worktree`, `-w` | Start in isolated git worktree | `claude -w feature-auth` |
+| `--tmux` | Create a tmux session for the worktree (needs `--worktree`; `--tmux=classic` for traditional tmux) | `claude -w feature-auth --tmux` |
+| `--exec` | Run a shell command as a PTY-backed background job; use with `--bg` | `claude --bg --exec 'pytest -x'` |
+| `--debug-file <path>` | Write debug logs to a file (implies debug mode) | `claude --debug-file ./claude-debug.log` |
+| `--autocompact <auto\|tokens>` | Set the auto-compact window for this session (same values as `/autocompact`) | `claude --autocompact 500k` |
+| `--plugin-url` | Fetch a plugin `.zip` from a URL for this session only | `claude --plugin-url https://example.com/plugin.zip` |
+| `--include-hook-events` | Include hook lifecycle events in the output stream | `claude -p --output-format stream-json --verbose --include-hook-events "query"` |
+| `--replay-user-messages` | Re-emit stdin user messages on stdout (stream-json in and out) | `claude -p --input-format stream-json --output-format stream-json --verbose --replay-user-messages` |
+| `--prompt-suggestions` | Emit a predicted next prompt after each turn (needs `--print`, `stream-json`, `--verbose`) | `claude -p --prompt-suggestions --output-format stream-json --verbose "query"` |
+| `--permission-prompts` | Print mode: `host` (default) sends prompts to the SDK host or `--permission-prompt-tool`; `none` denies them | `claude -p --permission-prompts none "query"` |
+| `--restricted` | Start in restricted mode for evaluation harnesses: no command-running tools, no WebFetch, no user or project settings | `claude --restricted` |
+| `--exclude-dynamic-system-prompt-sections` | Move per-user context out of the system prompt for better prompt-cache reuse (default prompt only; use with `-p`) | `claude -p --exclude-dynamic-system-prompt-sections "query"` |
+| `--ax-screen-reader` | Flat, screen-reader-friendly output without borders or animations | `claude --ax-screen-reader` |
+
+Removed: `--enable-auto-mode` (v2.1.111; use `--permission-mode auto`).
 
 ### Budget & Limits (Print Mode Only)
 
