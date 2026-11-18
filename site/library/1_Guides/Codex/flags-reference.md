@@ -3,11 +3,11 @@ title: "Codex CLI Flags Reference"
 tags: ["codex", "flags", "cli", "reference", "openai", "options"]
 category: "Agent_Guides"
 subcategory: "Codex"
-checked: 2026-10-13
+checked: 2026-11-18
 repo: openai/codex
 ---
 
-<!-- Last Updated: 2026-10-13 - Checked against the Codex CLI command reference (learn.chatgpt.com/docs/developer-commands) and github.com/openai/codex -->
+<!-- Last Updated: 2026-11-18 - Checked against the Codex CLI command reference (learn.chatgpt.com/docs/developer-commands) and github.com/openai/codex -->
 
 # Codex CLI Flags Reference
 
@@ -61,6 +61,14 @@ codex update
 | `codex features disable <name>` | Disable feature | `codex features disable shell_snapshot` |
 | `codex cloud` | Browse/launch cloud tasks | `codex cloud` |
 | `codex cloud exec --env ENV_ID "task"` | Start cloud task | `codex cloud exec --env ENV_ID "Summarize bugs"` |
+| `codex agents` | Open the agent command center on a local or remote server | `codex agents` |
+| `codex app` | Launch the ChatGPT desktop app (macOS, Windows) | `codex app` |
+| `codex archive` / `codex unarchive` | Archive a saved session without deleting it / restore it | `codex archive <id>` |
+| `codex delete` | Permanently delete a saved session | `codex delete <id>` |
+| `codex queue` | Queue a text message for an existing session | `codex queue <id> "message"` |
+| `codex plugin` | Install, list and remove plugins (`codex plugin marketplace` manages marketplaces) | `codex plugin` |
+| `codex execpolicy` | Check whether a command would be allowed, prompted or blocked by rule files (experimental) | `codex execpolicy` |
+| `codex remote-control` | Run or manage remote control for the local app server, or create a pairing code (experimental) | `codex remote-control` |
 | `codex completion bash` | Generate bash completions | `codex completion bash` |
 | `codex completion zsh` | Generate zsh completions | `codex completion zsh` |
 | `codex completion fish` | Generate fish completions (PowerShell and Elvish also supported) | `codex completion fish` |
@@ -116,6 +124,11 @@ Use `/permissions` in an interactive session to switch modes.
 | `--no-alt-screen` | Disable alternate screen mode |
 | `--strict-config` | Error on unrecognized config fields |
 | `--remote <url>` | Connect to a remote app server (`ws://`, `wss://`, `unix://`) |
+| `--remote-auth-token-env <ENV_VAR>` | Read the remote bearer token from an environment variable |
+| `--worktree` | Start in a new managed Git worktree |
+| `--no-daemon` | Run without the shared background server |
+| `--approve-for-me`, `--not-so-yolo` | Automatic approval review with workspace-write sandboxing |
+| `--dangerously-bypass-hook-trust` | Run hooks without persisted trust |
 
 ### Session Management
 
@@ -156,14 +169,14 @@ Use `/permissions` in an interactive session to switch modes.
 
 ## Slash Commands
 
-Type `/` in interactive mode to access:
+Type `/` in interactive mode to access these (full list in [Codex Slash Commands Reference](slash-commands.md)):
 
 - `/model` - Switch between models or adjust reasoning
 - `/review` - Open code review presets
 - `/fork` - Fork conversation at current point
 - `/copy` - Copy latest output
 - `/theme` - Preview and select color theme
-- `/clear` - Wipe terminal and start fresh (or Ctrl+L)
+- `/clear` - Clear the terminal and start a new chat (Ctrl+L clears the screen only)
 - `/exit` - Close session
 
 ## Model Context Protocol (MCP)

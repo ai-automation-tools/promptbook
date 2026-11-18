@@ -4,6 +4,21 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Library refresh — guides
+
+Eight guides checked against their sources and corrected; each carries `checked: 2026-11-18`.
+
+- `Claude_Code/flags-reference.md`, `Claude_Code/slash-commands.md`: added the flags, shell subcommands (`respawn`, `rm`, `daemon`, `purge`, `ultrareview`…) and slash commands the docs list now, and noted `/ultraplan` and `--enable-auto-mode` as removed. Source: code.claude.com/docs/en/cli-reference and /commands.
+- `Gemini_CLI/flags-reference.md`: added `--experimental-acp` and `--experimental-zed-integration`. `Gemini_CLI/slash-commands.md`: dropped `/fork`, `/color`, `/effort` and `/sandbox`, which are not Gemini CLI commands. Source: docs/cli/cli-reference.md, docs/reference/commands.md and `packages/cli/src/ui/commands` in google-gemini/gemini-cli.
+- `Codex/flags-reference.md`: added the `agents`, `app`, `archive`, `unarchive`, `delete`, `queue`, `plugin`, `execpolicy` and `remote-control` subcommands and the `--worktree`, `--no-daemon`, `--approve-for-me`, `--remote-auth-token-env` and `--dangerously-bypass-hook-trust` flags; `/clear` starts a new chat. `Codex/slash-commands.md`: added the full command list. Source: learn.chatgpt.com/docs/developer-commands and `codex-rs/tui/src/slash_command.rs` in openai/codex.
+- `API_Providers/anthropic_api_guide.md`, `API_Providers/anthropic_cli_guide.md`: Fable 5.1 → Fable 5.2 (`claude-fable-5-2`). Source: platform.claude.com/docs/en/about-claude/models/overview.
+
+No merges this run; duplicate guides (`cline*`, `aider*`, `cursor*`, `fabric*`, `cohere*`) stay queued.
+
+_Touched: the eight guides above, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — Library: backfill, 16 new MCP servers
 
 One-time backfill of `6_MCP_Servers/` (28 to 44 cards), spread across the folders; two new folders, `Databases/` and `Web_and_Search/`. Each card's install lines were read from the server's README on the day; none of the servers is vendored.

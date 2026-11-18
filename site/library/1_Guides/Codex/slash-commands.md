@@ -3,17 +3,17 @@ title: "Codex Slash Commands Reference"
 tags: ["codex", "slash-commands", "cli", "reference", "openai"]
 category: "Agent_Guides"
 subcategory: "Codex"
-checked: 2026-10-13
+checked: 2026-11-18
 repo: openai/codex
 ---
 
-<!-- Last Updated: 2026-10-13 - Partially checked: see note below -->
+<!-- Last Updated: 2026-11-18 - Command list taken from codex-rs/tui/src/slash_command.rs in openai/codex -->
 
 # Codex Slash Commands Reference
 
 Built-in slash commands available in Codex CLI interactive mode.
 
-**Source**: [developers.openai.com/codex/cli/features](https://developers.openai.com/codex/cli/features)
+**Sources**: [developers.openai.com/codex/cli/features](https://developers.openai.com/codex/cli/features), [slash_command.rs](https://github.com/openai/codex/blob/main/codex-rs/tui/src/slash_command.rs)
 
 ## Core Slash Commands
 
@@ -24,8 +24,47 @@ Built-in slash commands available in Codex CLI interactive mode.
 | `/fork` | Fork conversation at current point | `/fork` |
 | `/copy` | Copy latest completed output to clipboard | `/copy` |
 | `/theme` | Preview and select color theme | `/theme` |
-| `/clear` | Wipe terminal and start fresh (preserves conversation) | `/clear` |
-| `/exit` | Close interactive session | `/exit` |
+| `/clear` | Clear the terminal and start a new chat | `/clear` |
+| `/exit` | Close interactive session (alias `/quit`) | `/exit` |
+
+## More Commands
+
+The popup lists the most used commands first; the build you run may hide some.
+
+| Command | Description |
+|---------|-------------|
+| `/permissions` | Choose what Codex is allowed to do |
+| `/plan` | Switch to Plan mode |
+| `/goal` | Set or view the goal for a long-running task |
+| `/status` | Show session configuration and token usage |
+| `/init` | Create an `AGENTS.md` file with instructions for Codex |
+| `/compact` | Summarize the conversation to avoid the context limit |
+| `/recap` | Summarize the current conversation now |
+| `/new` | Start a new chat during a conversation |
+| `/resume` | Resume a saved chat |
+| `/rename` | Rename the current thread |
+| `/archive` / `/delete` | Archive or permanently delete this session |
+| `/worktree` | Start or continue a conversation in a new worktree |
+| `/side` (alias `/btw`) | Start a side conversation |
+| `/agents` / `/multi-agents` | Open the agent command center / switch between this session's subagents |
+| `/diff` | Show the git diff, untracked files included |
+| `/mention` | Mention a file |
+| `/export` | Export the conversation as markdown |
+| `/raw` | Toggle raw scrollback mode for copy-friendly selection |
+| `/cd` / `/pwd` | Change / show the working directory |
+| `/usage` | View account usage or use a usage limit reset |
+| `/skills` | Use skills to improve how Codex performs specific tasks |
+| `/hooks` | View and manage lifecycle hooks |
+| `/mcp`, `/apps`, `/plugins` | Manage MCP servers, apps; browse plugins |
+| `/memories` | Configure memory use and generation |
+| `/import` | Import setup, this project and recent chats from Claude Code |
+| `/experimental` | Toggle experimental features |
+| `/config`, `/keymap`, `/vim`, `/statusline`, `/title`, `/tui` | Preferences, shortcut remapping, composer Vim mode, status line and terminal title items, TUI mode for the next launch |
+| `/ide`, `/app`, `/voice` | IDE context, continue in the Desktop app, start or stop voice |
+| `/ps` / `/stop` | List / stop background terminals |
+| `/daemon`, `/rc` (alias `/remote`) | Manage the local background server and its remote control |
+| `/warnings`, `/debug-config`, `/feedback` | Diagnostics and sending logs to maintainers |
+| `/logout` | Log out of Codex |
 
 ## Command Details
 
@@ -108,7 +147,7 @@ Open theme picker to preview and save color theme preferences.
 
 ### /clear
 
-Clear the terminal screen and start fresh chat. Conversation history is cleared visually but session state may be preserved depending on implementation.
+Clear the terminal and start a new chat.
 
 **Shortcut:** `Ctrl+L` also clears the screen without starting new conversation.
 
@@ -222,7 +261,7 @@ web_search = "cached"  # or "live" or "disabled"
 
 ## Notes
 
-- This list is not exhaustive: the official CLI also has `/permissions`, `/plan`, `/status`, `/init`, `/mcp`, `/goal`, `/feedback` and others. The slash-command page was unreachable when this guide was checked (it redirects to learn.chatgpt.com/docs/developer-commands), so run `/` in your installed build for the current list
+- The tables come from the CLI's own command enum (`slash_command.rs`); run `/` in your installed build for what it offers, since some commands are gated by platform, plan or feature flag
 - All slash commands are case-sensitive
 - Commands can be used mid-conversation
 - Some commands open interactive pickers

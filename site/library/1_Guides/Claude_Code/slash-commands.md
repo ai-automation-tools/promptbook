@@ -3,11 +3,11 @@ title: "Claude Code Slash Commands Reference"
 tags: ["claude-code", "slash-commands", "cli", "reference"]
 category: "Agent_Guides"
 subcategory: "Claude_Code"
-checked: 2026-10-13
+checked: 2026-11-18
 repo: anthropics/claude-code
 ---
 
-<!-- Last Updated: 2026-10-13 - Checked against code.claude.com/docs/en/commands -->
+<!-- Last Updated: 2026-11-18 - Checked against code.claude.com/docs/en/commands -->
 
 # Claude Code Slash Commands Reference
 
@@ -38,6 +38,9 @@ Type `/` in Claude Code to see all available commands, or type `/` followed by l
 | `/rename [name]` | Rename current session and show name on prompt bar |
 | `/export [filename]` | Export current conversation as plain text |
 | `/compact [instructions]` | Compact conversation with optional focus instructions |
+| `/recap` | Generate a one-line summary of the current session on demand |
+| `/stop` | Stop the background session you are attached to (transcript and worktree are kept) |
+| `/restart` | Restart Claude Code and resume this session, applying an installed update (Pro/Max/Ultra, native install on macOS/Linux; alias `/update`) |
 
 ## Model & Configuration
 
@@ -77,7 +80,10 @@ Type `/` in Claude Code to see all available commands, or type `/` followed by l
 | `/rewind` | Rewind conversation/code to previous point (Alias: `/checkpoint`) |
 | `/security-review` | Analyze the changes on your current branch for security vulnerabilities |
 | `/code-review [level] [--fix] [--comment] [pr#\|branch\|path]` | Bundled skill: review the diff or a PR (alias `/review`) |
-| `/ultrareview [PR or branch]` | Deep multi-agent code review in a cloud sandbox |
+| `/ultrareview [PR or branch]` | Deep multi-agent code review in a cloud sandbox (preferred: `/code-review ultra`) |
+| `/autofix-pr [prompt]` | Spawn a cloud session that watches the branch's PR and pushes fixes when CI fails or reviewers comment |
+| `/fewer-permission-prompts` | Bundled skill: scan transcripts for common read-only calls and add an allowlist to `.claude/settings.json` |
+| `/auto-mode-setup` | Draft `autoMode.environment` entries from your project and recent sessions, then save to user settings |
 
 ## Integrations & Extensions
 
@@ -93,6 +99,9 @@ Type `/` in Claude Code to see all available commands, or type `/` followed by l
 | `/hooks` | View hook configurations for tool events |
 | `/skills` | List available skills |
 | `/reload-skills` | Re-scan skill and command directories without restarting |
+| `/skill-doctor` | Show what each skill costs in context and how often it is used |
+| `/workflows` | Watch, pause, resume or save running and completed workflows |
+| `/artifacts` | List artifacts you own or that are shared with you |
 
 ## Remote & Web Sessions
 
@@ -102,6 +111,7 @@ Type `/` in Claude Code to see all available commands, or type `/` followed by l
 | `/remote-env` | Choose the default cloud environment for cloud sessions started from the CLI |
 | `/teleport` | Pull a cloud session into this terminal |
 | `/schedule [description]` | Create, update, list or run cloud routines |
+| `/web-setup` | Connect your GitHub account for cloud sessions using your local `gh` credentials |
 | `/desktop` | Continue current session in Claude Code Desktop app (macOS/Windows) (Alias: `/app`) |
 | `/mobile` | Show QR code to download Claude mobile app (Aliases: `/ios`, `/android`) |
 
@@ -129,6 +139,10 @@ Type `/` in Claude Code to see all available commands, or type `/` followed by l
 | `/terminal-setup` | Configure terminal keybindings (Shift+Enter, etc.) |
 | `/keybindings` | Open or create keybindings configuration file |
 | `/statusline` | Configure Claude Code's status line |
+| `/focus` | Toggle the focus view: last prompt, a one-line tool summary and the final response |
+| `/tui [default\|fullscreen]` | Set the terminal UI renderer and relaunch with the conversation intact |
+| `/scroll-speed` | Adjust mouse wheel scroll speed (fullscreen rendering only) |
+| `/powerup` | Learn Claude Code features through short interactive lessons |
 
 ## Usage & Analytics
 
@@ -148,6 +162,7 @@ Type `/` in Claude Code to see all available commands, or type `/` followed by l
 | `/upgrade` | Open upgrade page to switch plan tier |
 | `/passes` | Share free week of Claude Code (if eligible) |
 | `/extra-usage` | Configure extra usage for rate limits |
+| `/usage-credits` | Configure usage credits, or request them from your admin, when you hit a limit |
 | `/privacy-settings` | View and update privacy settings (Pro/Max plans only) |
 | `/stickers` | Order Claude Code stickers |
 
@@ -169,7 +184,9 @@ MCP servers can expose prompts as commands using format `/mcp__<server>__<prompt
 
 Claude Code includes bundled skills like `/simplify`, `/batch`, `/debug`, `/loop` and `/verify` that appear alongside built-in commands.
 
-Removed: `/pr-comments` (v2.1.91; ask Claude to read PR comments) and `/vim` (v2.1.92; use `/config` → Editor mode).
+Cloud-provider wizards `/setup-bedrock` and `/setup-vertex` stay hidden from the menu until `CLAUDE_CODE_USE_BEDROCK=1` or `CLAUDE_CODE_USE_VERTEX=1` is set; type them in full.
+
+Removed: `/pr-comments` (v2.1.91; ask Claude to read PR comments), `/vim` (v2.1.92; use `/config` → Editor mode) and `/ultraplan` (use `/plan`).
 
 ## Command Aliases
 

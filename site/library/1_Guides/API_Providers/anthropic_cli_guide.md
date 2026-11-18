@@ -4,7 +4,7 @@ tags: ["api", "anthropic", "claude"]
 category: "Agent_Guides"
 subcategory: "API_Providers"
 repo: anthropics/anthropic-sdk-python
-checked: 2026-10-27
+checked: 2026-11-18
 ---
 
 # Anthropic API Provider Guide
@@ -29,7 +29,7 @@ User runs: `curl https://api.anthropic.com/v1/messages -H "x-api-key: $ANTHROPIC
 
 ## Best Practices
 - Use Claude Sonnet 5.5 (`claude-sonnet-5-5`) for speed-dependent tasks and Claude Opus 5.5 (`claude-opus-5-5`) for long-running agentic coding.
-- Use Claude Fable 5.1 (`claude-fable-5-1`) for the most demanding reasoning; Claude Haiku 5.5 (`claude-haiku-5-5`) for high-volume, low-latency work.
+- Use Claude Fable 5.2 (`claude-fable-5-2`) for the most demanding reasoning; Claude Haiku 5.5 (`claude-haiku-5-5`) for high-volume, low-latency work.
 - Implement robust error handling for API timeouts.
 
 ## Customization Options
