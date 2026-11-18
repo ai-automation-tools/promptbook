@@ -2,7 +2,7 @@
 
 Agent skills, in two forms (since 2026-10-27):
 
-- **Library cards** in `Libraries/`, one per repo that publishes many skills (31). Each card
+- **Library cards** in `Libraries/`, one per repo that publishes many skills (49). Each card
   links its repo and carries the repo's README; you install the skills from GitHub.
   `site/scripts/refresh-library-cards.mjs --write` keeps them current.
 - **Single skills**, a folder per skill under a category, holding `SKILL.md` and its support

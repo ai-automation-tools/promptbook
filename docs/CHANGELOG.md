@@ -16,6 +16,48 @@ One-time backfill of `6_MCP_Servers/` (28 to 44 cards), spread across the folder
 - `Apps_and_Services/`: Blender (`ahujasid/mcp-for-blender`, MIT).
 
 _Touched: `site/library/6_MCP_Servers/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+## 2026-11-18 — Library: backfill, 8 new system prompts
+
+Prompts that open-source agents publish in their own repos, copied verbatim (`match: exact`):
+
+- `OpenAI/codex-cli-gpt-5-2.md`, `OpenAI/codex-cli-gpt-5-1-codex-max.md`: openai/codex (Apache-2.0).
+- `OpenCode/opencode-gpt.md`, `OpenCode/opencode-kimi.md`: anomalyco/opencode (MIT).
+- `Goose/goose-system.md`, `Goose/goose-subagent.md`: aaif-goose/goose (Apache-2.0).
+- `Mistral/mistral-vibe-cli.md`: mistralai/mistral-vibe (Apache-2.0).
+- `HuggingFace/smolagents-code-agent.md`: huggingface/smolagents (Apache-2.0).
+
+_Touched: `site/library/5_System_Prompts/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+## 2026-11-18 — Library: backfill, 16 new prompts
+
+Four new collections under `4_Prompts/`, four prompts each, copied from the repo at the commit stamped in each file: `Microsoft_Copilot_Prompts/` (pnp/copilot-prompts, MIT: Prompt Architect, Code Review Feedback, Clean AI Writing, Decision Log Generator), `Claude_Cookbooks/` (anthropics/claude-cookbooks, MIT: the research lead, research subagent and citations agent prompts, and the review-pr command), `OpenAI_Cookbook/` (openai/openai-cookbook, MIT: portfolio manager, fundamental analyst, quant analyst and memo editor agents) and `Claude_Plugins_Official/` (anthropics/claude-plugins-official, Apache-2.0: the code-review, feature-dev, commit-push-pr and revise-claude-md commands). Licences are in `NOTICE`.
+
+_Touched: `site/library/4_Prompts/`, `NOTICE`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+## 2026-11-18 — Library: backfill, 18 new skill libraries
+
+One-time backfill of `3_Skills/Libraries/`: 18 cards, one per repo, bodies from each README. A card describes and links; no skill text is copied.
+
+- `mattpocock/skills` (MIT), `vercel-labs/agent-skills` (no licence file), `anthropics/knowledge-work-plugins` (Apache-2.0), `google-labs-code/stitch-skills` (Apache-2.0), `pbakaus/impeccable` (Apache-2.0), `emilkowalski/skills` (MIT)
+- `obsidianmd/obsidian-skills` (MIT), `microsoft/skills` (MIT), `cloudflare/skills` (Apache-2.0), `supabase/agent-skills` (MIT), `expo/skills` (MIT), `dotnet/skills` (MIT)
+- `trailofbits/skills` (CC-BY-SA-4.0), `remotion-dev/skills` (no licence file), `AgriciDaniel/claude-seo` (MIT), `alirezarezvani/claude-skills` (MIT), `getsentry/skills` (Apache-2.0), `WordPress/agent-skills` (NOASSERTION)
+
+_Touched: `site/library/3_Skills/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+## 2026-11-18 — Library: backfill, 17 new agents
+
+One-time backfill of `2_Agents/`, 17 unchanged copies, each with its `upstream:` block (sha read 2026-11-18): `anthropics/claude-plugins-official` (Apache-2.0): `pr-test-analyzer`, `type-design-analyzer`, `code-architect`; `wshobson/agents` (MIT): `kubernetes-architect`, `terraform-specialist`, `observability-engineer`, `legacy-modernizer`; `affaan-m/everything-claude-code` (MIT): `build-error-resolver`, `e2e-runner`, `refactor-cleaner`, `planner`; `0xfurai/claude-code-subagents` (MIT): `docker-expert`, `github-actions-expert`, `langchain-expert`; `VoltAgent/awesome-claude-code-subagents` (MIT): `incident-responder`, `accessibility-tester`, `qa-expert`. New folders `DevOps/` and `Quality/`.
+
+_Touched: `site/library/2_Agents/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+## 2026-11-18 — Library: new guides (backfill)
+
+Twelve guides, each written from the official docs read that day and citing them in a Sources list: Claude Code MCP servers and CLAUDE.md memory (`anthropics/claude-code`, no SPDX licence), Gemini CLI extensions (`google-gemini/gemini-cli`, Apache-2.0), Codex config.toml (`openai/codex`, Apache-2.0), OpenCode (`anomalyco/opencode`, MIT), goose (`aaif-goose/goose`, Apache-2.0), Crush (`charmbracelet/crush`, FSL-1.1-MIT), llama.cpp (`ggml-org/llama.cpp`, MIT), OpenAI Agents SDK (`openai/openai-agents-python`, MIT), Claude Agent SDK for Python (`anthropics/claude-agent-sdk-python`, MIT), LangGraph (`langchain-ai/langgraph`, MIT), LiteLLM (`BerriAI/litellm`, MIT plus a separate commercial licence for some features).
+
+_Touched: `site/library/1_Guides/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+## 2026-11-18 — One finder per section, one keeper for the rest
+
+How the library grows changed (Mike): instead of one content job that added 2 prompts and a guide a week and vendored only the repos someone had marked `accept`, each section now has its own finder in the Routines fleet. Every finder searches news, social and AI forums for what's trending in its section and adds it straight to a PR the Org PR Sweep merges, with no per-item decision: Prompts on Monday, Skills Tuesday, Guides Wednesday, Agents Thursday and MCP Servers Friday, 3–5 items each, and System Prompts on the first Sunday of the month (vendor-published only). The provenance rules don't move: every item names its GitHub repo, and copied text needs a permissive licence. A one-time larger backfill run per section fills the library first.
+
+Existing content has one owner now, the Saturday **Library Keeper**, which rotates guides, then prompts and agents, then skills and MCP cards, and fixes only what's already there. It took over the old Thursday refreshes and the Library Cards Refresh. The Discovery job is retired and `docs/DISCOVERY.md` is closed; the finders still skip any repo it marks `reject`. `upstream-drift.yml` and the Monthly Upkeep are unchanged.
+
+_Touched: `AGENTS.md`, `docs/CHANGELOG.md`, `docs/DISCOVERY.md`, `docs/README.md`, `docs/ROADMAP.md`, `docs/templates/mcp-servers-template.md`, `scripts/discover-repos.mjs` (comment only), `site/library/2_Agents/README.md`, `site/library/6_MCP_Servers/README.md`._
 
 ---
 

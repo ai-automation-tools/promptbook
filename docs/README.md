@@ -75,7 +75,7 @@ docs/
 ├── CHANGELOG.md                  # Shipped work, newest first
 ├── ARCHITECTURE.md               # System design and repo layout
 ├── CONTRIBUTING.md               # How to add content
-├── DISCOVERY.md                  # Repo-intake ledger (Discovery job adds, Mike decides)
+├── DISCOVERY.md                  # Old repo-intake ledger (closed 2026-11-18; its reject rows still apply)
 ├── UPSTREAMS.md                  # App dependencies the upstream check watches
 ├── mcp-server.md                 # The MCP server on one page
 │

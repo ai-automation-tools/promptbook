@@ -22,9 +22,11 @@ themselves are installed from their sources, never vendored here.
 
 ## How it stays current
 
-- **New servers.** The Tuesday Discovery job queues MCP repos in `docs/DISCOVERY.md`. Rows Mike
-  marks `accept` become cards in the Promptbook Content job's catalog run (every third Thursday, up to 3 a run), written from
+- **New servers.** The Friday MCP finder (`promptbook-find-mcp`) adds 3–5 cards a run for
+  servers that are trending now, written from
   [`docs/templates/mcp-servers-template.md`](../../../docs/templates/mcp-servers-template.md).
+- **Kept current.** Every third Saturday the Library Keeper repoints renamed repos and re-reads
+  the install lines of the five least recently checked cards.
 - **Upkeep.** The Monthly Upkeep runs `node scripts/check-mcp-servers.mjs`, which flags cards
   whose repo is missing, renamed, archived, relicensed, quiet for a year, or not re-read in 90
   days, then fixes the install lines or removes the card.
