@@ -1,0 +1,255 @@
+---
+title: "clerk/skills"
+description: "AI Skills to enhance working with Clerk"
+repo: clerk/skills
+tags: ["skill","skill-library","clerk","auth","platform"]
+---
+# clerk/skills
+
+AI Skills to enhance working with Clerk
+
+A skill library: browse and install its skills from [the repo on GitHub](https://github.com/clerk/skills). Promptbook keeps one card for it rather than a copy of each skill.
+
+---
+
+*The repo's README, copied 2026-11-18:*
+
+<p align="center">
+  <a href="https://clerk.com?utm_source=github&utm_medium=clerk_skills" target="_blank" rel="noopener noreferrer">
+    <img src="https://raw.githubusercontent.com/clerk/skills/main/assets/logo-pixel.svg" height="84">
+  </a>
+  <br />
+</p>
+<div align="center">
+  <h1>
+    Clerk Skills
+  </h1>
+  <a href="https://clerk.com/docs">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-clerk-green.svg" />
+  </a>
+  <a href="https://clerk.com/discord">
+    <img alt="Discord" src="https://img.shields.io/discord/856971667393609759?color=7389D8&label&logo=discord&logoColor=ffffff" />
+  </a>
+  <a href="https://x.com/clerk">
+    <img alt="Follow on X" src="https://img.shields.io/twitter/url.svg?label=%40clerk&style=social&url=https%3A%2F%2Fx.com%2Fclerk" />
+  </a>
+  <br />
+  <br />
+  <p>
+    <strong>
+      Skills to help AI coding agents work more effectively with Clerk.
+    </strong>
+  </p>
+</div>
+
+---
+
+Skills follow the [Agent Skills](https://agentskills.io/) format.
+
+## Install
+
+The `clerk` plugin bundles every skill plus the [Clerk MCP server](#clerk-mcp-server). `npx skills` installs the skills alone, into any agent.
+
+### Agent Skills
+
+```bash
+npx skills add clerk/skills
+```
+
+### Claude Code
+
+```bash
+/plugin marketplace add clerk/skills
+/plugin install clerk@clerk-skills
+```
+
+To get updates automatically, open `/plugin`, go to **Marketplaces**, select `clerk-skills`, and enable auto-update.
+
+### Codex
+
+```bash
+codex plugin marketplace add clerk/skills
+codex plugin add clerk@clerk
+```
+
+`clerk` replaces the earlier `clerk-skills@clerk` plugin, which no longer updates. To switch, run `codex plugin remove clerk-skills@clerk`, then add `clerk@clerk`.
+
+### Cursor
+
+```bash
+cursor-agent plugin marketplace add https://github.com/clerk/skills
+```
+
+Then install `clerk` from `/plugin`, or from **Customize** in the editor.
+
+### Antigravity
+
+```bash
+agy plugin install https://github.com/clerk/skills
+```
+
+To sign in to the Clerk MCP server, open `/plugin`, expand `clerk` under **Installed**, and choose **Sign in**.
+
+### GitHub Copilot CLI
+
+```bash
+copilot plugin marketplace add clerk/skills
+copilot plugin install clerk@clerk-skills
+```
+
+`clerk` replaces the earlier `core`, `frameworks`, `features`, and `mobile` plugins. Copilot moves those installs to `clerk@clerk-skills` but leaves it disabled, so run `copilot plugin enable clerk@clerk-skills` once.
+
+## Clerk MCP Server
+
+The Clerk MCP server lets AI agents work with your Clerk account. Clerk hosts it, so there's no server to run.
+
+- **Account tools:** create and configure applications, list, create, and update users, list organizations and their members, check domains and DNS records, and set up production instances.
+- **SDK snippet tools:** get ready-to-use code for Clerk features, or bundles such as `b2b-saas` and `organizations`.
+
+### Connect
+
+Add `https://mcp.clerk.com/mcp` to your agent as a streamable HTTP server, then sign in with your Clerk Dashboard account when prompted. The `clerk` plugin above does this for you.
+
+See the [Clerk MCP server docs](https://clerk.com/docs/guides/ai/mcp/clerk-mcp-server) for setup steps in popular agents.
+
+### Permissions
+
+The server acts as you, so it can only do what your workspace role allows. It never returns secret keys, and tools that make changes are flagged so your agent can ask before running them.
+
+For product analytics, the MCP server sends Clerk an event for each tool call. It records the tool name, whether the call succeeded, your Clerk user ID, your AI client, and, when the tool takes them, the application ID and whether the call was a dry run. It doesn't include the tool's other inputs or its results. [See what data Clerk receives about tool calls](https://clerk.com/docs/guides/ai/mcp/clerk-mcp-server#what-does-the-mcp-server-send-to-clerk-about-tool-calls).
+
+### Example prompts
+
+- "Which Clerk applications do I have?"
+- "List the five most recent sign-ups"
+- "Show the admins of the Example Team Organization in my production instance"
+- "Add `onboarding_complete: true` to the public metadata for `alex@example.com` in development"
+- "Check which DNS records I need for production"
+- "Show me how to set up B2B SaaS with Clerk Organizations"
+
+## Skills
+
+### Core
+
+| Skill | Purpose | When to Use |
+|-------|---------|-------------|
+| `/clerk` | **Router** - Routes to the right skill | Always start here |
+| `clerk-cli` | Clerk CLI operations | Users, orgs, apps, env keys, deploy checks |
+| `clerk-setup` | Add Clerk to any framework | New projects, framework setup |
+| `clerk-migrate` | Migrate users into Clerk | Importing users from another auth provider, dev → prod |
+| `clerk-custom-ui` | Custom sign-in/up and appearance | Building custom forms, styling |
+| `clerk-backend-api` | Backend REST API explorer | Browsing or calling API endpoints |
+
+### Framework Patterns
+
+| Skill | Framework | Patterns |
+|-------|-----------|----------|
+| `clerk-nextjs-patterns` | Next.js | Middleware, Server Actions, caching |
+| `clerk-react-patterns` | React | Hooks, auth guards, protected routes |
+| `clerk-react-router-patterns` | React Router | Loaders, actions, route protection |
+| `clerk-vue-patterns` | Vue | Composables, Pinia integration |
+| `clerk-nuxt-patterns` | Nuxt | Server middleware, SSR auth |
+| `clerk-astro-patterns` | Astro | SSR auth, island components |
+| `clerk-tanstack-patterns` | TanStack Start | Server functions, route protection |
+| `clerk-chrome-extension-patterns` | Chrome Extension | Background scripts, popup auth |
+
+### Features
+
+| Skill | Purpose | When to Use |
+|-------|---------|-------------|
+| `clerk-orgs` | Multi-tenant B2B organizations | Team workspaces, RBAC |
+| `clerk-billing` | Subscription billing and feature gating | Pricing tables, plans, per-seat, entitlements |
+| `clerk-webhooks` | Real-time events and data syncing | Database sync, notifications |
+| `clerk-testing` | E2E testing for auth flows | Playwright/Cypress tests |
+
+### Native Mobile
+
+| Skill | Platform | Patterns |
+|-------|----------|----------|
+| `clerk-swift` | iOS, macOS | ClerkKitUI views, custom ClerkKit flows, Sign in with Apple |
+| `clerk-android` | Android | Kotlin, Jetpack Compose |
+| `clerk-expo` | Expo / React Native | Native components, custom flows, SMS OTP, OAuth |
+
+## Quick Start
+
+### 1. Ask Your Agent to Add Clerk
+
+After installing Clerk Skills, ask your coding agent to add Clerk authentication
+to your app. The [`clerk-setup`](https://github.com/clerk/skills/blob/main/skills/clerk-setup/SKILL.md) skill sets up
+Clerk in an existing project, scaffolds a new app in an empty directory, and can
+link an existing Clerk application instead of creating a new one.
+
+For a new project on a supported framework, `clerk init` can start without a
+Clerk account or browser login. See [Accountless development keys](https://github.com/clerk/skills/blob/main/skills/clerk-setup/SKILL.md#step-1c-accountless-development-keys)
+for how temporary keys and later account claiming work.
+
+### 2. Example Requests
+
+| You Say | Skill Used |
+|---------|------------|
+| "List Clerk users" | `clerk-cli` |
+| "Add Clerk auth to my Next.js app" | `clerk-setup` |
+| "Migrate my users from Auth0 to Clerk" | `clerk-migrate` |
+| "Use Server Actions with Clerk" | `clerk-nextjs-patterns` |
+| "Add Clerk to my Vue app" | `clerk-vue-patterns` |
+| "Add Clerk to my Nuxt app" | `clerk-nuxt-patterns` |
+| "Add auth to my Expo app" | `clerk-expo` |
+| "Add phone SMS auth to my Expo app" | `clerk-expo` |
+| "Add Clerk to my Astro site" | `clerk-astro-patterns` |
+| "Build custom sign-in form" | `clerk-custom-ui` |
+| "Sync users to Prisma via webhooks" | `clerk-webhooks` |
+| "Add Playwright tests for auth" | `clerk-testing` |
+| "Set up organizations for my B2B app" | `clerk-orgs` |
+| "Add subscription billing with pricing table" | `clerk-billing` |
+| "Gate features by plan" | `clerk-billing` |
+| "Add Clerk auth to my iOS app" | `clerk-setup` |
+| "Add a custom sign-in screen to my SwiftUI app" | `clerk-swift` |
+| "Add Clerk auth to my Android app" | `clerk-android` |
+
+## Repository Structure
+
+```
+clerk-skills/                           # the repo root is the plugin root
+├── skills/                             # one folder per skill, flat
+│   ├── clerk/                          # Router skill
+│   ├── clerk-setup/
+│   ├── clerk-nextjs-patterns/
+│   └── ...
+├── plugin.json                         # Agent Plugins 1.0.0 manifest
+├── mcp.json                            # Agent Plugins MCP config
+├── .mcp.json                           # Claude Code and older Codex MCP config
+├── .claude-plugin/                     # plugin.json + marketplace.json
+├── .cursor-plugin/                     # plugin.json + marketplace.json
+├── .codex-plugin/plugin.json
+├── .antigravity-plugin/plugin.json     # Antigravity manifest
+├── mcp_config.json                     # Antigravity MCP config
+├── .agents/plugins/marketplace.json    # Codex marketplace
+├── scripts/                            # CI checkers, run with pnpm run check
+└── README.md
+```
+
+## Contributing
+
+This repo uses [pnpm](https://pnpm.io). If you've enabled Corepack, run `corepack disable pnpm` first; Corepack can't run pnpm 12.
+
+[Install pnpm](https://pnpm.io/installation), then run:
+
+```bash
+pnpm install
+pnpm test        # test the checkers
+pnpm run check   # validate the skills
+```
+
+## Resources
+
+- [Clerk Docs](https://clerk.com/docs)
+- [Dashboard](https://dashboard.clerk.com)
+- [Discord](https://clerk.com/discord)
+
+## Request a Skill
+
+Don't see what you need? [Request a skill](https://github.com/clerk/skills/issues/new?template=skill-request.md).
+
+## License
+
+MIT

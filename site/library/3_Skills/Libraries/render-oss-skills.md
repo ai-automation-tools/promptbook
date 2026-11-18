@@ -1,0 +1,188 @@
+---
+title: "render-oss/skills"
+description: "Render Agent Skills"
+repo: render-oss/skills
+tags: ["skill","skill-library","render","hosting","platform"]
+---
+# render-oss/skills
+
+Render Agent Skills
+
+A skill library: browse and install its skills from [the repo on GitHub](https://github.com/render-oss/skills). Promptbook keeps one card for it rather than a copy of each skill.
+
+---
+
+*The repo's README, copied 2026-11-18:*
+
+# Render Skills for AI Agents
+
+A catalog of 21 skills that teach AI coding tools how to deploy, operate, and debug apps on Render. Each skill is a self-contained `SKILL.md` plus references that any compatible agent can use.
+
+Use this repo to:
+
+- Install Render skills into your AI tool (Claude Code, Codex, Cursor, OpenCode)
+- Browse what each skill does and link straight to its docs
+- Contribute new skills or improve existing ones
+
+## Compatibility
+
+| Feature | Claude Code | Codex | OpenCode | Cursor |
+| --- | --- | --- | --- | --- |
+| Skill prompts (`SKILL.md`) | ✅ | ✅ | ✅ | ✅ |
+| Render CLI commands | ✅ | ✅ | ✅ | ✅ |
+| Render MCP tools | ✅ | ✅ | ✅ | ✅ |
+| Auto-approval hooks | ✅ | ❌ | ❌ | ❌ |
+
+## Installation
+
+The recommended way to install Render skills is the Render CLI:
+
+```bash
+render skills install
+```
+
+Other useful commands:
+
+```bash
+render skills          # interactive management
+render skills list     # show installed skills
+render skills update   # update installed skills
+```
+
+### Other ways to install
+
+- Skills CLI: `npx skills add render-oss/skills`
+- Claude Code plugin: `/plugin marketplace add render-oss/skills` then `/plugin install render@skills`
+- Manual: copy any directory from `skills/` into your tool's skills path (`~/.claude/skills/`, `~/.codex/skills/`, `~/.config/opencode/skills/`, or `~/.cursor/skills/`)
+
+### Prerequisites
+
+- A Render account with the [Render MCP server](https://github.com/render-oss/skills/blob/main/skills/render-mcp/SKILL.md) configured, or the [Render CLI](https://github.com/render-oss/skills/blob/main/skills/render-cli/SKILL.md) installed
+- A `RENDER_API_KEY` environment variable
+- A Git repository on GitHub, GitLab, or Bitbucket for any deploy-related skill
+
+## Skills catalog
+
+### Get started
+
+| Skill | What it helps with |
+| --- | --- |
+| [`render-mcp`](https://github.com/render-oss/skills/blob/main/skills/render-mcp/SKILL.md) | Set up and troubleshoot the Render MCP server |
+| [`render-cli`](https://github.com/render-oss/skills/blob/main/skills/render-cli/SKILL.md) | Install and use the Render CLI for deploys, logs, SSH, and automation |
+| [`render-deploy`](https://github.com/render-oss/skills/blob/main/skills/render-deploy/SKILL.md) | Deploy applications to Render |
+| [`render-blueprints`](https://github.com/render-oss/skills/blob/main/skills/render-blueprints/SKILL.md) | Author and validate `render.yaml` Blueprints |
+
+### Service types
+
+| Skill | What it helps with |
+| --- | --- |
+| [`render-web-services`](https://github.com/render-oss/skills/blob/main/skills/render-web-services/SKILL.md) | Configure public web services, health checks, and TLS |
+| [`render-private-services`](https://github.com/render-oss/skills/blob/main/skills/render-private-services/SKILL.md) | Design internal-only services on Render's private network |
+| [`render-static-sites`](https://github.com/render-oss/skills/blob/main/skills/render-static-sites/SKILL.md) | Deploy static sites, SPAs, redirects, and custom headers |
+| [`render-background-workers`](https://github.com/render-oss/skills/blob/main/skills/render-background-workers/SKILL.md) | Set up queue-based background workers and graceful shutdown |
+| [`render-cron-jobs`](https://github.com/render-oss/skills/blob/main/skills/render-cron-jobs/SKILL.md) | Configure scheduled jobs and cron expressions |
+| [`render-workflows`](https://github.com/render-oss/skills/blob/main/skills/render-workflows/SKILL.md) | Set up and develop Render Workflows |
+
+### Build and runtime
+
+| Skill | What it helps with |
+| --- | --- |
+| [`render-sandboxes`](https://github.com/render-oss/skills/blob/main/skills/render-sandboxes/SKILL.md) | Run isolated workloads, transfer files, and reuse sandbox snapshots |
+| [`render-docker`](https://github.com/render-oss/skills/blob/main/skills/render-docker/SKILL.md) | Build and deploy Docker-based services |
+| [`render-env-vars`](https://github.com/render-oss/skills/blob/main/skills/render-env-vars/SKILL.md) | Manage env vars, secrets, and env groups |
+| [`render-disks`](https://github.com/render-oss/skills/blob/main/skills/render-disks/SKILL.md) | Attach and manage persistent disks |
+
+### Networking and access
+
+| Skill | What it helps with |
+| --- | --- |
+| [`render-domains`](https://github.com/render-oss/skills/blob/main/skills/render-domains/SKILL.md) | Configure custom domains and troubleshoot TLS |
+| [`render-networking`](https://github.com/render-oss/skills/blob/main/skills/render-networking/SKILL.md) | Connect services over Render's private network |
+
+### Data services
+
+| Skill | What it helps with |
+| --- | --- |
+| [`render-postgres`](https://github.com/render-oss/skills/blob/main/skills/render-postgres/SKILL.md) | Operate Managed PostgreSQL, backups, replicas, and connections |
+| [`render-keyvalue`](https://github.com/render-oss/skills/blob/main/skills/render-keyvalue/SKILL.md) | Provision and tune Render Key Value |
+
+### Operate and scale
+
+| Skill | What it helps with |
+| --- | --- |
+| [`render-monitor`](https://github.com/render-oss/skills/blob/main/skills/render-monitor/SKILL.md) | Check service health, metrics, and logs |
+| [`render-debug`](https://github.com/render-oss/skills/blob/main/skills/render-debug/SKILL.md) | Diagnose failed deploys, startup issues, and runtime errors |
+| [`render-scaling`](https://github.com/render-oss/skills/blob/main/skills/render-scaling/SKILL.md) | Configure autoscaling, instance sizing, and cost tradeoffs |
+| [`render-migrate-from-heroku`](https://github.com/render-oss/skills/blob/main/skills/render-migrate-from-heroku/SKILL.md) | Migrate Heroku apps to Render |
+
+## Trying it out
+
+Once installed, ask your agent things like:
+
+- "Deploy my application to Render."
+- "Debug why my Render service won't start."
+- "Is my Render service healthy?"
+- "Set up a private service for this internal API."
+- "Add a cron job that runs every night."
+- "Configure custom domains for this web service."
+- "Migrate my Heroku app to Render."
+
+## Auto-approval hooks (Claude Code)
+
+The repo ships hook configuration that lets Claude Code auto-approve safe, read-only Render CLI operations:
+
+- Listing services: `render services list`, `render services -o json`
+- Reading logs: `render logs -r`, `render logs --raw`
+- Checking workspaces: `render workspace current`, `render workspace list`
+
+Only a single `render` command made of plain words is auto-approved. Commands containing quotes, pipes, redirects, `&&`, `;`, `$(...)` or other shell syntax fall through to Claude Code's normal permission checks. Malformed hook input and missing `jq` also produce no approval decision.
+
+Anything that changes infrastructure still requires explicit approval, including deploys, restarts, service creation and deletion, configuration changes, and workspace changes.
+
+## Contributing
+
+### Add a new skill
+
+1. Create `skills/your-skill-name/` with a `SKILL.md`.
+2. Add supporting files as needed: `references/`, `assets/`, and `evals.json`.
+3. Add frontmatter at the top of `SKILL.md`:
+
+   ```yaml
+   ---
+   name: your-skill-name
+   description: One sentence describing when an agent should use this skill.
+   license: MIT
+   compatibility: Prerequisites and requirements
+   metadata:
+     author: Render
+     version: "1.0.0"
+     category: deployment
+   ---
+   ```
+
+4. Keep `SKILL.md` short and action-oriented. Move depth into `references/`.
+5. Test locally with your target tool.
+
+For reference, look at [`render-deploy`](https://github.com/render-oss/skills/blob/main/skills/render-deploy/), [`render-debug`](https://github.com/render-oss/skills/blob/main/skills/render-debug/), [`render-monitor`](https://github.com/render-oss/skills/blob/main/skills/render-monitor/), or [`render-workflows`](https://github.com/render-oss/skills/blob/main/skills/render-workflows/).
+
+## Repository structure
+
+```text
+skills/
+├── .github/workflows/   # CI
+├── hooks/               # Auto-approval hook config for Claude Code
+├── scripts/             # Install and helper scripts
+├── skills/              # 21 skill directories
+├── README.md
+└── LICENSE
+```
+
+## Support
+
+- Documentation: <https://render.com/docs>
+- Issues: <https://github.com/render-oss/skills/issues>
+- Render Support: <mailto:Render support>
+
+## License
+
+MIT License. See [LICENSE](https://github.com/render-oss/skills/blob/main/LICENSE).

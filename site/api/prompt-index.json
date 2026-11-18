@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-18T22:23:45.518Z",
-  "promptCount": 911,
+  "buildTime": "2026-11-18T22:57:08.697Z",
+  "promptCount": 931,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -3611,6 +3611,40 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Libraries/browserbase-skills.md",
+      "title": "browserbase/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "browserbase-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "browserbase",
+        "browser-automation",
+        "web"
+      ],
+      "contentPreview": "# browserbase/skills\n\nBrowserbase's official collection of agent skills to access the web.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/browserbase/skil",
+      "lastModified": "2026-11-18T22:57:02.397Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/clerk-skills.md",
+      "title": "clerk/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "clerk-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "clerk",
+        "auth",
+        "platform"
+      ],
+      "contentPreview": "# clerk/skills\n\nAI Skills to enhance working with Clerk\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/clerk/skills). Promptbook keeps one card for it rat",
+      "lastModified": "2026-11-18T22:57:02.553Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Libraries/cloudflare-skills.md",
       "title": "cloudflare/skills",
       "section": "3_Skills",
@@ -3675,6 +3709,40 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Libraries/databricks-databricks-agent-skills.md",
+      "title": "databricks/databricks-agent-skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "databricks-databricks-agent-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "databricks",
+        "data",
+        "platform"
+      ],
+      "contentPreview": "# databricks/databricks-agent-skills\n\nDatabricks AI Tools: skills and plugins for building on Databricks with Claude Code, Cursor, Codex, GitHub Copilot, and other AI coding agents.\n\nA skill library: ",
+      "lastModified": "2026-11-18T22:57:02.757Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/datadog-labs-agent-skills.md",
+      "title": "datadog-labs/agent-skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "datadog-labs-agent-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "datadog",
+        "observability",
+        "monitoring"
+      ],
+      "contentPreview": "# datadog-labs/agent-skills\n\nPublic repository for Datadog Agent Skills\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/datadog-labs/agent-skills). Promptb",
+      "lastModified": "2026-11-18T22:57:02.965Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Libraries/davila7-claude-code-templates.md",
       "title": "davila7/claude-code-templates",
       "section": "3_Skills",
@@ -3725,6 +3793,40 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Libraries/elastic-agent-skills.md",
+      "title": "elastic/agent-skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "elastic-agent-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "elastic",
+        "elasticsearch",
+        "search"
+      ],
+      "contentPreview": "# elastic/agent-skills\n\nOfficial Elastic Skills\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/elastic/agent-skills). Promptbook keeps one card for it rat",
+      "lastModified": "2026-11-18T22:57:03.144Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/elevenlabs-skills.md",
+      "title": "elevenlabs/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "elevenlabs-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "elevenlabs",
+        "tts",
+        "audio"
+      ],
+      "contentPreview": "# elevenlabs/skills\n\nCollections of skills for building with ElevenLabs\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/elevenlabs/skills). Promptbook keep",
+      "lastModified": "2026-11-18T22:57:03.315Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Libraries/emilkowalski-skills.md",
       "title": "emilkowalski/skills",
       "section": "3_Skills",
@@ -3756,6 +3858,23 @@
       ],
       "contentPreview": "# expo/skills\n\nA collection of AI agent skills for working with Expo projects and Expo Application Services\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com",
       "lastModified": "2026-11-18T22:15:19.814Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/firebase-agent-skills.md",
+      "title": "firebase/agent-skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "firebase-agent-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "firebase",
+        "google",
+        "platform"
+      ],
+      "contentPreview": "# firebase/agent-skills\n\nAgent Skills for Firebase\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/firebase/agent-skills). Promptbook keeps one card for it",
+      "lastModified": "2026-11-18T22:57:03.521Z",
       "isUserOwned": false
     },
     {
@@ -3791,6 +3910,23 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Libraries/google-gemini-gemini-skills.md",
+      "title": "google-gemini/gemini-skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "google-gemini-gemini-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "google",
+        "gemini",
+        "ai-platform"
+      ],
+      "contentPreview": "# google-gemini/gemini-skills\n\nSkills for the Gemini API, SDK and model/agent interactions\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/google-gemini/ge",
+      "lastModified": "2026-11-18T22:57:03.684Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Libraries/google-labs-code-stitch-skills.md",
       "title": "google-labs-code/stitch-skills",
       "section": "3_Skills",
@@ -3805,6 +3941,40 @@
       ],
       "contentPreview": "# google-labs-code/stitch-skills\n\nA library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as",
       "lastModified": "2026-11-18T22:15:19.817Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/grafana-skills.md",
+      "title": "grafana/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "grafana-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "grafana",
+        "observability",
+        "monitoring"
+      ],
+      "contentPreview": "# grafana/skills\n\nA collection of agent skills, published on GitHub.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/grafana/skills). Promptbook keeps one ",
+      "lastModified": "2026-11-18T22:57:03.848Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/hashicorp-agent-skills.md",
+      "title": "hashicorp/agent-skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "hashicorp-agent-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "hashicorp",
+        "terraform",
+        "infrastructure"
+      ],
+      "contentPreview": "# hashicorp/agent-skills\n\nA collection of Agent skills and Claude Code plugins for HashiCorp products.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/hash",
+      "lastModified": "2026-11-18T22:57:04.014Z",
       "isUserOwned": false
     },
     {
@@ -3866,6 +4036,23 @@
       ],
       "contentPreview": "# K-Dense-AI/scientific-agent-skills\n\nTurn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 250,000+ scientists worldwide. 177 ready-to-use validated skills plus 100",
       "lastModified": "2026-10-27T16:04:23.517Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/langchain-ai-langchain-skills.md",
+      "title": "langchain-ai/langchain-skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "langchain-ai-langchain-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "langchain",
+        "langgraph",
+        "agents"
+      ],
+      "contentPreview": "# langchain-ai/langchain-skills\n\nA collection of agent skills, published on GitHub.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/langchain-ai/langchain-",
+      "lastModified": "2026-11-18T22:57:04.156Z",
       "isUserOwned": false
     },
     {
@@ -3953,6 +4140,57 @@
       ],
       "contentPreview": "# microsoft/skills\n\nSkills, MCP servers, Custom Agents, Agents.md for SDKs to ground Coding Agents\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/microsof",
       "lastModified": "2026-11-18T22:15:19.817Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/mongodb-agent-skills.md",
+      "title": "mongodb/agent-skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "mongodb-agent-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "mongodb",
+        "database",
+        "mcp"
+      ],
+      "contentPreview": "# mongodb/agent-skills\n\nUse the official MongoDB Skills with your favorite coding agent to build faster.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/mo",
+      "lastModified": "2026-11-18T22:57:04.306Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/netlify-context-and-tools.md",
+      "title": "netlify/context-and-tools",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "netlify-context-and-tools",
+      "tags": [
+        "skill",
+        "skill-library",
+        "netlify",
+        "hosting",
+        "platform"
+      ],
+      "contentPreview": "# netlify/context-and-tools\n\nA collection of agent skills, published on GitHub.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/netlify/context-and-tools).",
+      "lastModified": "2026-11-18T22:57:04.475Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/nextlevelbuilder-ui-ux-pro-max-skill.md",
+      "title": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "nextlevelbuilder-ui-ux-pro-max-skill",
+      "tags": [
+        "skill",
+        "skill-library",
+        "design",
+        "ui-ux",
+        "frontend"
+      ],
+      "contentPreview": "# nextlevelbuilder/ui-ux-pro-max-skill\n\nAn AI skill that provides design intelligence for building professional UI/UX across multiple platforms.\n\nA skill library: browse and install its skills from [t",
+      "lastModified": "2026-11-18T22:57:04.639Z",
       "isUserOwned": false
     },
     {
@@ -4071,6 +4309,57 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Libraries/prisma-skills.md",
+      "title": "prisma/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "prisma-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "prisma",
+        "orm",
+        "database"
+      ],
+      "contentPreview": "# prisma/skills\n\nA collection of agent skills, published on GitHub.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/prisma/skills). Promptbook keeps one ca",
+      "lastModified": "2026-11-18T22:57:04.799Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/pulumi-agent-skills.md",
+      "title": "pulumi/agent-skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "pulumi-agent-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "pulumi",
+        "infrastructure",
+        "iac"
+      ],
+      "contentPreview": "# pulumi/agent-skills\n\nOfficial Pulumi Agent Skills for writing, migrating, and operating infrastructure with AI coding agents\n\nA skill library: browse and install its skills from [the repo on GitHub]",
+      "lastModified": "2026-11-18T22:57:04.955Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/redis-agent-skills.md",
+      "title": "redis/agent-skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "redis-agent-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "redis",
+        "database",
+        "cache"
+      ],
+      "contentPreview": "# redis/agent-skills\n\nRedis' official collection of agent skills\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/redis/agent-skills). Promptbook keeps one ",
+      "lastModified": "2026-11-18T22:57:05.120Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Libraries/remotion-dev-skills.md",
       "title": "remotion-dev/skills",
       "section": "3_Skills",
@@ -4085,6 +4374,57 @@
       ],
       "contentPreview": "# remotion-dev/skills\n\nAgent Skills\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/remotion-dev/skills). Promptbook keeps one card for it rather than a co",
       "lastModified": "2026-11-18T22:15:19.818Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/render-oss-skills.md",
+      "title": "render-oss/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "render-oss-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "render",
+        "hosting",
+        "platform"
+      ],
+      "contentPreview": "# render-oss/skills\n\nRender Agent Skills\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/render-oss/skills). Promptbook keeps one card for it rather than a",
+      "lastModified": "2026-11-18T22:57:05.726Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/sanity-io-agent-toolkit.md",
+      "title": "sanity-io/agent-toolkit",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "sanity-io-agent-toolkit",
+      "tags": [
+        "skill",
+        "skill-library",
+        "sanity",
+        "cms",
+        "mcp"
+      ],
+      "contentPreview": "# sanity-io/agent-toolkit\n\nCollection of resources to help AI agents build better with Sanity.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/sanity-io/ag",
+      "lastModified": "2026-11-18T22:57:05.430Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/shopify-shopify-ai-toolkit.md",
+      "title": "Shopify/Shopify-AI-Toolkit",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "shopify-shopify-ai-toolkit",
+      "tags": [
+        "skill",
+        "skill-library",
+        "shopify",
+        "ecommerce",
+        "platform"
+      ],
+      "contentPreview": "# Shopify/Shopify-AI-Toolkit\n\nAgent plugins/extensions for CLIs and IDEs\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/Shopify/Shopify-AI-Toolkit). Promp",
+      "lastModified": "2026-11-18T22:57:05.584Z",
       "isUserOwned": false
     },
     {
