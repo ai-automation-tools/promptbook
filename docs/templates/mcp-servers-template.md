@@ -58,7 +58,8 @@ _Install lines read from the server's README on [YYYY-MM-DD]. The Monthly Upkeep
 <!--
 Rules (the promptbook-find-mcp job and anyone adding by hand):
 - One file per server: site/library/6_MCP_Servers/<Folder>/<server>.md, lowercase-hyphenated.
-  Folders: Reference, Browser_Automation, Developer_Tools, Cloud_Platforms, Apps_and_Services.
+  Folders: Reference, Browser_Automation, Developer_Tools, Cloud_Platforms, Apps_and_Services,
+  Databases, Web_and_Search.
 - Every install line comes from the server's own README or docs, read that day. Never invent
   a package name or flag. Placeholders for secrets (YOUR_API_KEY, ntn_****), never real values.
 - Only servers that are maintained (pushed in the last year), not archived, and licensed.
