@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-18T22:15:23.258Z",
-  "promptCount": 867,
+  "buildTime": "2026-11-18T22:16:23.201Z",
+  "promptCount": 883,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -6966,6 +6966,142 @@
       "isUserOwned": false
     },
     {
+      "id": "4_Prompts/Claude_Cookbooks/Commands/review-pr-command.md",
+      "title": "🔍 Review Pull Request Command",
+      "section": "4_Prompts",
+      "category": "Claude_Cookbooks",
+      "subcategory": "Commands",
+      "tags": [
+        "anthropic",
+        "claude-code",
+        "code-review",
+        "slash-command"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Review Pull Request Command\n\nA Claude Code slash command that checks out a PR, reviews it and optionally posts the review to GitHub.\n\n````\n---\nallowed-tools: Bash(gh pr checkout:*), Bash(gh pr diff",
+      "lastModified": "2026-11-18T22:16:19.978Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Claude_Cookbooks/Research_Agents/citations-agent.md",
+      "title": "📎 Citations Agent",
+      "section": "4_Prompts",
+      "category": "Claude_Cookbooks",
+      "subcategory": "Research_Agents",
+      "tags": [
+        "anthropic",
+        "citations",
+        "research",
+        "editing"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Citations Agent\n\nAdds correct citations to a finished report without changing a character of its text.\n\n```\nYou are an agent for adding correct citations to a research report. You are given a repor",
+      "lastModified": "2026-11-18T22:16:19.978Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Claude_Cookbooks/Research_Agents/research-lead-agent.md",
+      "title": "🧭 Research Lead Agent",
+      "section": "4_Prompts",
+      "category": "Claude_Cookbooks",
+      "subcategory": "Research_Agents",
+      "tags": [
+        "anthropic",
+        "multi-agent",
+        "research",
+        "orchestration"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Research Lead Agent\n\nAnthropic's lead-agent prompt for a multi-agent research system: plan, delegate to subagents, write the final report.\n\n```\nYou are an expert research lead, focused on high-leve",
+      "lastModified": "2026-11-18T22:16:19.983Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Claude_Cookbooks/Research_Agents/research-subagent.md",
+      "title": "🔎 Research Subagent",
+      "section": "4_Prompts",
+      "category": "Claude_Cookbooks",
+      "subcategory": "Research_Agents",
+      "tags": [
+        "anthropic",
+        "multi-agent",
+        "research",
+        "subagent"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Research Subagent\n\nThe research subagent prompt that works a delegated task with search tools and reports back to the lead.\n\n```\nYou are a research subagent working as part of a team. The current d",
+      "lastModified": "2026-11-18T22:16:19.983Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Claude_Plugins_Official/Commands/code-review-command.md",
+      "title": "🔍 Code Review Command",
+      "section": "4_Prompts",
+      "category": "Claude_Plugins_Official",
+      "subcategory": "Commands",
+      "tags": [
+        "anthropic",
+        "claude-code",
+        "code-review",
+        "slash-command"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Code Review Command\n\nThe official code-review plugin's command: parallel review agents score a pull request's issues and report the confident ones.\n\n```\n---\nallowed-tools: Bash(gh issue view:*), Ba",
+      "lastModified": "2026-11-18T22:16:19.983Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Claude_Plugins_Official/Commands/commit-push-pr-command.md",
+      "title": "🚀 Commit, Push and Open PR Command",
+      "section": "4_Prompts",
+      "category": "Claude_Plugins_Official",
+      "subcategory": "Commands",
+      "tags": [
+        "anthropic",
+        "claude-code",
+        "git",
+        "slash-command"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Commit, Push and Open PR Command\n\nCreates a branch, commits, pushes and opens a pull request in one command.\n\n```\n---\nallowed-tools: Bash(git checkout --branch:*), Bash(git add:*), Bash(git status:",
+      "lastModified": "2026-11-18T22:16:19.983Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Claude_Plugins_Official/Commands/feature-dev-command.md",
+      "title": "🛠️ Feature Development Command",
+      "section": "4_Prompts",
+      "category": "Claude_Plugins_Official",
+      "subcategory": "Commands",
+      "tags": [
+        "anthropic",
+        "claude-code",
+        "feature-development",
+        "slash-command"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Feature Development Command\n\nA guided feature-development workflow: discovery, codebase exploration, clarifying questions, architecture, implementation and review.\n\n```\n---\ndescription: Guided feat",
+      "lastModified": "2026-11-18T22:16:19.983Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Claude_Plugins_Official/Commands/revise-claude-md-command.md",
+      "title": "📚 Revise CLAUDE.md Command",
+      "section": "4_Prompts",
+      "category": "Claude_Plugins_Official",
+      "subcategory": "Commands",
+      "tags": [
+        "anthropic",
+        "claude-code",
+        "claude-md",
+        "memory"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Revise CLAUDE.md Command\n\nUpdates CLAUDE.md with the learnings from the current session.\n\n````\n---\ndescription: Update CLAUDE.md with learnings from this session\nallowed-tools: Read, Edit, Glob\n---",
+      "lastModified": "2026-11-18T22:16:19.983Z",
+      "isUserOwned": false
+    },
+    {
       "id": "4_Prompts/Fabric/AI/ai.md",
       "title": "🧵 Ai",
       "section": "4_Prompts",
@@ -12031,6 +12167,70 @@
       "isUserOwned": false
     },
     {
+      "id": "4_Prompts/Microsoft_Copilot_Prompts/Developer/code-review-feedback.md",
+      "title": "💻 AI Code Review Feedback",
+      "section": "4_Prompts",
+      "category": "Microsoft_Copilot_Prompts",
+      "subcategory": "Developer",
+      "tags": [
+        "microsoft-copilot",
+        "code-review",
+        "security"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# AI Code Review Feedback\n\nReviews pasted code for quality, security, performance and best practices, with issues ranked by severity.\n\n```\nReview the following code and provide detailed feedback incl",
+      "lastModified": "2026-11-18T22:16:19.983Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Microsoft_Copilot_Prompts/Meetings/decision-log-generator.md",
+      "title": "📒 Decision Log Generator",
+      "section": "4_Prompts",
+      "category": "Microsoft_Copilot_Prompts",
+      "subcategory": "Meetings",
+      "tags": [
+        "microsoft-copilot",
+        "meetings",
+        "decisions"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Decision Log Generator\n\nTurns meeting notes into a decision log.\n\n```\nAct as a decision archivist. Using the transcript of my most recent Teams meeting, extract every concrete decision that was mad",
+      "lastModified": "2026-11-18T22:16:19.983Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Microsoft_Copilot_Prompts/Prompting/prompt-architect.md",
+      "title": "🏛️ Prompt Architect",
+      "section": "4_Prompts",
+      "category": "Microsoft_Copilot_Prompts",
+      "subcategory": "Prompting",
+      "tags": [
+        "microsoft-copilot",
+        "prompt-engineering",
+        "meta-prompt"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Prompt Architect\n\nA guided four-step meta-prompt that drafts, tests and refines a prompt with persona, instructions and worked examples.\n\n```\nYou are the \"Prompt Architect,\" an AI assistant expert ",
+      "lastModified": "2026-11-18T22:16:19.983Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Microsoft_Copilot_Prompts/Writing/clean-ai-writing.md",
+      "title": "🧹 Clean AI Writing",
+      "section": "4_Prompts",
+      "category": "Microsoft_Copilot_Prompts",
+      "subcategory": "Writing",
+      "tags": [
+        "microsoft-copilot",
+        "writing",
+        "editing"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Clean AI Writing\n\nAudits a draft for AI-sounding patterns and rewrites it in plain, specific language, or only flags the issues.\n\n```\nYou are an editor. Remove the patterns that make writing read a",
+      "lastModified": "2026-11-18T22:16:19.983Z",
+      "isUserOwned": false
+    },
+    {
       "id": "4_Prompts/Microsoft_Prompts_For_Edu/Administration/meeting-summary.md",
       "title": "🎓 Meeting Summary and Agenda Planner",
       "section": "4_Prompts",
@@ -12323,6 +12523,74 @@
       "checked": "2026-10-26",
       "contentPreview": "\n# Writing Mentor\n\nThe prompt instructs an LLM (Large Language Model) to to engage with students as a mentor by asking about their goals, learning level, and work, and then provide specific and balanc",
       "lastModified": "2026-10-26T16:34:29.761Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/OpenAI_Cookbook/Portfolio_Agents/fundamental-analyst.md",
+      "title": "🏦 Lead Fundamental Analyst Agent",
+      "section": "4_Prompts",
+      "category": "OpenAI_Cookbook",
+      "subcategory": "Portfolio_Agents",
+      "tags": [
+        "openai",
+        "multi-agent",
+        "finance",
+        "analysis"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Lead Fundamental Analyst Agent\n\nThe fundamental analyst specialist prompt from the same multi-agent example, with parallel tool-call rules.\n\n```\n# Lead Fundamental Analyst – Prompt\n\nYou are the **L",
+      "lastModified": "2026-11-18T22:16:19.983Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/OpenAI_Cookbook/Portfolio_Agents/memo-editor.md",
+      "title": "📝 Memo Editor Agent",
+      "section": "4_Prompts",
+      "category": "OpenAI_Cookbook",
+      "subcategory": "Portfolio_Agents",
+      "tags": [
+        "openai",
+        "multi-agent",
+        "writing",
+        "synthesis"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Memo Editor Agent\n\nMerges the specialists' analyses and the PM's feedback into one investment memo.\n\n````\n# Memo Editor – Prompt\n\nYou are the **Memo Editor Agent**. Your job is to produce a high-qu",
+      "lastModified": "2026-11-18T22:16:19.983Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/OpenAI_Cookbook/Portfolio_Agents/portfolio-manager.md",
+      "title": "📊 Portfolio Manager Agent",
+      "section": "4_Prompts",
+      "category": "OpenAI_Cookbook",
+      "subcategory": "Portfolio_Agents",
+      "tags": [
+        "openai",
+        "multi-agent",
+        "finance",
+        "agents-sdk"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Portfolio Manager Agent\n\nThe portfolio manager's system prompt in OpenAI's multi-agent investment-research example.\n\n````\n# Portfolio Manager – System Prompt\n\n**Firm Philosophy:**\nOur firm's edge i",
+      "lastModified": "2026-11-18T22:16:19.983Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/OpenAI_Cookbook/Portfolio_Agents/quant-analyst.md",
+      "title": "📈 Quant Analyst Agent",
+      "section": "4_Prompts",
+      "category": "OpenAI_Cookbook",
+      "subcategory": "Portfolio_Agents",
+      "tags": [
+        "openai",
+        "multi-agent",
+        "finance",
+        "quant"
+      ],
+      "checked": "2026-11-18",
+      "contentPreview": "\n# Quant Analyst Agent\n\nThe quantitative analyst specialist prompt from the same multi-agent example.\n\n````\n# Quantitative Researcher – Prompt\n\nYou are a **Quantitative Analyst and Developer**.\n\n---\n\n",
+      "lastModified": "2026-11-18T22:16:19.983Z",
       "isUserOwned": false
     },
     {
