@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-19 — Library: new agents
+
+Four definitions, copied unchanged from their repos (`match: exact`, licences read 2026-11-19): `legacy-analyst` and `business-rules-extractor` from the code-modernization plugin in `anthropics/claude-plugins-official` (Apache-2.0), in a new folder `2_Agents/Modernization/`; `team-debugger` from `wshobson/agents` (MIT), in `Quality/`; `docs-drift-editor` from `VoltAgent/awesome-claude-code-subagents` (MIT), in `Development/`.
+
+_Touched: `site/library/2_Agents/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — Library data-flow diagram re-pinned
 
 Re-read the changed cited code (frame-ancestors block in `site/api/index.ts`, embed hooks in `site/src/App.tsx`, the drift workflow's PR note) and moved the line ranges; the Upstream card now says the org PR sweep reads the resync PR. Pinned to `6d97d36b`.
