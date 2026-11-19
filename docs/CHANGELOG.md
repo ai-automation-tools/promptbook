@@ -4,6 +4,12 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-18 — Library data-flow diagram re-pinned
+
+Re-read the changed cited code (frame-ancestors block in `site/api/index.ts`, embed hooks in `site/src/App.tsx`, the drift workflow's PR note) and moved the line ranges; the Upstream card now says the org PR sweep reads the resync PR. Pinned to `6d97d36b`.
+
+_Touched: `docs/diagrams/`, `homepage/diagram/library-data-flow.html`, `docs/CHANGELOG.md`._
+
 ## 2026-11-18 — System prompts: vendor-published only
 
 136 of the section's 167 system prompts named a leak collection as their source: `jujumilk3/leaked-system-prompts` (46), `0xeb/TheBigPromptLibrary` (88) and `LouisShark/chatgpt_system_prompt` (2). The library takes only what vendors publish, so (Mike's call) they were re-sourced where possible and archived otherwise. 16 Anthropic files now carry Anthropic's own text from its system-prompt release notes, verbatim (`match: vendor`), two of them renamed to the official dates (`anthropic-claude-opus-3-20240712.md`, `anthropic-claude-sonnet-4-5-20260118.md`), and `computer-use.md` comes from `anthropics/claude-quickstarts`. Two older "vendor" files that were hand-written summaries (Haiku 3.5, Sonnet 3.5) now hold the published text too. 122 prompts went to `archive/leaked-sources-2026-11-18/`: everything from the 38 other vendors, none of which publish their prompts, plus Anthropic's unpublished ones (Chrome extension, Cowork, the "soul document") and duplicates. The section is 39 files, all vendor-sourced.

@@ -8,7 +8,7 @@
     "output": "library-data-flow.html",
     "repository": {
       "url": "https://github.com/ai-automation-tools/promptbook.git",
-      "revision": "fb065867d19c304b8b88e3e76c309d964af13a03"
+      "revision": "6d97d36b6b724df8a856bc51392e7a4ce6165397"
     }
   },
   "stages": [
@@ -45,7 +45,7 @@
         {
           "path": ".github/workflows/upstream-drift.yml",
           "line": 1,
-          "end_line": 18
+          "end_line": 20
         }
       ]
     },
@@ -134,8 +134,8 @@
         },
         {
           "path": "site/api/index.ts",
-          "line": 153,
-          "end_line": 189
+          "line": 175,
+          "end_line": 211
         }
       ]
     },
@@ -174,18 +174,18 @@
       "sources": [
         {
           "path": "site/api/index.ts",
-          "line": 125,
-          "end_line": 151
+          "line": 147,
+          "end_line": 173
         },
         {
           "path": "site/api/index.ts",
-          "line": 196,
-          "end_line": 231
+          "line": 218,
+          "end_line": 253
         },
         {
           "path": "site/api/index.ts",
-          "line": 302,
-          "end_line": 373
+          "line": 324,
+          "end_line": 395
         }
       ]
     },
@@ -199,18 +199,18 @@
       "sources": [
         {
           "path": "site/api/index.ts",
-          "line": 38,
-          "end_line": 105
+          "line": 60,
+          "end_line": 127
         },
         {
           "path": "site/api/index.ts",
-          "line": 375,
-          "end_line": 463
+          "line": 397,
+          "end_line": 485
         },
         {
           "path": "site/api/index.ts",
-          "line": 465,
-          "end_line": 582
+          "line": 487,
+          "end_line": 604
         }
       ]
     },
@@ -274,8 +274,8 @@
       "sources": [
         {
           "path": "site/src/App.tsx",
-          "line": 150,
-          "end_line": 164
+          "line": 156,
+          "end_line": 170
         },
         {
           "path": "site/src/hooks/usePromptPreviews.ts",
@@ -422,7 +422,7 @@
       "dot": "emerald",
       "title": "Where the content comes from",
       "items": [
-        "Vendored skills and agents carry an upstream: block. The weekly Upstream drift workflow reports drift in one GitHub issue, resyncs the items with little local content of their own, and opens one pull request that a person merges. resync-upstream.mjs does the same by hand.",
+        "Vendored skills and agents carry an upstream: block. The weekly Upstream drift workflow reports drift in one GitHub issue, resyncs the items with little local content of their own, and opens one pull request that the workflow never merges; the org PR sweep reads the diff first. resync-upstream.mjs does the same by hand.",
         "After any library change, npm run build:index regenerates the index. CI rebuilds it and fails when the committed file differs, and vercel-build rebuilds it on every deploy."
       ]
     }
