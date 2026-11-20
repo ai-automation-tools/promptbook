@@ -4,6 +4,14 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-20 — Library: new MCP servers
+
+Three official servers, each written from its README read that day: Sentry (`getsentry/toolkit`, `packages/mcp-server`, FSL-1.1-Apache-2.0) and Datadog (`datadog-labs/mcp-server`, MIT) in `Developer_Tools/`, and Google Analytics (`googleanalytics/google-analytics-mcp`, Apache-2.0) in `Apps_and_Services/`. The `6_MCP_Servers` README now counts 57 cards.
+
+_Touched: `site/library/6_MCP_Servers/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-19 — Library: new agents
 
 Four definitions, copied unchanged from their repos (`match: exact`, licences read 2026-11-19): `legacy-analyst` and `business-rules-extractor` from the code-modernization plugin in `anthropics/claude-plugins-official` (Apache-2.0), in a new folder `2_Agents/Modernization/`; `team-debugger` from `wshobson/agents` (MIT), in `Quality/`; `docs-drift-editor` from `VoltAgent/awesome-claude-code-subagents` (MIT), in `Development/`.
