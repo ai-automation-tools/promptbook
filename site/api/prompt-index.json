@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-19T22:05:08.932Z",
-  "promptCount": 894,
+  "buildTime": "2026-11-20T22:02:40.557Z",
+  "promptCount": 897,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -14888,6 +14888,25 @@
       "isUserOwned": false
     },
     {
+      "id": "6_MCP_Servers/Apps_and_Services/google-analytics.md",
+      "title": "🔌 Google Analytics",
+      "section": "6_MCP_Servers",
+      "category": "Apps_and_Services",
+      "subcategory": "google-analytics",
+      "tags": [
+        "mcp-server",
+        "apps-and-services",
+        "google-analytics",
+        "analytics",
+        "reporting",
+        "official"
+      ],
+      "checked": "2026-11-20",
+      "contentPreview": "\n# Google Analytics MCP server\n\nGoogle's server for Analytics 4: account and property details, core, funnel, conversion and realtime reports, from the Admin and Data APIs.\n\n## Install\n\nEnable the Goog",
+      "lastModified": "2026-11-20T22:02:28.253Z",
+      "isUserOwned": false
+    },
+    {
       "id": "6_MCP_Servers/Apps_and_Services/hugging-face.md",
       "title": "🔌 Hugging Face",
       "section": "6_MCP_Servers",
@@ -15406,6 +15425,25 @@
       "isUserOwned": false
     },
     {
+      "id": "6_MCP_Servers/Developer_Tools/datadog.md",
+      "title": "🔌 Datadog",
+      "section": "6_MCP_Servers",
+      "category": "Developer_Tools",
+      "subcategory": "datadog",
+      "tags": [
+        "mcp-server",
+        "developer-tools",
+        "datadog",
+        "observability",
+        "incidents",
+        "official"
+      ],
+      "checked": "2026-11-20",
+      "contentPreview": "\n# Datadog MCP server\n\nDatadog's managed server that lets an agent query logs, metrics, traces, incidents and more from your Datadog account.\n\n## Install\n\n**Claude Code** (US1 site)\n\n```bash\nclaude mc",
+      "lastModified": "2026-11-20T22:02:21.509Z",
+      "isUserOwned": false
+    },
+    {
       "id": "6_MCP_Servers/Developer_Tools/docker-mcp-gateway.md",
       "title": "🔌 Docker MCP Gateway",
       "section": "6_MCP_Servers",
@@ -15570,6 +15608,25 @@
       "checked": "2026-10-21",
       "contentPreview": "\n# REA (reverse engineering) MCP server\n\nReverse-engineering tools for agents: web bundles, JavaScript apps, managed code and native binaries, with evidence attached to every finding.\n\n## Install\n\n**C",
       "lastModified": "2026-10-21T19:07:45.566Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Developer_Tools/sentry.md",
+      "title": "🔌 Sentry",
+      "section": "6_MCP_Servers",
+      "category": "Developer_Tools",
+      "subcategory": "sentry",
+      "tags": [
+        "mcp-server",
+        "developer-tools",
+        "sentry",
+        "observability",
+        "debugging",
+        "official"
+      ],
+      "checked": "2026-11-20",
+      "contentPreview": "\n# Sentry MCP server\n\nSentry's server for production errors, issues, traces and logs, so a coding agent debugs with what actually broke instead of guessing from source.\n\n## Install\n\n**Claude Code** (s",
+      "lastModified": "2026-11-20T22:02:16.318Z",
       "isUserOwned": false
     },
     {
