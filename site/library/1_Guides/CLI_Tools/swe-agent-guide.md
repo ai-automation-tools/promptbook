@@ -17,7 +17,7 @@ SWE-agent turns language models into software engineering agents. Upstream now r
 
 ### Basic Settings
 - **Agent Name:** SWE-agent
-- **Model:** gpt-5.6-sol
+- **Model:** gpt-6.2-sol
 
 ### Tools & Permissions
 - Terminal Access: Full bash capabilities.
