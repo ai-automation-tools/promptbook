@@ -20,6 +20,14 @@ _Touched: `site/library/2_Agents/`, `site/api/prompt-index.json`, `docs/CHANGELO
 
 ---
 
+## 2026-11-18 — Vite security bump
+
+`vite` is `^8.3.8` in `site/package.json` and 8.3.8 in the lockfile (PR #501, Dependabot's minor-and-patch group), past 8.3.7, the fix for GHSA-p4f5-76q4-ffq7 (remote code execution through the dev server's `__vite-browser-external` module). Roadmap item ticked by the 2026-11-21 sweep.
+
+_Touched: `site/package.json`, `site/package-lock.json`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-18 — Library data-flow diagram re-pinned
 
 Re-read the changed cited code (frame-ancestors block in `site/api/index.ts`, embed hooks in `site/src/App.tsx`, the drift workflow's PR note) and moved the line ranges; the Upstream card now says the org PR sweep reads the resync PR. Pinned to `6d97d36b`.
