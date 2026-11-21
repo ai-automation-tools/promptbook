@@ -4,6 +4,7 @@ tags: ["featured", "aider", "cli", "pair-programming", "open-source", "terminal"
 category: "Agent_Guides"
 subcategory: "CLI_Tools"
 repo: Aider-AI/aider
+checked: 2026-11-21
 ---
 
 <!-- Last Updated: 2026-03-31 - Based on official Aider documentation -->
@@ -41,18 +42,16 @@ Comprehensive reference for using Aider, the open-source AI pair programming too
 ### Via pip (Recommended)
 
 ```bash
-# Install latest stable version
-pip install aider-chat
+# Installer recommended by the README (sets up an isolated environment)
+python -m pip install aider-install
+aider-install
 
-# Or with pipx for isolation
+# Or directly
+pip install aider-chat
 pipx install aider-chat
 ```
 
-### Via Homebrew (macOS)
-
-```bash
-brew install aider
-```
+Project settings can live in `.aider.conf.yml` (e.g. `model: sonnet`, `dark-mode: true`); `--no-auto-commits` turns off auto-commits and `--architect` starts in architect/editor mode.
 
 ### Verify Installation
 
@@ -71,7 +70,7 @@ aider --version
 aider file1.py file2.js
 
 # Start with files and specify model
-aider --model gpt-5.6-sol file1.py
+aider --model gpt-6.2-sol file1.py
 
 # Create new file
 aider new_file.py
@@ -99,7 +98,7 @@ aider --api-key openai=your-key-here
 ```
 
 **Supported models:**
-- `gpt-5.6-sol`, `gpt-4-turbo` (OpenAI)
+- `gpt-6.2-sol`, `gpt-4-turbo` (OpenAI)
 - `sonnet`, `opus`, `haiku` (Anthropic Claude)
 - `deepseek` (DeepSeek)
 - `gemini-pro` (Google)
@@ -171,14 +170,14 @@ Once Aider is running, use these slash commands:
 ```
 /add <file>                   # Add file(s) to chat session
 /drop <file>                  # Remove file(s) from chat session
-/read <file_or_URL>          # Read content into chat (not added to edit set)
+/read-only <file_or_URL>     # Read content into chat (not added to edit set)
 ```
 
 **Examples:**
 ```
 /add src/auth.py
 /drop old_file.js
-/read https://docs.python.org/3/library/asyncio.html
+/read-only https://docs.python.org/3/library/asyncio.html
 ```
 
 ### Git Operations
@@ -401,7 +400,7 @@ aider src/models.py
 ```bash
 aider README.md
 
-> /read src/api.py
+> /read-only src/api.py
 > Generate API documentation for all endpoints
 
 /exit
@@ -417,7 +416,7 @@ Aider supports many LLM providers:
 
 ```bash
 export OPENAI_API_KEY=sk-...
-aider --model gpt-5.6-sol
+aider --model gpt-6.2-sol
 ```
 
 ### Anthropic Claude

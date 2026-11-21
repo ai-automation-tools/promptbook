@@ -4,20 +4,20 @@ tags: ["agent-guides", "cline", "ide-extension"]
 category: "Agent_Guides"
 subcategory: "IDE_Extensions"
 repo: cline/cline
+checked: 2026-11-21
 ---
 
 # Cline Guide
 
 ## Overview
-Cline is a versatile autonomous coding agent that runs inside your IDE (VS Code). This guide explains how to configure and interact effectively with Cline to streamline software development tasks, such as refactoring, feature implementation, and debugging.
+Cline is an open-source autonomous coding agent. It ships as a VS Code extension (the focus of this guide), a JetBrains plugin, a CLI (`npm i -g cline`) and a desktop app, all with human-in-the-loop approval for file edits and commands. This guide explains how to configure and interact effectively with Cline to streamline software development tasks, such as refactoring, feature implementation, and debugging.
 
 ## Agent Configuration
 
 ### Basic Settings
 - **Agent Name:** Cline
-- **Model:** claude-sonnet-5 (Recommended for balance of speed and complexity)
-- **Temperature:** 0.0
-- **Context Window:** Up to 200k tokens
+- **Model:** Your choice of provider (Anthropic, OpenAI, OpenRouter and others), set in the extension settings with your API key
+- **Context Window:** Depends on the model
 
 ### Tools & Permissions
 - Tool 1: File system access (Read/Write)
@@ -63,7 +63,7 @@ When encountering test failures, you should:
 
 ### Initialization
 1. Open the Cline panel in VS Code
-2. Select the desired AI model
+2. Add your API key and select the desired AI model
 3. Provide initial instructions and context files
 
 ### Standard Operating Procedure
@@ -103,10 +103,12 @@ I'll refactor `UserProfile.tsx` to use functional components and React hooks. Fi
 - Provide explicit file paths when referencing code
 - Review the planned terminal commands before approving
 - Keep requests scoped to single logical changes
+- Tune auto-approve settings per action type (for example, read-only commands only)
 
 ### For Developers
 - Maintain clean, self-documenting code to help Cline understand context
 - Configure test commands that Cline can easily invoke
+- Put project-specific guidelines in `.clinerules`
 
 ## Customization Options
 
@@ -117,14 +119,19 @@ I'll refactor `UserProfile.tsx` to use functional components and React hooks. Fi
 
 ### Common Issues
 
-**Issue 1: Context window full**
+**Issue 1: Cline fails to modify a file**
+- **Cause:** Missing file permissions
+- **Solution:** Check the file is writable, then retry
+
+**Issue 2: Context window full**
 - **Cause:** Too many large files open or very long conversation history
 - **Solution:** Clear the conversation or explicitly exclude unnecessary files from context
 
 ## Version History
 
-- **v1.0** (Current): Initial release
+- Checked 2026-11-21 against the Cline README (surfaces: VS Code, JetBrains, CLI, desktop app)
 
 ## References
 
 - [Cline Official Repository](https://github.com/cline/cline)
+- [Cline Docs](https://docs.cline.bot)

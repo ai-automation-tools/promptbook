@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-20T22:02:40.557Z",
-  "promptCount": 897,
+  "buildTime": "2026-11-21T18:03:46.590Z",
+  "promptCount": 890,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -421,9 +421,9 @@
         "openai",
         "api"
       ],
-      "checked": "2026-10-13",
+      "checked": "2026-11-21",
       "contentPreview": "\n# OpenAI API Best Practices Guide\n\n## Overview\nA guide covering best practices for integrating the OpenAI API.\n\n## Agent Configuration\n\n### Basic Settings\n- **Agent Name:** API Integration Expert\n- *",
-      "lastModified": "2026-10-26T15:19:23.489Z",
+      "lastModified": "2026-11-21T18:03:23.342Z",
       "isUserOwned": false
     },
     {
@@ -437,9 +437,9 @@
         "openai",
         "api"
       ],
-      "checked": "2026-10-13",
+      "checked": "2026-11-21",
       "contentPreview": "\n# OpenAI API Guide\n\n## Overview\nA comprehensive guide on integrating and utilizing the OpenAI API for building intelligent agents.\n\n## Agent Configuration\n\n### Basic Settings\n- **Agent Name:** OpenAI",
-      "lastModified": "2026-10-26T15:19:23.490Z",
+      "lastModified": "2026-11-21T18:03:23.383Z",
       "isUserOwned": false
     },
     {
@@ -458,8 +458,9 @@
         "codex",
         "responses-api"
       ],
-      "contentPreview": "## CLI Sync Notes (September 2026)\n\nTwo separate CLIs live under the OpenAI name — don't conflate them:\n\n- **Codex CLI** is the agentic coding tool (`codex` in your terminal, this is what\n  runs auton",
-      "lastModified": "2026-10-26T15:19:23.491Z",
+      "checked": "2026-11-21",
+      "contentPreview": "## CLI Sync Notes (November 2026)\n\nTwo separate CLIs live under the OpenAI name — don't conflate them:\n\n- **Codex CLI** is the agentic coding tool (`codex` in your terminal, this is what\n  runs autono",
+      "lastModified": "2026-11-21T18:03:33.130Z",
       "isUserOwned": false
     },
     {
@@ -550,66 +551,6 @@
       "isUserOwned": false
     },
     {
-      "id": "1_Guides/CLI_Tools/aider-advanced-guide.md",
-      "title": "💻 Aider Advanced Usage Guide",
-      "section": "1_Guides",
-      "category": "CLI_Tools",
-      "subcategory": "aider-advanced-guide",
-      "tags": [
-        "agent-guides",
-        "aider",
-        "cli",
-        "advanced"
-      ],
-      "contentPreview": "\n# Aider Advanced Usage Guide\n\n## Overview\nThis guide covers advanced usage techniques for Aider, an AI pair programming tool in your terminal.\n\n## Agent Configuration\n\n### Basic Settings\n- **Agent Na",
-      "lastModified": "2026-10-26T15:19:23.494Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "1_Guides/CLI_Tools/aider-guide.md",
-      "title": "💻 Aider Guide",
-      "section": "1_Guides",
-      "category": "CLI_Tools",
-      "subcategory": "aider-guide",
-      "tags": [
-        "agent-guides",
-        "aider",
-        "cli-tool"
-      ],
-      "contentPreview": "\n# Aider Guide\n\n## Overview\nAider is a command-line AI pair programming tool that lets you edit code in your local git repository using an LLM. It's particularly strong at applying changes across mult",
-      "lastModified": "2026-10-26T15:19:23.495Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "1_Guides/CLI_Tools/aider-setup-guide.md",
-      "title": "📚 Aider CLI Setup Guide",
-      "section": "1_Guides",
-      "category": "CLI_Tools",
-      "subcategory": "aider-setup-guide",
-      "tags": [
-        "cli_tools",
-        "new"
-      ],
-      "contentPreview": "\n# Aider CLI Setup Guide\n\n## Overview\nGuide to configuring Aider for terminal-based AI-assisted coding.\n\n## Setup Instructions\n1. Install via pip: `pip install aider-chat`\n2. Configure API keys (e.g.,",
-      "lastModified": "2026-10-26T15:19:23.497Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "1_Guides/CLI_Tools/aider_cli_guide.md",
-      "title": "💻 Aider CLI Guide",
-      "section": "1_Guides",
-      "category": "CLI_Tools",
-      "subcategory": "aider_cli_guide",
-      "tags": [
-        "agent-guides",
-        "aider",
-        "cli"
-      ],
-      "contentPreview": "\n# Aider CLI Guide\n\n## Overview\nAider is an AI pair programming tool in your terminal. This guide covers how to use Aider effectively for terminal-based development.\n\n## Agent Configuration\n\n### Basic",
-      "lastModified": "2026-10-26T15:19:23.498Z",
-      "isUserOwned": false
-    },
-    {
       "id": "1_Guides/CLI_Tools/aider_guide.md",
       "title": "💻 Aider AI Pair Programming Guide",
       "section": "1_Guides",
@@ -623,8 +564,9 @@
         "open-source",
         "terminal"
       ],
+      "checked": "2026-11-21",
       "contentPreview": "\n<!-- Last Updated: 2026-03-31 - Based on official Aider documentation -->\n\n# Aider AI Pair Programming Agent Guide\n\nComprehensive reference for using Aider, the open-source AI pair programming tool f",
-      "lastModified": "2026-10-26T15:17:35.381Z",
+      "lastModified": "2026-11-21T18:03:23.383Z",
       "isUserOwned": false
     },
     {
@@ -708,23 +650,9 @@
         "cli",
         "prompt-framework"
       ],
+      "checked": "2026-11-21",
       "contentPreview": "\n# Fabric CLI Guide\n\n## Overview\nFabric is an open-source framework for augmenting humans using AI. It provides a modular approach to using AI through small, single-purpose markdown prompts (patterns)",
-      "lastModified": "2026-10-26T15:17:35.389Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "1_Guides/CLI_Tools/fabric_cli_guide.md",
-      "title": "Fabric CLI Guide",
-      "section": "1_Guides",
-      "category": "CLI_Tools",
-      "subcategory": "fabric_cli_guide",
-      "tags": [
-        "cli",
-        "fabric",
-        "ai-tools"
-      ],
-      "contentPreview": "\n# Fabric CLI Guide\n\n## Overview\nFabric is an open-source framework for augmenting humans using AI. It provides a set of patterns (prompts) that can be applied to text streams in the terminal.\n\n## Age",
-      "lastModified": "2026-10-26T15:17:35.390Z",
+      "lastModified": "2026-11-21T18:01:28.467Z",
       "isUserOwned": false
     },
     {
@@ -926,7 +854,7 @@
         "cli"
       ],
       "contentPreview": "\n<!-- Last Updated: 2026-04-18 - Synced with upstream documentation -->\n\n# SWE-agent CLI Guide\n\n## Overview\nSWE-agent turns language models into software engineering agents. Upstream now recommends mi",
-      "lastModified": "2026-10-26T15:19:23.504Z",
+      "lastModified": "2026-11-21T18:03:33.101Z",
       "isUserOwned": false
     },
     {
@@ -1487,40 +1415,9 @@
         "cline",
         "ide-extension"
       ],
-      "contentPreview": "\n# Cline Guide\n\n## Overview\nCline is a versatile autonomous coding agent that runs inside your IDE (VS Code). This guide explains how to configure and interact effectively with Cline to streamline sof",
-      "lastModified": "2026-10-26T15:17:35.431Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "1_Guides/IDE_Extensions/cline_guide.md",
-      "title": "Cline AI IDE Extension Guide",
-      "section": "1_Guides",
-      "category": "IDE_Extensions",
-      "subcategory": "cline_guide",
-      "tags": [
-        "ide",
-        "extension",
-        "cline",
-        "ai-assistant"
-      ],
-      "contentPreview": "\n# Cline AI IDE Extension Guide\n\n## Overview\nCline is an autonomous coding agent right in your IDE, capable of creating and editing files, running commands, and more with your permission.\n\n## Agent Co",
-      "lastModified": "2026-10-26T15:17:35.434Z",
-      "isUserOwned": false
-    },
-    {
-      "id": "1_Guides/IDE_Extensions/cline_ide_guide.md",
-      "title": "🧩 Cline IDE Extension Guide",
-      "section": "1_Guides",
-      "category": "IDE_Extensions",
-      "subcategory": "cline_ide_guide",
-      "tags": [
-        "guide",
-        "ide",
-        "cline",
-        "vscode"
-      ],
-      "contentPreview": "\n# Cline IDE Extension Guide\n\n## Overview\nThis guide explores the Cline extension for VS Code, designed to integrate Claude and other LLMs directly into your development workflow.\n\n## Agent Configurat",
-      "lastModified": "2026-10-26T15:17:35.435Z",
+      "checked": "2026-11-21",
+      "contentPreview": "\n# Cline Guide\n\n## Overview\nCline is an open-source autonomous coding agent. It ships as a VS Code extension (the focus of this guide), a JetBrains plugin, a CLI (`npm i -g cline`) and a desktop app, ",
+      "lastModified": "2026-11-21T18:02:16.420Z",
       "isUserOwned": false
     },
     {
@@ -1538,7 +1435,7 @@
         "open-source"
       ],
       "contentPreview": "\n<!-- Last Updated: 2026-03-31 - Based on official Continue.dev documentation -->\n\n# Continue.dev Agent Guide\n\nComprehensive reference for using Continue.dev, the open-source AI coding assistant for V",
-      "lastModified": "2026-10-26T15:17:35.438Z",
+      "lastModified": "2026-11-21T18:03:33.115Z",
       "isUserOwned": false
     },
     {
