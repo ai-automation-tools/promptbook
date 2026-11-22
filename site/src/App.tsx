@@ -303,7 +303,8 @@ export default function App() {
       .slice(0, 4);
     
     if (featured.length === 0) {
-      return sectionPrompts
+      // A copy: sectionPrompts is shared memoised state, and sort() works in place (BUG-16).
+      return [...sectionPrompts]
         .sort((a, b) => new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime())
         .slice(0, 4);
     }
@@ -536,7 +537,7 @@ export default function App() {
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
-        URL.revokeObjectURL(url);
+        setTimeout(() => URL.revokeObjectURL(url), 0); // after the click has started the download
         showToast('success', 'Skill downloaded as zip!');
       } catch (error) {
         console.error('Download error:', error);
@@ -559,7 +560,7 @@ export default function App() {
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      setTimeout(() => URL.revokeObjectURL(url), 0);
       showToast('success', prompt.section === '3_Skills' ? 'Skill downloaded as markdown!' : 'Prompt downloaded!');
     }
   }, [showToast]);

@@ -9,6 +9,7 @@ import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize from 'rehype-sanitize';
+import { markdownComponents } from '../lib/markdown-components';
 import { LayoutGroup, m } from 'motion/react';
 import { cn } from '../lib/cn';
 import { SECTIONS } from '../lib/sections';
@@ -89,6 +90,13 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
     setError('');
   }, [editingPrompt, defaultSection, isOpen]);
 
+  // Escape, the backdrop, X and Cancel ask before dropping unsaved text (PB-22, BUG-11).
+  const dirty = title !== (editingPrompt?.title ?? '') || content !== (editingPrompt?.content ?? '')
+    || category !== (editingPrompt?.category ?? '') || tags.join('\n') !== (editingPrompt?.tags ?? []).join('\n');
+  const requestClose = () => {
+    if (!dirty || window.confirm('Discard your changes?')) onClose();
+  };
+
   const commitTag = () => {
     const value = tagInput.trim().replace(/,+$/, '');
     if (value && !tags.includes(value)) setTags([...tags, value]);
@@ -137,13 +145,13 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
   const words = content.trim() ? content.trim().split(/\s+/).length : 0;
 
   return (
-    <Modal onClose={onClose} size="lg" labelledBy="editor-title">
+    <Modal onClose={requestClose} size="lg" labelledBy="editor-title">
       <ModalHeader
         id="editor-title"
         eyebrow={editingPrompt ? 'Editing' : 'My Library'}
         title={editingPrompt ? 'Edit item' : 'New item'}
         description="Markdown body, plus the metadata the library files on."
-        onClose={onClose}
+        onClose={requestClose}
       />
 
       <form onSubmit={handleSubmit} className="flex min-h-0 flex-1 flex-col">
@@ -269,7 +277,7 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
                 {content.trim() ? (
                   <div className="markdown-body">
                     {/* HTML in the markdown (READMEs are full of it) renders, through GitHub's own allow-list. */}
-            <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, rehypeSanitize]}>{content}</Markdown>
+            <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, rehypeSanitize]} components={markdownComponents}>{content}</Markdown>
                   </div>
                 ) : (
                   <p className="text-[13.5px] text-[var(--fg-4)]">Nothing to preview yet.</p>
@@ -293,7 +301,7 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
         </div>
 
         <ModalFooter>
-          <Button variant="ghost" onClick={onClose}>
+          <Button variant="ghost" onClick={requestClose}>
             Cancel
           </Button>
           <Button type="submit" variant="primary" disabled={saving} icon={<Save className="h-4 w-4" />}>

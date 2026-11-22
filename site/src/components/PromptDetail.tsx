@@ -31,6 +31,7 @@ import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize from 'rehype-sanitize';
+import { markdownComponents } from '../lib/markdown-components';
 import { m } from 'motion/react';
 import SourcePanel from './SourcePanel';
 import { cn } from '../lib/cn';
@@ -243,7 +244,7 @@ export default function PromptDetail({
           )}
           <div className="markdown-body relative">
             {/* HTML in the markdown (READMEs are full of it) renders, through GitHub's own allow-list. */}
-            <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, rehypeSanitize]}>{shown}</Markdown>
+            <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, rehypeSanitize]} components={markdownComponents}>{shown}</Markdown>
           </div>
         </article>
 
