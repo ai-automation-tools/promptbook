@@ -107,7 +107,7 @@ From the 2026-11-18 project audit (taken at `2a990cd`). Ids are the audit's back
 - [ ] **PB-12** P2 · Contrast and minimum text size
 - [ ] **PB-13** P2 · Prompt detail readability: wrap bodies, no repeated title, prompt on the first phone screen
 - [ ] **PB-14** P2 · Keyboard and assistive-tech polish: inert sidebar, modal palette, reduced motion, live toasts
-- [ ] **PB-15** P2 · CSP for the local production server; consent script only on the demo
+- [x] **PB-15** P2 · CSP for the local production server; consent script only on the demo — done 2026-11-22: `npm start` sends vercel.json's page headers (framing kept same-origin); the API CSP is an explicit frame-ancestors policy instead of `false`; consent.js only in read-only builds
 - [ ] **PB-16** P2 · MCP hardening: frame library text as data, require version for body changes, shared dedupe, show allowed-tools
 - [ ] **PB-17** P2 · Licence on every copied item, generated NOTICE, relicense check before resync
 - [ ] **PB-18** P2 · GitHub hygiene: branch auto-delete and cleanup, Pages HTTPS, CodeQL triage, drift-PR token 🔒 Needs owner
