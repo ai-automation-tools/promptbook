@@ -50,7 +50,7 @@ _Touched: `site/src/components/ui/primitives.tsx`, `site/src/components/CommandP
 - The API's `helmet` CSP is now an explicit `frame-ancestors` policy instead of `contentSecurityPolicy: false` (CodeQL `js/insecure-helmet-configuration`); it covers dev's Vite pages too, which need inline scripts. The separate `FRAME_ANCESTORS` middleware only drops `X-Frame-Options` now.
 - `index.html`'s `consent.js` tag is stripped at build time unless the build is read-only (the demo), so a local copy no longer loads a script from ai-automation-tools.dev.
 
-_Touched: `site/server.ts`, `site/api/index.ts`, `site/vite.config.ts`, `AGENTS.md`, `SECURITY.md`, `docs/ARCHITECTURE.md`, `docs/CHANGELOG.md`._
+_Touched: `site/server.ts`, `site/api/index.ts`, `site/vite.config.ts`, `AGENTS.md`, `SECURITY.md`, `docs/ARCHITECTURE.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
 
 ---
 
