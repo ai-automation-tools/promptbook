@@ -64,8 +64,8 @@ Prompts and guides carry a repo too, so every card shows the same GitHub link at
 (`match: exact`, `repo: danielmiessler/Fabric` for the Fabric set). A guide is
 written here, not copied, so it names the tool it documents with a bare `repo: owner/name` line
 instead. The same CI check fails on a prompt or guide without one; the hand-written prompts and
-guides that had no repo live in `archive/unlinked-2026-10-26/` at the repo root, not in the
-library.
+guides that had no repo were archived on 2026-10-26 and removed on 2026-11-22 (git history at
+`86ff6925`, `archive/unlinked-2026-10-26/`).
 
 ### Field Rules
 

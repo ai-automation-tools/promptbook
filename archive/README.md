@@ -6,14 +6,17 @@ builder, the MCP server and `scripts/upstream.test.mjs` never see it.
 
 | Folder | What | Why |
 |:---|:---|:---|
-| `unlinked-2026-10-26/` | 669 hand-written prompts (every `4_Prompts` category except `Awesome_ChatGPT`) and 28 guides (`Concepts/`, the hand-written agent configs, tools with no public repo) | Since 2026-10-26 every card shows a GitHub repo link at the top, and these name no repo. Paths are kept as they were under `site/library/`. |
-| `skill-libraries-2026-10-27/` | 224 skill folders from the 30 repos we had copied 2 or more skills from (addyosmani/agent-skills, anthropics/skills, JoelLewis/finance_skills, ai-automation-tools/agent-skills…), plus two orphaned finance_skills plugin manifests | Since 2026-10-27 a skill library is one card in `site/library/3_Skills/Libraries/` that links to its repo, instead of a copy of each skill. Paths are kept as they were under `site/library/`. |
-| `skill-libraries-2026-11-18/` | `design-taste-frontend` (tasteskill v2, from Leonxlnx/taste-skill) | Upstream v2.5 calls `assets/` and `scripts/` (about 36 MB) in nearly every step, so a copy of `SKILL.md` alone no longer stands on its own. The repo is now the `Leonxlnx/taste-skill` card in `site/library/3_Skills/Libraries/`. |
-| `unlicensed-2026-10-27/` | 5 skills: `scientific-schematics` (unerue/skills) and `market-mechanics-betting` (lyndonkl/claude), whose repos have no licence; `document-writer` (Dicklesworthstone/pi_agent_rust: MIT with a rider barring OpenAI, Anthropic and anyone acting for them); `scientific-writing` (openlair/dr-claw: a GPL-3.0/AGPL-3.0 combined work); and `postgres-schema-design`, saved as `SKILL.MD` so nothing indexed it, with no `upstream:` block | Since 2026-10-27 a skill ships with its licence and `scripts/upstream.test.mjs` requires a redistributable one. To restore one, it needs a licence that allows that (and `postgres-schema-design` a source repo too). |
-| `loose-skill-files-2026-10-27/` | 81 files that sat in `site/library/3_Skills/` outside any skill folder: 78 single-file prompt-style "skills" (`Data/csv-data-cleaner.md`, `Business/swot-analysis-generator.md`…), a stale pack list (`Development/README.md`) and two orphaned finance_skills `plugin.json` manifests | Only `SKILL.md` files and library cards are indexed, so the app never showed these, and none named a source repo. `scripts/upstream.test.mjs` now fails on a file outside a skill folder. To restore one, make it a skill folder (`<name>/SKILL.md`) with an `upstream:` block and a licence. |
 | `leaked-sources-2026-11-18/` | 122 system prompts and 3 folder readmes from `5_System_Prompts/`: 113 from 38 vendors (OpenAI, Google, xAI, Copilot, Cursor, Perplexity, Meta…) and 9 Anthropic ones Anthropic doesn't publish (Chrome extension, Cowork, the "soul document"), that duplicated a re-sourced file, or (`anthropic-claude-sonnet-3-5.md`) was a hand-written summary labelled as Anthropic's | They were sourced from leak collections (`jujumilk3/leaked-system-prompts`, `0xeb/TheBigPromptLibrary`, `LouisShark/chatgpt_system_prompt`), and the library takes only vendor-published prompts (Mike, 2026-11-18). 14 Anthropic files were re-sourced from Anthropic's release notes instead, and `computer-use.md` from `anthropics/claude-quickstarts`. Don't restore one unless its vendor publishes it: then copy the vendor's text, not this one. |
-| `prompt_generation/` | `generate_prompts.py` and `generate_character_prompts.js`, which wrote prompt files from templates (formerly `scripts/prompt_generation/`) | Prompts are copied from public collections now, never written here, so the generators have no use in the library. |
 
-**To restore an item:** move it back (a skill: its whole folder; it already carries its `upstream:` block) to the same path under `site/library/`, give it a repo
-(`upstream:` block on a prompt, `repo:` on a guide; see `docs/CONTRIBUTING.md`), then
-`cd site && npm run build:index`.
+**Removed 2026-11-22 (PB-05).** The rest of this folder left the tree: the 669 unlinked prompts
+and 28 guides (`unlinked-2026-10-26/`), the 224 copied skill-library skills
+(`skill-libraries-2026-10-27/`, including four Anthropic document skills marked "All rights
+reserved"), `skill-libraries-2026-11-18/`, the five unlicensed skills (`unlicensed-2026-10-27/`),
+the 81 loose skill files (`loose-skill-files-2026-10-27/`) and the old `prompt_generation/`
+scripts. Unlicensed and proprietary text has no place in a public tree, even unserved. They are
+in git history: `git show 86ff6925:archive/<path>` reads one, and
+`git checkout 86ff6925 -- archive/<folder>` brings a folder back.
+
+**To restore an item to the library:** move it back to the same path under `site/library/`, give
+it a repo (`upstream:` block on a prompt, `repo:` on a guide; see `docs/CONTRIBUTING.md`) and,
+for a skill, a redistributable licence, then `cd site && npm run build:index`.

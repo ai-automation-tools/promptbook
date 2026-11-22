@@ -113,9 +113,9 @@ docs/
 
 > Superseded planning docs (an older `docs/archive/`, `QUICK_REFERENCE.md`, `library-update-logs/`) were
 > removed on 2026-08-26. They remain in Git history; the entries worth keeping were folded
-> into [CHANGELOG.md](CHANGELOG.md). The repo-root `archive/` is different: since 2026-10-26 it holds
-> the library items taken out of service (the prompts and guides with no GitHub repo) and the
-> retired prompt generators; see [`archive/README.md`](../archive/README.md).
+> into [CHANGELOG.md](CHANGELOG.md). The repo-root `archive/` is different: it holds
+> only the system prompts taken out on 2026-11-18; everything else it held was removed on
+> 2026-11-22 and is in git history at `86ff6925`. See [`archive/README.md`](../archive/README.md).
 
 ---
 

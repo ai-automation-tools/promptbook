@@ -31,7 +31,8 @@ marks one only the owner can do.
 > naming its source repo. Skill libraries are one card each (30 in `3_Skills/Libraries/`); the
 > 28 single skills each ship with a redistributable licence beside `SKILL.md`; prompts can
 > declare `[placeholder]` inputs that MCP clients ask for. What took items out of the library is
-> in `archive/` at the repo root.
+> in the changelog; their files are in git history (`archive/` keeps only the leaked-source
+> system prompts since 2026-11-22).
 >
 > Phases 1, 2 and 3 are done (the last of Phase 3, the dotenv, motion and lucide-react
 > majors, 2026-11-07), and so is every release gate. The open work an agent can take is one
@@ -95,8 +96,8 @@ From the 2026-11-18 project audit (taken at `2a990cd`). Ids are the audit's back
 - [x] **PB-01** P1 · Remove the 13 jailbreak prompts from the public library and keep them out — done 2026-11-22: the 13 ChatGPT-Shortcut cards are deleted (index 890 → 877) and `scripts/upstream.test.mjs` fails on their upstream paths or a jailbreak-style title, so a refresh or finder can't bring one back
 - [x] **PB-02** P1 · Card action buttons work from the keyboard — done 2026-11-22: a card's title is a real `<button>`, the `<article>` lost `role="button"`/`tabindex`/its Enter handler (prompt and pack cards), so Enter on Copy, Download, Save, Star, Edit, Delete or pack Add/Remove runs that action; `test:browser` presses Enter on a card's Download and on its title
 - [x] **PB-03** P1 · Leaving a prompt by Related, breadcrumb or category no longer bounces back — done 2026-11-22: `?prompt=` is consumed once by the deep-link effect and no longer set by `handlePromptClick`; the URL follows `selectedPrompt`. `test:browser` clicks Related and checks the prompt stays closed a second later
-- [ ] **PB-04** P1 · Take the leak-sourced system prompts out of the public tree and the demo 🔒 Needs owner
-- [ ] **PB-05** P1 · Remove archive/ (unlicensed, proprietary and rejected content) from the public tree
+- [x] **PB-04** P1 · Take the leak-sourced system prompts out of the public tree and the demo — closed 2026-11-22: the demo returns 404 for them (production redeployed since #537) and `scripts/upstream.test.mjs` already fails an item sourced from a leak collection (#537). The owner keeps `archive/leaked-sources-2026-11-18/` in the tree; no history rewrite
+- [x] **PB-05** P1 · Remove archive/ (unlicensed, proprietary and rejected content) from the public tree — done 2026-11-22: 1,968 files (25 MB) removed, everything but `leaked-sources-2026-11-18/` (kept, PB-04); restore point `86ff6925`, named in `archive/README.md` and the docs that pointed into it
 - [ ] **PB-06** P1 · Content gate: CI check for hostile instructions in library changes
 - [ ] **PB-07** P1 · PR sweep: hold upstream resyncs and keep the workflow hold for Promptbook *(claude-routines)*
 - [ ] **PB-08** P2 · Client quick fixes: detail actions by item, page clamp, guarded localStorage

@@ -200,11 +200,11 @@ site/
                        is missing, renamed, archived, relicensed or quiet), backfill-tags.mjs
                        (path-derived tags for any file with none; the Monthly Upkeep keeps it at
                        zero), the two *.test.mjs self-checks
-  archive/             Library items and tooling taken out of service but kept: the 669 prompts
-                       and 28 guides with no repo (unlinked-2026-10-26/, paths as they were under
-                       site/library/) and the old prompt_generation/ scripts that wrote prompts
-                       by hand. Outside site/, so nothing serves, indexes or tests it. See
-                       archive/README.md to restore an item.
+  archive/             Only leaked-sources-2026-11-18/ (the system prompts taken out on
+                       2026-11-18). The rest (unlinked prompts and guides, copied skill
+                       libraries, unlicensed skills, old generators) was removed 2026-11-22 and
+                       lives in git history at 86ff6925; archive/README.md says how to restore.
+                       Outside site/, so nothing serves, indexes or tests it.
   homepage/            Static homepage (one index.html, no build) → GitHub Pages via
                        .github/workflows/homepage.yml; pinned by scripts/homepage.test.mjs
   docs/                Documentation (see docs/README.md)
@@ -238,8 +238,8 @@ repo and carries its whole README (relative links made absolute). Write the fron
 card, public and My Library, and `npm run build:index`. `scripts/upstream.test.mjs` fails a card
 without `repo:`. Markdown views render HTML through `rehype-raw` + `rehype-sanitize` (GitHub's
 allow-list), because READMEs are full of it. Only a skill that stands alone
-is copied in as a `SKILL.md` folder. The 224 copies this replaced are in
-`archive/skill-libraries-2026-10-27/`. In My Library the same card is any item tagged
+is copied in as a `SKILL.md` folder. The 224 copies this replaced were
+removed on 2026-11-22 (in git history at `86ff6925`, `archive/skill-libraries-2026-10-27/`). In My Library the same card is any item tagged
 `skill-library` with the repo as its source link.
 
 > Note: older docs and the README still describe the pre-rename flat layout
@@ -297,9 +297,9 @@ is copied in as a `SKILL.md` folder. The 224 copies this replaced are in
   copied). Prompts copied from a collection carry an `upstream:` block too
   (for example `match: exact`, `repo: danielmiessler/Fabric`). `scripts/upstream.test.mjs` fails CI
   on a prompt or guide without one. The 670 hand-written prompts and 28 guides that had no
-  repo were moved, paths intact, to `archive/unlinked-2026-10-26/` at the repo root (outside
-  the deploy root, so nothing serves or indexes them); restore one by moving it back and
-  giving it a repo.
+  repo were archived on 2026-10-26 and removed on 2026-11-22; they are in git history at
+  `86ff6925` (`archive/unlinked-2026-10-26/`, paths intact). Restore one by checking it out
+  into `site/library/` and giving it a repo.
 - **LF only.** `.gitattributes` sets `eol=lf` repo-wide. `contentPreview` is embedded in
   `api/prompt-index.json` verbatim, so a CRLF file makes the index unreproducible on Linux and
   the CI gate fails.

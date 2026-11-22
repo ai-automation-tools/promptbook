@@ -16,8 +16,8 @@ that repo at the top; `scripts/upstream.test.mjs` fails CI on a guide without on
 
 The guides with no public repo behind them (the `Concepts/` pages, hand-written agent
 configs, Windsurf, JetBrains AI Assistant, Supermaven, Cody, Kite, Docker AI, OpenClaw) were
-moved to `archive/unlinked-2026-10-26/1_Guides/` at the repo root on 2026-10-26. See
-`archive/README.md` to bring one back.
+archived on 2026-10-26 and removed on 2026-11-22; they are in git history at `86ff6925`
+(`archive/unlinked-2026-10-26/1_Guides/`). See `archive/README.md` to bring one back.
 
 ## Adding a guide
 
