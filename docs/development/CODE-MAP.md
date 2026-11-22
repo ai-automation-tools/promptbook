@@ -31,7 +31,7 @@ Other scripts: `npm run build` (build:index → tsc → vite build), `npm run bu
 CI (`.github/workflows/ci.yml`) runs `npm ci` → `lint` → `build` → `test:routes` → `test:my-library` → `test:read-only` → `test:prompt-content` → `test:markdown-file` → `test:preview` → `test:safe-path` → `test:frame-ancestors` → `test:mcp` → `test:browser` → the two repo-root
 provenance self-checks (`scripts/upstream.test.mjs`, `scripts/skill-frontmatter.test.mjs`) →
 the content gate (`scripts/check-content.mjs`: no hidden or agent-directed instructions in
-`site/library/`; reviewed exceptions in `scripts/content-allowlist.json`) → a rebuild of the prompt index, failing if the rebuilt file is not byte-identical to the committed one.
+`site/library/`; reviewed exceptions in `scripts/content-allowlist.json`) → on a PR, the content diff (`check-content.mjs --base <base sha>`: a SKILL.md gaining `allowed-tools`, or a file growing to 3x and by 20 KB; skipped once a person adds the `content-reviewed` label) → a rebuild of the prompt index, failing if the rebuilt file is not byte-identical to the committed one.
 A second job, `secrets`, runs gitleaks 8.30.1 (checksum-pinned) over the whole history with
 `.gitleaks.toml`: the default rules, with four loose pattern rules (generic API key, curl auth
 header, JWT, LinkedIn client ID) off in library text only. Locally: `gitleaks git . --redact` (CI scans only `HEAD`'s history; locally that flag scans every branch).
