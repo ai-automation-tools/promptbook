@@ -120,6 +120,12 @@ export default function PromptDetail({
               <span>{title}</span>
             </h1>
             <p className="mono mt-1.5 truncate text-[11px] text-[var(--fg-5)]">{prompt.id}</p>
+            {/* What a skill asks its agent to run, before anyone installs it (PB-16). */}
+            {prompt.extra?.['allowed-tools'] != null && (
+              <p className="mono mt-1 text-[12px] text-[var(--fg-3)]">
+                allowed-tools: {[prompt.extra['allowed-tools']].flat().map(String).join(', ')}
+              </p>
+            )}
           </div>
         </div>
 
