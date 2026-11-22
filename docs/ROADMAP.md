@@ -118,7 +118,7 @@ From the 2026-11-18 project audit (taken at `2a990cd`). Ids are the audit's back
 - [x] **PB-23** P3 · Server polish: listing errors are errors, robots.txt, configurable PORT — done 2026-11-22: a failed listing is a 500 with an error body (it was `200 []`, an empty library) and the client toasts it; `site/public/robots.txt`; `PORT` sets the local server port
 - [x] **PB-24** P3 · Remove dead scripts and code; quiet the logs — done 2026-11-22: four dead scripts removed, per-request and per-file logs dropped, no-op layout props, unused Prompt fields, the DISABLE_HMR comment and unused tsconfig flags gone
 - [ ] **PB-25** P3 · Docs accuracy pass: AGENTS.md, README, CONTRIBUTING, MCP docs, ROADMAP, CHANGELOG split
-- [ ] **PB-26** P3 · One library walker shared by the index builder and the API
+- [x] **PB-26** P3 · One library walker shared by the index builder and the API — #565
 - [ ] **PB-27** P3 · ESLint (react-hooks only) and client regression tests 🔒 Needs owner
 - [x] **PB-28** P3 · Cache skill/pack ZIPs and pack manifests; page large subcategories — done 2026-11-22: skill and pack ZIPs cached per process (largest skill 18 ms p50 warm), pack manifests read once, cards `content-visibility: auto`
 - [ ] **PB-29** P3 · Remove identical-body duplicates

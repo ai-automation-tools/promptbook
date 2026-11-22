@@ -13,7 +13,7 @@ import { applyImport, existingCopy, FAVORITE_ID, favorites, forkExtra, IMPORT_LI
 import { readZip, ZipError } from "../lib/zip.js";
 import { cachedZip } from "../lib/zip-cache.js";
 import { filesUnder, resolveInside } from "../lib/safe-path.js";
-import { LIBRARY_PATH, SKILLS_SECTION, carriedFrontmatter, checkedOf, extractFirstHeading, readLibraryItem, sourceOf, sourceUrlOf, type IndexEntry, type LibraryIndex } from "../lib/library.js";
+import { LIBRARY_PATH, SKILLS_SECTION, carriedFrontmatter, readLibraryItem, walkLibrary, PREVIEW_LENGTH, sourceOf, sourceUrlOf, type IndexEntry, type LibraryIndex } from "../lib/library.js";
 import type { IncomingMessage, ServerResponse } from "http";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -179,10 +179,6 @@ try {
   console.warn('[INDEX] Failed to load prebuilt index:', err);
 }
 
-// How many characters of a prompt body a card blurb gets. Mirrors the same
-// constant in scripts/build-prompt-index.js, which bakes `contentPreview` in.
-const PREVIEW_LENGTH = 200;
-
 // A README opens with rows of badges (`[![License](…svg)](LICENSE.md)`), which fill
 // all 200 characters and leave the card nothing to show. Lines made only of
 // images, linked or not, are dropped before the cut.
@@ -206,8 +202,6 @@ const getPreviewIndex = (): Map<string, string> => {
 
 // LIBRARY_PATH, SKILLS_SECTION and the single-item reader live in lib/library.ts,
 // shared with the MCP server.
-// Pre-rename *_OLD trees — kept in the repo, never served
-const LEGACY_SECTION = 'Legacy';
 
 // API to list all prompts (with optional lightweight mode)
 app.get("/api/prompts", async (req, res) => {
@@ -234,7 +228,7 @@ app.get("/api/prompts", async (req, res) => {
   const index = prebuiltIndex;
   const build = lightweight && index
     ? async () => index.prompts.map(({ contentPreview, ...p }): ListedPrompt => ({ ...p, content: '' }))
-    : () => walkLibrary(lightweight);
+    : () => fullListing(lightweight);
 
   try {
     const { body, etag } = await cachedListing(lightweight, build);
@@ -247,73 +241,14 @@ app.get("/api/prompts", async (req, res) => {
   }
 });
 
-/**
- * Every listable file under library/, read with async I/O so a full listing
- * (every body, ~10 MB) yields between files instead of holding the event loop
- * for a second. Directory order is kept, so the output matches the old walk.
- */
-async function walkLibrary(lightweight: boolean, dir: string = LIBRARY_PATH): Promise<ListedPrompt[]> {
-  let names: string[];
-  try { names = await fs.promises.readdir(dir); } catch { return []; }
-
-  const rows = await Promise.all(names.map(async (file): Promise<ListedPrompt[]> => {
-    const filePath = path.join(dir, file);
-    const stat = await fs.promises.stat(filePath);
-
-    if (stat.isDirectory()) {
-      if (dir === LIBRARY_PATH && file === LEGACY_SECTION) return [];
-      return walkLibrary(lightweight, filePath);
-    }
-    if (!file.endsWith('.md') || file.toLowerCase() === 'readme.md') return []; // as the index builder skips them
-
-    const relativePath = path.relative(LIBRARY_PATH, filePath);
-
-    // For Skills section, only include SKILL.md files and the Libraries/ cards (as the index does)
-    if (relativePath.startsWith(SKILLS_SECTION + path.sep) && !file.endsWith('SKILL.md')
-      && !relativePath.startsWith(path.join(SKILLS_SECTION, 'Libraries') + path.sep)) return [];
-
-    // Skip files larger than 500KB (likely bulk collections, not individual prompts)
-    if (stat.size > 500 * 1024) {
-      console.log(`[SKIP] Large file: ${relativePath} (${(stat.size / 1024).toFixed(0)}KB)`);
-      return [];
-    }
-
-    const rawContent = await fs.promises.readFile(filePath, 'utf-8');
-
-    // One file with malformed frontmatter must not empty the whole library
-    let data: Record<string, unknown>;
-    let content: string;
-    try {
-      ({ data, content } = matter(rawContent));
-    } catch (err) {
-      console.warn(`[WARN] Failed to parse frontmatter in ${relativePath}, skipping`);
-      return [];
-    }
-
-    const pathParts = relativePath.replace('.md', '').split(path.sep);
-
-    // For Skills, use 'name' field instead of 'title'
-    const str = (v: unknown) => (typeof v === 'string' && v) || null;
-    const title = str(data.title) || str(data.name)
-      || extractFirstHeading(content) || path.basename(file, '.md');
-
-    return [{
-      // Ids are URL/path keys — always forward-slashed, even on Windows
-      id: relativePath.split(path.sep).join('/'),
-      title,
-      section: pathParts[0] || 'General',
-      category: pathParts[1] || 'Uncategorized',
-      subcategory: pathParts.length > 2 ? pathParts[2] : null,
-      tags: Array.isArray(data.tags) ? data.tags : [],
-      // Same optional fields, in the same order, as the prebuilt index
-      ...(Array.isArray(data.inputs) && { inputs: data.inputs }),
-      ...(checkedOf(data) && { checked: checkedOf(data)! }),
-      content: lightweight ? '' : content, // Lightweight drops the body; cards fetch previews
-      lastModified: stat.mtime.toISOString(),
-      isUserOwned: false,
-    }];
+/** The full public listing: every item with its body, from the walker the index builder uses. */
+async function fullListing(lightweight: boolean): Promise<ListedPrompt[]> {
+  return (await walkLibrary()).map(({ entry, content, mtime }) => ({
+    ...entry,
+    content: lightweight ? '' : content, // Lightweight drops the body; cards fetch previews
+    lastModified: mtime.toISOString(),
+    isUserOwned: false,
   }));
-  return rows.flat();
 }
 
 // Card blurbs for a batch of library ids.

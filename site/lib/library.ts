@@ -54,7 +54,7 @@ export interface IndexEntry {
 
 /**
  * upstream.checked, server.checked (MCP cards) or a guide's checked:, as YYYY-MM-DD. YAML reads a
- * bare date as a Date. scripts/build-prompt-index.js has the same rule, for the prebuilt index.
+ * bare date as a Date.
  */
 export function checkedOf(data: Record<string, unknown>): string | null {
   const block = (k: string) => (data[k] && typeof data[k] === 'object' ? (data[k] as Record<string, unknown>).checked : undefined);
@@ -85,8 +85,78 @@ export function loadIndex(): LibraryIndex | null {
 
 export const extractFirstHeading = (content: string): string | null => {
   const match = content.match(/^#\s+(.+)$/m);
-  return match ? match[1] : null;
+  return match ? match[1].trim() : null;
 };
+
+/** How many characters of a body a card blurb gets (the index's contentPreview). */
+export const PREVIEW_LENGTH = 200;
+
+/** Library files over this size are bulk collections, not items: never indexed or listed. */
+const MAX_ITEM_BYTES = 500 * 1024;
+
+/** One listable library file: its index fields (no preview), body and mtime. */
+export interface WalkedItem {
+  entry: Omit<IndexEntry, 'contentPreview' | 'lastModified'>;
+  content: string;
+  mtime: Date;
+}
+
+/**
+ * Every listable file under library/, the one walk behind both the prebuilt index
+ * (scripts/build-prompt-index.js) and the API's full listing, so the two can't
+ * disagree on what an item is (PB-26). Markdown only, no README.md, no Legacy/;
+ * under 3_Skills only SKILL.md files and the Libraries/ cards. Directory order;
+ * async, so a full listing yields between files instead of holding the event loop.
+ */
+export async function walkLibrary(dir: string = LIBRARY_PATH): Promise<WalkedItem[]> {
+  let names: string[];
+  try { names = await fs.promises.readdir(dir); } catch { return []; }
+
+  const rows = await Promise.all(names.map(async (file): Promise<WalkedItem[]> => {
+    const filePath = path.join(dir, file);
+    const stat = await fs.promises.stat(filePath);
+    if (stat.isDirectory()) {
+      // Legacy/ held the pre-rename *_OLD trees: never indexed or served
+      return dir === LIBRARY_PATH && file === 'Legacy' ? [] : walkLibrary(filePath);
+    }
+    if (!file.endsWith('.md') || file.toLowerCase() === 'readme.md') return [];
+
+    const id = path.relative(LIBRARY_PATH, filePath).split(path.sep).join('/');
+    // A skill library is one card, not copies of its skills
+    if (id.startsWith(`${SKILLS_SECTION}/`) && !file.endsWith('SKILL.md') && !id.startsWith(`${SKILLS_SECTION}/Libraries/`)) return [];
+    if (stat.size > MAX_ITEM_BYTES) {
+      console.warn(`[SKIP] Large file: ${id} (${(stat.size / 1024).toFixed(0)}KB)`); // stderr: the MCP server owns stdout
+      return [];
+    }
+
+    // One file with malformed frontmatter must not empty the whole library
+    let data: Record<string, unknown>;
+    let content: string;
+    try {
+      ({ data, content } = matter(await fs.promises.readFile(filePath, 'utf-8')));
+    } catch {
+      console.warn(`[WARN] Failed to parse frontmatter in ${id}, skipping`);
+      return [];
+    }
+
+    const checked = checkedOf(data);
+    return [{
+      entry: {
+        id,
+        // Skills keep the decorated form in `title`; `name` is the spec slug.
+        title: (data.title || data.name || extractFirstHeading(content) || path.basename(file, '.md')) as string,
+        ...placeOf(id),
+        tags: (data.tags || []) as string[],
+        // A prompt's declared fill-ins (lib/prompt-inputs.ts); the MCP server makes them arguments.
+        ...(Array.isArray(data.inputs) && { inputs: data.inputs }),
+        ...(checked && { checked }),
+      },
+      content,
+      mtime: stat.mtime,
+    }];
+  }));
+  return rows.flat();
+}
 
 /** section / category / subcategory from a forward-slashed library id. */
 export function placeOf(id: string) {
