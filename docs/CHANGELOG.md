@@ -17,6 +17,18 @@ _Touched: `archive/`, `AGENTS.md`, `docs/README.md`, `docs/CONTRIBUTING.md`, `si
 
 ---
 
+## 2026-11-22 — Jailbreak prompts removed and kept out (PB-01)
+
+**Content**
+- Removed 13 ChatGPT-Shortcut cards written to talk a model out of its rules: The DAN 6.0, 6.2, 7.0, 8.0, 9.0, 10.0 and 11.0 prompts, The Anti-DAN Prompt, The Jailbreak Prompt, ChatGPT Developer Mode v2, ChatGPT DevMode + Ranti, ChatGPT Image Unlocker and Unrestricted ChatGPT (`site/library/4_Prompts/ChatGPT_Shortcut/AI/`). Three of them were on the default first screen, and the MCP server could hand any of them to an agent as a user message. The index drops from 890 to 877 items.
+
+**Tests**
+- `scripts/upstream.test.mjs` fails CI on any library item copied from one of those 13 upstream cards (`rockbenben/ChatGPT-Shortcut`, `src/data/cards/<n>_en.json`) or titled like a jailbreak (DAN *n*, Anti-DAN, Developer Mode, DevMode, Image Unlocker, Unrestricted ChatGPT, "do anything now"), so a refresh or a finder can't bring one back.
+
+_Touched: `site/library/4_Prompts/ChatGPT_Shortcut/AI/`, `site/api/prompt-index.json`, `scripts/upstream.test.mjs`, `AGENTS.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — Cards work from the keyboard; Related no longer bounces back (PB-02, PB-03)
 
 **Fixes**

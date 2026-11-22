@@ -288,6 +288,9 @@ removed on 2026-11-22 (in git history at `86ff6925`, `archive/skill-libraries-20
   verbatim, never written, and only from the vendor's own page or repo (Mike, 2026-11-18): the
   136 that came from leak collections were re-sourced from Anthropic's pages or archived to
   `archive/leaked-sources-2026-11-18/`, and the test fails an item sourced from one.
+- **No jailbreak prompts** (PB-01, 2026-11-22): nothing written to talk a model out of its rules
+  (DAN, Developer Mode and kin). The 13 ChatGPT-Shortcut cards were removed; `scripts/upstream.test.mjs`
+  fails on their upstream paths or a jailbreak-style title.
 - **Every card shows a GitHub repo link at the top** (Mike, 2026-10-26), the same panel in all
   six sections: `sourceOf()` in `lib/library.ts` reads `upstream.repo`, `server.repo`, or a
   guide's bare `repo:` (the tool the guide documents, since a guide is written here, not
