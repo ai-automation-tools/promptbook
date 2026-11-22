@@ -4,6 +4,16 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-21 — Feature docs drop their library counts
+
+**Docs**
+- `features/LIBRARY-MODE-IMPLEMENTATION.md` said the Public Library holds 903 prompts in five sections, and `features/MCP-SERVER.md` that ~600 prompts and system prompts would bury the slash-command menu. The index held 897 items in six sections that day, and moves with every content PR, so both now point at `promptCount` in `site/api/prompt-index.json` or say "several hundred" instead of a number that goes stale.
+- The roadmap item's other half, `surfaces.json` counting "items" rather than "prompts", stays open: that file belongs to the homepage-refresh tooling (`Get-SurfaceDrift.py`), which is not in this repo.
+
+_Touched: `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`, `docs/features/MCP-SERVER.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-21 — Library refresh — guides
 
 Merged three duplicate groups and corrected six guides against sources read that day.

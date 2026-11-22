@@ -46,8 +46,8 @@ interface Prompt {
 #### 4. Filtering by Library Mode
 
 **Public Library Mode**:
-- Shows all prompts from all 5 sections
-- Total: 903 prompts currently
+- Shows every item in all six sections
+- Total: `promptCount` in `site/api/prompt-index.json` (rebuilt with `npm run build:index`)
 
 **My Library Mode**:
 - Shows only prompts where `isUserOwned === true`
@@ -156,7 +156,7 @@ When user first switches to "My Library" and has 0 prompts:
 ```bash
 # Total prompts
 curl -s http://localhost:3010/api/prompts | jq 'length'
-# Output: 903
+# Output: the index's promptCount
 
 # User-owned prompts
 curl -s http://localhost:3010/api/prompts | jq '[.[] | select(.isUserOwned == true)] | length'
@@ -167,7 +167,7 @@ curl -s http://localhost:3010/api/prompts | jq '[.[] | select(.isUserOwned == tr
 - ✅ Switcher renders correctly
 - ✅ Switching modes updates URL and localStorage
 - ✅ Refresh maintains selected mode
-- ✅ Public Library shows all 903 prompts
+- ✅ Public Library shows every indexed item
 - ✅ My Library shows empty (0 prompts)
 - ✅ Edit/Delete buttons hidden in Public Library view
 - ⚠️  My Library needs empty state UI (currently just shows no prompts)
