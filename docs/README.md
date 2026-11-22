@@ -59,6 +59,7 @@ Public Library is also browsable read-only at
 ### Planning & Status
 - **[Discovery ledger](DISCOVERY.md)** — GitHub repos found for the library, and what was decided about each
 - **[Upstreams](UPSTREAMS.md)** — what the app depends on, checked biweekly
+- **[Open questions](OPEN-QUESTIONS.md)** — decisions the roadmap and finder runs are waiting on
 - **[Roadmap](ROADMAP.md)** — what's next
 - **[Changelog](CHANGELOG.md)** — shipped work, newest first
 - Upstream drift: the rolling **Upstream drift** issue on GitHub (weekly report) and
@@ -76,6 +77,7 @@ docs/
 ├── ARCHITECTURE.md               # System design and repo layout
 ├── CONTRIBUTING.md               # How to add content
 ├── DISCOVERY.md                  # Old repo-intake ledger (closed 2026-11-18; its reject rows still apply)
+├── OPEN-QUESTIONS.md             # Decisions waiting on the owner
 ├── UPSTREAMS.md                  # App dependencies the upstream check watches
 ├── mcp-server.md                 # The MCP server on one page
 │
