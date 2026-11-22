@@ -1194,6 +1194,7 @@ export default function App() {
         <Suspense fallback={null}>
           <CommandPalette
             prompts={prompts}
+            libraryMode={libraryMode}
             recentPrompts={recentlyViewedPrompts}
             onClose={() => setIsPaletteOpen(false)}
             onSelectPrompt={openPromptFromPalette}

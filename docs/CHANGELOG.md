@@ -4,6 +4,18 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-22 — ⌘K finds words inside items (PB-32, rest)
+
+**Features**
+- The command palette searched titles, tags and places only. It now also asks the new `GET /api/search?q=` for items whose body contains every word of the query (words of three letters or more), and lists up to 8 of them under "In the text", after the title matches. The request is debounced 200 ms, and a newer query cancels an older one. My Library is searched when it is the open library.
+- Public bodies are read once per process and kept in memory (`publicBodies()` in `lib/library.ts`, ~10 MB). The MCP server's `search_library` now uses the same cache instead of re-reading every file on each query. On the demo, the endpoint is edge-cached like every other GET.
+
+**Tests:** `test:routes` now pins 15 routes. `test:browser` picks a word that appears only in an item's body, types it into ⌘K and expects the "In the text" group.
+
+_Touched: `site/lib/library.ts`, `site/api/index.ts`, `site/mcp/server.ts`, `site/src/components/CommandPalette.tsx`, `site/src/App.tsx`, `site/scripts/api-routes.test.mjs`, `site/scripts/browser-smoke.test.mjs`, `docs/features/API.md`, `docs/ARCHITECTURE.md`, `docs/development/CODE-MAP.md`, `README.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — Favorites reloads run one at a time
 
 **Fixes**
