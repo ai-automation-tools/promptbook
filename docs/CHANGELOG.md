@@ -4,6 +4,15 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-22 — Vercel builds `main` only
+
+**Deploy**
+- Every push to every branch built a Vercel preview: 89 of the account's 107 deploys in one day, past the Hobby plan's 100 a day, which blocked deploys for every project on the account. `site/vercel.json` now sets `git.deploymentEnabled` to `main` only. CI still checks every PR with the same build Vercel runs. A preview, when one is needed, comes from `vercel deploy` by hand. This reverses the PB-10 call to keep bot-branch previews.
+
+_Touched: `site/vercel.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — First paint under 2 seconds on a phone (PB-11, rest)
 
 **Performance**
