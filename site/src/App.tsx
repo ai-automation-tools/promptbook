@@ -75,13 +75,18 @@ function writeStorage(key: string, value: string): void {
   try { localStorage.setItem(key, value); } catch { /* storage blocked: not saved */ }
 }
 
+/** One library's listing (metadata only), or an error for a failed or malformed answer. */
+async function fetchListing(mode: 'public' | 'my'): Promise<Prompt[]> {
+  const res = await fetch(`/api/prompts?library=${mode}&lightweight=true`);
+  const data = await res.json().catch(() => null);
+  if (!res.ok || !Array.isArray(data)) throw new Error(data?.error || `HTTP ${res.status}`);
+  return data;
+}
+
 export default function App() {
   const [prompts, setPrompts] = useState<Prompt[]>([]);
   const [selectedPrompt, setSelectedPrompt] = useState<Prompt | null>(null);
   const [isPaletteOpen, setIsPaletteOpen] = useState(false);
-  const [selectedSubcategory, setSelectedSubcategory] = useState<{category: string, subcategory: string | 'ALL'} | null>(null);
-  const [showAllPrompts, setShowAllPrompts] = useState(true);
-  const [showFavorites, setShowFavorites] = useState(false);
   const [theme, setTheme] = useTheme();
   // Inside the suite shell (?embed=1 in a frame): announce ourselves and take its theme.
   useEffect(() => {
@@ -147,12 +152,9 @@ export default function App() {
     writeStorage('prompt-recently-viewed', JSON.stringify(recentlyViewed));
   }, [recentlyViewed]);
 
-  // Persist library mode to localStorage and URL
+  // The library mode is remembered here, and kept in the URL by useLibraryRoute.
   useEffect(() => {
     writeStorage('library-mode', libraryMode);
-    const url = new URL(window.location.href);
-    url.searchParams.set('library', libraryMode);
-    window.history.replaceState({}, '', url.toString());
   }, [libraryMode]);
 
   // Section / category / subcategory / ?prompt= — seeded from and written back to the URL.
@@ -165,28 +167,36 @@ export default function App() {
     setActiveSubcategory,
     skillView,
     setSkillView,
+    showFavorites,
+    setShowFavorites,
+    activePack,
+    setActivePack,
     promptPathParam,
     setPromptPathParam,
-  } = useLibraryRoute({ selectedPrompt, setSelectedPrompt, setLibraryMode });
+    replaceNextUrl,
+  } = useLibraryRoute({ selectedPrompt, setSelectedPrompt, libraryMode, setLibraryMode });
 
+  // The view follows from the URL state (PB-09): a prompt, the Favorites list, one category
+  // (or one of its subcategories), or the whole section.
+  const selectedSubcategory = useMemo(
+    () => (!selectedPrompt && !showFavorites && activeCategory ? { category: activeCategory, subcategory: activeSubcategory ?? 'ALL' } : null),
+    [selectedPrompt, showFavorites, activeCategory, activeSubcategory],
+  );
+  const showAllPrompts = !selectedPrompt && !showFavorites && !activeCategory;
+
+  // The listing. A later request (a library switch, a refresh) wins over a slower earlier one.
+  const listRequest = useRef(0);
   useEffect(() => {
+    const request = ++listRequest.current;
     setIsLoading(true);
-    const url = `/api/prompts?library=${libraryMode}&lightweight=true`;
-    fetch(url)
-      .then(async res => {
-        const data = await res.json();
-        if (!res.ok || !Array.isArray(data)) throw new Error(data?.error || `HTTP ${res.status}`);
-        return data as Prompt[];
-      })
-      .then(data => {
-        setPrompts(data);
-        setIsLoading(false);
-      })
+    fetchListing(libraryMode)
+      .then(data => { if (request === listRequest.current) setPrompts(data); })
       .catch(err => {
+        if (request !== listRequest.current) return;
         console.error('Failed to fetch prompts:', err);
         showToast('error', 'Failed to load prompts');
-        setIsLoading(false);
-      });
+      })
+      .finally(() => { if (request === listRequest.current) setIsLoading(false); });
   }, [showToast, libraryMode]);
 
   // Skill Packs are fetched here once and handed to SkillPacksView, so the sidebar, hero and
@@ -362,15 +372,14 @@ export default function App() {
   }, [prompts, recentlyViewed]);
 
   const handleSubcategoryClick = useCallback((category: string, subcategory: string | 'ALL') => {
-    setSelectedSubcategory({ category, subcategory });
     setSelectedPrompt(null);
-    setShowAllPrompts(false);
+    setPromptPathParam(null);
     setShowFavorites(false);
 
     setActiveCategory(category);
     setActiveSubcategory(subcategory === 'ALL' ? null : subcategory);
     if (window.innerWidth < 768) setIsSidebarOpen(false);
-  }, []);
+  }, [setActiveCategory, setActiveSubcategory, setPromptPathParam, setShowFavorites]);
 
   const toggleCategory = useCallback((cat: string) => {
     const isExpanded = expandedCategories[cat];
@@ -381,86 +390,76 @@ export default function App() {
     }
   }, [expandedCategories, handleSubcategoryClick]);
 
-  const handlePromptClick = useCallback(async (prompt: Prompt) => {
+  // A newer open (another click, Back/Forward, a deep link) wins over a slower one still loading.
+  const openRequest = useRef(0);
+  const handlePromptClick = useCallback(async (prompt: Prompt, options?: { replace?: boolean }) => {
+    const request = ++openRequest.current;
     // The listing copy is only a preview; opening it would let Copy and Edit
     // act on that instead of the prompt.
     let fullPrompt: Prompt;
     try {
       fullPrompt = await fetchFullPrompt(prompt);
     } catch (err) {
+      if (request !== openRequest.current) return;
       console.error('Failed to fetch full prompt content:', err);
       showToast('error', 'Could not load this prompt. Try again.');
+      if (options?.replace) replaceNextUrl();
+      setPromptPathParam(null);
       return;
     }
+    if (request !== openRequest.current) return;
     setCopiedShareLink(false);
 
+    // Wherever the prompt lives: its library, section and category, in one history entry.
+    if (options?.replace) replaceNextUrl();
     setSelectedPrompt(fullPrompt);
-    setSelectedSubcategory(null);
-    setShowAllPrompts(false);
+    setPromptPathParam(null);
     setShowFavorites(false);
-
+    setLibraryMode(fullPrompt.isUserOwned ? 'my' : 'public');
+    setActiveTab(getTabForFolder(fullPrompt.section));
     setActiveCategory(fullPrompt.category);
     setActiveSubcategory(null);
-    
+
     setRecentlyViewed(prev => {
       const filtered = prev.filter(id => id !== fullPrompt.id);
       return [fullPrompt.id, ...filtered].slice(0, 10);
     });
-  }, [showToast]);
+  }, [showToast, replaceNextUrl, setPromptPathParam, setShowFavorites, setActiveTab, setActiveCategory, setActiveSubcategory]);
 
   const handleShowFavorites = useCallback(() => {
     setShowFavorites(true);
-    setShowAllPrompts(false);
     setSelectedPrompt(null);
-    setSelectedSubcategory(null);
     setActiveCategory(null);
     setActiveSubcategory(null);
     setPromptPathParam(null);
     if (window.innerWidth < 768) setIsSidebarOpen(false);
-  }, []);
+  }, [setShowFavorites, setActiveCategory, setActiveSubcategory, setPromptPathParam]);
 
   const handleShowAllPrompts = useCallback(() => {
-    setShowAllPrompts(true);
     setShowFavorites(false);
+    setActivePack(null);
     setSelectedPrompt(null);
-    setSelectedSubcategory(null);
     setActiveCategory(null);
     setActiveSubcategory(null);
     setPromptPathParam(null);
     setCopiedShareLink(false);
-    const url = new URL(window.location.href);
-    url.searchParams.delete('category');
-    url.searchParams.delete('subcategory');
-    url.searchParams.delete('prompt');
-    window.history.pushState({}, '', url.toString());
-  }, []);
+  }, [setShowFavorites, setActivePack, setActiveCategory, setActiveSubcategory, setPromptPathParam]);
 
-  // Favorites are My Library's only, so switching to the Public Library leaves that view.
+  // Favorites are My Library's only, so switching to the Public Library leaves that view
+  // (in place: the Favorites entry would be a dead end in the history).
   useEffect(() => {
-    if (libraryMode !== 'my' && showFavorites) handleShowAllPrompts();
-  }, [libraryMode, showFavorites, handleShowAllPrompts]);
-
-  const handleBack = useCallback(() => {
-    if (selectedPrompt) {
-      setSelectedPrompt(null);
-      setPromptPathParam(null);
-      setCopiedShareLink(false);
-      
-      if (activeCategory) {
-        handleSubcategoryClick(activeCategory, 'ALL');
-      }
-    } else if (selectedSubcategory) {
-      const category = selectedSubcategory.category;
-      setSelectedSubcategory(null);
-      setActiveSubcategory(null);
-      
-      handleSubcategoryClick(category, 'ALL');
-    } else if (activeCategory) {
-      setActiveCategory(null);
-      handleShowAllPrompts();
-    } else {
+    if (libraryMode !== 'my' && showFavorites) {
+      replaceNextUrl();
       handleShowAllPrompts();
     }
+  }, [libraryMode, showFavorites, handleShowAllPrompts, replaceNextUrl]);
+
+  /** The in-page Back: prompt → its category → the whole section. */
+  const handleBack = useCallback(() => {
+    setCopiedShareLink(false);
+    if (selectedPrompt && activeCategory) handleSubcategoryClick(activeCategory, 'ALL');
+    else if (selectedSubcategory && selectedSubcategory.subcategory !== 'ALL') handleSubcategoryClick(selectedSubcategory.category, 'ALL');
+    else handleShowAllPrompts();
   }, [selectedPrompt, selectedSubcategory, activeCategory, handleShowAllPrompts, handleSubcategoryClick]);
 
   const handleCopyShareLink = useCallback(async (prompt: Prompt) => {
@@ -506,32 +505,17 @@ export default function App() {
     showToast('success', 'Subsection link copied');
   }, [activeTab, showToast]);
 
+  // A `?prompt=` (a shared link, or Back/Forward onto a prompt) opens once the listing it is in
+  // has loaded, in place of the history entry that named it.
   useEffect(() => {
-    if (!promptPathParam || prompts.length === 0 || selectedPrompt) {
-      return;
-    }
-
+    if (!promptPathParam || isLoading || selectedPrompt) return;
     const normalizedPromptPath = decodeURIComponent(promptPathParam)
       .replace(/^library\//, '')
       .replace(/^\/+|\/+$/g, '');
     // Public ids are library paths, My Library ids bare slugs, so one never matches the other.
     const matchingPrompt = prompts.find(prompt => slugifyPromptPath(prompt.id) === normalizedPromptPath);
-
-    if (matchingPrompt) {
-      // A ?prompt= link is consumed once: left set, it reopened the prompt whenever a Related,
-      // breadcrumb or category click cleared the selection. The URL follows selectedPrompt.
-      setPromptPathParam(null);
-      const nextTab = getTabForFolder(matchingPrompt.section);
-
-      if (activeTab !== nextTab) setActiveTab(nextTab);
-      const mode = matchingPrompt.isUserOwned ? 'my' : 'public';
-      if (libraryMode !== mode) setLibraryMode(mode);
-      if (activeCategory !== matchingPrompt.category) setActiveCategory(matchingPrompt.category);
-      if (activeSubcategory !== matchingPrompt.subcategory) setActiveSubcategory(matchingPrompt.subcategory);
-
-      void handlePromptClick(matchingPrompt);
-    }
-  }, [promptPathParam, setPromptPathParam, prompts, selectedPrompt, activeTab, libraryMode, activeCategory, activeSubcategory, handlePromptClick]);
+    if (matchingPrompt) void handlePromptClick(matchingPrompt, { replace: true });
+  }, [promptPathParam, isLoading, prompts, selectedPrompt, handlePromptClick]);
 
   const handleDownloadMarkdown = useCallback(async (prompt: Prompt) => {
     // A skill downloads as its folder zipped; a library card (Libraries/*.md) as plain markdown.
@@ -588,20 +572,14 @@ export default function App() {
   }, [showToast]);
 
   const refreshPrompts = useCallback(async () => {
-    const url = `/api/prompts?library=${libraryMode}&lightweight=true`;
-
+    const request = ++listRequest.current;
     try {
-      const res = await fetch(url);
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data?.error || 'Failed to refresh prompts');
-      }
-
-      setPrompts(Array.isArray(data) ? data : []);
+      const data = await fetchListing(libraryMode);
+      if (request === listRequest.current) setPrompts(data);
     } catch (err) {
-      console.error('Failed to fetch prompts:', err);
-      setPrompts([]);
+      console.error('Failed to refresh prompts:', err); // the list on screen stays
+    } finally {
+      if (request === listRequest.current) setIsLoading(false);
     }
   }, [libraryMode]);
 
@@ -715,10 +693,7 @@ export default function App() {
       refreshPrompts();
       showToast('success', 'Prompt deleted successfully');
       
-      if (selectedPrompt?.id === promptId) {
-        setSelectedPrompt(null);
-        setShowAllPrompts(true);
-      }
+      if (selectedPrompt?.id === promptId) setSelectedPrompt(null);
     } catch (error) {
       showToast('error', (error instanceof Error && error.message) || 'Failed to delete prompt');
     }
@@ -751,17 +726,10 @@ export default function App() {
     setIsEditorOpen(true);
   }, [libraryMode, activeTab]);
 
-  /** Palette → prompt: switch library/section to wherever it lives, then open it. */
+  /** Palette → prompt: handlePromptClick switches library and section to wherever it lives. */
   const openPromptFromPalette = useCallback((prompt: Prompt) => {
-    if (prompt.isUserOwned) {
-      if (libraryMode !== 'my') setLibraryMode('my');
-    } else {
-      if (libraryMode !== 'public') setLibraryMode('public');
-      const tab = getTabForFolder(prompt.section);
-      if (tab !== activeTab) setActiveTab(tab);
-    }
     void handlePromptClick(prompt);
-  }, [libraryMode, activeTab, handlePromptClick]);
+  }, [handlePromptClick]);
 
   const openSectionFromPalette = useCallback((tab: LibraryTab) => {
     setActiveTab(tab);
@@ -977,6 +945,8 @@ export default function App() {
                       error={packsError}
                       onReload={fetchSkillPacks}
                       onLibraryChanged={onPackLibraryChanged}
+                      selectedPackId={activePack}
+                      onSelectPack={setActivePack}
                       onToast={showToast}
                       favorites={favorites}
                       onToggleFavorite={libraryMode === 'my' ? toggleFavorite : undefined}
@@ -1046,6 +1016,8 @@ export default function App() {
                       error={packsError}
                       onReload={fetchSkillPacks}
                       onLibraryChanged={onPackLibraryChanged}
+                      selectedPackId={activePack}
+                      onSelectPack={setActivePack}
                       onToast={showToast}
                       favorites={favorites}
                       onToggleFavorite={libraryMode === 'my' ? toggleFavorite : undefined}

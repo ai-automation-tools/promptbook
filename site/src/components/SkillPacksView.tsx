@@ -1,4 +1,4 @@
-import { useState, type MouseEvent as ReactMouseEvent } from 'react';
+import { useEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from 'react';
 import { AnimatePresence, m } from 'motion/react';
 import { ArrowLeft, ArrowRight, Download, Info, Package, PackageMinus, PackagePlus, Star, Tag, Wrench } from 'lucide-react';
 import { cn } from '../lib/cn';
@@ -47,6 +47,9 @@ interface SkillPacksViewProps {
   onReload: () => void;
   /** A pack was added to or removed from My Library. */
   onLibraryChanged: () => void;
+  /** The open pack, from `?pack=` (useLibraryRoute), so a pack page has a link and Back works. */
+  selectedPackId: string | null;
+  onSelectPack: (packId: string | null) => void;
   onToast: (type: ToastType, message: string) => void;
   favorites: string[];
   /** My Library only: left out, packs show no star. */
@@ -62,7 +65,7 @@ function trackSpotlight(e: ReactMouseEvent<HTMLElement>) {
   el.style.setProperty('--my', `${e.clientY - rect.top}px`);
 }
 
-export default function SkillPacksView({ libraryMode, packs, loading, error, onReload, onLibraryChanged, onToast, favorites, onToggleFavorite, onlyFavorites }: SkillPacksViewProps) {
+export default function SkillPacksView({ libraryMode, packs, loading, error, onReload, onLibraryChanged, selectedPackId, onSelectPack, onToast, favorites, onToggleFavorite, onlyFavorites }: SkillPacksViewProps) {
   const [selectedPack, setSelectedPack] = useState<SkillPackDetail | null>(null);
   const [detailLoading, setDetailLoading] = useState(false);
   const [addingPackId, setAddingPackId] = useState<string | null>(null);
@@ -104,7 +107,7 @@ export default function SkillPacksView({ libraryMode, packs, loading, error, onR
       const data = await response.json();
       if (!response.ok) throw new Error(data?.error || 'Failed to remove pack from library');
       onToast('success', data?.message || 'Skill pack removed from My Library');
-      if (selectedPack?.id === packId) setSelectedPack(null);
+      if (selectedPackId === packId) onSelectPack(null);
       onLibraryChanged();
     } catch (err) {
       onToast('error', err instanceof Error ? err.message : 'Failed to remove pack from library');
@@ -113,32 +116,45 @@ export default function SkillPacksView({ libraryMode, packs, loading, error, onR
     }
   };
 
-  const fetchPackDetail = async (packId: string) => {
-    try {
-      setDetailLoading(true);
-      const response = await fetch(`/api/skill-packs/${encodeURIComponent(packId)}`);
-      if (!response.ok) throw new Error('Failed to fetch pack details');
-      // Generated packs (scripts/build-skill-packs.mjs) carry no use_cases or
-      // prerequisites; only the hand-written ones do. Default them so the view can't crash.
-      const pack = await response.json();
-      setSelectedPack({
-        ...pack,
-        tags: pack.tags ?? [],
-        skills: pack.skills ?? [],
-        use_cases: pack.use_cases ?? [],
-        related_packs: pack.related_packs ?? [],
-        prerequisites: {
-          required_tools: pack.prerequisites?.required_tools ?? [],
-          optional_tools: pack.prerequisites?.optional_tools ?? [],
-          recommended_knowledge: pack.prerequisites?.recommended_knowledge ?? [],
-        },
-      });
-    } catch (err) {
-      onToast('error', err instanceof Error ? err.message : 'Failed to load pack details');
-    } finally {
+  // The open pack follows `?pack=`; a newer selection (or Back) wins over a slower load.
+  const detailRequest = useRef(0);
+  useEffect(() => {
+    const request = ++detailRequest.current;
+    if (!selectedPackId) {
+      setSelectedPack(null);
       setDetailLoading(false);
+      return;
     }
-  };
+    setDetailLoading(true);
+    (async () => {
+      try {
+        const response = await fetch(`/api/skill-packs/${encodeURIComponent(selectedPackId)}`);
+        const pack = await response.json().catch(() => null);
+        if (!response.ok || !pack || typeof pack.id !== 'string') throw new Error('Failed to fetch pack details');
+        if (request !== detailRequest.current) return;
+        // Generated packs (scripts/build-skill-packs.mjs) carry no use_cases or
+        // prerequisites; only the hand-written ones do. Default them so the view can't crash.
+        setSelectedPack({
+          ...pack,
+          tags: pack.tags ?? [],
+          skills: Array.isArray(pack.skills) ? pack.skills : [],
+          use_cases: pack.use_cases ?? [],
+          related_packs: pack.related_packs ?? [],
+          prerequisites: {
+            required_tools: pack.prerequisites?.required_tools ?? [],
+            optional_tools: pack.prerequisites?.optional_tools ?? [],
+            recommended_knowledge: pack.prerequisites?.recommended_knowledge ?? [],
+          },
+        });
+      } catch (err) {
+        if (request !== detailRequest.current) return;
+        onToast('error', err instanceof Error ? err.message : 'Failed to load pack details');
+        setSelectedPack(null);
+      } finally {
+        if (request === detailRequest.current) setDetailLoading(false);
+      }
+    })();
+  }, [selectedPackId, onToast]);
 
   const handleDownloadPack = async (packId: string) => {
     try {
@@ -208,7 +224,7 @@ export default function SkillPacksView({ libraryMode, packs, loading, error, onR
           transition={{ duration: 0.3, ease: [0.2, 0.7, 0.2, 1] }}
           className="mx-auto max-w-5xl pt-2"
         >
-          <button type="button" onClick={() => setSelectedPack(null)} className="btn btn-ghost btn-sm -ml-2 mb-5">
+          <button type="button" onClick={() => onSelectPack(null)} className="btn btn-ghost btn-sm -ml-2 mb-5">
             <ArrowLeft className="h-3.5 w-3.5" />
             All skill packs
           </button>
@@ -373,7 +389,7 @@ export default function SkillPacksView({ libraryMode, packs, loading, error, onR
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: Math.min(i * 0.03, 0.4), ease: [0.2, 0.7, 0.2, 1] }}
                 onMouseMove={trackSpotlight}
-                onClick={() => void fetchPackDetail(pack.id)}
+                onClick={() => onSelectPack(pack.id)}
                 className="spot group flex cursor-pointer flex-col"
               >
                 <div className="flex flex-1 flex-col gap-3 p-4">
@@ -386,7 +402,7 @@ export default function SkillPacksView({ libraryMode, packs, loading, error, onR
                           className="card-open"
                           onClick={e => {
                             e.stopPropagation();
-                            void fetchPackDetail(pack.id);
+                            onSelectPack(pack.id);
                           }}
                         >
                           {pack.name}
