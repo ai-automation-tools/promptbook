@@ -4,6 +4,17 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-22 — First paint under 2 seconds on a phone (PB-11, rest)
+
+**Performance**
+- Nothing painted until React and the app had downloaded and run: 2.5 s to first paint in Lighthouse's mobile run, against a 2 s goal. `index.html` now holds a "Loading the library…" line. The stylesheet that already blocks render styles it, in the system font so it doesn't start the Inter download. `main.tsx` keeps the CSS and font imports and imports the app (new `src/app-entry.tsx`) once the browser reports that first paint. A hidden tab starts at once, with a 3 s backstop. React replaces the line on mount, so there is no layout shift.
+- Measured on the read-only build over gzip, three runs each: FCP 2.5 s → 1.4 s, performance 91–93 → 92–96, CLS 0. LCP moves 0.1–0.2 s later, because the app's chunks now download after the first paint. Details in `docs/development/PERFORMANCE.md`.
+- Two variants measured and dropped: starting the app one frame after load (the frame reaches the screen later than the script requests go out, FCP 2.1 s), and preloading the app's chunks (FCP unchanged at 2.5 s, since Lighthouse counts every request made before first paint).
+
+_Touched: `site/index.html`, `site/src/main.tsx`, `site/src/app-entry.tsx` (new), `site/src/index.css`, `docs/development/PERFORMANCE.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — Content gate checks what a PR adds (PB-06, rest)
 
 **Checks**

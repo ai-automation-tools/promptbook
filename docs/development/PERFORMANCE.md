@@ -123,6 +123,20 @@ The library is 877 indexed items. Same machine as above.
 The stall in the last row (54 ms) is just over its 50 ms budget on this run; it moved between
 runs before this change too.
 
+## First paint before the app (2026-11-22, PB-11)
+
+Lighthouse 12, mobile (simulated Slow 4G, 4x CPU), the read-only build served with gzip, three runs each:
+
+| | FCP | LCP | TBT | Performance |
+|:--|--:|--:|--:|--:|
+| Before (React mounted first) | 2.5 s | 2.6–2.9 s | 50–120 ms | 91–93 |
+| After (placeholder, app after first paint) | 1.4 s | 2.8–3.0 s | 60–170 ms | 92–96 |
+
+`index.html` carries a "Loading the library…" line, styled by the stylesheet that already blocks
+render and drawn in the system font. `main.tsx` imports the app (`app-entry.tsx`) once the browser
+reports that first paint. The cost is the app's chunks downloading after it rather than alongside
+the CSS: LCP moves 0.1–0.2 s. On the demo the LCP element is the cookie-consent card.
+
 ## Budgets
 
 These are about twice the "after" numbers, so a normal run passes and a regression of the

@@ -23,7 +23,9 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Paints as soon as the HTML and CSS arrive, before the app's JS has downloaded and run
+         (PB-11: on a slow phone that was most of the first-paint time). React replaces it on mount. -->
+    <div id="root"><div class="boot" role="status">Loading the library…</div></div>
     <script type="module" src="/src/main.tsx"></script>
 
     <!-- Consent gate. One shared copy served from the org apex, so the banner and the
