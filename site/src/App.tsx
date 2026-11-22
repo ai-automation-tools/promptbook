@@ -7,7 +7,7 @@ import { useState, useEffect, useMemo, useCallback, lazy, Suspense, type Compone
 import { ArrowLeft, Check, LayoutGrid, Link2, Plus, Sparkles } from 'lucide-react';
 import SourceBar from './components/SourceBar';
 import { EMBED, onShellTheme, tellShell } from './lib/embed';
-import { LazyMotion, MotionConfig, domAnimation, m, AnimatePresence } from 'motion/react';
+import { LazyMotion, MotionConfig, m, AnimatePresence } from 'motion/react';
 import { ToastContainer, type ToastProps } from './components/Toast';
 import { type Prompt } from './components/PromptCard';
 import type { PromptDraft } from './components/PromptEditorModal';
@@ -60,6 +60,8 @@ const chunkSpinner = (
     <div className="spinner" />
   </div>
 );
+
+const loadMotionFeatures = () => import('./lib/motion-features').then(mod => mod.default);
 
 const PUBLIC_SHARE_ORIGIN = 'https://promptbook-demo.ai-automation-tools.dev';
 
@@ -794,7 +796,7 @@ export default function App() {
     activeTab !== 'skill-packs' && !showLibraries && libraryMode === 'public' && !debouncedSearch && selectedTags.length === 0 && featuredPrompts.length > 0;
 
   return (
-    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={loadMotionFeatures} strict>
     {/* JS animations follow prefers-reduced-motion too; index.css only stills CSS ones. */}
     <MotionConfig reducedMotion="user">
     <div className="app-shell flex flex-col overflow-hidden">
