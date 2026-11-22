@@ -29,7 +29,7 @@ The README also has the `mcpServers` JSON block for other clients.
 
 | Tool | Does |
 |:---|:---|
-| `search_library` | Searches every section and My Library by words, section, category or tags; returns ids |
+| `search_library` | Searches every section and My Library by words (titles and tags first, then full text), section, category or tags; returns ids |
 | `get_item` | The full markdown of one item, by library path or My Library id; library text comes labelled with its source and fenced, as reference rather than instructions |
 | `list_sections` | The sections with what each holds and its count, plus the My Library count |
 | `list_categories` | One section's category and subcategory folders with counts |
