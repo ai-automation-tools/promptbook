@@ -135,7 +135,7 @@ export function createServer(): McpServer {
     title: 'Search the library',
     description: 'Search prompts, agents, guides, system prompts, skills and MCP server cards, plus My Library. Returns ids, titles, places and tags; call get_item for the full text. With no query, lists items matching the filters.',
     inputSchema: z.object({
-      query: z.string().optional().describe('Words to match against title, tags, category and the opening text'),
+      query: z.string().optional().describe('Words to match against title, tags, category and the opening text, then the full text'),
       section: z.enum(SECTION_KEYS).optional().describe('Limit to one section'),
       tags: z.array(z.string()).optional().describe('Every tag listed must be present'),
       category: z.string().optional().describe('Category folder name, e.g. "Engineering"'),
@@ -159,6 +159,22 @@ export function createServer(): McpServer {
           threshold: 0.35, ignoreLocation: true,
         }).search(query.trim(), { limit }).map(h => h.item)
       : rows.sort((a, b) => a.title.localeCompare(b.title)).slice(0, limit);
+
+    // Body recall (PB-32): the fuzzy pass sees only titles, tags and the opening text, so top
+    // up with items whose full text holds every query word.
+    // ponytail: reads each candidate file per query (~877, tens of ms on a local stdio server);
+    // index distinctive body terms at build time if the library grows tenfold.
+    const words = query?.toLowerCase().split(/\s+/).filter(w => w.length > 2) ?? [];
+    if (words.length && hits.length < limit) {
+      const seen = new Set(hits.map(h => h.id));
+      for (const r of rows) {
+        if (hits.length >= limit) break;
+        if (seen.has(r.id)) continue;
+        const item = r.library === 'my' ? myLibrary.get(r.id) : readLibraryItem(r.id);
+        const body = item && item !== 'invalid' ? item.content.toLowerCase() : '';
+        if (words.every(w => body.includes(w))) hits.push(r);
+      }
+    }
 
     if (!hits.length) return text('No matches. Try fewer words, another section, or no filters.');
     return text(`${hits.length} result${hits.length === 1 ? '' : 's'}:\n${hits.map(line).join('\n')}`);
