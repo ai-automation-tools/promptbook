@@ -392,8 +392,9 @@ forget to set a flag and end up writable.
   junction pointing out of `library/` is refused too. Skill downloads must also land under
   `3_Skills/`. ZIPs and the MCP file list walk folders with `filesUnder()`, which skips links. My Library ids are restricted to
   `^[a-z0-9-]+$`.
-- **Headers and limits:** `helmet` sets the standard response headers on the API, with CSP off
-  there; HSTS is Vercel's. On the demo, `vercel.json` gives the HTML and assets a CSP (scripts
+- **Headers and limits:** `helmet` sets the standard response headers on the API, with a
+  `frame-ancestors`-only CSP; HSTS is Vercel's. `npm start` sends `vercel.json`'s page headers
+  from `server.ts`, framing kept same-origin, and only the demo build loads `consent.js`. On the demo, `vercel.json` gives the HTML and assets a CSP (scripts
   from self, the inline theme script by hash and `consent.js`; Google Fonts; inline styles),
   `frame-ancestors 'none'`, `X-Frame-Options`, `nosniff` and a referrer policy.
   `npm run test:browser` serves the same headers, so a change to `index.html`'s inline script
