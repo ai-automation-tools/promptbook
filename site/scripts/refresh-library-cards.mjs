@@ -51,8 +51,15 @@ function absolutize(md, repo, branch, dir) {
     .replace(/^(\[[^\]]+\]:\s*)(\S+)/gm, (m, pre, u) => (rel(u) ? pre + resolve(u, 'blob') : m));
 }
 
+/** A card is public: a README's personal email addresses don't get republished (PB-19). git@host stays. */
+const redactEmails = (md) =>
+  md.replace(/(mailto:)?(?<![\w.+-])(?!git@)[\w.+-]+@[\w-]+(?:\.[\w-]+)*\.[A-Za-z]{2,}\b/g, '(email on the repo page)');
+
 // The rewrite runs on third-party markdown, so it checks itself before every run.
 {
+  assert.equal(redactEmails('- Email: a.b+c@gmail.com'), '- Email: (email on the repo page)');
+  assert.equal(redactEmails('[me](mailto:x@y.org)'), '[me]((email on the repo page))');
+  assert.equal(redactEmails('git clone git@github.com:o/r.git; npm i pkg@1.2.3 @scope/x@latest'), 'git clone git@github.com:o/r.git; npm i pkg@1.2.3 @scope/x@latest');
   const a = (md) => absolutize(md, 'o/r', 'main', 'docs');
   assert.equal(a('![x](img/a.png)'), '![x](https://raw.githubusercontent.com/o/r/main/docs/img/a.png)');
   assert.equal(a('[x](./b.md#h)'), '[x](https://github.com/o/r/blob/main/docs/b.md#h)');
@@ -77,7 +84,7 @@ function fetchRepo(repo) {
   try {
     const r = JSON.parse(gh(`repos/${repo}/readme`));
     const text = Buffer.from(r.content, 'base64').toString('utf8').replace(/^﻿/, '').replace(/\r\n?/g, '\n');
-    readme = absolutize(text, meta.full_name, meta.default_branch, path.posix.dirname(r.path));
+    readme = redactEmails(absolutize(text, meta.full_name, meta.default_branch, path.posix.dirname(r.path)));
   } catch { /* no README: the card keeps its header only */ }
   return { repo: meta.full_name, description: meta.description?.trim() || 'A collection of agent skills, published on GitHub.', readme };
 }

@@ -248,7 +248,8 @@ app.get("/api/prompts", async (req, res) => {
     res.type('json').set('ETag', etag).send(body);
   } catch (error) {
     console.error("Error listing prompts:", error);
-    res.json([]);
+    // An empty list read as "the library is empty"; a failure must look like one.
+    res.status(500).json({ error: "Could not list the library" });
   }
 });
 

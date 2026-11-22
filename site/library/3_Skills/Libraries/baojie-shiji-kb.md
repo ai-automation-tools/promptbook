@@ -519,7 +519,7 @@ python generate_all_chapters.py
 ### 创建者
 
 **鲍捷** ([baojie](https://github.com/baojie))
-- Email: baojie@gmail.com
+- Email: (email on the repo page)
 - 微信: baojiexigua
 - GitHub: @baojie
 

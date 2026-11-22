@@ -18,6 +18,16 @@ _Touched: `site/src/components/PromptDetail.tsx`, `site/src/hooks/usePromptFilte
 
 ---
 
+## 2026-11-22 — No third-party email on cards; listing errors show; robots.txt; PORT (PB-19, PB-23)
+
+**Fixes**
+- **PB-19:** `site/scripts/refresh-library-cards.mjs` replaces email addresses in a copied README with "(email on the repo page)" (`git@host` and `pkg@version` left alone; it checks itself before each run), and the `baojie-shiji-kb` card loses the author's personal address. With the README on the org address since #545 and `SECURITY.md` naming none, no personal address is left in the tree's docs.
+- **PB-23:** a failed library listing returns `500 {"error": …}` instead of `200 []`, which read as an empty library; the client now shows its "Failed to load prompts" toast for it. `site/public/robots.txt` answers `/robots.txt` with text instead of the app's HTML. `PORT` sets the local server's port (default 3010), so a second copy can run beside the first.
+
+_Touched: `site/scripts/refresh-library-cards.mjs`, `site/library/3_Skills/Libraries/baojie-shiji-kb.md`, `site/api/prompt-index.json`, `site/api/index.ts`, `site/src/App.tsx`, `site/server.ts`, `site/public/robots.txt`, `site/.env.example`, `AGENTS.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — archive/ cut to the leaked-source system prompts (PB-04, PB-05)
 
 **Content**

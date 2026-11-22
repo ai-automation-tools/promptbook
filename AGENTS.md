@@ -56,7 +56,7 @@ check the server's start time against `git log -1 -- site/package-lock.json site
 first, then restart (stop the `node … server.ts` process, `npm run dev`). Details:
 [Debug Guide, issue 6](docs/development/DEBUG_UI.md#issue-6-black-screen-when-opening-a-prompt).
 
-No `.env` is needed; `.env.example` lists the optional settings (`MY_LIBRARY_DIR`, `HOST`, `READ_ONLY`, `IMPORT_ROOTS`, `ALLOWED_HOSTS`, `FRAME_ANCESTORS`).
+No `.env` is needed; `.env.example` lists the optional settings (`MY_LIBRARY_DIR`, `PORT`, `HOST`, `READ_ONLY`, `IMPORT_ROOTS`, `ALLOWED_HOSTS`, `FRAME_ANCESTORS`).
 
 Other scripts: `npm run build` (build:index → tsc → vite build), `npm run build:index`
 (regenerates `api/prompt-index.json` from `library/`), `npm run lint` (`tsc --noEmit`),
@@ -133,7 +133,7 @@ site/
                        .topbar, .nav, .theme-sw, .site-footer …) in Tailwind layers
   server.ts            The local server: imports the app `api/index.ts` exports, mounts the
                        skill-packs handler, adds Vite HMR (or serves dist/ with --production).
-                       Port 3010 on 127.0.0.1 (HOST overrides).
+                       Port 3010 on 127.0.0.1 (PORT and HOST override).
   api/index.ts         The Express app (also the Vercel handler): Public Library + My Library.
                        `?lightweight=true` returns metadata only — a listing prompt's
                        `content` is NOT the prompt. Card blurbs come from
@@ -319,6 +319,7 @@ All optional; the app runs with none set.
 | Var | Effect |
 |:---|:---|
 | `MY_LIBRARY_DIR` | Where My Library lives. Relative paths resolve against `site/`. Default `site/my-library`. |
+| `PORT` | Listen port. Default `3010`. |
 | `HOST` | Listen address. Default `127.0.0.1`; `0.0.0.0` opens it to the network (there are no accounts). |
 | `READ_ONLY` | `true` = Public Library only, writes 403. Implied on Vercel by `VERCEL`. |
 | `ALLOWED_HOSTS` | Extra Host names the server answers to (comma-separated, `.suffix` for subdomains). Others get 403. |
