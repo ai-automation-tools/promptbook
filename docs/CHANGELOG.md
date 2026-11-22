@@ -17,6 +17,21 @@ _Touched: `site/src/index.css`, `site/src/App.tsx`, `site/src/components/` (Comm
 
 ---
 
+## 2026-11-22 — Keyboard and screen-reader polish (PB-14)
+
+**Accessibility**
+- The closed sidebar is `inert`, so its links no longer take Tab while it is off-screen (phones) or zero-wide (desktop); Escape closes the phone drawer.
+- The command palette runs on the shared `Modal` shell (new `label` and `placement="top"` props): portalled, the page behind inert, Tab kept inside, Escape and focus-return handled. Ctrl/Cmd+K over another dialog now does nothing, where it used to open a second dialog and lift the first one's `inert` on close.
+- `<MotionConfig reducedMotion="user">` wraps the app, so motion's JS animations (card entrances, dialog springs, toasts) honour `prefers-reduced-motion` the way index.css already did for CSS ones.
+- Toasts sit in one always-mounted `aria-live="polite"` region portalled to `<body>`, so they are announced, and still announced while a dialog makes `#root` inert; errors keep `role="alert"`.
+
+**Tests**
+- `test:browser` opens the palette with Ctrl+K, checks the page is inert and Tab stays inside, and that Escape lifts `inert`.
+
+_Touched: `site/src/components/ui/primitives.tsx`, `site/src/components/CommandPalette.tsx`, `site/src/components/Toast.tsx`, `site/src/components/Sidebar.tsx`, `site/src/App.tsx`, `site/scripts/browser-smoke.test.mjs`, `AGENTS.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — Local production gets the demo's CSP; consent.js only on the demo (PB-15)
 
 **Security**

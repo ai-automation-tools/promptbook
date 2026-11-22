@@ -4,6 +4,7 @@
  */
 
 import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { m, AnimatePresence } from 'motion/react';
 import { CheckCircle2, XCircle, Info, AlertTriangle, X } from 'lucide-react';
 
@@ -35,7 +36,7 @@ export function Toast({ id, type, message, duration = 3200, onClose }: ToastProp
   return (
     <m.div
       layout
-      role={type === 'error' ? 'alert' : 'status'}
+      role={type === 'error' ? 'alert' : undefined}
       initial={{ opacity: 0, y: 16, scale: 0.96 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, x: 24, scale: 0.96 }}
@@ -72,9 +73,14 @@ export interface ToastContainerProps {
   onClose: (id: string) => void;
 }
 
+/**
+ * One live region that is always mounted, so a screen reader is already listening when a
+ * toast is added (a region created with its message is often missed). Portalled to <body>:
+ * #root is inert while a dialog is open, and a toast must still be read then.
+ */
 export function ToastContainer({ toasts, onClose }: ToastContainerProps) {
-  return (
-    <div className="pointer-events-none fixed bottom-5 right-5 z-[130] flex flex-col items-end gap-2">
+  return createPortal(
+    <div aria-live="polite" className="pointer-events-none fixed bottom-5 right-5 z-[130] flex flex-col items-end gap-2">
       <AnimatePresence>
         {toasts.map(toast => (
           <div key={toast.id} className="pointer-events-auto">
@@ -82,6 +88,7 @@ export function ToastContainer({ toasts, onClose }: ToastContainerProps) {
           </div>
         ))}
       </AnimatePresence>
-    </div>
+    </div>,
+    document.body,
   );
 }

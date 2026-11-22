@@ -127,6 +127,8 @@ export default function Sidebar({
         isSidebarOpen ? 'translate-x-0 shadow-[0_0_60px_-20px_var(--pop-shadow)] md:shadow-none' : '-translate-x-full md:w-0 md:border-r-0',
       )}
       aria-label="Categories"
+      // Closed, it is off-screen or zero-wide but its links would still take Tab (PB-14).
+      inert={!isSidebarOpen}
     >
       <div className="flex h-full flex-col" style={{ width: SIDEBAR_WIDTH }}>
         {/* Panel head: lines up with the top bar's bottom rule. */}

@@ -10,14 +10,13 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import Fuse from 'fuse.js';
 import { ArrowRight, Clock, CornerDownLeft, Moon, Plus, Search, Settings, Sun } from 'lucide-react';
-import { m } from 'motion/react';
 import { cn } from '../lib/cn';
 import { SECTIONS, getTabForFolder, humanize } from '../lib/sections';
 import type { Theme } from '../hooks/useTheme';
 import type { LibraryTab } from '../hooks/useLibraryRoute';
 import type { Prompt } from './PromptCard';
 import { extractEmoji } from './PromptCard';
-import { Kbd } from './ui/primitives';
+import { Kbd, Modal } from './ui/primitives';
 import { READ_ONLY } from '../lib/mode';
 
 interface CommandPaletteProps {
@@ -174,33 +173,16 @@ export default function CommandPalette({
       e.preventDefault();
       const item = items[selected];
       if (item) run(item);
-    } else if (e.key === 'Escape') {
-      e.preventDefault();
-      onClose();
     }
   };
 
   let lastGroup: Item['group'] | null = null;
 
   return (
-    <div className="fixed inset-0 z-[120] flex items-start justify-center px-4 pt-[12vh]">
-      <m.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.15 }}
-        className="absolute inset-0 bg-[var(--scrim)] backdrop-blur-[3px]"
-        onClick={onClose}
-      />
-      <m.div
-        role="dialog"
-        aria-modal="true"
-        aria-label="Search the library"
-        initial={{ opacity: 0, y: -10, scale: 0.98 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ type: 'spring', stiffness: 460, damping: 36, mass: 0.7 }}
-        className="popover relative w-full max-w-[600px] overflow-hidden"
-        onKeyDown={onKeyDown}
-      >
+    // The shared Modal: portalled, the page behind inert, Tab kept inside, Escape and
+    // focus-return handled (PB-14). The palette adds only its arrow and Enter keys.
+    <Modal onClose={onClose} label="Search the library" placement="top" className="max-w-[600px]">
+      <div onKeyDown={onKeyDown}>
         <div className="flex h-[52px] items-center gap-3 border-b border-[var(--line)] px-4">
           <Search className="h-4 w-4 shrink-0 text-[var(--fg-4)]" />
           <input
@@ -290,7 +272,7 @@ export default function CommandPalette({
           </span>
           <span className="mono ml-auto">{prompts.length.toLocaleString()} prompts indexed</span>
         </div>
-      </m.div>
-    </div>
+      </div>
+    </Modal>
   );
 }
