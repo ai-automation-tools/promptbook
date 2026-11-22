@@ -286,7 +286,7 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
                 spellCheck={false}
               />
             )}
-            <p className="mono mt-1.5 text-right text-[10.5px] text-[var(--fg-5)]">
+            <p className="mono mt-1.5 text-right text-[12px] text-[var(--fg-5)]">
               {words.toLocaleString()} words · {content.length.toLocaleString()} chars
             </p>
           </div>

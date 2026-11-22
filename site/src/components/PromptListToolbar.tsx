@@ -58,7 +58,7 @@ function Dropdown({
         {icon}
         <span>{label}</span>
         {count !== undefined && count > 0 && (
-          <span className="mono rounded-[4px] bg-[var(--tint-2)] px-1.5 py-0.5 text-[10.5px] leading-none text-[var(--accent)]">
+          <span className="mono rounded-[4px] bg-[var(--tint-2)] px-1.5 py-0.5 text-[12px] leading-none text-[var(--accent)]">
             {count}
           </span>
         )}
@@ -99,7 +99,7 @@ function PromptPickerList({ prompts, onSelect }: { prompts: Prompt[]; onSelect: 
             </span>
             <span className="min-w-0">
               <span className="block truncate text-[13px] font-medium text-[var(--fg-2)] group-hover:text-[var(--fg)]">{title}</span>
-              <span className="mono block truncate text-[10.5px] text-[var(--fg-5)]">{humanize(prompt.category)}</span>
+              <span className="mono block truncate text-[12px] text-[var(--fg-5)]">{humanize(prompt.category)}</span>
             </span>
           </button>
         );

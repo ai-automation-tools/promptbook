@@ -54,8 +54,9 @@
   --fg: #f4f4f5;
   --fg-2: #d4d4d8;
   --fg-3: #a1a1aa;
-  --fg-4: #71717a;
-  --fg-5: #52525b;
+  /* fg-4/fg-5 pass 4.5:1 on the ground and on cards (PB-12); they were zinc-500/600. */
+  --fg-4: #93939c;
+  --fg-5: #808089;
   --fg-max: #fff;
   --on-fg: #09090b;
   /* accent: sky, the page's own hue */
@@ -627,7 +628,7 @@ html.light[data-palette='mono']      { --accent: #18181b; }
     border-radius: 12px;
     font-size: 10.5px;
     font-weight: 500;
-    color: var(--fg-4);
+    color: var(--fg-3);
     transition: color 0.2s, background 0.2s;
   }
 
@@ -1166,7 +1167,7 @@ html.light[data-palette='mono']      { --accent: #18181b; }
     padding: 0 8px;
     border-radius: 5px;
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1;
     color: var(--fg-4);
     border: 1px solid var(--line);

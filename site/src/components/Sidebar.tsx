@@ -220,7 +220,7 @@ export default function Sidebar({
         <div className="flex min-h-0 flex-1 flex-col">
           <div className="flex items-center justify-between px-5 pb-1.5 pt-4">
             <p className="eyebrow">{activeTab === 'skill-packs' ? 'Pack categories' : showLibraries ? 'Libraries' : 'Categories'}</p>
-            <span className="mono text-[10.5px] text-[var(--fg-5)]">
+            <span className="mono text-[12px] text-[var(--fg-5)]">
               {activeTab === 'skill-packs' ? packsByCategory.length : showLibraries ? libraries.length : Object.keys(categories).length}
             </span>
           </div>
@@ -260,7 +260,7 @@ export default function Sidebar({
                 )}
               />
               <span className="flex-1 truncate font-medium">Favorites</span>
-              <span className="mono text-[10.5px] tabular-nums text-[var(--fg-5)]">{favoriteCount}</span>
+              <span className="mono text-[12px] tabular-nums text-[var(--fg-5)]">{favoriteCount}</span>
             </button>
             <hr className="mx-2 mb-1.5 border-t border-[var(--line)]" aria-hidden="true" />
             </>)}
@@ -397,7 +397,7 @@ function CategoryRow({
         <span className="hue-dot" aria-hidden="true" />
       )}
       <span className="flex-1 truncate font-medium">{label}</span>
-      <span className="mono text-[10.5px] tabular-nums text-[var(--fg-5)]">{count}</span>
+      <span className="mono text-[12px] tabular-nums text-[var(--fg-5)]">{count}</span>
       <ChevronDown
         className={cn(
           'h-3.5 w-3.5 shrink-0 text-[var(--fg-5)] transition-transform duration-300',

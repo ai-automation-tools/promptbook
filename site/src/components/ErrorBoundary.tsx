@@ -29,7 +29,7 @@ export default class ErrorBoundary extends Component<{ children: ReactNode }, { 
             under it): stop it, run <code className="mono">npm run dev</code> in <code className="mono">site/</code>, then reload.
             On the hosted demo, a newer version was likely just deployed; reload the page.
           </p>
-          <pre className="mono mb-4 overflow-x-auto whitespace-pre-wrap text-[11.5px] text-[var(--fg-4)]">{error.message}</pre>
+          <pre className="mono mb-4 overflow-x-auto whitespace-pre-wrap text-[12px] text-[var(--fg-4)]">{error.message}</pre>
           <button type="button" className="btn btn-primary" onClick={() => location.reload()}>
             Reload
           </button>
