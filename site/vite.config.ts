@@ -8,12 +8,22 @@ import {defineConfig} from 'vite';
 // added for is gone. The old `define` inlined the key into the client bundle,
 // so it was a leak waiting for someone to set the variable.
 export default defineConfig(() => {
+  const readOnly = process.env.READ_ONLY === 'true' || Boolean(process.env.VERCEL);
   return {
-    plugins: [react(), tailwindcss()],
+    plugins: [
+      react(),
+      tailwindcss(),
+      // The org's cookie-consent script belongs to the hosted demo; a local copy has no
+      // analytics to ask about and shouldn't call out to ai-automation-tools.dev (PB-15).
+      {
+        name: 'consent-on-demo-only',
+        transformIndexHtml: (html: string) => (readOnly ? html : html.replace(/\n\s*<script src="https:\/\/ai-automation-tools\.dev\/consent\.js" defer><\/script>/, '')),
+      },
+    ],
     // Same rule as READ_ONLY in lib/my-library.ts: the hosted demo on Vercel
     // has no My Library, so the UI hides everything that would write to one.
     define: {
-      __READ_ONLY__: JSON.stringify(process.env.READ_ONLY === 'true' || Boolean(process.env.VERCEL)),
+      __READ_ONLY__: JSON.stringify(readOnly),
     },
     build: {
       rollupOptions: {

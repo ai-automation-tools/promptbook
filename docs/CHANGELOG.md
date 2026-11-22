@@ -19,6 +19,17 @@ _Touched: `site/src/components/ui/primitives.tsx`, `site/src/components/CommandP
 
 ---
 
+## 2026-11-22 — Local production gets the demo's CSP; consent.js only on the demo (PB-15)
+
+**Security**
+- `npm start` sends the page headers in `vercel.json` (the CSP, `nosniff`, the referrer policy) from `server.ts`, so a local production run is under the same policy `test:browser` checks. Framing stays as it was locally: `frame-ancestors 'self'` plus `FRAME_ANCESTORS`, and `X-Frame-Options: SAMEORIGIN` when that is unset; the demo still refuses all framing.
+- The API's `helmet` CSP is now an explicit `frame-ancestors` policy instead of `contentSecurityPolicy: false` (CodeQL `js/insecure-helmet-configuration`); it covers dev's Vite pages too, which need inline scripts. The separate `FRAME_ANCESTORS` middleware only drops `X-Frame-Options` now.
+- `index.html`'s `consent.js` tag is stripped at build time unless the build is read-only (the demo), so a local copy no longer loads a script from ai-automation-tools.dev.
+
+_Touched: `site/server.ts`, `site/api/index.ts`, `site/vite.config.ts`, `AGENTS.md`, `SECURITY.md`, `docs/ARCHITECTURE.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — MCP: library text framed as data, version required for body edits (PB-16)
 
 **Security**

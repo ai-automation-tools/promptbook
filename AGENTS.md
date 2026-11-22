@@ -278,7 +278,7 @@ removed on 2026-11-22 (in git history at `86ff6925`, `archive/skill-libraries-20
   check (api/skill-packs.ts); a new write route must too, or the demo becomes writable.
   Host and Origin are checked once, by the first middleware in `api/index.ts`, for every
   route on the app; don't add per-route copies.
-- `helmet` runs with CSP off on the API (the one exception: `FRAME_ANCESTORS` adds a `frame-ancestors`-only policy). The demo's pages get their CSP from `vercel.json`, which
+- `helmet`'s CSP on the app is `frame-ancestors` only (`'self'` plus `FRAME_ANCESTORS`), since dev's Vite pages need inline scripts. Pages get the full CSP from `vercel.json`: on the demo from Vercel, under `npm start` from `server.ts` (framing kept same-origin there). It
   allows `index.html`'s inline theme script by hash: edit that script and the new hash goes in
   `vercel.json` too (`npm run test:browser` prints it).
 - Never commit `.env*` (gitignored) or anything under `site/my-library/`.
@@ -327,5 +327,5 @@ All optional; the app runs with none set.
 | `HOST` | Listen address. Default `127.0.0.1`; `0.0.0.0` opens it to the network (there are no accounts). |
 | `READ_ONLY` | `true` = Public Library only, writes 403. Implied on Vercel by `VERCEL`. |
 | `ALLOWED_HOSTS` | Extra Host names the server answers to (comma-separated, `.suffix` for subdomains). Others get 403. |
-| `FRAME_ANCESTORS` | Origins allowed to frame the app (comma-separated). Unset = X-Frame-Options SAMEORIGIN; set = CSP `frame-ancestors 'self' <origins>` instead. |
+| `FRAME_ANCESTORS` | Origins allowed to frame the app (comma-separated). Unset = X-Frame-Options SAMEORIGIN and CSP `frame-ancestors 'self'`; set = CSP `frame-ancestors 'self' <origins>` and no X-Frame-Options. |
 | `NODE_ENV` | `production` serves `dist/` instead of Vite, same as `--production`. |

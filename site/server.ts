@@ -4,7 +4,8 @@ import { createServer as createViteServer } from "vite";
 import path from "path";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
-import { app } from "./api/index.js";
+import fs from "fs";
+import { app, FRAME_ANCESTORS } from "./api/index.js";
 import skillPacksHandler from "./api/skill-packs.js";
 import type { VercelRequest, VercelResponse } from "./lib/vercel-types.js";
 import { MY_LIBRARY_DIR } from "./lib/my-library.js";
@@ -48,6 +49,23 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
+    // The demo's page headers (CSP and friends) live in vercel.json; send the same ones here,
+    // so `npm start` runs under the policy test:browser checks. Framing stays as the API has
+    // it locally: same origin, plus FRAME_ANCESTORS (the demo itself refuses all framing).
+    const pageRule = JSON.parse(fs.readFileSync(path.join(__dirname, "vercel.json"), "utf8"))
+      .headers.find((h: { source: string }) => h.source === "/((?!api/).*)");
+    const pageHeaders = (pageRule.headers as { key: string; value: string }[])
+      .filter(({ key }) => !(FRAME_ANCESTORS.length && key === "X-Frame-Options"))
+      .map(({ key, value }) => ({
+        key,
+        value: key === "Content-Security-Policy"
+          ? value.replace(/frame-ancestors [^;]*/, ["frame-ancestors 'self'", ...FRAME_ANCESTORS].join(" "))
+          : key === "X-Frame-Options" ? "SAMEORIGIN" : value,
+      }));
+    app.use((req, res, next) => {
+      if (!req.path.startsWith("/api/")) for (const { key, value } of pageHeaders) res.setHeader(key, value);
+      next();
+    });
     app.use(express.static(path.join(__dirname, "dist")));
     app.get("/{*splat}", (_req, res) => {
       res.sendFile(path.join(__dirname, "dist", "index.html"));

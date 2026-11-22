@@ -25,10 +25,10 @@ const __dirname = dirname(__filename);
 // the GitHub tree on a `prompts/` folder that was renamed to `library/`.
 export const app = express();
 
-// Response headers only: no CSP, because Vite's build emits inline module
-// preloads and the themes pull from Google Fonts, and in production the static
-// assets never pass through Express anyway. HSTS is left to Vercel, which sets
-// it on the edge for custom domains.
+// Response headers. The CSP here is frame-ancestors only: it covers the API and dev's
+// Vite-served pages, which need inline scripts. Pages get the full policy from vercel.json,
+// on the demo from Vercel and under `npm start` from server.ts. HSTS is left to Vercel,
+// which sets it on the edge for custom domains.
 //
 // Framing: refused (X-Frame-Options: SAMEORIGIN) unless FRAME_ANCESTORS names
 // the pages allowed to embed the app, such as a local Project Hub. X-Frame-Options
@@ -43,12 +43,13 @@ export const FRAME_ANCESTORS = (process.env.FRAME_ANCESTORS ?? '').split(',').fl
     return [];
   }
 });
-app.use(helmet({ contentSecurityPolicy: false, strictTransportSecurity: false }));
+app.use(helmet({
+  contentSecurityPolicy: { useDefaults: false, directives: { defaultSrc: helmet.contentSecurityPolicy.dangerouslyDisableDefaultSrc, frameAncestors: ["'self'", ...FRAME_ANCESTORS] } },
+  strictTransportSecurity: false,
+}));
 if (FRAME_ANCESTORS.length) {
-  const policy = `frame-ancestors 'self' ${FRAME_ANCESTORS.join(' ')}`;
   app.use((_req, res, next) => {
     res.removeHeader('X-Frame-Options');
-    res.setHeader('Content-Security-Policy', policy);
     next();
   });
 }
