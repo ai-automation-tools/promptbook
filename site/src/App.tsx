@@ -993,7 +993,7 @@ export default function App() {
                     <h1 className="text-[1.5rem] font-semibold leading-tight tracking-[-0.02em] text-[var(--fg)] md:text-[1.85rem]">
                       Favorites
                     </h1>
-                    <p className="mono mt-1.5 text-[11px] text-[var(--fg-4)]">
+                    <p className="mono mt-1.5 text-[12px] text-[var(--fg-4)]">
                       {sidebarFavoriteCount.toLocaleString()} {activeTab === 'skill-packs' ? (sidebarFavoriteCount === 1 ? 'pack' : 'packs') : sidebarFavoriteCount === 1 ? 'item' : 'items'}
                     </p>
                   </div>
@@ -1045,7 +1045,7 @@ export default function App() {
                           </>
                         )}
                       </h1>
-                      <p className="mono mt-1.5 text-[11px] text-[var(--fg-4)]">
+                      <p className="mono mt-1.5 text-[12px] text-[var(--fg-4)]">
                         {subcategoryPrompts.length.toLocaleString()} {subcategoryPrompts.length === 1 ? 'prompt' : 'prompts'}
                       </p>
                     </div>

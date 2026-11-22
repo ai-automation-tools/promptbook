@@ -104,7 +104,7 @@ From the 2026-11-18 project audit (taken at `2a990cd`). Ids are the audit's back
 - [ ] **PB-09** P2 · One URL-derived view for navigation (fixes races, shared links, Back/Forward)
 - [ ] **PB-10** P2 · Demo: edge-cache public API, refuse full listing, stop bot-branch preview deploys 🔒 Needs owner
 - [ ] **PB-11** P2 · Mobile first paint under 2 s
-- [ ] **PB-12** P2 · Contrast and minimum text size
+- [x] **PB-12** P2 · Contrast and minimum text size — done 2026-11-22: dark `--fg-4`/`--fg-5` raised to pass 4.5:1, rail labels on `--fg-3`, running text floored at 12px (eyebrows, keycaps and table heads excepted). Lighthouse re-run on the demo after deploy
 - [x] **PB-13** P2 · Prompt detail readability: wrap bodies, no repeated title, prompt on the first phone screen — done 2026-11-22: bare/text fences wrap, a leading body heading equal to the title is hidden, tags follow the body on phones (no More menu: Copy and Save already lead the action row)
 - [x] **PB-14** P2 · Keyboard and assistive-tech polish: inert sidebar, modal palette, reduced motion, live toasts — done 2026-11-22: inert closed sidebar (+ Escape on phones), the palette on the shared Modal, Ctrl/Cmd+K ignored over a dialog, `MotionConfig reducedMotion="user"`, toasts in one persistent live region portalled to body
 - [x] **PB-15** P2 · CSP for the local production server; consent script only on the demo — done 2026-11-22: `npm start` sends vercel.json's page headers (framing kept same-origin); the API CSP is an explicit frame-ancestors policy instead of `false`; consent.js only in read-only builds

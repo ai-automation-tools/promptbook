@@ -15,6 +15,19 @@ _Touched: `site/src/index.css`, `site/src/components/PromptDetail.tsx`, `docs/RO
 
 ---
 
+## 2026-11-22 — Contrast and a 12px text floor (PB-12)
+
+**Accessibility**
+- Dark mode's `--fg-4` and `--fg-5` were zinc-500 and zinc-600, about 4.2:1 and 2.6:1 on the ground, under the 4.5:1 small text needs. They are now `#93939c` and `#808089`, which pass on the ground and on cards; light mode already passed. Inactive section-rail labels use `--fg-3`.
+- No running text is under 12px now: sidebar and toolbar counts, card dates, the item id, source-panel lines, the editor's counter, Settings rows, the palette's hints and footer, and `.chip` tags moved up from 10–11.5px. Uppercase eyebrows, keycaps and table headers keep their size.
+
+**Fixes**
+- Card titles lost their two-line clamp in PB-02: a `<button>` is one atomic box, so the clamp on the `h3` around it couldn't cut it. The clamp now sits on the button.
+
+_Touched: `site/src/index.css`, `site/src/App.tsx`, `site/src/components/` (CommandPalette, ErrorBoundary, PromptCard, PromptDetail, PromptEditorModal, PromptListToolbar, SettingsModal, Sidebar, SkillPacksView, SourcePanel), `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — Keyboard and screen-reader polish (PB-14)
 
 **Accessibility**

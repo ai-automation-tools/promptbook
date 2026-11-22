@@ -126,7 +126,7 @@ export default function PromptDetail({
               {emoji && <span className="mt-0.5 text-[1.4rem] leading-none md:text-[1.6rem]">{emoji}</span>}
               <span>{title}</span>
             </h1>
-            <p className="mono mt-1.5 truncate text-[11px] text-[var(--fg-5)]">{prompt.id}</p>
+            <p className="mono mt-1.5 truncate text-[12px] text-[var(--fg-5)]">{prompt.id}</p>
             {/* What a skill asks its agent to run, before anyone installs it (PB-16). */}
             {prompt.extra?.['allowed-tools'] != null && (
               <p className="mono mt-1 text-[12px] text-[var(--fg-3)]">

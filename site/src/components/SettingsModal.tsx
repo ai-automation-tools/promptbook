@@ -122,7 +122,7 @@ export default function SettingsModal({
                     </span>
                     <span className="min-w-0">
                       <span className="block text-[13px] font-medium text-[var(--fg)]">{p.name}</span>
-                      <span className="block truncate text-[11px] text-[var(--fg-4)]">{p.note}</span>
+                      <span className="block truncate text-[12px] text-[var(--fg-4)]">{p.note}</span>
                     </span>
                   </button>
                 );
