@@ -15,6 +15,18 @@ _Touched: `site/.oxlintrc.json` (new), `site/package.json`, `site/package-lock.j
 
 ---
 
+## 2026-11-22 — Identical items marked as aliases (PB-29)
+
+**Content**
+- Three pairs of items have byte-identical bodies because their upstream ships one text under two names: Fabric's `summarize` and `create_summary`, Fabric's `summarize_micro` and `create_micro_summary`, and Codex's `gpt-5.2-codex` and `gpt-5.1-codex-max` prompt files. All six stay, each mirroring its own upstream file (owner's call; system prompts are labelled, never deleted). Each now names its twin with a top-level `same_as:`, and the item page shows "Same text as <twin>, published upstream under both names", linking to it.
+- The audit's fourth pair (Anthropic `claude-sonnet4` / `claude-opus4`) was already gone after #537's re-sourcing.
+
+**Checks:** `scripts/upstream.test.mjs` fails any two items with identical bodies that don't name each other with `same_as`. `test:browser` opens one alias and follows the link to its twin.
+
+_Touched: six files under `site/library/4_Prompts/Fabric/Summarize/` and `site/library/5_System_Prompts/OpenAI/`, `site/src/components/PromptDetail.tsx`, `scripts/upstream.test.mjs`, `site/scripts/browser-smoke.test.mjs`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — frontend-design skill sourced from Anthropic
 
 **Content**
