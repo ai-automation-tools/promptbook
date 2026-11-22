@@ -15,6 +15,18 @@ _Touched: `site/.oxlintrc.json` (new), `site/package.json`, `site/package-lock.j
 
 ---
 
+## 2026-11-22 — The demo's API is cached at the edge (PB-10)
+
+**Performance**
+- The read-only demo answered every API request from the function: `Cache-Control: public, max-age=0, must-revalidate`, `x-vercel-cache: MISS`. Under `READ_ONLY` every GET (listing, item, skill download, Skill Packs and their ZIPs) now sends `public, s-maxage=86400, stale-while-revalidate=604800`. The Public Library only changes with a deploy, and a deploy purges Vercel's cache, so the edge never serves content older than the current deploy. A writable local server sends nothing new.
+- `test:read-only` checks the header on the listing and on Skill Packs.
+
+**Not done (owner's call):** refusing the full listing on the demo, turning off preview deploys for bot branches, and a build stamp on the page.
+
+_Touched: `site/lib/library.ts`, `site/api/index.ts`, `site/api/skill-packs.ts`, `site/scripts/read-only.test.mjs`, `AGENTS.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — Identical items marked as aliases (PB-29)
 
 **Content**

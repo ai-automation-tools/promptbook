@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 import matter from '../lib/frontmatter.js';
 import { cachedZip } from '../lib/zip-cache.js';
 import { myLibrary, READ_ONLY } from '../lib/my-library.js';
-import { carriedFrontmatter, LIBRARY_PATH } from '../lib/library.js';
+import { carriedFrontmatter, EDGE_CACHE, LIBRARY_PATH } from '../lib/library.js';
 import { filesUnder, resolveInside } from '../lib/safe-path.js';
 
 // Recursively get all files in a directory
@@ -110,6 +110,8 @@ async function resolveSkillData(skillPath: string) {
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const { method, url } = req;
   const urlPath = new URL(url!, `http://${req.headers.host}`).pathname;
+  // The demo's GETs are cached at Vercel's edge (EDGE_CACHE in lib/library.ts).
+  if (READ_ONLY && method === 'GET') res.setHeader('Cache-Control', EDGE_CACHE);
   
   // GET /api/skill-packs - List all packs
   if (method === 'GET' && urlPath === '/api/skill-packs') {
