@@ -40,14 +40,18 @@ export function useFavorites(onError: (message: string) => void) {
   const [favorites, setFavorites] = useState<string[]>([]);
   const latest = useRef(favorites);
   latest.current = favorites;
+  // Bumped by every toggle: a reload or a reply that started before the latest toggle is
+  // stale and must not undo it (BUG-15).
+  const toggles = useRef(0);
 
   const reload = useCallback(async () => {
     if (READ_ONLY) return;
     try {
+      const at = toggles.current;
       const legacy = legacyFavorites();
       const list = legacy.length ? await add(legacy) : await send();
       try { localStorage.removeItem(LEGACY_KEY); } catch { /* storage blocked: nothing to drop */ }
-      setFavorites(list);
+      if (toggles.current === at) setFavorites(list);
     } catch {
       // Keep what is shown; the next focus tries again.
     }
@@ -66,7 +70,10 @@ export function useFavorites(onError: (message: string) => void) {
     const starred = latest.current.includes(id);
     const flip = (on: boolean) => setFavorites(prev => (on ? [...prev.filter(x => x !== id), id] : prev.filter(x => x !== id)));
     flip(!starred); // shown at once, taken back if the server refuses
-    (starred ? send({ method: 'DELETE' }, `/${encodeURIComponent(id)}`) : add([id])).catch((err: unknown) => {
+    const n = ++toggles.current;
+    (starred ? send({ method: 'DELETE' }, `/${encodeURIComponent(id)}`) : add([id])).then(list => {
+      if (toggles.current === n) setFavorites(list); // the server's list wins once it answers
+    }).catch((err: unknown) => {
       flip(starred);
       onError(err instanceof Error ? err.message : 'Could not save favorites');
     });

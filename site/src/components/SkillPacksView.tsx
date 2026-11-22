@@ -180,7 +180,7 @@ export default function SkillPacksView({ libraryMode, onToast, favorites, onTogg
       a.download = `${packId}.zip`;
       document.body.appendChild(a);
       a.click();
-      window.URL.revokeObjectURL(url);
+      setTimeout(() => window.URL.revokeObjectURL(url), 0); // revoking at once can abort it (Safari)
       document.body.removeChild(a);
       onToast('success', 'Skill pack downloaded');
     } catch (err) {
