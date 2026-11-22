@@ -84,6 +84,13 @@ export default function PromptDetail({
 }: PromptDetailProps) {
   const { emoji, title } = extractEmoji(prompt.title);
   const words = useMemo(() => wordCount(prompt.content), [prompt.content]);
+  // Most bodies open with the title as a heading, right under the page's own title. Shown
+  // once (PB-13); Copy and Download still use the body as written.
+  const shown = useMemo(() => {
+    const m = prompt.content.match(/^\s*#\s+(.+?)\s*#*\s*(?:\n|$)/);
+    const norm = (s: string) => extractEmoji(s).title.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+    return m && norm(m[1]) === norm(prompt.title) ? prompt.content.slice(m[0].length) : prompt.content;
+  }, [prompt.content, prompt.title]);
   const isCopied = copied === prompt.id;
   const saving = copyingToMyPromptsId === prompt.id;
 
@@ -191,7 +198,7 @@ export default function PromptDetail({
 
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-12">
         {/* Content */}
-        <article className="surface relative overflow-hidden p-6 md:p-8 lg:col-span-8 xl:col-span-9">
+        <article className="surface relative flex flex-col overflow-hidden p-6 md:p-8 lg:col-span-8 xl:col-span-9">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full blur-3xl"
@@ -214,7 +221,7 @@ export default function PromptDetail({
               href={prompt.sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative mb-5 inline-flex max-w-full items-center gap-2 rounded-[var(--r-md)] border border-[var(--line)] px-3 py-2 text-[13px] font-medium text-[var(--fg)] transition-colors hover:border-[color-mix(in_srgb,var(--c)_45%,var(--line))] hover:bg-[color-mix(in_srgb,var(--c)_8%,transparent)]"
+              className="relative mb-5 inline-flex max-w-full items-center gap-2 self-start rounded-[var(--r-md)] border border-[var(--line)] px-3 py-2 text-[13px] font-medium text-[var(--fg)] transition-colors hover:border-[color-mix(in_srgb,var(--c)_45%,var(--line))] hover:bg-[color-mix(in_srgb,var(--c)_8%,transparent)]"
             >
               {/^https:\/\/github\.com\//.test(prompt.sourceUrl)
                 ? <Github className="h-4 w-4 shrink-0 text-[var(--c)]" aria-hidden="true" />
@@ -224,7 +231,8 @@ export default function PromptDetail({
             </a>
           )}
           {prompt.tags.length > 0 && (
-            <div className="relative mb-6 flex flex-wrap gap-1.5">
+            // On phones the tags follow the body, so the prompt starts on the first screen.
+            <div className="relative order-last mt-6 flex flex-wrap gap-1.5 md:order-none md:mb-6 md:mt-0">
               {prompt.tags.map(tag => (
                 <span key={tag} className="chip">
                   <Tag className="h-2.5 w-2.5" />
@@ -235,7 +243,7 @@ export default function PromptDetail({
           )}
           <div className="markdown-body relative">
             {/* HTML in the markdown (READMEs are full of it) renders, through GitHub's own allow-list. */}
-            <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, rehypeSanitize]}>{prompt.content}</Markdown>
+            <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, rehypeSanitize]}>{shown}</Markdown>
           </div>
         </article>
 

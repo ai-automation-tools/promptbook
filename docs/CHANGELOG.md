@@ -4,6 +4,17 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-22 — Readable prompt pages (PB-13)
+
+**UI**
+- A prompt in a bare or text/markdown fence wraps (`white-space: pre-wrap`) instead of running off the panel edge at 1440px and on phones. Fences with a real language (python, json…) keep their horizontal scroll.
+- A body that opens with its own title as a `#` heading no longer shows it under the page title; Copy and Download still use the body as written.
+- On phones the tags follow the body, so the prompt text starts on the first screen (at 390×900 it begins about 670px down, where it was about 1,350).
+
+_Touched: `site/src/index.css`, `site/src/components/PromptDetail.tsx`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — Keyboard and screen-reader polish (PB-14)
 
 **Accessibility**
