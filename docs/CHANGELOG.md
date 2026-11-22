@@ -4,6 +4,22 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-22 — Cards work from the keyboard; Related no longer bounces back (PB-02, PB-03)
+
+**Fixes**
+- **PB-02:** a prompt or pack card was an `<article role="button" tabindex="0">` whose Enter handler opened the card, so Enter on Copy, Download, Save to My Library, Star, Edit, Delete or a pack's Add/Remove opened the card and ran nothing. The card's title is now a real `<button>` (`.card-open`) and the article keeps only its mouse click; Lighthouse's `aria-allowed-role` complaint about buttons inside a button goes with it.
+- **PB-03:** opening a prompt set `?prompt=` state that nothing cleared, so Related, a breadcrumb category, a sidebar row or a sub-category pill cleared the prompt and the deep-link effect reopened it. The deep-link param is now consumed once, when it matches; the URL still follows the open prompt.
+
+**Tests**
+- `test:browser` presses Enter on a card's Download (a download, the card stays shut), Enter on its title (the prompt opens), then clicks Related and checks the prompt is still closed a second later. Both cases fail on the old code.
+
+**Docs**
+- `docs/ROADMAP.md` gains an "Audit follow-ups, 2026-11-18" section with the audit's 32 backlog ids; PB-02 and PB-03 are ticked.
+
+_Touched: `site/src/components/PromptCard.tsx`, `site/src/components/SkillPacksView.tsx`, `site/src/index.css`, `site/src/App.tsx`, `site/scripts/browser-smoke.test.mjs`, `docs/ROADMAP.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — README contact is the org address
 
 `README.md`'s Support section listed a personal email address. It now gives `admin@ai-automation-tools.dev`, the org's role address. Closes the Upkeep item flagged by the 2026-11-10 Security sweep.

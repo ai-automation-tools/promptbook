@@ -956,6 +956,18 @@ html.light[data-palette='mono']      { --accent: #18181b; }
     z-index: 1;
   }
 
+  /* A card's title button: plain text that takes focus, so the actions beside it stay buttons. */
+  .card-open {
+    all: unset;
+    cursor: pointer;
+    text-align: left;
+  }
+  .card-open:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
   /* A framed glyph tinted with --c. */
   .glyph {
     display: grid;
