@@ -70,12 +70,16 @@ function fetchPreviews(ids: string[]): Promise<unknown> {
   return Promise.all([...pending]);
 }
 
+/** What a card shows when its item has no preview text (or the server had none for it). */
+export const NO_PREVIEW = 'No preview available.';
+
 /**
  * Returns `prompts` with `content` populated from the preview cache.
  *
  * Prompts that already carry content (My Library items, which arrive inline) are
  * passed through untouched and never trigger a request.
  */
+
 export function usePromptPreviews(prompts: Prompt[]): Prompt[] {
   const [version, bumpVersion] = useReducer((n: number) => n + 1, 0);
 
@@ -98,7 +102,8 @@ export function usePromptPreviews(prompts: Prompt[]): Prompt[] {
   }, [missingKey]);
 
   return useMemo(
-    () => prompts.map(p => (p.content ? p : { ...p, content: previewCache.get(p.id) ?? '' })),
+    // A miss is cached as '' and shown as NO_PREVIEW, so the card stops shimmering (BUG-13).
+    () => prompts.map(p => (p.content ? p : { ...p, content: previewCache.has(p.id) ? previewCache.get(p.id) || NO_PREVIEW : '' })),
     // `version` is the dependency that tracks previewCache mutation.
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [prompts, version],

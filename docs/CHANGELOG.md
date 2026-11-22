@@ -16,6 +16,22 @@ _Touched: `site/mcp/server.ts`, `site/scripts/mcp-server.test.mjs`, `docs/mcp-se
 
 ---
 
+## 2026-11-22 — Smaller client fixes: drafts, previews, favorites, links (PB-22, part)
+
+**Fixes**
+- **BUG-11:** the editor asks "Discard your changes?" before Escape, the backdrop, X or Cancel drops edited text.
+- **BUG-13:** a card whose item has no preview shows "No preview available." instead of a loading shimmer that never ends.
+- **BUG-14:** download links revoke their object URL after the click has started the download, not in the same tick (Safari could abort it).
+- **BUG-15:** a favorites reload, or a reply, that started before the latest star toggle no longer undoes it; a toggle applies the list the server returns.
+- **BUG-16:** the "recent" fallback for Featured sorted the shared section list in place; it sorts a copy.
+- **UX-10:** links in rendered markdown that leave the site open in a new tab (`noopener noreferrer`), `#anchor` links reach the `user-content-` ids rehype-sanitize assigns, and images load lazily with no referrer (`src/lib/markdown-components.tsx`).
+
+**Not done here:** fetching Skill Packs once in App (BUG-12), keeping a draft beside the server copy on a 409 (the rest of BUG-11), and the phone "+" button covering a card's actions mid-scroll (UX-09; the list already ends with room for it).
+
+_Touched: `site/src/App.tsx`, `site/src/components/PromptDetail.tsx`, `site/src/components/PromptEditorModal.tsx`, `site/src/components/SkillPacksView.tsx`, `site/src/hooks/useFavorites.ts`, `site/src/hooks/usePromptPreviews.ts`, `site/src/lib/markdown-components.tsx`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — ZIPs and pack manifests built once; long card lists skip off-screen work (PB-28)
 
 **Performance**
