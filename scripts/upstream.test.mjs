@@ -284,6 +284,40 @@ assert.equal(readUpstream(stampUpstream(tagsLast, { ref: "newsha", checked: "202
   console.log(`  ${kinds.original} original and ${kinds.attributed} attributed records, each with its kind's metadata; every copied item licensed to redistribute`);
 }
 
+// --- identical bodies are marked, not accidental (PB-29) ---
+// Some upstreams ship one text under two names (Fabric's summarize/create_summary, Codex's
+// per-model prompt files). Both stay, each mirroring its own upstream file, and each names
+// its twin with a top-level `same_as: <library id>` so the item page can say so.
+{
+  const LIB_ROOT = path.join(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1")), "..", "site", "library");
+  const items = [];
+  const walkAll = (d) => {
+    for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+      const p = path.join(d, e.name);
+      if (e.isDirectory()) walkAll(p);
+      else if (e.name.endsWith(".md") && e.name.toLowerCase() !== "readme.md") items.push(p);
+    }
+  };
+  for (const s of ["1_Guides", "2_Agents", "4_Prompts", "5_System_Prompts", "6_MCP_Servers"]) walkAll(path.join(LIB_ROOT, s));
+  const byBody = new Map();
+  for (const f of items) {
+    const { fm, body } = splitFrontmatter(fs.readFileSync(f, "utf8"));
+    const key = body.trim();
+    if (!key) continue;
+    const id = path.relative(LIB_ROOT, f).split(path.sep).join("/");
+    const sameAs = fm.match(/^same_as:\s*(\S+)\s*$/m)?.[1];
+    byBody.set(key, [...(byBody.get(key) ?? []), { id, sameAs }]);
+  }
+  const unmarked = [];
+  for (const group of byBody.values()) {
+    if (group.length < 2) continue;
+    const ids = new Set(group.map((g) => g.id));
+    for (const g of group) if (!ids.has(g.sameAs) || g.sameAs === g.id) unmarked.push(`${g.id}: same text as ${group.filter((o) => o.id !== g.id).map((o) => o.id).join(", ")}; add same_as`);
+  }
+  assert.deepEqual(unmarked, [], "items with identical bodies name each other with same_as");
+  console.log("  identical bodies are marked as aliases (same_as)");
+}
+
 // --- NOTICE names every source (PB-17): its list is generated from the upstream blocks ---
 {
   const { renderSources, noticeWith } = await import("./build-notice.mjs");

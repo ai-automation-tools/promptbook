@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { slugifyPromptPath } from '../hooks/useLibraryRoute';
 import { useMemo } from 'react';
 import {
   ArrowLeft,
@@ -132,6 +133,25 @@ export default function PromptDetail({
             {prompt.extra?.['allowed-tools'] != null && (
               <p className="mono mt-1 text-[12px] text-[var(--fg-3)]">
                 allowed-tools: {[prompt.extra['allowed-tools']].flat().map(String).join(', ')}
+              </p>
+            )}
+            {/* Upstream ships the same text under two names; both are kept (PB-29). */}
+            {typeof prompt.extra?.same_as === 'string' && (
+              <p className="mt-1 text-[12px] text-[var(--fg-3)]">
+                Same text as{' '}
+                <a
+                  className="underline underline-offset-2"
+                  href={`?library=public&prompt=${encodeURIComponent(slugifyPromptPath(prompt.extra.same_as))}`}
+                  onClick={e => {
+                    // Through the router (useLibraryRoute reads the URL on popstate), not a page load.
+                    e.preventDefault();
+                    window.history.pushState({}, '', e.currentTarget.href);
+                    window.dispatchEvent(new PopStateEvent('popstate'));
+                  }}
+                >
+                  {prompt.extra.same_as.split('/').pop()?.replace(/\.md$/, '')}
+                </a>
+                , published upstream under both names.
               </p>
             )}
           </div>
