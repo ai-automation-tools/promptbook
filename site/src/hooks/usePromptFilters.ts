@@ -184,14 +184,17 @@ export function usePromptFilters({
     }
   }, [filteredPrompts, sortOption]);
 
-  const paginatedPrompts = useMemo(() => {
-    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-    return sortedPrompts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
-  }, [sortedPrompts, currentPage]);
-
   const totalPages = useMemo(() => {
     return Math.ceil(sortedPrompts.length / ITEMS_PER_PAGE);
   }, [sortedPrompts.length]);
+
+  // The list can shrink under the page (a library switch, a delete): never show past the end.
+  const page = Math.max(1, Math.min(currentPage, totalPages));
+
+  const paginatedPrompts = useMemo(() => {
+    const startIndex = (page - 1) * ITEMS_PER_PAGE;
+    return sortedPrompts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [sortedPrompts, page]);
 
   const handleTagToggle = useCallback((tag: string) => {
     setSelectedTags(prev =>
@@ -202,12 +205,12 @@ export function usePromptFilters({
   const clearTags = useCallback(() => setSelectedTags([]), []);
 
   const goToPreviousPage = useCallback(() => {
-    setCurrentPage(p => Math.max(1, p - 1));
-  }, []);
+    setCurrentPage(Math.max(1, page - 1));
+  }, [page]);
 
   const goToNextPage = useCallback(() => {
-    setCurrentPage(p => Math.min(totalPages, p + 1));
-  }, [totalPages]);
+    setCurrentPage(Math.min(totalPages, page + 1));
+  }, [page, totalPages]);
 
   return {
     // state
@@ -219,7 +222,7 @@ export function usePromptFilters({
     clearTags,
     sortOption,
     setSortOption,
-    currentPage,
+    currentPage: page,
     totalPages,
     goToPreviousPage,
     goToNextPage,
