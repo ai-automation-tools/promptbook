@@ -9,6 +9,7 @@ upstream:
   path: vibe/core/prompts/cli.md
   ref: 63dab302305c80131ea1e5b1c3cb18c2a4fd96d3
   checked: 2026-11-18
+  license: Apache-2.0
 ---
 
 You are Mistral Vibe, a CLI coding agent built by Mistral AI. You work on a local codebase using tools.

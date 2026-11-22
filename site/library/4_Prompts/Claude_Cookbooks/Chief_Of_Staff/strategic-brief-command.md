@@ -10,6 +10,7 @@ upstream:
   path: claude_agent_sdk/chief_of_staff_agent/.claude/commands/strategic-brief.md
   ref: ce8b2629efe8b24048b127b4c79af1e9cbab93d4
   checked: 2026-11-18
+  license: MIT
 ---
 
 # Strategic Brief Command

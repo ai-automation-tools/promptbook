@@ -119,7 +119,9 @@ async function tree(repo) {
   if (trees.has(repo)) return trees.get(repo);
   const meta = await fetch(`https://api.github.com/repos/${repo}`, { headers: api });
   if (!meta.ok) throw new Error(`repo ${repo}: HTTP ${meta.status}`);
-  const branch = (await meta.json()).default_branch;
+  const info = await meta.json();
+  const branch = info.default_branch;
+  const license = info.license?.spdx_id ?? "NONE";
   const head = await fetch(`https://api.github.com/repos/${repo}/commits/${branch}`, { headers: api });
   if (!head.ok) throw new Error(`head ${repo}: HTTP ${head.status}`);
   const sha = (await head.json()).sha;
@@ -127,12 +129,23 @@ async function tree(repo) {
     `https://api.github.com/repos/${repo}/git/trees/${branch}?recursive=1`, { headers: api });
   if (!tr.ok) throw new Error(`tree ${repo}: HTTP ${tr.status}`);
   const blobs = ((await tr.json()).tree || []).filter((x) => x.type === "blob").map((x) => x.path);
-  const t = { repo, branch, sha, blobs };
+  const t = { repo, branch, sha, blobs, license };
   trees.set(repo, t);
   return t;
 }
 
 const today = new Date().toISOString().slice(0, 10);
+
+/**
+ * PB-17: never resync from an upstream whose licence is no longer the one the copy was stamped
+ * with (check-upstream-drift.mjs reports it as `relicensed`). A skill folder with its own licence
+ * file upstream is under that file, not the repo's. Same rule as the drift check: SPDX ids only.
+ */
+const relicensed = (u, t, upDir) => {
+  if (upDir !== undefined && t.blobs.some((p) => p.startsWith(upDir + "/") && /^(LICENSE|COPYING)(\.(md|txt))?$/i.test(p.slice(upDir.length + 1)))) return false;
+  return Boolean(u.license && u.license !== "NOASSERTION" && t.license !== "NOASSERTION" && u.license !== t.license);
+};
+const refuse = (rel, u, t) => console.error(`✗ ${rel}: ${u.repo} is now ${t.license}, this copy was stamped ${u.license}; not resynced (see the drift report)`);
 let failed = 0;
 
 for (const rel of skills) {
@@ -151,6 +164,7 @@ for (const rel of skills) {
       ? u.path
       : t.blobs.find((p) => /\.md$/i.test(p) && !/(^|\/)SKILL\.md$/i.test(p) && nameOf(p) === wanted);
     if (!up) { console.error(`✗ ${rel}: not found in ${u.repo}`); failed++; continue; }
+    if (relicensed(u, t)) { refuse(rel, u, t); failed++; continue; }
     const r = await fetch(`https://raw.githubusercontent.com/${t.repo}/${t.sha}/${up}`);
     if (!r.ok) { console.error(`✗ ${rel}: raw ${up}: HTTP ${r.status}`); failed++; continue; }
     const body = splitFrontmatter(await r.text()).body;
@@ -185,6 +199,7 @@ for (const rel of skills) {
   if (!upSkill) { console.error(`✗ ${rel}: not found in ${u.repo}`); failed++; continue; }
 
   const upDir = upSkill.slice(0, upSkill.lastIndexOf("/"));
+  if (relicensed(u, t, upDir)) { refuse(rel, u, t); failed++; continue; }
   const members = t.blobs.filter((p) => p.startsWith(upDir + "/"));
 
   const get = async (p) => {

@@ -10,6 +10,7 @@ upstream:
   path: data/patterns/chinese_news_translate/system.md
   ref: bf8dcf728e5f39ec5b93958b667d678b3d3e7f1c
   checked: 2026-10-26
+  license: MIT
 ---
 # 身份与目标
 

@@ -8,6 +8,7 @@ upstream:
   path: plugins/cloud-infrastructure/agents/terraform-specialist.md
   ref: 42203085cfc5736204bf0f6d436dff7e1da0bf3f
   checked: 2026-11-18
+  license: MIT
 tags: ["agent","terraform","iac","cloud"]
 ---
 

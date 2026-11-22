@@ -9,6 +9,7 @@ upstream:
   path: prompts/entertainment/movie-recommender.md
   ref: e19d82a2a77c5dc06ad17a92fcb28782ae61c753
   checked: 2026-10-26
+  license: MIT
 ---
 
 # Movie Recommender

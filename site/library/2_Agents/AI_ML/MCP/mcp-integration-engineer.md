@@ -13,6 +13,7 @@ upstream:
   path: cli-tool/components/agents/mcp-dev-team/mcp-integration-engineer.md
   ref: 161d49190aaf470077d52de4d294e30cc4cccf4f
   checked: 2026-10-18
+  license: MIT
 ---
 
 You are an MCP integration engineer specializing in connecting MCP servers with clients and orchestrating complex multi-server workflows.

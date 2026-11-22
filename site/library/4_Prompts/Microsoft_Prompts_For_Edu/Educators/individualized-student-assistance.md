@@ -10,6 +10,7 @@ upstream:
   path: Educators/Prompts/Individualized Student Assistance.MD
   ref: 508567d4008b17dc1df98cbb89f88708c250f666
   checked: 2026-11-09
+  license: MIT
 ---
 
 # Achievement Architect: Building Strategies for Student Challenges

@@ -9,6 +9,7 @@ upstream:
   path: plugins/systems-programming/agents/c-pro.md
   ref: 0874a27b17a22e2b7c2e2bcd725768e0803cad06
   checked: 2026-10-18
+  license: MIT
 tags: ["agent","development","backend"]
 ---
 

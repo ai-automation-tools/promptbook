@@ -9,6 +9,7 @@ upstream:
   path: codex-rs/core/gpt-5.1-codex-max_prompt.md
   ref: 333ea3194740c2e19edb215e7c8867170e013e13
   checked: 2026-11-18
+  license: Apache-2.0
 ---
 
 You are Codex, based on GPT-5. You are running as a coding agent in the Codex CLI on a user's computer.

@@ -198,7 +198,8 @@ site/
                        MCP repos the library doesn't track; its report is one source for the
                        promptbook-find-* jobs. docs/DISCOVERY.md, the ledger its --write filled,
                        closed 2026-11-18 apart from its `reject` rows),
-                       vendor-skill-licenses.mjs (each skill's `license:` and LICENSE file, from gh),
+                       vendor-skill-licenses.mjs (every copied item's `license:`, and a skill's LICENSE file, from gh),
+                       build-notice.mjs (NOTICE's list of sources, from those stamps; upstream.test.mjs checks it),
                        check-content.mjs (PB-06 content gate in CI: instruction overrides, invisible
                        Unicode, AI-addressed HTML comments, curl|sh; prints file:line, never the text;
                        exceptions in content-allowlist.json with a reason),
@@ -286,10 +287,14 @@ removed on 2026-11-22 (in git history at `86ff6925`, `archive/skill-libraries-20
 - Never commit `.env*` (gitignored) or anything under `site/my-library/`.
 - **Every skill, agent, system prompt and MCP card names its source** (Mike, 2026-10-23): an
   `upstream:` block with a GitHub `repo` (`path`, `ref`, `checked`), `match: vendor` + `url` for a
-  system prompt published only on the vendor's page, or `server.repo` on an MCP card. A skill
-  also needs a redistributable `license:` (SPDX) in that block and its LICENSE beside `SKILL.md`,
-  since it ships in ZIPs: `node scripts/vendor-skill-licenses.mjs --write` writes both, and a
-  skill whose repo has no such licence is not added (four were archived for that, 2026-10-27).
+  system prompt published only on the vendor's page, or `server.repo` on an MCP card. Every copied
+  item also needs a redistributable `license:` (SPDX) in that block (`NOASSERTION` for a vendor
+  page, which claims none), and a skill its LICENSE beside `SKILL.md`, since it ships in ZIPs:
+  `node scripts/vendor-skill-licenses.mjs --write` writes both, then
+  `node scripts/build-notice.mjs --write` regenerates NOTICE's source list (a new MIT repo needs
+  its copyright line in that script's COPYRIGHT). An item whose repo has no such licence is not
+  added (four skills were archived for that, 2026-10-27). The weekly drift check reports an
+  upstream that changed its licence as `relicensed`, and the resync never touches it.
   `scripts/upstream.test.mjs` fails CI otherwise. No repo, no file. System prompts are copied
   verbatim, never written, and only from the vendor's own page or repo (Mike, 2026-11-18): the
   136 that came from leak collections were re-sourced from Anthropic's pages or archived to

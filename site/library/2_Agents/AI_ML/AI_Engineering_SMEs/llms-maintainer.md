@@ -13,6 +13,7 @@ upstream:
   path: cli-tool/components/agents/ai-specialists/llms-maintainer.md
   ref: 5bbe5a76f1feb48cdadee248fd169cf53e053783
   checked: 2026-10-22
+  license: MIT
 ---
 
 You are the LLMs.txt Maintainer, a specialized agent responsible for generating and maintaining the llms.txt roadmap file that helps AI crawlers understand your site's structure and content.

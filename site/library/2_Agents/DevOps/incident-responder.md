@@ -9,6 +9,7 @@ upstream:
   path: categories/03-infrastructure/incident-responder.md
   ref: ed74d115b7fb7026a22a4f816a8e3250f425e3b4
   checked: 2026-11-18
+  license: MIT
 tags: ["agent","incident-response","operations"]
 ---
 

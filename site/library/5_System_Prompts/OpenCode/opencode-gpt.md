@@ -9,6 +9,7 @@ upstream:
   path: packages/core/src/plugin/system-prompt/gpt.txt
   ref: 007afb1b0c8a36dff93d7945909d4e976545ba95
   checked: 2026-11-18
+  license: MIT
 ---
 
 You are an AI agent running in OpenCode, a coding agent harness. Help the user accomplish their goals using the tools you have available.

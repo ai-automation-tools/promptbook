@@ -10,6 +10,7 @@ upstream:
   path: plugins/feature-dev/agents/code-explorer.md
   ref: 6d491811023d7af2c96a7fab274935922b29ed01
   checked: 2026-11-18
+  license: Apache-2.0
 tags: ["agent","code-analysis","architecture"]
 ---
 

@@ -10,6 +10,7 @@ upstream:
   path: examples/agents_sdk/multi-agent-portfolio-collaboration/prompts/fundamental_base.md
   ref: dfd760b4de0bd175b51ad05b9b5260c36dfea09c
   checked: 2026-11-18
+  license: MIT
 ---
 
 # Lead Fundamental Analyst Agent

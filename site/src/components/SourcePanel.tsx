@@ -14,7 +14,7 @@ export interface ItemSource {
   ref?: string;
   compareUrl?: string;
   match?: string;
-  verdict?: 'current' | 'drifted' | 'behind' | 'upstream-gone' | 'repo-gone' | 'error';
+  verdict?: 'current' | 'drifted' | 'behind' | 'upstream-gone' | 'repo-gone' | 'relicensed' | 'error';
   checked?: string;
 }
 
@@ -24,6 +24,7 @@ const BADGE: Record<string, { label: string; tone: string; hint: string }> = {
   behind: { label: 'Behind upstream', tone: 'var(--warn)', hint: 'Upstream has changed a quarter or more of this file since our copy.' },
   'upstream-gone': { label: 'Removed upstream', tone: 'var(--danger)', hint: 'The repo no longer has this file.' },
   'repo-gone': { label: 'Repo gone', tone: 'var(--danger)', hint: 'The upstream repo no longer exists.' },
+  relicensed: { label: 'Licence changed upstream', tone: 'var(--warn)', hint: 'The repo is no longer under the licence this copy was made under; this copy keeps its original terms.' },
   fork: { label: 'Archived copy', tone: 'var(--fg-4)', hint: 'Upstream has since removed or replaced this file; this copy is kept as it was.' },
   vendor: { label: 'Vendor-published', tone: 'var(--ok)', hint: 'Published by the vendor on its own site.' },
 };

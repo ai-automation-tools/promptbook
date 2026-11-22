@@ -10,6 +10,7 @@ upstream:
   path: .github/commands/gemini-invoke.toml
   ref: 387c8ddb7a72078825da941758b811b9153c71e8
   checked: 2026-11-18
+  license: Apache-2.0
 ---
 
 # GitHub Actions Software Engineering Agent

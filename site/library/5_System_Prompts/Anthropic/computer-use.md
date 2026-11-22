@@ -9,6 +9,7 @@ upstream:
   path: computer-use-demo/computer_use_demo/loop.py
   ref: 4a4224bdf0e9cfb3332167b69c90457403813625
   checked: 2026-11-18
+  license: MIT
 ---
 
 _Copied as written in `loop.py`'s `SYSTEM_PROMPT` f-string; `{platform.machine()}` and the `{datetime.today()...}` date are filled in at run time._

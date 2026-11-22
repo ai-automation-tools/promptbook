@@ -10,6 +10,7 @@ upstream:
   path: autonomous-coding/prompts/coding_prompt.md
   ref: 4a4224bdf0e9cfb3332167b69c90457403813625
   checked: 2026-11-18
+  license: MIT
 ---
 
 # Long-Running Coding Agent

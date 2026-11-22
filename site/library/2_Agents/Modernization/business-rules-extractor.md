@@ -8,6 +8,7 @@ upstream:
   path: plugins/code-modernization/agents/business-rules-extractor.md
   ref: 30c0ac7ff8f2f6e741ed8204d5997f14bf80b481
   checked: 2026-11-19
+  license: Apache-2.0
 tags: ["agent", "modernization", "legacy-code", "business-rules"]
 ---
 

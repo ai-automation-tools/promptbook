@@ -154,12 +154,31 @@ for (const f of files) {
   targets.push({ file: rel, u, body, name: nameOf(rel) });
 }
 
+// Every copied item's stamped licence, by repo, prompts included (they are not body-checked
+// here), for the licence table: a repo that changed its licence since we copied from it (PB-17).
+const stampedLicences = new Map(); // repo -> Map<license, count>
+for (const f of [...files, ...walk(path.join(LIB, "4_Prompts"), (n) => n.endsWith(".md"))]) {
+  const u = readUpstream(splitFrontmatter(fs.readFileSync(f, "utf8")).fm);
+  if (!u?.repo || !u.license || path.basename(f) === "SKILL.md") continue; // a skill's licence is its own LICENSE file's
+  const m = stampedLicences.get(u.repo) ?? new Map();
+  m.set(u.license, (m.get(u.license) ?? 0) + 1);
+  stampedLicences.set(u.repo, m);
+}
+
+/**
+ * Upstream's licence no longer what this copy was stamped with: a person decides, and the weekly
+ * resync (behind/drifted only) never touches it. NONE (licence removed) counts.
+ * ponytail: compared only as SPDX ids; GitHub's NOASSERTION (a licence it can't name) is not flagged.
+ */
+const relicensed = (stamped, now) =>
+  Boolean(stamped && now && stamped !== "NOASSERTION" && now !== "NOASSERTION" && stamped !== now);
+
 console.error(`attributed skills and agents to check: ${targets.length}`);
 console.error(`skipping ${skipped.unknown} unknown, ${skipped.ambiguous} ambiguous, ${skipped.fork} fork, ${skipped.none} unstamped`);
 if (!TOKEN) console.error("no GITHUB_TOKEN — anonymous limit is 60/h, expect throttling");
 
 // ---------- one tree per repo ----------
-const repos = [...new Set(targets.map((t) => t.u.repo))];
+const repos = [...new Set([...targets.map((t) => t.u.repo), ...stampedLicences.keys()])];
 console.error(`upstream repos: ${repos.length}`);
 
 const trees = new Map();
@@ -171,13 +190,20 @@ for (const repo of repos) {
     if (meta.status === 404) { trees.set(repo, { gone: true }); continue; }
     if (meta.status === 403 || meta.status === 429) { rateLimited = true; break; }
     if (!meta.ok) { trees.set(repo, { error: `HTTP ${meta.status}` }); continue; }
-    const branch = (await meta.json()).default_branch;
+    const info = await meta.json();
+    const branch = info.default_branch;
+    const license = info.license?.spdx_id ?? "NONE";
+    // A prompt-only repo needs no tree: only its licence is checked.
+    if (!targets.some((t) => t.u.repo === repo)) { trees.set(repo, { license }); continue; }
     const tr = await fetch(`https://api.github.com/repos/${repo}/git/trees/${branch}?recursive=1`, { headers: api });
     if (!tr.ok) { trees.set(repo, { error: `tree HTTP ${tr.status}` }); continue; }
     const data = await tr.json();
-    const paths = (data.tree || []).filter((x) => x.type === "blob" && /\.md$/i.test(x.path))
-      .map((x) => x.path);
-    trees.set(repo, { branch, paths });
+    const blobs = (data.tree || []).filter((x) => x.type === "blob").map((x) => x.path);
+    const paths = blobs.filter((p) => /\.md$/i.test(p));
+    // Folders with their own licence file: a skill there is under that, not the repo's licence.
+    const licensedDirs = new Set(blobs.filter((p) => /^(LICENSE|COPYING)(\.(md|txt))?$/i.test(p.split("/").pop()))
+      .map((p) => p.split("/").slice(0, -1).join("/")));
+    trees.set(repo, { branch, paths, license, licensedDirs });
   } catch (e) {
     trees.set(repo, { error: String(e.message || e) });
   }
@@ -204,6 +230,11 @@ for (const t of targets) {
       || null;
   }
   if (!resolved) { rows.push({ ...t, verdict: "upstream-gone" }); continue; }
+  const ownLicence = isSkill(resolved) && tree.licensedDirs.has(resolved.split("/").slice(0, -1).join("/"));
+  if (!ownLicence && relicensed(t.u.license, tree.license)) {
+    rows.push({ ...t, resolved, verdict: "relicensed", detail: `stamped ${t.u.license}, upstream now ${tree.license}` });
+    continue;
+  }
 
   // raw.githubusercontent does not consume the API quota.
   let text;
@@ -234,12 +265,13 @@ const by = (v) => rows.filter((r) => r.verdict === v);
 const MEAN = {
   "repo-gone": "the whole upstream repo 404s",
   "upstream-gone": "nothing of this name left in the upstream repo",
+  relicensed: "upstream's licence is not the one this copy was stamped with; never resynced unattended",
   behind: "a quarter or more of upstream's lines are not in this copy",
   drifted: "bodies differ, but this copy holds over 75% of upstream's lines",
   error: "could not be fetched",
   current: "body identical to upstream",
 };
-const order = ["repo-gone", "upstream-gone", "behind", "drifted", "error", "current"];
+const order = ["repo-gone", "upstream-gone", "relicensed", "behind", "drifted", "error", "current"];
 
 const md = [`# Upstream drift — ${new Date().toISOString().slice(0, 10)}`, ""];
 md.push(`Checked **${rows.length}** attributed skills and agents across **${repos.length}** upstream repos. ` +
@@ -250,6 +282,19 @@ md.push("| verdict | count | meaning |");
 md.push("|:---|---:|:---|");
 for (const v of order) if (by(v).length) md.push(`| \`${v}\` | ${by(v).length} | ${MEAN[v]} |`);
 md.push("");
+
+// ---------- licences ----------
+// By repo, over every copied section (prompts too, which are not body-checked above).
+const licenceRows = [...stampedLicences].flatMap(([repo, m]) => {
+  const now = trees.get(repo)?.license;
+  return [...m].filter(([lic]) => relicensed(lic, now)).map(([lic, n]) => `| ${repo} | ${lic} | ${now} | ${n} |`);
+});
+if (licenceRows.length) {
+  md.push(`## Licence changed upstream (${licenceRows.length})`, "",
+    "Copied items whose repo is no longer under the licence they were stamped with. Read the new terms, then re-stamp " +
+    "the items' `license:` and run `node scripts/build-notice.mjs --write`, or archive them. Nothing here is resynced unattended.", "",
+    "| repo | stamped | now | items |", "|:---|:---|:---|---:|", ...licenceRows, "");
+}
 
 // ---------- library health ----------
 // Per section, from the committed index: how much is there, how much moved in the
@@ -283,7 +328,7 @@ try {
   md.push(`_Library health table skipped: ${String(e.message || e)}_`, "");
 }
 
-for (const v of ["repo-gone", "upstream-gone", "behind", "drifted", "error"]) {
+for (const v of ["repo-gone", "upstream-gone", "relicensed", "behind", "drifted", "error"]) {
   const list = by(v);
   if (!list.length) continue;
   md.push(`## ${v} (${list.length})`, "");

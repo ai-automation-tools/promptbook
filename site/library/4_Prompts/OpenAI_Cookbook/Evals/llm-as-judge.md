@@ -10,6 +10,7 @@ upstream:
   path: examples/gpt-5/prompt-optimization-cookbook/llm_as_judge.txt
   ref: dfd760b4de0bd175b51ad05b9b5260c36dfea09c
   checked: 2026-11-18
+  license: MIT
 ---
 
 # LLM as Judge: Task Adherence and Code Quality

@@ -10,6 +10,7 @@ upstream:
   path: .claude/commands/label-issue.md
   ref: 5a856893345e332afa621934082d8c660c26d689
   checked: 2026-11-18
+  license: MIT
 ---
 
 # Label a GitHub Issue

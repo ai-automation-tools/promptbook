@@ -10,6 +10,7 @@ upstream:
   path: .gemini/commands/review-and-fix.toml
   ref: f10b8c7657ab3fb4dc8a1864ef39de65ea38b46a
   checked: 2026-11-18
+  license: Apache-2.0
 ---
 
 # Review and Fix Local Changes

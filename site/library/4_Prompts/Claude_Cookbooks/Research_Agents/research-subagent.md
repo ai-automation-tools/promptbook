@@ -10,6 +10,7 @@ upstream:
   path: patterns/agents/prompts/research_subagent.md
   ref: ce8b2629efe8b24048b127b4c79af1e9cbab93d4
   checked: 2026-11-18
+  license: MIT
 ---
 
 # Research Subagent

@@ -8,6 +8,7 @@ upstream:
   url: https://platform.claude.com/docs/en/release-notes/system-prompts/claude-opus-4-6
   retrieved: 2026-11-18
   checked: 2026-11-18
+  license: NOASSERTION
 ---
 
 <claude_behavior>

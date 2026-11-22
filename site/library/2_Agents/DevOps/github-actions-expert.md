@@ -8,6 +8,7 @@ upstream:
   path: agents/github-actions-expert.md
   ref: 6b76c35f3d8f68a44274a099e8c06ba451e60f62
   checked: 2026-11-18
+  license: MIT
 tags: ["agent","github-actions","ci-cd"]
 ---
 

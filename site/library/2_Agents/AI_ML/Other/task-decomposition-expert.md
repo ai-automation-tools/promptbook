@@ -9,6 +9,7 @@ upstream:
   path: cli-tool/components/agents/ai-specialists/task-decomposition-expert.md
   ref: 5bbe5a76f1feb48cdadee248fd169cf53e053783
   checked: 2026-10-22
+  license: MIT
 tags: ["agent","ai-ml","other"]
 ---
 

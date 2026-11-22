@@ -10,6 +10,7 @@ upstream:
   path: .gemini/commands/find-docs.toml
   ref: f10b8c7657ab3fb4dc8a1864ef39de65ea38b46a
   checked: 2026-11-18
+  license: Apache-2.0
 ---
 
 # Find Relevant Documentation
