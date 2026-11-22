@@ -23,7 +23,7 @@
 </p>
 
 <p align="center">
-  <a href="https://promptbook-demo.ai-automation-tools.dev"><img src="https://img.shields.io/badge/Read--only_Demo-my--prompt--library--demo.ai--automation--tools.dev-f59e0b?style=for-the-badge&logo=vercel&logoColor=white" alt="Read-only demo"></a>
+  <a href="https://promptbook-demo.ai-automation-tools.dev"><img src="https://img.shields.io/badge/Read--only_Demo-promptbook--demo.ai--automation--tools.dev-f59e0b?style=for-the-badge&logo=vercel&logoColor=white" alt="Read-only demo"></a>
   <img src="https://img.shields.io/badge/runs-locally-2ea44f?style=for-the-badge" alt="Runs locally">
   <a href="docs/ROADMAP.md"><img src="https://img.shields.io/badge/plan-ROADMAP-8B5CF6?style=for-the-badge" alt="Roadmap"></a>
 </p>
@@ -114,15 +114,21 @@ npm run test:markdown-file   # a downloaded .md reads back unchanged
 npm run test:preview         # badge rows do not become the card blurb
 npm run test:mcp         # the MCP server, end to end over stdio
 npm run test:safe-path   # ../ escapes and links out of library/ are refused
+npm run test:frame-ancestors  # FRAME_ANCESTORS reaches CSP frame-ancestors, nothing else does
 npm run test:browser     # after npm run build: the built app in Chrome (needs Chrome installed)
 npm run build:index      # rebuild api/prompt-index.json after editing library/
 npm run bench            # latency and event-loop stall of the heavy endpoints (not a test)
 
-node scripts/upstream.test.mjs           # provenance frontmatter (run from the repo root)
+# from the repo root
+node scripts/upstream.test.mjs           # provenance, licences, no leaked or jailbreak items
 node scripts/skill-frontmatter.test.mjs  # Agent Skills spec compliance
+node scripts/check-content.mjs           # no hidden or agent-directed instructions in the library
+node scripts/homepage.test.mjs           # the homepage's required links
 ```
 
-CI runs all of these on every PR and fails if the committed prompt index is stale.
+CI (`.github/workflows/ci.yml`) runs every check above except `build:index` and `bench`, warns
+on diagram drift, fails if the committed prompt index is stale, and scans the history for
+secrets with gitleaks.
 
 ---
 

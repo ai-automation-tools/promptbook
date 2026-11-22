@@ -4,6 +4,19 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-22 — README checks match CI; the pause switch is written down (PB-25, part)
+
+**Docs**
+- README's Checks list now matches `ci.yml`: it adds `test:frame-ancestors`, the content gate and the homepage links check, and says which commands CI does not run (`build:index`, `bench`). The demo badge's label still read `my-prompt-library-demo`; it reads `promptbook-demo`.
+- `AGENTS.md` and the roadmap's "Kept current by" table describe the pause switch the job prompts gained (PB-20): an empty `docs/AUTOMATION_PAUSED` on `main` stops every scheduled Promptbook job.
+- Already fine: `docs/CONTRIBUTING.md` no longer mentions SQL, and the Vite roadmap item was ticked in #542.
+
+**Not done here:** cutting `AGENTS.md` to 12 KB and moving changelog entries older than about 60 days to `docs/changelog/` change how the repo's main guide reads, so they wait for the owner.
+
+_Touched: `README.md`, `AGENTS.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — MCP search finds words deep in an item's text (PB-32)
 
 **MCP**
