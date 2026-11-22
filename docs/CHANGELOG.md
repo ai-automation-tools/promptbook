@@ -4,11 +4,25 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-21 — Library refresh — guides
+
+Merged three duplicate groups and corrected six guides against sources read that day.
+
+- **Merged:** `CLI_Tools/fabric_cli_guide.md` into `fabric-cli-guide.md` (flags fixed against the Fabric README: `-y` replaces the `yt` helper, `--listpatterns`, `--updatepatterns`, `-C` is context and `-c` is copy; `repo:` now `danielmiessler/Fabric`); `aider-advanced-guide.md`, `aider-guide.md`, `aider-setup-guide.md`, `aider_cli_guide.md` into `aider_guide.md` (install via `aider-install`, `/read-only`, `.aider.conf.yml`; Aider README and `docs/usage/commands.md`); `IDE_Extensions/cline_guide.md` and `cline_ide_guide.md` into `cline-guide.md` (surfaces, `.clinerules`, auto-approve; Cline README). The merged-away files are deleted.
+- **Models:** `API_Providers/openai_api_guide.md`, `openai_cli_guide.md`, `openai-api-best-practices.md` moved to `gpt-6.2-sol`, `gpt-6.2-astra`, `gpt-6.1-terra`, `gpt-6-luna` with prices and limits from developers.openai.com/api/docs/models; Codex release line updated to 0.171.0 (openai/codex releases). The old `gpt-5.6-sol` / `gpt-6-astra` IDs in `aider_guide.md`, `swe-agent-guide.md` and `continue_dev_guide.md` were swapped too (ID only; those two were not otherwise re-checked and carry no `checked:`).
+
+_Touched: `site/library/1_Guides/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-20 — Docs sweep
 
 `docs/OPEN-QUESTIONS.md` is linked from the docs hub, and the 2026-10-31 entries sit above 2026-10-30 again so the headings run newest-first. Entries moved whole; no text changed.
 
 _Touched: `docs/README.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-20 — Library: new MCP servers
 
 Three official servers, each written from its README read that day: Sentry (`getsentry/toolkit`, `packages/mcp-server`, FSL-1.1-Apache-2.0) and Datadog (`datadog-labs/mcp-server`, MIT) in `Developer_Tools/`, and Google Analytics (`googleanalytics/google-analytics-mcp`, Apache-2.0) in `Apps_and_Services/`. The `6_MCP_Servers` README now counts 57 cards.

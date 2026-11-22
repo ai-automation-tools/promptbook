@@ -3,7 +3,8 @@ title: "🧵 Fabric CLI Guide"
 tags: ["agent-guides", "fabric", "cli", "prompt-framework"]
 category: "Agent_Guides"
 subcategory: "CLI_Tools"
-repo: danielmiessler/fabric
+repo: danielmiessler/Fabric
+checked: 2026-11-21
 ---
 
 # Fabric CLI Guide
@@ -15,14 +16,14 @@ Fabric is an open-source framework for augmenting humans using AI. It provides a
 
 ### Basic Settings
 - **Agent Name:** Fabric CLI
-- **Model:** Anthropic Claude Sonnet 5 (recommended) or OpenAI GPT-4o
-- **Temperature:** 0.0 - 0.7 (depending on the pattern)
+- **Model:** Any model from a vendor you configured (`fabric --setup`; list with `fabric --listmodels`, change the default with `fabric -d`)
+- **Temperature:** `-t`, default 0.7 (lower for extraction patterns)
 - **Context Window:** Model dependent (128k+ recommended for large inputs)
 
 ### Tools & Permissions
 - Tool 1: File system access (Read/Write for inputs and outputs)
 - Tool 2: Network access (for API calls to configured LLM providers)
-- Tool 3: YouTube transcript tool (built-in integration)
+- Tool 3: YouTube transcripts (built in: `-y <url>`, optionally with `--transcript` or `--transcript-with-timestamps`)
 
 ## System Prompt
 
@@ -43,7 +44,7 @@ Fabric CLI operates as a specialized pattern executor. Its identity is defined b
 
 ### Example 1: Summarizing a YouTube Video
 **Command:**
-`yt --transcript https://www.youtube.com/watch?v=example | fabric --pattern extract_wisdom`
+`fabric -y "https://www.youtube.com/watch?v=example" --pattern extract_wisdom`
 
 **Output:**
 ```markdown
@@ -65,27 +66,28 @@ Fabric CLI operates as a specialized pattern executor. Its identity is defined b
 
 - **Chain Commands**: Leverage Unix piping to chain tools before and after Fabric. Example: `curl -s URL | fabric -p extract_article | fabric -p summarize`.
 - **Use the Right Pattern**: Take time to explore `fabric --list` to find the exact pattern for your task instead of writing custom prompts every time.
-- **Set Default Models**: Configure your preferred models for different tasks using the `~/.config/fabric/.env` file.
+- **Set Default Models**: Run `fabric --setup` to pick vendors and a default model, or set per-pattern models through environment variables (see the README).
+- **Keep Patterns Updated**: `fabric --updatepatterns` pulls the latest from the repository.
 
 ## Customization Options
 
-- **Custom Patterns**: You can create your own patterns by adding markdown files to `~/.config/fabric/patterns/`.
-- **Context Files**: Use the `-c` flag to include additional context files along with your prompt.
+- **Custom Patterns**: Each pattern is a folder holding a `system.md`, e.g. `~/.config/fabric/patterns/my-analyzer/system.md`. To keep them safe from updates, set a custom patterns directory under `fabric --setup` > Custom Patterns; those take precedence over built-ins of the same name.
+- **Context Files**: `-C <name>` applies a saved context (`fabric --listcontexts` lists them). `-c` only copies the output to the clipboard.
+- **Shell aliases**: the README shows loops that turn every pattern into a command (`summarize` instead of `fabric --pattern summarize`).
 
 ## Troubleshooting
 
-- **API Key Errors**: Ensure your API keys are correctly set in `~/.config/fabric/.env`.
-- **Empty Output**: Check if your input command actually generated output before piping it to Fabric.
-- **Pattern Not Found**: Run `fabric --update` to pull the latest official patterns.
+- **API Key Errors**: Re-run `fabric --setup`; keys live in `~/.config/fabric/.env`.
+- **Empty Output**: Check if your input command actually generated output before piping it to Fabric. Also check the input fits the model's context limit.
+- **Pattern Not Found**: Run `fabric --updatepatterns`, then `fabric --listpatterns`.
 
 ## Integration
 
-Fabric integrates seamlessly with standard Unix utilities (`cat`, `curl`, `jq`, `grep`) and specialized tools like the `yt` (YouTube transcript fetcher) companion tool.
+Fabric integrates with standard Unix utilities (`cat`, `curl`, `jq`, `grep`) and shell scripts; `-y` fetches YouTube transcripts itself, and `-u` scrapes a URL to markdown via Jina AI.
 
 ## Version History
 
-- **v1.0.0**: Initial public release with core patterns.
-- **v1.2.0**: Added Claude 3 support and more coding patterns.
+- Checked 2026-11-21 against the README (flags: `-p`, `-y`, `-C`, `-l`, `-U`, `-S`).
 
 ## References
 

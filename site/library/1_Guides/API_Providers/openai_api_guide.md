@@ -3,7 +3,7 @@ title: "💻 OpenAI API Guide"
 tags: ["agent-guides", "openai", "api"]
 category: "Agent_Guides"
 subcategory: "API_Providers"
-checked: 2026-10-13
+checked: 2026-11-21
 repo: openai/openai-python
 ---
 
@@ -16,8 +16,8 @@ A comprehensive guide on integrating and utilizing the OpenAI API for building i
 
 ### Basic Settings
 - **Agent Name:** OpenAI Assistant
-- **Model:** `gpt-6.1-sol` (balance of intelligence and cost); `gpt-6-astra` (flagship, complex reasoning and coding); `gpt-6-luna` (high-volume, cost-sensitive)
-- **Reasoning effort:** low, medium, high, xhigh, max (Luna also accepts none)
+- **Model:** `gpt-6.2-sol` (go-to model for everyday work, $2/$10 per MTok); `gpt-6.2-astra` (most capable, $8/$40, complex reasoning and coding); `gpt-6-luna` (high-volume, cost-sensitive)
+- **Reasoning effort:** low, medium, high, xhigh, max (Luna and `gpt-6.1-terra` also accept none)
 - **Context Window:** 1.05M tokens, 128K max output (all three)
 
 ### Tools & Permissions
@@ -135,6 +135,7 @@ client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 ## Version History
 - **v1.0.0** (2024-01-01): Guide created
+- **2026-11-21**: Model IDs, reasoning levels, prices and limits rechecked against developers.openai.com/api/docs/models (GPT-6.2 Sol and Astra, GPT-6.1 Terra, GPT-6 Luna).
 - **2026-10-13**: Models, limits and endpoint checked against developers.openai.com/api/docs/models; merged in the former `openai-api-guide.md` stub (setup steps and embeddings note). The Assistants API is listed there as legacy.
 
 ## References

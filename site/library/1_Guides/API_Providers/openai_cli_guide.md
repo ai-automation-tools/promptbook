@@ -3,15 +3,16 @@ title: "OpenAI API & CLI Guide"
 tags: ["openai", "gpt-6", "gpt-5", "cli", "reference", "api", "codex", "responses-api"]
 category: "Agent_Guides"
 subcategory: "API_Providers"
+checked: 2026-11-21
 repo: openai/openai-python
 ---
-## CLI Sync Notes (September 2026)
+## CLI Sync Notes (November 2026)
 
 Two separate CLIs live under the OpenAI name — don't conflate them:
 
 - **Codex CLI** is the agentic coding tool (`codex` in your terminal, this is what
-  runs autonomous edits against a repo). Current release line is **0.153.x**, with
-  `gpt-6-astra` now selectable from its bundled model picker.
+  runs autonomous edits against a repo). Latest release at the last check (2026-11-21) is **0.171.0**
+  (github.com/openai/codex/releases).
 - **OpenAI CLI** (`openai`) is the thin command-line wrapper around the API itself —
   responses, images, audio, files — described in this guide's CLI section below.
   Older `openai` Python SDK versions installed a legacy CLI under the same command
@@ -103,7 +104,7 @@ curl https://api.openai.com/v1/responses \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
   -d '{
-    "model": "gpt-5.6-sol",
+    "model": "gpt-6.2-sol",
     "input": "You are a helpful assistant. Hello!"
   }'
 ```
@@ -113,28 +114,28 @@ curl https://api.openai.com/v1/responses \
 
 Model names and pricing change often enough that this table can go stale — check
 [developers.openai.com/api/docs/pricing](https://developers.openai.com/api/docs/pricing)
-before quoting a number to anyone. As of September 2026:
+before quoting a number to anyone. As of 2026-11-21 (the four GPT-6 rows are from developers.openai.com/api/docs/models; the rows below them were not rechecked):
 
 | Model | Context | Description | Use Case |
 |-------|---------|-------------|----------|
-| `gpt-6-astra` | ~1.05M | Most capable, end-to-end complex work | Hardest reasoning + agentic tasks |
-| `gpt-5.6-sol` | ~1.05M | Flagship for professional/complex tasks | General purpose, best overall |
-| `gpt-5.6-terra` | ~1.05M | Balanced capability and cost | Everyday production workloads |
-| `gpt-5.6-luna` | ~1.05M | Cost-optimized | High-volume, latency-sensitive tasks |
+| `gpt-6.2-astra` | 1.05M | Most capable, for the hardest projects | Hardest reasoning + agentic tasks |
+| `gpt-6.2-sol` | 1.05M | Go-to model for everyday work, coding, agents at scale | General purpose, best overall |
+| `gpt-6.1-terra` | 1.05M | Fast, efficient; visual reasoning, computer use | Everyday production workloads |
+| `gpt-6-luna` | 1.05M | Most efficient | High-volume, latency-sensitive tasks |
 | `gpt-5-mini` | 128K | Small, fast GPT-5 variant | Budget-conscious general use |
 | `o3` | 128K | Reasoning model | Complex multi-step problems |
 | `o3-mini` | 128K | Fast reasoning | STEM, coding |
 | `gpt-4o` | 128K | Prior-generation multimodal flagship | Legacy compatibility |
 | `gpt-4o-mini` | 128K | Prior-generation budget model | Legacy compatibility |
 
-### Pricing (per 1M tokens, September 2026 — verify before relying on it)
+### Pricing (per 1M tokens, 2026-11-21 — verify before relying on it)
 
 | Model | Input | Output |
 |-------|-------|--------|
-| gpt-6-astra | $10.00 | $50.00 |
-| gpt-5.6-sol | $4.00 (promotional through Nov 2026) | $20.00 |
-| gpt-5.6-terra | $2.00 | $12.00 |
-| gpt-5.6-luna | $0.20 | $1.20 |
+| gpt-6.2-astra | $8.00 | $40.00 |
+| gpt-6.2-sol | $2.00 | $10.00 |
+| gpt-6.1-terra | $1.00 | $5.00 |
+| gpt-6-luna | $0.10 | $0.50 |
 | gpt-5-mini | $0.25 | $2.00 |
 | o3 | $2.00 | $8.00 |
 | o3-mini | $1.10 | $4.40 |
@@ -156,12 +157,12 @@ The current `openai` CLI is built around the **Responses API**, not the older
 ```bash
 # Basic response
 openai responses create \
-  --model gpt-5.6-sol \
+  --model gpt-6.2-sol \
   --input "Hello!"
 
 # With instructions (system-level guidance)
 openai responses create \
-  --model gpt-5.6-sol \
+  --model gpt-6.2-sol \
   --instructions "You are a Python expert" \
   --input "Explain list comprehensions"
 ```
@@ -211,7 +212,7 @@ from openai import OpenAI
 client = OpenAI()
 
 response = client.responses.create(
-    model="gpt-5.6-sol",
+    model="gpt-6.2-sol",
     instructions="You are a helpful assistant.",
     input="Hello!"
 )
@@ -223,7 +224,7 @@ print(response.output_text)
 
 ```python
 stream = client.responses.create(
-    model="gpt-5.6-sol",
+    model="gpt-6.2-sol",
     input="Count to 10",
     stream=True
 )
@@ -253,7 +254,7 @@ tools = [
 ]
 
 response = client.responses.create(
-    model="gpt-5.6-sol",
+    model="gpt-6.2-sol",
     input="What's the weather in Tokyo?",
     tools=tools
 )
@@ -275,7 +276,7 @@ class UserInfo(BaseModel):
     occupation: str
 
 response = client.responses.parse(
-    model="gpt-5.6-sol",
+    model="gpt-6.2-sol",
     input="John Doe, 30, engineer",
     text_format=UserInfo
 )
@@ -288,7 +289,7 @@ print(user.name)  # "John Doe"
 
 ```python
 response = client.responses.create(
-    model="gpt-5.6-sol",
+    model="gpt-6.2-sol",
     input=[
         {
             "role": "user",
@@ -309,7 +310,7 @@ and tool calls in one typed output array instead of a flat `choices` list.
 
 ```python
 response = client.chat.completions.create(
-    model="gpt-5.6-sol",
+    model="gpt-6.2-sol",
     messages=[
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": "Hello!"}
@@ -351,12 +352,12 @@ print(response.choices[0].message.content)
 
 ### Reasoning Effort
 
-On `o3`, `gpt-6-astra`, and other reasoning-capable models, set effort instead of
+On `o3`, `gpt-6.2-astra`, and other reasoning-capable models, set effort instead of
 (or alongside) temperature:
 
 ```python
 response = client.responses.create(
-    model="gpt-6-astra",
+    model="gpt-6.2-astra",
     input="Design a database schema for a multi-tenant SaaS app",
     reasoning={"effort": "high"}
 )
@@ -374,7 +375,7 @@ import time
 def call_with_retry(prompt, max_retries=3):
     for attempt in range(max_retries):
         try:
-            return client.responses.create(model="gpt-5.6-sol", input=prompt)
+            return client.responses.create(model="gpt-6.2-sol", input=prompt)
         except RateLimitError:
             if attempt < max_retries - 1:
                 wait = 2 ** attempt
@@ -409,10 +410,10 @@ guessing.
 ### Multi-turn Without Resending History
 
 ```python
-first = client.responses.create(model="gpt-5.6-sol", input="Remember the number 42")
+first = client.responses.create(model="gpt-6.2-sol", input="Remember the number 42")
 
 second = client.responses.create(
-    model="gpt-5.6-sol",
+    model="gpt-6.2-sol",
     previous_response_id=first.id,
     input="What number did I tell you?"
 )
@@ -517,14 +518,14 @@ defense.
 ```python
 # Old (Chat Completions)
 response = client.chat.completions.create(
-    model="gpt-5.6-sol",
+    model="gpt-6.2-sol",
     messages=[{"role": "user", "content": "Say hello"}]
 )
 print(response.choices[0].message.content)
 
 # New (Responses API)
 response = client.responses.create(
-    model="gpt-5.6-sol",
+    model="gpt-6.2-sol",
     input="Say hello"
 )
 print(response.output_text)
