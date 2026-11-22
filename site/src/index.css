@@ -369,6 +369,15 @@ html.light[data-palette='mono']      { --accent: #18181b; }
 }
 
 @layer components {
+  /* index.html's placeholder until React mounts (PB-11): first paint without waiting for the JS. */
+  .boot {
+    display: grid;
+    min-height: 100dvh;
+    place-items: center;
+    color: var(--fg-4);
+    font-size: 13px;
+  }
+
   /* ===== Source bar (org convention: top of every ai-automation-tools.dev site) ===== */
 
   /* 100dvh tracks the visible area under mobile browser toolbars; it equals 100vh on desktop. */
