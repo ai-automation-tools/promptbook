@@ -902,6 +902,10 @@ html.light[data-palette='mono']      { --accent: #18181b; }
     --mx: 50%;
     --my: 50%;
     position: relative;
+    /* A sub-category can list hundreds of cards (Fabric: 265) with no paging; the browser
+       skips laying out and painting the ones off-screen (PB-28). */
+    content-visibility: auto;
+    contain-intrinsic-size: auto 260px;
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: var(--r-lg);

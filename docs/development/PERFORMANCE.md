@@ -101,6 +101,28 @@ subjects are smaller, so they no longer test the worst case the budgets were set
 skill as large as `finance-portfolio-management-pack` (34 skills) or `canvas-design` (5.5 MB)
 should be re-measured if one is added.
 
+## ZIPs built once per process (2026-11-22, PB-28)
+
+Skill and pack ZIPs are built on the first request and kept in memory (`lib/zip-cache.ts`);
+pack manifests are read once too. The library only changes with a deploy or a restart, so
+nothing goes stale. The cold column is that first build; p50 and p95 are served from memory.
+The library is 877 indexed items. Same machine as above.
+
+| Endpoint | Cold ms | p50 ms | p95 ms | Stall ms | Bytes |
+|:--|--:|--:|--:|--:|--:|
+| List, lightweight (what the UI loads) | 6 | 6 | 10 | 5 | 279.4 KB |
+| List, full bodies (the export; cold row above) | 11 | 61 | 67 | 16 | 5.3 MB |
+| Detail read | 3 | 9 | 11 | 9 | 6.6 KB |
+| Card previews (50 ids) | 22 | 2 | 3 | 19 | 12.4 KB |
+| Skill ZIP, small (copy-editing, 16 KB) | 16 | 2 | 3 | 5 | 6.3 KB |
+| Skill ZIP, largest (diagram-design, 1.1 MB) | 439 | 18 | 25 | 11 | 1.4 MB |
+| Pack ZIP, small (developer-essentials-pack, 2 skills) | 12 | 2 | 3 | 2 | 11.4 KB |
+| Pack ZIP, largest (writing-documentation-pack, 2 skills) | 9 | 1 | 2 | 2 | 25.4 KB |
+| Detail read during a cold full listing (listing took 313 ms) | – | 3 | 5 | 54 | 0.9 KB |
+
+The stall in the last row (54 ms) is just over its 50 ms budget on this run; it moved between
+runs before this change too.
+
 ## Budgets
 
 These are about twice the "after" numbers, so a normal run passes and a regression of the
@@ -117,3 +139,4 @@ too noisy to fail a build on.
 | Detail read and previews p95 | ≤ 20 ms |
 | Largest skill ZIP, cold | ≤ 500 ms |
 | Largest pack ZIP p95 | ≤ 600 ms |
+| Repeat ZIP download p95 (served from memory) | ≤ 100 ms |
