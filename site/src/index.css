@@ -376,6 +376,7 @@ html.light[data-palette='mono']      { --accent: #18181b; }
     place-items: center;
     color: var(--fg-4);
     font-size: 13px;
+    font-family: system-ui, sans-serif; /* so this line doesn't start the Inter download before first paint */
   }
 
   /* ===== Source bar (org convention: top of every ai-automation-tools.dev site) ===== */

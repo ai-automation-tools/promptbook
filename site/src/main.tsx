@@ -9,8 +9,9 @@ import './index.css';
 
 // The page paints index.html's "Loading the library…" first, then fetches and runs the app
 // (PB-11). Downloading and evaluating React and the app was most of a slow phone's first-paint
-// time. After the first frame, or 250 ms in a background tab, where frames don't run.
-// ponytail: the app's chunks start downloading after the first paint, not with the CSS; preload
+// time, so the app starts once the browser reports that first paint. A hidden tab paints
+// nothing, so it starts at once; the timer is a backstop for a browser that never reports.
+// ponytail: the app's chunks download after the first paint, not alongside the CSS; preload
 // them (a modulepreload per chunk) if time-to-interactive ever matters more than first paint.
 let started = false;
 const start = () => {
@@ -18,5 +19,13 @@ const start = () => {
   started = true;
   void import('./app-entry.tsx');
 };
-requestAnimationFrame(() => setTimeout(start, 0));
-setTimeout(start, 250);
+if (document.visibilityState === 'hidden' || !('PerformanceObserver' in window)) start();
+else {
+  new PerformanceObserver((list, observer) => {
+    if (list.getEntriesByName('first-contentful-paint').length) {
+      observer.disconnect();
+      start();
+    }
+  }).observe({ type: 'paint', buffered: true });
+  setTimeout(start, 3000);
+}
