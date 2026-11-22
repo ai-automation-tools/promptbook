@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "buildTime": "2026-11-22T17:47:07.705Z",
+  "buildTime": "2026-11-22T17:55:55.011Z",
   "promptCount": 877,
   "prompts": [
     {
@@ -4146,7 +4146,7 @@
         "enterprise"
       ],
       "contentPreview": "# baojie/shiji-kb\n\nA collection of agent skills, published on GitHub.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/baojie/shiji-kb). Promptbook keeps on",
-      "lastModified": "2026-10-27T16:04:07.862Z",
+      "lastModified": "2026-11-22T17:54:50.532Z",
       "isUserOwned": false
     },
     {

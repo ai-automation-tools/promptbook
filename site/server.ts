@@ -26,7 +26,7 @@ import { MY_LIBRARY_DIR } from "./lib/my-library.js";
  * Windows.
  */
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const PORT = 3010;
+const PORT = Number(process.env.PORT) || 3010;
 
 async function startServer() {
   // Vercel routes /api/skill-packs/* to its own serverless function
