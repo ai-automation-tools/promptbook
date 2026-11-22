@@ -63,6 +63,15 @@ const chunkSpinner = (
 
 const PUBLIC_SHARE_ORIGIN = 'https://promptbook-demo.ai-automation-tools.dev';
 
+/** localStorage throws when the browser blocks it (privacy modes, sandboxed frames); the app
+    must still render, so a blocked read is "nothing saved" and a blocked write is skipped. */
+function readStorage(key: string): string | null {
+  try { return localStorage.getItem(key); } catch { return null; }
+}
+function writeStorage(key: string, value: string): void {
+  try { localStorage.setItem(key, value); } catch { /* storage blocked: not saved */ }
+}
+
 export default function App() {
   const [prompts, setPrompts] = useState<Prompt[]>([]);
   const [selectedPrompt, setSelectedPrompt] = useState<Prompt | null>(null);
@@ -90,7 +99,7 @@ export default function App() {
   // Library mode: 'public' or 'my'. The read-only demo has only 'public'.
   const [libraryMode, setLibraryMode] = useState<'public' | 'my'>(() => {
     if (READ_ONLY) return 'public';
-    const saved = localStorage.getItem('library-mode');
+    const saved = readStorage('library-mode');
     const urlParams = new URLSearchParams(window.location.search);
     const urlMode = urlParams.get('library');
     if (urlMode === 'public' || urlMode === 'my') return urlMode;
@@ -99,8 +108,12 @@ export default function App() {
   
   // Navigation & Organization
   const [recentlyViewed, setRecentlyViewed] = useState<string[]>(() => {
-    const saved = localStorage.getItem('prompt-recently-viewed');
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved: unknown = JSON.parse(readStorage('prompt-recently-viewed') || '[]');
+      return Array.isArray(saved) ? saved.filter((id): id is string => typeof id === 'string') : [];
+    } catch {
+      return [];
+    }
   });
   
   // Toast notifications
@@ -128,12 +141,12 @@ export default function App() {
 
   // Recently viewed stays in this browser
   useEffect(() => {
-    localStorage.setItem('prompt-recently-viewed', JSON.stringify(recentlyViewed));
+    writeStorage('prompt-recently-viewed', JSON.stringify(recentlyViewed));
   }, [recentlyViewed]);
 
   // Persist library mode to localStorage and URL
   useEffect(() => {
-    localStorage.setItem('library-mode', libraryMode);
+    writeStorage('library-mode', libraryMode);
     const url = new URL(window.location.href);
     url.searchParams.set('library', libraryMode);
     window.history.replaceState({}, '', url.toString());
@@ -1059,7 +1072,6 @@ export default function App() {
               <Suspense fallback={chunkSpinner}>
                 <PromptDetail
                   prompt={selectedPrompt}
-                  libraryMode={libraryMode}
                   copyingToMyPromptsId={copyingToMyPromptsId}
                   copiedShareLink={copiedShareLink}
                   copied={copied}

@@ -167,6 +167,21 @@ try {
   await bornStarred;
   assert.ok(JSON.parse(fs.readFileSync(favFile, "utf-8")).some(id => id.startsWith("starred-at-birth-")), "the new item is starred on create");
 
+  // Storage (PB-08): a bad saved value, then storage that throws, still render the library.
+  await page.evaluate(() => localStorage.setItem("prompt-recently-viewed", "{}"));
+  await page.goto(`${base}/`);
+  await page.locator("main").getByText(/^[\d,]+ results$/).waitFor();
+  const blocked = await browser.newPage();
+  const blockedErrors = [];
+  blocked.on("pageerror", (err) => blockedErrors.push(err.message));
+  await blocked.addInitScript(() => {
+    Object.defineProperty(window, "localStorage", { get() { throw new DOMException("blocked", "SecurityError"); } });
+  });
+  await blocked.goto(`${base}/`);
+  await blocked.locator("main").getByText(/^[\d,]+ results$/).waitFor();
+  assert.deepEqual(blockedErrors, [], "blocked storage does not break the page");
+  await blocked.close();
+
   // Suite embed contract: standalone, ?embed=1 changes nothing.
   await page.goto(`${base}/?embed=1`);
   await page.locator(".theme-sw").waitFor();
@@ -200,7 +215,7 @@ try {
   await framed.waitForFunction(() => document.documentElement.classList.contains("light"));
 
   assert.deepEqual(problems, [], "no page errors, console errors or failed requests");
-  console.log("browser-smoke: listing, card keyboard actions, detail, Related without a bounce, hero counter, Settings focus, My Library export and import, My Library links, server-side favorites (and the move from localStorage), category suggestions, the suite embed contract and the vercel.json CSP all pass on the built app");
+  console.log("browser-smoke: listing, card keyboard actions, detail, Related without a bounce, hero counter, Settings focus, My Library export and import, My Library links, server-side favorites (and the move from localStorage), category suggestions, bad or blocked storage, the suite embed contract and the vercel.json CSP all pass on the built app");
 } finally {
   await browser.close();
   server.close();

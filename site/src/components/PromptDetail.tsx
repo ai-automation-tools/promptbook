@@ -42,7 +42,6 @@ import { READ_ONLY } from '../lib/mode';
 
 interface PromptDetailProps {
   prompt: Prompt;
-  libraryMode: 'public' | 'my';
   copyingToMyPromptsId?: string | null;
   copiedShareLink?: boolean;
   copied?: string | null;
@@ -67,7 +66,6 @@ function wordCount(text: string): number {
 
 export default function PromptDetail({
   prompt,
-  libraryMode,
   copyingToMyPromptsId,
   copiedShareLink,
   copied,
@@ -135,7 +133,9 @@ export default function PromptDetail({
           >
             {isCopied ? 'Copied' : 'Copy prompt'}
           </Button>
-          {libraryMode === 'public' && !READ_ONLY && (
+          {/* Actions follow the item, not the library switch: a public prompt opened from a
+              link while My Library is selected must not offer Edit or Remove. */}
+          {!prompt.isUserOwned && !READ_ONLY && (
             <Button size="sm" onClick={() => onCopyToMyPrompts(prompt)} disabled={saving} icon={<FolderPlus className="h-3.5 w-3.5" />}>
               {saving ? 'Saving…' : 'Save to My Library'}
             </Button>
@@ -165,12 +165,12 @@ export default function PromptDetail({
           <IconButton label="Share by email" framed onClick={shareByEmail} className="h-[30px] w-[30px]">
             <Mail className="h-3.5 w-3.5" />
           </IconButton>
-          {libraryMode === 'my' && !READ_ONLY && (
+          {prompt.isUserOwned && !READ_ONLY && (
             <IconButton label="Edit prompt" framed onClick={() => onEditPrompt(prompt)} className="h-[30px] w-[30px]">
               <Pencil className="h-3.5 w-3.5" />
             </IconButton>
           )}
-          {libraryMode === 'my' && (
+          {prompt.isUserOwned && !READ_ONLY && (
             <IconButton
               label="Remove from My Library"
               framed

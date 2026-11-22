@@ -66,7 +66,7 @@ Other scripts: `npm run build` (build:index → tsc → vite build), `npm run bu
 `npm run test:prompt-content` (a failed full-prompt load throws instead of returning the preview),
 `npm run test:markdown-file` (a downloaded `.md` reads back through the store unchanged),
 `npm run test:preview` (a card blurb drops badge rows and links cut off at 200 characters),
-`npm run test:browser` (after a build: the built app in Chrome, including card actions by keyboard, Related leaving a prompt for good, the dialog focus trap, a Settings export/import, a My Library `?prompt=` link, a star saved to the server (and the move of an old localStorage list), New item's category suggestions and the embed contract inside a frame),
+`npm run test:browser` (after a build: the built app in Chrome, including card actions by keyboard, Related leaving a prompt for good, the dialog focus trap, a Settings export/import, a My Library `?prompt=` link, a star saved to the server (and the move of an old localStorage list), New item's category suggestions, bad or blocked localStorage and the embed contract inside a frame),
 `npm run test:safe-path` (`../` escapes and links out of `library/` are refused, for detail and ZIPs),
 `npm run test:frame-ancestors` (`FRAME_ANCESTORS` origins get CSP `frame-ancestors` and no X-Frame-Options; a bad entry never reaches the header),
 `npm run bench` (latency, size and event-loop stall of the heavy endpoints; compare with

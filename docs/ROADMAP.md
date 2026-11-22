@@ -100,7 +100,7 @@ From the 2026-11-18 project audit (taken at `2a990cd`). Ids are the audit's back
 - [x] **PB-05** P1 · Remove archive/ (unlicensed, proprietary and rejected content) from the public tree — done 2026-11-22: 1,968 files (25 MB) removed, everything but `leaked-sources-2026-11-18/` (kept, PB-04); restore point `86ff6925`, named in `archive/README.md` and the docs that pointed into it
 - [ ] **PB-06** P1 · Content gate: CI check for hostile instructions in library changes
 - [ ] **PB-07** P1 · PR sweep: hold upstream resyncs and keep the workflow hold for Promptbook *(claude-routines)*
-- [ ] **PB-08** P2 · Client quick fixes: detail actions by item, page clamp, guarded localStorage
+- [x] **PB-08** P2 · Client quick fixes: detail actions by item, page clamp, guarded localStorage — done 2026-11-22: detail Save/Edit/Remove follow `prompt.isUserOwned`; the page clamps to the list; App reads and writes localStorage through guarded helpers; `test:browser` covers a bad saved value and blocked storage
 - [ ] **PB-09** P2 · One URL-derived view for navigation (fixes races, shared links, Back/Forward)
 - [ ] **PB-10** P2 · Demo: edge-cache public API, refuse full listing, stop bot-branch preview deploys 🔒 Needs owner
 - [ ] **PB-11** P2 · Mobile first paint under 2 s
