@@ -180,6 +180,43 @@ try {
   await bornStarred;
   assert.ok(JSON.parse(fs.readFileSync(favFile, "utf-8")).some(id => id.startsWith("starred-at-birth-")), "the new item is starred on create");
 
+  // A save that lost a race (409) keeps the draft and offers the saved copy (PB-22).
+  await page.goto(`${base}/?library=my&prompt=${mine.id}`);
+  await page.getByRole("heading", { name: "Smoke export" }).waitFor();
+  await page.getByRole("button", { name: "Edit prompt" }).first().click();
+  await page.locator("#prompt-content").fill("my draft");
+  myLibrary.update(mine.id, { content: "changed elsewhere\n" });
+  await page.getByRole("button", { name: /^Save/ }).click();
+  await page.getByRole("dialog").getByText(/changed somewhere else/).waitFor();
+  assert.equal(await page.locator("#prompt-content").inputValue(), "my draft", "a 409 keeps the draft");
+  // That 409 is the point of this step, so its response and console line are not problems.
+  for (let i = problems.length - 1; i >= 0; i--) if (/\b409\b/.test(problems[i])) problems.splice(i, 1);
+  await page.getByRole("button", { name: "Load the saved version instead" }).click();
+  assert.equal((await page.locator("#prompt-content").inputValue()).trim(), "changed elsewhere", "and can load the saved copy");
+  await page.keyboard.press("Escape");
+  await page.getByRole("dialog").waitFor({ state: "detached" });
+
+  // Skill Packs (PB-22): the list is fetched once, for the sidebar, hero and grid together.
+  const packLists = [];
+  page.on("request", r => { if (/\/api\/skill-packs\?library=/.test(r.url())) packLists.push(r.url()); });
+  await page.goto(`${base}/?section=skill-packs&library=public`);
+  await page.getByRole("button", { name: "Add to My Library" }).first().waitFor();
+  await page.waitForTimeout(300);
+  assert.equal(packLists.length, 1, `Skill Packs listed once, not ${packLists.length} times`);
+
+  // Phones (UX-09): the floating "+" slides away while the list scrolls down, back on the way up.
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`${base}/`);
+  await page.locator("main").getByText(/^[\d,]+ results$/).waitFor();
+  const scrollContent = (top) => page.evaluate((t) => { document.querySelector("#main .overflow-y-auto").scrollTop = t; }, top);
+  const fabHidden = () => page.locator('button.fixed[aria-label="New item"]').getAttribute("aria-hidden");
+  await scrollContent(900);
+  await page.waitForFunction(() => document.querySelector('button.fixed[aria-label="New item"]').getAttribute("aria-hidden") === "true");
+  await scrollContent(300);
+  await page.waitForFunction(() => !document.querySelector('button.fixed[aria-label="New item"]').hasAttribute("aria-hidden"));
+  assert.equal(await fabHidden(), null, "the + is back after scrolling up");
+  await page.setViewportSize({ width: 1280, height: 720 });
+
   // Storage (PB-08): a bad saved value, then storage that throws, still render the library.
   await page.evaluate(() => localStorage.setItem("prompt-recently-viewed", "{}"));
   await page.goto(`${base}/`);
@@ -228,7 +265,7 @@ try {
   await framed.waitForFunction(() => document.documentElement.classList.contains("light"));
 
   assert.deepEqual(problems, [], "no page errors, console errors or failed requests");
-  console.log("browser-smoke: listing, card keyboard actions, detail, Related without a bounce, hero counter, Settings focus, the command palette's focus trap, My Library export and import, My Library links, server-side favorites (and the move from localStorage), category suggestions, bad or blocked storage, the suite embed contract and the vercel.json CSP all pass on the built app");
+  console.log("browser-smoke: listing, card keyboard actions, detail, Related without a bounce, hero counter, Settings focus, the command palette's focus trap, My Library export and import, My Library links, server-side favorites (and the move from localStorage), category suggestions, a 409 that keeps the draft, Skill Packs listed once, the phone New item button stepping aside on scroll, bad or blocked storage, the suite embed contract and the vercel.json CSP all pass on the built app");
 } finally {
   await browser.close();
   server.close();

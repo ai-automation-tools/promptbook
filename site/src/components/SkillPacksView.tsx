@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, type MouseEvent as ReactMouseEvent } from 'react';
+import { useState, type MouseEvent as ReactMouseEvent } from 'react';
 import { AnimatePresence, m } from 'motion/react';
 import { ArrowLeft, ArrowRight, Download, Info, Package, PackageMinus, PackagePlus, Star, Tag, Wrench } from 'lucide-react';
 import { cn } from '../lib/cn';
@@ -6,22 +6,9 @@ import { humanize } from '../lib/sections';
 import { Button, IconButton } from './ui/primitives';
 import { LoadingSkeleton } from './PromptGrid';
 import { READ_ONLY } from '../lib/mode';
+import type { SkillPackSummary } from './Sidebar';
 
 type ToastType = 'success' | 'error' | 'warning' | 'info';
-
-interface SkillPackSummary {
-  id: string;
-  name: string;
-  description: string;
-  icon: string;
-  version: string;
-  tags: string[];
-  category: string;
-  skillCount: number;
-  author: string;
-  created_at: string;
-  updated_at: string;
-}
 
 interface SkillInPack {
   path: string;
@@ -53,6 +40,13 @@ export const packFavoriteId = (packId: string) => `pack:${packId}`;
 
 interface SkillPacksViewProps {
   libraryMode: 'public' | 'my';
+  /** App fetches the list once (the sidebar and hero count it too) and owns reloading it. */
+  packs: SkillPackSummary[];
+  loading: boolean;
+  error: string | null;
+  onReload: () => void;
+  /** A pack was added to or removed from My Library. */
+  onLibraryChanged: () => void;
   onToast: (type: ToastType, message: string) => void;
   favorites: string[];
   /** My Library only: left out, packs show no star. */
@@ -68,34 +62,11 @@ function trackSpotlight(e: ReactMouseEvent<HTMLElement>) {
   el.style.setProperty('--my', `${e.clientY - rect.top}px`);
 }
 
-export default function SkillPacksView({ libraryMode, onToast, favorites, onToggleFavorite, onlyFavorites }: SkillPacksViewProps) {
-  const [packs, setPacks] = useState<SkillPackSummary[]>([]);
+export default function SkillPacksView({ libraryMode, packs, loading, error, onReload, onLibraryChanged, onToast, favorites, onToggleFavorite, onlyFavorites }: SkillPacksViewProps) {
   const [selectedPack, setSelectedPack] = useState<SkillPackDetail | null>(null);
-  const [loading, setLoading] = useState(true);
   const [detailLoading, setDetailLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const [addingPackId, setAddingPackId] = useState<string | null>(null);
   const [removingPackId, setRemovingPackId] = useState<string | null>(null);
-
-  const fetchPacks = useCallback(async () => {
-    try {
-      setLoading(true);
-      setError(null);
-      const response = await fetch(`/api/skill-packs?library=${libraryMode}`);
-      if (!response.ok) throw new Error(`Failed to fetch skill packs (${response.status})`);
-      const data = await response.json();
-      setPacks(Array.isArray(data) ? data : []);
-    } catch (err) {
-      console.error('Fetch error:', err);
-      setError(err instanceof Error ? err.message : 'Failed to load packs');
-    } finally {
-      setLoading(false);
-    }
-  }, [libraryMode]);
-
-  useEffect(() => {
-    void fetchPacks();
-  }, [fetchPacks]);
 
   const handleAddPackToLibrary = async (packId: string) => {
     const pack = packs.find(p => p.id === packId);
@@ -111,7 +82,7 @@ export default function SkillPacksView({ libraryMode, onToast, favorites, onTogg
       const data = await response.json();
       if (!response.ok) throw new Error(data?.error || 'Failed to add pack to library');
       onToast('success', data?.message || 'Skill pack added to My Library');
-      void fetchPacks();
+      onLibraryChanged();
     } catch (err) {
       onToast('error', err instanceof Error ? err.message : 'Failed to add pack to library');
     } finally {
@@ -134,7 +105,7 @@ export default function SkillPacksView({ libraryMode, onToast, favorites, onTogg
       if (!response.ok) throw new Error(data?.error || 'Failed to remove pack from library');
       onToast('success', data?.message || 'Skill pack removed from My Library');
       if (selectedPack?.id === packId) setSelectedPack(null);
-      void fetchPacks();
+      onLibraryChanged();
     } catch (err) {
       onToast('error', err instanceof Error ? err.message : 'Failed to remove pack from library');
     } finally {
@@ -219,7 +190,7 @@ export default function SkillPacksView({ libraryMode, onToast, favorites, onTogg
     return (
       <div className="flex flex-col items-center py-16 text-center">
         <p className="text-[14px] text-[var(--danger)]">{error}</p>
-        <Button className="mt-4" onClick={() => void fetchPacks()}>
+        <Button className="mt-4" onClick={onReload}>
           Retry
         </Button>
       </div>
