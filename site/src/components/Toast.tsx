@@ -35,7 +35,6 @@ export function Toast({ id, type, message, duration = 3200, onClose }: ToastProp
 
   return (
     <m.div
-      layout
       role={type === 'error' ? 'alert' : undefined}
       initial={{ opacity: 0, y: 16, scale: 0.96 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}

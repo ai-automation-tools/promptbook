@@ -109,14 +109,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// Debug middleware
-app.use((req, res, next) => {
-  if (req.path.startsWith('/api')) {
-    console.log(`[API] ${req.method} ${req.path}`);
-  }
-  next();
-});
-
 /** Every route that writes to My Library. Host and Origin are checked above, for every route. */
 // Takes no typed req, so each route's params are still inferred from its path
 const requireWritable = (_req: unknown, res: express.Response, next: express.NextFunction) => {
