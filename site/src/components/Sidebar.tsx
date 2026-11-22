@@ -113,6 +113,10 @@ export default function Sidebar({
   }, [showLibraries, sectionPrompts, categoryFilter]);
 
   const showCategoryFilter = showLibraries || Object.keys(categories).length > 8;
+  // A public section always has categories, so none means the listing is still loading. Lay
+  // nothing out until it arrives: painted early, the list was pushed down by the filter box
+  // when the categories came in (CLS 0.2 on desktop once the first paint got faster, PB-11).
+  const treeLoading = libraryMode === 'public' && activeTab !== 'skill-packs' && !showLibraries && Object.keys(categories).length === 0;
   const section = getSection(activeTab);
   const SectionIcon = section.icon;
 
@@ -239,7 +243,7 @@ export default function Sidebar({
             </div>
           )}
 
-          <div className="min-h-0 flex-1 space-y-0.5 overflow-y-auto px-3 pb-3">
+          <div className={cn('min-h-0 flex-1 space-y-0.5 overflow-y-auto px-3 pb-3', treeLoading && 'hidden')}>
             {/* Favorites, My Library only: starred skills, library cards or packs, whichever this view lists */}
             {libraryMode === 'my' && (<>
             <button

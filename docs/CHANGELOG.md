@@ -4,6 +4,17 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-22 — No sidebar jump on first load (PB-11 follow-up)
+
+**Fixes**
+- With fonts no longer blocking, the page now paints before the library listing arrives. The sidebar's category list was painted empty, then pushed down by the "Filter categories" box when the categories came in: desktop Lighthouse measured CLS 0.198 on the demo (0.044 before PB-11). A public section always has categories, so while it has none the list is not laid out; the filter and list now appear together. Local desktop runs: 0 to 0.04, the remainder being the footer shift the audit already recorded.
+
+**Measured on the demo** (Lighthouse 12, after PB-11 and PB-12 deployed): mobile performance 86 and 88 (audit: 67), FCP 2.6–2.7 s, TBT 140–170 ms; accessibility 100 on mobile and desktop (audit: 96), colour contrast passing.
+
+_Touched: `site/src/components/Sidebar.tsx`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — README checks match CI; the pause switch is written down (PB-25, part)
 
 **Docs**
