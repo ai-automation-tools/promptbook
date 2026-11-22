@@ -19,7 +19,7 @@ import * as z from 'zod/v4';
 import { McpServer } from '@modelcontextprotocol/server';
 import { serveStdio } from '@modelcontextprotocol/server/stdio';
 import {
-  LIBRARY_PATH, SECTIONS, SECTION_KEYS, SKILLS_SECTION, carriedFrontmatter, loadIndex, readLibraryItem, sourceOf,
+  LIBRARY_PATH, SECTIONS, SECTION_KEYS, SKILLS_SECTION, carriedFrontmatter, loadIndex, publicBodies, queryWords, readLibraryItem, sourceOf,
   type IndexEntry, type SectionKey,
 } from '../lib/library.js';
 import { existingCopy, forkExtra, myLibrary, PromptConflictError, pullUpstream, READ_ONLY, upstreamStatus, type UserPrompt } from '../lib/my-library.js';
@@ -161,17 +161,16 @@ export function createServer(): McpServer {
       : rows.sort((a, b) => a.title.localeCompare(b.title)).slice(0, limit);
 
     // Body recall (PB-32): the fuzzy pass sees only titles, tags and the opening text, so top
-    // up with items whose full text holds every query word.
-    // ponytail: reads each candidate file per query (~877, tens of ms on a local stdio server);
-    // index distinctive body terms at build time if the library grows tenfold.
-    const words = query?.toLowerCase().split(/\s+/).filter(w => w.length > 2) ?? [];
+    // up with items whose full text holds every query word. Public bodies come from the same
+    // per-process cache as the palette's /api/search.
+    const words = queryWords(query ?? '');
     if (words.length && hits.length < limit) {
       const seen = new Set(hits.map(h => h.id));
+      const publicText = new Map(await publicBodies());
       for (const r of rows) {
         if (hits.length >= limit) break;
         if (seen.has(r.id)) continue;
-        const item = r.library === 'my' ? myLibrary.get(r.id) : readLibraryItem(r.id);
-        const body = item && item !== 'invalid' ? item.content.toLowerCase() : '';
+        const body = r.library === 'my' ? (myLibrary.get(r.id)?.content.toLowerCase() ?? '') : (publicText.get(r.id) ?? '');
         if (words.every(w => body.includes(w))) hits.push(r);
       }
     }

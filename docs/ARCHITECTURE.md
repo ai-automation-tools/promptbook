@@ -62,6 +62,7 @@ There is no database and there are no accounts. The same app also runs on Vercel
 │  ┌──────────────────────────────────────────────────────┐   │
 │  │  GET  /api/prompts          - List (?lightweight)    │   │
 │  │  POST /api/prompts/previews - Card blurbs by id      │   │
+│  │  GET  /api/search           - Full-text ids (⌘K)     │   │
 │  │  GET  /api/prompts/:id      - One prompt, full body  │   │
 │  │  POST /api/prompts          - Create          [write]│   │
 │  │  PUT  /api/prompts/:id      - Update          [write]│   │

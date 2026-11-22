@@ -285,6 +285,7 @@ are ordinary files tagged `skill-pack:<packId>`. Details in the [Setup Guide](do
 - `GET /api/prompts?library=public|my` - List prompts (add `&lightweight=true` for metadata only —
   no body text at all for the public library)
 - `POST /api/prompts/previews` - Card blurbs for a batch of ids (`{ ids: string[] }`, 200 max)
+- `GET /api/search?q=` - Ids of items whose body holds every query word (the ⌘K palette's full-text results)
 - `GET /api/prompts/:id` - One prompt with its full body
 - `POST /api/prompts` - Create a My Library prompt
 - `PUT /api/prompts/:id` - Update a My Library prompt

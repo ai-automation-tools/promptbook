@@ -28,6 +28,7 @@ for (const layer of app.router.stack) {
 const expected = [
   "GET /api/prompts",
   "POST /api/prompts/previews",
+  "GET /api/search",
   "GET /api/prompts/:id",
   "POST /api/prompts",
   "PUT /api/prompts/:id",

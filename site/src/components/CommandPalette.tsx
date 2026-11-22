@@ -21,6 +21,8 @@ import { READ_ONLY } from '../lib/mode';
 
 interface CommandPaletteProps {
   prompts: Prompt[];
+  /** The library `prompts` came from; full-text search asks the server about the same one. */
+  libraryMode: 'public' | 'my';
   recentPrompts: Prompt[];
   onClose: () => void;
   onSelectPrompt: (prompt: Prompt) => void;
@@ -32,7 +34,7 @@ interface CommandPaletteProps {
 
 interface Item {
   key: string;
-  group: 'Recent' | 'Prompts' | 'Sections' | 'Actions' | 'Themes';
+  group: 'Recent' | 'Prompts' | 'In the text' | 'Sections' | 'Actions' | 'Themes';
   label: string;
   hint?: string;
   accent?: string;
@@ -41,9 +43,11 @@ interface Item {
 }
 
 const MAX_PROMPT_RESULTS = 14;
+const MAX_TEXT_RESULTS = 8;
 
 export default function CommandPalette({
   prompts,
+  libraryMode,
   recentPrompts,
   onClose,
   onSelectPrompt,
@@ -76,6 +80,24 @@ export default function CommandPalette({
       }),
     [prompts],
   );
+
+  // Full-text recall (PB-32): the server returns items whose body holds every word of 3+
+  // letters; they follow the title matches. Debounced, and a newer query cancels an older one.
+  const [textHits, setTextHits] = useState<{ q: string; ids: string[] }>({ q: '', ids: [] });
+  useEffect(() => {
+    const q = query.trim();
+    if (!q.split(/\s+/).some(w => w.length > 2)) return;
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => {
+      fetch(`/api/search?library=${libraryMode}&q=${encodeURIComponent(q)}`, { signal: ctrl.signal })
+        .then(r => (r.ok ? r.json() : []))
+        .then((ids: unknown) => {
+          if (Array.isArray(ids)) setTextHits({ q, ids: ids.filter((id): id is string => typeof id === 'string') });
+        })
+        .catch(() => { /* aborted or offline: titles still match */ });
+    }, 200);
+    return () => { clearTimeout(timer); ctrl.abort(); };
+  }, [query, libraryMode]);
 
   const accentFor = (prompt: Prompt) =>
     SECTIONS.find(s => s.id === getTabForFolder(prompt.section))?.accent ?? 'var(--accent)';
@@ -140,13 +162,19 @@ export default function CommandPalette({
     }
 
     const lower = q.toLowerCase();
-    const matchedPrompts = fuse.search(q, { limit: MAX_PROMPT_RESULTS }).map(r => promptItem(r.item, 'Prompts'));
+    const titleHits = fuse.search(q, { limit: MAX_PROMPT_RESULTS }).map(r => r.item);
+    const matchedPrompts = titleHits.map(p => promptItem(p, 'Prompts'));
+    const shown = new Set(titleHits.map(p => p.id));
+    const byId = new Map(prompts.map(p => [p.id, p]));
+    const matchedText = textHits.q === q
+      ? textHits.ids.filter(id => !shown.has(id) && byId.has(id)).slice(0, MAX_TEXT_RESULTS).map(id => promptItem(byId.get(id)!, 'In the text'))
+      : [];
     const matchedSections = sections.filter(s => s.label.toLowerCase().includes(lower));
     const matchedActions = actions.filter(a => a.label.toLowerCase().includes(lower));
     const matchedThemes = themes.filter(t => t.label.toLowerCase().includes(lower) || 'theme'.startsWith(lower));
-    return [...matchedPrompts, ...matchedSections, ...matchedActions, ...matchedThemes];
+    return [...matchedPrompts, ...matchedText, ...matchedSections, ...matchedActions, ...matchedThemes];
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query, fuse, recentPrompts]);
+  }, [query, fuse, recentPrompts, textHits, prompts]);
 
   useEffect(() => {
     setSelected(0);
