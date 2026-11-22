@@ -124,7 +124,7 @@ From the 2026-11-18 project audit (taken at `2a990cd`). Ids are the audit's back
 - [ ] **PB-29** P3 · Remove identical-body duplicates
 - [ ] **PB-30** P3 · Decide Skill Packs: grow, fold into starter collections, or retire 🔒 Needs owner
 - [ ] **PB-31** P3 · Publish the MCP server to npm with a versioned library snapshot, then the MCP registry 🔒 Needs owner
-- [ ] **PB-32** P3 · Search recall: index body terms for MCP and the palette
+- [x] **PB-32** P3 · Search recall: index body terms for MCP and the palette — done 2026-11-22 for MCP: `search_library` tops up fuzzy hits with full-text matches of every query word; the ⌘K palette still searches titles, tags and places
 
 ### 🧹 Upkeep
 

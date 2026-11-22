@@ -194,6 +194,11 @@ try {
   const fresh = await ok(client, 'save_to_my_library', { title: 'Fresh prompt', content: 'Hello', section: 'prompts', tags: ['t1'], source_url: 'https://github.com/owner/repo' });
   assert.match(fresh, /Saved to My Library/);
   const freshId = fresh.match(/`([a-z0-9-]+)`/)?.[1];
+  // Body recall (PB-32): a word only deep in the text still finds the item.
+  const deep = await ok(client, 'save_to_my_library', { title: 'Deep body', content: `${'filler words here. '.repeat(40)}quokkaphrase appears late.`, section: 'prompts' });
+  const deepId = deep.match(/`([a-z0-9-]+)`/)?.[1];
+  assert.match(await ok(client, 'search_library', { query: 'quokkaphrase' }), new RegExp(deepId));
+  await ok(client, 'delete_my_prompt', { id: deepId });
   assert.match(await ok(client, 'get_item', { id: freshId }), /source: https:\/\/github\.com\/owner\/repo/);
   await refused(client, 'update_my_prompt', { id: freshId, source_url: 'javascript:alert(1)' });
   await ok(client, 'update_my_prompt', { id: freshId, source_url: '' });

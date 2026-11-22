@@ -17,6 +17,18 @@ _Touched: `README.md`, `AGENTS.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
 
 ---
 
+## 2026-11-22 — MCP search finds words deep in an item's text (PB-32)
+
+**MCP**
+- `search_library` matched only titles, tags, places and the first 200 characters, so a query for something an item says further down found nothing. After the fuzzy pass it now tops up the results with items whose full text holds every query word (three letters or more), within the same section, category and tag filters. It reads the candidate files per query, tens of milliseconds for the local stdio server; indexing body terms at build time can come later if the library grows tenfold. The app's ⌘K palette is unchanged: it would need the terms shipped in the listing.
+
+**Tests**
+- `test:mcp` saves an item with a word 760 characters in and finds it by that word.
+
+_Touched: `site/mcp/server.ts`, `site/scripts/mcp-server.test.mjs`, `docs/mcp-server.md`, `docs/features/MCP-SERVER.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — Smaller client fixes: drafts, previews, favorites, links (PB-22, part)
 
 **Fixes**
