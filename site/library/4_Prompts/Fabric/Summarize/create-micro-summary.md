@@ -1,4 +1,5 @@
 ---
+same_as: 4_Prompts/Fabric/Summarize/summarize-micro.md
 title: "🧵 Create Micro Summary"
 description: "Generate concise summaries with one-sentence overview and key points."
 tags: ["fabric","pattern","summarize","writing","create","micro","summary"]
