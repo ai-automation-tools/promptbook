@@ -10,6 +10,7 @@ upstream:
   path: plugins/code-review/commands/code-review.md
   ref: 6d491811023d7af2c96a7fab274935922b29ed01
   checked: 2026-11-18
+  license: Apache-2.0
 ---
 
 # Code Review Command

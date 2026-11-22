@@ -187,7 +187,7 @@ export function sourceUrlOf(frontmatter: Record<string, unknown>): string | unde
 }
 
 /** Freshness verdicts check-upstream-drift.mjs writes into api/upstream-status.json. */
-export type SourceVerdict = 'current' | 'drifted' | 'behind' | 'upstream-gone' | 'repo-gone' | 'error';
+export type SourceVerdict = 'current' | 'drifted' | 'behind' | 'upstream-gone' | 'repo-gone' | 'relicensed' | 'error';
 
 interface StatusFile {
   checked: string;

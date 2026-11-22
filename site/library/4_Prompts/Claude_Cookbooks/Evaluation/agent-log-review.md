@@ -10,6 +10,7 @@ upstream:
   path: managed_agents/example_data/agent_log_review/prompts/review_system.txt
   ref: ce8b2629efe8b24048b127b4c79af1e9cbab93d4
   checked: 2026-11-18
+  license: MIT
 ---
 
 # Agent Transcript Sandbox-Escape Review

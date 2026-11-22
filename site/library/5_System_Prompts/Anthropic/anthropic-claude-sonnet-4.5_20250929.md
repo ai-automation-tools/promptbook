@@ -8,6 +8,7 @@ upstream:
   url: https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-4-5
   retrieved: 2026-11-18
   checked: 2026-11-18
+  license: NOASSERTION
 ---
 
 <behavior_instructions>

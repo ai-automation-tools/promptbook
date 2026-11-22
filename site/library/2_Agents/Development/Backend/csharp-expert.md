@@ -9,6 +9,7 @@ upstream:
   path: cli-tool/components/agents/programming-languages/CSharpExpert.md
   ref: 161d49190aaf470077d52de4d294e30cc4cccf4f
   checked: 2026-10-18
+  license: MIT
 tags: ["agent","development","backend"]
 ---
 

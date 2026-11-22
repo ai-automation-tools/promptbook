@@ -9,6 +9,7 @@ upstream:
   path: categories/06-developer-experience/docs-drift-editor.md
   ref: ed74d115b7fb7026a22a4f816a8e3250f425e3b4
   checked: 2026-11-19
+  license: MIT
 tags: ["agent", "documentation", "markdown", "git-worktree"]
 ---
 

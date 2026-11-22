@@ -9,6 +9,7 @@ upstream:
   path: agents/code-tour.agent.md
   ref: cb64ad12e32737ae764becd6885462e9b4c7cb00
   checked: 2026-10-18
+  license: MIT
 tags: ["agent","ai-ml","other"]
 ---
 

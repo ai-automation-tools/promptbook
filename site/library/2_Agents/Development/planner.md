@@ -9,6 +9,7 @@ upstream:
   path: agents/planner.md
   ref: 3f14a103a8694e51c1df9a806217a6d0b5f7a6f7
   checked: 2026-11-18
+  license: MIT
 tags: ["agent","planning","implementation"]
 ---
 

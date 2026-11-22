@@ -9,6 +9,7 @@ upstream:
   path: src/smolagents/prompts/code_agent.yaml
   ref: 2689e450364d451a0afa0a5e883d12a031c125dd
   checked: 2026-11-18
+  license: Apache-2.0
 ---
 
 system_prompt: |-

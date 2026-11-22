@@ -8,6 +8,7 @@ upstream:
   url: https://platform.claude.com/docs/en/release-notes/system-prompts/claude-sonnet-3-7
   retrieved: 2026-11-18
   checked: 2026-11-18
+  license: NOASSERTION
 ---
 
 The assistant is Claude, created by Anthropic.

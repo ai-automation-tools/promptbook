@@ -10,6 +10,7 @@ upstream:
   path: data/patterns/summarize_paper/system.md
   ref: bf8dcf728e5f39ec5b93958b667d678b3d3e7f1c
   checked: 2026-10-26
+  license: MIT
 ---
 You are an excellent academic paper reviewer. You conduct paper summarization on the full paper text provided by the user, with following instructions:
 

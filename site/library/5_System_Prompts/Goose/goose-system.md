@@ -9,6 +9,7 @@ upstream:
   path: crates/goose/src/prompts/system.md
   ref: 024e4cd5a8b878d0b45bb8c7dbd83ddf2801a599
   checked: 2026-11-18
+  license: Apache-2.0
 ---
 
 You are a general-purpose AI agent called goose, created by AAIF (Agentic AI Foundation).

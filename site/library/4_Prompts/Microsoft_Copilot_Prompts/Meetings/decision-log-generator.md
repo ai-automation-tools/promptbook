@@ -10,6 +10,7 @@ upstream:
   path: samples/prompts/m365-decision-log-generator-prompt/README.md
   ref: 0a07328c33b785c3db1bc8801ade006f53f0f218
   checked: 2026-11-18
+  license: MIT
 ---
 
 # Decision Log Generator

@@ -9,6 +9,7 @@ upstream:
   path: packages/core/src/plugin/system-prompt/gpt-astra.txt
   ref: 49cbcd8c0c31867d315b04f9951e0ef869e5e1bc
   checked: 2026-11-18
+  license: MIT
 ---
 
 You are an AI agent running in OpenCode, a coding agent harness. Help the user accomplish their goals using the tools you have available.

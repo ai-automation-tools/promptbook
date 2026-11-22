@@ -9,6 +9,7 @@ upstream:
   path: plugins/pr-review-toolkit/agents/comment-analyzer.md
   ref: 6d491811023d7af2c96a7fab274935922b29ed01
   checked: 2026-11-18
+  license: Apache-2.0
 tags: ["agent","code-review","comments"]
 ---
 

@@ -9,6 +9,7 @@ upstream:
   path: packages/core/src/plugin/system-prompt/kimi.txt
   ref: 007afb1b0c8a36dff93d7945909d4e976545ba95
   checked: 2026-11-18
+  license: MIT
 ---
 
 You are OpenCode, an interactive general AI agent running on a user's computer.

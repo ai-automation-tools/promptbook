@@ -10,6 +10,7 @@ upstream:
   path: managed-agents/knowledge-wiki/prompts/lead_system.md
   ref: 4a4224bdf0e9cfb3332167b69c90457403813625
   checked: 2026-11-18
+  license: MIT
 ---
 
 # Knowledge Wiki Lead Agent

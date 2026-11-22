@@ -13,6 +13,7 @@ upstream:
   path: src/data/cards/263_en.json
   ref: f91ed81ed69f0ded46e6f3fe0afa7c9808ae3c10
   checked: 2026-10-26
+  license: MIT
 ---
 
 # Quiz Assistant

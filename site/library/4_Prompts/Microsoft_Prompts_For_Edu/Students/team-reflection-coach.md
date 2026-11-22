@@ -10,6 +10,7 @@ upstream:
   path: Students/Prompts/Team Reflection Coach.MD
   ref: 508567d4008b17dc1df98cbb89f88708c250f666
   checked: 2026-10-26
+  license: MIT
 ---
 
 # Team Reflection Coach

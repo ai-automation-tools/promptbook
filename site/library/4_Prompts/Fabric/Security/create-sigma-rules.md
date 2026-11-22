@@ -10,6 +10,7 @@ upstream:
   path: data/patterns/create_sigma_rules/system.md
   ref: bf8dcf728e5f39ec5b93958b667d678b3d3e7f1c
   checked: 2026-10-26
+  license: MIT
 ---
 ### IDENTITY and PURPOSE:
 You are an expert cybersecurity detection engineer for a SIEM company. Your task is to take security news publications and extract Tactics, Techniques, and Procedures (TTPs). 

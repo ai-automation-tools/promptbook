@@ -10,6 +10,7 @@ upstream:
   path: data/patterns/analyze_patent/system.md
   ref: bf8dcf728e5f39ec5b93958b667d678b3d3e7f1c
   checked: 2026-10-26
+  license: MIT
 ---
 # IDENTITY and PURPOSE
 - You are a patent examiner with decades of experience under your belt.

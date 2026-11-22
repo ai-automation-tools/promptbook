@@ -1,9 +1,13 @@
 #!/usr/bin/env node
-// Give every vendored skill its licence: a LICENSE file beside SKILL.md and `license:` (SPDX)
-// in its upstream block, so a skill ZIP or Skill Pack carries the terms it was copied under.
-// A licence file already in the folder wins (it is the skill's own); otherwise the source
-// repo's licence is fetched with `gh`. A repo with no licence gets `license: NONE` and no
-// file: upstream.test.mjs then fails until the skill is archived or the licence is cleared.
+// Give every copied item its licence: `license:` (SPDX) in its upstream block (PB-17), and for a
+// skill also a LICENSE file beside SKILL.md, so a skill ZIP or Skill Pack carries the terms it
+// was copied under. Skills, agents, prompts and system prompts alike.
+// A skill's own licence file wins; otherwise the source repo's licence is fetched with `gh`.
+// A licence already stamped stands: a changed upstream licence is the drift check's
+// `relicensed` verdict, for a person to look at, never silently re-stamped here.
+// A repo with no licence gets `license: NONE`: upstream.test.mjs then fails until the item is
+// archived or the licence is cleared. A system prompt quoted from the vendor's own page
+// (`match: vendor`, no repo) gets `license: NOASSERTION`: no licence is claimed for it.
 //
 // Usage (repo root, needs an authenticated `gh`):
 //   node scripts/vendor-skill-licenses.mjs           # report
@@ -14,7 +18,9 @@ import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const WRITE = process.argv.includes("--write");
-const SKILLS = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "site", "library", "3_Skills");
+const LIB = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "site", "library");
+/** The sections whose items are copied from elsewhere; guides and MCP cards are written here. */
+const COPIED = ["2_Agents", "3_Skills", "4_Prompts", "5_System_Prompts"];
 export const LICENSE_FILE = /^(LICENSE|COPYING)(\.(md|txt))?$/i;
 
 /** SPDX id from a licence text; NOASSERTION when it is not plain MIT or Apache-2.0. */
@@ -24,10 +30,12 @@ const spdxOf = (text) =>
   : "NOASSERTION";
 
 const gh = (p) => JSON.parse(execFileSync("gh", ["api", p], { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }));
+const isSkill = (p) => path.basename(p) === "SKILL.md";
 const walk = (d, out = []) => {
   for (const e of fs.readdirSync(d, { withFileTypes: true })) {
     const p = path.join(d, e.name);
-    if (e.isDirectory()) walk(p, out); else if (e.name === "SKILL.md") out.push(p);
+    if (e.isDirectory()) walk(p, out);
+    else if (d.includes(`${path.sep}3_Skills`) ? isSkill(p) : e.name.endsWith(".md") && e.name.toLowerCase() !== "readme.md") out.push(p);
   }
   return out;
 };
@@ -46,28 +54,34 @@ function repoLicense(repo) {
 }
 
 let changed = 0;
-for (const file of walk(SKILLS)) {
+for (const file of COPIED.flatMap((sec) => walk(path.join(LIB, sec)))) {
   const raw = fs.readFileSync(file, "utf8");
   const block = raw.match(/^upstream:\n((?:[ \t]+.*\n)*)/m);
-  const repo = block?.[1].match(/^\s+repo:\s*(\S+)/m)?.[1];
-  if (!repo) continue;
+  if (!block) continue;
+  const repo = block[1].match(/^\s+repo:\s*(\S+)/m)?.[1];
+  const vendor = /^\s+match:\s*vendor\s*$/m.test(block[1]);
+  if (!repo && !vendor) continue;
+  const skill = isSkill(file);
   const dir = path.dirname(file);
-  const own = fs.readdirSync(dir).find((n) => LICENSE_FILE.test(n));
+  const own = skill ? fs.readdirSync(dir).find((n) => LICENSE_FILE.test(n)) : undefined;
   // A licence already stamped stands (a rerun reads back the file it wrote, whose text
   // spdxOf may not name, CC0 for one).
   const stamped = block[1].match(/^\s+license:\s*(\S+)/m)?.[1];
-  const lic = own
-    ? { spdx: stamped && stamped !== "NONE" ? stamped : spdxOf(fs.readFileSync(path.join(dir, own), "utf8")), text: null }
+  const lic = !repo ? { spdx: "NOASSERTION", text: null }
+    : own ? { spdx: stamped && stamped !== "NONE" ? stamped : spdxOf(fs.readFileSync(path.join(dir, own), "utf8")), text: null }
+    : !skill && stamped && stamped !== "NONE" ? { spdx: stamped, text: null }
     : repoLicense(repo);
   const lines = block[1].split("\n").filter((l) => l && !/^\s+license:/.test(l));
-  const next = raw.replace(block[0], ["upstream:", ...lines, `  license: ${lic.spdx}`].join("\n") + "\n");
-  const addFile = !own && lic.text;
+  const next = stamped === lic.spdx ? raw // already right, wherever in the block it sits
+    : raw.replace(block[0], ["upstream:", ...lines, `  license: ${lic.spdx}`].join("\n") + "\n");
+  const addFile = skill && !own && lic.text;
   if (next === raw && !addFile) continue;
   changed++;
-  const rel = path.relative(SKILLS, dir).split(path.sep).join("/");
-  console.log(`${WRITE ? "WROTE" : "WOULD WRITE"} ${rel}: ${lic.spdx}${own ? ` (own ${own})` : addFile ? ` (LICENSE from ${repo})` : ` (${repo} has no licence)`}`);
+  const rel = path.relative(LIB, skill ? dir : file).split(path.sep).join("/");
+  const why = own ? ` (own ${own})` : addFile ? ` (LICENSE from ${repo})` : !repo ? " (vendor page)" : lic.spdx === "NONE" ? ` (${repo} has no licence)` : "";
+  console.log(`${WRITE ? "WROTE" : "WOULD WRITE"} ${rel}: ${lic.spdx}${why}`);
   if (!WRITE) continue;
   fs.writeFileSync(file, next);
   if (addFile) fs.writeFileSync(path.join(dir, "LICENSE"), lic.text);
 }
-console.log(`RUN SUMMARY: ${changed} skill(s) ${WRITE ? "updated" : "to update"}`);
+console.log(`RUN SUMMARY: ${changed} item(s) ${WRITE ? "updated" : "to update"}`);

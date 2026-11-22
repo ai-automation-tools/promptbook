@@ -9,6 +9,7 @@ upstream:
   path: packages/core/src/plugin/system-prompt/trinity.txt
   ref: 49cbcd8c0c31867d315b04f9951e0ef869e5e1bc
   checked: 2026-11-18
+  license: MIT
 ---
 
 You are opencode, an interactive CLI tool that helps users with software engineering tasks. Use the instructions below and the tools available to you to assist the user.

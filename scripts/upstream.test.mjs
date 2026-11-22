@@ -234,8 +234,10 @@ assert.equal(readUpstream(stampUpstream(tagsLast, { ref: "newsha", checked: "202
   // which would claim it was copied. Attributed: copied, so the block says from where and
   // when (`repo` as owner/name, `checked` as a date), a fork says how it differs (`note`),
   // and a vendor-page prompt has its `url`. Unresolved (unknown/ambiguous) already fails above.
-  // A skill ships as files people download, so it also needs a redistributable `license:`
-  // and the licence text beside SKILL.md (scripts/vendor-skill-licenses.mjs writes both).
+  // Every copied item names a redistributable `license:` (PB-17; NOTICE is generated from them),
+  // and a skill, which ships as files people download, also keeps the licence text beside
+  // SKILL.md (scripts/vendor-skill-licenses.mjs writes both). A vendor-page system prompt
+  // claims none: `license: NOASSERTION`.
   const REDISTRIBUTABLE = new Set(["MIT", "Apache-2.0", "CC0-1.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "Unlicense", "CC-BY-4.0"]);
   const kinds = { original: 0, attributed: 0 };
   const wrong = [];
@@ -248,11 +250,15 @@ assert.equal(readUpstream(stampUpstream(tagsLast, { ref: "newsha", checked: "202
     const u = readUpstream(splitFrontmatter(fs.readFileSync(f, "utf8")).fm);
     kinds.attributed++;
     if (!/^\d{4}-\d{2}-\d{2}$/.test(u.checked || "")) wrong.push(`${rel(f)}: no checked date`);
-    if (u.match === "vendor") { if (!/^https:\/\//.test(u.url)) wrong.push(`${rel(f)}: vendor without an https url`); continue; }
+    if (u.match === "vendor") {
+      if (!/^https:\/\//.test(u.url)) wrong.push(`${rel(f)}: vendor without an https url`);
+      if (u.license !== "NOASSERTION") wrong.push(`${rel(f)}: a vendor page's license is NOASSERTION, not ${u.license || "missing"}`);
+      continue;
+    }
     if (!/^[\w.-]+\/[\w.-]+$/.test(u.repo)) wrong.push(`${rel(f)}: repo is not owner/name`);
     if (u.match === "fork" && !u.note) wrong.push(`${rel(f)}: fork without a note`);
-    if (path.basename(f) !== "SKILL.md") continue;
     if (!REDISTRIBUTABLE.has(u.license)) wrong.push(`${rel(f)}: license ${u.license || "missing"} is not redistributable`);
+    if (path.basename(f) !== "SKILL.md") continue;
     if (!fs.readdirSync(path.dirname(f)).some((n) => /^(LICENSE|COPYING)(\.(md|txt))?$/i.test(n))) wrong.push(`${rel(f)}: no LICENSE beside it`);
   }
   // A skill file named anything but SKILL.md (SKILL.MD, skill.md) is invisible to the index on
@@ -275,7 +281,17 @@ assert.equal(readUpstream(stampUpstream(tagsLast, { ref: "newsha", checked: "202
     if (name.endsWith(".md") && /[A-Z]/.test(name) && name !== "SKILL.md" && name !== "README.md" && !inSkill(f)) wrong.push(`${r}: an item's file name is lowercase`);
   }
   assert.deepEqual(wrong, [], "every record has the metadata its kind needs");
-  console.log(`  ${kinds.original} original and ${kinds.attributed} attributed records, each with its kind's metadata; every skill licensed to redistribute`);
+  console.log(`  ${kinds.original} original and ${kinds.attributed} attributed records, each with its kind's metadata; every copied item licensed to redistribute`);
+}
+
+// --- NOTICE names every source (PB-17): its list is generated from the upstream blocks ---
+{
+  const { renderSources, noticeWith } = await import("./build-notice.mjs");
+  const { text, missing } = renderSources();
+  assert.deepEqual(missing, [], "every MIT source has a copyright line in scripts/build-notice.mjs COPYRIGHT");
+  const { current, next } = noticeWith(text);
+  assert.ok(current === next, "NOTICE is out of date: run node scripts/build-notice.mjs --write");
+  console.log("  NOTICE lists every copied item's source, with its licence");
 }
 
 console.log("upstream: all checks passed");
