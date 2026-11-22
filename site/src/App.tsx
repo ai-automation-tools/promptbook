@@ -724,7 +724,7 @@ export default function App() {
 
     setEditingPrompt(null);
     setIsEditorOpen(true);
-  }, [libraryMode, activeTab]);
+  }, [libraryMode, activeTab, setActiveTab]);
 
   /** Palette → prompt: handlePromptClick switches library and section to wherever it lives. */
   const openPromptFromPalette = useCallback((prompt: Prompt) => {
@@ -734,7 +734,7 @@ export default function App() {
   const openSectionFromPalette = useCallback((tab: LibraryTab) => {
     setActiveTab(tab);
     handleShowAllPrompts();
-  }, [handleShowAllPrompts]);
+  }, [handleShowAllPrompts, setActiveTab]);
 
   /** Skills | Libraries | Packs. Packs is its own section; the other two are views of Skills. */
   const selectSkillKind = useCallback((kind: SkillKind) => {
