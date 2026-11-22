@@ -110,11 +110,11 @@ From the 2026-11-18 project audit (taken at `2a990cd`). Ids are the audit's back
 - [ ] **PB-16** P2 · MCP hardening: frame library text as data, require version for body changes, shared dedupe, show allowed-tools
 - [ ] **PB-17** P2 · Licence on every copied item, generated NOTICE, relicense check before resync
 - [ ] **PB-18** P2 · GitHub hygiene: branch auto-delete and cleanup, Pages HTTPS, CodeQL triage, drift-PR token 🔒 Needs owner
-- [ ] **PB-19** P2 · Replace the personal email in README and SECURITY.md; strip a third-party email from a library card
+- [x] **PB-19** P2 · Replace the personal email in README and SECURITY.md; strip a third-party email from a library card — done 2026-11-22: the README gives the org role address (#545), `SECURITY.md` names no address of its own, and `refresh-library-cards.mjs` now replaces email addresses in a copied README (the `baojie-shiji-kb` card had one). Left for the owner: GitHub private vulnerability reporting, which `SECURITY.md` points to, is off in the repo settings
 - [ ] **PB-20** P3 · Automation load: one resync owner, staggered Saturday jobs, batched content PRs, pause switch, stale comments *(claude-routines)*
 - [ ] **PB-21** P3 · Pin Actions by SHA and add job timeouts
 - [ ] **PB-22** P3 · Smaller client defects and markdown link/image handling
-- [ ] **PB-23** P3 · Server polish: listing errors are errors, robots.txt, configurable PORT
+- [x] **PB-23** P3 · Server polish: listing errors are errors, robots.txt, configurable PORT — done 2026-11-22: a failed listing is a 500 with an error body (it was `200 []`, an empty library) and the client toasts it; `site/public/robots.txt`; `PORT` sets the local server port
 - [ ] **PB-24** P3 · Remove dead scripts and code; quiet the logs
 - [ ] **PB-25** P3 · Docs accuracy pass: AGENTS.md, README, CONTRIBUTING, MCP docs, ROADMAP, CHANGELOG split
 - [ ] **PB-26** P3 · One library walker shared by the index builder and the API
