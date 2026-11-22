@@ -16,6 +16,15 @@ _Touched: `site/lib/library.ts`, `site/api/index.ts`, `site/api/skill-packs.ts`,
 
 ---
 
+## 2026-11-22 — frontend-design skill sourced from Anthropic
+
+**Content**
+- The `frontend-design` skill (`3_Skills/Development/Web_Development/`) is Anthropic's, but was copied from `ar4mirez/samuel`, a repo that bundles an edited copy under its own MIT licence. The licence check added in PB-17 flagged it, since the copy was stamped Apache-2.0. Its `upstream:` block now names `anthropics/skills` (`skills/frontend-design/SKILL.md`, Apache-2.0, matching the `LICENSE.txt` beside it), and its body was resynced to Anthropic's current text (`e4bb5d9`).
+
+_Touched: `site/library/3_Skills/Development/Web_Development/frontend-design/SKILL.md`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — Every view has a link; Back and Forward work; slow loads can't overwrite newer ones (PB-09)
 
 **Fixes**

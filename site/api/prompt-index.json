@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "buildTime": "2026-11-22T17:55:55.011Z",
+  "buildTime": "2026-11-22T19:53:44.155Z",
   "promptCount": 877,
   "prompts": [
     {
@@ -3948,9 +3948,9 @@
         "development",
         "web-development"
       ],
-      "checked": "2026-09-16",
-      "contentPreview": "\n# Frontend Design\n\nThis skill guides creation of distinctive, production-grade frontend interfaces that avoid generic \"AI slop\" aesthetics. Implement real working code with exceptional attention to a",
-      "lastModified": "2026-10-27T17:31:10.547Z",
+      "checked": "2026-11-22",
+      "contentPreview": "\n# Frontend Design\n\nApproach this as the design lead at a design studio known for giving every client a distinct visual identity that is not mistaken for anyone else's. This client has already rejecte",
+      "lastModified": "2026-11-22T19:53:32.016Z",
       "isUserOwned": false
     },
     {
