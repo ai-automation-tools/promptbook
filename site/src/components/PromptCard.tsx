@@ -140,15 +140,6 @@ const PromptCard = memo(function PromptCard({
       style={{ ['--hue' as string]: categoryHue(prompt.category) }}
       onMouseMove={trackSpotlight}
       onClick={open}
-      onKeyDown={e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          open();
-        }
-      }}
-      tabIndex={0}
-      role="button"
-      aria-label={`Open ${title}`}
     >
       <span className="card-band" aria-hidden="true" />
       <div className="flex flex-1 flex-col gap-3 p-4 pb-3.5">
@@ -157,8 +148,12 @@ const PromptCard = memo(function PromptCard({
             {emoji ? <span className="text-[17px] leading-none">{emoji}</span> : <FileText className="h-4 w-4" />}
           </span>
           <div className="min-w-0 flex-1">
+            {/* The title is the card's keyboard target; the article's click covers the mouse. A
+                role="button" article would swallow Enter on the action buttons inside it. */}
             <h3 className="line-clamp-2 text-[15px] font-semibold leading-snug tracking-[-0.01em] text-[var(--fg)] transition-colors group-hover:text-[color-mix(in_srgb,var(--c)_70%,var(--fg))]">
-              {title}
+              <button type="button" className="card-open" onClick={stop(open)}>
+                {title}
+              </button>
             </h3>
             <p className="mono mt-1 truncate text-[10.5px] uppercase tracking-[0.1em] text-[var(--fg-4)]">
               <span className="text-[color-mix(in_srgb,var(--c)_var(--tint-k),var(--mix-ink))]">{humanize(prompt.category)}</span>

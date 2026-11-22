@@ -79,10 +79,24 @@ try {
   await page.locator("main").getByText("Servers", { exact: true }).waitFor();
   const card = page.locator("main h3").first();
   const title = (await card.innerText()).trim();
-  await card.click();
+  // Keyboard (PB-02): Enter on a card's action runs that action, not "open the card";
+  // Enter on the title opens it.
+  const keyedDownload = page.waitForEvent("download");
+  await page.locator("main article").first().getByRole("button", { name: "Download as Markdown" }).focus();
+  await page.keyboard.press("Enter");
+  await keyedDownload;
+  assert.doesNotMatch(page.url(), /[?&]prompt=/, "Enter on a card's action leaves the card closed");
+  await card.getByRole("button").focus();
+  await page.keyboard.press("Enter");
   await page.getByRole("button", { name: /Copy prompt/ }).waitFor();
   assert.match(page.url(), /[?&]prompt=/, `opening "${title}" puts it in the URL`);
   assert.equal(await page.getByRole("button", { name: "Add to favorites" }).count(), 0, "Public Library items have no star");
+  // Related (PB-03): leaving a prompt stays left; an old ?prompt= used to reopen it.
+  await page.getByRole("button", { name: "Related" }).click();
+  await page.getByRole("button", { name: /Copy prompt/ }).waitFor({ state: "detached" });
+  await page.waitForTimeout(1000);
+  assert.doesNotMatch(page.url(), /[?&]prompt=/, "Related leaves the prompt and does not bounce back");
+  assert.equal(await page.getByRole("button", { name: /Copy prompt/ }).count(), 0, "still on the listing a second later");
 
   // Settings dialog (F08): focus moves in, Tab can't leave, Escape gives it back.
   const inDialog = () => page.evaluate(() => !!document.querySelector("[role=dialog]")?.contains(document.activeElement));
@@ -137,7 +151,8 @@ try {
   await migrated;
   assert.deepEqual(JSON.parse(fs.readFileSync(favFile, "utf-8")), [mine.id, older.id], "the old browser list is merged in, Public Library ids left out");
   assert.equal(await page.evaluate(() => localStorage.getItem("prompt-favorites")), null, "and dropped from the browser");
-  await page.getByRole("button", { name: "Open Starred elsewhere" }).getByRole("button", { name: "Remove from favorites" }).waitFor();
+  await page.locator("article", { has: page.getByRole("button", { name: "Starred elsewhere", exact: true }) })
+    .getByRole("button", { name: "Remove from favorites" }).waitFor();
 
   await page.getByRole("button", { name: "New item" }).first().click();
   await page.getByRole("dialog").waitFor();
@@ -185,7 +200,7 @@ try {
   await framed.waitForFunction(() => document.documentElement.classList.contains("light"));
 
   assert.deepEqual(problems, [], "no page errors, console errors or failed requests");
-  console.log("browser-smoke: listing, detail, hero counter, Settings focus, My Library export and import, My Library links, server-side favorites (and the move from localStorage), category suggestions, the suite embed contract and the vercel.json CSP all pass on the built app");
+  console.log("browser-smoke: listing, card keyboard actions, detail, Related without a bounce, hero counter, Settings focus, My Library export and import, My Library links, server-side favorites (and the move from localStorage), category suggestions, the suite embed contract and the vercel.json CSP all pass on the built app");
 } finally {
   await browser.close();
   server.close();

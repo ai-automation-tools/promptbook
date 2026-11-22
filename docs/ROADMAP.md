@@ -88,6 +88,43 @@ O01–O04 are under **After public release**.
 
 Nothing below blocks go-live.
 
+### 🔎 Audit follow-ups, 2026-11-18
+
+From the 2026-11-18 project audit (taken at `2a990cd`). Ids are the audit's backlog ids; one item, or one tight group, per PR, titled `fix(PB-xx): …`. Items in `michaelschecht/claude-routines` are tracked here but change that repo.
+
+- [ ] **PB-01** P1 · Remove the 13 jailbreak prompts from the public library and keep them out
+- [x] **PB-02** P1 · Card action buttons work from the keyboard — done 2026-11-22: a card's title is a real `<button>`, the `<article>` lost `role="button"`/`tabindex`/its Enter handler (prompt and pack cards), so Enter on Copy, Download, Save, Star, Edit, Delete or pack Add/Remove runs that action; `test:browser` presses Enter on a card's Download and on its title
+- [x] **PB-03** P1 · Leaving a prompt by Related, breadcrumb or category no longer bounces back — done 2026-11-22: `?prompt=` is consumed once by the deep-link effect and no longer set by `handlePromptClick`; the URL follows `selectedPrompt`. `test:browser` clicks Related and checks the prompt stays closed a second later
+- [ ] **PB-04** P1 · Take the leak-sourced system prompts out of the public tree and the demo 🔒 Needs owner
+- [ ] **PB-05** P1 · Remove archive/ (unlicensed, proprietary and rejected content) from the public tree
+- [ ] **PB-06** P1 · Content gate: CI check for hostile instructions in library changes
+- [ ] **PB-07** P1 · PR sweep: hold upstream resyncs and keep the workflow hold for Promptbook *(claude-routines)*
+- [ ] **PB-08** P2 · Client quick fixes: detail actions by item, page clamp, guarded localStorage
+- [ ] **PB-09** P2 · One URL-derived view for navigation (fixes races, shared links, Back/Forward)
+- [ ] **PB-10** P2 · Demo: edge-cache public API, refuse full listing, stop bot-branch preview deploys 🔒 Needs owner
+- [ ] **PB-11** P2 · Mobile first paint under 2 s
+- [ ] **PB-12** P2 · Contrast and minimum text size
+- [ ] **PB-13** P2 · Prompt detail readability: wrap bodies, no repeated title, prompt on the first phone screen
+- [ ] **PB-14** P2 · Keyboard and assistive-tech polish: inert sidebar, modal palette, reduced motion, live toasts
+- [ ] **PB-15** P2 · CSP for the local production server; consent script only on the demo
+- [ ] **PB-16** P2 · MCP hardening: frame library text as data, require version for body changes, shared dedupe, show allowed-tools
+- [ ] **PB-17** P2 · Licence on every copied item, generated NOTICE, relicense check before resync
+- [ ] **PB-18** P2 · GitHub hygiene: branch auto-delete and cleanup, Pages HTTPS, CodeQL triage, drift-PR token 🔒 Needs owner
+- [ ] **PB-19** P2 · Replace the personal email in README and SECURITY.md; strip a third-party email from a library card
+- [ ] **PB-20** P3 · Automation load: one resync owner, staggered Saturday jobs, batched content PRs, pause switch, stale comments *(claude-routines)*
+- [ ] **PB-21** P3 · Pin Actions by SHA and add job timeouts
+- [ ] **PB-22** P3 · Smaller client defects and markdown link/image handling
+- [ ] **PB-23** P3 · Server polish: listing errors are errors, robots.txt, configurable PORT
+- [ ] **PB-24** P3 · Remove dead scripts and code; quiet the logs
+- [ ] **PB-25** P3 · Docs accuracy pass: AGENTS.md, README, CONTRIBUTING, MCP docs, ROADMAP, CHANGELOG split
+- [ ] **PB-26** P3 · One library walker shared by the index builder and the API
+- [ ] **PB-27** P3 · ESLint (react-hooks only) and client regression tests 🔒 Needs owner
+- [ ] **PB-28** P3 · Cache skill/pack ZIPs and pack manifests; page large subcategories
+- [ ] **PB-29** P3 · Remove identical-body duplicates
+- [ ] **PB-30** P3 · Decide Skill Packs: grow, fold into starter collections, or retire 🔒 Needs owner
+- [ ] **PB-31** P3 · Publish the MCP server to npm with a versioned library snapshot, then the MCP registry 🔒 Needs owner
+- [ ] **PB-32** P3 · Search recall: index body terms for MCP and the palette
+
 ### 🧹 Upkeep
 
 - [x] `small` Move Vite to 8.3.7 or later (security). **Why:** `site/package-lock.json` pins 8.3.6, which GHSA-p4f5-76q4-ffq7 (published 2026-11-10, remote code execution through the `__vite-browser-external` virtual module in the dev server) covers; it is fixed in 8.3.7, and 8.3.8 is the npm `latest` (github.com/vitejs/vite/security/advisories/GHSA-p4f5-76q4-ffq7). **Where:** `vite` in both `dependencies` and `devDependencies` of `site/package.json` (raise the floor to `^8.3.7`) and the lockfile. **Done when:** `npm ls vite` shows 8.3.7+, and `npm run lint`, `npm run build` and `npm run test:browser` pass — done 2026-11-18: PR #501 (Dependabot's minor-and-patch group) raised `vite` to `^8.3.8` in both `dependencies` and `devDependencies` of `site/package.json`; `site/package-lock.json` pins 8.3.8, past the 8.3.7 fix, and the required `check` job passed before merge

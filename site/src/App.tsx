@@ -344,7 +344,6 @@ export default function App() {
       showToast('error', 'Could not load this prompt. Try again.');
       return;
     }
-    setPromptPathParam(slugifyPromptPath(prompt.id));
     setCopiedShareLink(false);
 
     setSelectedPrompt(fullPrompt);
@@ -471,6 +470,9 @@ export default function App() {
     const matchingPrompt = prompts.find(prompt => slugifyPromptPath(prompt.id) === normalizedPromptPath);
 
     if (matchingPrompt) {
+      // A ?prompt= link is consumed once: left set, it reopened the prompt whenever a Related,
+      // breadcrumb or category click cleared the selection. The URL follows selectedPrompt.
+      setPromptPathParam(null);
       const nextTab = getTabForFolder(matchingPrompt.section);
 
       if (activeTab !== nextTab) setActiveTab(nextTab);
@@ -481,7 +483,7 @@ export default function App() {
 
       void handlePromptClick(matchingPrompt);
     }
-  }, [promptPathParam, prompts, selectedPrompt, activeTab, libraryMode, activeCategory, activeSubcategory, handlePromptClick]);
+  }, [promptPathParam, setPromptPathParam, prompts, selectedPrompt, activeTab, libraryMode, activeCategory, activeSubcategory, handlePromptClick]);
 
   const handleDownloadMarkdown = useCallback(async (prompt: Prompt) => {
     // A skill downloads as its folder zipped; a library card (Libraries/*.md) as plain markdown.

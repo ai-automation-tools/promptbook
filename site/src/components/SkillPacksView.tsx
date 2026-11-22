@@ -403,15 +403,6 @@ export default function SkillPacksView({ libraryMode, onToast, favorites, onTogg
                 transition={{ duration: 0.3, delay: Math.min(i * 0.03, 0.4), ease: [0.2, 0.7, 0.2, 1] }}
                 onMouseMove={trackSpotlight}
                 onClick={() => void fetchPackDetail(pack.id)}
-                onKeyDown={e => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    void fetchPackDetail(pack.id);
-                  }
-                }}
-                tabIndex={0}
-                role="button"
-                aria-label={`Open ${pack.name}`}
                 className="spot group flex cursor-pointer flex-col"
               >
                 <div className="flex flex-1 flex-col gap-3 p-4">
@@ -419,7 +410,16 @@ export default function SkillPacksView({ libraryMode, onToast, favorites, onTogg
                     <span className="glyph h-11 w-11 rounded-[11px] text-[22px]">{pack.icon}</span>
                     <div className="min-w-0 flex-1">
                       <h3 className="text-[15px] font-semibold leading-snug tracking-[-0.01em] text-[var(--fg)] transition-colors group-hover:text-[color-mix(in_srgb,var(--c)_70%,var(--fg))]">
-                        {pack.name}
+                        <button
+                          type="button"
+                          className="card-open"
+                          onClick={e => {
+                            e.stopPropagation();
+                            void fetchPackDetail(pack.id);
+                          }}
+                        >
+                          {pack.name}
+                        </button>
                       </h3>
                       <p className="mono mt-1 flex items-center gap-1.5 text-[10.5px] uppercase tracking-[0.1em] text-[var(--fg-4)]">
                         <Wrench className="h-3 w-3" />
