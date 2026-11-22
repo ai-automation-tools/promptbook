@@ -323,7 +323,7 @@ Content under `site/library/` is a mix of original work and vendored third-party
 
 - **Issues:** [GitHub Issues](https://github.com/ai-automation-tools/promptbook/issues)
 - **Documentation:** [docs/](docs/)
-- **Email:** mikeschecht@gmail.com
+- **Email:** [admin@ai-automation-tools.dev](mailto:admin@ai-automation-tools.dev)
 
 ---
 
