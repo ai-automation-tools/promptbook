@@ -24,18 +24,18 @@ Markers: `- [ ]` open, `- [-]` claimed by a run in progress, `- [x]` done, `- [!
 marks one only the owner can do.
 
 > [!NOTE]
-> **Where we are, 2026-11-11.** The app is local-first (clone and run; My Library is a folder
+> **Where we are, 2026-11-21.** The app is local-first (clone and run; My Library is a folder
 > of markdown files) with a read-only demo at `promptbook-demo.ai-automation-tools.dev`, and a
 > local MCP server lets an agent search the library and pull items into its work. The library
-> holds 816 indexed items (Awesome ChatGPT, 1,353 prompts, was removed 2026-11-05), every one
+> holds 897 indexed items (`site/api/prompt-index.json`, built 2026-11-20; Awesome ChatGPT, 1,353 prompts, was removed 2026-11-05), every one
 > naming its source repo. Skill libraries are one card each (30 in `3_Skills/Libraries/`); the
 > 28 single skills each ship with a redistributable licence beside `SKILL.md`; prompts can
 > declare `[placeholder]` inputs that MCP clients ask for. What took items out of the library is
 > in `archive/` at the repo root.
 >
 > Phases 1, 2 and 3 are done (the last of Phase 3, the dotenv, motion and lucide-react
-> majors, 2026-11-07), and so is every release gate. The open work an agent can take is two
-> doc fixes, the demo build stamp, a Cronsole catalog with its two follow-on commands, and O04;
+> majors, 2026-11-07), and so is every release gate. The open work an agent can take is one
+> doc fix, the demo build stamp, a Cronsole catalog with its two follow-on commands, and O04;
 > the starter collections are blocked on the Skill Packs decision. Mike's calls left: the
 > contact that replaces the personal email in the README, the Vercel rate limit, the Skill
 > Packs decision, the skill `description:` decision, `lastModified` from git, and the public
@@ -90,10 +90,10 @@ Nothing below blocks go-live.
 
 ### 🧹 Upkeep
 
-- [ ] `small` Move Vite to 8.3.7 or later (security). **Why:** `site/package-lock.json` pins 8.3.6, which GHSA-p4f5-76q4-ffq7 (published 2026-11-10, remote code execution through the `__vite-browser-external` virtual module in the dev server) covers; it is fixed in 8.3.7, and 8.3.8 is the npm `latest` (github.com/vitejs/vite/security/advisories/GHSA-p4f5-76q4-ffq7). **Where:** `vite` in both `dependencies` and `devDependencies` of `site/package.json` (raise the floor to `^8.3.7`) and the lockfile. **Done when:** `npm ls vite` shows 8.3.7+, and `npm run lint`, `npm run build` and `npm run test:browser` pass
+- [x] `small` Move Vite to 8.3.7 or later (security). **Why:** `site/package-lock.json` pins 8.3.6, which GHSA-p4f5-76q4-ffq7 (published 2026-11-10, remote code execution through the `__vite-browser-external` virtual module in the dev server) covers; it is fixed in 8.3.7, and 8.3.8 is the npm `latest` (github.com/vitejs/vite/security/advisories/GHSA-p4f5-76q4-ffq7). **Where:** `vite` in both `dependencies` and `devDependencies` of `site/package.json` (raise the floor to `^8.3.7`) and the lockfile. **Done when:** `npm ls vite` shows 8.3.7+, and `npm run lint`, `npm run build` and `npm run test:browser` pass — done 2026-11-18: PR #501 (Dependabot's minor-and-patch group) raised `vite` to `^8.3.8` in both `dependencies` and `devDependencies` of `site/package.json`; `site/package-lock.json` pins 8.3.8, past the 8.3.7 fix, and the required `check` job passed before merge
 - [ ] Replace the personal email address in `README.md` (line 325, flagged by the Security sweep 2026-11-10) with a contact fit for a public repo; which contact replaces it 🔒 Needs owner
 - [ ] Vercel Firewall rate-limit rule on `/api/*` for promptbook-demo (a per-instance limiter does nothing on serverless), and confirm whether `library/3_Skills` is bundled into the function, which decides whether CodeQL #34 is reachable 🔒 Needs owner
-- [ ] `small` Library counts in `features/LIBRARY-MODE-IMPLEMENTATION.md` ("903") and `features/MCP-SERVER.md` ("~600") match `prompt-index.json` (816 items) or drop the number, and `surfaces.json` covers the "items" total, not just "prompts" — docs half done 2026-11-21: both docs dropped the number for `promptCount` in the index / "several hundred". Left: `surfaces.json`, which is in the homepage-refresh tooling (`Get-SurfaceDrift.py`), not this repo or the org on GitHub, so a run here can't reach it
+- [ ] `small` Library counts in `features/LIBRARY-MODE-IMPLEMENTATION.md` ("903") and `features/MCP-SERVER.md` ("~600") match `prompt-index.json` (897 items) or drop the number, and `surfaces.json` covers the "items" total, not just "prompts" — docs half done 2026-11-21: both docs dropped the number for `promptCount` in the index / "several hundred". Left: `surfaces.json`, which is in the homepage-refresh tooling (`Get-SurfaceDrift.py`), not this repo or the org on GitHub, so a run here can't reach it
 - [x] `small` Rename the leftover "Prompt-Library" job names in `UPSTREAMS.md` ("Prompt-Library Upstream Check") and `DISCOVERY.md` ("Prompt-Library Discovery") to the Promptbook job names (Promptbook Upstream Check, Promptbook Discovery)
 
 ### 🧾 Content provenance
@@ -140,6 +140,7 @@ job owns which part of the library.
 | Monthly Upkeep (third Wednesday) | Updates and removals; system prompts the drift report marks `behind` or `drifted` (resynced verbatim to the dated capture they name, repointed, or a duplicate merged away) and `historical` labels; hand-written Skill Packs (dead paths: `build-skill-packs.mjs`); skill library card frontmatter; Resources links; MCP cards; `featured` and tags |
 | Upstream Check (biweekly) | The app's own dependencies and platforms in [`UPSTREAMS.md`](UPSTREAMS.md); bigger changes become items here |
 | Org PR Sweep (daily) | Reviews and merges every PR above. It approves the CI run GitHub holds on the bot-opened `upstream/resync` PR, and holds anything it can't review for Mike |
+
 ---
 
 <p align="center">
