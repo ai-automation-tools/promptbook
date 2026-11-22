@@ -1,4 +1,5 @@
 ---
+same_as: 4_Prompts/Fabric/Summarize/create-micro-summary.md
 title: "🧵 Summarize Micro"
 description: "Generate extremely concise summaries of content."
 tags: ["fabric","pattern","summarize","writing","micro"]

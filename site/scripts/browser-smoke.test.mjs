@@ -138,6 +138,13 @@ try {
   assert.equal(await detailAll(one).count(), 0, "the slower, older load does not replace the newer prompt");
   await page.unroute(slow);
 
+  // An alias (PB-29): same text upstream under two names; the page links the twin.
+  await page.goto(`${base}/?library=public&prompt=4_Prompts/Fabric/Summarize/summarize`);
+  await page.getByText("Same text as").waitFor();
+  await page.getByRole("link", { name: "create-summary" }).click();
+  await page.waitForURL(/prompt=4_Prompts%2FFabric%2FSummarize%2Fcreate-summary|prompt=4_Prompts\/Fabric\/Summarize\/create-summary/);
+  await page.getByRole("link", { name: "summarize", exact: true }).waitFor();
+
   // Skill Packs: an open pack is a URL too.
   const packs = await (await fetch(`${base}/api/skill-packs?library=public`)).json();
   await page.goto(`${base}/?section=skill-packs&library=public&pack=${encodeURIComponent(packs[0].id)}`);

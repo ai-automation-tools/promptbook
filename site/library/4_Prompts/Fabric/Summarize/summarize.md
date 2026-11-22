@@ -1,4 +1,5 @@
 ---
+same_as: 4_Prompts/Fabric/Summarize/create-summary.md
 title: "🧵 Summarize"
 description: "Generate summaries capturing key points and details."
 tags: ["fabric","pattern","summarize","writing"]

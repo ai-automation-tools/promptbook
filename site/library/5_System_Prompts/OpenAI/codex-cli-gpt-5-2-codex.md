@@ -1,4 +1,5 @@
 ---
+same_as: 5_System_Prompts/OpenAI/codex-cli-gpt-5-1-codex-max.md
 title: "📝 Codex CLI — GPT-5.2-Codex"
 tags: ["system-prompt", "openai", "codex", "coding-agent"]
 category: "LLM Instructions"
