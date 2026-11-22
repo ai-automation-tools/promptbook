@@ -59,7 +59,7 @@ first, then restart (stop the `node … server.ts` process, `npm run dev`). Deta
 No `.env` is needed; `.env.example` lists the optional settings (`MY_LIBRARY_DIR`, `PORT`, `HOST`, `READ_ONLY`, `IMPORT_ROOTS`, `ALLOWED_HOSTS`, `FRAME_ANCESTORS`).
 
 Other scripts: `npm run build` (build:index → tsc → vite build), `npm run build:index`
-(regenerates `api/prompt-index.json` from `library/`), `npm run lint` (`tsc --noEmit`),
+(regenerates `api/prompt-index.json` from `library/`), `npm run lint` (`tsc --noEmit`, then oxlint with only the two react-hooks rules, `site/.oxlintrc.json`),
 `npm run test:routes` (asserts the shared Express app still exposes all fourteen API routes and no auth router),
 `npm run test:my-library` (round-trips the My Library file store in a temp folder, and a ZIP export and import, hostile archives included),
 `npm run test:read-only` (under `READ_ONLY`, My Library is neither listed nor served),

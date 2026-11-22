@@ -4,6 +4,17 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-22 — Lint checks React hook rules (PB-27)
+
+**Checks**
+- `npm run lint`, which CI runs, now runs oxlint after `tsc --noEmit`, with only two rules on: `rules-of-hooks` and `exhaustive-deps` (`site/.oxlintrc.json`). No style rules. A missing hook dependency is the class of bug behind several stale-state defects the audit found. The existing `eslint-disable-next-line react-hooks/exhaustive-deps` comment is honoured.
+- oxlint rather than ESLint: `typescript-eslint` supports TypeScript only below 6.1, and this repo is on 7. oxlint parses TypeScript itself and is one dev dependency.
+- It found two callbacks in `App.tsx` missing `setActiveTab` (from `useLibraryRoute`) in their dependency lists; both fixed.
+
+_Touched: `site/.oxlintrc.json` (new), `site/package.json`, `site/package-lock.json`, `site/src/App.tsx`, `AGENTS.md`, `README.md`, `docs/README.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — frontend-design skill sourced from Anthropic
 
 **Content**

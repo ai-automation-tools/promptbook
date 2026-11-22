@@ -180,7 +180,7 @@ cd site                     # the whole app lives here
 npm install
 npm run dev                 # http://localhost:3010 (npm start: build, then serve dist/)
 npm run build               # build:index -> tsc -> vite build
-npm run lint                # tsc --noEmit
+npm run lint                # tsc --noEmit, then oxlint (react-hooks rules)
 npm run test:routes         # API route table
 npm run test:my-library     # My Library file store
 npm run test:read-only      # read-only mode hides My Library

@@ -105,7 +105,7 @@ Copy `site/.env.example` to `site/.env` to change a default:
 ### Checks
 
 ```bash
-npm run lint             # tsc --noEmit
+npm run lint             # tsc --noEmit, then oxlint (react-hooks rules)
 npm run test:routes      # the API route table is intact
 npm run test:my-library  # the My Library file store
 npm run test:read-only   # read-only mode hides My Library

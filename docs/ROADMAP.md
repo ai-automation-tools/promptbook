@@ -119,7 +119,7 @@ From the 2026-11-18 project audit (taken at `2a990cd`). Ids are the audit's back
 - [x] **PB-24** P3 · Remove dead scripts and code; quiet the logs — done 2026-11-22: four dead scripts removed, per-request and per-file logs dropped, no-op layout props, unused Prompt fields, the DISABLE_HMR comment and unused tsconfig flags gone
 - [ ] **PB-25** P3 · Docs accuracy pass: AGENTS.md, README, CONTRIBUTING, MCP docs, ROADMAP, CHANGELOG split
 - [x] **PB-26** P3 · One library walker shared by the index builder and the API — #565
-- [ ] **PB-27** P3 · ESLint (react-hooks only) and client regression tests 🔒 Needs owner
+- [x] **PB-27** P3 · ESLint (react-hooks only) and client regression tests — #572 (oxlint: typescript-eslint doesn't support TypeScript 7)
 - [x] **PB-28** P3 · Cache skill/pack ZIPs and pack manifests; page large subcategories — done 2026-11-22: skill and pack ZIPs cached per process (largest skill 18 ms p50 warm), pack manifests read once, cards `content-visibility: auto`
 - [ ] **PB-29** P3 · Remove identical-body duplicates
 - [ ] **PB-30** P3 · Decide Skill Packs: grow, fold into starter collections, or retire 🔒 Needs owner
