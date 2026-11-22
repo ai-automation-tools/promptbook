@@ -28,6 +28,7 @@ database for the local app; if the hosted demo ever needs writes, that is a new 
 - **Read-only mode:** `READ_ONLY=true`, or automatically on Vercel (`VERCEL` is set). The server 403s every
   write route; the UI reads the same rule at build time (`__READ_ONLY__` in `vite.config.ts`,
   `src/lib/mode.ts`) and hides the library switch, New item, Save to My Library and pack add/remove.
+  Its API GETs carry `EDGE_CACHE` (`lib/library.ts`: `s-maxage` a day), so Vercel's edge serves them until the next deploy purges it.
 - **Deploy (demo only):** Vercel. Working branch **`mike_desktop`**, deploy branch **`main`**. `vercel-build` rebuilds the prompt index.
   `main` is protected by a ruleset: changes arrive only by pull request (no approval needed), the
   CI `check` and `secrets` jobs must pass, force pushes and deletion are blocked, and nobody bypasses it
