@@ -102,6 +102,21 @@ export const PREVIEW_LENGTH = 200;
 /** Library files over this size are bulk collections, not items: never indexed or listed. */
 const MAX_ITEM_BYTES = 500 * 1024;
 
+/**
+ * Every public item's body, lowercased, for full-text recall (PB-32: the palette and MCP search
+ * see only titles, tags and places otherwise). Read once per process, like the index: the
+ * library only changes with a deploy or a restart. ~10 MB of strings.
+ */
+let bodies: Promise<[string, string][]> | null = null;
+export function publicBodies(): Promise<[string, string][]> {
+  bodies ??= walkLibrary().then(rows => rows.map(({ entry, content }): [string, string] => [entry.id, content.toLowerCase()]));
+  bodies.catch(() => { bodies = null; });
+  return bodies;
+}
+
+/** The words of a full-text query: 3+ letters, at most eight. */
+export const queryWords = (q: string) => q.toLowerCase().split(/\s+/).filter(w => w.length > 2).slice(0, 8);
+
 /** One listable library file: its index fields (no preview), body and mtime. */
 export interface WalkedItem {
   entry: Omit<IndexEntry, 'contentPreview' | 'lastModified'>;

@@ -13,7 +13,7 @@ import { applyImport, existingCopy, FAVORITE_ID, favorites, forkExtra, IMPORT_LI
 import { readZip, ZipError } from "../lib/zip.js";
 import { cachedZip } from "../lib/zip-cache.js";
 import { filesUnder, resolveInside } from "../lib/safe-path.js";
-import { LIBRARY_PATH, SKILLS_SECTION, carriedFrontmatter, readLibraryItem, walkLibrary, EDGE_CACHE, PREVIEW_LENGTH, sourceOf, sourceUrlOf, type IndexEntry, type LibraryIndex } from "../lib/library.js";
+import { LIBRARY_PATH, SKILLS_SECTION, carriedFrontmatter, readLibraryItem, walkLibrary, EDGE_CACHE, publicBodies, queryWords, PREVIEW_LENGTH, sourceOf, sourceUrlOf, type IndexEntry, type LibraryIndex } from "../lib/library.js";
 import type { IncomingMessage, ServerResponse } from "http";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -258,6 +258,22 @@ async function fullListing(lightweight: boolean): Promise<ListedPrompt[]> {
     isUserOwned: false,
   }));
 }
+
+// Full-text recall for the ⌘K palette (PB-32): ids whose body holds every query word.
+const MAX_SEARCH_HITS = 20;
+app.get("/api/search", async (req, res) => {
+  const words = queryWords(String(req.query.q ?? '').slice(0, 200));
+  if (!words.length) return res.json([]);
+  const mine = req.query.library === 'my';
+  if (mine && READ_ONLY) return res.json([]); // the demo has no My Library
+  try {
+    const rows = mine ? myLibrary.list().map((p): [string, string] => [p.id, p.content.toLowerCase()]) : await publicBodies();
+    res.json(rows.filter(([, body]) => words.every(w => body.includes(w))).slice(0, MAX_SEARCH_HITS).map(([id]) => id));
+  } catch (error) {
+    console.error("Error searching the library:", error);
+    res.status(500).json({ error: "Could not search the library" });
+  }
+});
 
 // Card blurbs for a batch of library ids.
 //
