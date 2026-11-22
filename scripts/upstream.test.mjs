@@ -210,6 +210,25 @@ assert.equal(readUpstream(stampUpstream(tagsLast, { ref: "newsha", checked: "202
   assert.deepEqual(leaked, [], "no item may be sourced from a leaked/extracted prompt collection");
   console.log("  no item names a leaked or extracted prompt collection as its source");
 
+  // --- no jailbreak prompts (PB-01, 2026-11-22) ---
+  // Prompts written to talk a model out of its rules (DAN, Developer Mode and kin) are not
+  // published here. The ChatGPT-Shortcut cards below were removed; a refresh or finder that
+  // brings one back, or any item titled like one, fails here.
+  const DENIED_UPSTREAM = new Set([185, 221, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235]
+    .map((n) => `rockbenben/chatgpt-shortcut:src/data/cards/${n}_en.json`));
+  const JAILBREAK_TITLE = /\b(DAN \d|anti-DAN|jailbreak prompt|developer mode|devmode|image unlocker|unrestricted chatgpt|do anything now)\b/i;
+  const denied = [];
+  for (const f of walk(LIB, (n) => n.endsWith(".md"))) {
+    const fm = splitFrontmatter(fs.readFileSync(f, "utf8")).fm;
+    const u = readUpstream(fm);
+    const title = (fm.match(/^title:\s*(.*)$/m) || [])[1] || "";
+    if ((u && DENIED_UPSTREAM.has(`${(u.repo || "").toLowerCase()}:${u.path}`)) || JAILBREAK_TITLE.test(title)) {
+      denied.push(path.relative(LIB, f).split(path.sep).join("/"));
+    }
+  }
+  assert.deepEqual(denied, [], "jailbreak prompts are not published (PB-01)");
+  console.log("  no jailbreak prompt (denied ChatGPT-Shortcut cards, DAN/Developer Mode titles)");
+
   // --- F17: each record's kind has the metadata that kind needs ---
   // Original: written here (guides, library cards) — a bare `repo:` and no upstream block,
   // which would claim it was copied. Attributed: copied, so the block says from where and
