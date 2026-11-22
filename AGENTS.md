@@ -305,6 +305,9 @@ removed on 2026-11-22 (in git history at `86ff6925`, `archive/skill-libraries-20
   repo were archived on 2026-10-26 and removed on 2026-11-22; they are in git history at
   `86ff6925` (`archive/unlinked-2026-10-26/`, paths intact). Restore one by checking it out
   into `site/library/` and giving it a repo.
+- **Pausing the automation:** commit an empty `docs/AUTOMATION_PAUSED` to `main` and every
+  scheduled Promptbook job (finders, Keeper, Upkeep, Roadmap, Upstream Check) stops before it
+  opens a branch; delete it to resume. The `upstream-drift.yml` workflow is not covered.
 - **LF only.** `.gitattributes` sets `eol=lf` repo-wide. `contentPreview` is embedded in
   `api/prompt-index.json` verbatim, so a CRLF file makes the index unreproducible on Linux and
   the CI gate fails.

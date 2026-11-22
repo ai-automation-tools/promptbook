@@ -177,6 +177,7 @@ job owns which part of the library.
 | Weekly Roadmap (Saturday) | This file, and resyncing skills and agents the drift issue marks `behind` that the workflow left alone |
 | Monthly Upkeep (third Wednesday) | Updates and removals; system prompts the drift report marks `behind` or `drifted` (resynced verbatim to the dated capture they name, repointed, or a duplicate merged away) and `historical` labels; hand-written Skill Packs (dead paths: `build-skill-packs.mjs`); skill library card frontmatter; Resources links; MCP cards; `featured` and tags |
 | Upstream Check (biweekly) | The app's own dependencies and platforms in [`UPSTREAMS.md`](UPSTREAMS.md); bigger changes become items here |
+| Pause switch | An empty `docs/AUTOMATION_PAUSED` on `main` stops every scheduled Promptbook job (2026-11-22, PB-20); delete it to resume |
 | Org PR Sweep (daily) | Reviews and merges every PR above. It approves the CI run GitHub holds on the bot-opened `upstream/resync` PR, and holds anything it can't review for Mike |
 
 ---
