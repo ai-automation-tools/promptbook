@@ -4,6 +4,16 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-22 — Actions pinned by SHA, jobs time out (PB-21)
+
+**CI**
+- Every `uses:` in `ci.yml`, `homepage.yml` and `upstream-drift.yml` names a commit SHA with its version in a comment (`actions/checkout` v7.0.1, `actions/setup-node` v7.1.0, `actions/upload-pages-artifact` v5.0.0, `actions/deploy-pages` v5.0.1), so a moved tag can't change what runs. Dependabot's `github-actions` group updates SHA pins and their comments.
+- Every job has `timeout-minutes: 30`, down from GitHub's 360-minute default.
+
+_Touched: `.github/workflows/ci.yml`, `.github/workflows/homepage.yml`, `.github/workflows/upstream-drift.yml`, `docs/UPSTREAMS.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — No third-party email on cards; listing errors show; robots.txt; PORT (PB-19, PB-23)
 
 **Fixes**
