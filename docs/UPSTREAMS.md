@@ -25,7 +25,7 @@ tracked here until then.)
 
 | Upstream | What the code assumes | Code | Check at | Last checked |
 |:---|:---|:---|:---|:---|
-| **Google Fonts** | `fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap` via a `<link>` in `index.html` (preconnect to `fonts.googleapis.com` and `fonts.gstatic.com`) | `site/index.html` | developers.google.com/fonts/docs/css2 | 2026-11-13 |
+| **Fonts** | `@fontsource-variable/inter` and `@fontsource/jetbrains-mono` 5.3.0 (OFL-1.1), imported in `src/main.tsx` and bundled as files; no Google Fonts request since PB-11 (2026-11-22) | `site/package.json`, `site/src/main.tsx` | github.com/fontsource/fontsource | 2026-11-22 |
 
 ## Hosting and runtime
 

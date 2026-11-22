@@ -395,7 +395,7 @@ forget to set a flag and end up writable.
 - **Headers and limits:** `helmet` sets the standard response headers on the API, with a
   `frame-ancestors`-only CSP; HSTS is Vercel's. `npm start` sends `vercel.json`'s page headers
   from `server.ts`, framing kept same-origin, and only the demo build loads `consent.js`. On the demo, `vercel.json` gives the HTML and assets a CSP (scripts
-  from self, the inline theme script by hash and `consent.js`; Google Fonts; inline styles),
+  from self, the inline theme script by hash and `consent.js`; fonts and styles from self, inline styles allowed),
   `frame-ancestors 'none'`, `X-Frame-Options`, `nosniff` and a referrer policy.
   `npm run test:browser` serves the same headers, so a change to `index.html`'s inline script
   that the hash doesn't match fails CI. JSON bodies are capped at 1 MB.

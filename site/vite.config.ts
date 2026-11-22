@@ -26,16 +26,20 @@ export default defineConfig(() => {
       __READ_ONLY__: JSON.stringify(readOnly),
     },
     build: {
+      // Fonts stay files: a small subset inlined as base64 would sit in the render-blocking CSS
+      // for every visitor, and the CSP's font-src has no data: either.
+      assetsInlineLimit: (file: string) => (/\.(woff2?|ttf)$/.test(file) ? false : undefined),
       rollupOptions: {
         output: {
-          // React and motion are ~475 kB of the entry chunk and change only
-          // when we bump them, so keeping them out of the app chunk means a
-          // content edit no longer invalidates them in anyone's cache. It also
-          // puts every chunk under Vite's 500 kB warning threshold.
+          // React is most of the entry and changes only when we bump it, so
+          // keeping it out of the app chunk means a content edit no longer
+          // invalidates it in anyone's cache. It also keeps every chunk under
+          // Vite's 500 kB warning threshold.
           manualChunks(id) {
             if (!id.includes('node_modules')) return;
             if (/[\/]node_modules[\/](react|react-dom|scheduler)[\/]/.test(id)) return 'react-vendor';
-            if (/[\/]node_modules[\/](motion|motion-dom|motion-utils|framer-motion)[\/]/.test(id)) return 'motion';
+            // motion is not pinned to one chunk: LazyMotion loads its animation features after
+            // first paint (src/lib/motion-features.ts), and a single chunk would pull them in up front.
           },
         },
       },
