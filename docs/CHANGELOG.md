@@ -4,6 +4,17 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-22 — Faster first paint: self-hosted fonts, motion and Fuse off the critical path (PB-11)
+
+**Performance**
+- Inter and JetBrains Mono ship with the app (`@fontsource-variable/inter`, `@fontsource/jetbrains-mono`, OFL-1.1), imported in `src/main.tsx`. The render-blocking Google Fonts stylesheet, a request to a second and third origin before first paint, is gone, and the demo's CSP drops `fonts.googleapis.com` and `fonts.gstatic.com`. Font files are never inlined as base64 (`assetsInlineLimit`), so the CSS stays small and `font-src 'self'` holds.
+- `LazyMotion` loads its animation features after first paint (`src/lib/motion-features.ts`); `vite.config.ts` no longer pins all of motion into one up-front chunk. `fuse.js` loads on the first search; it was only ever the fallback when nothing matches as typed.
+- The JavaScript loaded before first paint falls from about 152 KB to 126 KB gzipped. On a local `npm start` (no compression, Lighthouse mobile) performance went from 49 to 56 and Total Blocking Time from 660 to 410 ms; the demo, which serves compressed files from Vercel's edge, gets re-measured after deploy against the audit's 85 target.
+
+_Touched: `site/index.html`, `site/src/main.tsx`, `site/src/index.css`, `site/src/App.tsx`, `site/src/lib/motion-features.ts`, `site/src/hooks/usePromptFilters.ts`, `site/vite.config.ts`, `site/vercel.json`, `site/package.json`, `site/package-lock.json`, `docs/UPSTREAMS.md`, `docs/ARCHITECTURE.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — Contrast and a 12px text floor (PB-12)
 
 **Accessibility**
@@ -39,7 +50,7 @@ _Touched: `site/src/components/ui/primitives.tsx`, `site/src/components/CommandP
 - The API's `helmet` CSP is now an explicit `frame-ancestors` policy instead of `contentSecurityPolicy: false` (CodeQL `js/insecure-helmet-configuration`); it covers dev's Vite pages too, which need inline scripts. The separate `FRAME_ANCESTORS` middleware only drops `X-Frame-Options` now.
 - `index.html`'s `consent.js` tag is stripped at build time unless the build is read-only (the demo), so a local copy no longer loads a script from ai-automation-tools.dev.
 
-_Touched: `site/server.ts`, `site/api/index.ts`, `site/vite.config.ts`, `AGENTS.md`, `SECURITY.md`, `docs/ARCHITECTURE.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+_Touched: `site/server.ts`, `site/api/index.ts`, `site/vite.config.ts`, `AGENTS.md`, `SECURITY.md`, `docs/ARCHITECTURE.md`, `docs/CHANGELOG.md`._
 
 ---
 

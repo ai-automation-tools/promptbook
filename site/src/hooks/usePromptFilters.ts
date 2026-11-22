@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import Fuse from 'fuse.js';
+import type Fuse from 'fuse.js';
 import { type Prompt } from '../components/PromptCard';
 import { isLibraryItem } from '../components/SkillLibraries';
 
@@ -59,6 +59,11 @@ export function usePromptFilters({
     }, 300);
     return () => clearTimeout(timer);
   }, [searchQuery]);
+
+  const [FuseCtor, setFuseCtor] = useState<typeof Fuse | null>(null);
+  useEffect(() => {
+    if (debouncedSearch && !FuseCtor) void import('fuse.js').then(mod => setFuseCtor(() => mod.default));
+  }, [debouncedSearch, FuseCtor]);
 
   // Reset to page 1 when filters change
   useEffect(() => {
@@ -142,7 +147,10 @@ export function usePromptFilters({
       return strictOrdered;
     }
 
-    const fuse = new Fuse(currentPrompts, {
+    // Fuzzy matching is the fallback when nothing matches as typed; fuse.js loads on the
+    // first search instead of with the page (PB-11). Until then the fallback finds nothing.
+    if (!FuseCtor) return [];
+    const fuse = new FuseCtor(currentPrompts, {
       keys: [
         { name: 'title', weight: 10 },
         { name: 'tags', weight: 3 },
@@ -157,6 +165,7 @@ export function usePromptFilters({
 
     return fuse.search(debouncedSearch).map(result => result.item);
   }, [
+    FuseCtor,
     sectionPrompts,
     debouncedSearch,
     activeTab,
