@@ -11,6 +11,7 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 - Public bodies are read once per process and kept in memory (`publicBodies()` in `lib/library.ts`, ~10 MB). The MCP server's `search_library` now uses the same cache instead of re-reading every file on each query. On the demo, the endpoint is edge-cached like every other GET.
 
 **Tests:** `test:routes` now pins 15 routes. `test:browser` picks a word that appears only in an item's body, types it into ⌘K and expects the "In the text" group.
+- Also fixes a flaky step in `test:browser`, which failed #573 and this PR's first run. After a reload with `?prompt=`, the page shows the item's category until the item opens, and the test looked for a card in that window. It now opens the category list itself. (#574's favorites fix was a real race, but not this one.)
 
 _Touched: `site/lib/library.ts`, `site/api/index.ts`, `site/mcp/server.ts`, `site/src/components/CommandPalette.tsx`, `site/src/App.tsx`, `site/scripts/api-routes.test.mjs`, `site/scripts/browser-smoke.test.mjs`, `docs/features/API.md`, `docs/ARCHITECTURE.md`, `docs/development/CODE-MAP.md`, `README.md`, `docs/CHANGELOG.md`._
 

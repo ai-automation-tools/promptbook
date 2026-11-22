@@ -240,6 +240,8 @@ try {
   await migrated;
   assert.deepEqual(JSON.parse(fs.readFileSync(favFile, "utf-8")), [mine.id, older.id], "the old browser list is merged in, Public Library ids left out");
   assert.equal(await page.evaluate(() => localStorage.getItem("prompt-favorites")), null, "and dropped from the browser");
+  // The reloaded page shows the category only until its ?prompt= opens, so go to the list itself.
+  await page.goto(`${base}/?library=my&section=prompt-library&category=Dev`);
   await page.locator("article", { has: page.getByRole("button", { name: "Starred elsewhere", exact: true }) })
     .getByRole("button", { name: "Remove from favorites" }).waitFor();
 
