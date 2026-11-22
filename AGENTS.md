@@ -149,6 +149,7 @@ site/
   lib/zip.ts           readZip(): the My Library import's ZIP reader (stored + deflate). Refuses
                        traversal names, ZIP64, encryption and entries over the cap, however
                        small they claim to be
+  lib/zip-cache.ts     cachedZip(): skill and pack ZIPs built once per process, served from memory
   lib/safe-path.ts     resolveInside(): keeps library paths inside library/, by real path;
                        filesUnder(): folder walks that skip symlinks and junctions
   lib/prompt-inputs.ts A prompt's declared `inputs:` ([placeholder] fields): validated, then

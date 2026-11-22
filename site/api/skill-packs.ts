@@ -3,7 +3,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import matter from '../lib/frontmatter.js';
-import { ZipArchive } from 'archiver';
+import { cachedZip } from '../lib/zip-cache.js';
 import { myLibrary, READ_ONLY } from '../lib/my-library.js';
 import { carriedFrontmatter, LIBRARY_PATH } from '../lib/library.js';
 import { filesUnder, resolveInside } from '../lib/safe-path.js';
@@ -60,7 +60,13 @@ export interface SkillPack {
 }
 
 // Helper to read all pack files
-export async function getAllPacks(): Promise<SkillPack[]> {
+// Pack manifests are library files: read once per process (PB-28), like the prompt index.
+let packsLoaded: Promise<SkillPack[]> | null = null;
+export function getAllPacks(): Promise<SkillPack[]> {
+  return (packsLoaded ??= readAllPacks());
+}
+
+async function readAllPacks(): Promise<SkillPack[]> {
   try {
     const packFiles = await getAllPackFiles(packsDir);
     
@@ -74,6 +80,7 @@ export async function getAllPacks(): Promise<SkillPack[]> {
     return packs;
   } catch (error) {
     console.error('Error reading packs:', error);
+    packsLoaded = null; // retry on the next request rather than serve "no packs" for good
     return [];
   }
 }
@@ -282,85 +289,39 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(404).json({ error: 'Pack not found' });
       }
       
-      // Set response headers for ZIP download
-      res.setHeader('Content-Type', 'application/zip');
-      res.setHeader('Content-Disposition', `attachment; filename="${packId}.zip"`);
-      
-      // Create ZIP archive
-      const archive = new ZipArchive({
-        zlib: { level: 6 } // zlib default; level 9 cost 40% more CPU for 0.15% smaller ZIPs
-      });
-      
-      // Handle errors
-      archive.on('error', (err) => {
-        console.error('Archive error:', err);
-        if (!res.headersSent) {
-          res.status(500).json({ error: 'Failed to create archive' });
-        }
-      });
-      
-      // Pipe archive to response
-      archive.pipe(res);
-      
-      // Track total files added
-      
-      // Add each skill's entire directory to the ZIP
-      for (const skill of pack.skills) {
-        const skillPath = packPath(skill.path);
-        if (!skillPath) {
-          console.error(`  Skipping ${skill.path}: outside the library`);
-          continue;
-        }
-        const skillDir = path.dirname(skillPath);
-        const skillDirName = path.basename(skillDir);
-        
-        
-        try {
-          // Check if directory exists
-          try {
-            await fs.access(skillDir);
-          } catch (accessErr) {
-            console.error(`  Cannot access ${skillDir}:`, accessErr);
+      const zip = await cachedZip(`pack:${packId}`, async (archive) => {
+        // Each skill's whole folder, under its folder name
+        for (const skill of pack.skills) {
+          const skillPath = packPath(skill.path);
+          if (!skillPath) {
+            console.error(`Skipping ${skill.path}: outside the library`);
             continue;
           }
-          
-          // Check if it's a directory (should be for skills)
-          const stats = await fs.stat(skillDir);
-          
-          if (stats.isDirectory()) {
-            // Read all files in the skill directory recursively
-            const allFiles = filesUnder(skillDir);
-                        
-            if (allFiles.length === 0) {
-              console.warn(`  Warning: No files found in ${skillDir}`);
+          const skillDir = path.dirname(skillPath);
+          const skillDirName = path.basename(skillDir);
+          try {
+            const stats = await fs.stat(skillDir);
+            if (stats.isDirectory()) {
+              const allFiles = filesUnder(skillDir);
+              if (allFiles.length === 0) console.warn(`No files found in ${skillDir}`);
+              for (const filePath of allFiles) {
+                archive.file(filePath, { name: path.posix.join(skillDirName, path.relative(skillDir, filePath).split(path.sep).join('/')) });
+              }
+            } else {
+              archive.file(skillPath, { name: path.posix.join(skillDirName, path.basename(skillPath)) });
             }
-            
-            for (const filePath of allFiles) {
-              const relativePath = path.relative(skillDir, filePath);
-              const archivePath = path.join(skillDirName, relativePath);
-              archive.file(filePath, { name: archivePath });
-            }
-          } else {
-            // If it's just a file, add the file
-            const archivePath = path.join(skillDirName, path.basename(skillPath));
-            archive.file(skillPath, { name: archivePath });
+          } catch (err) {
+            // One unreadable skill doesn't sink the pack
+            console.error(`Error processing skill ${skill.path}:`, err);
           }
-        } catch (err) {
-          console.error(`Error processing skill ${skill.path}:`, err);
-          // Continue with other skills even if one fails
         }
-      }
-            
-      // Add pack manifest JSON
-      const packFiles = await getAllPackFiles(packsDir);
-      const packManifestPath = packFiles.find(file => path.basename(file) === `${packId}.json`);
-      if (packManifestPath) {
-        archive.file(packManifestPath, { name: `${packId}.json` });
-      }
-      
-      // Finalize archive (must be called after all files are added)
-      await archive.finalize();
-      
+        const packManifestPath = (await getAllPackFiles(packsDir)).find(file => path.basename(file) === `${packId}.json`);
+        if (packManifestPath) archive.file(packManifestPath, { name: `${packId}.json` });
+      });
+
+      res.setHeader('Content-Type', 'application/zip');
+      res.setHeader('Content-Disposition', `attachment; filename="${packId}.zip"`);
+      res.status(200).send(zip);
       return;
     } catch (error) {
       console.error('Error creating pack download:', error);

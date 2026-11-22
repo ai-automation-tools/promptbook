@@ -11,6 +11,7 @@ import { dirname } from "path";
 import { ZipArchive } from "archiver";
 import { applyImport, existingCopy, FAVORITE_ID, favorites, forkExtra, IMPORT_LIMITS, ImportChangedError, InvalidPromptError, libraryFiles, myLibrary, previewImport, PromptConflictError, pullUpstream, READ_ONLY, upstreamStatus, type UserPrompt } from "../lib/my-library.js";
 import { readZip, ZipError } from "../lib/zip.js";
+import { cachedZip } from "../lib/zip-cache.js";
 import { filesUnder, resolveInside } from "../lib/safe-path.js";
 import { LIBRARY_PATH, SKILLS_SECTION, carriedFrontmatter, checkedOf, extractFirstHeading, readLibraryItem, sourceOf, sourceUrlOf, type IndexEntry, type LibraryIndex } from "../lib/library.js";
 import type { IncomingMessage, ServerResponse } from "http";
@@ -612,30 +613,15 @@ app.get("/api/skills/download/*skillPath", async (req, res) => {
       return res.status(400).json({ error: "Path must be a directory" });
     }
 
-    const skillDirName = path.basename(fullPath);
-    const zipFilename = `${skillDirName}.zip`;
-
-    res.setHeader('Content-Type', 'application/zip');
-    res.setHeader('Content-Disposition', `attachment; filename="${zipFilename}"`);
-
-    const archive = new ZipArchive({
-      // zlib default: measured 40% faster than 9 on the largest skill for 0.15% more bytes
-      zlib: { level: 6 }
-    });
-
-    archive.on('error', (err) => {
-      console.error('Archive error:', err);
-      if (!res.headersSent) {
-        res.status(500).json({ error: 'Failed to create archive' });
+    const zip = await cachedZip(`skill:${fullPath}`, (archive) => {
+      // File by file rather than archive.directory(), which would follow a link out of the library
+      for (const file of filesUnder(fullPath)) {
+        archive.file(file, { name: path.relative(fullPath, file).split(path.sep).join('/') });
       }
     });
-
-    archive.pipe(res);
-    // File by file rather than archive.directory(), which would follow a link out of the library
-    for (const file of filesUnder(fullPath)) {
-      archive.file(file, { name: path.relative(fullPath, file).split(path.sep).join('/') });
-    }
-    await archive.finalize();
+    res.setHeader('Content-Type', 'application/zip');
+    res.setHeader('Content-Disposition', `attachment; filename="${path.basename(fullPath)}.zip"`);
+    res.send(zip);
   } catch (error) {
     console.error("Error creating skill download:", error);
     if (!res.headersSent) {

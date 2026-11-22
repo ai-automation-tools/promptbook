@@ -4,6 +4,19 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-22 — ZIPs and pack manifests built once; long card lists skip off-screen work (PB-28)
+
+**Performance**
+- Skill and Skill Pack ZIPs are built on the first download and served from memory after that (`lib/zip-cache.ts`); a failed build is retried, not cached. The largest skill ZIP went from about 200 ms (and 1.2 s on the demo) per download to 18 ms p50 once built. Pack manifests are read once per process too. The library only changes with a deploy or restart, as the prompt index already assumes.
+- Cards use `content-visibility: auto`, so a sub-category with hundreds of unpaged cards (Fabric: 265) lays out and paints only what is on screen.
+
+**Fixes**
+- Pack ZIP entry names were joined with the OS separator, so a ZIP built on Windows had `skill\file` names; they are POSIX paths now, as the skill ZIP's already were.
+
+_Touched: `site/lib/zip-cache.ts`, `site/api/index.ts`, `site/api/skill-packs.ts`, `site/src/index.css`, `AGENTS.md`, `docs/development/PERFORMANCE.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — Dead scripts and code out; quieter logs (PB-24)
 
 **Cleanup**
