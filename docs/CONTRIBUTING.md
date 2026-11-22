@@ -75,6 +75,11 @@ guides. It prints the file, line and rule, never the text. If a hit is safe (a v
 official installer, a guide quoting a phrase), add the file to `scripts/content-allowlist.json`
 with the rule and a reason.
 
+On a pull request a second step compares the PR with its base: a skill that adds
+`allowed-tools`, or a tool to it, and a file that grows to three times its size and by 20 KB or
+more, fail it. Those are changes a person should read. Once someone has, they add the
+`content-reviewed` label to the PR, which re-runs CI without that step.
+
 ### Field Rules
 
 **1. `title`**

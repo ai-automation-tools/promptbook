@@ -10,6 +10,8 @@ on:
   push:
     branches: [main]
   pull_request:
+    # labeled: adding `content-reviewed` re-runs CI past the content diff step (PB-06)
+    types: [opened, synchronize, reopened, labeled]
   workflow_dispatch:
 
 permissions:
@@ -109,6 +111,17 @@ jobs:
       - name: Content gate
         working-directory: .
         run: node scripts/check-content.mjs
+
+      # What a PR changes, against its base: a skill gaining `allowed-tools`, or a file growing
+      # to 3x and by 20 KB. A person reads it and adds the `content-reviewed` label to pass.
+      - name: Content diff
+        if: github.event_name == 'pull_request' && !contains(github.event.pull_request.labels.*.name, 'content-reviewed')
+        working-directory: .
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }} # the commit this PR's merge ref is built on
+        run: |
+          git fetch --no-tags --depth=1 origin "$BASE_SHA"
+          node scripts/check-content.mjs --base "$BASE_SHA"
 
       # homepage/ is a separate static site (GitHub Pages); this pins its required links.
       - name: Homepage links
