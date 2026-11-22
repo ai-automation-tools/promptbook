@@ -96,8 +96,10 @@ site/
                        usePromptPreviews (batched card blurbs — the listing has no body text)
                        usePromptContent (copy state + fetchFullPrompt, which throws rather than
                        return the listing's preview; callers show an error and stop)
-                       useLibraryRoute (section/category/subcategory/?prompt= URL state, plus
-                       Skills' ?view=libraries; a My Library item's ?prompt= is its id, with ?library=my)
+                       useLibraryRoute (the URL is the navigation state: library, section, category,
+                       subcategory, ?prompt=, Skills' ?view=libraries, ?favorites=1, ?pack=; a view change
+                       pushes history, so Back/Forward work; App derives which view shows from it. A
+                       My Library item's ?prompt= is its id, with ?library=my)
                        useFavorites: My Library's favorites, kept by the server in `favorites.json` in the
                        My Library folder (not localStorage, which is per address), so every browser and device
                        sees the same stars; a browser's old `prompt-favorites` list moves up once on load.

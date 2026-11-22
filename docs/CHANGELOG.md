@@ -4,6 +4,21 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-22 — Every view has a link; Back and Forward work; slow loads can't overwrite newer ones (PB-09)
+
+**Fixes**
+- The URL is now the navigation state. `useLibraryRoute` keeps library, section, category, subcategory, `?prompt=`, Skills' `?view=libraries`, and two new parameters: `?favorites=1` for the My Library Favorites view and `?pack=` for an open Skill Pack. App derives which view shows (a prompt, Favorites, a category or subcategory, or the whole section) instead of keeping three more flags that could disagree with it.
+- Before, almost every change replaced the history entry, so browser Back left the app. A `?category=` link also opened on the whole section, because the category view was a separate flag the URL never set. Now each change of view pushes an entry, so Back and Forward walk prompt → category → section and back. Filling in defaults on load, resolving a shared `?prompt=` link and leaving Favorites when switching to the Public Library replace the entry instead, so none of them leaves a dead step.
+- Back or Forward onto a different prompt now opens it; before, the open one stayed.
+- Stale responses are dropped: opening a prompt, the library listing (a library switch or refresh) and a Skill Pack's details each count their requests, and only the newest answer is applied. A refresh that fails keeps the list on screen instead of emptying it, and a pack answer without an id is treated as an error.
+- Opening a prompt from anywhere (a card, the palette, a link, history) switches library, section and category in one step.
+
+**Tests:** `test:browser` opens a `?category=` link, walks prompt → in-page Back → browser Back → Back → Forward, opens a `?pack=` link and goes back to it, and delays one prompt's response so a newer click lands first.
+
+_Touched: `site/src/hooks/useLibraryRoute.ts`, `site/src/App.tsx`, `site/src/components/SkillPacksView.tsx`, `site/scripts/browser-smoke.test.mjs`, `AGENTS.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — A licence on every copied item; NOTICE generated; relicensed upstreams held (PB-17)
 
 **Content**

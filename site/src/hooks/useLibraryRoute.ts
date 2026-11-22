@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { type Prompt } from '../components/PromptCard';
 import { READ_ONLY } from '../lib/mode';
 import { tellShell } from '../lib/embed';
@@ -35,36 +35,39 @@ export function slugifyPromptPath(promptId: string): string {
 interface UseLibraryRouteOptions {
   selectedPrompt: Prompt | null;
   setSelectedPrompt: (prompt: Prompt | null) => void;
+  libraryMode: 'public' | 'my';
   setLibraryMode: (mode: 'public' | 'my') => void;
 }
 
 /**
- * The URL-backed navigation state: section tab, category, subcategory and the
- * `?prompt=` deep link. Seeded from the query string on load, written back with
- * `replaceState` whenever it changes, and re-read on back/forward.
+ * The URL is the navigation state (PB-09): library, section, category, subcategory,
+ * Skills' `?view=libraries`, `?favorites=1`, the open Skill Pack's `?pack=` and the `?prompt=` deep link. Seeded from the
+ * query string on load and re-read on Back/Forward, so every screen has a link that restores
+ * it. A change of view pushes a history entry; the first write (filling in defaults) and any
+ * write after `replaceNextUrl()` replace the current one instead, so resolving a deep link
+ * or leaving a view the library can't show doesn't leave a dead entry behind.
  *
- * `libraryMode` and the selected prompt stay in App — they have their own
- * persistence and fetching — so the hook takes their setters for popstate.
- * Resolving a `?prompt=` path to a prompt also stays in App, since it needs the
- * loaded listing and `handlePromptClick`.
+ * The selected prompt and the listing stay in App, which resolves `?prompt=` once the
+ * listing has loaded (and after Back/Forward lands on a prompt), so the hook takes their setters.
  */
-export function useLibraryRoute({ selectedPrompt, setSelectedPrompt, setLibraryMode }: UseLibraryRouteOptions) {
-  const [activeTab, setActiveTab] = useState<LibraryTab>(
-    () => parseSection(new URLSearchParams(window.location.search).get('section')),
-  );
-  const [activeCategory, setActiveCategory] = useState<string | null>(
-    () => new URLSearchParams(window.location.search).get('category'),
-  );
-  const [activeSubcategory, setActiveSubcategory] = useState<string | null>(
-    () => new URLSearchParams(window.location.search).get('subcategory'),
-  );
+export function useLibraryRoute({ selectedPrompt, setSelectedPrompt, libraryMode, setLibraryMode }: UseLibraryRouteOptions) {
+  const initial = new URLSearchParams(window.location.search);
+  const [activeTab, setActiveTab] = useState<LibraryTab>(() => parseSection(initial.get('section')));
+  const [activeCategory, setActiveCategory] = useState<string | null>(() => initial.get('category'));
+  const [activeSubcategory, setActiveSubcategory] = useState<string | null>(() => initial.get('subcategory'));
   // Skills only: `?view=libraries`.
-  const [skillView, setSkillView] = useState<SkillView>(
-    () => parseSkillView(new URLSearchParams(window.location.search).get('view')),
-  );
-  const [promptPathParam, setPromptPathParam] = useState<string | null>(
-    () => new URLSearchParams(window.location.search).get('prompt'),
-  );
+  const [skillView, setSkillView] = useState<SkillView>(() => parseSkillView(initial.get('view')));
+  // My Library only: the sidebar's Favorites view.
+  const [showFavorites, setShowFavorites] = useState(() => initial.get('favorites') === '1');
+  // Skill Packs only: the open pack.
+  const [activePack, setActivePack] = useState<string | null>(() => initial.get('pack'));
+  // A `?prompt=` not yet resolved to a prompt (on load, or after Back/Forward).
+  const [promptPathParam, setPromptPathParam] = useState<string | null>(() => initial.get('prompt'));
+
+  const selectedRef = useRef(selectedPrompt);
+  selectedRef.current = selectedPrompt;
+  const replaceNext = useRef(true); // the first write fills in defaults; it is not a navigation
+  const replaceNextUrl = useCallback(() => { replaceNext.current = true; }, []);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -77,10 +80,13 @@ export function useLibraryRoute({ selectedPrompt, setSelectedPrompt, setLibraryM
       setActiveCategory(urlParams.get('category'));
       setActiveSubcategory(urlParams.get('subcategory'));
       setSkillView(parseSkillView(urlParams.get('view')));
-      setPromptPathParam(prompt);
-
-      if (!prompt) {
+      setShowFavorites(urlParams.get('favorites') === '1');
+      setActivePack(urlParams.get('pack'));
+      // Landing on another prompt: drop the open one so App resolves this one.
+      const open = selectedRef.current;
+      if (!prompt || !open || slugifyPromptPath(open.id) !== prompt) {
         setSelectedPrompt(null);
+        setPromptPathParam(prompt);
       }
     };
 
@@ -88,36 +94,28 @@ export function useLibraryRoute({ selectedPrompt, setSelectedPrompt, setLibraryM
     return () => window.removeEventListener('popstate', handlePopState);
   }, [setLibraryMode, setSelectedPrompt]);
 
-  // Update URL when navigation state changes
+  // State → URL. Equal URLs (Back/Forward, which set state from the URL) write nothing.
   useEffect(() => {
     const url = new URL(window.location.href);
+    const set = (key: string, value: string | null) => (value ? url.searchParams.set(key, value) : url.searchParams.delete(key));
 
-    url.searchParams.set('section', activeTab);
+    set('library', READ_ONLY ? null : libraryMode);
+    set('section', activeTab);
+    set('category', activeCategory);
+    set('subcategory', activeSubcategory);
+    set('view', activeTab === 'skills' && skillView === 'libraries' ? skillView : null);
+    set('favorites', showFavorites && libraryMode === 'my' ? '1' : null);
+    set('pack', activeTab === 'skill-packs' ? activePack : null);
+    set('prompt', selectedPrompt ? slugifyPromptPath(selectedPrompt.id) : promptPathParam);
 
-    if (activeCategory) {
-      url.searchParams.set('category', activeCategory);
-    } else {
-      url.searchParams.delete('category');
+    const next = url.pathname + url.search + url.hash;
+    if (next !== window.location.pathname + window.location.search + window.location.hash) {
+      if (replaceNext.current) window.history.replaceState({}, '', next);
+      else window.history.pushState({}, '', next);
     }
-
-    if (activeSubcategory) {
-      url.searchParams.set('subcategory', activeSubcategory);
-    } else {
-      url.searchParams.delete('subcategory');
-    }
-
-    if (activeTab === 'skills' && skillView === 'libraries') url.searchParams.set('view', skillView);
-    else url.searchParams.delete('view');
-
-    if (selectedPrompt) {
-      url.searchParams.set('prompt', slugifyPromptPath(selectedPrompt.id));
-    } else {
-      url.searchParams.delete('prompt');
-    }
-
-    window.history.replaceState({}, '', url.toString());
+    replaceNext.current = false;
     tellShell({ type: 'route', path: url.pathname + url.search });
-  }, [activeTab, activeCategory, activeSubcategory, skillView, selectedPrompt]);
+  }, [libraryMode, activeTab, activeCategory, activeSubcategory, skillView, showFavorites, activePack, selectedPrompt, promptPathParam]);
 
   return {
     activeTab,
@@ -128,7 +126,12 @@ export function useLibraryRoute({ selectedPrompt, setSelectedPrompt, setLibraryM
     setActiveSubcategory,
     skillView,
     setSkillView,
+    showFavorites,
+    setShowFavorites,
+    activePack,
+    setActivePack,
     promptPathParam,
     setPromptPathParam,
+    replaceNextUrl,
   };
 }

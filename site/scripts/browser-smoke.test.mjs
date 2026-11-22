@@ -98,6 +98,56 @@ try {
   assert.doesNotMatch(page.url(), /[?&]prompt=/, "Related leaves the prompt and does not bounce back");
   assert.equal(await page.getByRole("button", { name: /Copy prompt/ }).count(), 0, "still on the listing a second later");
 
+  // Navigation (PB-09): every view is a URL, Back/Forward walk the views, and a slow load
+  // that a newer click overtook never replaces it.
+  const listing = await (await fetch(`${base}/api/prompts?library=public&lightweight=true`)).json();
+  const servers = listing.filter((p) => p.section === "6_MCP_Servers");
+  const cat = servers.find((p) => servers.filter((q) => q.category === p.category).length >= 2).category;
+  const [one, two] = servers.filter((p) => p.category === cat);
+  const shown = (p) => p.title.replace(/^[^\p{L}\p{N}]+/u, ""); // cards and headings drop a leading emoji
+  const detailAll = (p) => page.locator("main h1").filter({ hasText: shown(p) });
+  const detail = (p) => detailAll(p).first();
+  const openCard = (p) => page.locator("main article").getByRole("button", { name: shown(p), exact: true }).first().click();
+  const params = () => new URL(page.url()).searchParams;
+
+  await page.goto(`${base}/?section=mcp-servers&library=public&category=${encodeURIComponent(cat)}`);
+  await page.locator("main article").getByRole("button", { name: shown(one), exact: true }).first().waitFor();
+  assert.equal(await page.locator("main article").count(), servers.filter((p) => p.category === cat).length, "a ?category= link lists just that category");
+  await openCard(one);
+  await detail(one).waitFor();
+  await page.getByRole("button", { name: "Back" }).first().click(); // in-page Back: to the category
+  await detail(one).waitFor({ state: "detached" });
+  assert.equal(params().get("category"), cat);
+  await page.goBack();
+  await detail(one).waitFor();
+  assert.ok(params().get("prompt"), "browser Back returns to the prompt");
+  await page.goBack();
+  await detail(one).waitFor({ state: "detached" });
+  assert.equal(params().get("prompt"), null, "and Back again to the category");
+  assert.equal(params().get("category"), cat);
+  await page.goForward();
+  await detail(one).waitFor();
+
+  await page.goto(`${base}/?section=mcp-servers&library=public&category=${encodeURIComponent(cat)}`);
+  const slow = (url) => decodeURIComponent(url.pathname) === `/api/prompts/${one.id}`;
+  await page.route(slow, async (route) => { await new Promise((r) => setTimeout(r, 1500)); await route.continue(); });
+  await openCard(one);
+  await openCard(two);
+  await detail(two).waitFor();
+  await page.waitForTimeout(2000);
+  assert.equal(await detailAll(one).count(), 0, "the slower, older load does not replace the newer prompt");
+  await page.unroute(slow);
+
+  // Skill Packs: an open pack is a URL too.
+  const packs = await (await fetch(`${base}/api/skill-packs?library=public`)).json();
+  await page.goto(`${base}/?section=skill-packs&library=public&pack=${encodeURIComponent(packs[0].id)}`);
+  await page.getByRole("heading", { level: 1, name: packs[0].name }).waitFor();
+  await page.getByRole("button", { name: "All skill packs" }).click();
+  await page.getByRole("heading", { level: 1, name: packs[0].name }).waitFor({ state: "detached" });
+  assert.equal(params().get("pack"), null, "leaving the pack drops ?pack=");
+  await page.goBack();
+  await page.getByRole("heading", { level: 1, name: packs[0].name }).waitFor();
+
   // Settings dialog (F08): focus moves in, Tab can't leave, Escape gives it back.
   const inDialog = () => page.evaluate(() => !!document.querySelector("[role=dialog]")?.contains(document.activeElement));
   await page.getByRole("button", { name: "Settings" }).first().focus();
@@ -265,7 +315,7 @@ try {
   await framed.waitForFunction(() => document.documentElement.classList.contains("light"));
 
   assert.deepEqual(problems, [], "no page errors, console errors or failed requests");
-  console.log("browser-smoke: listing, card keyboard actions, detail, Related without a bounce, hero counter, Settings focus, the command palette's focus trap, My Library export and import, My Library links, server-side favorites (and the move from localStorage), category suggestions, a 409 that keeps the draft, Skill Packs listed once, the phone New item button stepping aside on scroll, bad or blocked storage, the suite embed contract and the vercel.json CSP all pass on the built app");
+  console.log("browser-smoke: listing, card keyboard actions, detail, Related without a bounce, hero counter, Settings focus, the command palette's focus trap, My Library export and import, My Library links, server-side favorites (and the move from localStorage), category suggestions, links and Back/Forward for categories, prompts and packs, a slow load that loses to a newer one, a 409 that keeps the draft, Skill Packs listed once, the phone New item button stepping aside on scroll, bad or blocked storage, the suite embed contract and the vercel.json CSP all pass on the built app");
 } finally {
   await browser.close();
   server.close();
