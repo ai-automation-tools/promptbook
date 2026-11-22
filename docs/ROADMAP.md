@@ -113,7 +113,7 @@ From the 2026-11-18 project audit (taken at `2a990cd`). Ids are the audit's back
 - [ ] **PB-18** P2 · GitHub hygiene: branch auto-delete and cleanup, Pages HTTPS, CodeQL triage, drift-PR token 🔒 Needs owner
 - [ ] **PB-19** P2 · Replace the personal email in README and SECURITY.md; strip a third-party email from a library card
 - [ ] **PB-20** P3 · Automation load: one resync owner, staggered Saturday jobs, batched content PRs, pause switch, stale comments *(claude-routines)*
-- [ ] **PB-21** P3 · Pin Actions by SHA and add job timeouts
+- [x] **PB-21** P3 · Pin Actions by SHA and add job timeouts — done 2026-11-22: every `uses:` pinned to a commit SHA with a version comment; every job has `timeout-minutes: 30`
 - [ ] **PB-22** P3 · Smaller client defects and markdown link/image handling
 - [ ] **PB-23** P3 · Server polish: listing errors are errors, robots.txt, configurable PORT
 - [ ] **PB-24** P3 · Remove dead scripts and code; quiet the logs
