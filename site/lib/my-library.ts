@@ -366,6 +366,16 @@ export const favorites = {
 const hashOf = (content: string) => createHash('sha256').update(content.trim()).digest('hex').slice(0, 16);
 
 /** The `extra` a fresh copy of a library item carries. */
+/**
+ * The My Library item a copy of this public item would duplicate: same section, category,
+ * subcategory and title (case-insensitive). One rule for the HTTP copy and the MCP save.
+ */
+export function existingCopy(item: Pick<LibraryItem, 'section' | 'category' | 'subcategory' | 'title'>): UserPrompt | undefined {
+  const title = item.title.trim().toLowerCase();
+  return myLibrary.list().find(p => p.section === item.section && p.category === item.category
+    && (p.subcategory || null) === (item.subcategory || null) && p.title.trim().toLowerCase() === title);
+}
+
 export const forkExtra = (item: LibraryItem) => ({
   ...carriedFrontmatter(item.frontmatter),
   forked_from: item.id,
