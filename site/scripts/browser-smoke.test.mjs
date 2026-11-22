@@ -114,6 +114,19 @@ try {
   assert.equal(await page.evaluate(() => document.activeElement?.getAttribute("aria-label")), "Settings", "focus returns to the trigger");
   assert.ok(!(await page.evaluate(() => document.getElementById("root").hasAttribute("inert"))), "inert is lifted on close");
 
+  // Command palette (PB-14): the shared dialog shell, so Tab stays in and focus comes back.
+  await page.locator("main").click({ position: { x: 5, y: 5 } });
+  await page.keyboard.press("Control+k");
+  await page.getByRole("dialog", { name: "Search the library" }).waitFor();
+  assert.ok(await page.evaluate(() => document.getElementById("root").hasAttribute("inert")), "the palette makes the page inert");
+  for (let i = 0; i < 6; i++) {
+    await page.keyboard.press("Tab");
+    assert.ok(await inDialog(), `focus stays in the palette after ${i + 1} Tab presses`);
+  }
+  await page.keyboard.press("Escape");
+  await page.getByRole("dialog").waitFor({ state: "detached" });
+  assert.ok(!(await page.evaluate(() => document.getElementById("root").hasAttribute("inert"))), "inert is lifted when the palette closes");
+
   // Settings → My Library (O01): export, lose the file, preview the import (writes
   // nothing), import, and the file is back byte for byte.
   const { myLibrary } = await import("../lib/my-library.ts");
@@ -215,7 +228,7 @@ try {
   await framed.waitForFunction(() => document.documentElement.classList.contains("light"));
 
   assert.deepEqual(problems, [], "no page errors, console errors or failed requests");
-  console.log("browser-smoke: listing, card keyboard actions, detail, Related without a bounce, hero counter, Settings focus, My Library export and import, My Library links, server-side favorites (and the move from localStorage), category suggestions, bad or blocked storage, the suite embed contract and the vercel.json CSP all pass on the built app");
+  console.log("browser-smoke: listing, card keyboard actions, detail, Related without a bounce, hero counter, Settings focus, the command palette's focus trap, My Library export and import, My Library links, server-side favorites (and the move from localStorage), category suggestions, bad or blocked storage, the suite embed contract and the vercel.json CSP all pass on the built app");
 } finally {
   await browser.close();
   server.close();

@@ -7,7 +7,7 @@ import { useState, useEffect, useMemo, useCallback, lazy, Suspense, type Compone
 import { ArrowLeft, Check, LayoutGrid, Link2, Plus, Sparkles } from 'lucide-react';
 import SourceBar from './components/SourceBar';
 import { EMBED, onShellTheme, tellShell } from './lib/embed';
-import { LazyMotion, domAnimation, m, AnimatePresence } from 'motion/react';
+import { LazyMotion, MotionConfig, domAnimation, m, AnimatePresence } from 'motion/react';
 import { ToastContainer, type ToastProps } from './components/Toast';
 import { type Prompt } from './components/PromptCard';
 import type { PromptDraft } from './components/PromptEditorModal';
@@ -216,7 +216,13 @@ export default function App() {
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
+        // Over another dialog it does nothing: the two would fight over #root's inert.
+        if (document.querySelector('[role="dialog"][aria-modal="true"]:not([aria-label="Search the library"])')) return;
         setIsPaletteOpen(open => !open);
+      }
+      // Escape closes the phone drawer, as its scrim click does.
+      if (e.key === 'Escape' && window.innerWidth < 768 && !document.querySelector('[role="dialog"][aria-modal="true"]')) {
+        setIsSidebarOpen(false);
       }
     };
     window.addEventListener('keydown', onKey);
@@ -789,6 +795,8 @@ export default function App() {
 
   return (
     <LazyMotion features={domAnimation} strict>
+    {/* JS animations follow prefers-reduced-motion too; index.css only stills CSS ones. */}
+    <MotionConfig reducedMotion="user">
     <div className="app-shell flex flex-col overflow-hidden">
     <a href="#main" className="skip">Skip to content</a>
     {/* The org's "View source" bar is for the hosted demo; the local app doesn't need it. */}
@@ -1205,6 +1213,7 @@ export default function App() {
 
     </div>
     </div>
+    </MotionConfig>
     </LazyMotion>
   );
 }

@@ -96,6 +96,10 @@ export interface ModalProps {
   onClose: () => void;
   size?: keyof typeof MODAL_SIZES;
   labelledBy?: string;
+  /** For a dialog with no visible heading to point labelledBy at. */
+  label?: string;
+  /** 'top' sits the dialog near the top of the screen, as the command palette does. */
+  placement?: 'center' | 'top';
   children: ReactNode;
   className?: string;
 }
@@ -112,7 +116,7 @@ const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), selec
  * in on open (to a `data-autofocus` field, else the first control), Tab and
  * Shift+Tab wrap inside, Escape closes, and focus goes back to the trigger.
  */
-export function Modal({ onClose, size = 'md', labelledBy, children, className }: ModalProps) {
+export function Modal({ onClose, size = 'md', labelledBy, label, placement = 'center', children, className }: ModalProps) {
   const dialogRef = useRef<HTMLDivElement>(null);
   // Read during the first render, before anything inside can take focus.
   const [trigger] = useState(() => (document.activeElement instanceof HTMLElement ? document.activeElement : null));
@@ -153,7 +157,7 @@ export function Modal({ onClose, size = 'md', labelledBy, children, className }:
   };
 
   return createPortal(
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <div className={cn('fixed inset-0 z-[100] flex justify-center p-4', placement === 'top' ? 'items-start pt-[12vh]' : 'items-center')}>
       <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -166,6 +170,7 @@ export function Modal({ onClose, size = 'md', labelledBy, children, className }:
         role="dialog"
         aria-modal="true"
         aria-labelledby={labelledBy}
+        aria-label={label}
         tabIndex={-1}
         onKeyDown={trapTab}
         initial={{ opacity: 0, scale: 0.96, y: 14 }}
