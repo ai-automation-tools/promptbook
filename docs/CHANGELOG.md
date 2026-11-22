@@ -4,6 +4,20 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-22 — Detail actions follow the item; the page clamps; storage can't white-screen (PB-08)
+
+**Fixes**
+- **BUG-03:** the prompt page chose Save, Edit and Remove from the library switch, not the item, so a public prompt with My Library selected offered Edit and a Remove that 404'd. They now follow `prompt.isUserOwned` (and Remove, like Edit, hides under `READ_ONLY`), as the cards already did.
+- **BUG-04:** the page number outlived a library switch or a delete, so a short list showed "Page 3 of 1" over an empty grid. `usePromptFilters` clamps the page to the list.
+- **BUG-05:** `App.tsx` read and wrote `localStorage` unguarded, so blocked storage (private modes, a sandboxed frame) or a saved `{}` for recently viewed failed the render. Reads and writes go through `readStorage`/`writeStorage`, and recently viewed must be a list of strings.
+
+**Tests**
+- `test:browser` loads the app with `{}` saved as recently viewed, then in a page whose `localStorage` throws; both render the library.
+
+_Touched: `site/src/components/PromptDetail.tsx`, `site/src/hooks/usePromptFilters.ts`, `site/src/App.tsx`, `site/scripts/browser-smoke.test.mjs`, `AGENTS.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — Actions pinned by SHA, jobs time out (PB-21)
 
 **CI**
