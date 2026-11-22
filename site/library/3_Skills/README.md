@@ -25,7 +25,7 @@ Agent skills, in two forms (since 2026-10-27):
 
 Only `SKILL.md` files and the library cards are indexed. Any other file outside a skill
 folder is invisible to the app, so it does not belong here. Skills and files taken out of
-service are in `archive/` at the repo root (see its README).
+service were removed on 2026-11-22 and are in git history at `86ff6925` (see `archive/README.md`).
 
 Related: [`../2_Agents/`](../2_Agents/) (subagent definitions), [`../4_Prompts/`](../4_Prompts/),
 [`../1_Guides/`](../1_Guides/).

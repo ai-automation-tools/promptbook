@@ -35,9 +35,9 @@ Don't re-create the folder or copy prompts from that collection back in. Git his
 it is ever wanted again.
 
 The hand-written categories that used to live here (AI_ML, Business, Content, Engineering,
-Finance, Media, …) named no repo and were moved, paths intact, to
-`archive/unlinked-2026-10-26/4_Prompts/` at the repo root on 2026-10-26. See
-`archive/README.md` to bring one back.
+Finance, Media, …) named no repo; they were archived on 2026-10-26 and removed on 2026-11-22, and are in git
+history at `86ff6925` (`archive/unlinked-2026-10-26/4_Prompts/`). See `archive/README.md` to bring
+one back.
 
 ## Adding prompts
 
