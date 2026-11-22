@@ -26,7 +26,7 @@ _Touched: `site/src/components/PromptCard.tsx`, `site/src/components/SkillPacksV
 - `features/LIBRARY-MODE-IMPLEMENTATION.md` said the Public Library holds 903 prompts in five sections, and `features/MCP-SERVER.md` that ~600 prompts and system prompts would bury the slash-command menu. The index held 897 items in six sections that day, and moves with every content PR, so both now point at `promptCount` in `site/api/prompt-index.json` or say "several hundred" instead of a number that goes stale.
 - The roadmap item's other half, `surfaces.json` counting "items" rather than "prompts", stays open: that file belongs to the homepage-refresh tooling (`Get-SurfaceDrift.py`), which is not in this repo.
 
-_Touched: `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`, `docs/features/MCP-SERVER.md`, `docs/ROADMAP.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`, `docs/features/MCP-SERVER.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -37,7 +37,7 @@ Merged three duplicate groups and corrected six guides against sources read that
 - **Merged:** `CLI_Tools/fabric_cli_guide.md` into `fabric-cli-guide.md` (flags fixed against the Fabric README: `-y` replaces the `yt` helper, `--listpatterns`, `--updatepatterns`, `-C` is context and `-c` is copy; `repo:` now `danielmiessler/Fabric`); `aider-advanced-guide.md`, `aider-guide.md`, `aider-setup-guide.md`, `aider_cli_guide.md` into `aider_guide.md` (install via `aider-install`, `/read-only`, `.aider.conf.yml`; Aider README and `docs/usage/commands.md`); `IDE_Extensions/cline_guide.md` and `cline_ide_guide.md` into `cline-guide.md` (surfaces, `.clinerules`, auto-approve; Cline README). The merged-away files are deleted.
 - **Models:** `API_Providers/openai_api_guide.md`, `openai_cli_guide.md`, `openai-api-best-practices.md` moved to `gpt-6.2-sol`, `gpt-6.2-astra`, `gpt-6.1-terra`, `gpt-6-luna` with prices and limits from developers.openai.com/api/docs/models; Codex release line updated to 0.171.0 (openai/codex releases). The old `gpt-5.6-sol` / `gpt-6-astra` IDs in `aider_guide.md`, `swe-agent-guide.md` and `continue_dev_guide.md` were swapped too (ID only; those two were not otherwise re-checked and carry no `checked:`).
 
-_Touched: `site/library/1_Guides/`, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/1_Guides/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -45,7 +45,7 @@ _Touched: `site/library/1_Guides/`, `site/api/prompt-index.json`, `AGENTS.md`, `
 
 `docs/OPEN-QUESTIONS.md` is linked from the docs hub, and the 2026-10-31 entries sit above 2026-10-30 again so the headings run newest-first. Entries moved whole; no text changed.
 
-_Touched: `docs/README.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `docs/README.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -53,7 +53,7 @@ _Touched: `docs/README.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
 
 Three official servers, each written from its README read that day: Sentry (`getsentry/toolkit`, `packages/mcp-server`, FSL-1.1-Apache-2.0) and Datadog (`datadog-labs/mcp-server`, MIT) in `Developer_Tools/`, and Google Analytics (`googleanalytics/google-analytics-mcp`, Apache-2.0) in `Apps_and_Services/`. The `6_MCP_Servers` README now counts 57 cards.
 
-_Touched: `site/library/6_MCP_Servers/`, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/6_MCP_Servers/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -61,7 +61,7 @@ _Touched: `site/library/6_MCP_Servers/`, `site/api/prompt-index.json`, `AGENTS.m
 
 Four definitions, copied unchanged from their repos (`match: exact`, licences read 2026-11-19): `legacy-analyst` and `business-rules-extractor` from the code-modernization plugin in `anthropics/claude-plugins-official` (Apache-2.0), in a new folder `2_Agents/Modernization/`; `team-debugger` from `wshobson/agents` (MIT), in `Quality/`; `docs-drift-editor` from `VoltAgent/awesome-claude-code-subagents` (MIT), in `Development/`.
 
-_Touched: `site/library/2_Agents/`, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/2_Agents/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -69,7 +69,7 @@ _Touched: `site/library/2_Agents/`, `site/api/prompt-index.json`, `AGENTS.md`, `
 
 `vite` is `^8.3.8` in `site/package.json` and 8.3.8 in the lockfile (PR #501, Dependabot's minor-and-patch group), past 8.3.7, the fix for GHSA-p4f5-76q4-ffq7 (remote code execution through the dev server's `__vite-browser-external` module). Roadmap item ticked by the 2026-11-21 sweep.
 
-_Touched: `site/package.json`, `site/package-lock.json`, `docs/ROADMAP.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/package.json`, `site/package-lock.json`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -77,7 +77,7 @@ _Touched: `site/package.json`, `site/package-lock.json`, `docs/ROADMAP.md`, `AGE
 
 Re-read the changed cited code (frame-ancestors block in `site/api/index.ts`, embed hooks in `site/src/App.tsx`, the drift workflow's PR note) and moved the line ranges; the Upstream card now says the org PR sweep reads the resync PR. Pinned to `6d97d36b`.
 
-_Touched: `docs/diagrams/`, `homepage/diagram/library-data-flow.html`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `docs/diagrams/`, `homepage/diagram/library-data-flow.html`, `docs/CHANGELOG.md`._
 
 ## 2026-11-18 — System prompts: vendor-published only
 
@@ -85,7 +85,7 @@ _Touched: `docs/diagrams/`, `homepage/diagram/library-data-flow.html`, `AGENTS.m
 
 Guards so it doesn't come back: `scripts/upstream.test.mjs` fails any item whose source is a known leak collection; the attribution script's header says only vendor repos are valid sources; the system-prompts template and `AGENTS.md` say vendor-only; and the Monthly Upkeep brief (Routines) no longer resyncs from those collections, which its run earlier today did. The four featured system prompts were leaked or duplicates; Fable 5.2, Opus 5.5, Sonnet 5.5 and Haiku 5.5 are featured instead.
 
-_Touched: `site/library/5_System_Prompts/`, `archive/leaked-sources-2026-11-18/`, `archive/README.md`, `scripts/upstream.test.mjs`, `scripts/attribute-system-prompts.mjs` (comment), `docs/templates/system-prompts-template.md`, `docs/features/FEATURED-PROMPTS.md`, `AGENTS.md`, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/5_System_Prompts/`, `archive/leaked-sources-2026-11-18/`, `archive/README.md`, `scripts/upstream.test.mjs`, `scripts/attribute-system-prompts.mjs` (comment), `docs/templates/system-prompts-template.md`, `docs/features/FEATURED-PROMPTS.md`, `AGENTS.md`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -108,12 +108,12 @@ System prompts marked `behind` or `drifted` in `upstream-status.json` were resyn
 
 Next month: 15 more `drifted` system prompts (Anthropic and others, `github-copilot-chat` onward), 2 `LouisShark` Gemini Gems, `blader/humanizer` (skill, off limits); featured floor still short: agents 4 of 4 met, skills 3 of 4, prompts 0 of 4.
 
-_Touched: `site/library/5_System_Prompts/**` (above), the six featured files, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/5_System_Prompts/**` (above), the six featured files, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 ## 2026-11-18 — Library: prefill, 10 new MCP servers
 
 Ten cards from reputable sources (official vendor servers first), each written from the server's own README read that day: Todoist (`todoist/todoist-mcp`, MIT), Contentful (`contentful/contentful-mcp-server`, MIT), Perplexity (`perplexityai/modelcontextprotocol`, MIT), Brave Search (`brave/brave-search-mcp-server`, MIT), Azure DevOps (`microsoft/azure-devops-mcp`, MIT), Postman (`postmanlabs/postman-mcp-server`, Apache-2.0), Mobile MCP (`mobile-next/mobile-mcp`, Apache-2.0), Firebase (`firebase/firebase-tools`, MIT), DuckDB and MotherDuck (`motherduckdb/mcp-server-motherduck`, MIT) and Postgres MCP Pro (`crystaldba/postgres-mcp`, MIT). The `6_MCP_Servers` README now counts 54 cards.
 
-_Touched: `site/library/6_MCP_Servers/**` (ten new cards, README), `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/6_MCP_Servers/**` (ten new cards, README), `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -121,7 +121,7 @@ _Touched: `site/library/6_MCP_Servers/**` (ten new cards, README), `site/api/pro
 
 30 prompts from vendor repos, copied with provenance (`match: similar`, each at the commit read that day). Four new collections: `google-gemini/gemini-cli` (6 slash commands, Apache-2.0), `google-github-actions/run-gemini-cli` (5 GitHub Actions prompts, Apache-2.0), `anthropics/claude-quickstarts` (5 agent prompts, MIT) and `anthropics/claude-code-action` (1 command, MIT). Existing collections grew: `anthropics/claude-cookbooks` +8 (MIT; review commands, the chief-of-staff commands, a sandbox-escape transcript reviewer) and `openai/openai-cookbook` +5 (MIT; an LLM judge, two voice agents, two portfolio agent prompts). `NOTICE` and `4_Prompts/README.md` carry the new collections.
 
-_Touched: `site/library/4_Prompts/`, `NOTICE`, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/4_Prompts/`, `NOTICE`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -131,7 +131,7 @@ Skill library cards (README copied, no skill text) for official vendor and most-
 
 - `google-gemini/gemini-skills` (Apache-2.0), `browserbase/skills` (none declared), `langchain-ai/langchain-skills` (MIT), `hashicorp/agent-skills` (MPL-2.0), `elastic/agent-skills` (Apache-2.0), `elevenlabs/skills` (MIT), `Shopify/Shopify-AI-Toolkit` (MIT), `grafana/skills` (Apache-2.0), `datadog-labs/agent-skills` (MIT), `databricks/databricks-agent-skills` (NOASSERTION), `firebase/agent-skills` (Apache-2.0), `mongodb/agent-skills` (Apache-2.0), `clerk/skills` (none declared), `netlify/context-and-tools` (MIT), `prisma/skills` (MIT), `render-oss/skills` (MIT), `pulumi/agent-skills` (Apache-2.0), `redis/agent-skills` (MIT), `sanity-io/agent-toolkit` (MIT), `nextlevelbuilder/ui-ux-pro-max-skill` (MIT).
 
-_Touched: `site/library/3_Skills/Libraries/`, `site/library/3_Skills/README.md`, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/3_Skills/Libraries/`, `site/library/3_Skills/README.md`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -144,7 +144,7 @@ Fifteen guides for widely used AI coding and agent tools, each checked against t
 - API_Providers: `claude-agent-sdk-typescript-guide` (`anthropics/claude-agent-sdk-typescript`, no licence file), `crewai-guide` (`crewAIInc/crewAI`, MIT), `pydantic-ai-guide` (`pydantic/pydantic-ai`, MIT), `smolagents-guide` (`huggingface/smolagents`, Apache-2.0), `dspy-guide` (`stanfordnlp/dspy`, MIT), `langchain-guide` (`langchain-ai/langchain`, MIT), `mcp-python-sdk-guide` (`modelcontextprotocol/python-sdk`, MIT), `mcp-typescript-sdk-guide` (`modelcontextprotocol/typescript-sdk`, licence per repo).
 - CLI_Tools: `copilot-cli-guide` (`github/copilot-cli`), `vllm-guide` (`vllm-project/vllm`, Apache-2.0).
 
-_Touched: `site/library/1_Guides/`, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/1_Guides/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -156,7 +156,7 @@ One-time prefill, round 2: 18 agent definitions from well-maintained collections
 - `wshobson/agents` (MIT): `security-auditor`, `debugger`, `performance-engineer`, `test-automator`, `error-detective` (all `Quality/`), `backend-architect`.
 - `VoltAgent/awesome-claude-code-subagents` (MIT): `sre-engineer`, `platform-engineer`, `chaos-engineer` (`DevOps/`), `postgres-pro` (`AI_ML/Data_SMEs/`), `product-manager`, `ux-researcher` (new `Product/` folder).
 
-_Touched: `site/library/2_Agents/`, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/2_Agents/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -164,7 +164,7 @@ _Touched: `site/library/2_Agents/`, `site/api/prompt-index.json`, `AGENTS.md`, `
 
 Fourteen vendor-published prompts. Eight Anthropic captures from its system-prompt release notes (`match: vendor`, newest dated entry each): Claude Fable 5.2 (2026-11-09), Opus 5.5, Sonnet 5.5, Haiku 5.5, Opus 4.8, Opus 4.7, Opus 4.6 and Sonnet 4.6. Three Codex CLI prompts from `openai/codex` (Apache-2.0): GPT-5.1, GPT-5-Codex, GPT-5.2-Codex. Three opencode prompts from `anomalyco/opencode` (MIT): GPT Astra, Trinity, Meta. Each Anthropic page splits one prompt into two code blocks; they are joined with the seam removed, text otherwise unchanged.
 
-_Touched: `site/library/5_System_Prompts/{Anthropic,OpenAI,OpenCode}/`, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/5_System_Prompts/{Anthropic,OpenAI,OpenCode}/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -172,7 +172,7 @@ _Touched: `site/library/5_System_Prompts/{Anthropic,OpenAI,OpenCode}/`, `site/ap
 
 `repowise-dev/claude-code-prompts` was marked `accept` in the 2026-11-18 triage. The prompts finder's backfill found its `complete-prompts/` mirror Claude Code's internal prompts section by section, so it copied nothing and asked. It is now `reject` in `DISCOVERY.md`, which the finders honour, and the question in `OPEN-QUESTIONS.md` is answered.
 
-_Touched: `docs/DISCOVERY.md`, `docs/OPEN-QUESTIONS.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `docs/DISCOVERY.md`, `docs/OPEN-QUESTIONS.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -180,7 +180,7 @@ _Touched: `docs/DISCOVERY.md`, `docs/OPEN-QUESTIONS.md`, `AGENTS.md`, `docs/CHAN
 
 Four guides for tools people are adopting now, each written from the project's own README and docs read that day: Pi coding agent (`earendil-works/pi`, MIT), GitHub Spec Kit (`github/spec-kit`, MIT), Kilo Code (`Kilo-Org/kilocode`, MIT) and Google ADK (`google/adk-python`, Apache-2.0).
 
-_Touched: `site/library/1_Guides/CLI_Tools/pi-guide.md`, `site/library/1_Guides/CLI_Tools/spec-kit-guide.md`, `site/library/1_Guides/IDE_Extensions/kilo-code-guide.md`, `site/library/1_Guides/API_Providers/google-adk-guide.md`, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/1_Guides/CLI_Tools/pi-guide.md`, `site/library/1_Guides/CLI_Tools/spec-kit-guide.md`, `site/library/1_Guides/IDE_Extensions/kilo-code-guide.md`, `site/library/1_Guides/API_Providers/google-adk-guide.md`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -204,7 +204,7 @@ Eight guides checked against their sources and corrected; each carries `checked:
 
 No merges this run; duplicate guides (`cline*`, `aider*`, `cursor*`, `fabric*`, `cohere*`) stay queued.
 
-_Touched: the eight guides above, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: the eight guides above, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -219,7 +219,7 @@ One-time backfill of `6_MCP_Servers/` (28 to 44 cards), spread across the folder
 - `Reference/`: Microsoft Learn (`MicrosoftDocs/mcp`, CC-BY-4.0).
 - `Apps_and_Services/`: Blender (`ahujasid/mcp-for-blender`, MIT).
 
-_Touched: `site/library/6_MCP_Servers/`, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/6_MCP_Servers/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -233,7 +233,7 @@ Prompts that open-source agents publish in their own repos, copied verbatim (`ma
 - `Mistral/mistral-vibe-cli.md`: mistralai/mistral-vibe (Apache-2.0).
 - `HuggingFace/smolagents-code-agent.md`: huggingface/smolagents (Apache-2.0).
 
-_Touched: `site/library/5_System_Prompts/`, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/5_System_Prompts/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -241,7 +241,7 @@ _Touched: `site/library/5_System_Prompts/`, `site/api/prompt-index.json`, `AGENT
 
 Four new collections under `4_Prompts/`, four prompts each, copied from the repo at the commit stamped in each file: `Microsoft_Copilot_Prompts/` (pnp/copilot-prompts, MIT: Prompt Architect, Code Review Feedback, Clean AI Writing, Decision Log Generator), `Claude_Cookbooks/` (anthropics/claude-cookbooks, MIT: the research lead, research subagent and citations agent prompts, and the review-pr command), `OpenAI_Cookbook/` (openai/openai-cookbook, MIT: portfolio manager, fundamental analyst, quant analyst and memo editor agents) and `Claude_Plugins_Official/` (anthropics/claude-plugins-official, Apache-2.0: the code-review, feature-dev, commit-push-pr and revise-claude-md commands). Licences are in `NOTICE`.
 
-_Touched: `site/library/4_Prompts/`, `NOTICE`, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/4_Prompts/`, `NOTICE`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -253,7 +253,7 @@ One-time backfill of `3_Skills/Libraries/`: 18 cards, one per repo, bodies from 
 - `obsidianmd/obsidian-skills` (MIT), `microsoft/skills` (MIT), `cloudflare/skills` (Apache-2.0), `supabase/agent-skills` (MIT), `expo/skills` (MIT), `dotnet/skills` (MIT)
 - `trailofbits/skills` (CC-BY-SA-4.0), `remotion-dev/skills` (no licence file), `AgriciDaniel/claude-seo` (MIT), `alirezarezvani/claude-skills` (MIT), `getsentry/skills` (Apache-2.0), `WordPress/agent-skills` (NOASSERTION)
 
-_Touched: `site/library/3_Skills/`, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/3_Skills/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -261,7 +261,7 @@ _Touched: `site/library/3_Skills/`, `site/api/prompt-index.json`, `AGENTS.md`, `
 
 One-time backfill of `2_Agents/`, 17 unchanged copies, each with its `upstream:` block (sha read 2026-11-18): `anthropics/claude-plugins-official` (Apache-2.0): `pr-test-analyzer`, `type-design-analyzer`, `code-architect`; `wshobson/agents` (MIT): `kubernetes-architect`, `terraform-specialist`, `observability-engineer`, `legacy-modernizer`; `affaan-m/everything-claude-code` (MIT): `build-error-resolver`, `e2e-runner`, `refactor-cleaner`, `planner`; `0xfurai/claude-code-subagents` (MIT): `docker-expert`, `github-actions-expert`, `langchain-expert`; `VoltAgent/awesome-claude-code-subagents` (MIT): `incident-responder`, `accessibility-tester`, `qa-expert`. New folders `DevOps/` and `Quality/`.
 
-_Touched: `site/library/2_Agents/`, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/2_Agents/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -269,7 +269,7 @@ _Touched: `site/library/2_Agents/`, `site/api/prompt-index.json`, `AGENTS.md`, `
 
 Twelve guides, each written from the official docs read that day and citing them in a Sources list: Claude Code MCP servers and CLAUDE.md memory (`anthropics/claude-code`, no SPDX licence), Gemini CLI extensions (`google-gemini/gemini-cli`, Apache-2.0), Codex config.toml (`openai/codex`, Apache-2.0), OpenCode (`anomalyco/opencode`, MIT), goose (`aaif-goose/goose`, Apache-2.0), Crush (`charmbracelet/crush`, FSL-1.1-MIT), llama.cpp (`ggml-org/llama.cpp`, MIT), OpenAI Agents SDK (`openai/openai-agents-python`, MIT), Claude Agent SDK for Python (`anthropics/claude-agent-sdk-python`, MIT), LangGraph (`langchain-ai/langgraph`, MIT), LiteLLM (`BerriAI/litellm`, MIT plus a separate commercial licence for some features).
 
-_Touched: `site/library/1_Guides/`, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/1_Guides/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -287,7 +287,7 @@ _Touched: `AGENTS.md`, `docs/CHANGELOG.md`, `docs/DISCOVERY.md`, `docs/README.md
 
 `docs/AUTOMATIONS.local.md` lists every scheduled job, workflow and sweep that touches Promptbook: schedule, next and last run, model, PR branch, the Thursday rotation, open automation PRs, and whether `site/library` on `main` has moved lately. It's gitignored (local paths and schedules) and rewritten every Sunday at 07:00 by a new Routines job, `promptbook-automations-doc`, which links back to the Routines docs. The page's hand-written parts live in that job's `template.md`.
 
-_Touched: `.gitignore`, `AGENTS.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `.gitignore`, `AGENTS.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -295,7 +295,7 @@ _Touched: `.gitignore`, `AGENTS.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
 
 The "Kept current by" table in `docs/ROADMAP.md` still listed the four content jobs that became Promptbook Content on 2026-11-09, called them biweekly (they rotate, every third Thursday), and missed today's changes: Monthly Upkeep now owns system-prompt drift, the PR sweep runs daily and approves the held CI run on the `upstream/resync` PR. Rewritten from the jobs' current configs. The leftover job names elsewhere went too (ROADMAP's `small` rename item, now ticked): "Prompt-Library Discovery" and "Prompt-Library Upstream Check" are the Promptbook ones, and "Catalog Refresh" is the Promptbook Content job's catalog run.
 
-_Touched: `docs/ROADMAP.md`, `docs/DISCOVERY.md`, `docs/UPSTREAMS.md`, `docs/templates/mcp-servers-template.md`, `site/library/2_Agents/README.md`, `site/library/6_MCP_Servers/README.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `docs/ROADMAP.md`, `docs/DISCOVERY.md`, `docs/UPSTREAMS.md`, `docs/templates/mcp-servers-template.md`, `site/library/2_Agents/README.md`, `site/library/6_MCP_Servers/README.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -303,7 +303,7 @@ _Touched: `docs/ROADMAP.md`, `docs/DISCOVERY.md`, `docs/UPSTREAMS.md`, `docs/tem
 
 New item has an "Add to favorites" checkbox under the tags. Ticked, the item is starred as soon as the server creates it (the same `POST /api/my-library/favorites` the star button sends), so there's no reopening it to star it. Editing an existing item doesn't show the box; its star is on the item page. `test:browser` creates an item with the box ticked and checks `favorites.json`.
 
-_Touched: `site/src/components/PromptEditorModal.tsx`, `site/src/App.tsx`, `site/scripts/browser-smoke.test.mjs`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/src/components/PromptEditorModal.tsx`, `site/src/App.tsx`, `site/scripts/browser-smoke.test.mjs`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -311,7 +311,7 @@ _Touched: `site/src/components/PromptEditorModal.tsx`, `site/src/App.tsx`, `site
 
 Every collection already in `4_Prompts/` is used up, and after the triage the only prompt source marked `accept` was the Microsoft 365 Copilot set, so the Monday job's 2-prompt quota would have run dry again. Two MIT collections added to `docs/DISCOVERY.md` as `accept`: `pnp/copilot-prompts` (the Microsoft 365 community's prompt samples) and `repowise-dev/claude-code-prompts` (coding-agent prompt templates its authors wrote from scratch, per its DISCLAIMER.md; not extracted text).
 
-_Touched: `docs/DISCOVERY.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `docs/DISCOVERY.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -319,7 +319,7 @@ _Touched: `docs/DISCOVERY.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
 
 All 74 pending rows in `docs/DISCOVERY.md` decided with Mike: 16 `accept` (9 skill-library cards, 4 single skills, 2 MCP cards, and the Microsoft 365 Copilot prompts), 18 `link` (awesome lists, tools, collections whose licence rules out copying, and Piebald-AI's Claude Code system prompts, which are extracted from the package while `5_System_Prompts` takes only what vendors publish), 40 `reject` (apps and platforms, Chinese-language-first repos, anti-bot and credential tooling, an archived list, low-signal packs). The content job's prompt quota had gone unmet for want of an accepted prompts row; the catalog runs now have a queue again. The Discovery job, paused since 2026-11-03 until this was done, is re-enabled; its next run adds the `link` rows to the Resources menu.
 
-_Touched: `docs/DISCOVERY.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `docs/DISCOVERY.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -327,7 +327,7 @@ _Touched: `docs/DISCOVERY.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
 
 Added `1_Guides/Codex/agents-md-guide.md` (repo `openai/codex`): which `AGENTS.md` and `AGENTS.override.md` files Codex loads and in what order, `project_doc_fallback_filenames`, the `project_doc_max_bytes` cap, and how to check what loaded. Sourced from the official Codex AGENTS.md guide, read this run. No prompts: every collection in `4_Prompts/` is exhausted and no `docs/DISCOVERY.md` row is set to `accept`.
 
-_Touched: `site/library/1_Guides/Codex/agents-md-guide.md` (new), `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/1_Guides/Codex/agents-md-guide.md` (new), `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -335,7 +335,7 @@ _Touched: `site/library/1_Guides/Codex/agents-md-guide.md` (new), `site/api/prom
 
 The Monday upstream-drift Action opens its `upstream/resync` PR as the github-actions bot, and GitHub holds that PR's `pull_request` CI run at "action_required" until someone approves it. Until then the required `check` and `secrets` never report and the PR stays blocked (#488, #503). A first attempt, starting `ci.yml` by `workflow_dispatch` from the Action (#507), ran green but GitHub doesn't count a dispatched run's checks toward the PR, so it is taken out again. Instead the org PR sweep, which runs as the owner, now approves held runs on any fleet PR before reviewing it (`Invoke-PrSweep.ps1` in the Routines repo). It also covers `upstream/resync` and sweeps Promptbook every day rather than Wednesday and Sunday, and the Promptbook scheduled tasks start late when the PC was off at their time.
 
-_Touched: `.github/workflows/upstream-drift.yml`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `.github/workflows/upstream-drift.yml`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -343,7 +343,7 @@ _Touched: `.github/workflows/upstream-drift.yml`, `AGENTS.md`, `docs/CHANGELOG.m
 
 Upstream rewrote `design-taste-frontend` from tasteskill v2 to v2.5, and the weekly roadmap run opened #500 to resync it. v2.5 runs on its `assets/` and `scripts/` folders (about 36 MB, 1,600+ files) in nearly every step, and we never copied those, so the resynced `SKILL.md` would have shipped in ZIPs as instructions for tools that aren't there. Under the skill-library rule it is now one card, `3_Skills/Libraries/leonxlnx-taste-skill.md`, that links the repo and carries its README; you install the skill from GitHub. The v2 copy moved to `archive/skill-libraries-2026-11-18/`, its entry left `upstream-status.json`, and #500 was closed.
 
-_Touched: `site/library/3_Skills/Libraries/leonxlnx-taste-skill.md` (new), `site/library/3_Skills/Design/design-taste-frontend/` (to `archive/`), `site/library/3_Skills/README.md`, `site/api/upstream-status.json`, `site/api/prompt-index.json`, `archive/README.md`, `docs/DISCOVERY.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/3_Skills/Libraries/leonxlnx-taste-skill.md` (new), `site/library/3_Skills/Design/design-taste-frontend/` (to `archive/`), `site/library/3_Skills/README.md`, `site/api/upstream-status.json`, `site/api/prompt-index.json`, `archive/README.md`, `docs/DISCOVERY.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -351,7 +351,7 @@ _Touched: `site/library/3_Skills/Libraries/leonxlnx-taste-skill.md` (new), `site
 
 Opened as `?embed=1` inside a frame (a Project Hub tab now, the suite shell later), Promptbook follows embed contract v1 (`src/lib/embed.ts`). It hides the chrome the shell replaces: the brand in the top bar and the rail, the source bar and the Light | Dark switch. It posts `{suite: 1, contract: 1, type: 'ready', app: 'promptbook'}` once loaded and `{type: 'route', path}` whenever the URL changes, and it applies `{suite: 1, type: 'theme', value}` from its parent. Standalone, `?embed=1` does nothing. The app talks only to `window.parent`: who may be the parent is already decided by `FRAME_ANCESTORS`, so messages go out with `'*'` and only the parent's are read. `test:browser` frames the built app and checks all of it.
 
-_Touched: `site/src/lib/embed.ts` (new), `site/src/App.tsx`, `site/src/hooks/useLibraryRoute.ts`, `site/src/components/{TopBar,SectionRail}.tsx`, `site/scripts/browser-smoke.test.mjs`, `AGENTS.md`, `docs/setup/SETUP.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/src/lib/embed.ts` (new), `site/src/App.tsx`, `site/src/hooks/useLibraryRoute.ts`, `site/src/components/{TopBar,SectionRail}.tsx`, `site/scripts/browser-smoke.test.mjs`, `AGENTS.md`, `docs/setup/SETUP.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -359,7 +359,7 @@ _Touched: `site/src/lib/embed.ts` (new), `site/src/App.tsx`, `site/src/hooks/use
 
 Mike tried Promptbook inside a Project Hub tab, as a first step toward one window for Cronsole, Project Hub and Promptbook. helmet's default `X-Frame-Options: SAMEORIGIN` refused the frame; nobody had chosen that, it was just helmet's default. `FRAME_ANCESTORS` (comma-separated origins) now lets the listed pages frame the app: the server then drops X-Frame-Options, which has no allowlist, and sends CSP `frame-ancestors 'self' <origins>`. Each entry is reduced to its origin and a non-http(s) entry is dropped, so nothing else reaches the header. Unset, nothing changes. The hosted demo is unaffected: its pages get `X-Frame-Options: DENY` from `vercel.json`.
 
-_Touched: `site/api/index.ts`, `site/scripts/frame-ancestors.test.mjs` (new, `npm run test:frame-ancestors`, in CI), `site/package.json`, `site/.env.example`, `.github/workflows/ci.yml`, `AGENTS.md`, `README.md`, `docs/setup/SETUP.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/api/index.ts`, `site/scripts/frame-ancestors.test.mjs` (new, `npm run test:frame-ancestors`, in CI), `site/package.json`, `site/.env.example`, `.github/workflows/ci.yml`, `AGENTS.md`, `README.md`, `docs/setup/SETUP.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -377,7 +377,7 @@ Mike opened Promptbook at its Tailscale address and his favorites were gone. The
 
 **Tests.** `test:routes` pins 14 routes. `test:my-library` covers the file, id checks, the Origin check, unstar-on-delete, the broken-file guard and the export/import round trip; `test:read-only` 403s all three routes; `test:browser` stars through the UI and checks the localStorage move.
 
-_Touched: `site/lib/my-library.ts`, `site/api/index.ts`, `site/src/hooks/useFavorites.ts`, `site/src/App.tsx`, `site/src/components/SettingsModal.tsx`, `site/src/components/MyLibraryTransfer.tsx`, `site/scripts/{api-routes,my-library,read-only,browser-smoke}.test.mjs`, `AGENTS.md`, `docs/features/API.md`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`, `docs/development/DEBUG_UI.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/lib/my-library.ts`, `site/api/index.ts`, `site/src/hooks/useFavorites.ts`, `site/src/App.tsx`, `site/src/components/SettingsModal.tsx`, `site/src/components/MyLibraryTransfer.tsx`, `site/scripts/{api-routes,my-library,read-only,browser-smoke}.test.mjs`, `AGENTS.md`, `docs/features/API.md`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`, `docs/development/DEBUG_UI.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -389,7 +389,7 @@ Three official MCP server cards, each read from the server's own README this run
 - `6_MCP_Servers/Apps_and_Services/hugging-face.md`: [huggingface/hf-mcp-server](https://github.com/huggingface/hf-mcp-server), MIT
 - `6_MCP_Servers/Cloud_Platforms/heroku.md`: [heroku/heroku-mcp-server](https://github.com/heroku/heroku-mcp-server), Apache-2.0
 
-_Touched: `site/library/6_MCP_Servers/`, its README count (25 → 28), `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/6_MCP_Servers/`, its README count (25 → 28), `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -397,7 +397,7 @@ _Touched: `site/library/6_MCP_Servers/`, its README count (25 → 28), `site/api
 
 The roadmap was rechecked against the org's 2026-11 requirements. The intro names the Promptbook roadmap routine instead of the old Prompt-Library name and a weekday. New items: replace the personal email in the README (🔒 which contact), a Vercel Firewall rate limit on `/api/*` (🔒), two doc fixes (stale library counts, leftover Prompt-Library job names), a Cronsole catalog from `homepage/`, and the `my-library:refresh` and `my-library:import` commands it needs for two more templates. The starter collections are marked blocked on the Skill Packs decision so a run can't take them. Nothing ticked or removed.
 
-_Touched: `docs/ROADMAP.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -405,12 +405,12 @@ _Touched: `docs/ROADMAP.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
 
 The library data-flow diagram is re-pinned to the current commit after `site/package.json` changed (dependency version bumps only). The cited script lines and every label still hold, so only the pin and generated files moved.
 
-_Touched: `docs/diagrams/`, `homepage/diagram/`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `docs/diagrams/`, `homepage/diagram/`, `docs/CHANGELOG.md`._
 ## 2026-11-10 — Security sweep: a ZIP import has a total size cap
 
 A My Library import now stops once its entries unpack to more than 100 MB in total. Each entry was already capped at about 564 KB, but 5,000 small, highly compressed entries could still unpack to gigabytes in memory on a writable local copy. `readZip` also refuses anything that isn't a Buffer. A new hostile-archive case in `test:my-library` covers the cap.
 
-_Touched: `site/lib/zip.ts`, `site/lib/my-library.ts`, `site/api/index.ts`, `site/scripts/my-library.test.mjs`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/lib/zip.ts`, `site/lib/my-library.ts`, `site/api/index.ts`, `site/scripts/my-library.test.mjs`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -418,7 +418,7 @@ _Touched: `site/lib/zip.ts`, `site/lib/my-library.ts`, `site/api/index.ts`, `sit
 
 The roadmap's "Where we are" note matches the repo again: 816 indexed items after the Awesome ChatGPT removal and the 2026-11-09 additions (2,162 before), Phases 1–3 and every release gate done, the demo build stamp added to the open after-release work, and Mike's open calls listed in full (the skill `description:` decision, `lastModified` from git, and the MCP endpoint, npm package, registry listing and launch post). No item ticked, added or removed.
 
-_Touched: `docs/ROADMAP.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -432,7 +432,7 @@ _Touched: `docs/ROADMAP.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
 
 **Test.** `test:browser` no longer counts `net::ERR_ABORTED` as a failure: that is Chrome cancelling the card-preview requests still in flight when the test navigates away, and it failed Dependabot's PR #487 on a timing difference. A real server error still fails it as a 4xx or 5xx.
 
-_Touched: `site/src/App.tsx`, `site/src/hooks/useLibraryRoute.ts`, `site/src/hooks/useFavoritePrompts.ts` (removed), `site/src/components/{PromptEditorModal,PromptDetail,PromptCard,PromptGrid,SkillPacksView,Sidebar}.tsx`, `site/scripts/browser-smoke.test.mjs`, `AGENTS.md`, `docs/ARCHITECTURE.md`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/src/App.tsx`, `site/src/hooks/useLibraryRoute.ts`, `site/src/hooks/useFavoritePrompts.ts` (removed), `site/src/components/{PromptEditorModal,PromptDetail,PromptCard,PromptGrid,SkillPacksView,Sidebar}.tsx`, `site/scripts/browser-smoke.test.mjs`, `AGENTS.md`, `docs/ARCHITECTURE.md`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -442,7 +442,7 @@ _Touched: `site/src/App.tsx`, `site/src/hooks/useLibraryRoute.ts`, `site/src/hoo
 
 **Guide.** `1_Guides/Claude_Code/github-actions-guide.md`: setup, the `@claude` and automation modes, review and scheduled-report workflows, inputs, cost and troubleshooting, from code.claude.com/docs/en/github-actions and the `claude-code-action` usage reference. Repo `anthropics/claude-code`.
 
-_Touched: `site/library/4_Prompts/Microsoft_Prompts_For_Edu/Educators/individualized-student-assistance.md`, `site/library/1_Guides/Claude_Code/github-actions-guide.md`, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/4_Prompts/Microsoft_Prompts_For_Edu/Educators/individualized-student-assistance.md`, `site/library/1_Guides/Claude_Code/github-actions-guide.md`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -450,7 +450,7 @@ _Touched: `site/library/4_Prompts/Microsoft_Prompts_For_Edu/Educators/individual
 
 Re-read `site/api/index.ts`, `site/api/skill-packs.ts`, `site/lib/my-library.ts`, `site/mcp/server.ts`, `site/package.json`, `site/src/App.tsx` and the upstream-drift workflow against `docs/diagrams/library-data-flow.json`. Line ranges follow the moved code, and the My Library API node and Two libraries card now cover the ZIP export and import. Rebuilt with `--pin-head`, which also refreshes the `homepage/diagram/` copies.
 
-_Touched: `docs/diagrams/library-data-flow.*`, `homepage/diagram/library-data-flow.*`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `docs/diagrams/library-data-flow.*`, `homepage/diagram/library-data-flow.*`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -462,7 +462,7 @@ _Touched: `docs/diagrams/library-data-flow.*`, `homepage/diagram/library-data-fl
 
 **MCP stdout.** dotenv 18 prints its injecting message to stderr, not stdout; `mcp/setup.ts` keeps `quiet: true` anyway, and a handshake still writes nothing but JSON-RPC.
 
-_Touched: `site/package.json`, `site/package-lock.json`, `site/src/components/ui/GithubIcon.ts`, `site/src/components/{PromptDetail,ResourcesNav,SourceBar,SourcePanel}.tsx`, `site/mcp/setup.ts`, `AGENTS.md`, `docs/features/MCP-SERVER.md`, `docs/UPSTREAMS.md`, `docs/ROADMAP.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/package.json`, `site/package-lock.json`, `site/src/components/ui/GithubIcon.ts`, `site/src/components/{PromptDetail,ResourcesNav,SourceBar,SourcePanel}.tsx`, `site/mcp/setup.ts`, `AGENTS.md`, `docs/features/MCP-SERVER.md`, `docs/UPSTREAMS.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -470,7 +470,7 @@ _Touched: `site/package.json`, `site/package-lock.json`, `site/src/components/ui
 
 Section headers on `docs/README.md` and `docs/skill-packs/README.md`, a footer on the root README, and `README.md` indexes for `docs/setup/`, `docs/features/` and `docs/development/`. The Skill Packs guide now links its Quick Start, and its two broken pack anchors point at "Existing Packs". The two dead `audits/` links below (removed 2026-10) are plain text now, and the 2026-11-02 entry moved into date order.
 
-_Touched: `README.md`, `docs/README.md`, `docs/skill-packs/README.md`, `docs/setup/README.md`, `docs/features/README.md`, `docs/development/README.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `README.md`, `docs/README.md`, `docs/skill-packs/README.md`, `docs/setup/README.md`, `docs/features/README.md`, `docs/development/README.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -492,7 +492,7 @@ _Touched: `.github/workflows/ci.yml`, `.github/workflows/upstream-drift.yml`, `s
 - **Prompts:** GitHub now returns `f/prompts.chat` for `f/awesome-chatgpt-prompts` (renamed; MIT code, CC0 prompt content). `upstream.repo` updated in all 1,351 files under `4_Prompts/Awesome_ChatGPT/`; bodies untouched. The other five source repos (`danielmiessler/Fabric`, `microsoft/prompts-for-edu`, `mustvlad/ChatGPT-System-Prompts`, `rockbenben/ChatGPT-Shortcut`, `f/prompts.chat`) are live, not archived, MIT/CC0.
 - **Agents:** none changed. All 77 entries in `api/upstream-status.json` (checked 2026-10-23) are `current`; no open `upstream/resync` PR.
 
-_Touched: `site/library/4_Prompts/Awesome_ChatGPT/**` (1,351 files), `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/library/4_Prompts/Awesome_ChatGPT/**` (1,351 files), `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -1208,7 +1208,7 @@ _Touched: `site/src/App.tsx`, `scripts/homepage.test.mjs`, `homepage/`, `README.
   tools, the MCP prompts, env var names, the install line), linked from the docs hub. The design
   stays in `features/MCP-SERVER.md`.
 
-_Touched: `AGENTS.md`, `CLAUDE.md`, `docs/mcp-server.md`, `docs/README.md`, `docs/ARCHITECTURE.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `AGENTS.md`, `CLAUDE.md`, `docs/mcp-server.md`, `docs/README.md`, `docs/ARCHITECTURE.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -1310,7 +1310,7 @@ _Touched: `README.md`, `docs/setup/SETUP.md`, `docs/CHANGELOG.md`; outside the r
   `3_Skills/README.md` describes `2_Agents` the same way.
 - Every relative link in the touched docs resolves; `homepage.test.mjs` passes.
 
-_Touched: `README.md`, `docs/README.md`, `docs/ARCHITECTURE.md`, `docs/CONTRIBUTING.md`, `docs/audits/DIRECTION-2026-08-27.md` (moved), `docs/templates/README.md`, `docs/templates/TEMPLATE-SUMMARY.md`, `site/library/3_Skills/README.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `README.md`, `docs/README.md`, `docs/ARCHITECTURE.md`, `docs/CONTRIBUTING.md`, `docs/audits/DIRECTION-2026-08-27.md` (moved), `docs/templates/README.md`, `docs/templates/TEMPLATE-SUMMARY.md`, `site/library/3_Skills/README.md`, `docs/CHANGELOG.md`._
 
 ## 2026-10-21 — My Library keeps a skill's frontmatter
 
@@ -1337,7 +1337,7 @@ My Library, then the skill was edited.
 - Re-run through Claude Code: the skill created in the first test was edited and still reads
   back with its `name` and `description`, on disk and through `get_item`.
 
-_Touched: `site/lib/my-library.ts`, `site/lib/library.ts`, `site/api/index.ts`, `site/api/skill-packs.ts`, `site/mcp/server.ts`, `site/scripts/my-library.test.mjs`, `site/scripts/mcp-server.test.mjs`, `docs/features/MCP-SERVER.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/lib/my-library.ts`, `site/lib/library.ts`, `site/api/index.ts`, `site/api/skill-packs.ts`, `site/mcp/server.ts`, `site/scripts/my-library.test.mjs`, `site/scripts/mcp-server.test.mjs`, `docs/features/MCP-SERVER.md`, `docs/CHANGELOG.md`._
 
 ## 2026-10-21 — The MCP server stays current with everything else
 
@@ -1523,7 +1523,7 @@ _Touched: `site/library/2_Agents/**`, `site/library/6_MCP_Servers/**`, `site/lib
   - `3_Skills/Platform_Integrations/Project_Hub/project-hub-demo/` ← `Skills/Projects/project-hub/project-hub-demo/SKILL.md`
   - `3_Skills/Platform_Integrations/Project_Hub/project-hub-scan/` ← `Skills/Projects/project-hub/project-hub-scan/SKILL.md`
 
-_Touched: the folders above, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: the folders above, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 ## 2026-10-21 — Skills refresh, generated Skill Packs, repo discovery, a data-driven Resources menu
 
 Four more pieces of the library's upkeep move from "someone should" to a script.
@@ -1556,7 +1556,7 @@ Four more pieces of the library's upkeep move from "someone should" to a script.
   own `agent-skills` repo is now the first link under Skills.
 - `site/tsconfig.json`: `resolveJsonModule`.
 
-_Touched: `scripts/{sync-agent-skills,build-skill-packs,discover-repos,check-resources}.mjs`, `site/library/resources.json`, `site/library/3_Skills/packs/**` (20 new), `site/src/components/ResourcesNav.tsx`, `site/tsconfig.json`, `docs/DISCOVERY.md`, `CLAUDE.md`, `README.md`, `docs/ROADMAP.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `scripts/{sync-agent-skills,build-skill-packs,discover-repos,check-resources}.mjs`, `site/library/resources.json`, `site/library/3_Skills/packs/**` (20 new), `site/src/components/ResourcesNav.tsx`, `site/tsconfig.json`, `docs/DISCOVERY.md`, `CLAUDE.md`, `README.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
 
 ## 2026-10-21 — AX Platform content retired
 
@@ -1580,7 +1580,7 @@ passing now read generically.
   `projects/ax-platform/` path; the section READMEs for Agents and Skills no longer list it.
 - Index: **3192 prompts** (was 3202).
 
-_Touched: the files above, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: the files above, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ## 2026-10-21 — Every library section gets a job, and 430 files get tags
 
@@ -1679,7 +1679,7 @@ ResourcesNav}.tsx`, `site/src/components/ui/primitives.tsx`, `site/src/lib/secti
   could take it first and leave this one without HMR. `site/vite.config.ts` now pins it to `24678`
   explicitly (edge-spectrum moved to `24679`); `DISABLE_HMR=true` still turns it off.
 
-_Touched: `site/vite.config.ts`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/vite.config.ts`, `docs/CHANGELOG.md`._
 
 ## 2026-10-21 — Neon deleted, Vercel env vars cleared
 
@@ -1689,7 +1689,7 @@ _Touched: `site/vite.config.ts`, `AGENTS.md`, `docs/CHANGELOG.md`._
   `DATABASE_URL` or the GitHub-mode variables. Verified on the live demo after the #383 deploy:
   writes return 403, `/api/auth/me` is 404, and the UI has no library switch or sign-in.
 
-_Touched: `docs/ROADMAP.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
 
 ## 2026-10-21 — Local-first: no accounts, My Library on disk, a read-only demo
 
@@ -1731,7 +1731,7 @@ meant owning a login system, a database and their security for no benefit to any
 _Touched: `site/` (api, lib, server, src, scripts, package files, `.env.example`, `vite.config.ts`),
 `.github/workflows/ci.yml`, `.gitignore`, `README.md`, `CLAUDE.md`, `SECURITY.md`, `docs/` (README,
 ROADMAP, DIRECTION, UPSTREAMS, ARCHITECTURE, setup, features, skill-packs, diagrams),
-`homepage/index.html`, `homepage/diagram/`, `AGENTS.md`, `docs/CHANGELOG.md`._
+`homepage/index.html`, `homepage/diagram/`, `docs/CHANGELOG.md`._
 
 ## 2026-10-20 — Quick Start says where to run npm
 
@@ -1740,7 +1740,7 @@ ROADMAP, DIRECTION, UPSTREAMS, ARCHITECTURE, setup, features, skill-packs, diagr
   there. Running `npm install` from the repo root from an existing clone did nothing but leave an
   empty `package-lock.json`.
 
-_Touched: `README.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `README.md`, `docs/CHANGELOG.md`._
 
 ## 2026-10-19 — Two API-lifecycle prompts
 
@@ -1773,7 +1773,7 @@ misfiled debugger prompt.
   when cited code changes, and the weekly doc drift check reads `--check` as `prompt-library-diagram`.
 
 _Touched: `docs/diagrams/`, `scripts/build-diagram.mjs`, `homepage/index.html`, `homepage/diagram/`,
-`.github/workflows/ci.yml`, `.gitignore`, `README.md`, `docs/README.md`, `CLAUDE.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+`.github/workflows/ci.yml`, `.gitignore`, `README.md`, `docs/README.md`, `CLAUDE.md`, `docs/CHANGELOG.md`._
 
 ## 2026-10-19 — The app moves to `my-prompt-library-demo.ai-automation-tools.dev`
 
@@ -1790,7 +1790,7 @@ now points at the `-demo` host.
   name the new host. Changelog history and the done roadmap item keep the old one.
 
 _Touched: `site/src/App.tsx`, `README.md`, `CLAUDE.md`, `SECURITY.md`, `docs/README.md`, `docs/ROADMAP.md`,
-`docs/skill-packs/README.md`, `.github/ISSUE_TEMPLATE/bug_report.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+`docs/skill-packs/README.md`, `.github/ISSUE_TEMPLATE/bug_report.md`, `docs/CHANGELOG.md`._
 
 ## 2026-10-19 — A static homepage in `homepage/`
 
@@ -1807,7 +1807,7 @@ _Touched: `site/src/App.tsx`, `README.md`, `CLAUDE.md`, `SECURITY.md`, `docs/REA
 - `scripts/homepage.test.mjs` pins the page's required links; CI runs it.
 
 _Touched: `homepage/*`, `.github/workflows/homepage.yml`, `.github/workflows/ci.yml`,
-`scripts/homepage.test.mjs`, `CLAUDE.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+`scripts/homepage.test.mjs`, `CLAUDE.md`, `docs/CHANGELOG.md`._
 
 ## 2026-10-19 — Roadmap on the lab standard
 
@@ -1821,7 +1821,7 @@ _Touched: `homepage/*`, `.github/workflows/homepage.yml`, `.github/workflows/ci.
   real `DATABASE_URL`, the two "decide" items) carry `🔒 Needs owner`. The `\r\n` in the
   line-endings item, which had been written as a literal line break, is restored.
 
-_Touched: `docs/ROADMAP.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
 
 ## 2026-10-17 — Provenance for agents, and the last unstamped skill
 
@@ -1857,7 +1857,7 @@ agents: `task-decomposition-expert`, `hackathon-ai-strategist`, `model-evaluator
 _Touched: `scripts/attribute-upstream.mjs`, `scripts/check-upstream-drift.mjs`,
 `scripts/resync-upstream.mjs`, `scripts/upstream.test.mjs`, 86 files under `site/library/2_Agents/`,
 `site/library/3_Skills/Data/scholar-evaluation/SKILL.md`, `site/api/prompt-index.json`,
-`docs/ROADMAP.md`, `docs/ARCHITECTURE.md`, `docs/README.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+`docs/ROADMAP.md`, `docs/ARCHITECTURE.md`, `docs/README.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -1867,7 +1867,7 @@ The org domain is now the only home. Share links (`PUBLIC_SHARE_ORIGIN` in `src/
 at `my-prompt-library.ai-automation-tools.dev`, and the old `prompts.mikesailab.com` and `prompts.ax-platform.com` hosts are
 detached from the Vercel project.
 
-_Touched: `site/src/App.tsx`, `CLAUDE.md`, `SECURITY.md`, `.github/ISSUE_TEMPLATE/bug_report.md`, `docs/ROADMAP.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/src/App.tsx`, `CLAUDE.md`, `SECURITY.md`, `.github/ISSUE_TEMPLATE/bug_report.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -1905,7 +1905,7 @@ Not touched: `docs/features/API.md` still uses the deleted `anthropic-api-guide.
 example id (outside this job's scope). Remaining unchecked guides are for the next guides pass.
 Counts in `1_Guides/README.md` are unchanged.
 
-_Touched: the nine guides above, two deleted stubs, `site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: the nine guides above, two deleted stubs, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -1925,7 +1925,7 @@ fixes are small and scoped to phones or touch, leaving desktop untouched.
   behind a hover that can't happen.
 
 _Touched: `site/src/index.css`, `site/src/App.tsx`, `site/src/components/PromptCard.tsx`,
-`AGENTS.md`, `docs/CHANGELOG.md`._
+`docs/CHANGELOG.md`._
 
 ---
 
@@ -1947,7 +1947,7 @@ Scanned the incoming files for email addresses and case collisions: none. A fres
 `check-upstream-drift.mjs` reports **93 of 93 tracked skills `current`**. Index rebuilt.
 
 _Touched: the three skill folders under `site/library/3_Skills/`, `site/api/prompt-index.json`,
-`AGENTS.md`, `docs/CHANGELOG.md`._
+`docs/CHANGELOG.md`._
 
 ---
 
@@ -1964,7 +1964,7 @@ _Touched: the three skill folders under `site/library/3_Skills/`, `site/api/prom
   definitions*, so the weekly drift check covers all of `3_Skills` and the installable part
   of `2_Agents`.
 
-_Touched: `site/package-lock.json`, `docs/ROADMAP.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+_Touched: `site/package-lock.json`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -1984,7 +1984,7 @@ deployment (no redirect yet).
 _Touched: `site/index.html`, `site/src/App.tsx`, `site/src/index.css`,
 `site/src/components/SourceBar.tsx`, `README.md`, `CLAUDE.md`, `SECURITY.md`, `docs/README.md`,
 `docs/ROADMAP.md`, `docs/skill-packs/README.md`, `.github/ISSUE_TEMPLATE/bug_report.md`,
-`AGENTS.md`, `docs/CHANGELOG.md`._
+`docs/CHANGELOG.md`._
 
 ---
 
@@ -2023,7 +2023,7 @@ changed one entry's `lastModified` and the `buildTime`, nothing else.
 
 _Touched: `site/library/3_Skills/Business/Marketing/x-twitter-scraper/` (SKILL.md,
 `references/compare-faq.md`, `extractions.md`, `reads.md`, `writes.md`),
-`site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+`site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -2204,7 +2204,7 @@ restored each view; an unknown `section` fell back to Prompts; `section=skill-pa
 Skill Packs.
 
 _Touched: `site/src/hooks/useLibraryRoute.ts` (new), `site/src/App.tsx`, `CLAUDE.md`,
-`docs/ARCHITECTURE.md`, `docs/DIRECTION.md`, `docs/ROADMAP.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+`docs/ARCHITECTURE.md`, `docs/DIRECTION.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -2244,7 +2244,7 @@ with git unavailable (`GIT_DIR` pointed nowhere) still changes that entry and no
 
 _Touched: `site/scripts/build-prompt-index.js`, `.github/workflows/ci.yml`, `CLAUDE.md`,
 `docs/ARCHITECTURE.md`, `docs/DIRECTION.md`, `docs/features/API.md`, `docs/ROADMAP.md`,
-`AGENTS.md`, `docs/CHANGELOG.md`._
+`docs/CHANGELOG.md`._
 
 ---
 
@@ -2282,7 +2282,7 @@ frontmatter`), `npm run lint` (clean), `npm run test:routes` (8 routes present),
 is listed under `Content`, and `GET /api/prompts/:id` serves the new body.
 
 _Touched: `site/library/3_Skills/Content/executing-plans/` (SKILL.md, 2 new scripts),
-`site/api/prompt-index.json`, `AGENTS.md`, `docs/CHANGELOG.md`._
+`site/api/prompt-index.json`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -2525,7 +2525,7 @@ Roughly 3,090 of the changed lines are that churn; the real change is the 54 new
 strips `lastModified` before comparing, so the freshness gate is unaffected.
 
 _Touched: `site/library/4_Prompts/` (54 new files), `site/api/prompt-index.json`,
-`docs/ROADMAP.md`, `AGENTS.md`, `docs/CHANGELOG.md`._
+`docs/ROADMAP.md`, `docs/CHANGELOG.md`._
 
 ---
 
