@@ -184,6 +184,25 @@ try {
   await page.getByRole("dialog").waitFor({ state: "detached" });
   assert.ok(!(await page.evaluate(() => document.getElementById("root").hasAttribute("inert"))), "inert is lifted when the palette closes");
 
+  // Full-text recall (PB-32): a word that only an item's body holds finds it from ⌘K.
+  {
+    const list = await (await fetch(`${base}/api/prompts?library=public&lightweight=true`)).json();
+    const meta = list.map((p) => [p.title, p.category, p.subcategory, ...(p.tags || [])].join(" ").toLowerCase()).join(" ");
+    let word = null;
+    for (const p of list.filter((q) => q.section === "4_Prompts").slice(0, 40)) {
+      const body = (await (await fetch(`${base}/api/prompts/${encodeURIComponent(p.id)}`)).json()).content ?? "";
+      word = (body.toLowerCase().match(/[a-z]{9,}/g) || []).find((w) => !meta.includes(w));
+      if (word) break;
+    }
+    assert.ok(word, "a body-only word to search for");
+    await page.keyboard.press("Control+k");
+    await page.getByRole("dialog", { name: "Search the library" }).waitFor();
+    await page.keyboard.type(word);
+    await page.getByRole("dialog").getByText("In the text", { exact: true }).waitFor();
+    await page.keyboard.press("Escape");
+    await page.getByRole("dialog").waitFor({ state: "detached" });
+  }
+
   // Settings → My Library (O01): export, lose the file, preview the import (writes
   // nothing), import, and the file is back byte for byte.
   const { myLibrary } = await import("../lib/my-library.ts");
@@ -221,6 +240,8 @@ try {
   await migrated;
   assert.deepEqual(JSON.parse(fs.readFileSync(favFile, "utf-8")), [mine.id, older.id], "the old browser list is merged in, Public Library ids left out");
   assert.equal(await page.evaluate(() => localStorage.getItem("prompt-favorites")), null, "and dropped from the browser");
+  // The reloaded page shows the category only until its ?prompt= opens, so go to the list itself.
+  await page.goto(`${base}/?library=my&section=prompt-library&category=Dev`);
   await page.locator("article", { has: page.getByRole("button", { name: "Starred elsewhere", exact: true }) })
     .getByRole("button", { name: "Remove from favorites" }).waitFor();
 
@@ -322,7 +343,7 @@ try {
   await framed.waitForFunction(() => document.documentElement.classList.contains("light"));
 
   assert.deepEqual(problems, [], "no page errors, console errors or failed requests");
-  console.log("browser-smoke: listing, card keyboard actions, detail, Related without a bounce, hero counter, Settings focus, the command palette's focus trap, My Library export and import, My Library links, server-side favorites (and the move from localStorage), category suggestions, links and Back/Forward for categories, prompts and packs, a slow load that loses to a newer one, a 409 that keeps the draft, Skill Packs listed once, the phone New item button stepping aside on scroll, bad or blocked storage, the suite embed contract and the vercel.json CSP all pass on the built app");
+  console.log("browser-smoke: listing, card keyboard actions, detail, Related without a bounce, hero counter, Settings focus, the command palette's focus trap and full-text results, My Library export and import, My Library links, server-side favorites (and the move from localStorage), category suggestions, links and Back/Forward for categories, prompts and packs, a slow load that loses to a newer one, a 409 that keeps the draft, Skill Packs listed once, the phone New item button stepping aside on scroll, bad or blocked storage, the suite embed contract and the vercel.json CSP all pass on the built app");
 } finally {
   await browser.close();
   server.close();

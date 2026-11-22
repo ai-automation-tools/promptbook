@@ -155,6 +155,24 @@ curl -X POST http://localhost:3010/api/prompts/previews \
 
 ---
 
+### GET /api/search
+
+Full-text recall for the ⌘K palette: ids of items whose body contains every word of the query
+(words of three letters or more, at most eight), up to 20, in library order.
+
+| Query | Meaning |
+|:---|:---|
+| `q` | The words. Fewer than three letters each returns `[]`. |
+| `library` | `public` (default) or `my`. Under `READ_ONLY`, `my` returns `[]`. |
+
+```bash
+curl "http://localhost:3010/api/search?q=retrieval%20augmented"
+```
+
+Public bodies are read once per process and kept in memory (~10 MB), like the index.
+
+---
+
 ### GET /api/prompts/:id
 
 One prompt with its full content.

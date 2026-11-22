@@ -16,7 +16,7 @@ Run from `site/` unless a path says otherwise.
 
 Other scripts: `npm run build` (build:index → tsc → vite build), `npm run build:index`
 (regenerates `api/prompt-index.json` from `library/`), `npm run lint` (`tsc --noEmit`, then oxlint with only the two react-hooks rules, `site/.oxlintrc.json`),
-`npm run test:routes` (asserts the shared Express app still exposes all fourteen API routes and no auth router),
+`npm run test:routes` (asserts the shared Express app still exposes all fifteen API routes and no auth router),
 `npm run test:my-library` (round-trips the My Library file store in a temp folder, and a ZIP export and import, hostile archives included),
 `npm run test:read-only` (under `READ_ONLY`, My Library is neither listed nor served),
 `npm run test:prompt-content` (a failed full-prompt load throws instead of returning the preview),
