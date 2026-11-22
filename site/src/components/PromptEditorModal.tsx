@@ -65,30 +65,30 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
     [existing, section, category],
   );
 
-  // Populate form when editing
+  const [conflict, setConflict] = useState(false);
+
+  /** Fill the form from the prompt being edited, or blank for a new one. */
+  const loadForm = (p?: PromptDraft | null) => {
+    setTitle(p?.title ?? '');
+    setSection(p?.section ?? defaultSection);
+    setCategory(p?.category ?? '');
+    setSubcategory(p?.subcategory || '');
+    setTags(p?.tags || []);
+    setTagInput('');
+    setSourceUrl(p?.sourceUrl || '');
+    setContent(p?.content ?? '');
+    setError('');
+    setConflict(false);
+  };
+
+  // Reset when the editor opens or switches prompt, not when the same prompt is replaced by
+  // its newer saved copy after a 409: that keeps the draft (PB-22).
   useEffect(() => {
-    if (editingPrompt) {
-      setTitle(editingPrompt.title);
-      setSection(editingPrompt.section);
-      setCategory(editingPrompt.category);
-      setSubcategory(editingPrompt.subcategory || '');
-      setTags(editingPrompt.tags || []);
-      setSourceUrl(editingPrompt.sourceUrl || '');
-      setContent(editingPrompt.content);
-    } else {
-      setTitle('');
-      setSection(defaultSection);
-      setCategory('');
-      setSubcategory('');
-      setTags([]);
-      setTagInput('');
-      setSourceUrl('');
-      setContent('');
-    }
+    loadForm(editingPrompt);
     setFavorite(false);
     setMode('write');
-    setError('');
-  }, [editingPrompt, defaultSection, isOpen]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [editingPrompt?.id, defaultSection, isOpen]);
 
   // Escape, the backdrop, X and Cancel ask before dropping unsaved text (PB-22, BUG-11).
   const dirty = title !== (editingPrompt?.title ?? '') || content !== (editingPrompt?.content ?? '')
@@ -135,6 +135,7 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
       onClose();
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Failed to save prompt');
+      setConflict(err instanceof Error && err.name === 'ConflictError');
     } finally {
       setSaving(false);
     }
@@ -159,7 +160,14 @@ export default function PromptEditorModal({ isOpen, onClose, onSave, editingProm
           {error && (
             <Notice>
               <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
-              <span>{error}</span>
+              <span>
+                {error}
+                {conflict && (
+                  <button type="button" className="ml-1 underline underline-offset-2" onClick={() => loadForm(editingPrompt)}>
+                    Load the saved version instead
+                  </button>
+                )}
+              </span>
             </Notice>
           )}
 

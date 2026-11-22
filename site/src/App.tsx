@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect, useMemo, useCallback, lazy, Suspense, type ComponentType } from 'react';
+import { useState, useEffect, useMemo, useCallback, useRef, lazy, Suspense, type ComponentType, type UIEvent } from 'react';
 import { ArrowLeft, Check, LayoutGrid, Link2, Plus, Sparkles } from 'lucide-react';
 import SourceBar from './components/SourceBar';
 import { EMBED, onShellTheme, tellShell } from './lib/embed';
@@ -28,6 +28,7 @@ import { useLibraryRoute, slugifyPromptPath, type LibraryTab } from './hooks/use
 import { usePalette, useTheme } from './hooks/useTheme';
 import { categoryHue, getSection, getSectionFolder, getSectionDisplayName, getTabForFolder, humanize, lowerLabel } from './lib/sections';
 import { READ_ONLY } from './lib/mode';
+import { cn } from './lib/cn';
 
 // Split out of the entry chunk: none of these render on first paint, and
 // PromptDetail/PromptEditorModal each pull in react-markdown + remark-gfm.
@@ -188,24 +189,45 @@ export default function App() {
       });
   }, [showToast, libraryMode]);
 
-  useEffect(() => {
-    if (activeTab !== 'skill-packs') {
-      return;
+  // Skill Packs are fetched here once and handed to SkillPacksView, so the sidebar, hero and
+  // grid read one list and an add or remove refreshes all three. The counter drops a response
+  // that a later request (a library switch) has overtaken.
+  // Phones: the floating "+" slides away while the list scrolls down, so it never sits on a
+  // card's action buttons, and comes back on the way up (PB-22, UX-09).
+  const lastScrollTop = useRef(0);
+  const [fabHidden, setFabHidden] = useState(false);
+  const onContentScroll = useCallback((e: UIEvent<HTMLDivElement>) => {
+    const top = e.currentTarget.scrollTop;
+    if (Math.abs(top - lastScrollTop.current) < 8) return;
+    setFabHidden(top > lastScrollTop.current && top > 80);
+    lastScrollTop.current = top;
+  }, []);
+
+  const packsRequest = useRef(0);
+  const [packsLoading, setPacksLoading] = useState(true);
+  const [packsError, setPacksError] = useState<string | null>(null);
+  const fetchSkillPacks = useCallback(async () => {
+    const request = ++packsRequest.current;
+    setPacksLoading(true);
+    setPacksError(null);
+    try {
+      const res = await fetch(`/api/skill-packs?library=${libraryMode}`);
+      const data = await res.json().catch(() => null);
+      if (!res.ok || !Array.isArray(data)) throw new Error(data?.error || `Failed to fetch skill packs (${res.status})`);
+      if (request === packsRequest.current) setSkillPacks(data);
+    } catch (err) {
+      if (request !== packsRequest.current) return;
+      console.error('Failed to fetch skill packs:', err);
+      setSkillPacks([]);
+      setPacksError(err instanceof Error ? err.message : 'Failed to load packs');
+    } finally {
+      if (request === packsRequest.current) setPacksLoading(false);
     }
-    fetch(`/api/skill-packs?library=${libraryMode}`)
-      .then(async res => {
-        const data = await res.json();
-        if (!res.ok) {
-          throw new Error(data?.error || 'Failed to fetch skill packs');
-        }
-        return data;
-      })
-      .then(data => setSkillPacks(Array.isArray(data) ? data : []))
-      .catch(err => {
-        console.error('Failed to fetch skill packs:', err);
-        setSkillPacks([]);
-      });
-  }, [activeTab, libraryMode]);
+  }, [libraryMode]);
+
+  useEffect(() => {
+    if (activeTab === 'skill-packs') void fetchSkillPacks();
+  }, [activeTab, fetchSkillPacks]);
 
   // Section accent: index.css maps data-section → --section-c.
   const section = getSection(activeTab);
@@ -583,6 +605,12 @@ export default function App() {
     }
   }, [libraryMode]);
 
+  /** A pack went into or out of My Library: its list and, in My Library, the skills it added. */
+  const onPackLibraryChanged = useCallback(() => {
+    void fetchSkillPacks();
+    if (libraryMode === 'my') void refreshPrompts();
+  }, [fetchSkillPacks, libraryMode, refreshPrompts]);
+
   const handleCopyToMyPrompts = useCallback(async (prompt: Prompt) => {
     if (prompt.section === 'My_Prompts') {
       showToast('info', 'This prompt is already in My Prompts');
@@ -624,12 +652,14 @@ export default function App() {
       });
 
       if (response.status === 409) {
-        // Changed elsewhere (another tab, an agent, a text editor): show that
-        // version instead of overwriting it. The editor reloads with it.
+        // Changed elsewhere (another tab, an agent, a text editor). The editor keeps the draft and
+        // now holds the saved copy's version, so saving again replaces it, knowingly (PB-22).
         const { current } = await response.json();
         setEditingPrompt(current);
         refreshPrompts();
-        throw new Error('This prompt changed somewhere else since you opened it. The editor now shows the saved version; make your edit again.');
+        const conflict = new Error('This prompt changed somewhere else since you opened it. Your text is still here; Save again to replace the saved version.');
+        conflict.name = 'ConflictError';
+        throw conflict;
       }
       if (!response.ok) {
         const error = await response.json();
@@ -868,7 +898,7 @@ export default function App() {
         />
 
         {/* Content Area */}
-        <div className="relative flex-1 overflow-y-auto px-4 pb-24 md:px-8 md:pb-8">
+        <div className="relative flex-1 overflow-y-auto px-4 pb-24 md:px-8 md:pb-8" onScroll={onContentScroll}>
           <div className="glow" aria-hidden="true" />
           <div className="relative mx-auto flex min-h-full w-full max-w-[1440px] flex-col">
           <Breadcrumbs crumbs={crumbs} />
@@ -942,6 +972,11 @@ export default function App() {
                   <Suspense fallback={chunkSpinner}>
                     <SkillPacksView
                       libraryMode={libraryMode}
+                      packs={skillPacks}
+                      loading={packsLoading}
+                      error={packsError}
+                      onReload={fetchSkillPacks}
+                      onLibraryChanged={onPackLibraryChanged}
                       onToast={showToast}
                       favorites={favorites}
                       onToggleFavorite={libraryMode === 'my' ? toggleFavorite : undefined}
@@ -1006,6 +1041,11 @@ export default function App() {
                   <Suspense fallback={chunkSpinner}>
                     <SkillPacksView
                       libraryMode={libraryMode}
+                      packs={skillPacks}
+                      loading={packsLoading}
+                      error={packsError}
+                      onReload={fetchSkillPacks}
+                      onLibraryChanged={onPackLibraryChanged}
                       onToast={showToast}
                       favorites={favorites}
                       onToggleFavorite={libraryMode === 'my' ? toggleFavorite : undefined}
@@ -1148,8 +1188,13 @@ export default function App() {
         type="button"
         whileTap={{ scale: 0.94 }}
         onClick={handleNewPrompt}
-        className="fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-[var(--accent)] text-[var(--accent-ink)] shadow-[0_12px_32px_-8px_var(--glow)] sm:hidden"
+        className={cn(
+          'fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-[var(--accent)] text-[var(--accent-ink)] shadow-[0_12px_32px_-8px_var(--glow)] transition-[translate] duration-200 sm:hidden',
+          fabHidden && 'pointer-events-none translate-y-24',
+        )}
         aria-label="New item"
+        aria-hidden={fabHidden || undefined}
+        tabIndex={fabHidden ? -1 : undefined}
       >
         <Plus className="h-6 w-6" />
       </m.button>

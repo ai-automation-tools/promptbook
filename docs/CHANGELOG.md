@@ -4,6 +4,19 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-22 — Skill Packs load once; a save conflict keeps your draft; the phone "+" steps aside (PB-22, rest)
+
+**Fixes**
+- Skill Packs were listed twice per visit: App fetched the list for the sidebar and hero, and the grid fetched it again. App now fetches it once and hands it to the grid, so adding or removing a pack refreshes the sidebar, hero and grid together (and, in My Library, the skills the pack added). A response that a later request has overtaken, such as after a library switch, is dropped.
+- Saving an item that changed elsewhere since you opened it (a 409) used to replace your text with the saved version. The editor now keeps your text and says so: Save again replaces the saved version on purpose, or "Load the saved version instead" discards the draft.
+- On phones the floating "+" covered the action buttons of whichever card sat under it. It now slides away while the list scrolls down and comes back on the way up.
+
+**Tests:** `test:browser` checks the 409 keeps the draft and can load the saved copy, that Skill Packs are listed with one request, and that the "+" hides and returns on a phone-sized viewport.
+
+_Touched: `site/src/App.tsx`, `site/src/components/SkillPacksView.tsx`, `site/src/components/PromptEditorModal.tsx`, `site/scripts/browser-smoke.test.mjs`, `AGENTS.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — One library walker (PB-26)
 
 **Changes**
