@@ -1,0 +1,10 @@
+{
+  "1_Guides/API_Providers/openai_cli_guide.md": { "rules": ["override"], "reason": "Prompt-injection section quotes the phrase as what a keyword blocklist would catch; reviewed 2026-11-22" },
+  "3_Skills/Development/Database/using-neon/references/neon-cli.md": { "rules": ["pipe-shell"], "reason": "Neon's official CLI installer (neon.tech/install.sh); reviewed 2026-11-22" },
+  "3_Skills/Libraries/agricidaniel-claude-seo.md": { "rules": ["pipe-shell"], "reason": "README explains why it avoids irm | iex; no command to run; reviewed 2026-11-22" },
+  "3_Skills/Libraries/k-dense-ai-scientific-agent-skills.md": { "rules": ["pipe-shell"], "reason": "astral.sh uv installers (sh and ps1), from the repo's README; reviewed 2026-11-22" },
+  "3_Skills/Libraries/zebbern-claude-code-guide.md": { "rules": ["pipe-shell"], "reason": "Anthropic's Claude Code installers (claude.ai/install.sh, install.ps1), from the repo's README; reviewed 2026-11-22" },
+  "4_Prompts/ChatGPT_Shortcut/Mind/think-tank.md": { "rules": ["invisible"], "reason": "Two zero-width spaces between words, copied verbatim from the upstream card; no hidden text; reviewed 2026-11-22" },
+  "6_MCP_Servers/Developer_Tools/codebase-memory.md": { "rules": ["pipe-shell"], "reason": "Setup scripts from the server's own repo (DeusData/codebase-memory-mcp), per its README; reviewed 2026-11-22" },
+  "6_MCP_Servers/Developer_Tools/sentry.md": { "rules": ["pipe-shell"], "reason": "Sentry's official CLI installer (cli.sentry.dev); reviewed 2026-11-22" }
+}

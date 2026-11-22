@@ -103,6 +103,13 @@ jobs:
           node scripts/upstream.test.mjs
           node scripts/skill-frontmatter.test.mjs
 
+      # Library text reaches agents over MCP: no hidden or agent-directed instructions (PB-06).
+      # Findings print as file:line and rule, never the text; reviewed exceptions live in
+      # scripts/content-allowlist.json.
+      - name: Content gate
+        working-directory: .
+        run: node scripts/check-content.mjs
+
       # homepage/ is a separate static site (GitHub Pages); this pins its required links.
       - name: Homepage links
         working-directory: .

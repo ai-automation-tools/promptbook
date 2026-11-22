@@ -74,7 +74,8 @@ Other scripts: `npm run build` (build:index → tsc → vite build), `npm run bu
 
 CI (`.github/workflows/ci.yml`) runs `npm ci` → `lint` → `build` → `test:routes` → `test:my-library` → `test:read-only` → `test:prompt-content` → `test:markdown-file` → `test:preview` → `test:safe-path` → `test:frame-ancestors` → `test:mcp` → `test:browser` → the two repo-root
 provenance self-checks (`scripts/upstream.test.mjs`, `scripts/skill-frontmatter.test.mjs`) →
-a rebuild of the prompt index, failing if the rebuilt file is not byte-identical to the committed one.
+the content gate (`scripts/check-content.mjs`: no hidden or agent-directed instructions in
+`site/library/`; reviewed exceptions in `scripts/content-allowlist.json`) → a rebuild of the prompt index, failing if the rebuilt file is not byte-identical to the committed one.
 A second job, `secrets`, runs gitleaks 8.30.1 (checksum-pinned) over the whole history with
 `.gitleaks.toml`: the default rules, with four loose pattern rules (generic API key, curl auth
 header, JWT, LinkedIn client ID) off in library text only. Locally: `gitleaks git . --redact` (CI scans only `HEAD`'s history; locally that flag scans every branch).
@@ -196,6 +197,9 @@ site/
                        promptbook-find-* jobs. docs/DISCOVERY.md, the ledger its --write filled,
                        closed 2026-11-18 apart from its `reject` rows),
                        vendor-skill-licenses.mjs (each skill's `license:` and LICENSE file, from gh),
+                       check-content.mjs (PB-06 content gate in CI: instruction overrides, invisible
+                       Unicode, AI-addressed HTML comments, curl|sh; prints file:line, never the text;
+                       exceptions in content-allowlist.json with a reason),
                        check-resources.mjs (dead-link report for that menu), check-mcp-servers.mjs (flags MCP cards whose repo
                        is missing, renamed, archived, relicensed or quiet), backfill-tags.mjs
                        (path-derived tags for any file with none; the Monthly Upkeep keeps it at

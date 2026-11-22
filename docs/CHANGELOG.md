@@ -4,6 +4,19 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-22 — Content gate for library text (PB-06)
+
+**CI**
+- New `scripts/check-content.mjs`, run by the `check` job: every text file under `site/library/` is scanned for instruction-override phrasing ("ignore previous instructions" and kin, outside `5_System_Prompts`), invisible Unicode (tag characters, bidi overrides, zero-width characters other than an emoji's joiner and a leading BOM), HTML comments addressed to an AI, and `curl|sh` / `irm|iex` outside `1_Guides`. Findings print as `file:line rule`, never the matched text, so a payload doesn't land in CI logs. The rules test themselves on every run.
+- The current library had 14 hits in 8 files, each read and found benign (vendor installers, a guide quoting the phrase as an example, two stray zero-width spaces in a copied card). They are listed with a reason in `scripts/content-allowlist.json`; an entry that stops matching fails the check, so the list can't go stale.
+- A seeded skill with a zero-width-joined "ignore previous instructions" line fails the check without printing it.
+
+**Not done here:** the audit's "size jump" and "new or widened `allowed-tools`" rules need a diff against the PR base, and the "upstream text is data" line belongs in the job prompts in the Routines repo (PB-07).
+
+_Touched: `scripts/check-content.mjs`, `scripts/content-allowlist.json`, `.github/workflows/ci.yml`, `AGENTS.md`, `docs/CONTRIBUTING.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — Actions pinned by SHA, jobs time out (PB-21)
 
 **CI**

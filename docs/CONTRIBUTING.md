@@ -67,6 +67,14 @@ instead. The same CI check fails on a prompt or guide without one; the hand-writ
 guides that had no repo were archived on 2026-10-26 and removed on 2026-11-22 (git history at
 `86ff6925`, `archive/unlinked-2026-10-26/`).
 
+Library text reaches agents through the MCP server, so CI also runs a content gate
+(`node scripts/check-content.mjs`): no "ignore previous instructions" phrasing outside system
+prompts, no invisible Unicode (tag characters, bidi overrides, zero-width characters other
+than an emoji's joiner), no HTML comment addressed to an AI, and no `curl … | sh` outside
+guides. It prints the file, line and rule, never the text. If a hit is safe (a vendor's
+official installer, a guide quoting a phrase), add the file to `scripts/content-allowlist.json`
+with the rule and a reason.
+
 ### Field Rules
 
 **1. `title`**
