@@ -4,6 +4,19 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-22 — archive/ cut to the leaked-source system prompts (PB-04, PB-05)
+
+**Content**
+- **PB-05:** removed 1,968 files (25 MB) from `archive/`: the 669 unlinked prompts and 28 guides (`unlinked-2026-10-26/`), the 224 copied skill-library skills (`skill-libraries-2026-10-27/`, which included four Anthropic document skills whose LICENSE reads "All rights reserved"), `skill-libraries-2026-11-18/`, the five unlicensed skills (`unlicensed-2026-10-27/`, no licence, GPL/AGPL, or an MIT rider), the 81 loose skill files and the old `prompt_generation/` scripts. Unserved is not unpublished: in a public repo they were still redistributed. All of it is in git history at `86ff6925`; `archive/README.md` says how to read or restore a file.
+- **PB-04:** `archive/leaked-sources-2026-11-18/` stays, by the owner's call (no deletion, no history rewrite). The audit's other two asks were already met: the demo returns 404 for those system prompts (production has redeployed since #537) and `scripts/upstream.test.mjs` fails an item sourced from a leak collection.
+
+**Docs**
+- `archive/README.md`, `AGENTS.md`, `docs/README.md`, `docs/CONTRIBUTING.md`, `docs/ROADMAP.md` and the `1_Guides`, `3_Skills` and `4_Prompts` READMEs point at the restore commit instead of folders that no longer exist.
+
+_Touched: `archive/`, `AGENTS.md`, `docs/README.md`, `docs/CONTRIBUTING.md`, `site/library/1_Guides/README.md`, `site/library/3_Skills/README.md`, `site/library/4_Prompts/README.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — Cards work from the keyboard; Related no longer bounces back (PB-02, PB-03)
 
 **Fixes**
