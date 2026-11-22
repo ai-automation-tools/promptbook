@@ -150,8 +150,9 @@ const PromptCard = memo(function PromptCard({
           <div className="min-w-0 flex-1">
             {/* The title is the card's keyboard target; the article's click covers the mouse. A
                 role="button" article would swallow Enter on the action buttons inside it. */}
-            <h3 className="line-clamp-2 text-[15px] font-semibold leading-snug tracking-[-0.01em] text-[var(--fg)] transition-colors group-hover:text-[color-mix(in_srgb,var(--c)_70%,var(--fg))]">
-              <button type="button" className="card-open" onClick={stop(open)}>
+            <h3 className="text-[15px] font-semibold leading-snug tracking-[-0.01em] text-[var(--fg)] transition-colors group-hover:text-[color-mix(in_srgb,var(--c)_70%,var(--fg))]">
+              {/* The clamp sits on the button: a button is one atomic box the h3 could not cut. */}
+              <button type="button" className="card-open line-clamp-2" onClick={stop(open)}>
                 {title}
               </button>
             </h3>
@@ -206,7 +207,7 @@ const PromptCard = memo(function PromptCard({
         {/* A library item shows when it was last checked against its source; the file's mtime is
             only when this checkout wrote it. */}
         <span
-          className="mono mr-auto pl-1 text-[10.5px] text-[var(--fg-5)]"
+          className="mono mr-auto pl-1 text-[12px] text-[var(--fg-5)]"
           title={prompt.checked ? 'Last checked against its source repo' : undefined}
         >
           {prompt.checked && 'checked '}

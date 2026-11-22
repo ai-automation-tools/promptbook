@@ -248,7 +248,7 @@ export default function SkillPacksView({ libraryMode, onToast, favorites, onTogg
               <p className="eyebrow mb-1.5">{humanize(selectedPack.category)}</p>
               <h1 className="text-[1.75rem] font-semibold leading-tight tracking-[-0.02em] text-[var(--fg)]">{selectedPack.name}</h1>
               <p className="mt-2 max-w-2xl text-[14.5px] leading-relaxed text-[var(--fg-3)]">{selectedPack.description}</p>
-              <div className="mono mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-[11.5px] text-[var(--fg-4)]">
+              <div className="mono mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-[12px] text-[var(--fg-4)]">
                 <span className="inline-flex items-center gap-1.5">
                   <Wrench className="h-3.5 w-3.5" />
                   {selectedPack.skillCount} skills
@@ -316,7 +316,7 @@ export default function SkillPacksView({ libraryMode, onToast, favorites, onTogg
                         {skill.metadata?.tags && skill.metadata.tags.length > 0 && (
                           <div className="mt-2 flex flex-wrap gap-1">
                             {skill.metadata.tags.slice(0, 4).map(tag => (
-                              <span key={tag} className="chip h-[20px] text-[10px]">
+                              <span key={tag} className="chip h-[20px]">
                                 {tag}
                               </span>
                             ))}

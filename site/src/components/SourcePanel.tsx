@@ -55,7 +55,7 @@ export default function SourcePanel({ source }: { source: ItemSource }) {
       {badge && (
         <span
           title={badge.hint}
-          className="inline-flex h-[22px] items-center gap-1.5 rounded-full border px-2 text-[11.5px] font-medium"
+          className="inline-flex h-[22px] items-center gap-1.5 rounded-full border px-2 text-[12px] font-medium"
           style={{ color: badge.tone, borderColor: `color-mix(in srgb, ${badge.tone} 40%, transparent)` }}
         >
           <span className="h-1.5 w-1.5 rounded-full" style={{ background: badge.tone }} aria-hidden="true" />
@@ -64,7 +64,7 @@ export default function SourcePanel({ source }: { source: ItemSource }) {
       )}
 
       {source.ref && (
-        <span className="mono text-[11px] text-[var(--fg-4)]">
+        <span className="mono text-[12px] text-[var(--fg-4)]">
           copied at{' '}
           <a href={`https://github.com/${source.repo}/tree/${source.ref}`} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--fg)]">
             {source.ref.slice(0, 7)}
