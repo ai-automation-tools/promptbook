@@ -9,7 +9,7 @@ import matter from "../lib/frontmatter.js";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 import { ZipArchive } from "archiver";
-import { applyImport, FAVORITE_ID, favorites, forkExtra, IMPORT_LIMITS, ImportChangedError, InvalidPromptError, libraryFiles, myLibrary, previewImport, PromptConflictError, pullUpstream, READ_ONLY, upstreamStatus, type UserPrompt } from "../lib/my-library.js";
+import { applyImport, existingCopy, FAVORITE_ID, favorites, forkExtra, IMPORT_LIMITS, ImportChangedError, InvalidPromptError, libraryFiles, myLibrary, previewImport, PromptConflictError, pullUpstream, READ_ONLY, upstreamStatus, type UserPrompt } from "../lib/my-library.js";
 import { readZip, ZipError } from "../lib/zip.js";
 import { filesUnder, resolveInside } from "../lib/safe-path.js";
 import { LIBRARY_PATH, SKILLS_SECTION, carriedFrontmatter, checkedOf, extractFirstHeading, readLibraryItem, sourceOf, sourceUrlOf, type IndexEntry, type LibraryIndex } from "../lib/library.js";
@@ -503,15 +503,7 @@ app.post("/api/prompts/*path/copy-to-my-prompts", requireWritable, async (req, r
     // Parsed content, without the library file's own frontmatter
     const { title, section, category, subcategory, tags, content } = item;
 
-    const normalizedTitle = title.trim().toLowerCase();
-    const duplicate = myLibrary.list().find(p =>
-      p.section === section &&
-      p.category === category &&
-      (p.subcategory || null) === (subcategory || null) &&
-      p.title.trim().toLowerCase() === normalizedTitle
-    );
-
-    if (duplicate) {
+    if (existingCopy(item)) {
       return res.status(409).json({ error: "This prompt already exists in your library" });
     }
 
