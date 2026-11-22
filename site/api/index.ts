@@ -13,7 +13,7 @@ import { applyImport, existingCopy, FAVORITE_ID, favorites, forkExtra, IMPORT_LI
 import { readZip, ZipError } from "../lib/zip.js";
 import { cachedZip } from "../lib/zip-cache.js";
 import { filesUnder, resolveInside } from "../lib/safe-path.js";
-import { LIBRARY_PATH, SKILLS_SECTION, carriedFrontmatter, readLibraryItem, walkLibrary, PREVIEW_LENGTH, sourceOf, sourceUrlOf, type IndexEntry, type LibraryIndex } from "../lib/library.js";
+import { LIBRARY_PATH, SKILLS_SECTION, carriedFrontmatter, readLibraryItem, walkLibrary, EDGE_CACHE, PREVIEW_LENGTH, sourceOf, sourceUrlOf, type IndexEntry, type LibraryIndex } from "../lib/library.js";
 import type { IncomingMessage, ServerResponse } from "http";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -58,6 +58,14 @@ if (FRAME_ANCESTORS.length) {
 // Prompt bodies are user content and some library prompts run long, but nothing
 // legitimate approaches a megabyte.
 app.use(express.json({ limit: '1mb' }));
+
+// The demo's GETs are cached at Vercel's edge (EDGE_CACHE in lib/library.ts).
+if (READ_ONLY) {
+  app.use((req, res, next) => {
+    if (req.method === 'GET') res.set('Cache-Control', EDGE_CACHE);
+    next();
+  });
+}
 
 /**
  * Hostnames this server answers to. Same rule as Vite's `allowedHosts`, so dev

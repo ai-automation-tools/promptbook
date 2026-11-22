@@ -36,6 +36,10 @@ const base = `http://127.0.0.1:${server.address().port}`;
 const get = (p) => fetch(base + p);
 
 try {
+  // PB-10: the demo's GETs carry the edge-cache header (Vercel caches them until the next deploy).
+  for (const p of ["/api/prompts?lightweight=true", "/api/skill-packs"]) {
+    assert.match((await get(p)).headers.get("cache-control") ?? "", /s-maxage=86400/, `${p} is edge-cacheable`);
+  }
   // Private reads: nothing comes back
   for (const q of ["?library=my", "?library=my&lightweight=true"]) {
     const res = await get(`/api/prompts${q}`);

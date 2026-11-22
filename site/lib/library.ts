@@ -24,6 +24,14 @@ export const LIBRARY_PATH = [path.join(APP_ROOT, 'library'), path.join(process.c
 
 export const SKILLS_SECTION = '3_Skills';
 
+/**
+ * Cache-Control for the read-only demo's GETs (PB-10). It serves only the Public Library, which
+ * changes only with a deploy, and a deploy purges Vercel's edge cache, so the edge keeps an
+ * answer for a day and serves a stale one for a week while it refetches. Never sent by a
+ * writable server: My Library changes under it.
+ */
+export const EDGE_CACHE = 'public, s-maxage=86400, stale-while-revalidate=604800';
+
 /** The sections by the short key a caller types, and the folder each one is. */
 export const SECTIONS = {
   prompts: { folder: '4_Prompts', label: 'Prompts', description: 'Reusable prompt templates, organised by domain and task.' },
