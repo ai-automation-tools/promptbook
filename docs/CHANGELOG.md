@@ -20,6 +20,14 @@ _Touched: `site/src/components/PromptCard.tsx`, `site/src/components/SkillPacksV
 
 ---
 
+## 2026-11-22 — README contact is the org address
+
+`README.md`'s Support section listed a personal email address. It now gives `admin@ai-automation-tools.dev`, the org's role address. Closes the Upkeep item flagged by the 2026-11-10 Security sweep.
+
+_Touched: `README.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-21 — Feature docs drop their library counts
 
 **Docs**
