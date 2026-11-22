@@ -165,9 +165,10 @@ site/
                        Adding a library section means adding it to SECTIONS in lib/library.ts
                        too; test:mcp fails until the two lists match.
   library/             Public content, numbered sections (see below)
-  scripts/build-prompt-index.js   Walks library/ → api/prompt-index.json (site build step).
-                       Sorts by id and skips files over 500 KB. Under 3_Skills it takes
-                       SKILL.md files and the Libraries/ cards. Each entry carries `checked`
+  scripts/build-prompt-index.js   library/ → api/prompt-index.json (site build step, run with tsx).
+                       The walk is walkLibrary() in lib/library.ts, the same one the API's full
+                       listing uses: skips files over 500 KB, README.md and Legacy/; under
+                       3_Skills it takes SKILL.md files and the Libraries/ cards. Sorts by id. Each entry carries `checked`
                        (last check against its source, checkedOf() in lib/library.ts; the
                        cards' stale badge) and, where declared, `inputs`. Carries `lastModified` and
                        `buildTime` forward for unchanged entries, so rebuilding an untouched

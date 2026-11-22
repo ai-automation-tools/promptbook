@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "tsx server.ts",
     "build": "npm run build:index && tsc && vite build",
-    "build:index": "node scripts/build-prompt-index.js",
+    "build:index": "tsx scripts/build-prompt-index.js",
     "start": "npm run build && tsx server.ts --production",
     "preview": "vite preview",
     "clean": "rm -rf dist",

@@ -6,126 +6,27 @@
 
 import fs from 'fs';
 import path from 'path';
-import matter from '../lib/frontmatter.js';
 import { execFileSync } from 'child_process';
 import { fileURLToPath } from 'url';
+import { LIBRARY_PATH, PREVIEW_LENGTH, walkLibrary } from '../lib/library.ts';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const LIBRARY_PATH = path.join(__dirname, '../library');
-const OUTPUT_PATH = path.join(__dirname, '../api/prompt-index.json');
-
-// Library section folder holding skills (numbered layout)
-const SKILLS_SECTION = '3_Skills';
-const LIBRARIES_FOLDER = path.join(SKILLS_SECTION, 'Libraries');
-
-/** upstream.checked, server.checked (MCP cards) or a guide's checked:, as YYYY-MM-DD; YAML reads a bare date as a Date. */
-function checkedOf(data) {
-  const v = data.upstream?.checked ?? data.server?.checked ?? data.checked;
-  const day = v instanceof Date ? v.toISOString().slice(0, 10) : typeof v === 'string' ? v.slice(0, 10) : null;
-  return day && /^\d{4}-\d{2}-\d{2}$/.test(day) ? day : null;
-}
-
-function extractFirstHeading(markdown) {
-  const match = markdown.match(/^#\s+(.+)$/m);
-  return match ? match[1].trim() : null;
-}
-
-function walkDir(dir, baseDir = LIBRARY_PATH) {
-  if (!fs.existsSync(dir)) return [];
-  
-  let results = [];
-  const list = fs.readdirSync(dir);
-  
-  list.forEach(file => {
-    const filePath = path.join(dir, file);
-    const stat = fs.statSync(filePath);
-    
-    if (stat.isDirectory()) {
-      // Legacy/ holds the pre-rename *_OLD trees — not indexed, not shipped
-      if (dir === baseDir && file === 'Legacy') {
-        return;
-      }
-      results = results.concat(walkDir(filePath, baseDir));
-    } else if (file.endsWith('.md')) {
-      if (file.toLowerCase() === 'readme.md') {
-        return;
-      }
-
-      const relativePath = path.relative(baseDir, filePath);
-      
-      // For Skills section, only include SKILL.md files, plus the one-card-per-repo
-      // skill libraries in Libraries/ (a library is a card, not copies of its skills)
-      if (relativePath.startsWith(SKILLS_SECTION + path.sep)) {
-        if (!file.endsWith('SKILL.md') && !relativePath.startsWith(LIBRARIES_FOLDER + path.sep)) {
-          return;
-        }
-      }
-      
-      // Skip files larger than 500KB
-      if (stat.size > 500 * 1024) {
-        console.log(`[SKIP] Large file: ${relativePath} (${(stat.size / 1024).toFixed(0)}KB)`);
-        return;
-      }
-      
-      const rawContent = fs.readFileSync(filePath, 'utf-8');
-      
-      let data, content;
-      try {
-        ({ data, content } = matter(rawContent));
-      } catch (err) {
-        console.warn(`[WARN] Failed to parse frontmatter in ${relativePath}, skipping`);
-        return;
-      }
-      
-      const pathParts = relativePath.replace('.md', '').split(path.sep);
-      
-      const section = pathParts[0] || 'General';
-      const category = pathParts[1] || 'Uncategorized';
-      const subcategory = pathParts.length > 2 ? pathParts[2] : null;
-      
-      // Skills prefer `title` too. `name` is now the spec-required slug
-      // (lowercase-hyphen, matching the directory), so reading it here would
-      // show "mcp-builder" where the site used to show the decorated form.
-      // That decorated form lives in `title`; `name` stays the fallback.
-      const title = data.title
-        || data.name
-        || extractFirstHeading(content)
-        || path.basename(file, '.md');
-      
-      results.push({
-        // Ids are URL/path keys — always forward-slashed, even on Windows
-        id: relativePath.split(path.sep).join('/'),
-        title: title,
-        section,
-        category,
-        subcategory,
-        tags: data.tags || [],
-        // A prompt's declared fill-ins (lib/prompt-inputs.ts); the MCP server makes them arguments.
-        ...(Array.isArray(data.inputs) && { inputs: data.inputs }),
-        // When the item was last checked against its source (O02); same rule as checkedOf() in lib/library.ts.
-        ...(checkedOf(data) && { checked: checkedOf(data) }),
-        contentPreview: content.substring(0, 200), // Just preview for lightweight mode
-        lastModified: stat.mtime.toISOString(),
-        isUserOwned: false,
-      });
-    }
-  });
-  
-  return results;
-}
+const OUTPUT_PATH = path.join(path.dirname(fileURLToPath(import.meta.url)), '../api/prompt-index.json');
 
 console.log('Building prompt index...');
 const startTime = Date.now();
 
-// fs.readdirSync returns whatever order the filesystem hands back — case-
-// insensitive alphabetical on NTFS, hash order on ext4 — so the same library
-// produced a differently-ordered index on Windows than on a Linux CI runner and
-// the freshness gate failed on ordering alone. Sorting by id makes the file
-// reproducible anywhere. The app sorts client-side (default title-asc), so this
-// order is not what anyone sees.
-const prompts = walkDir(LIBRARY_PATH).sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+// The walk is lib/library.ts's walkLibrary(), the same one the API's full listing uses (PB-26).
+// Directory order differs by filesystem (case-insensitive on NTFS, hash order on ext4), so the
+// entries are sorted by id: the same library gives the same file anywhere. The app sorts
+// client-side (default title-asc), so this order is not what anyone sees.
+const prompts = (await walkLibrary())
+  .map(({ entry, content, mtime }) => ({
+    ...entry,
+    contentPreview: content.substring(0, PREVIEW_LENGTH), // Just preview for lightweight mode
+    lastModified: mtime.toISOString(),
+    isUserOwned: false,
+  }))
+  .sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
 
 // A checkout stamps every file's mtime with the checkout time, so a plain
 // rebuild rewrote `lastModified` for every prompt and `buildTime` besides —

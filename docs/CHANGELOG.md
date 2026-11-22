@@ -4,6 +4,17 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-22 — One library walker (PB-26)
+
+**Changes**
+- The prebuilt index and the API's full listing walked `library/` with two copies of the same rules, and they had drifted: the API checked that `title` was a string and `tags` an array, the builder didn't, and only the builder trimmed a heading title. `walkLibrary()` in `lib/library.ts` is now the one walk (Markdown only, no `README.md` or `Legacy/`, `SKILL.md` and `Libraries/` cards under `3_Skills`, nothing over 500 KB). `scripts/build-prompt-index.js` maps it to index entries and the API to listing rows. `PREVIEW_LENGTH` lives beside it instead of being mirrored in two files.
+- `npm run build:index` runs the builder with `tsx`, since it now imports TypeScript. The rebuilt index is byte-identical to the one on `main`.
+- A large-file skip is logged to stderr: `lib/library.ts` is also loaded by the MCP server, whose stdout is the protocol.
+
+_Touched: `site/lib/library.ts`, `site/api/index.ts`, `site/scripts/build-prompt-index.js`, `site/package.json`, `AGENTS.md`, `docs/ARCHITECTURE.md`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — No sidebar jump on first load (PB-11 follow-up)
 
 **Fixes**

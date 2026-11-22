@@ -252,7 +252,7 @@ promptbook/
 │   │   ├── 6_MCP_Servers/        # One card per MCP server
 │   │   └── resources.json        # The Resources menu's links
 │   ├── my-library/               # Your prompts (gitignored; created on first save)
-│   ├── scripts/build-prompt-index.js   # Walks library/, sorts by id, skips >500 KB, keeps unchanged timestamps
+│   ├── scripts/build-prompt-index.js   # lib/library.ts walkLibrary() → the index; sorts by id, keeps unchanged timestamps
 │   ├── scripts/api-routes.test.mjs     # Pins the route table (npm run test:routes)
 │   ├── scripts/my-library.test.mjs     # File-store round trip (npm run test:my-library)
 │   ├── scripts/read-only.test.mjs      # READ_ONLY hides My Library (npm run test:read-only)
