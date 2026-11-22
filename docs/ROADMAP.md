@@ -92,7 +92,7 @@ Nothing below blocks go-live.
 
 From the 2026-11-18 project audit (taken at `2a990cd`). Ids are the audit's backlog ids; one item, or one tight group, per PR, titled `fix(PB-xx): …`. Items in `michaelschecht/claude-routines` are tracked here but change that repo.
 
-- [ ] **PB-01** P1 · Remove the 13 jailbreak prompts from the public library and keep them out
+- [x] **PB-01** P1 · Remove the 13 jailbreak prompts from the public library and keep them out — done 2026-11-22: the 13 ChatGPT-Shortcut cards are deleted (index 890 → 877) and `scripts/upstream.test.mjs` fails on their upstream paths or a jailbreak-style title, so a refresh or finder can't bring one back
 - [x] **PB-02** P1 · Card action buttons work from the keyboard — done 2026-11-22: a card's title is a real `<button>`, the `<article>` lost `role="button"`/`tabindex`/its Enter handler (prompt and pack cards), so Enter on Copy, Download, Save, Star, Edit, Delete or pack Add/Remove runs that action; `test:browser` presses Enter on a card's Download and on its title
 - [x] **PB-03** P1 · Leaving a prompt by Related, breadcrumb or category no longer bounces back — done 2026-11-22: `?prompt=` is consumed once by the deep-link effect and no longer set by `handlePromptClick`; the URL follows `selectedPrompt`. `test:browser` clicks Related and checks the prompt stays closed a second later
 - [ ] **PB-04** P1 · Take the leak-sourced system prompts out of the public tree and the demo 🔒 Needs owner
