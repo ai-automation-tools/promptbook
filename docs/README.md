@@ -42,11 +42,13 @@ Public Library is also browsable read-only at
 ### Development
 - **[Debug Guide](development/DEBUG_UI.md)** — troubleshooting
 - **[Performance](development/PERFORMANCE.md)** — `npm run bench`, the baseline and the budgets
+- **[Code map](development/CODE-MAP.md)** — every script, test and folder, what CI runs, the design tokens, the three resync lanes
+- **[Older changelog](changelog/2026-03-to-09.md)** — March to September 2026
 
 ### Section indexes
 - **[setup/](setup/README.md)** — local setup and the hosted demo
 - **[features/](features/README.md)** — API, library modes, featured prompts, MCP server design
-- **[development/](development/README.md)** — debugging and performance
+- **[development/](development/README.md)** — debugging, performance and the code map
 - **[skill-packs/](skill-packs/README.md)** — the Skill Packs guide and quick start
 
 ### Project policies (repo root)
@@ -106,9 +108,13 @@ docs/
 │   ├── FEATURED-PROMPTS.md
 │   └── MCP-SERVER.md             # The library as an MCP server
 │
-└── development/
-    ├── DEBUG_UI.md
-    └── PERFORMANCE.md
+├── development/
+│   ├── CODE-MAP.md
+│   ├── DEBUG_UI.md
+│   └── PERFORMANCE.md
+│
+└── changelog/
+    └── 2026-03-to-09.md          # Older CHANGELOG entries
 ```
 
 > Superseded planning docs (an older `docs/archive/`, `QUICK_REFERENCE.md`, `library-update-logs/`) were

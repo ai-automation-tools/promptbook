@@ -1,7 +1,7 @@
 <h1 align="center">🛠️ Development</h1>
 
 <p align="center">
-  <em>Troubleshooting and performance notes for working on the app.</em>
+  <em>Troubleshooting, performance and the code map for working on the app.</em>
 </p>
 
 <p align="center">
@@ -14,6 +14,7 @@
 |:---|:---|
 | [**Debug Guide**](DEBUG_UI.md) | Troubleshooting when the UI shows no prompts. |
 | [**Performance**](PERFORMANCE.md) | `npm run bench`, the baseline and the budgets. |
+| [**Code map**](CODE-MAP.md) | Every script, test and folder, the CI order, the design tokens and the three upstream resync lanes. |
 
 ---
 
