@@ -4,6 +4,17 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-22 — Dead scripts and code out; quieter logs (PB-24)
+
+**Cleanup**
+- Removed four repo-root scripts nothing ran: `add-frontmatter.mjs` (pointed at a `prompts/` folder that no longer exists), `check_skills.py`, `get_popular_skills.py` and `get_raw_urls.py` (one-off scrapers of a third-party skills API). They are in git history.
+- The API no longer logs every request (`[API] GET …`), and a Skill Pack download no longer logs every skill, file count and archive step; errors and warnings still log.
+- Dead code gone: `layout` props that did nothing under `LazyMotion`'s `domAnimation` (cards, toasts), the unused `featured` and `anchor` fields on `Prompt` (Featured reads the `featured` tag), the `DISABLE_HMR` switch and its AI Studio comment (with a mojibake character) in `vite.config.ts`, and the unused `experimentalDecorators` / `useDefineForClassFields` flags in `tsconfig.json`.
+
+_Touched: `scripts/`, `site/api/index.ts`, `site/api/skill-packs.ts`, `site/src/components/PromptCard.tsx`, `site/src/components/Toast.tsx`, `site/vite.config.ts`, `site/tsconfig.json`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — Readable prompt pages (PB-13)
 
 **UI**

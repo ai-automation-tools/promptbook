@@ -303,7 +303,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       archive.pipe(res);
       
       // Track total files added
-      let totalFilesAdded = 0;
       
       // Add each skill's entire directory to the ZIP
       for (const skill of pack.skills) {
@@ -315,8 +314,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const skillDir = path.dirname(skillPath);
         const skillDirName = path.basename(skillDir);
         
-        console.log(`Processing skill: ${skillDirName} (${skill.path})`);
-        console.log(`  Skill directory: ${skillDir}`);
         
         try {
           // Check if directory exists
@@ -333,9 +330,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           if (stats.isDirectory()) {
             // Read all files in the skill directory recursively
             const allFiles = filesUnder(skillDir);
-            
-            console.log(`  Found ${allFiles.length} files in ${skillDirName}`);
-            
+                        
             if (allFiles.length === 0) {
               console.warn(`  Warning: No files found in ${skillDir}`);
             }
@@ -344,34 +339,27 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               const relativePath = path.relative(skillDir, filePath);
               const archivePath = path.join(skillDirName, relativePath);
               archive.file(filePath, { name: archivePath });
-              totalFilesAdded++;
             }
           } else {
             // If it's just a file, add the file
             const archivePath = path.join(skillDirName, path.basename(skillPath));
             archive.file(skillPath, { name: archivePath });
-            totalFilesAdded++;
           }
         } catch (err) {
           console.error(`Error processing skill ${skill.path}:`, err);
           // Continue with other skills even if one fails
         }
       }
-      
-      console.log(`Total files added to archive: ${totalFilesAdded}`);
-      
+            
       // Add pack manifest JSON
       const packFiles = await getAllPackFiles(packsDir);
       const packManifestPath = packFiles.find(file => path.basename(file) === `${packId}.json`);
       if (packManifestPath) {
-        console.log(`Adding manifest: ${packManifestPath}`);
         archive.file(packManifestPath, { name: `${packId}.json` });
       }
       
       // Finalize archive (must be called after all files are added)
-      console.log('Finalizing archive...');
       await archive.finalize();
-      console.log(`Archive finalized. Total bytes: ${archive.pointer()}`);
       
       return;
     } catch (error) {

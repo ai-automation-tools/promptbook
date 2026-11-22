@@ -24,9 +24,7 @@ export interface Prompt {
   lastModified: string;
   /** Library items: when last checked against the source repo, YYYY-MM-DD, from the index. */
   checked?: string;
-  featured?: boolean;
   isUserOwned?: boolean;
-  anchor?: string;
   sourceUrl?: string;
   /** Library items from `GET /api/prompts/:id` only: the GitHub repo it is copied from and how it stands. */
   source?: ItemSource;
@@ -132,7 +130,6 @@ const PromptCard = memo(function PromptCard({
 
   return (
     <m.article
-      layout="position"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: Math.min(index * 0.025, 0.4), ease: [0.2, 0.7, 0.2, 1] }}
