@@ -15,6 +15,14 @@ _Touched: `site/library/1_Guides/`, `site/api/prompt-index.json`, `docs/CHANGELO
 
 ---
 
+## 2026-11-20 — Docs sweep
+
+`docs/OPEN-QUESTIONS.md` is linked from the docs hub, and the 2026-10-31 entries sit above 2026-10-30 again so the headings run newest-first. Entries moved whole; no text changed.
+
+_Touched: `docs/README.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-20 — Library: new MCP servers
 
 Three official servers, each written from its README read that day: Sentry (`getsentry/toolkit`, `packages/mcp-server`, FSL-1.1-Apache-2.0) and Datadog (`datadog-labs/mcp-server`, MIT) in `Developer_Tools/`, and Google Analytics (`googleanalytics/google-analytics-mcp`, Apache-2.0) in `Apps_and_Services/`. The `6_MCP_Servers` README now counts 57 cards.
@@ -28,6 +36,14 @@ _Touched: `site/library/6_MCP_Servers/`, `site/api/prompt-index.json`, `docs/CHA
 Four definitions, copied unchanged from their repos (`match: exact`, licences read 2026-11-19): `legacy-analyst` and `business-rules-extractor` from the code-modernization plugin in `anthropics/claude-plugins-official` (Apache-2.0), in a new folder `2_Agents/Modernization/`; `team-debugger` from `wshobson/agents` (MIT), in `Quality/`; `docs-drift-editor` from `VoltAgent/awesome-claude-code-subagents` (MIT), in `Development/`.
 
 _Touched: `site/library/2_Agents/`, `site/api/prompt-index.json`, `docs/CHANGELOG.md`._
+
+---
+
+## 2026-11-18 — Vite security bump
+
+`vite` is `^8.3.8` in `site/package.json` and 8.3.8 in the lockfile (PR #501, Dependabot's minor-and-patch group), past 8.3.7, the fix for GHSA-p4f5-76q4-ffq7 (remote code execution through the dev server's `__vite-browser-external` module). Roadmap item ticked by the 2026-11-21 sweep.
+
+_Touched: `site/package.json`, `site/package-lock.json`, `docs/ROADMAP.md`, `docs/CHANGELOG.md`._
 
 ---
 
@@ -462,18 +478,6 @@ _Touched: `site/library/4_Prompts/Awesome_ChatGPT/General/dockerfile-and-ci-tast
 
 ---
 
-## 2026-10-30 — Upstream check
-
-Node 26 reached LTS on 2026-10-28 and is now Vercel's default (generally available 2026-10-29), so the Hosting and Node rows say 26, with 24 and 22 still offered; the Node 22 roadmap item now names 26 as an option. The MCP SDK row notes 2.4.0 and the 2026-07-28 spec revision. Queued one roadmap item for the four dependency majors the package is behind on: `dotenv` 18, `archiver` 8, `motion` 14 and `lucide-react` 1.x, where lucide removed the `Github` brand icon that four components import. No code changed.
-
-_Touched: `docs/UPSTREAMS.md`, `docs/ROADMAP.md`._
-
-## 2026-10-29 — Library refresh — catalog
-
-Two MCP server cards, both vendor-official, install lines read from each README on 2026-10-29. **Grafana** (`6_MCP_Servers/Developer_Tools/grafana.md`): `grafana/mcp-grafana`, Apache-2.0. **Terraform** (`6_MCP_Servers/Cloud_Platforms/terraform.md`): `hashicorp/terraform-mcp-server`, MPL-2.0. Sentry's server was skipped (licence reads "Other", not clearly permissive). No `accept` rows in the discovery ledger; no system prompts or agent definitions added this run.
-
-_Touched: `site/library/6_MCP_Servers/` (2 cards, README count 25), `site/api/prompt-index.json`._
-
 ## 2026-10-31 — Library data-flow diagram re-pinned
 
 Re-read the cited code after the Express 5 and `checked:` changes and moved the line ranges in `library-data-flow.json` for the `library`, `build`, `index`, `public_api` and `my_api` nodes; no label or card changed, and `--check` is OK at the new pin.
@@ -491,6 +495,18 @@ _Touched: `docs/diagrams/library-data-flow.*`, `homepage/diagram/library-data-fl
 _Touched: `site/lib/zip.ts` (new), `site/lib/my-library.ts`, `site/api/index.ts`, `site/src/components/MyLibraryTransfer.tsx` (new), `site/src/components/SettingsModal.tsx`, `site/src/App.tsx`, `site/scripts/my-library.test.mjs`, `site/scripts/read-only.test.mjs`, `site/scripts/api-routes.test.mjs`, `site/scripts/browser-smoke.test.mjs`, `AGENTS.md`, `README.md`, `docs/ARCHITECTURE.md`, `docs/features/API.md`, `docs/features/LIBRARY-MODE-IMPLEMENTATION.md`, `docs/ROADMAP.md`._
 
 ---
+
+## 2026-10-30 — Upstream check
+
+Node 26 reached LTS on 2026-10-28 and is now Vercel's default (generally available 2026-10-29), so the Hosting and Node rows say 26, with 24 and 22 still offered; the Node 22 roadmap item now names 26 as an option. The MCP SDK row notes 2.4.0 and the 2026-07-28 spec revision. Queued one roadmap item for the four dependency majors the package is behind on: `dotenv` 18, `archiver` 8, `motion` 14 and `lucide-react` 1.x, where lucide removed the `Github` brand icon that four components import. No code changed.
+
+_Touched: `docs/UPSTREAMS.md`, `docs/ROADMAP.md`._
+
+## 2026-10-29 — Library refresh — catalog
+
+Two MCP server cards, both vendor-official, install lines read from each README on 2026-10-29. **Grafana** (`6_MCP_Servers/Developer_Tools/grafana.md`): `grafana/mcp-grafana`, Apache-2.0. **Terraform** (`6_MCP_Servers/Cloud_Platforms/terraform.md`): `hashicorp/terraform-mcp-server`, MPL-2.0. Sentry's server was skipped (licence reads "Other", not clearly permissive). No `accept` rows in the discovery ledger; no system prompts or agent definitions added this run.
+
+_Touched: `site/library/6_MCP_Servers/` (2 cards, README count 25), `site/api/prompt-index.json`._
 
 ## 2026-10-27 — Library refresh — guides
 
