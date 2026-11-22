@@ -44,17 +44,23 @@ export function useFavorites(onError: (message: string) => void) {
   // stale and must not undo it (BUG-15).
   const toggles = useRef(0);
 
-  const reload = useCallback(async () => {
-    if (READ_ONLY) return;
-    try {
-      const at = toggles.current;
-      const legacy = legacyFavorites();
-      const list = legacy.length ? await add(legacy) : await send();
-      try { localStorage.removeItem(LEGACY_KEY); } catch { /* storage blocked: nothing to drop */ }
-      if (toggles.current === at) setFavorites(list);
-    } catch {
-      // Keep what is shown; the next focus tries again.
-    }
+  // Reloads run one at a time. Two at once (load, a tab focus, an import) let a plain read be
+  // answered before the other's migration write landed, and the old list came back.
+  const queue = useRef<Promise<void>>(Promise.resolve());
+  const reload = useCallback(() => {
+    queue.current = queue.current.then(async () => {
+      if (READ_ONLY) return;
+      try {
+        const at = toggles.current;
+        const legacy = legacyFavorites();
+        const list = legacy.length ? await add(legacy) : await send();
+        try { localStorage.removeItem(LEGACY_KEY); } catch { /* storage blocked: nothing to drop */ }
+        if (toggles.current === at) setFavorites(list);
+      } catch {
+        // Keep what is shown; the next focus tries again.
+      }
+    });
+    return queue.current;
   }, []);
 
   // On load, and whenever the tab comes back, so stars made on another device show up.

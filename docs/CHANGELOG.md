@@ -4,6 +4,15 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-22 — Favorites reloads run one at a time
+
+**Fixes**
+- `useFavorites` could run two reloads at once: on load, on a tab coming back into focus, and after a My Library import. If one was moving a browser's old localStorage stars up to the server, the other's plain read could be answered first and put the list back without them. The browser test caught it once in CI (#573's first run). Reloads now queue, so each read sees every earlier write.
+
+_Touched: `site/src/hooks/useFavorites.ts`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — Shorter AGENTS.md, a code map, the changelog split; owner decisions recorded (PB-25, PB-18, PB-20, PB-30, PB-31)
 
 **Docs**
