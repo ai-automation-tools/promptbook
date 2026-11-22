@@ -1388,6 +1388,14 @@ html.light[data-palette='mono']      { --accent: #18181b; }
   line-height: 1.65;
 }
 
+.markdown-body pre:has(> code:not([class*="language-"])),
+.markdown-body pre:has(> code:is(.language-text, .language-txt, .language-markdown, .language-md, .language-prompt)) {
+  /* A prompt in a bare or text fence is prose: wrap it instead of cutting lines at the
+     panel edge (PB-13). Fences with a real language keep their horizontal scroll. */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
 .markdown-body hr {
   border: 0;
   height: 1px;
