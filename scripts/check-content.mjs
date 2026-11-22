@@ -9,11 +9,14 @@
 //   pipe-shell  curl|sh, wget|sh, irm|iex outside 1_Guides
 // Findings print as file:line and rule only, never the matched text. A reviewed exception goes
 // in scripts/content-allowlist.json: { "<path under site/library>": { "rules": [...], "reason": "..." } }.
-// Run: node scripts/check-content.mjs   (--self-test runs the rule checks only)
+// Run: node scripts/check-content.mjs   (--self-test runs the rule checks only;
+//      --base <ref> runs the diff rules below against that ref instead)
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { execFileSync } from "node:child_process";
+import matter from "../site/lib/frontmatter.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const LIB = path.join(ROOT, "site", "library");
@@ -80,8 +83,79 @@ function scan(text, rel) {
   assert.deepEqual(r("curl -fsSL https://x.sh/install | sh", "1_Guides/a.md"), []);
   assert.deepEqual(r("curl https://api.x/v1 -H 'a: b' | jq ."), []);
 }
+// --- diff rules, against a base ref (CI: the PR's base branch) ---
+//   allowed-tools  a SKILL.md that adds `allowed-tools`, or a tool to it: what an installed skill
+//                  may run without asking
+//   size-jump      an existing file that grows to 3x its size and by 20 KB or more
+// A reviewer who has read the change adds the PR label `content-reviewed`; CI then skips this step.
+
+/** A skill's `allowed-tools` as a set: YAML list, or a comma- or space-separated string. */
+export function toolsOf(text) {
+  let data;
+  try { ({ data } = matter(text)); } catch { return new Set(); }
+  const v = data["allowed-tools"];
+  if (v == null) return new Set();
+  const list = Array.isArray(v) ? v.map(String) : String(v).includes(",") ? String(v).split(",") : String(v).split(/\s+/);
+  return new Set(list.map((t) => t.trim()).filter(Boolean));
+}
+
+const SIZE_FACTOR = 3;
+const SIZE_MIN_GROWTH = 20 * 1024;
+
+/** Diff findings for one file: its text before (null when new) and after. */
+export function diffRules(rel, before, after) {
+  const hits = [];
+  if (rel.endsWith("SKILL.md")) {
+    const was = before == null ? new Set() : toolsOf(before);
+    const added = [...toolsOf(after)].filter((t) => !was.has(t));
+    if (added.length) hits.push({ rule: "allowed-tools", detail: added.join(", ") });
+  }
+  if (before != null) {
+    const a = Buffer.byteLength(before), b = Buffer.byteLength(after);
+    if (b >= a * SIZE_FACTOR && b - a >= SIZE_MIN_GROWTH) hits.push({ rule: "size-jump", detail: `${a} -> ${b} bytes` });
+  }
+  return hits;
+}
+
+{
+  const fm = (tools) => `---\nname: x\n${tools}\n---\nbody\n`;
+  const d = (rel, a, b) => diffRules(rel, a, b).map((h) => `${h.rule}:${h.detail}`);
+  assert.deepEqual(d("3_Skills/x/SKILL.md", null, fm("allowed-tools: Read, Bash")), ["allowed-tools:Read, Bash"]);
+  assert.deepEqual(d("3_Skills/x/SKILL.md", fm("allowed-tools: [Read]"), fm("allowed-tools: [Read, Bash]")), ["allowed-tools:Bash"]);
+  assert.deepEqual(d("3_Skills/x/SKILL.md", fm('allowed-tools: "Read Write"'), fm("allowed-tools: Read, Write")), []);
+  assert.deepEqual(d("3_Skills/x/SKILL.md", fm("allowed-tools: Read, Bash"), fm("allowed-tools: Read")), []);
+  assert.deepEqual(d("3_Skills/x/SKILL.md", null, fm("")), []);
+  assert.deepEqual(d("4_Prompts/a.md", "x".repeat(10000), "x".repeat(40000)), ["size-jump:10000 -> 40000 bytes"]);
+  assert.deepEqual(d("4_Prompts/a.md", "x".repeat(1000), "x".repeat(15000)), []); // grew 15x but under 20 KB
+  assert.deepEqual(d("4_Prompts/a.md", "x".repeat(100000), "x".repeat(150000)), []); // +50 KB but under 3x
+}
+
 if (process.argv.includes("--self-test")) {
   console.log("check-content: rule self-test passed");
+  process.exit(0);
+}
+
+const baseAt = process.argv.indexOf("--base");
+if (baseAt !== -1) {
+  const base = process.argv[baseAt + 1];
+  const git = (...args) => execFileSync("git", args, { cwd: ROOT, encoding: "utf8", maxBuffer: 256 * 1024 * 1024 });
+  const changed = git("diff", "--name-status", "--no-renames", base, "--", "site/library").split("\n").filter(Boolean);
+  const findings = [];
+  for (const row of changed) {
+    const [status, file] = row.split("\t");
+    if (status === "D" || !TEXT.test(file)) continue;
+    const rel = file.slice("site/library/".length);
+    const before = status === "A" ? null : git("show", `${base}:${file}`);
+    const after = fs.readFileSync(path.join(ROOT, file), "utf8");
+    for (const h of diffRules(rel, before, after)) findings.push(`${rel} ${h.rule} (${h.detail})`);
+  }
+  if (findings.length) {
+    for (const f of findings) console.error(`  ${f}`);
+    console.error(`check-content --base: ${findings.length} change(s) need a person. Read each; if it is fine, add the label ` +
+      "`content-reviewed` to the PR and re-run CI.");
+    process.exit(1);
+  }
+  console.log(`check-content --base: ${changed.length} changed library file(s); no new allowed-tools, no size jumps`);
   process.exit(0);
 }
 

@@ -4,6 +4,17 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-22 — Content gate checks what a PR adds (PB-06, rest)
+
+**Checks**
+- `scripts/check-content.mjs --base <ref>` compares the library with a base commit and fails on two changes a person should read: a `SKILL.md` that adds `allowed-tools`, or a tool to it (what an installed skill may run without asking), and an existing file that grows to three times its size and by 20 KB or more. It prints the file, the rule and the added tool names or byte counts, never the text. Both rules test themselves on every run, like the others.
+- CI runs it on every pull request, against the PR's base commit, as a "Content diff" step in the required `check` job. A reviewer who has read the change adds the new `content-reviewed` label; CI re-runs on `labeled` and skips the step.
+- A finder or resync PR that adds a skill with `allowed-tools` now waits for that label.
+
+_Touched: `scripts/check-content.mjs`, `.github/workflows/ci.yml`, `docs/CONTRIBUTING.md`, `docs/development/CODE-MAP.md`, `README.md`, `docs/CHANGELOG.md`._
+
+---
+
 ## 2026-11-22 — Favorites reloads run one at a time
 
 **Fixes**

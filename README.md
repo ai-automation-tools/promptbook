@@ -123,6 +123,7 @@ npm run bench            # latency and event-loop stall of the heavy endpoints (
 node scripts/upstream.test.mjs           # provenance, licences, no leaked or jailbreak items
 node scripts/skill-frontmatter.test.mjs  # Agent Skills spec compliance
 node scripts/check-content.mjs           # no hidden or agent-directed instructions in the library
+node scripts/check-content.mjs --base origin/main   # what a PR adds: new allowed-tools, size jumps
 node scripts/homepage.test.mjs           # the homepage's required links
 ```
 
