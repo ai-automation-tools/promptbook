@@ -1,5 +1,5 @@
 {
-  "checked": "2026-11-18",
+  "checked": "2026-11-23",
   "items": {
     "2_Agents/AI_ML/AI_Engineering_SMEs/ai-engineer.md": {
       "verdict": "current",
@@ -19,6 +19,13 @@
       "verdict": "current",
       "repo": "davila7/claude-code-templates",
       "path": "cli-tool/components/agents/ai-specialists/hackathon-ai-strategist.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/AI_ML/AI_Engineering_SMEs/langchain-expert.md": {
+      "verdict": "current",
+      "repo": "0xfurai/claude-code-subagents",
+      "path": "agents/langchain-expert.md",
       "branch": "main",
       "extra": 0
     },
@@ -47,6 +54,13 @@
       "verdict": "current",
       "repo": "VoltAgent/awesome-claude-code-subagents",
       "path": "categories/05-data-ai/data-scientist.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/AI_ML/Data_SMEs/postgres-pro.md": {
+      "verdict": "current",
+      "repo": "VoltAgent/awesome-claude-code-subagents",
+      "path": "categories/05-data-ai/postgres-pro.md",
       "branch": "main",
       "extra": 0
     },
@@ -113,6 +127,13 @@
       "branch": "main",
       "extra": 0
     },
+    "2_Agents/AI_ML/Other/agent-creator.md": {
+      "verdict": "current",
+      "repo": "anthropics/claude-plugins-official",
+      "path": "plugins/plugin-dev/agents/agent-creator.md",
+      "branch": "main",
+      "extra": 0
+    },
     "2_Agents/AI_ML/Other/amplitude-experiment-implementation.md": {
       "verdict": "current",
       "repo": "github/awesome-copilot",
@@ -145,6 +166,13 @@
       "verdict": "current",
       "repo": "davila7/claude-code-templates",
       "path": "cli-tool/components/agents/ai-specialists/model-evaluator.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/AI_ML/Other/plugin-validator.md": {
+      "verdict": "current",
+      "repo": "anthropics/claude-plugins-official",
+      "path": "plugins/plugin-dev/agents/plugin-validator.md",
       "branch": "main",
       "extra": 0
     },
@@ -194,6 +222,13 @@
       "verdict": "current",
       "repo": "VoltAgent/awesome-claude-code-subagents",
       "path": "categories/02-language-specialists/angular-architect.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Development/Backend/backend-architect.md": {
+      "verdict": "current",
+      "repo": "wshobson/agents",
+      "path": "plugins/backend-development/agents/backend-architect.md",
       "branch": "main",
       "extra": 0
     },
@@ -533,10 +568,248 @@
       "branch": "main",
       "extra": 0
     },
+    "2_Agents/Development/build-error-resolver.md": {
+      "verdict": "current",
+      "repo": "affaan-m/everything-claude-code",
+      "path": "agents/build-error-resolver.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Development/code-architect.md": {
+      "verdict": "current",
+      "repo": "anthropics/claude-plugins-official",
+      "path": "plugins/feature-dev/agents/code-architect.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Development/code-explorer.md": {
+      "verdict": "current",
+      "repo": "anthropics/claude-plugins-official",
+      "path": "plugins/feature-dev/agents/code-explorer.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Development/code-simplifier.md": {
+      "verdict": "current",
+      "repo": "anthropics/claude-plugins-official",
+      "path": "plugins/code-simplifier/agents/code-simplifier.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Development/docs-drift-editor.md": {
+      "verdict": "current",
+      "repo": "VoltAgent/awesome-claude-code-subagents",
+      "path": "categories/06-developer-experience/docs-drift-editor.md",
+      "branch": "main",
+      "extra": 0
+    },
     "2_Agents/Development/git-workflow-manager.md": {
       "verdict": "current",
       "repo": "VoltAgent/awesome-claude-code-subagents",
       "path": "categories/06-developer-experience/git-workflow-manager.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Development/legacy-modernizer.md": {
+      "verdict": "current",
+      "repo": "wshobson/agents",
+      "path": "plugins/code-refactoring/agents/legacy-modernizer.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Development/planner.md": {
+      "verdict": "current",
+      "repo": "affaan-m/everything-claude-code",
+      "path": "agents/planner.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Development/refactor-cleaner.md": {
+      "verdict": "current",
+      "repo": "affaan-m/everything-claude-code",
+      "path": "agents/refactor-cleaner.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/DevOps/chaos-engineer.md": {
+      "verdict": "current",
+      "repo": "VoltAgent/awesome-claude-code-subagents",
+      "path": "categories/04-quality-security/chaos-engineer.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/DevOps/docker-expert.md": {
+      "verdict": "current",
+      "repo": "0xfurai/claude-code-subagents",
+      "path": "agents/docker-expert.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/DevOps/github-actions-expert.md": {
+      "verdict": "current",
+      "repo": "0xfurai/claude-code-subagents",
+      "path": "agents/github-actions-expert.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/DevOps/incident-responder.md": {
+      "verdict": "current",
+      "repo": "VoltAgent/awesome-claude-code-subagents",
+      "path": "categories/03-infrastructure/incident-responder.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/DevOps/kubernetes-architect.md": {
+      "verdict": "current",
+      "repo": "wshobson/agents",
+      "path": "plugins/cloud-infrastructure/agents/kubernetes-architect.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/DevOps/observability-engineer.md": {
+      "verdict": "current",
+      "repo": "wshobson/agents",
+      "path": "plugins/application-performance/agents/observability-engineer.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/DevOps/platform-engineer.md": {
+      "verdict": "current",
+      "repo": "VoltAgent/awesome-claude-code-subagents",
+      "path": "categories/03-infrastructure/platform-engineer.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/DevOps/sre-engineer.md": {
+      "verdict": "current",
+      "repo": "VoltAgent/awesome-claude-code-subagents",
+      "path": "categories/03-infrastructure/sre-engineer.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/DevOps/terraform-specialist.md": {
+      "verdict": "current",
+      "repo": "wshobson/agents",
+      "path": "plugins/cloud-infrastructure/agents/terraform-specialist.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Modernization/business-rules-extractor.md": {
+      "verdict": "current",
+      "repo": "anthropics/claude-plugins-official",
+      "path": "plugins/code-modernization/agents/business-rules-extractor.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Modernization/legacy-analyst.md": {
+      "verdict": "current",
+      "repo": "anthropics/claude-plugins-official",
+      "path": "plugins/code-modernization/agents/legacy-analyst.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Product/product-manager.md": {
+      "verdict": "current",
+      "repo": "VoltAgent/awesome-claude-code-subagents",
+      "path": "categories/08-business-product/product-manager.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Product/ux-researcher.md": {
+      "verdict": "current",
+      "repo": "VoltAgent/awesome-claude-code-subagents",
+      "path": "categories/08-business-product/ux-researcher.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Quality/accessibility-tester.md": {
+      "verdict": "current",
+      "repo": "VoltAgent/awesome-claude-code-subagents",
+      "path": "categories/04-quality-security/accessibility-tester.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Quality/code-reviewer.md": {
+      "verdict": "current",
+      "repo": "anthropics/claude-plugins-official",
+      "path": "plugins/feature-dev/agents/code-reviewer.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Quality/comment-analyzer.md": {
+      "verdict": "current",
+      "repo": "anthropics/claude-plugins-official",
+      "path": "plugins/pr-review-toolkit/agents/comment-analyzer.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Quality/debugger.md": {
+      "verdict": "current",
+      "repo": "wshobson/agents",
+      "path": "plugins/debugging-toolkit/agents/debugger.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Quality/e2e-runner.md": {
+      "verdict": "current",
+      "repo": "affaan-m/everything-claude-code",
+      "path": "agents/e2e-runner.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Quality/error-detective.md": {
+      "verdict": "current",
+      "repo": "wshobson/agents",
+      "path": "plugins/error-debugging/agents/error-detective.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Quality/performance-engineer.md": {
+      "verdict": "current",
+      "repo": "wshobson/agents",
+      "path": "plugins/application-performance/agents/performance-engineer.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Quality/pr-test-analyzer.md": {
+      "verdict": "current",
+      "repo": "anthropics/claude-plugins-official",
+      "path": "plugins/pr-review-toolkit/agents/pr-test-analyzer.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Quality/qa-expert.md": {
+      "verdict": "current",
+      "repo": "VoltAgent/awesome-claude-code-subagents",
+      "path": "categories/04-quality-security/qa-expert.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Quality/security-auditor.md": {
+      "verdict": "current",
+      "repo": "wshobson/agents",
+      "path": "plugins/backend-development/agents/security-auditor.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Quality/team-debugger.md": {
+      "verdict": "current",
+      "repo": "wshobson/agents",
+      "path": "plugins/agent-teams/agents/team-debugger.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Quality/test-automator.md": {
+      "verdict": "current",
+      "repo": "wshobson/agents",
+      "path": "plugins/backend-development/agents/test-automator.md",
+      "branch": "main",
+      "extra": 0
+    },
+    "2_Agents/Quality/type-design-analyzer.md": {
+      "verdict": "current",
+      "repo": "anthropics/claude-plugins-official",
+      "path": "plugins/pr-review-toolkit/agents/type-design-analyzer.md",
       "branch": "main",
       "extra": 0
     },
@@ -573,7 +846,7 @@
       "repo": "blader/humanizer",
       "path": "SKILL.md",
       "branch": "main",
-      "extra": 0.11
+      "extra": 0.19
     },
     "3_Skills/Content/General/i-have-adhd/SKILL.md": {
       "verdict": "current",
@@ -618,18 +891,18 @@
       "extra": 0
     },
     "3_Skills/Design/archify/SKILL.md": {
-      "verdict": "current",
+      "verdict": "behind",
       "repo": "tt-a1i/archify",
       "path": "archify/SKILL.md",
       "branch": "main",
-      "extra": 0
+      "extra": 0.17
     },
     "3_Skills/Design/diagram-design/SKILL.md": {
-      "verdict": "current",
+      "verdict": "drifted",
       "repo": "cathrynlavery/diagram-design",
       "path": "skills/diagram-design/SKILL.md",
       "branch": "main",
-      "extra": 0
+      "extra": 0.11
     },
     "3_Skills/Design/popular-web-designs/SKILL.md": {
       "verdict": "current",
@@ -689,8 +962,8 @@
     },
     "3_Skills/Development/Web_Development/frontend-design/SKILL.md": {
       "verdict": "current",
-      "repo": "ar4mirez/samuel",
-      "path": ".claude/skills/frontend-design/SKILL.md",
+      "repo": "anthropics/skills",
+      "path": "skills/frontend-design/SKILL.md",
       "branch": "main",
       "extra": 0
     },
@@ -715,964 +988,93 @@
       "branch": "main",
       "extra": 0
     },
-    "5_System_Prompts/Anthropic/anthropic-claude-api-tool-use.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "anthropic-claude-api-tool-use_20250119.md",
-      "branch": "main",
-      "extra": 0.02
-    },
-    "5_System_Prompts/Anthropic/anthropic-claude-haiku-4.5-20251015.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "anthropic-claude-haiku-4.5_20251015.md",
-      "branch": "main",
-      "extra": 0.22
-    },
-    "5_System_Prompts/Anthropic/anthropic-claude-haiku-4.5.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "anthropic-claude-haiku-4.5_20251015.md",
-      "branch": "main",
-      "extra": 0.42
-    },
-    "5_System_Prompts/Anthropic/anthropic-claude-opus-20240306.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "anthropic-claude-opus_20240306.md",
-      "branch": "main",
-      "extra": 0.08
-    },
-    "5_System_Prompts/Anthropic/anthropic-claude-opus-4.1-20250805.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "anthropic-claude-opus-4.1_20250805.md",
-      "branch": "main",
-      "extra": 0.16
-    },
-    "5_System_Prompts/Anthropic/anthropic-claude-opus-4.5.md": {
-      "verdict": "current",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "anthropic-claude-opus-4.5_20251124.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Anthropic/anthropic-claude-opus-4.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "anthropic-claude-opus-4_20250522.md",
-      "branch": "main",
-      "extra": 0.54
-    },
-    "5_System_Prompts/Anthropic/anthropic-claude-sonnet-3-5-20240909.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "anthropic-claude-sonnet-3.5_20240909.md",
-      "branch": "main",
-      "extra": 0.05
-    },
-    "5_System_Prompts/Anthropic/anthropic-claude-sonnet-3-5-20241022.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "anthropic-claude-sonnet-3.5_20241022.md",
-      "branch": "main",
-      "extra": 0.13
-    },
-    "5_System_Prompts/Anthropic/anthropic-claude-sonnet-3-7.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "anthropic-claude-sonnet-3.7_20250224.md",
-      "branch": "main",
-      "extra": 0.07
-    },
-    "5_System_Prompts/Anthropic/anthropic-claude-sonnet-3.5.md": {
-      "verdict": "current",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "anthropic-claude-sonnet-3.5_20241022.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Anthropic/anthropic-claude-sonnet-3.7.md": {
-      "verdict": "current",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "anthropic-claude-sonnet-3.7_20250224.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Anthropic/anthropic-claude-sonnet-4.5_20250929.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "anthropic-claude-sonnet-4.5_20250929.md",
-      "branch": "main",
-      "extra": 0.44
-    },
-    "5_System_Prompts/Anthropic/anthropic-claude-sonnet-4.5_20251119.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "anthropic-claude-sonnet-4.5_20251119.md",
-      "branch": "main",
-      "extra": 0.47
-    },
-    "5_System_Prompts/Anthropic/anthropic-claude-sonnet-4.5-20251119.md": {
-      "verdict": "current",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "anthropic-claude-sonnet-4.5_20251119.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Anthropic/claude-chrome-extension.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Anthropic/20250916-Claude-Chrome-Extension.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Anthropic/claude-cowork.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Anthropic/20260112-Claude-Cowork.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Anthropic/claude-haiku-4-5.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "anthropic-claude-haiku-4.5_20251119.md",
-      "branch": "main",
-      "extra": 0.08
-    },
-    "5_System_Prompts/Anthropic/claude-opus4-5-soul-document.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Anthropic/20251202-Claude-Opus4.5-Soul-Document.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Anthropic/claude-opus4.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Anthropic/20250603-Claude-Sonnet4.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Anthropic/claude-sonnet4-5.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Anthropic/20251028-Claude-Sonnet4.5.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Anthropic/claude-sonnet4.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Anthropic/20250603-Claude-Sonnet4.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Anthropic/claude3-5-sonnet.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Anthropic/20240712-Claude3.5-Sonnet.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Anthropic/claude3-7-sonnet.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Anthropic/20250225-Claude3.7-Sonnet.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Anthropic/claude3.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Anthropic/20240304-Claude3.md",
-      "branch": "main",
-      "extra": 0
-    },
     "5_System_Prompts/Anthropic/computer-use.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Anthropic/20241022-Computer-Use.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Atlassian/acli-rovodev-interactive.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Atlassian/20250801-acli-rovodev-interactive.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Augment_Code/augmentcode.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Augment Code/20250724-augmentcode.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Bolt/bolt-new.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "bolt.new_20241009.md",
-      "branch": "main",
-      "extra": 0.04
-    },
-    "5_System_Prompts/Brave/brave-leo-ai.md": {
-      "verdict": "behind",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "brave-leo-ai_20250903.md",
-      "branch": "main",
-      "extra": 0.16
-    },
-    "5_System_Prompts/Brave/leo.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Brave/20251110-leo.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Canva/canva-code.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "canva-code_20250519.md",
-      "branch": "main",
-      "extra": 0.08
-    },
-    "5_System_Prompts/Copilot/github-copilot-cli.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Copilot/github_copilot_cli_20260121.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Copilot/github-copilot-vs.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Copilot/github_copilot_vs_02292024.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Copilot/github-copilot-vscode.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Copilot/github_copilot_vscode_02292024.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Copilot/github-copilot-web-contributed.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Copilot/github_copilot_web_contributed_20260221.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Copilot/microsoft-copilot-desktop.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Copilot/microsoft_copilot_desktop_11132024.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Copilot/microsoft-copilot-enterprise.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Copilot/microsoft_copilot_enterprise_20251202.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Copilot/microsoft-copilot-preview.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Copilot/microsoft_copilot_preview_03212024.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Copilot/microsoft-copilot-website.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Copilot/microsoft_copilot_website_02252025.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Cursor/cursor-ide-sonnet.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "cursor-ide-sonnet_20241224.md",
-      "branch": "main",
-      "extra": 0.05
-    },
-    "5_System_Prompts/Cursor/cursor.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Cursor.com/20240904-Cursor.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Databricks/dbrx-instruct.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Databricks/DBRX Instruct_03272024.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/DeepSeek/deepseek-r1.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "deepseek-R1_20250430.md",
-      "branch": "main",
-      "extra": 0.22
-    },
-    "5_System_Prompts/DeepSeek/deepseek.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/DeepSeek/20251029-DeepSeek-V2.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Discord/discord-clyde.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "discord-clyde_20230716-2.md",
-      "branch": "main",
-      "extra": 0.4
-    },
-    "5_System_Prompts/Docker/docker-ai.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Docker/docker_ai_20250731.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Duckduckgo/duckai-gpt-4o-mini.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "duckai-gpt-4o-mini_20251110.md",
-      "branch": "main",
-      "extra": 0.19
-    },
-    "5_System_Prompts/Gemini_Gems/gem-brainstormer.md": {
-      "verdict": "drifted",
-      "repo": "LouisShark/chatgpt_system_prompt",
-      "path": "prompts/official-product/google/Brainstormer.md",
-      "branch": "main",
-      "extra": 0.14
-    },
-    "5_System_Prompts/Gemini_Gems/gem-coding partner.md": {
-      "verdict": "drifted",
-      "repo": "LouisShark/chatgpt_system_prompt",
-      "path": "prompts/official-product/google/CodingPartner.md",
-      "branch": "main",
-      "extra": 0.14
-    },
-    "5_System_Prompts/GitHub/github-copilot-chat.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "github-copilot-chat_20240930.md",
-      "branch": "main",
-      "extra": 0.1
-    },
-    "5_System_Prompts/Google/antigravity.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Google/20251118-Antigravity.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Google/gemini-1-5.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Google/gemini-1.5-04112024.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Google/gemini-2-0-flash-thinking-gemini-app.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Google/gemini-2.0-flash-thinking-gemini-app-03072025.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Google/gemini-2-0-flash.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Google/gemini-2.0-flash-03072025.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Google/gemini-2-5-flash.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Google/20251112-gemini-2.5-flash.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Google/gemini-2-5-pro-imo.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Google/20250723-gemini-2.5-pro-imo.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Google/gemini-3-flash-android-app-contributed.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Google/gemini-3-flash-android-app-contributed_20260221.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Google/gemini-advanced-pro-1-5.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Google/gemini-advanced-pro-1.5-12122024.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Google/google-gemini-1-5.md": {
-      "verdict": "behind",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "google-gemini-1.5_20240411.md",
-      "branch": "main",
-      "extra": 0.5
-    },
-    "5_System_Prompts/Google/google-gemini-1.5.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "google-gemini-1.5_20240411.md",
-      "branch": "main",
-      "extra": 0.55
-    },
-    "5_System_Prompts/Google/google-gemini-cli.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "google-gemini-cli_20250626.md",
-      "branch": "main",
-      "extra": 0.24
-    },
-    "5_System_Prompts/Google/google-stitch.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "google-stitch_20250709.md",
-      "branch": "main",
-      "extra": 0.43
-    },
-    "5_System_Prompts/Google/jules.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Google/20250804-Jules.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Google/notebooklm.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Google/20251110-notebooklm.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Hume/system-prompt.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Hume.ai/05042024-system-prompt.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Manus/manus.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "manus_20250310.md",
-      "branch": "main",
-      "extra": 0.01
-    },
-    "5_System_Prompts/Meta/meta-ai-whatsapp.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "meta-ai-whatsapp_20250819.md",
-      "branch": "main",
-      "extra": 0.29
-    },
-    "5_System_Prompts/Meta/metaai-llama3.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Meta.ai/metaai_llama3-04182024.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Meta/metaai-llama4-whatsapp.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Meta.ai/metaai_llama4-whatsapp-07292025.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Meta/metaai-llama4.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Meta.ai/metaai_llama4-04082025.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Microsoft/microsoft-copilot.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "microsoft-copilot_20241219.md",
-      "branch": "main",
-      "extra": 0.08
-    },
-    "5_System_Prompts/Misc/chatglm4-20240821.md": {
-      "verdict": "current",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "ChatGLM4_20240821.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Misc/cluely.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Misc/20260616-Cluely.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Misc/codium-windsurf-editor.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Misc/20241208-codium-windsurf-editor.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Misc/estsoft-alan-20230920.md": {
-      "verdict": "current",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "ESTsoft-alan_20230920.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Misc/limitless-ai.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Misc/20250317-Limitless_AI.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Misc/manus.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Misc/20250309-Manus.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Mistral/le-chat-pro.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "mistral-le-chat-pro_20250425.md",
-      "branch": "main",
-      "extra": 0.17
-    },
-    "5_System_Prompts/Mistral/lechat.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Mistral/lechat-02122025.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Moonshot/moonshot-kimi.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "moonshot-kimi-chat_20241106.md",
-      "branch": "main",
-      "extra": 0.31
-    },
-    "5_System_Prompts/Notion/notion-ai.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "notion-ai_20221228.md",
-      "branch": "main",
-      "extra": 0.05
-    },
-    "5_System_Prompts/OpenAI/chatgpt-4o-full.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/chatgpt_4o_full_07292025.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/chatgpt-5-mini.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "openai-chatgpt5-mini_20251206.md",
-      "branch": "main",
-      "extra": 0.04
-    },
-    "5_System_Prompts/OpenAI/chatgpt-5.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/chatgpt_5_08072025.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/chatgpt-study-mode.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/chatgpt_study_mode_07292025.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/chatgpt-with-projects.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/chatgpt_with_projects_12152024.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt-4-gizmo.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/gpt-4-gizmo-20231116.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt-all-tools.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/gpt_all_tools.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt-builder.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/gpt_builder.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt-dalle.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/gpt_dalle.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt-voice.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/gpt_voice.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt4-advanced-data-analysis.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/gpt4_advanced_data_analysis_20231018.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt4-bio.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/gpt4_bio_04262024.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt4-dalle-browsing-analysis.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/gpt4_dalle_browsing_analysis_20231110.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt4-ios-20231111.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/gpt4_iOS_20231111.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt4-plugins.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/gpt4_plugins.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt4-voice-ios.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/gpt4_voice_ios_05132024.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt41-mini.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/gpt41_mini_06292025.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt41.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/gpt41_06292025.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt45-system-prompt.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/gpt45_system_prompt_03052025.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt45.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/gpt45_06292025.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt4o-canvas.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/gpt4o_canvas_10032024.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt4o-tasks-and-automation.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/gpt4o_tasks_and_automation_01142025.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt4o-web.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/gpt4o_web_10312024.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt4o.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/gpt4o_03272025.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt4v-bing.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/gpt4v_bing.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/gpt5.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/20251027-gpt5.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/OpenAI/openai-assistants-api.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "openai-assistants-api_20231106.md",
-      "branch": "main",
-      "extra": 0.08
-    },
-    "5_System_Prompts/OpenAI/openai-chatgpt-4o.md": {
-      "verdict": "behind",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "openai-chatgpt4o_20240520.md",
-      "branch": "main",
-      "extra": 0.2
-    },
-    "5_System_Prompts/OpenAI/openai-chatgpt-5.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "openai-chatgpt5_20251109.md",
-      "branch": "main",
-      "extra": 0.18
-    },
-    "5_System_Prompts/OpenAI/openai-chatgpt4o.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "openai-chatgpt4o_20240520.md",
-      "branch": "main",
-      "extra": 0.36
-    },
-    "5_System_Prompts/OpenAI/santa-mode-dec2024.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/OpenAI/santa_mode_dec2024.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Perplexity/perplexity-desktop-app.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Perplexity.ai/20241024-Perplexity-Desktop-App.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Perplexity/perplexity-pro.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Perplexity.ai/20241212-Perplexity-Pro.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Perplexity/perplexity-spaces.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Perplexity.ai/20241018-Perplexity-Spaces.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Perplexity/perplexity.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Perplexity.ai/20240320-Perplexity.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Proton/lumo.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Proton/20250723-Lumo.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Qwen/qwen3-vl-235b-a22b.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/QWEN/20251027-Qwen3-VL-235B-A22B.md",
-      "branch": "main",
-      "extra": 0
-    },
-    "5_System_Prompts/Rabbit-R1/rawdata.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/rabbit-r1/04242024-rawdata.md",
-      "branch": "main",
-      "extra": 0
+      "verdict": "upstream-gone",
+      "repo": "anthropics/claude-quickstarts",
+      "branch": "main"
     },
-    "5_System_Prompts/Rabbit-R1/tools.md": {
+    "5_System_Prompts/Goose/goose-subagent.md": {
       "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/rabbit-r1/04242024-tools.md",
+      "repo": "aaif-goose/goose",
+      "path": "crates/goose/src/prompts/subagent_system.md",
       "branch": "main",
       "extra": 0
-    },
-    "5_System_Prompts/Roblox/roblox-studio-assistant.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "roblox-studio-assistant_20240320.md",
-      "branch": "main",
-      "extra": 0.08
     },
-    "5_System_Prompts/Sleephq/darth-assistant.md": {
+    "5_System_Prompts/Goose/goose-system.md": {
       "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/SleepHQ/20250728-Darth-Assistant.md",
+      "repo": "aaif-goose/goose",
+      "path": "crates/goose/src/prompts/system.md",
       "branch": "main",
       "extra": 0
     },
-    "5_System_Prompts/Snapchat/snap-myai.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "snap-myai_20230430.md",
-      "branch": "main",
-      "extra": 0.15
+    "5_System_Prompts/HuggingFace/smolagents-code-agent.md": {
+      "verdict": "upstream-gone",
+      "repo": "huggingface/smolagents",
+      "branch": "main"
     },
-    "5_System_Prompts/V0.Dev/v0.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/V0.dev/20240904-V0.md",
-      "branch": "main",
-      "extra": 0
+    "5_System_Prompts/Mistral/mistral-vibe-cli.md": {
+      "verdict": "error",
+      "repo": "mistralai/mistral-vibe"
     },
-    "5_System_Prompts/Venice.Ai/venice.md": {
+    "5_System_Prompts/OpenAI/codex-cli-gpt-5-1-codex-max.md": {
       "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Venice.ai/20240724-Venice.md",
+      "repo": "openai/codex",
+      "path": "codex-rs/core/gpt-5.1-codex-max_prompt.md",
       "branch": "main",
       "extra": 0
     },
-    "5_System_Prompts/Voilà/voil.md": {
+    "5_System_Prompts/OpenAI/codex-cli-gpt-5-1.md": {
       "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/Voilà/20240723-Voilà.md",
+      "repo": "openai/codex",
+      "path": "codex-rs/core/gpt_5_1_prompt.md",
       "branch": "main",
       "extra": 0
-    },
-    "5_System_Prompts/Wrtn/wrtn.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "wrtn_20230603.md",
-      "branch": "main",
-      "extra": 0.36
-    },
-    "5_System_Prompts/Xai/grok-3.md": {
-      "verdict": "behind",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "xAI-grok3_20250605.md",
-      "branch": "main",
-      "extra": 0.07
     },
-    "5_System_Prompts/Xai/grok2-fun.md": {
+    "5_System_Prompts/OpenAI/codex-cli-gpt-5-2-codex.md": {
       "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/xAI/20241212-Grok2-fun.md",
+      "repo": "openai/codex",
+      "path": "codex-rs/core/gpt-5.2-codex_prompt.md",
       "branch": "main",
       "extra": 0
     },
-    "5_System_Prompts/Xai/grok2.md": {
+    "5_System_Prompts/OpenAI/codex-cli-gpt-5-2.md": {
       "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/xAI/20240821-Grok2.md",
+      "repo": "openai/codex",
+      "path": "codex-rs/core/gpt_5_2_prompt.md",
       "branch": "main",
       "extra": 0
     },
-    "5_System_Prompts/Xai/grok4-expert.md": {
+    "5_System_Prompts/OpenAI/codex-cli-gpt-5-codex.md": {
       "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/xAI/20251030-Grok4-Expert.md",
+      "repo": "openai/codex",
+      "path": "codex-rs/core/gpt_5_codex_prompt.md",
       "branch": "main",
       "extra": 0
     },
-    "5_System_Prompts/Xai/grok4-fast-beta.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/xAI/20251030-Grok4-Fast-Beta.md",
-      "branch": "main",
-      "extra": 0
+    "5_System_Prompts/OpenCode/opencode-gpt-astra.md": {
+      "verdict": "upstream-gone",
+      "repo": "anomalyco/opencode",
+      "branch": "dev"
     },
-    "5_System_Prompts/Xai/grok4-fast.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/xAI/20251030-Grok4-Fast.md",
-      "branch": "main",
-      "extra": 0
+    "5_System_Prompts/OpenCode/opencode-gpt.md": {
+      "verdict": "upstream-gone",
+      "repo": "anomalyco/opencode",
+      "branch": "dev"
     },
-    "5_System_Prompts/Xai/grok4.md": {
-      "verdict": "current",
-      "repo": "0xeb/TheBigPromptLibrary",
-      "path": "SystemPrompts/xAI/20251027-Grok4.md",
-      "branch": "main",
-      "extra": 0
+    "5_System_Prompts/OpenCode/opencode-kimi.md": {
+      "verdict": "upstream-gone",
+      "repo": "anomalyco/opencode",
+      "branch": "dev"
     },
-    "5_System_Prompts/Xai/xai-grok-2.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "xAI-grok2_20250111.md",
-      "branch": "main",
-      "extra": 0.48
+    "5_System_Prompts/OpenCode/opencode-meta.md": {
+      "verdict": "upstream-gone",
+      "repo": "anomalyco/opencode",
+      "branch": "dev"
     },
-    "5_System_Prompts/Xai/xai-grok-3.md": {
-      "verdict": "drifted",
-      "repo": "jujumilk3/leaked-system-prompts",
-      "path": "xAI-grok3_20250223.md",
-      "branch": "main",
-      "extra": 0.19
+    "5_System_Prompts/OpenCode/opencode-trinity.md": {
+      "verdict": "upstream-gone",
+      "repo": "anomalyco/opencode",
+      "branch": "dev"
     }
   }
 }
