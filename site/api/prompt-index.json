@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-22T19:53:44.155Z",
-  "promptCount": 877,
+  "buildTime": "2026-11-23T22:01:57.497Z",
+  "promptCount": 881,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -13334,6 +13334,54 @@
       "isUserOwned": false
     },
     {
+      "id": "4_Prompts/Microsoft_Copilot_Prompts/Developer/mermaid-diagram-generator.md",
+      "title": "📊 Mermaid Diagram Generator",
+      "section": "4_Prompts",
+      "category": "Microsoft_Copilot_Prompts",
+      "subcategory": "Developer",
+      "tags": [
+        "microsoft-copilot",
+        "mermaid",
+        "diagrams"
+      ],
+      "checked": "2026-11-23",
+      "contentPreview": "\n# Mermaid Diagram Generator\n\nTurns any scenario, process or concept into a ready-to-use Mermaid.js diagram of the type you choose.\n\n```\nYou are a visualisation assistant.\nFor [SCENARIO, PROCESS, OR C",
+      "lastModified": "2026-11-23T22:01:36.813Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Microsoft_Copilot_Prompts/Developer/power-automate-error-analyzer.md",
+      "title": "🛠️ Analyze Power Automate Flow Run Errors",
+      "section": "4_Prompts",
+      "category": "Microsoft_Copilot_Prompts",
+      "subcategory": "Developer",
+      "tags": [
+        "microsoft-copilot",
+        "power-automate",
+        "debugging"
+      ],
+      "checked": "2026-11-23",
+      "contentPreview": "\n# Analyze Power Automate Flow Run Errors\n\nExplains a Power Automate flow run error and recommends how to fix the flow.\n\n```\nI'd like for you to act as a Power Platform developer. Can you analyze the ",
+      "lastModified": "2026-11-23T22:01:32.876Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Microsoft_Copilot_Prompts/Developer/test-case-generator.md",
+      "title": "🧪 Test Case Generator",
+      "section": "4_Prompts",
+      "category": "Microsoft_Copilot_Prompts",
+      "subcategory": "Developer",
+      "tags": [
+        "microsoft-copilot",
+        "testing",
+        "qa"
+      ],
+      "checked": "2026-11-23",
+      "contentPreview": "\n# Test Case Generator\n\nTurns a feature description, requirement or user story into structured functional, negative, edge and non-functional test cases.\n\n````\n# Test Case Generator\n\nYou are a Test Cas",
+      "lastModified": "2026-11-23T22:01:45.838Z",
+      "isUserOwned": false
+    },
+    {
       "id": "4_Prompts/Microsoft_Copilot_Prompts/Meetings/decision-log-generator.md",
       "title": "📒 Decision Log Generator",
       "section": "4_Prompts",
@@ -13347,6 +13395,22 @@
       "checked": "2026-11-18",
       "contentPreview": "\n# Decision Log Generator\n\nTurns meeting notes into a decision log.\n\n```\nAct as a decision archivist. Using the transcript of my most recent Teams meeting, extract every concrete decision that was mad",
       "lastModified": "2026-11-18T22:16:19.983Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Microsoft_Copilot_Prompts/Project_Management/project-risk-analysis.md",
+      "title": "⚠️ AI-Powered Risk Analysis for Project Management",
+      "section": "4_Prompts",
+      "category": "Microsoft_Copilot_Prompts",
+      "subcategory": "Project_Management",
+      "tags": [
+        "microsoft-copilot",
+        "risk-analysis",
+        "project-management"
+      ],
+      "checked": "2026-11-23",
+      "contentPreview": "\n# AI-Powered Risk Analysis for Project Management\n\nAnalyses a project plan and lists the top 5 risks with probability, impact, mitigation and owner.\n\n```\nAnalyze the project plan below and identify t",
+      "lastModified": "2026-11-23T22:01:39.925Z",
       "isUserOwned": false
     },
     {
