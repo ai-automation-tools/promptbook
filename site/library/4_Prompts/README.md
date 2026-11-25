@@ -10,7 +10,7 @@ top; `scripts/upstream.test.mjs` fails CI on a prompt without one.
 ├── ChatGPT_Shortcut/<Tag>/        # rockbenben/ChatGPT-Shortcut, 119 prompts
 ├── ChatGPT_System_Prompts/<Group>/  # mustvlad/ChatGPT-System-Prompts, 38 prompts
 ├── Microsoft_Prompts_For_Edu/<Audience>/  # microsoft/prompts-for-edu, 15 prompts
-├── Microsoft_Copilot_Prompts/<Topic>/     # pnp/copilot-prompts, 4 prompts
+├── Microsoft_Copilot_Prompts/<Topic>/     # pnp/copilot-prompts, 8 prompts
 ├── Claude_Cookbooks/<Topic>/              # anthropics/claude-cookbooks, 12 prompts
 ├── OpenAI_Cookbook/<Topic>/               # openai/openai-cookbook, 9 prompts
 ├── Claude_Plugins_Official/<Topic>/       # anthropics/claude-plugins-official, 4 command prompts (Apache-2.0)
