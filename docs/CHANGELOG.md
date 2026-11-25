@@ -4,6 +4,12 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-24 — Library: new skills
+
+Five skill-library cards in `3_Skills/Libraries/` (README copied, no skills vendored): google/skills (Apache-2.0), android/skills (Apache-2.0), heygen-com/hyperframes (Apache-2.0), mvanhorn/last30days-skill (MIT) and sickn33/agentic-awesome-skills (MIT, accepted in `DISCOVERY.md` 2026-11-18).
+
+---
+
 ## 2026-11-23 — Library: new prompts
 
 Four more prompts in `4_Prompts/Microsoft_Copilot_Prompts/`, copied from pnp/copilot-prompts (MIT) at `0a07328c`: Test Case Generator, Analyze Power Automate Flow Run Errors and Mermaid Diagram Generator (`Developer/`), and AI-Powered Risk Analysis for Project Management (new `Project_Management/`).
