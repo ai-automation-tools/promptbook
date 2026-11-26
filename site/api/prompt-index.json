@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-23T22:01:57.497Z",
-  "promptCount": 881,
+  "buildTime": "2026-11-24T22:05:21.068Z",
+  "promptCount": 886,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -4083,6 +4083,23 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Libraries/android-skills.md",
+      "title": "android/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "android-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "android",
+        "google",
+        "mobile"
+      ],
+      "contentPreview": "# android/skills\n\nA collection of agent skills, published on GitHub.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/android/skills). Promptbook keeps one ",
+      "lastModified": "2026-11-24T22:03:10.311Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Libraries/anthropics-claude-plugins-official.md",
       "title": "anthropics/claude-plugins-official",
       "section": "3_Skills",
@@ -4483,6 +4500,22 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Libraries/google-skills.md",
+      "title": "google/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "google-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "google",
+        "googlecloud"
+      ],
+      "contentPreview": "# google/skills\n\nAgent Skills for Google products and technologies\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/google/skills). Promptbook keeps one car",
+      "lastModified": "2026-11-24T22:03:48.058Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Libraries/grafana-skills.md",
       "title": "grafana/skills",
       "section": "3_Skills",
@@ -4514,6 +4547,23 @@
       ],
       "contentPreview": "# hashicorp/agent-skills\n\nA collection of Agent skills and Claude Code plugins for HashiCorp products.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/hash",
       "lastModified": "2026-11-18T23:07:28.097Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/heygen-com-hyperframes.md",
+      "title": "heygen-com/hyperframes",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "heygen-com-hyperframes",
+      "tags": [
+        "skill",
+        "skill-library",
+        "heygen",
+        "video",
+        "animation"
+      ],
+      "contentPreview": "# heygen-com/hyperframes\n\nOpen-source AI video editor: edit your own footage, or create and remake any video with Claude Code, Codex or the free Studio app. Write HTML, render MP4. By HeyGen.\n\nA skill",
+      "lastModified": "2026-11-24T22:03:51.854Z",
       "isUserOwned": false
     },
     {
@@ -4696,6 +4746,23 @@
       ],
       "contentPreview": "# mongodb/agent-skills\n\nUse the official MongoDB Skills with your favorite coding agent to build faster.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/mo",
       "lastModified": "2026-11-18T23:07:28.098Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/mvanhorn-last30days-skill.md",
+      "title": "mvanhorn/last30days-skill",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "mvanhorn-last30days-skill",
+      "tags": [
+        "skill",
+        "skill-library",
+        "research",
+        "reddit",
+        "osint"
+      ],
+      "contentPreview": "# mvanhorn/last30days-skill\n\nAI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary\n\nA skill library: browse and install ",
+      "lastModified": "2026-11-24T22:04:13.588Z",
       "isUserOwned": false
     },
     {
@@ -4964,6 +5031,23 @@
       ],
       "contentPreview": "# Shopify/Shopify-AI-Toolkit\n\nAgent plugins/extensions for CLIs and IDEs\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/Shopify/Shopify-AI-Toolkit). Promp",
       "lastModified": "2026-11-18T23:07:28.102Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/sickn33-agentic-awesome-skills.md",
+      "title": "sickn33/agentic-awesome-skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "sickn33-agentic-awesome-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "contentPreview": "# sickn33/agentic-awesome-skills\n\n3,000+ reusable AI agent skills for Claude Code, Codex, Cursor and Gemini CLI. AAS Core adds local catalog discovery, agent-owned selection and plan preview. CLI, MCP",
+      "lastModified": "2026-11-24T22:04:48.695Z",
       "isUserOwned": false
     },
     {
