@@ -4,6 +4,12 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-25 — Library: new guides
+
+Three guides in `1_Guides/CLI_Tools/`, written from each tool's README read that day: Hermes Agent (NousResearch/hermes-agent, MIT), OpenClaw (openclaw/openclaw, MIT) and NanoClaw (nanocoai/nanoclaw, MIT).
+
+---
+
 ## 2026-11-24 — Library: new skills
 
 Five skill-library cards in `3_Skills/Libraries/` (README copied, no skills vendored): google/skills (Apache-2.0), android/skills (Apache-2.0), heygen-com/hyperframes (Apache-2.0), mvanhorn/last30days-skill (MIT) and sickn33/agentic-awesome-skills (MIT, accepted in `DISCOVERY.md` 2026-11-18).
