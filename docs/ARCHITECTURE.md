@@ -285,8 +285,7 @@ promptbook/
 │   └── fix-skill-frontmatter.mjs # Enforce the Agent Skills spec
 ├── docs/                         # Documentation (see docs/README.md)
 ├── .github/workflows/            # ci.yml, upstream-drift.yml
-├── AGENTS.md                     # Repo guide for coding agents
-└── CLAUDE.md                     # Imports AGENTS.md for Claude Code
+└── AGENTS.md                     # Repo guide for every coding agent
 ```
 
 > The entire app lives under `site/`. Run every `npm` command from there, and keep the
