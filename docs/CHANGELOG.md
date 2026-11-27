@@ -4,6 +4,12 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-27 — Upstream check
+
+Every `UPSTREAMS.md` row re-read; nothing upstream changed that the app is exposed to. Corrected the rows that still described pre-bump versions (MCP SDK `^2.4.0`, Vite `^8.3.8` with the lockfile past the RCE advisory, plugin-react `^6.3.0`, `@tailwindcss/vite` `^4.3.5`).
+
+---
+
 ## 2026-11-25 — Library: new guides
 
 Three guides in `1_Guides/CLI_Tools/`, written from each tool's README read that day: Hermes Agent (NousResearch/hermes-agent, MIT), OpenClaw (openclaw/openclaw, MIT) and NanoClaw (nanocoai/nanoclaw, MIT).
