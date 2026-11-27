@@ -6,6 +6,8 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ## Unreleased
 
+`CLAUDE.md` is gone: Claude Code reads `AGENTS.md` directly, and its one Claude-only note (the empty project `.mcp.json`) moved to `AGENTS.md`'s *Claude Code only* section.
+
 Roadmap item added under **Features**: serve the library's single skills over MCP's Skills extension, opt-in. The extension (SEP-2640) went Final on 2026-09-13, and Claude Code 2.1.331 lists skills from an MCP server as commands in its public beta, so the local MCP server can hand its skills to an agent directly instead of through a ZIP (monthly roadmap refresh, 2026-11-27).
 
 ---
