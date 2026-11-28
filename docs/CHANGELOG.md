@@ -4,6 +4,12 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-28 — Library refresh — prompts and agents
+
+No library file changed. All 116 agents in `2_Agents/` are `current` in `upstream-status.json` (checked 2026-11-23), and no resync PR is open. All 12 prompt source repos and 6 agent source repos still exist, are not archived and keep an MIT or Apache-2.0 licence. One rename found: `affaan-m/everything-claude-code` is now `affaan-m/ECC`; left as is because `NOTICE` and `scripts/build-notice.mjs` key on the old name, queued on the roadmap under **Upkeep**.
+
+---
+
 ## 2026-11-27 — Library: new MCP servers
 
 Three cards in `6_MCP_Servers/Apps_and_Services/`: Sanity (`sanity-io/agent-toolkit`, MIT), Zapier (`zapier/mcp`, MIT) and Square (`square/square-mcp-server`, Apache-2.0). All three are hosted servers from the vendor; the cards describe them and vendor nothing.
