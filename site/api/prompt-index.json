@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "buildTime": "2026-11-23T20:45:58.347Z",
-  "promptCount": 877,
+  "buildTime": "2026-11-27T22:05:08.127Z",
+  "promptCount": 892,
   "prompts": [
     {
       "id": "1_Guides/API_Providers/anthropic_api_guide.md",
@@ -676,6 +676,26 @@
       "isUserOwned": false
     },
     {
+      "id": "1_Guides/CLI_Tools/hermes-agent-guide.md",
+      "title": "☤ Hermes Agent Guide: Self-Improving Agent with a Messaging Gateway",
+      "section": "1_Guides",
+      "category": "CLI_Tools",
+      "subcategory": "hermes-agent-guide",
+      "tags": [
+        "agent-guides",
+        "hermes-agent",
+        "nous-research",
+        "cli",
+        "skills",
+        "messaging",
+        "cron"
+      ],
+      "checked": "2026-11-25",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-25 - Checked against the Hermes Agent README (commit 3113542) -->\n\n# Hermes Agent Guide\n\nHermes Agent is Nous Research's open-source (MIT) agent. You talk to it in a termin",
+      "lastModified": "2026-11-25T22:02:07.855Z",
+      "isUserOwned": false
+    },
+    {
       "id": "1_Guides/CLI_Tools/llama-cpp-guide.md",
       "title": "🦙 llama.cpp Guide: Run GGUF Models Locally",
       "section": "1_Guides",
@@ -724,6 +744,25 @@
       "isUserOwned": false
     },
     {
+      "id": "1_Guides/CLI_Tools/nanoclaw-guide.md",
+      "title": "🐚 NanoClaw Guide: Container-Isolated Personal Assistant",
+      "section": "1_Guides",
+      "category": "CLI_Tools",
+      "subcategory": "nanoclaw-guide",
+      "tags": [
+        "agent-guides",
+        "nanoclaw",
+        "containers",
+        "docker",
+        "messaging",
+        "scheduled-tasks"
+      ],
+      "checked": "2026-11-25",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-25 - Checked against the NanoClaw README (commit 9774cb5) -->\n\n# NanoClaw Guide\n\nNanoClaw is a self-hosted, MIT-licensed assistant that runs each agent in its own Linux\ncon",
+      "lastModified": "2026-11-25T22:02:32.468Z",
+      "isUserOwned": false
+    },
+    {
       "id": "1_Guides/CLI_Tools/ohmyzsh-cli-guide.md",
       "title": "📚 Ohmyzsh CLI Guide",
       "section": "1_Guides",
@@ -767,6 +806,25 @@
       ],
       "contentPreview": "\n# Open Interpreter Guide\n\n## Overview\nA comprehensive guide to using Open Interpreter, the open-source implementation of OpenAI's Code Interpreter in your terminal.\n\n## Agent Configuration\n\n### Basic",
       "lastModified": "2026-10-26T15:19:23.501Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "1_Guides/CLI_Tools/openclaw-guide.md",
+      "title": "🦞 OpenClaw Guide: Personal AI Assistant Gateway",
+      "section": "1_Guides",
+      "category": "CLI_Tools",
+      "subcategory": "openclaw-guide",
+      "tags": [
+        "agent-guides",
+        "openclaw",
+        "gateway",
+        "messaging",
+        "skills",
+        "plugins"
+      ],
+      "checked": "2026-11-25",
+      "contentPreview": "\n<!-- Last Updated: 2026-11-25 - Checked against the OpenClaw README (commit 367422e) -->\n\n# OpenClaw Guide\n\nOpenClaw is an open-source (MIT) AI assistant that runs on your own machine and answers in ",
+      "lastModified": "2026-11-25T22:02:32.451Z",
       "isUserOwned": false
     },
     {
@@ -4083,6 +4141,23 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Libraries/android-skills.md",
+      "title": "android/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "android-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "android",
+        "google",
+        "mobile"
+      ],
+      "contentPreview": "# android/skills\n\nA collection of agent skills, published on GitHub.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/android/skills). Promptbook keeps one ",
+      "lastModified": "2026-11-24T22:03:10.311Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Libraries/anthropics-claude-plugins-official.md",
       "title": "anthropics/claude-plugins-official",
       "section": "3_Skills",
@@ -4483,6 +4558,22 @@
       "isUserOwned": false
     },
     {
+      "id": "3_Skills/Libraries/google-skills.md",
+      "title": "google/skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "google-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "google",
+        "googlecloud"
+      ],
+      "contentPreview": "# google/skills\n\nAgent Skills for Google products and technologies\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/google/skills). Promptbook keeps one car",
+      "lastModified": "2026-11-24T22:03:48.058Z",
+      "isUserOwned": false
+    },
+    {
       "id": "3_Skills/Libraries/grafana-skills.md",
       "title": "grafana/skills",
       "section": "3_Skills",
@@ -4514,6 +4605,23 @@
       ],
       "contentPreview": "# hashicorp/agent-skills\n\nA collection of Agent skills and Claude Code plugins for HashiCorp products.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/hash",
       "lastModified": "2026-11-18T23:07:28.097Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/heygen-com-hyperframes.md",
+      "title": "heygen-com/hyperframes",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "heygen-com-hyperframes",
+      "tags": [
+        "skill",
+        "skill-library",
+        "heygen",
+        "video",
+        "animation"
+      ],
+      "contentPreview": "# heygen-com/hyperframes\n\nOpen-source AI video editor: edit your own footage, or create and remake any video with Claude Code, Codex or the free Studio app. Write HTML, render MP4. By HeyGen.\n\nA skill",
+      "lastModified": "2026-11-24T22:03:51.854Z",
       "isUserOwned": false
     },
     {
@@ -4696,6 +4804,23 @@
       ],
       "contentPreview": "# mongodb/agent-skills\n\nUse the official MongoDB Skills with your favorite coding agent to build faster.\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/mo",
       "lastModified": "2026-11-18T23:07:28.098Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/mvanhorn-last30days-skill.md",
+      "title": "mvanhorn/last30days-skill",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "mvanhorn-last30days-skill",
+      "tags": [
+        "skill",
+        "skill-library",
+        "research",
+        "reddit",
+        "osint"
+      ],
+      "contentPreview": "# mvanhorn/last30days-skill\n\nAI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary\n\nA skill library: browse and install ",
+      "lastModified": "2026-11-24T22:04:13.588Z",
       "isUserOwned": false
     },
     {
@@ -4964,6 +5089,23 @@
       ],
       "contentPreview": "# Shopify/Shopify-AI-Toolkit\n\nAgent plugins/extensions for CLIs and IDEs\n\nA skill library: browse and install its skills from [the repo on GitHub](https://github.com/Shopify/Shopify-AI-Toolkit). Promp",
       "lastModified": "2026-11-18T23:07:28.102Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "3_Skills/Libraries/sickn33-agentic-awesome-skills.md",
+      "title": "sickn33/agentic-awesome-skills",
+      "section": "3_Skills",
+      "category": "Libraries",
+      "subcategory": "sickn33-agentic-awesome-skills",
+      "tags": [
+        "skill",
+        "skill-library",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "contentPreview": "# sickn33/agentic-awesome-skills\n\n3,000+ reusable AI agent skills for Claude Code, Codex, Cursor and Gemini CLI. AAS Core adds local catalog discovery, agent-owned selection and plan preview. CLI, MCP",
+      "lastModified": "2026-11-24T22:04:48.695Z",
       "isUserOwned": false
     },
     {
@@ -13334,6 +13476,54 @@
       "isUserOwned": false
     },
     {
+      "id": "4_Prompts/Microsoft_Copilot_Prompts/Developer/mermaid-diagram-generator.md",
+      "title": "📊 Mermaid Diagram Generator",
+      "section": "4_Prompts",
+      "category": "Microsoft_Copilot_Prompts",
+      "subcategory": "Developer",
+      "tags": [
+        "microsoft-copilot",
+        "mermaid",
+        "diagrams"
+      ],
+      "checked": "2026-11-23",
+      "contentPreview": "\n# Mermaid Diagram Generator\n\nTurns any scenario, process or concept into a ready-to-use Mermaid.js diagram of the type you choose.\n\n```\nYou are a visualisation assistant.\nFor [SCENARIO, PROCESS, OR C",
+      "lastModified": "2026-11-23T22:01:36.813Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Microsoft_Copilot_Prompts/Developer/power-automate-error-analyzer.md",
+      "title": "🛠️ Analyze Power Automate Flow Run Errors",
+      "section": "4_Prompts",
+      "category": "Microsoft_Copilot_Prompts",
+      "subcategory": "Developer",
+      "tags": [
+        "microsoft-copilot",
+        "power-automate",
+        "debugging"
+      ],
+      "checked": "2026-11-23",
+      "contentPreview": "\n# Analyze Power Automate Flow Run Errors\n\nExplains a Power Automate flow run error and recommends how to fix the flow.\n\n```\nI'd like for you to act as a Power Platform developer. Can you analyze the ",
+      "lastModified": "2026-11-23T22:01:32.876Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Microsoft_Copilot_Prompts/Developer/test-case-generator.md",
+      "title": "🧪 Test Case Generator",
+      "section": "4_Prompts",
+      "category": "Microsoft_Copilot_Prompts",
+      "subcategory": "Developer",
+      "tags": [
+        "microsoft-copilot",
+        "testing",
+        "qa"
+      ],
+      "checked": "2026-11-23",
+      "contentPreview": "\n# Test Case Generator\n\nTurns a feature description, requirement or user story into structured functional, negative, edge and non-functional test cases.\n\n````\n# Test Case Generator\n\nYou are a Test Cas",
+      "lastModified": "2026-11-23T22:01:45.838Z",
+      "isUserOwned": false
+    },
+    {
       "id": "4_Prompts/Microsoft_Copilot_Prompts/Meetings/decision-log-generator.md",
       "title": "📒 Decision Log Generator",
       "section": "4_Prompts",
@@ -13347,6 +13537,22 @@
       "checked": "2026-11-18",
       "contentPreview": "\n# Decision Log Generator\n\nTurns meeting notes into a decision log.\n\n```\nAct as a decision archivist. Using the transcript of my most recent Teams meeting, extract every concrete decision that was mad",
       "lastModified": "2026-11-18T22:16:19.983Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "4_Prompts/Microsoft_Copilot_Prompts/Project_Management/project-risk-analysis.md",
+      "title": "⚠️ AI-Powered Risk Analysis for Project Management",
+      "section": "4_Prompts",
+      "category": "Microsoft_Copilot_Prompts",
+      "subcategory": "Project_Management",
+      "tags": [
+        "microsoft-copilot",
+        "risk-analysis",
+        "project-management"
+      ],
+      "checked": "2026-11-23",
+      "contentPreview": "\n# AI-Powered Risk Analysis for Project Management\n\nAnalyses a project plan and lists the top 5 risks with probability, impact, mitigation and owner.\n\n```\nAnalyze the project plan below and identify t",
+      "lastModified": "2026-11-23T22:01:39.925Z",
       "isUserOwned": false
     },
     {
@@ -14653,6 +14859,44 @@
       "isUserOwned": false
     },
     {
+      "id": "6_MCP_Servers/Apps_and_Services/sanity.md",
+      "title": "🔌 Sanity",
+      "section": "6_MCP_Servers",
+      "category": "Apps_and_Services",
+      "subcategory": "sanity",
+      "tags": [
+        "mcp-server",
+        "apps-and-services",
+        "sanity",
+        "cms",
+        "content",
+        "official"
+      ],
+      "checked": "2026-11-27",
+      "contentPreview": "\n# Sanity MCP server\n\nSanity's hosted server for reading and editing a project's content, datasets, releases and schemas, so an agent works on your real content model instead of guessing it.\n\n| | |\n|:",
+      "lastModified": "2026-11-27T22:03:19.502Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Apps_and_Services/square.md",
+      "title": "🔌 Square",
+      "section": "6_MCP_Servers",
+      "category": "Apps_and_Services",
+      "subcategory": "square",
+      "tags": [
+        "mcp-server",
+        "apps-and-services",
+        "square",
+        "payments",
+        "commerce",
+        "official"
+      ],
+      "checked": "2026-11-27",
+      "contentPreview": "\n# Square MCP server\n\nSquare's server for its Connect API (catalog, customers, orders, bookings, inventory and more), hosted with OAuth or run locally with an access token.\n\n| | |\n|:---|:---|\n| **Sour",
+      "lastModified": "2026-11-27T22:03:29.984Z",
+      "isUserOwned": false
+    },
+    {
       "id": "6_MCP_Servers/Apps_and_Services/stripe.md",
       "title": "🔌 Stripe",
       "section": "6_MCP_Servers",
@@ -14686,6 +14930,25 @@
       "checked": "2026-11-18",
       "contentPreview": "\n# Todoist MCP server\n\nTodoist's hosted server: find, add and update tasks and projects in your Todoist account.\n\n## Install\n\n**Claude Code**\n\n```bash\nclaude mcp add --transport http todoist https://a",
       "lastModified": "2026-11-18T23:09:29.438Z",
+      "isUserOwned": false
+    },
+    {
+      "id": "6_MCP_Servers/Apps_and_Services/zapier.md",
+      "title": "🔌 Zapier",
+      "section": "6_MCP_Servers",
+      "category": "Apps_and_Services",
+      "subcategory": "zapier",
+      "tags": [
+        "mcp-server",
+        "apps-and-services",
+        "zapier",
+        "automation",
+        "integrations",
+        "official"
+      ],
+      "checked": "2026-11-27",
+      "contentPreview": "\n# Zapier MCP server\n\nZapier's hosted server that gives an agent governed access to thousands of apps: send messages, pull data and trigger workflows in plain English.\n\n| | |\n|:---|:---|\n| **Source** ",
+      "lastModified": "2026-11-27T22:03:24.674Z",
       "isUserOwned": false
     },
     {

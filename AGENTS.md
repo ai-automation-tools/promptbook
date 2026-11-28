@@ -1,9 +1,8 @@
 # AGENTS.md — Promptbook (`promptbook-demo.ai-automation-tools.dev`)
 
-> Repo-local guide for every coding agent (Codex, opencode, Antigravity; Claude Code imports it
-> from `CLAUDE.md`). The workspace-wide rules live in
-> `D:\AI_Agents\Projects\Mikes_AI_Lab\Agents\Claude\CLAUDE.md` and still apply —
-> this file overrides them where they conflict.
+> Repo-local guide for every coding agent (Claude Code, Codex, opencode, Antigravity). The
+> workspace-wide rules live outside this repo and still apply — this file overrides them where
+> they conflict.
 
 ## What this is
 
@@ -180,3 +179,8 @@ All optional; the app runs with none set.
 | `ALLOWED_HOSTS` | Extra Host names the server answers to (comma-separated, `.suffix` for subdomains). Others get 403. |
 | `FRAME_ANCESTORS` | Origins allowed to frame the app (comma-separated). Unset = X-Frame-Options SAMEORIGIN and CSP `frame-ancestors 'self'`; set = CSP `frame-ancestors 'self' <origins>` and no X-Frame-Options. |
 | `NODE_ENV` | `production` serves `dist/` instead of Vite, same as `--production`. |
+
+## Claude Code only
+
+- `.mcp.json` at the repo root is Claude Code's project MCP config. It is empty on purpose; the
+  repo's own server is added per user with the `claude mcp add` line in [docs/mcp-server.md](docs/mcp-server.md).
