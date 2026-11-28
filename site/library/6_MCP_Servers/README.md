@@ -16,9 +16,9 @@ themselves are installed from their sources, never vendored here.
 | `Cloud_Platforms/` | Supabase, Cloudflare, AWS, MongoDB, Neon, Terraform, Heroku, Azure, Kubernetes, Firebase |
 | `Databases/` | MCP Toolbox for Databases, ClickHouse, Qdrant, Redis, DuckDB and MotherDuck, Postgres MCP Pro |
 | `Web_and_Search/` | Exa, Tavily, Firecrawl, Apify, Perplexity, Brave Search |
-| `Apps_and_Services/` | Notion, n8n workflow builder, Resend, Stripe, Atlassian, Hugging Face, Blender, Todoist, Contentful, Google Analytics |
+| `Apps_and_Services/` | Notion, n8n workflow builder, Resend, Stripe, Atlassian, Hugging Face, Blender, Todoist, Contentful, Google Analytics, Sanity, Zapier, Square |
 
-57 cards, started 2026-10-21.
+60 cards, started 2026-10-21.
 
 ## How it stays current
 

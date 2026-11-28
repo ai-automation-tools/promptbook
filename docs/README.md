@@ -257,7 +257,7 @@ utility-first), run `npm run lint` and `npm run build`, and open a PR describing
 ## 📖 Additional Resources
 
 - **Main README:** [../README.md](../README.md)
-- **Agent guide:** [../AGENTS.md](../AGENTS.md) (`CLAUDE.md` imports it)
+- **Agent guide:** [../AGENTS.md](../AGENTS.md) (every agent CLI reads it, Claude Code included)
 - **Repository:** [github.com/ai-automation-tools/promptbook](https://github.com/ai-automation-tools/promptbook)
 - **Read-only demo:** [promptbook-demo.ai-automation-tools.dev](https://promptbook-demo.ai-automation-tools.dev)
 

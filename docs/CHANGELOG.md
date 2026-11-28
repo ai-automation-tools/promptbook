@@ -4,6 +4,26 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-27 — Library: new MCP servers
+
+Three cards in `6_MCP_Servers/Apps_and_Services/`: Sanity (`sanity-io/agent-toolkit`, MIT), Zapier (`zapier/mcp`, MIT) and Square (`square/square-mcp-server`, Apache-2.0). All three are hosted servers from the vendor; the cards describe them and vendor nothing.
+
+---
+
+## Unreleased
+
+`CLAUDE.md` is gone: Claude Code reads `AGENTS.md` directly, and its one Claude-only note (the empty project `.mcp.json`) moved to `AGENTS.md`'s *Claude Code only* section.
+
+Roadmap item added under **Features**: serve the library's single skills over MCP's Skills extension, opt-in. The extension (SEP-2640) went Final on 2026-09-13, and Claude Code 2.1.331 lists skills from an MCP server as commands in its public beta, so the local MCP server can hand its skills to an agent directly instead of through a ZIP (monthly roadmap refresh, 2026-11-27).
+
+---
+
+## 2026-11-27 — Upstream check
+
+Every `UPSTREAMS.md` row re-read; nothing upstream changed that the app is exposed to. Corrected the rows that still described pre-bump versions (MCP SDK `^2.4.0`, Vite `^8.3.8` with the lockfile past the RCE advisory, plugin-react `^6.3.0`, `@tailwindcss/vite` `^4.3.5`).
+
+---
+
 ## 2026-11-25 — Library: new guides
 
 Three guides in `1_Guides/CLI_Tools/`, written from each tool's README read that day: Hermes Agent (NousResearch/hermes-agent, MIT), OpenClaw (openclaw/openclaw, MIT) and NanoClaw (nanocoai/nanoclaw, MIT).
