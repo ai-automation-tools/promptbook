@@ -4,6 +4,12 @@ Shipped work, newest first. Forward-looking plans live in [ROADMAP.md](ROADMAP.m
 
 ---
 
+## 2026-11-27 — Library: new MCP servers
+
+Three cards in `6_MCP_Servers/Apps_and_Services/`: Sanity (`sanity-io/agent-toolkit`, MIT), Zapier (`zapier/mcp`, MIT) and Square (`square/square-mcp-server`, Apache-2.0). All three are hosted servers from the vendor; the cards describe them and vendor nothing.
+
+---
+
 ## Unreleased
 
 `CLAUDE.md` is gone: Claude Code reads `AGENTS.md` directly, and its one Claude-only note (the empty project `.mcp.json`) moved to `AGENTS.md`'s *Claude Code only* section.
